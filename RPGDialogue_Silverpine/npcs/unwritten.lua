@@ -120,6 +120,8 @@ P:NPC {
     third = "{name} spoke with a Silverpine Deathguard on the roads around the Sepulcher.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've done right by this place, and the watch knows it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "State your business quickly, and then be on your way." },
     { id = "g_default", text = "Walk carefully in Silverpine. The worgen don't care which side of death you're on." },
     { id = "g_alive", when = { race = "Orc" }, text = "Orc. Keep to the road and you'll keep your skin. The woods are less polite than we are." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Still in one piece, which is more than most of the Dark Lady's errand-runners manage." },
@@ -132,6 +134,8 @@ P:NPC {
         { id = "ybsildeathguard2", when = { race = "Human" }, text = "No offence meant, living one. Your people aren't all Greymane's." },
       },
       choices = {
+        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -15,6 +15,8 @@ P:NPC {
     third = "{name} met Lamar Veisilli, Lakeshire's fruit seller.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "Apples, friend, and pears when the carts come through. Take your pick of the shiny ones." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more? A man who eats fruit lives longer, my mother always said." },
   },
@@ -30,6 +32,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I miss every tree, and the orchards are full of gnolls now. Your earth spirits might know whether they'll grow again." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "They'll grow again, Lamar. Hold on to hope.", next = "BACK", reply = "I'll hold on, friend, and I'll polish an apple for the day they bloom again. That's a promise to myself, mind, not to you.", fx = { align = { light = 1 } } },
         { text = "The orchards are gone. Grow something new.", next = "BACK", reply = "Something new, eh? I suppose I could try pears, though they'd be gnoll pears soon enough. Still, it's a thought.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -193,6 +197,8 @@ P:NPC {
     third = "{name} met Karen Taylor, who sells blacksmithing and mining supplies in Lakeshire.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "Picks, hammers, flux and coal. Buy them or move, friend; I've a crate to unpack." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Broke your pick already, or just bending it?" },
   },
@@ -208,6 +214,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Not much, no, because a smith works with honest hands. Your spirits may be handy, but I'd still like to see you strike iron." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Honest work earns respect. I'll swing a hammer gladly.", next = "BACK", reply = "Gladly? Then you're welcome at my counter any day. Mind your thumbs.", fx = { align = { honor = 1 } } },
         { text = "Lightning's just as honest. Hammers aren't everything.", next = "BACK", reply = "Honest enough, I suppose, but you can't sharpen an axe with lightning. Hammers are still my trade.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -374,6 +382,8 @@ P:NPC {
     third = "{name} met Kara Adams, Lakeshire's shield crafter.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_default", text = "Shields, strong and plain. Hold one up and I'll show you how." },
     { id = "g_back", when = { metBefore = true }, text = "Still carrying that shield of yours? Let me see the dents." },
   },
@@ -391,6 +401,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "It's no small thing, because a shield is what brings a soldier home, and I strike every one myself before I sell it. Your spirits may protect you, but a good shield won't fail you." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Then I'll trust your shields, Kara. Good work.", next = "BACK", reply = "Thank you, and you'll find they don't crack. I strike every one, remember.", fx = { align = { honor = 1 } } },
         { text = "My spirits protect me well enough.", next = "BACK", reply = "Maybe they do, but I've never seen a spirit stop a gnoll's axe. The shields will be here if you ever change your mind.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -553,6 +565,8 @@ P:NPC {
     third = "{name} met Vernon Hale, who sells fishing supplies on the Lakeshire docks.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "Hooks, line, bait and patience. I only sell the first three." },
     { id = "g_back", when = { metBefore = true }, text = "Lost your line to the lake again? It happens to the best of us." },
   },
@@ -568,6 +582,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They catch most of them, I'd swear, since they've overrun the lake shore, and my hooks go unsold." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Then we'll drive them back fairly, Vernon.", next = "BACK", reply = "Fairly, aye, and with good line. Thank you, friend.", fx = { align = { honor = 1 } } },
         { text = "Poison the water, then. The murlocs won't last a week.", next = "BACK", reply = "And kill every fish in the lake with them? Then I'd have no business at all. No, thank you.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -736,6 +752,8 @@ P:NPC {
     third = "{name} met Sherman Femmel, the butcher at the Lakeshire Inn.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_default", text = "Fresh cuts, salted and smoked. Stand back from the block, if you value your fingers." },
     { id = "g_back", when = { metBefore = true }, text = "Hungry again? Good, I've a haunch that wants eating." },
   },
@@ -751,6 +769,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I'd wager so, since every beast I cut tells me where it lived and what it ate. Your spirits might know the rest." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Respect the beasts, Sherman. Waste nothing.", next = "BACK", reply = "Waste nothing, aye, that's my father's rule and mine. Thank you for saying it.", fx = { align = { honor = 1 } } },
         { text = "Beasts are meat, butcher. Cut it and sell it.", next = "BACK", reply = "That's my trade, friend, but there's more to it than that. Respect the beast, and the meat's better.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -915,6 +935,8 @@ P:NPC {
     third = "{name} met Gretchen Vogel, who waits on the soldiers from Chef Breanna's kitchen.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "Mind the tray, love, it's hot! Was there something you needed?" },
     { id = "g_back", when = { metBefore = true }, text = "Oh, it's you again! I'll find you a bowl in a moment, I promise." },
   },

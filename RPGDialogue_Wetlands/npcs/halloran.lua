@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you! Mind the vats, and come in; I'll show you the finest leather in Menethil." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Mind the vats, and mind yourself." },
     { id = "g_default", text = "Mind the vats, they bite worse than the crocs. What can I do for you?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Brought me any hides, or just your good company?" },
     { id = "g_away", when = { away = 14 }, text = "There you are, after {away}! Three ships have sailed with my leather since you left, and not one came back with a complaint." },
@@ -146,6 +148,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You've a good eye for leather and a good heart. Both rare." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been rude, and the vats bite the rude." },
+    },
     knows = { { id = "tp_knows", text = "Every hunter in the Wetlands sells to me sooner or later, and they all talk while I count their skins. Ask." } },
     background = { { id = "tp_bg", text = "I've been a tanner since I could lift a scraping knife, and a good one since I stopped cutting myself with it." } },
     advice = { { id = "tp_ad", text = "Never wade after a croc. Make it come to you, on dry land, where you've got your footing and it hasn't." } },

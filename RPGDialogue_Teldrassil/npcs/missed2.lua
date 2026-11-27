@@ -15,6 +15,8 @@ P:NPC {
     third = "{name} met Melarith, a quiet resident of Dolanaar.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ishnu-alah, friend. Sit with me a while. Your company is always welcome." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ishnu-alah, traveller. Sit if you must, but I'd prefer the quiet." },
     { id = "g_default", text = "Ishnu-alah, traveller. Sit a moment, if the road will allow it." },
     { id = "g_back", when = { metBefore = true }, text = "The road has brought you round again. I had wondered whether it would." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Elune is bright over Dolanaar tonight. It is a good hour to be awake, and a better one for talking." },
@@ -124,6 +126,8 @@ P:NPC {
     third = "{name} met Huntress Yaeliura, who guards the road to Darnassus with Moon Priestess Amara.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Elune light your way, friend. You are safe on this road, and welcome on it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Elune light your way. You are safe on this road, as long as you keep it so." },
     { id = "g_default", text = "Elune light your way, traveller. You are safe on this stretch, so long as we are on it." },
     { id = "g_back", when = { metBefore = true }, text = "Well met again, {class}. That makes twice I have counted you safely by." },
     { id = "yg_0", when = { race = "Human" }, text = "A human, on the Darnassus road. You are a long way from your kingdoms. Stay on the stones; the forest is not kind to strangers." },
@@ -233,6 +237,8 @@ P:NPC {
     third = "{name} met Sentinel Shaya, a wounded Sentinel who would not leave her patrol south of Dolanaar.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. This path is watched, but not against you. Walk freely." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hold there, {class}. This path is watched, and you more closely than most." },
     { id = "g_default", text = "Hold there, {class}. This path is watched, even if the watcher is bleeding on it." },
     { id = "g_garments", when = { questActive = TODO_QUEST("Garments of the Moon") }, text = "Laurna sent you, and I can guess why. Very well, priest, do what you came to do, and be quick about it." },
     { id = "g_done", when = { questDone = TODO_QUEST("Garments of the Moon") }, text = "My healer returns. The arm is sound and the patrol is walked, and I have you to thank for both." },
@@ -254,6 +260,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, and do not look at the bandage." },
       },
       choices = {
+        { text = "A sentinel who holds her post wounded is a credit to her order.", next = "BACK", reply = "Then tell that to the priestess, would you? She wants me in a bed.", fx = { align = { order = 1 } } },
+        { text = "You'd serve better resting than fumbling with one arm.", next = "BACK", reply = "I'll serve how I choose, and I'll thank you to watch my glaive.", fx = { align = { order = -1 } } },
         { text = "How were you wounded?", next = "wound" },
         { text = "You ought to be resting in Dolanaar.", next = "rest" },
         { text = "What do you guard out here?", next = "guard" },

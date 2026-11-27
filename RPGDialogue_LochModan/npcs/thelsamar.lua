@@ -857,6 +857,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my favourite guest. The fire's warm and the room's ready." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Pay first, if you please. I've learned that much about you." },
+    { id = "dp_pt_any", when = { party = true }, text = "Ye've a full company there. Sit by the hearth, all o' ye, an' I'll see ye've a warm bed after the troggs." },
     { id = "o_alliance_burden", tags = { "news" }, when = { gossip = { topic = "alliance", stance = "burden" } },
       text = "The Magistrate's been tellin' anyone at the bar who'll listen ye think the Alliance bleeds us dry. The Mountaineers drink here too, mind, so I'd sit near the door if I were ye." },
     { id = "o_orcs_hate", tags = { "news" }, when = { gossip = { topic = "orcs", stance = "hate" } },

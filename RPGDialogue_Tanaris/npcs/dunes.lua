@@ -562,6 +562,8 @@ P:NPC {
     third = "{name} met Jabbey, a vendor in Gadgetzan.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hey, pal! My favorite customer! For you, Jabbey's got the good stuff in back, the stuff that's mostly not stolen." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Oh, it's you. Prices just went up, pal. Don't ask me why. It's a goblin thing." },
     { id = "g_main", text = "Step right up, step right up, pal! Jabbey's got what you need, even if you don't know you need it, and Jabbey's got it at a price you'll only regret a little." },
     { id = "g_back", when = { metBefore = true }, text = "My favorite customer, back again! What can Jabbey sell you today, buddy, and how much have you got?" },
   },
@@ -741,6 +743,8 @@ P:NPC {
     third = "{name} met Vizzklick, the cloth vendor in Gadgetzan.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Oh, there you are, dearie! I've been saving the nicest cloth for you, the bolt that hasn't got sand in it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Oh, it's you, dearie. Well, the robes are on the shelf. Do mind the sand, and mind your manners." },
     { id = "g_main", text = "Welcome, welcome, dearie! Oh dear, look at the state of your robes, and look at the state of my shelves, which are full of exactly what you need." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, dearie! And still in those clothes, I see, which is a lost sale every single day you wear them." },
   },
@@ -921,6 +925,8 @@ P:NPC {
     third = "{name} met a D.E.L.T.A quadcopter, a flying drone that guides travellers to a buried mech on Land's End Beach.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "*The quadcopter's lens brightens, and it bobs twice, cheerfully. Its rotors settle into a softer hum.*" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "*The quadcopter's lens narrows on you. It holds its distance and emits a short, flat warning tone.*" },
     { id = "g_default", text = "*The quadcopter's four rotors whine as it drops to eye level. A lens whirs, focuses on you, and blinks green.* Beep. Organic located. Please follow." },
     { id = "g_quest", when = { questDone = TODO_QUEST("Beach Bot") }, text = "*The quadcopter blinks its lens twice, chirps a happy little tone, and spins once in the air.* Unit recovered. Thank you, organic." },
     { id = "yg_0", when = { race = "Gnome" }, text = "*The lens zooms in, then out, then in again.* Gnomish organic detected. Probability of successful repair increased. Please follow anyway." },

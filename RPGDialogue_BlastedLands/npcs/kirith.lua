@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "You again, {class}, and I find I am glad of it, which is a strange thing for a ghost to feel." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Even a dead orc can tire of a face, and I have tired of yours." },
     { id = "g_default", text = "Let us not mince words, {class}, for my time here is limited, and an orc who dies twice should spend what's left on the demon rather than on pleasantries." },
     { id = "g_back", when = { metBefore = true }, text = "I'm still here, and still lingering, which surprises me more than you. Ask quickly, before the ancestors call me home." },
   },
@@ -179,6 +181,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You fight the way we fought in Thrall's Grasp, without pause and without excuse. I'd have been proud to serve beside you." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You have shown me little respect, and I have had little enough of that since the Shadowsworn took me." },
+    },
     background = { { id = "tp_ba", text = "I was a lieutenant of Thrall's Grasp, and then a demon's plaything, as our fathers were before Thrall freed them, and now I'm neither, which I'm grateful for." } },
     advice = { { id = "tp_ad", text = "If they cage you, don't listen to the voice that says it would be easier to agree. That's how they get in." } },
     thrall = { { id = "tp_thrall", text = "The Warchief's name was on our banner, and I like to think he'd have laughed at how I went out. Maybe not, he's a serious sort." } },

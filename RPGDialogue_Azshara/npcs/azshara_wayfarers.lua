@@ -19,6 +19,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Oh, it's you! Good, come up. I found the most marvellous fragment yesterday, and you're the only one who'll care." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You. I suppose Sanath let you in again. Don't touch anything, and don't stay long." },
     { id = "g_default", text = "Oh. You came up. The Archmage doesn't usually let visitors past Sanath at the door." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Mind the books, they're older than your kingdom." },
   },
@@ -44,6 +46,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. Rayan won't argue with me, so you may as well." },
       },
       choices = {
+        { text = "The Highborne ruins should be studied before the naga destroy them.", next = "BACK", reply = "Yes! Finally, someone who understands what's at stake here.", fx = { align = { order = 1 } } },
+        { text = "Old ruins are just rubble. Let the sea have them.", next = "BACK", reply = "Rubble. Our ancestors' work, rubble. I think you should leave now.", fx = { align = { order = -1 } } },
         { text = "Your ancestors lived here?", next = "ancestors" },
         { text = "What's Archmage Xylem like to study under?", next = "xylem" },
         { text = "Who's Rayan?", next = "rayan" },
@@ -179,6 +183,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, welcome back. I was just finishing a copy; you can see it before Joy steals it away. How may I help?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Good evening. I am rather busy with these inscriptions. What do you require, briefly?" },
     { id = "g_default", text = "Good evening, or good day; it's hard to tell up here. How can I help you?" },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. Joy is out on the balcony, if it's her you want." },
   },
@@ -197,6 +203,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. I've only just refilled the ink." },
       },
       choices = {
+        { text = "Copying them is the only way to keep them safe.", next = "BACK", reply = "That is my belief too. Stone breaks, but a careful copy can outlive us all.", fx = { align = { order = 1 } } },
+        { text = "Some old secrets should be left buried.", next = "BACK", reply = "Perhaps. But that is not for us to decide by breaking them. Excuse me.", fx = { align = { order = -1 } } },
         { text = "What do the inscriptions say?", next = "inscriptions" },
         { text = "Is it dangerous out in the ruins?", next = "danger" },
         { text = "How do you copy something that old?", next = "craft" },
@@ -293,6 +301,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Rageroar smells you and knows you. Friend of the Timbermaw, pass, and walk as one of the tribe." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Rageroar smells you, and does not like it. Walk through quickly, and do not stop." },
     { id = "g_default", text = "Rageroar watches this gate. Stand still and let him smell you." },
     { id = "g_friend", when = { reputation = { faction = "Timbermaw Hold", min = "friendly" } }, text = "Friend of the Timbermaw. Rageroar lets you pass, and he does not growl." },
     { id = "g_foe", when = { reputation = { faction = "Timbermaw Hold", max = "unfriendly" } }, text = "Rageroar knows your smell, and it is the smell of dead Timbermaw. Go back the way you came." },
@@ -317,6 +327,8 @@ P:NPC {
         { id = "h_again2", text = "Speak. The gate is quiet, so Rageroar has time." },
       },
       choices = {
+        { text = "The gate must be guarded, always.", next = "BACK", reply = "Yes. Rageroar has guarded it many winters, and will guard it many more.", fx = { align = { order = 1 } } },
+        { text = "Gates only keep friends out as well as enemies.", next = "BACK", reply = "Rageroar decides who is friend. Rageroar has not decided about you.", fx = { align = { order = -1 } } },
         { text = "Why guard this end so closely?", next = "why" },
         { text = "What lies in Azshara for the Timbermaw?", next = "azshara" },
         { text = "What happened to the other furbolgs?", next = "others" },

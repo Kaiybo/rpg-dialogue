@@ -20,6 +20,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
     { id = "g_forge", text = "Step up, step up, but not too close to the coals, pal, because singed eyebrows aren't covered by the lesson fee. Brikk Keencraft, master of the anvil, at your service and on the clock." },
     { id = "g_back", when = { metBefore = true }, text = "Back at the anvil, eh? Either the last lesson took or you've come to complain, and I'll take your money either way, friend." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away} and you come back wearing that? Sparks and sprockets, the jungle's been chewing on you, and I can hear every dent from here." },
@@ -62,6 +64,8 @@ P:NPC {
         { id = "h_again3", text = "Still here? Good, because I've still got opinions, and opinions are the only thing I give away." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me what you know.", next = "BUSINESS" },
         { text = "How does a goblin become a master smith?", next = "past" },
         { text = "Smithing in this salt air can't be easy.", next = "rust" },
@@ -338,6 +342,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_shop", text = "Welcome to the Plate-n-Chain, and yes, I know what the sign says, because the landlord's a goblin and he chose it. I'm Fargon Mortalak, the armorer, so stand still and let me look at the fit of you." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and still breathing, which I'll take as a compliment to whoever made your armor. Come in out of the sun, soldier." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the jungle has been at your straps the whole time, by the look of them. Come in and let me see the damage." },
@@ -588,6 +594,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_default", text = "Hello. Fargon is fitting somebody in the back, so you will have to talk to me, and I hope that is all right." },
     { id = "g_back", when = { metBefore = true }, text = "You came back. Rivet will be glad, because he likes the people who come back." },
     { id = "g_away", when = { away = 14 }, text = "You were gone {away}. I wondered about you sometimes, when I was hammering, and I am glad you are not one of the ones who stays in the jungle." },
@@ -785,6 +793,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
     { id = "g_shop", text = "Welcome to A Tailor to Cities, the finest establishment of its kind between Undermine and anywhere, and yes, sweetheart, the name is on purpose. Grarnik Goodstitch, master tailor, head of the family and very expensive." },
     { id = "g_back", when = { metBefore = true }, text = "My favorite returning customer, or one of the top forty, anyway! Come in, come in, and don't drip on the silk." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and look at the state of those sleeves! I'd weep if weeping didn't ruin the velvet." },
@@ -822,6 +832,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask. I've an answer for everything and a pattern for most of it." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me tailoring.", next = "BUSINESS" },
         { text = "Why call the shop 'A Tailor to Cities'?", next = "name" },
         { text = "Tell me about the Goodstitch family.", next = "family" },
@@ -1043,6 +1055,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_shop", text = "Welcome to Tan-Your-Hide Leatherworks, pal, and don't make that face, because the smell's free and everything else costs money. Blixrez Goodstitch, the Goodstitch who isn't ashamed of a little stink." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Either you've got the nose of a crocolisk or you just can't stay away, and either way I'm glad of the custom, chum." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away} and back with all your own hide still on you, I see. Good, because I'd hate to have to buy it off a hunter." },
@@ -1078,6 +1092,8 @@ P:NPC {
         { id = "h_again2", text = "Still here? You're tougher than most, chum. Ask away." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "Why call it Tan-Your-Hide?", next = "name" },
         { text = "Leather seems an odd choice in a family of tailors.", next = "family" },

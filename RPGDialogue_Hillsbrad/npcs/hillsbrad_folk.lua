@@ -141,6 +141,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "Good day to you. If you've an animal that needs a rest, you've found the right stable." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, a returning patron. Do come in." },
   },
@@ -212,6 +214,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_default", text = "You need a blade? I have blades." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Did the last one hold?" },
   },
@@ -234,6 +238,8 @@ P:NPC {
         { id = "h_again", text = "Something more?" },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "Why is an orc in Tarren Mill?", next = "why" },
         { text = "What do you think of the Forsaken?", next = "forsaken" },
@@ -284,6 +290,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
     { id = "g_default", text = "Need a bird? They're fed, they're rested, and they're in a better mood than I am." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and in one piece. The gryphons will be pleased, they hate carrying the injured." },
   },
@@ -351,6 +359,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
     { id = "g_default", text = "Hello! Oh, good, you're alive. I mean, hello, welcome to Southshore." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Your animal's stall is still clean, I made sure of it." },
   },
@@ -422,6 +432,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_default", text = "Sit anywhere, love, I'll be right with you. Unless you're the one who ordered the stew, in which case it's coming." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! The usual, love, or shall I surprise you?" },
   },
@@ -444,6 +456,8 @@ P:NPC {
         { id = "h_again", text = "Anything else, love? I've three tables waiting." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What have you got?", next = "BUSINESS" },
         { text = "What's the gossip in town?", next = "gossip" },
         { text = "Is it hard work, keeping this place fed?", next = "work" },

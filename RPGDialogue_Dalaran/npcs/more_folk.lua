@@ -468,6 +468,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_default", text = "Ishnu-alah. The Guard's stores are open to those the Guard has learned to trust." },
     { id = "g_back", when = { metBefore = true }, text = "You return, and colder than when you left, I think." },
     { id = "g_rep", when = { reputation = { faction = "Stormpike Guard", min = "revered" } }, text = "The Stormpike speak your name with something close to warmth, and that is rare for dwarves." },
@@ -499,6 +501,8 @@ P:NPC {
         { id = "h_again2", text = "Speak; the snow and I are both patient." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me the Guard's stores.", next = "BUSINESS" },
         { text = "A night elf, serving dwarves?", next = "elf" },
         { text = "How do I earn the Guard's trust?", next = "trust" },
@@ -600,6 +604,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "The Frostwolf stores are open to those the clan has reason to thank. State your business, and close the flap behind you." },
     { id = "g_back", when = { metBefore = true }, text = "You are back, and still breathing, if you are the breathing kind. Let us see whether the clan thinks better of you than last time." },
     { id = "g_rep", when = { reputation = { faction = "Frostwolf Clan", min = "revered" } }, text = "The orcs say your name at their fires. I have checked the ledger, and for once the talk and the figures agree." },
@@ -630,6 +636,8 @@ P:NPC {
         { id = "h_again3", text = "Yes? I am listening, and counting, and I can do both." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me the clan's stores.", next = "BUSINESS" },
         { text = "A Forsaken, keeping stores for orcs?", next = "forsaken" },
         { text = "How do I earn the clan's regard?", next = "regard" },

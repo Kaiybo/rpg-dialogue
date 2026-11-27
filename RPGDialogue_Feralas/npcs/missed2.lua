@@ -15,6 +15,8 @@ P:NPC {
     third = "{name} met Worb Strongstitch, the light armor merchant of Camp Mojache.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Greetings, friend! Let's see what the thorns have done this time. I'll mend it for you, free." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Greetings. Let's see what you're wearing. Not much worth saving, I think." },
     { id = "g_default", text = "Greetings, {class}. The forest has thorns as long as my finger, so let us see whether what you wear will stop one." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you are back, and the thorns have been at you. Come and look at the rack." },
   },
@@ -35,6 +37,8 @@ P:NPC {
         { id = "h_again2", text = "Take your time. I always do." },
       },
       choices = {
+        { text = "Good armor should let you move freely.", next = "BACK", reply = "Yes! That is what I make. Glad you see it.", fx = { align = { order = 1 } } },
+        { text = "Heavy armor is always better than light.", next = "BACK", reply = "Then go and clank about somewhere else.", fx = { align = { order = -1 } } },
         { text = "Tell me about your mother.", next = "ywor_mother" },
         { text = "Can you teach me about leatherwork?", next = "ywor_leather", when = { profession = "Leatherworking" } },
         { text = "Do you make all of this yourself?", next = "make" },
@@ -119,6 +123,8 @@ P:NPC {
     third = "{name} met Sage Palerunner, an old tauren sage at Camp Mojache.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Come into the light, friend. My eyes know you now. Sit; I have stories for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come into the light, so I can see you. Then say what you need, and go." },
     { id = "g_default", text = "Come into the light where my eyes can find you, {class}. They are not what they were, though they have seen a great deal." },
     { id = "g_back", when = { metBefore = true }, text = "I know that step. Sit by an old bull again, and tell me what the forest has shown you." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Mu'sha is high, and the old do not sleep much. Sit, if you have questions that will not wait for An'she." },
@@ -140,6 +146,8 @@ P:NPC {
         { id = "h_again2", text = "What else would you draw out of an old bull?" },
       },
       choices = {
+        { text = "The old ways must be remembered.", next = "BACK", reply = "Yes. Someone must remember, when the young forget.", fx = { align = { order = 1 } } },
+        { text = "Old stories don't help anyone today.", next = "BACK", reply = "They help more than you think. But you will not listen.", fx = { align = { order = -1 } } },
         { text = "What was it like on the open plains?", next = "ysag_plains" },
         { text = "My people came from the plains too, elder.", next = "ysag_tauren", when = { race = "Tauren" } },
         { text = "What do you remember that Mojache needs?", next = "remember" },
@@ -231,6 +239,8 @@ P:NPC {
     third = "{name} met Orik'ando, a Darkspear troll staying at Camp Mojache.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hey, my friend! Sit, sit. De tauren be slow, but you be good company." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hey. Sit if you want. Don't expect much talk from me today." },
     { id = "g_default", text = "Hey, {class}, come sit a while. De tauren be fine company, but dey take all day to finish one story." },
     { id = "g_back", when = { metBefore = true }, text = "Ha, you still be breathin'! Dis forest don't always give people back, mon." },
   },
@@ -251,6 +261,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I got nowhere to be." },
       },
       choices = {
+        { text = "De jungle be worth seein', mon.", next = "BACK", reply = "It be! Dat's why I stay so long.", fx = { align = { light = 1 } } },
+        { text = "Dis jungle be nothin' but bugs and rain.", next = "BACK", reply = "Den go back to Durotar, mon. More dust for you.", fx = { align = { light = -1 } } },
         { text = "What did you do on the Echo Isles?", next = "yori_isles" },
         { text = "Darkspear to Darkspear, mon, why stay here?", next = "yori_troll", when = { race = "Troll" } },
         { text = "The forest reminds you of home?", next = "home" },
@@ -335,6 +347,8 @@ P:NPC {
     third = "{name} met Blaise Montgomery, a Forsaken staying at Camp Mojache.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, you. A tolerable face among the cattle. What is it you need?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Yes? If you've come to talk about the forest, don't." },
     { id = "g_default", text = "Yes, {class}? If you have come to tell me how lovely the forest is, a dozen tauren have beaten you to it." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Nothing has died here since we last spoke, apart from my patience." },
   },
@@ -355,6 +369,8 @@ P:NPC {
         { id = "h_again2", text = "Do go on. I have nothing but time, as you may imagine." },
       },
       choices = {
+        { text = "The Dark Lady's orders must be followed.", next = "BACK", reply = "They must. Even to the far end of the world.", fx = { align = { order = 1 } } },
+        { text = "The Undercity has no business out here.", next = "BACK", reply = "Perhaps not. But here I am. Go away.", fx = { align = { order = -1 } } },
         { text = "What were you before you died?", next = "ybla_before" },
         { text = "The Dark Lady sends her regards.", next = "ybla_forsaken", when = { race = "Scourge" } },
         { text = "You seem lonely, Blaise.", next = "ybla_tauren" },
@@ -449,6 +465,8 @@ P:NPC {
     third = "{name} met Griniblix the Spectator, a goblin who watches the fights in the Dire Maul arena.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hey, my favourite! Best seat in the Maul's yours, pal, free of charge. Don't tell nobody." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hey, it's you. Seat's taken. All of 'em. Try standin'." },
     { id = "g_default", text = "Hey, hey, fresh blood! You here to fight or to watch, pal, because one of those I can make money on." },
     { id = "g_back", when = { metBefore = true }, text = "Look who walked back in on their own two legs! That's better than even odds in this pit, friend." },
   },
@@ -469,6 +487,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, go on, I'm listening with one ear." },
       },
       choices = {
+        { text = "A fair fight's the best show in the world.", next = "BACK", reply = "Ha! Pal, you get it. Fair fights draw the biggest crowds.", fx = { align = { honor = 1 } } },
+        { text = "Fair fights are boring. I want to see blood.", next = "BACK", reply = "Hey, so do the ogres. Watch yourself.", fx = { align = { honor = -1 } } },
         { text = "What's the most money you've lost here?", next = "ygri_lost" },
         { text = "You're a goblin too. Steamwheedle or Venture?", next = "ygri_goblin", when = { race = "Goblin" } },
         { text = "Who fights in this pit?", next = "fighters" },

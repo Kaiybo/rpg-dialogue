@@ -38,6 +38,12 @@ P:Thread {
       fx = { thread = { id = "ashenvale_axes", beat = "b1_mastok", state = "stirring" }, learn = { "warsong" } },
     },
     {
+      id = "b1_mastok_orc", npc = "mastok",
+      when = { race = "Orc", faction = "Horde", thread = { id = "ashenvale_axes", notBeat = "b1_mastok" } },
+      text = "Forty wagons of timber left this post last month, and beside them in my ledger I wrote eleven names, orcs like you taken off the road by the Sentinels. Orgrimmar counts the wagons, warrior, so somebody of our blood had better count the names.",
+      fx = { thread = { id = "ashenvale_axes", beat = "b1_mastok", state = "stirring" }, learn = { "warsong" } },
+    },
+    {
       id = "b2_kuraybin", npc = "kuraybin",
       when = { faction = "Horde", thread = { id = "ashenvale_axes", beat = "b1_mastok" },
                ["not"] = { thread = { id = "ashenvale_axes", beat = "b2_kuraybin" } } },
@@ -56,6 +62,12 @@ P:Thread {
       id = "b4_raene", npc = "raene",
       when = { faction = "Alliance", thread = { id = "ashenvale_axes", notBeat = "b4_raene" } },
       text = "Be still a moment and you can hear them from here, the Warsong saws east of the lake, from first light until dark. Every tree they fell was older than Astranaar, and they cut it for the walls of a city that wasn't there a few years ago.",
+      fx = { thread = { id = "ashenvale_axes", beat = "b4_raene", state = "stirring" }, learn = { "warsong" } },
+    },
+    {
+      id = "b4_raene_nightelf", npc = "raene",
+      when = { race = "NightElf", faction = "Alliance", thread = { id = "ashenvale_axes", notBeat = "b4_raene" } },
+      text = "Be still a moment, Kaldorei, and you'll hear them from here, the Warsong saws east of the lake from first light until dark. You'll remember some of those trees as saplings, I expect, and they're cut for the walls of a city that didn't exist a few years ago.",
       fx = { thread = { id = "ashenvale_axes", beat = "b4_raene", state = "stirring" }, learn = { "warsong" } },
     },
     {

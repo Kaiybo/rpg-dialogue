@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, you. Sit, sit. Williden's got nothing but good to say of you, and neither have I." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind your tongue around me. I remember what I've heard of you, and a dwarf's memory is long." },
     { id = "o_el_distrust", when = { gossip = { topic = "explorers_league", stance = "distrust" } }, text = "Williden tells me you called the League glory-hunters. I'm a dwarf, so mind your tongue around my counter, friend, but I'll not say you're entirely wrong." },
     { id = "g_default", text = "Food, drink and shot, all hauled up from Gadgetzan by a goblin who charges by the step, so don't ask why it costs what it costs." },
     { id = "g_back", when = { metBefore = true }, text = "Back up the hill in one piece, are ye? Good, I hate losing a customer to a lizard." },
@@ -227,6 +229,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hey, chum! I'll fly ya out of the crater any time you like. Best part of my day, seeing you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Need a ride out of the crater? Good. That's one less problem down here." },
     { id = "g_default", text = "Need a ride out of the crater, chum? Smartest thing anybody's said to me all day, and I haven't even heard you say it yet." },
   },
 

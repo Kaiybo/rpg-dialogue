@@ -18,6 +18,8 @@ P:NPC {
     third = "{name} met Brave Greathoof, who keeps watch by the great bones south of Camp Narache.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You walk here with respect, friend, and the old ones notice that. Be welcome in this place." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Walk softly here, {class}. The old ones are watching you, and I am watching you too." },
     { id = "g_default", text = "Walk softly here, {class}, for you stand in the shadow of something older than our camp." },
     { id = "g_back", when = { metBefore = true }, text = "You have come back to the bones, and they have not moved, which is all I ask of them." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Mu'sha is bright on the bones tonight, and the cougars hunt by her light, so keep to the path." },
@@ -130,6 +132,8 @@ P:NPC {
     third = "{name} met Brave Lightninghorn, who patrols the road north of Camp Narache.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Good to see you, friend. I walked the road this morning and it's clear, so walk it easy." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The road is clear to the pass, {class}. Walk it, and keep your hand off your weapon." },
     { id = "g_default", text = "The road is clear as far as the pass, {class}, for I walked it myself not long ago." },
     { id = "g_back", when = { metBefore = true }, text = "You are on my road again, and that is good, because a road wants feet on it." },
     { id = "g_tauren", when = { race = "Tauren" }, text = "Another of ours bound for the wide plains, I think. Walk it proudly, for the whole camp watches the young ones go." },
@@ -238,6 +242,8 @@ P:NPC {
     third = "{name} met Brave Proudsnout, who watches the burial ground west of Camp Narache.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You honor the Hawkwind by coming quietly, friend. Stand with me a moment, if you wish." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Speak quietly here, {class}. The Hawkwind's rest is not to be troubled, least of all by you." },
     { id = "g_default", text = "Speak quietly here, {class}, for this is where the Hawkwind lay their dead to the sky." },
     { id = "g_back", when = { metBefore = true }, text = "You return to the resting place, and I hope it is to pay respect and not from need." },
   },
@@ -347,6 +353,8 @@ P:NPC {
     third = "{name} met Brave Running Wolf, who guards the southeast edge of Camp Narache.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You can fight, I know that much. Walk where you like, friend, and call if the wolves come." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Stay inside the camp, {class}. I've no wish to haul you back from the wolves." },
     { id = "g_default", text = "Stay inside the camp's edge unless you can fight, {class}, because the quilboar are closer than the elders like to say." },
     { id = "g_back", when = { metBefore = true }, text = "You are back, and you are in one piece, so the Bristleback did not get the better of you." },
   },
@@ -461,6 +469,8 @@ P:NPC {
     third = "{name} met Brave Cloudmane, who watches the north bridge of Bloodhoof Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Well met, friend! The wind is gentle today, and so is the company now that you're here." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Well met, {class}. The wind is from the bluffs, and it's colder than usual. Some days it is." },
     { id = "g_default", text = "Well met, {class}. The wind is from the bluffs today, so you will have fair walking if you are bound north." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back to the bridge, friend, and the sky has been kind since you last crossed it." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Mu'sha lights the bridge well enough tonight, though the wolves like the far bank after dark." },
@@ -572,6 +582,8 @@ P:NPC {
     third = "{name} met Brave Darksky, who watches the east side of Bloodhoof Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, you. You need not state your business, friend. Bloodhoof knows it by now." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "State your business in Bloodhoof, {class}, and state it plainly. I am still deciding about you." },
     { id = "g_default", text = "State your business in Bloodhoof, {class}, and then be welcome to it." },
     { id = "g_back", when = { metBefore = true }, text = "I know your face now, so pass, and mind the east road after dark." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "You walk late. So do I, by choice, because the things I watch for prefer the dark." },
@@ -593,6 +605,8 @@ P:NPC {
         { id = "h_again2", text = "Ask it quickly." },
       },
       choices = {
+        { text = "Looking twice is wise. A watch is only as good as its doubt.", next = "BACK", reply = "Then you will live long, {class}, and so will the village behind me.", fx = { align = { order = 1 } } },
+        { text = "You see enemies in every shadow, Darksky.", next = "BACK", reply = "Perhaps. But I have yet to be wrong about the mine.", fx = { align = { order = -1 } } },
         { text = "What have the goblins done?", next = "goblins" },
         { text = "Why do you prefer the night?", next = "night" },
         { text = "You don't trust strangers much.", next = "trust" },
@@ -643,6 +657,8 @@ P:NPC {
     third = "{name} met Brave Dawneagle, the longest-serving brave of Bloodhoof Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "An'she's light upon you, friend. Bloodhoof is glad of your return, and so am I." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "An'she's light upon you, {class}. Keep to the paths, and keep the peace in Bloodhoof." },
     { id = "g_default", text = "An'she's light upon you, {class}. You have found Bloodhoof Village, and you have found the one who has watched it longest." },
     { id = "g_back", when = { metBefore = true }, text = "I remember you, for I remember everyone who has walked through this village." },
     { id = "g_dawn", when = { timeOfDay = "dawn" }, text = "You are up with the sun, which is the proper hour, and the one I was named for." },
@@ -662,6 +678,8 @@ P:NPC {
         { id = "h_again2", text = "What else would you know?" },
       },
       choices = {
+        { text = "A long watch kept faithfully deserves respect.", next = "BACK", reply = "Then you understand the Bloodhoof, and you are welcome among us.", fx = { align = { order = 1 } } },
+        { text = "Watches are for those with nothing better to do.", next = "BACK", reply = "Then go and do better things, child, and I will keep the watch for you.", fx = { align = { order = -1 } } },
         { text = "What was it like before the village?", next = "before" },
         { text = "Where can I find things here?", next = "find" },
         { text = "The other braves look to you.", next = "others" },
@@ -713,6 +731,8 @@ P:NPC {
     third = "{name} met Brave Ironhorn, who stands guard by the trainers' lodges in Bloodhoof Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "At ease, friend. You stand straight enough without my telling you. What brings you back?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Stand straight when you speak to a brave, {class}. You have given me reason to be strict with you." },
     { id = "g_default", text = "Stand straight when you speak to a brave, {class}, and then tell me what you need." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and carrying yourself a little better than last time, I think." },
   },
@@ -825,6 +845,8 @@ P:NPC {
     third = "{name} met Brave Leaping Deer, who watches the lake shore of Bloodhoof Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hello, friend! It's so good to see you. The lake is calm today, if you want a walk by the shore." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hello, {class}. Mind the shore, and mind yourself. Folk here remember how you've behaved." },
     { id = "g_default", text = "Hello, {class}! Mind the shore if you go down to the water, because the swoops have been bold this season." },
     { id = "g_back", when = { metBefore = true }, text = "It is good to see you again, and the lake is as lovely as you left it." },
   },
@@ -936,6 +958,8 @@ P:NPC {
     third = "{name} met Brave Rainchaser, who watches the west side of Bloodhoof Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Greetings, friend. Your tracks are welcome ones, and I always know them now." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Greetings, {class}. I read your tracks as I read anyone's, carefully, and with an eye for trouble." },
     { id = "g_default", text = "Greetings, {class}. You came in from the east, by your tracks, and you have been walking a good while." },
     { id = "g_back", when = { metBefore = true }, text = "I knew your step before I saw you, for you favour the same foot you did last time." },
   },
@@ -1046,6 +1070,8 @@ P:NPC {
     third = "{name} met Brave Rockhorn, who patrols the road south of Bloodhoof Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You've reached Bloodhoof again, friend, and the village is the better for it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You have reached Bloodhoof, {class}. The road behind you is open, should you wish to take it back." },
     { id = "g_default", text = "You have reached Bloodhoof Village, {class}, and the road behind you is the one I keep." },
     { id = "g_back", when = { metBefore = true }, text = "You are on the south road again, and it is as you left it." },
     { id = "g_tauren", when = { race = "Tauren", maxLevel = 8 }, text = "You are fresh down from Red Cloud Mesa, I think, for you still have its dust on your hooves. Welcome to the wide plains, young one." },
@@ -1065,6 +1091,8 @@ P:NPC {
         { id = "h_again2", text = "There is no hurry, so say what you wish." },
       },
       choices = {
+        { text = "Seeing the young ones home safely is good work.", next = "BACK", reply = "It is the best work I know, and I thank you for seeing it.", fx = { align = { honor = 1 } } },
+        { text = "The young ones should learn to find their own way.", next = "BACK", reply = "They will, in time. Until then, I walk the road.", fx = { align = { honor = -1 } } },
         { text = "What lies south of here?", next = "south" },
         { text = "Where should a newcomer go first?", next = "first" },
         { text = "Lightninghorn says his road is quiet.", next = "lightning", when = { heardLine = "brave_lightninghorn.rw_default" } },
@@ -1117,6 +1145,8 @@ P:NPC {
     third = "{name} met Brave Strongbash, who stands guard by the inn at Bloodhoof Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ho, friend! Come in, come in! There's a fire, and food, and I'll save you the warmest spot." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ho, {class}. There is a fire, and you may sit at it. Don't expect me to save you a place." },
     { id = "g_default", text = "Ho, {class}! Come in off the plain and be welcome, for there is a fire in the inn and stew on it." },
     { id = "g_back", when = { metBefore = true }, text = "Ho, my friend returns! You look thinner, and Kauth's stew will mend that." },
   },
@@ -1229,6 +1259,8 @@ P:NPC {
     third = "{name} met Brave Swiftwind, who watches the eastern road at Bloodhoof Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Greetings, friend. If you came by the east road, tell me what you saw, for I trust your eyes." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Greetings, {class}. Tell me what you saw on the east road, and I'll decide how much of it to believe." },
     { id = "g_default", text = "Greetings, {class}. If you came by the eastern road, tell me what you saw on it, for I collect such news." },
     { id = "g_back", when = { metBefore = true }, text = "You are back, and I hope the road treated you well, because it has not treated everyone so." },
   },

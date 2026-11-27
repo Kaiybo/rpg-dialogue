@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, it's you! I've got a new gadget, and it hardly explodes at all now!" },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. I'm very busy, and the gadgets are very sensitive to bad moods." },
     { id = "g_hu_prej", when = { race = "Human" }, priority = 5,
       text = "Oh, a human! No, I don't need help reaching anything, and no, I'm not lost; I'm working, which is a very different thing." },
     { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "razzle_human_soft" }, priority = 10,
@@ -209,6 +211,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're a great help, really great, and Ozzie says so too, when he's not on fire." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been unkind, and the gadgets don't like unkind people. Neither do I." },
+    },
     background = { { id = "tp_bg", text = "Tinker, Gnomeregan born, Kharanos for now. That's the short version, and the long one has more explosions." } },
     advice = { { id = "tp_ad", text = "Always label your wires. I didn't once, and my eyebrows still haven't grown back." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "Home, until the troggs and the radiation. We'll have it back one day.", next = "gnomeregan" } },

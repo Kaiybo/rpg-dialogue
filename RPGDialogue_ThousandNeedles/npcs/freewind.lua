@@ -1264,6 +1264,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. Sleep soundly here; I'll keep watch, and I'm glad you're under my roof." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Sleep here if you must. I'll keep watch, as I always do, and I'll watch you too." },
     { id = "o_cent_peace", when = { gossip = { topic = "centaur", stance = "peace" } }, text = "Longhorn says you think someone should try talking to the centaur. Sleep with your boots on, then, dear, because they come at night when they come." },
     { id = "g_inn", text = "Rest here, traveller. The wind sings over the mesa at night, and most guests find it soothing once they stop listening for centaur in it." },
     { id = "g_home", when = { homeInn = { "Freewind Post" } }, text = "Back to your own bed above the canyons. I kept the blankets dry." },

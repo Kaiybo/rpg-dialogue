@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend! I've the best catch of the morning set aside, and Nessa can't touch it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Fish. Fresh. Pay for it and go; I've a letter to write to Nessa." },
     { id = "g_default", text = "Ishnu-alah! Fresh off the Darkshore coast this morning, and worth every murloc bite it took to catch, which was three." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? You've got the look of someone who's had enough of inn stew and wants a proper fish." },
   },
@@ -123,6 +125,8 @@ P:NPC {
         { id = "ddm_default", text = "No, and I wrote to Nessa across the water the same night to tell her so. She'll have the news all over Rut'theran by now, and she'll tell it better than I can, because she always does." },
       },
       choices = {
+        { text = "A friendly rivalry keeps the fish fresh.", next = "BACK", reply = "Ha! You're right. Nessa keeps me honest, in her way.", fx = { align = { honor = 1 } } },
+        { text = "I'd undercut Nessa and take all her customers.", next = "BACK", reply = "That's not friendly, that's cruel. Buy your fish and go.", fx = { align = { honor = -1 } } },
         { text = "Was Murkdeep really sinking boats?", next = "dd_murk2" },
         { text = "Something else, Laird.", next = "BACK" },
       },
@@ -235,6 +239,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Oh, it's you! Did you forget something? You always do, so I set some things aside for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Do you have everything? Then you don't need me. Please, go." },
     { id = "g_default", text = "Do you have everything? Water, bread, a spare bag? People always forget something before Darkshore." },
     { id = "g_back", when = { metBefore = true }, text = "You came back, thank the Moon. I worry about everyone who leaves here underprepared." },
   },
@@ -353,6 +359,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. Have you checked your water skin?" },
       },
       choices = {
+        { text = "It's wise to be prepared before the road.", next = "BACK", reply = "Yes! Thank you. So few people listen.", fx = { align = { order = 1 } } },
+        { text = "I'll manage with what I have.", next = "BACK", reply = "That's what they all say, and then they come back. Please, go.", fx = { align = { order = -1 } } },
         { text = "Show me your goods.", next = "BUSINESS" },
         { text = "Travelers must forget all sorts of things.", next = "forget" },
         { text = "Why do you worry so much?", next = "worry" },
@@ -420,6 +428,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Elune's light on you, friend! Sit, I've some of the good melon juice cooling just for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Thirsty? Pay for your drink. No credit today." },
     { id = "g_default", text = "Elune's light on you. Thirsty? Of course you are; everyone is, after the walk up from the docks." },
     { id = "g_back", when = { metBefore = true }, text = "There's my moonberry customer. The usual, or something new?" },
   },
@@ -540,6 +550,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listening, as patient as the moon on the water." },
       },
       choices = {
+        { text = "The Sentinels are wise to keep the drink mild.", next = "BACK", reply = "They are. A clear head is a safe head on these shores.", fx = { align = { order = 1 } } },
+        { text = "A strong drink never hurt a weary traveler.", next = "BACK", reply = "The Sentinels disagree, and so do I. Milk or water?", fx = { align = { order = -1 } } },
         { text = "Let me see your drinks.", next = "BUSINESS" },
         { text = "Something here must be your best seller.", next = "best" },
         { text = "I'd have expected something stronger than juice.", next = "strong" },
@@ -606,6 +618,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, you. Your hands are steady now. Let me show you a blade worthy of them." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You want a blade? Show me your hands first. No, I don't think so." },
     { id = "g_default", text = "You'll want a better blade than that if you're heading north. Let me see your hands." },
     { id = "g_back", when = { metBefore = true }, text = "Still alive, I see. Either you're good or your blade is, and I'd like to think it's the blade." },
   },
@@ -725,6 +739,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, if you've something to ask." },
       },
       choices = {
+        { text = "A good blade must be earned, not just bought.", next = "BACK", reply = "Yes. You understand my people's ways better than most.", fx = { align = { honor = 1 } } },
+        { text = "Any blade can be bought, if you have the gold.", next = "BACK", reply = "Then go and buy one elsewhere. My blades are not for you.", fx = { align = { honor = -1 } } },
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "What will I need in Darkshore?", next = "need" },
         { text = "Where do your weapons come from?", next = "where" },
@@ -791,6 +807,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Well, hello there! I've the good coal set aside for you, and plenty of opinions, too!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Coal, flux, hammers. Pay up. I'm not in the mood for chatting." },
     { id = "g_default", text = "Well, hello there! Need coal, flux or a hammer? I've got all three, aye, and opinions on each." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Good, I was startin' to think the elves had scared you off." },
   },
@@ -839,6 +857,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I miss it every day, but I like being the loudest voice on the docks. Some old-timers at home grumble about dwarves talking to spirits, but yours would fit right in here." } },
       choices = {
+        { text = "Good beer and good work go together.", next = "BACK", reply = "Aye, they do! You're a sensible one.", fx = { align = { order = 1 } } },
+        { text = "A smith should work, not drink.", next = "BACK", reply = "Then you've never worked a forge in this drizzle. Pay up.", fx = { align = { order = -1 } } },
         { text = "We dwarves stick together, Elisa.", next = "BACK", reply = "Aye, we do, and it's good tae hear a proper voice on these docks. Come by any time.", fx = { align = { honor = 1 } } },
         { text = "The old-timers have a point. Spirits aren't dwarvish.", next = "BACK", reply = "They do, and I'll not argue it. But a dwarf's a dwarf, whatever they pray to.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },

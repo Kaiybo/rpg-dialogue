@@ -337,7 +337,26 @@ def("origin", 35, "hinge", "origin", function(ctx, v)
   return o ~= nil and o ~= "other" and matches(o, v), "origin " .. tostring(o)
 end)
 
+-- npcRace = "Dwarf" | { "Dwarf", "Gnome" }: the NPC's own race, from UnitRace on the NPC.
+-- Most creatures give nothing back, and then this is false.
+local function npcRaceIs(ctx, v)
+  -- Matches the file token (UnitRace's second return: "NightElf", "Scourge") or the
+  -- localized name with spaces stripped.
+  local r, rn = ctx.npcRace, ctx.npcRaceName
+  if not r and not rn then return false, "npc race unknown" end
+  return matches(r, v) or (rn and matches(rn, v)) or false, "npc race: " .. tostring(r) .. ", wanted " .. show(v)
+end
+def("npcRace", 15, "hinge", nil, npcRaceIs)
+
 def("race", 25, "hinge", nil, function(ctx, v)
+  -- Players can't be goblins in Classic, so race = "Goblin" in a pack only ever meant the
+  -- NPC: read it as npcRace = "Goblin" (also inside a list; other races stay player races).
+  for _, r in ipairs(U.AsList(v)) do
+    if r == "Goblin" then
+      local ok = npcRaceIs(ctx, "Goblin")
+      if ok then return true, "npc race: Goblin (race = Goblin read as npcRace)" end
+    end
+  end
   return matches(ctx.race, v), "race: " .. tostring(ctx.race) .. ", wanted " .. show(v)
 end)
 
@@ -741,7 +760,18 @@ ctxBool("camping", 15)
 ctxBool("nearlyNaked", 15)
 ctxSet("debuffType", "debuffTypes", 15)
 ctxSet("aura", "auras", 15)
-ctxSet("holiday", "holiday", 15)
+-- holiday = "lunar" | "hallows_end" | "winter_veil" | "midsummer" | "harvest" |
+-- "love_is_in_the_air" | "noblegarden" | "childrens_week", or a list (any of). The older
+-- spellings ("winterveil", "hallowsend", "loveintheair", "childrensweek") still work.
+def("holiday", 15, "hinge", nil, function(ctx, v)
+  local set = ctx.holiday or {}
+  local alias = ns.World.HOLIDAY_ALIASES or {}
+  for _, x in ipairs(U.AsList(v)) do
+    local id = alias[x] or x
+    if set[id] then return true, "holiday: " .. tostring(x) end
+  end
+  return false, "holiday: none of " .. show(v)
+end)
 ctxSet("outOfPlace", "outOfPlace", 15)
 ctxEq("zone", 15)
 ctxEq("subzone", 15)
@@ -820,12 +850,42 @@ def("pet", 15, "hinge", nil, function(ctx, v)
   return true, "pet " .. tostring(p.family)
 end)
 
--- { faction = factionID, min = standingID (1-8) }
+local function standingOf(ctx, faction)
+  local W = ns.World
+  local id = type(faction) == "number" and faction or W.FACTION_IDS[faction]
+  if not id then return nil end
+  local sp = ctx.spoofed and ctx.spoofed.reputation
+  if type(sp) == "table" then return sp[faction] or sp[id] end
+  local cache = rawget(ctx, "_rep")
+  if not cache then cache = {}; rawset(ctx, "_rep", cache) end
+  if cache[id] == nil then cache[id] = tonumber((ns.Compat.Rep(id))) or false end
+  return cache[id] or nil
+end
+
+-- rep = { faction = "Argent Dawn", min = "Honored", max = "Exalted" } (standing names
+-- Hated..Exalted, any case, or 1-8). The faction is matched by name on the reputation pane
+-- (GetFactionInfo); a faction the player hasn't met is false. A numeric faction is an ID.
 def("rep", 15, "hinge", nil, function(ctx, v)
+  if type(v) ~= "table" then return false, "rep needs a table" end
+  local f = v.faction or v[1]
   local spoofed = ctx.spoofed and ctx.spoofed.rep
-  local standing = type(spoofed) == "number" and spoofed or ns.Compat.Rep(v.faction or v[1])
-  if not standing then return false, "unknown reputation" end
-  return inRange(standing, v), "standing " .. standing
+  local standing
+  if type(spoofed) == "number" then standing = spoofed
+  elseif type(spoofed) == "table" then standing = spoofed[f]
+  elseif type(f) == "number" then standing = ns.Compat.Rep(f)
+  elseif ns.World.FACTION_IDS[f] then standing = standingOf(ctx, f)
+  else
+    local cache = rawget(ctx, "_repName")
+    if not cache then cache = {}; rawset(ctx, "_repName", cache) end
+    if cache[f] == nil then cache[f] = ns.Compat.RepByName(f) or false end
+    standing = cache[f] or nil
+  end
+  standing = tonumber(standing)
+  if not standing then return false, "rep with " .. tostring(f) .. ": unknown" end
+  local S = ns.World.STANDINGS
+  local function lvl(x) return type(x) == "string" and S[x:lower()] or tonumber(x) end
+  local lo, hi = lvl(v.min), lvl(v.max)
+  return (not lo or standing >= lo) and (not hi or standing <= hi), "rep with " .. tostring(f) .. ": " .. standing
 end)
 
 -- "Mining" | { "Herbalism", "Alchemy" } (any of) | { name = "Mining" or a list, min = 75, max = }
@@ -844,24 +904,18 @@ end)
 
 -- reputation = { faction = "Stormwind", min = "exalted" } (or max; standings by name or 1-8).
 -- Spoof with reputation = { Stormwind = 8 }.
-local function standingOf(ctx, faction)
-  local W = ns.World
-  local id = type(faction) == "number" and faction or W.FACTION_IDS[faction]
-  if not id then return nil end
-  local sp = ctx.spoofed and ctx.spoofed.reputation
-  if type(sp) == "table" then return sp[faction] or sp[id] end
-  local cache = rawget(ctx, "_rep")
-  if not cache then cache = {}; rawset(ctx, "_rep", cache) end
-  if cache[id] == nil then cache[id] = tonumber((ns.Compat.Rep(id))) or false end
-  return cache[id] or nil
-end
 
 def("reputation", 15, "hinge", nil, function(ctx, v)
   if type(v) ~= "table" then return false, "reputation needs a table" end
   local S = ns.World.STANDINGS
   local s = standingOf(ctx, v.faction)
+  -- Not in World.FACTION_IDS: look it up by name, as `rep` does (the two are aliases).
+  if not s and type(v.faction) == "string" and not (ctx.spoofed and ctx.spoofed.reputation) then
+    s = tonumber((ns.Compat.RepByName(v.faction)))
+  end
   if not s then return false, "reputation with " .. tostring(v.faction) .. ": unknown" end
-  local lo, hi = S[v.min] or tonumber(v.min), S[v.max] or tonumber(v.max)
+  local function lvl(x) return type(x) == "string" and S[x:lower()] or tonumber(x) end
+  local lo, hi = lvl(v.min), lvl(v.max)
   return (not lo or s >= lo) and (not hi or s <= hi), "reputation with " .. tostring(v.faction) .. ": " .. s
 end)
 
@@ -956,6 +1010,7 @@ end)
 -- party = true                         : anyone in your party
 -- party = { race =, class =, gender = } : a member matching all given (each may be a list)
 -- party = { kin = true }               : a member of your own race; { sameClass = true }: your class
+-- party = { race =, class =, min = 2 } : at least two such members. Raid members count too.
 -- party = { size = 4 } / { size = { min = 2, max = 3 } } : how many others (size = 0 is alone)
 -- party = { class = ..., ["not"] = true } : in a party, with no such member (size still applies)
 -- party = { size = ..., ["not"] = true }  : not that size
@@ -996,12 +1051,14 @@ def("party", 25, "hinge", nil, function(ctx, v)
     sizeOk = inRange(#list, type(v.size) == "number" and { min = v.size, max = v.size } or v.size)
   end
   local ok
-  if v.race or v.class or v.gender or v.kin or v.sameClass then
+  if v.race or v.class or v.gender or v.kin or v.sameClass or v.min then
     -- `not` flips the member test only: "a party, but nobody like that in it".
-    local found = false
+    -- min = n: at least n matching members (default 1).
+    local count, need = 0, tonumber(v.min) or 1
     for _, m in ipairs(list) do
-      if memberMatches(ctx, m, v) then found = true; break end
+      if memberMatches(ctx, m, v) then count = count + 1 end
     end
+    local found = count >= need
     if negate then found = not found and #list > 0 end
     ok = sizeOk and found
   elseif v.size ~= nil then

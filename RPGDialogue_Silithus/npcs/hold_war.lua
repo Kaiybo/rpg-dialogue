@@ -242,6 +242,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You again. Good. I'll knock a bit off the salt for you, because Silithus doesn't have many decent folk left." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Salt, thread, dye. Buy what you need. I've no patience left for anything else today." },
     { id = "g_default", text = "Salt, thread, dye. Silithus takes the rest, so buy what you can carry." },
     { id = "g_back", when = { metBefore = true }, text = "Back at Valor's Rest. Nobody comes here twice by accident." },
   },

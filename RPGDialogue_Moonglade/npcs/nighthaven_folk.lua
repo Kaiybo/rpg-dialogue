@@ -399,6 +399,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome back. I've kept the calmest bird rested for you. Where shall it carry you this time?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "State your destination, please. The birds will fly you, and that is all that need pass between us." },
     { id = "g_default", text = "Where would you like to fly? The birds are rested." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "A night flight? The moon on the lake will light your way out." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away}. The birds remembered you before I did." },
@@ -598,6 +600,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hah, you again. Good. You're about the only company in this glade worth more than a grunt. Where to?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You want a flight, you pay for a flight. Don't expect conversation thrown in with it." },
     { id = "g_default", text = "Need a flight? The wind riders are fed and ready, and they're as eager to leave this quiet as any orc." },
     { id = "g_quiet", text = "Speak softly here. The druids hear everything in this glade." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and back again. The beasts remember your smell." },

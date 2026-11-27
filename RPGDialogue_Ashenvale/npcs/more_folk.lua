@@ -256,6 +256,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Welcome back, friend. I've a fine breastplate set aside, fresh from Orgrimmar." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Heavy armor, for heavy work. Pay and go." },
     { id = "g_hello", text = "Welcome, friend. Heavy armor, for heavy work. The trees here are full of arrows." },
     { id = "g_back", when = { metBefore = true }, text = "You return, and still whole. The Earth Mother is kind, and so is good mail." },
   },
@@ -276,6 +278,8 @@ P:NPC {
     road = {
       lines = { { id = "rd_default", text = "It has, friend. The plate is hammered in Orgrimmar, carried by kodo across the Barrens, and brought up the southern road past the elves' ruins, where the wagons are watched from every branch. By the time a breastplate reaches my rack, it has already survived more ambushes than most grunts." } },
       choices = {
+        { text = "The kodo caravans keep Splintertree supplied.", next = "BACK", reply = "They do. Every plate comes a long way.", fx = { align = { order = 1 } } },
+        { text = "The Horde should forge its own armor here.", next = "BACK", reply = "With what? The elves won't sell us iron.", fx = { align = { order = -1 } } },
         { text = "Do many wagons fail to arrive?", next = "road2" },
         { text = "Tell me of something else.", next = "BACK" },
       },
@@ -635,6 +639,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, you. I set aside something special. You'll not find it elsewhere in Ashenvale." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Thread, flux, salt. What do you need? Quickly." },
     { id = "g_hello", text = "Thread, flux, salt, and a few things you won't find elsewhere. What do you need?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again? You must be making something." },
     { id = "g_enchant", when = { profession = "Enchanting" }, text = "An enchanter! I may have something for you, if you'll look past the thread." },
@@ -654,6 +660,8 @@ P:NPC {
     crafters = {
       lines = { { id = "cr_default", text = "They do, and I know every one of them by what they run out of. Aeolynn the clothier wants thread and dye, Xai'ander wants flux for his forge, and Nantar comes for salt and stays to complain about the price of flour." } },
       choices = {
+        { text = "A good trader knows what the crafters need.", next = "BACK", reply = "I do. Every one of them, by what they run out of.", fx = { align = { honor = 1 } } },
+        { text = "I'd sell the rare stock to the highest bidder.", next = "BACK", reply = "So would I, but not to you. What do you need?", fx = { align = { honor = -1 } } },
         { text = "You could tell the town's fortunes by what it buys.", next = "crafters2" },
         { text = "Something else.", next = "BACK" },
       },
@@ -751,6 +759,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, friend. Fresh bread, and I kept the best loaf for you. Take it, please." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Bread and water. Take what you need, and pay for it." },
     { id = "g_hello", text = "Bread, fresh this morning, and water from the lake. Take what you need." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back, friend. The bread's still warm." },
   },
@@ -769,6 +779,8 @@ P:NPC {
     flour = {
       lines = { { id = "fl_default", text = "It is not, friend. The grain comes down by cart from Maestra's Post and from Darkshore beyond it, and Haljan Oakheart and I divide whatever arrives between his shelves and my ovens. When the carts are late I bake with acorn meal, and the Sentinels are kind enough to say nothing." } },
       choices = {
+        { text = "Sharing the grain fairly keeps Astranaar fed.", next = "BACK", reply = "It does. Haljan and I see to that.", fx = { align = { light = 1 } } },
+        { text = "Grain should go to those who can pay the most.", next = "BACK", reply = "Then many would go hungry. Take your bread, and go.", fx = { align = { light = -1 } } },
         { text = "And when no cart comes at all?", next = "flour2" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1406,6 +1418,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend. You may touch the frames; I trust your hands. Come and see." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind the frames. Do not touch the hides. Learn, or leave." },
     { id = "g_hello", text = "Ishnu-alah. Mind the frames, if you would, for those hides are a day from ready and they mark easily." },
     { id = "g_back", when = { metBefore = true }, text = "You have come back to the bench. Let me see your hands, and I will tell you whether you have been practising." },
     { id = "g_lw", when = { profession = "Leatherworking" }, text = "A leatherworker! Sit down, and show me the last seam you were proud of." },
@@ -1431,6 +1445,8 @@ P:NPC {
         { id = "h_again3", text = "Something more? Hand me that bone folder while you think of it." },
       },
       choices = {
+        { text = "Patience makes the finest leather.", next = "BACK", reply = "It does. You have learned it well.", fx = { align = { order = 1 } } },
+        { text = "A rushed hide still sells.", next = "BACK", reply = "Then sell it elsewhere. Mind the frames.", fx = { align = { order = -1 } } },
         { text = "Teach me your craft.", next = "BUSINESS" },
         { text = "Where do your hides come from?", next = "hides" },
         { text = "Who else works leather here?", next = "bench" },
@@ -1537,6 +1553,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Welcome back! Turn around; yes, the forest has been kinder to you this time. Let me help." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Turn around. Yes, the forest has been cruel to you. Buy something or go." },
     { id = "g_hello", text = "Welcome to Astranaar. Turn round once, would you? I like to see what the forest has done to a traveler before I sell them anything." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and with a new tear at the elbow. Don't tell me, let me guess." },
   },
@@ -1562,6 +1580,8 @@ P:NPC {
         { id = "h_again3", text = "What else can I tell you?" },
       },
       choices = {
+        { text = "Good armor keeps a traveler alive.", next = "BACK", reply = "It does, and I've seen too many come back without it.", fx = { align = { order = 1 } } },
+        { text = "Armor slows you down. Better to be quick.", next = "BACK", reply = "Then be quick, and come back for armor when you're wounded.", fx = { align = { order = -1 } } },
         { text = "Show me your armor.", next = "BUSINESS" },
         { text = "You can tell what I've fought from my armor?", next = "read" },
         { text = "Who buys from you?", next = "buyers" },
@@ -1663,6 +1683,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Elune's light on you, friend. Breathe as you like today; I've put the dangerous powders away." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Breathe gently. Some powders travel on the air. Buy, and go." },
     { id = "g_hello", text = "Elune's light on you. Do come in, only breathe gently, for some of these powders travel on a sigh." },
     { id = "g_back", when = { metBefore = true }, text = "You are back. Did the last of it do what you hoped? I should like to hear." },
   },
@@ -1688,6 +1710,8 @@ P:NPC {
         { id = "h_again3", text = "Something more? I shall measure this out while you speak." },
       },
       choices = {
+        { text = "Careful hands make the best reagents.", next = "BACK", reply = "They do. You understand the work.", fx = { align = { order = 1 } } },
+        { text = "A few spilled powders never hurt anyone.", next = "BACK", reply = "They have hurt many. Please, go.", fx = { align = { order = -1 } } },
         { text = "Show me your reagents.", next = "BUSINESS" },
         { text = "You ask what each one is for?", next = "curious" },
         { text = "Where do your reagents come from?", next = "source" },
@@ -1795,6 +1819,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, you. Here; I've a whetstone set aside that you'll like." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Tools, rope, oil. Buy what you need and go." },
     { id = "g_hello", text = "Tools, rope, lamp oil and a whetstone or two. If you want anything else, you will have to say so quietly." },
     { id = "g_back", when = { metBefore = true }, text = "You are back. I take it everything I sold you did what it was meant to." },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "Ah. You walk as though the boards might hear you. Come round to this side of the stall." },
@@ -1821,6 +1847,8 @@ P:NPC {
         { id = "h_again3", text = "What else?" },
       },
       choices = {
+        { text = "A good tool is worth its price.", next = "BACK", reply = "It is. A cheap tool breaks when you need it most.", fx = { align = { honor = 1 } } },
+        { text = "Tools are tools. Cheap ones work fine.", next = "BACK", reply = "Then buy cheap elsewhere.", fx = { align = { honor = -1 } } },
         { text = "Show me what you sell.", next = "BUSINESS" },
         { text = "Vials better left closed. Poisons, you mean.", next = "poison" },
         { text = "Do the Sentinels know what's on your lower shelf?", next = "sentinels" },
@@ -1927,6 +1955,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hello again! Mind the cauldron, but come in. I've a new brew to show you!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind the cauldron. It spits. Buy, or go." },
     { id = "g_hello", text = "Mind the cauldron, it's at the stage where it spits. Hello! Are you here to learn, or only passing?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Good, you can stir while I measure." },
     { id = "g_alch", when = { profession = "Alchemy" }, text = "An alchemist! Wonderful. Smell this and tell me whether it's turned." },
@@ -1952,6 +1982,8 @@ P:NPC {
         { id = "h_again3", text = "Anything more? Hand me that vial, would you." },
       },
       choices = {
+        { text = "Alchemy rewards patience and care.", next = "BACK", reply = "It does! You'll make a fine alchemist.", fx = { align = { order = 1 } } },
+        { text = "Alchemy's just throwing herbs in a pot.", next = "BACK", reply = "Then you'll poison yourself. Mind the cauldron.", fx = { align = { order = -1 } } },
         { text = "Teach me alchemy.", next = "BUSINESS" },
         { text = "What do you brew for the Sentinels?", next = "brew" },
         { text = "Who else lives at the Refuge?", next = "refuge" },
@@ -2052,6 +2084,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You again. Good. My riders like you, and they don't like many people." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Want a wind rider? Pay and get on." },
     { id = "g_hello", text = "You want a wind rider? Good. Where to, and how fast do you need to be gone?" },
     { id = "g_back", when = { metBefore = true }, text = "Back on our beach. Either you like the naga, or you forgot something." },
     { id = "g_alli", when = { faction = "Alliance" }, text = "Alliance. You've got nerve, walking in here. Turn round and keep walking." },
@@ -2079,6 +2113,8 @@ P:NPC {
         { id = "h_again3", text = "Something more? Be quick, the wind's turning." },
       },
       choices = {
+        { text = "Zoram'gar needs the wind riders to stay alive.", next = "BACK", reply = "It does. It's a long haul over elf country.", fx = { align = { order = 1 } } },
+        { text = "Zoram'gar should be abandoned. It's too far.", next = "BACK", reply = "Then go and tell the warchief yourself.", fx = { align = { order = -1 } } },
         { text = "I need a flight.", next = "BUSINESS" },
         { text = "How do you fly over elf country?", next = "elves" },
         { text = "What's it like, keeping riders on this beach?", next = "beach" },
@@ -2181,6 +2217,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hey, friend! Sit, de fish be fresh and de prices be friendly for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hey. Fresh fish. Pay de price and go." },
     { id = "g_hello", text = "Hey, mon. Fresh fish, dried fish, hooks and line. De sea been generous dis morning, so sit down and have a look." },
     { id = "g_back", when = { metBefore = true }, text = "Ya came back to Wik'Tar's mat. Good. De catch be even better today, and I only be lying a little." },
     { id = "g_troll", when = { race = "Troll" }, text = "Darkspear! Come and sit, cousin. Tell me how de Echo Isles be looking, if ya been near dem." },
@@ -2206,6 +2244,8 @@ P:NPC {
         { id = "h_again3", text = "Go on, I be listening." },
       },
       choices = {
+        { text = "De sea be generous to dose who share.", next = "BACK", reply = "Dat be true, mon. You understand.", fx = { align = { light = 1 } } },
+        { text = "De sea's just water. Take what you can.", next = "BACK", reply = "Den de sea take from you, mon. Pay and go.", fx = { align = { light = -1 } } },
         { text = "Show me what you've got.", next = "BUSINESS" },
         { text = "You don't seem worried, like the others.", next = "worry" },
         { text = "What do you pull out of this water?", next = "water" },
@@ -2310,6 +2350,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ya come back. Good. Stand with me. De sea knows ya now." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ya come to learn. Stand dere and be quiet." },
     { id = "g_hello", text = "Ya come to learn de fishing. Good. Stand here beside me and be quiet a moment first, so de water can get used to ya." },
     { id = "g_back", when = { metBefore = true }, text = "Ya came back. De water remembers ya, and it don't mind." },
     { id = "g_fish", when = { profession = "Fishing" }, text = "Ya fish already, I can see it in how ya stand. Den I show ya what dis sea wants, which be different from a river." },
@@ -2335,6 +2377,8 @@ P:NPC {
         { id = "h_again3", text = "I be listening." },
       },
       choices = {
+        { text = "Quiet is de first lesson.", next = "BACK", reply = "Ya learn it well.", fx = { align = { order = 1 } } },
+        { text = "Fishing's just waiting around for luck.", next = "BACK", reply = "Den go and wait for luck somewhere else.", fx = { align = { order = -1 } } },
         { text = "Teach me to fish.", next = "BUSINESS" },
         { text = "The sea is troubled, you say?", next = "troubled" },
         { text = "How do you ask the sea with respect?", next = "respect" },
@@ -2439,6 +2483,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Good day, friend. Hand me your list; I've set aside the best thread for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Good day. Thread, dye, salt, wax. What do you need?" },
     { id = "g_hello", text = "Good day to you. Thread, dye, salt and wax. If Aayndia has sent you with a list, hand it over and I shall save us both the reading." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. You are short of salt, I should guess. Everyone is, this year." },
     { id = "g_lw", when = { profession = "Leatherworking" }, text = "A leatherworker. Good. You will want the heavy thread, for nothing light survives a week past the bridges." },
@@ -2463,6 +2509,8 @@ P:NPC {
         { id = "h_again3", text = "Yes? Go on." },
       },
       choices = {
+        { text = "A good supplier keeps the crafters happy.", next = "BACK", reply = "I do. Aayndia sends her students to me, and I keep them stocked.", fx = { align = { honor = 1 } } },
+        { text = "I'd skip the supplier and gather my own.", next = "BACK", reply = "Then you'll spend a long time gathering.", fx = { align = { honor = -1 } } },
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "Why is everyone short of salt?", next = "salt" },
         { text = "How has the war changed your trade?", next = "war" },
@@ -2569,6 +2617,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Well met, friend. Kneel down; I have a new herb to show you today." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Kneel, if you want to learn. Otherwise, move along." },
     { id = "g_hello", text = "Well met. If you have come to learn herbs, kneel down here beside me. You will not learn them standing up." },
     { id = "g_back", when = { metBefore = true }, text = "You are back, and your knees are muddy, so you have been practising. Good." },
     { id = "g_herb", when = { profession = "Herbalism" }, text = "You have picked before, for I can smell briarthorn on your gloves. Show me what is in your pouch, and I shall tell you what you walked past." },
@@ -2593,6 +2643,8 @@ P:NPC {
         { id = "h_again3", text = "Go on." },
       },
       choices = {
+        { text = "Herbs should be gathered with care.", next = "BACK", reply = "They should. You will learn well.", fx = { align = { light = 1 } } },
+        { text = "Herbs are weeds. Pull them and sell them.", next = "BACK", reply = "Then you will find fewer each season.", fx = { align = { light = -1 } } },
         { text = "Teach me herbalism.", next = "BUSINESS" },
         { text = "What grows around the Refuge?", next = "grows" },
         { text = "You said the forest isn't well.", next = "well" },
@@ -2699,6 +2751,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Well met, friend. Your knife is steady. Sit, and I'll teach you more." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Do you mean to kill the beast cleanly? Then answer quickly." },
     { id = "g_hello", text = "Well met. I teach skinning. Before I do, tell me this. When you kill a beast, do you mean to use it, or only to be rid of it?" },
     { id = "g_back", when = { metBefore = true }, text = "You have come back. Let me see your knife. Good, you have kept it clean." },
     { id = "g_skin", when = { profession = "Skinning" }, text = "You carry a skinner's knife, and it has seen work. Then let us find out what you still do wrongly." },
@@ -2723,6 +2777,8 @@ P:NPC {
         { id = "h_again3", text = "Yes?" },
       },
       choices = {
+        { text = "A clean kill honors the beast.", next = "BACK", reply = "It does. You understand.", fx = { align = { honor = 1 } } },
+        { text = "A kill's a kill, however it's done.", next = "BACK", reply = "Then you have nothing to learn from me.", fx = { align = { honor = -1 } } },
         { text = "Teach me skinning.", next = "BUSINESS" },
         { text = "I use what I kill.", next = "use" },
         { text = "What do the hunters bring you?", next = "bring" },
@@ -2828,6 +2884,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Well met, friend. Your companion trusts you; I can see it. Come, let me help." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Have you a companion? Then let it come forward. Not you." },
     { id = "g_hello", text = "Well met, and welcome to the Refuge. I work with hunters and their companions. Have you a beast with you, or are you only curious?" },
     { id = "g_back", when = { metBefore = true }, text = "You are back. And how is your companion? Let it come to me in its own time." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter. Then it is your friend that I should like to speak with. You may stand there and listen, if you like." },
@@ -2852,6 +2910,8 @@ P:NPC {
         { id = "h_again3", text = "Yes, friend?" },
       },
       choices = {
+        { text = "A companion's trust must be earned.", next = "BACK", reply = "It must. And you have earned it.", fx = { align = { light = 1 } } },
+        { text = "A companion obeys. That's all I need.", next = "BACK", reply = "Then it will never trust you. Let it come forward.", fx = { align = { light = -1 } } },
         { text = "I'd like to train my companion.", next = "BUSINESS" },
         { text = "How do you teach a beast to trust?", next = "trust" },
         { text = "What beasts do the hunters here keep?", next = "beasts" },
@@ -2982,6 +3042,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Good day, friend! Mind the crate, though you always do. I've the good vials for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind the crate. Please. And buy quickly." },
     { id = "g_hello", text = "Good day, and mind the crate by your foot, please. It holds vials, and I have only just got them here whole. What may I find for you?" },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you have returned. Did the vials travel well? You wrapped them, I hope, as I showed you." },
     { id = "g_alch", when = { profession = "Alchemy" }, text = "An alchemist. Then you will understand why I flinch whenever someone sets a pack down hard." },
@@ -3006,6 +3068,8 @@ P:NPC {
         { id = "h_again3", text = "Yes?" },
       },
       choices = {
+        { text = "Kylanna's students need good supplies.", next = "BACK", reply = "They do. I see to it.", fx = { align = { order = 1 } } },
+        { text = "Cheap vials work as well as expensive ones.", next = "BACK", reply = "Not when they break. Mind the crate.", fx = { align = { order = -1 } } },
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "You walk beside the cart yourself?", next = "cart" },
         { text = "What does the Refuge go through most?", next = "most" },
@@ -3111,6 +3175,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Well met, friend. String your bow; I'll show you something I teach few others." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "String your bow, or go. I do not waste time talking." },
     { id = "g_hello", text = "Well met. If you have come to train, string your bow. If you have come to talk, talk while I watch the line, for I shall not take my eyes off it." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Then show me whether you remember anything, or whether I must say it all again." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter. Stand at the mark and loose three, and then we shall both know where to begin." },
@@ -3135,6 +3201,8 @@ P:NPC {
         { id = "h_again3", text = "Go on." },
       },
       choices = {
+        { text = "A hunter must keep training to stay sharp.", next = "BACK", reply = "Yes. You understand.", fx = { align = { order = 1 } } },
+        { text = "A hunter learns best alone, in the wild.", next = "BACK", reply = "Then go into the wild, and see how you fare.", fx = { align = { order = -1 } } },
         { text = "I'd like to train.", next = "BUSINESS" },
         { text = "You teach as if their lives depend on it.", next = "lives" },
         { text = "How do you and Danlaar divide the work?", next = "danlaar" },
@@ -3284,6 +3352,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Well met, friend, and softly. My friend here knows you now and does not startle." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Softly. My friend startles. Learn, or leave quietly." },
     { id = "g_hello", text = "Well met, and softly, if you please. My friend here startles. You have come to learn the hunter's way?" },
     { id = "g_back", when = { metBefore = true }, text = "You are back. Good. He remembers you, do you see? His ears have come forward." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter. Come and sit a while before we speak of bows. I like to know whom I am teaching." },
@@ -3308,6 +3378,8 @@ P:NPC {
         { id = "h_again3", text = "Yes, friend?" },
       },
       choices = {
+        { text = "A first kill should be clean and respectful.", next = "BACK", reply = "It should. You will make a fine hunter.", fx = { align = { honor = 1 } } },
+        { text = "A first kill should be bloody and quick.", next = "BACK", reply = "Then you are not ready. Leave quietly.", fx = { align = { honor = -1 } } },
         { text = "I'd like to train.", next = "BUSINESS" },
         { text = "Tell me about the stag.", next = "stag" },
         { text = "Why teach the why before the how?", next = "why" },
@@ -3434,6 +3506,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Well met, friend! I saved the best smoked venison for you. Take it!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Venison, bear, boar, quail. Pay and go." },
     { id = "g_hello", text = "Well met! Venison, bear, boar and quail, smoked or fresh. Do not tell me that you thought we ate moonlight, for I have heard it." },
     { id = "g_back", when = { metBefore = true }, text = "Back, and hungry by the look of you. Good. Hunger is the only honest compliment that a butcher gets." },
     { id = "g_cook", when = { profession = "Cooking" }, text = "A cook. Then you will want to know what I have hung and for how long, and I shall be glad to tell you." },
@@ -3458,6 +3532,8 @@ P:NPC {
         { id = "h_again3", text = "Go on, friend." },
       },
       choices = {
+        { text = "Nothing of the kill should be wasted.", next = "BACK", reply = "Ha! You understand. Jayla takes the hide; I take the rest.", fx = { align = { honor = 1 } } },
+        { text = "I'd take the best meat and leave the rest.", next = "BACK", reply = "Then the rest rots. Pay and go.", fx = { align = { honor = -1 } } },
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "What does a Sentinel carry for a week?", next = "week" },
         { text = "Is there enough game, with the war on?", next = "game" },

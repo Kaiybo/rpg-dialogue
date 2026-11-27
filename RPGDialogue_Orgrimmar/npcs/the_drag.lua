@@ -135,6 +135,8 @@ P:NPC {
     third = "{name} met Malton Droffers, the friendly half of Droffers and Son Salvage on Orgrimmar's Drag.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome, friend, welcome! Dad likes you, so he won't even bite!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome, I suppose. Don't mind Dad. He only bites people like you." },
     { id = "g_hi", text = "Welcome, friend, welcome! Don't mind Dad, he only bites before lunch." },
     { id = "g_back", when = { metBefore = true }, text = "My favorite customer is back! Well, one of my favorites, but don't tell the others." },
   },
@@ -260,6 +262,8 @@ P:NPC {
     third = "{name} met Magar, the tailoring trainer who owns Magar's Cloth Goods on Orgrimmar's Drag.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. Mind the bolts, but I trust you near them. Come, sit." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind the bolts, {class}. They're stacked for Rashona, and I'd rather they stayed stacked." },
     { id = "g_hi", text = "Mind the bolts, {class}; they're stacked for Rashona, the cloth quartermaster, and she counts every one like a warband counts its dead." },
     { id = "g_back", when = { metBefore = true }, text = "Back for another lesson? Show me your stitches first, and I'll tell you if you're ready." },
     { id = "g_still", text = "Stand still a moment, would you? I'm not measuring you, I only like to know what I'm talking to." },
@@ -389,6 +393,8 @@ P:NPC {
     third = "{name} met Yelmak, the alchemy trainer on Orgrimmar's Drag.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend! Close the door, but stay as long as you like. The fumes are worth it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Close the door behind you, quick. And stay by it, please." },
     { id = "g_hi", text = "Close the door behind you, quick, the fumes need to stay in." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Good, I've got a new mixture I'm dying to explain to someone." },
     { id = "g_sniff", text = "Hold still, let me smell you, and yes, Barrens dust and sweat and a little peacebloom, so you've been working. Come in, come in!" },
@@ -504,6 +510,8 @@ P:NPC {
     third = "{name} met Karolek, the leatherworking trainer on Orgrimmar's Drag.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. Hides on the left, tools on the right, and help yourself to both." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hides on the left, tools on the right. Touch neither without asking." },
     { id = "g_hi", text = "Hides on the left, tools on the right, and don't touch either without asking. A beast gave its life for each one, and an orc honors that." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Show me your work and I'll show you what's wrong with it." },
     { id = "g_boots", text = "Let me see your boots first, because boots tell me everything I need to know about a body." },
@@ -636,6 +644,8 @@ P:NPC {
     third = "{name} met Felika, who sells trade supplies on Orgrimmar's Drag.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Thread, flux, vials, salt, whatever you need, friend. For you, the best." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Thread, flux, vials, salt. Pick what you need and pay for it." },
     { id = "g_hi", text = "Thread, flux, vials, salt, whatever you've run out of, I've got it." },
     { id = "g_back", when = { metBefore = true }, text = "Let me guess, you ran out of something again. Everybody always does." },
     { id = "g_two", text = "Whatever you came for, think about buying two, because you'll be back for the second one by sundown." },

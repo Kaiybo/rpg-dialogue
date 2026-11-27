@@ -19,6 +19,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_rep_la", when = { rep = { faction = "League of Arathor", min = "Honored" } }, text = "The League honours you, and Arathor remembers its friends. Stand with us." },
     { id = "g_default", text = "Keep your blade up near the hall, {class}. The Defilers like to test the road from the Stables when they think we're all out at the flags." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and on your own feet, which is more than I can say for half the lads who rode out with you last time." },
     { id = "g_horde", when = { faction = "Horde" }, text = "You're a long way from the Den, and you'll find no welcome at Trollbane Hall. Say your piece quickly, Horde." },
@@ -203,6 +204,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_rep_df", when = { rep = { faction = "The Defilers", min = "Honored" } }, text = "The Defilers honour you. The Dark Lady will hear of your deeds in the basin." },
     { id = "g_default", text = "Another body for the basin, {class}. Try to keep yours in one piece, since the apothecaries are busy enough." },
     { id = "g_back", when = { metBefore = true }, text = "Still breathing, or still walking, at any rate. Either will do for the Dark Lady's purposes." },
     { id = "g_alliance", when = { faction = "Alliance" }, text = "How bold of you, wandering up to the Den. I'd tell you to turn back, but I'd rather you kept coming so I could watch." },
@@ -361,6 +363,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
     { id = "g_default", text = "Don't stand in the doorway, {class}, there's a rider coming in from the Mine and he won't stop for you." },
     { id = "g_horde", when = { faction = "Horde" }, text = "Horde, in the Hall? Go on before the guards notice you and I have to fill in a report." },
   },
@@ -379,6 +383,8 @@ P:NPC {
         { id = "h_again", text = "Anything else? I've a ledger waiting." },
       },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "How goes the fighting?", next = "fight" },
         { text = "The mill on the ridge looks important.", next = "mill" },
         { text = "Who commands the League here?", next = "xcommand" },
@@ -457,6 +463,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
     { id = "g_default", text = "Mind the crates, {class}, and do not open any of them. Some of what's inside is still deciding whether it's dead." },
     { id = "g_alliance", when = { faction = "Alliance" }, text = "A living specimen, wandering into the Den on its own. How very considerate of you." },
   },
@@ -546,6 +554,8 @@ P:NPC {
   key = "bg_ab_arathi_blacksmith", id = 15063, name = "Arathi Blacksmith", role = "smith", tier = "service",
   communities = { "league_of_arathor" }, temper = { "gruff", "steady" }, values = { "craft", "loyal" },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "Mind the sparks, {class}. This forge has gone cold three times today, and I'll not let it go cold again." },
     { id = "g_horde", when = { faction = "Horde" }, text = "Get away from my anvil, Horde, before I find out how your skull rings." },
   },
@@ -624,6 +634,8 @@ P:NPC {
   key = "bg_ab_arathi_stablehand", id = 15086, name = "Arathi Stablehand", role = "worker", tier = "service",
   communities = { "league_of_arathor" }, temper = { "nervous", "earnest" }, values = { "duty" },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
     { id = "g_default", text = "Easy, easy, you'll spook the mares. They've had a hard enough day with all the shouting." },
     { id = "g_horde", when = { faction = "Horde" }, text = "Stay back from the horses! I'll... I'll call the guard, I swear it!" },
   },
@@ -702,6 +714,8 @@ P:NPC {
   key = "bg_ab_forsaken_blacksmith", id = 15064, name = "Forsaken Blacksmith", role = "smith", tier = "service",
   communities = { "defilers" }, temper = { "cold", "sardonic" }, values = { "craft", "loyal" },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "The forge is warm and I am not. Speak, if you have business with the Defilers' steel." },
     { id = "g_alliance", when = { faction = "Alliance" }, text = "A living thing at my anvil. How quaint. You'll make a fine quenching, I imagine." },
     { id = "yg_0", when = { race = "Scourge" }, text = "Another of the risen. Pull up a stool; the fire won't warm you, but it's company." },
@@ -809,6 +823,8 @@ P:NPC {
   key = "bg_ab_forsaken_stablehand", id = 15087, name = "Forsaken Stablehand", role = "worker", tier = "service",
   communities = { "defilers" }, temper = { "dry", "morbid" }, values = { "duty" },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
     { id = "g_default", text = "Don't stand behind that one, it kicks, and it doesn't feel the need to stop." },
     { id = "g_alliance", when = { faction = "Alliance" }, text = "The horses are dead and so am I, but you're not. Shall we fix that?" },
     { id = "yg_0", when = { race = "Scourge" }, text = "Another of the dead. Good. The horses don't spook at you, and they spook at everything else." },

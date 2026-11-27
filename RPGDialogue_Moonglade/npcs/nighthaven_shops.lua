@@ -18,6 +18,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, my favorite customer, or one of the three. Bring me whatever's torn and I'll see to it before anything else." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Leave it on the bench, and I'll mend it when I get to it. I'll get to it, eventually." },
     { id = "g_default", text = "Come in, come in. If it's torn, I'll mend it, and if it's too small, I'm afraid that's all I stock." },
     { id = "g_worn", when = { durability = { max = 0.3 } }, text = "Elune's light, you look like you crawled here through a bramble. Let me see to that before it falls off you." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away}? Let me guess: something needs stitching." },
@@ -179,6 +181,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Good to see you. Set your blade down and I'll give it the proper edge, not the quick one." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Repairs, yes. Sharpening, yes. Chatter, no. Put it on the anvil." },
     { id = "g_default", text = "Weapons, repairs, sharpening. Just don't draw anything in the village, or the wardens will have words with both of us." },
     { id = "g_worn", when = { durability = { max = 0.3 } }, text = "That edge has seen better years. Put it on the anvil and let me look at it." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away}. Still carrying my steel, I hope?" },
@@ -328,6 +332,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "There's my favorite hungry face! Sit, sit. I've kept back a sweet roll for you, still warm from the oven." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Food's on the counter, priced as it always is. Take what you need, and don't make a mess." },
     { id = "g_default", text = "Hungry? You look hungry. Everybody who comes up the path looks hungry." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and you're thinner, I'm sure of it. Sit, sit." },
   },
@@ -501,6 +507,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, you may touch the silks, actually. You've always handled them properly, and I don't say that to many." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Thread, dye, bleach, needles. And do keep your hands well clear of the silks, if you please." },
     { id = "g_default", text = "Thread, dye, bleach, needles. Please don't touch the silks unless you mean to buy them." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and back with that same hem, I see. Never mind; I'll say nothing." },
   },

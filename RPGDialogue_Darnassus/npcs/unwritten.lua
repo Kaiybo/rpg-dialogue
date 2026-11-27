@@ -16,6 +16,8 @@ P:NPC {
     third = "{name} met Aethalas, the Silverwing Sentinel who sends volunteers from Darnassus to fight in Warsong Gulch.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend. The forest is safer with you defending it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ishnu-alah. Defend the forest, or leave." },
     { id = "g_default", text = "Ishnu-alah. If you've come to defend the forest, you've come to the right Sentinel." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, {name}. The orcs are still cutting in Warsong Gulch, so there is still work for you." },
   },
@@ -31,6 +33,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, {name}. I am listening." },
       },
       choices = {
+        { text = "The forest must be defended.", next = "BACK", reply = "It must. Join us.", fx = { align = { order = 1 } } },
+        { text = "The forest can defend itself.", next = "BACK", reply = "It cannot.", fx = { align = { order = -1 } } },
         { text = "What happens in Warsong Gulch?", next = "gulch" },
         { text = "You sound like you've lost friends there.", next = "lost" },
         { text = "Send me to the gulch.", next = "BUSINESS" },
@@ -132,6 +136,8 @@ P:NPC {
     third = "{name} met Brogun Stoneshield, the Stormpike dwarf in Darnassus who sends recruits to fight in Alterac Valley.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ho there, friend! Ye've held bridges before. Come, join the Guard!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ho there. Ye look like ye might hold a bridge. Maybe." },
     { id = "g_default", text = "Ho there! Ye look like ye could hold a bridge. The Stormpike Guard could use ye in Alterac." },
     { id = "g_dwarf", when = { race = "Dwarf" }, text = "A proper dwarf! Thank the Titans, I was startin' to forget what one looked like among all these trees." },
   },
@@ -146,6 +152,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, lad, speak up." },
       },
       choices = {
+        { text = "The Stormpike Guard fights for Ironforge.", next = "BACK", reply = "Aye, we do! Join us!", fx = { align = { order = 1 } } },
+        { text = "Alterac Valley isn't worth fighting for.", next = "BACK", reply = "It is to us.", fx = { align = { order = -1 } } },
         { text = "Why are the Stormpike fighting the Frostwolves?", next = "why" },
         { text = "You don't look happy among the trees.", next = "trees" },
         { text = "Send me to Alterac Valley.", next = "BUSINESS" },
@@ -248,6 +256,8 @@ P:NPC {
     third = "{name} met Keras Wolfheart, the League of Arathor's battlemaster in Darnassus.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Well met, friend! The League needs you, more than ever." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Well met. The League needs swords. Not yours, maybe." },
     { id = "g_default", text = "Well met. The League of Arathor needs every sword it can find for Arathi Basin." },
     { id = "g_human", when = { race = "Human" }, text = "Another human, out here among the trees! It's good to see a face that doesn't make me feel short." },
   },
@@ -262,6 +272,8 @@ P:NPC {
         { id = "h_again2", text = "Go ahead. I've time for one more question." },
       },
       choices = {
+        { text = "The League fights for Arathor's honor.", next = "BACK", reply = "We do! Join us!", fx = { align = { honor = 1 } } },
+        { text = "Arathi Basin isn't worth the blood.", next = "BACK", reply = "It is to us.", fx = { align = { honor = -1 } } },
         { text = "Who are the Defilers?", next = "defilers" },
         { text = "Why recruit in Darnassus, so far from Arathi?", next = "far" },
         { text = "Send me to Arathi Basin.", next = "BUSINESS" },
@@ -357,6 +369,8 @@ P:NPC {
     third = "{name} met Huntress Leafrunner, who patrols the walkways of Darnassus.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend. Walk where you like; the city knows you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ishnu-alah. Keep to the paths." },
     { id = "g_default", text = "Ishnu-alah. Keep to the paths, traveler, and the city will keep you." },
     { id = "g_back", when = { metBefore = true }, text = "You again. I'd say you're lost, but you walk like you know exactly where you are going." },
   },
@@ -372,6 +386,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, then, while I'm standing still." },
       },
       choices = {
+        { text = "The paths keep the city safe.", next = "BACK", reply = "They do. You understand.", fx = { align = { order = 1 } } },
+        { text = "Paths are just suggestions.", next = "BACK", reply = "Not in Darnassus.", fx = { align = { order = -1 } } },
         { text = "What do you see on your rounds?", next = "rounds" },
         { text = "Darnassus seems too peaceful to need guarding.", next = "peace" },
         { text = "Who walks the paths at night?", next = "x_night" },
@@ -940,6 +956,8 @@ P:NPC {
     third = "{name} listened to an Ancient of Lore speak of the kaldorei's long memory.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hroom. A friend. Hmm. Come closer, little one; I remember you fondly." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hroom. A visitor. Hmm. Speak, and go." },
     { id = "g_default", text = "Hroom. A visitor. Hmmm. Come closer, little one; my hearing is very old, and so is everything else about me." },
     { id = "g_back", when = { metBefore = true }, text = "Hmmm. You again, and so soon. It feels like a heartbeat since you left. It was probably a season." },
   },
@@ -954,6 +972,8 @@ P:NPC {
       },
       again = { { id = "h_again_x", text = "Hmmm. More questions. Good. Ask, little one." }, { id = "h_again", text = "Hmmm. Another question? Good. Questions are like rain; they keep an old tree from drying out." } },
       choices = {
+        { text = "Lore must be preserved.", next = "BACK", reply = "Hroom. Yes. It must.", fx = { align = { order = 1 } } },
+        { text = "Old lore is useless now.", next = "BACK", reply = "Hroom. You will regret that.", fx = { align = { order = -1 } } },
         { text = "What do you remember of the Well of Eternity?", next = "well" },
         { text = "What do you think of Teldrassil?", next = "teldrassil" },
         { text = "What do you remember of the Highborne?", next = "x_hb" },
@@ -1044,6 +1064,8 @@ P:NPC {
     third = "{name} spoke with a Darnassus Sentinel on watch in the city.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend. Walk in peace; the Sentinels know you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ishnu-alah. Walk in peace. Keep your voice low." },
     { id = "g_default", text = "Ishnu-alah. Walk in peace in Darnassus, and keep your voice low near the Temple." },
     { id = "g_human", when = { race = "Human" }, text = "Welcome, human. The city is larger than it looks, so ask if you lose your way." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. The city treats you well, I hope." },
@@ -1056,6 +1078,8 @@ P:NPC {
       },
       again = { { id = "h_again_x", text = "Ask your question, traveller." }, { id = "h_again", text = "Anything more? I am on watch, but I can spare a moment." } },
       choices = {
+        { text = "The Sentinels keep Darnassus safe.", next = "BACK", reply = "We do. Thank you.", fx = { align = { order = 1 } } },
+        { text = "Darnassus is safe enough without guards.", next = "BACK", reply = "It is not.", fx = { align = { order = -1 } } },
         { text = "Who leads the kaldorei?", next = "leaders" },
         { text = "Why are the Sentinels all women?", next = "women" },
         { text = "How does one become a Sentinel?", next = "x_bec" },
@@ -1146,6 +1170,8 @@ P:NPC {
     third = "{name} met a Lunar Festival Emissary inviting travellers to Moonglade.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Greetings, friend! Moonglade is waiting, and so am I." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Greetings. Moonglade waits. Go, if you like." },
     { id = "g_default", text = "Greetings, friend. The moon is turning, and Moonglade is waiting for you." },
     { id = "g_festival", when = { holiday = "lunar" }, text = "The Lunar Festival is upon us! Have you been to Moonglade yet? You must, you simply must." },
   },
@@ -1158,6 +1184,8 @@ P:NPC {
       },
       again = { { id = "h_again_x", text = "More questions? Good. The festival loves the curious." }, { id = "h_again", text = "Anything else about the festival? I could talk about it all night." } },
       choices = {
+        { text = "The Lunar Festival honors our ancestors.", next = "BACK", reply = "It does! Join us!", fx = { align = { light = 1 } } },
+        { text = "Festivals are a waste of time.", next = "BACK", reply = "Then miss it.", fx = { align = { light = -1 } } },
         { text = "Who was Omen?", next = "omen" },
         { text = "Why honour the elders?", next = "elders" },
         { text = "How do I reach Moonglade?", next = "x_how" },
@@ -1248,6 +1276,8 @@ P:NPC {
     third = "{name} browsed the wares of a Lunar Festival Vendor.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Fireworks, friend! The best ones are for you!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Fireworks, lanterns. Buy, please." },
     { id = "g_default", text = "Fireworks, lanterns and festive dress! Everything a soul needs to light the sky." },
     { id = "g_festival", when = { holiday = "lunar" }, text = "It's the Lunar Festival! Buy a rocket, buy a lantern, and send the old year off with a bang." },
   },
@@ -1259,6 +1289,8 @@ P:NPC {
       },
       again = { { id = "h_again_x", text = "Back for more? I've plenty of rockets left." }, { id = "h_again", text = "See anything you like? The rockets are very popular this year." } },
       choices = {
+        { text = "Fireworks light the sky for everyone.", next = "BACK", reply = "They do! You understand.", fx = { align = { light = 1 } } },
+        { text = "Fireworks are dangerous.", next = "BACK", reply = "Then don't light them.", fx = { align = { light = -1 } } },
         { text = "Let me see your wares.", next = "BUSINESS" },
         { text = "Why fireworks, of all things?", next = "why" },
         { text = "What are the little red envelopes for?", next = "envelopes" },
@@ -1357,6 +1389,8 @@ P:NPC {
     third = "{name} walked for a time with a young Treant Ally.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hroom! Friend! I am so glad to help you! Point me at something!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hroom. I am here to help. Point me at something. Not you." },
     { id = "g_default", text = "Hroom! Hello! I am here to help. Point me at something, and I will help it fall down." },
     { id = "g_back", when = { metBefore = true }, text = "Hmmm! You again. I am pleased. I am still learning what pleased feels like, but I think this is it." },
   },
@@ -1368,6 +1402,8 @@ P:NPC {
         { id = "ybdartreantally2", when = { class = "DRUID" }, text = "Maybe you will stand beside me, when you are old. We could grow together. Hroom." },
       },
       choices = {
+        { text = "Treants are good allies.", next = "BACK", reply = "Hroom! Yes! Thank you!", fx = { align = { order = 1 } } },
+        { text = "Treants are too slow to help.", next = "BACK", reply = "Hroom. Slow, but strong.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

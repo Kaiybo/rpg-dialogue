@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_dock", text = "Hooks, line, bait and poles, everything but the patience, and I can't sell you that." },
     { id = "g_back", when = { metBefore = true }, text = "Back on the docks? The fish have missed you, or so they tell me." },
   },
@@ -34,6 +36,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I'd rather you bought a good line first and asked the fish after, so we both come out of it well. Donald would tell you it's about patience and respect for the bay, and he'd be right, though I'd add that it's also about my rent." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Then I'll fish the honest way, with hook and line.", next = "BACK", reply = "Donald will be thrilled to hear it, and he'll probably want to buy you a drink and tell you about his best catch. I'd run, if I were you.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "If the spirits can save me the wait, I'll use them.", next = "BACK", reply = "I won't tell Donald, then, because he'd take it personally. Just buy your line from me first, so the spirits aren't the only ones paid.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -237,6 +241,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_shop", text = "Vials, reagents and the odd tincture, all properly labelled. Do come in, but mind the glass." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, it's you again, good. I was hoping for a customer who knows what they're buying." },
   },
@@ -256,6 +262,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "A plague, I think, a new one worse than the last, and every barrel that rolls past Southshore on its way up that hill makes me read my labels twice. If you ever ask the earth what's buried under Tarren Mill, I'd rather you didn't tell me the answer before bed." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Then it must be stopped before it leaves that hill.", next = "BACK", reply = "Stopped, aye, and soon, and by somebody braver than me. I'll keep my labels straight and my antidotes ready for whoever goes.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Let them brew. A plague can be turned on its makers.", next = "BACK", reply = "Turned on its makers? You make it sound easy, friend, and I've seen what plague does to the hands that carry it. Be careful.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -433,6 +441,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_shop", text = "Thread, flux, salt and dye for whatever you're making. Have a look round." },
     { id = "g_back", when = { metBefore = true }, text = "Good to see you again! What are you making this time?" },
   },
@@ -450,6 +460,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Not a thing until today, and some of the town says I shouldn't, because they remember orc totems from the war. I told them coin is coin and wood is wood, and a dwarf's money spends as well as anyone's." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Old fears aren't foolish, Micha. Listen to the town.", next = "BACK", reply = "They're not foolish, no, and I lost an uncle to that war myself. Still, a totem never burned a farm, and I'll think on it.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Coin is coin. Don't let the town tell you otherwise.", next = "BACK", reply = "That's what I said! And a dwarf's money spends the same as a man's, as the Wildhammer remind me every time they come through.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -638,6 +650,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_road", text = "Ho there, customer, step right up! Don't mind the robots, buddy; they only shoot people who don't pay, and hardly ever the ones who do." },
     { id = "g_back", when = { metBefore = true }, text = "My favourite customer, back again! Well, one of my favourites, 'cause I got a few, and I keep 'em all in the ledger by how much they spend." },
   },
@@ -657,6 +671,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Southshore buys my lamp oil, Tarren Mill buys my rope, and Dun Garok buys whatever's shiny, so yes, customer, and gladly, 'cause a war with two sides is twice the market. I don't see why a dwarf who talks to the wind should mind, either, since the wind blows on both towns the same." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "The Alliance should hold these hills, and you should pick a side.", next = "BACK", reply = "Pick a side? Sweetheart, picking sides is how you end up with half the customers and twice the overhead. I'll stay neutral and solvent.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Sides are for people who can't count coin.", next = "BACK", reply = "Now there's a customer after my own heart! You ever want a job keepin' my books, you come see Zixil.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },

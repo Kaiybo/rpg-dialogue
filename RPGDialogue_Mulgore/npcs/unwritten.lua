@@ -120,6 +120,8 @@ P:NPC {
     third = "{name} met a Minor Manifestation of Earth on the Call of Earth.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You called. The earth heard, and the earth is glad. It remembers your kindness." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You called. The earth heard. The earth does not forget what you have done." },
     { id = "g_default", text = "You called. The earth heard. Now the earth asks why." },
   },
   start = "hello",
@@ -341,6 +343,8 @@ P:NPC {
     third = "{name} met Stamp Thunderhorn, the Darkmoon Faire's tauren cook.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend! Come and eat, and I'll give you the biggest plate at the Faire!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come and eat, if you're hungry. The plate's the same size for everyone, even you." },
     { id = "g_default", text = "Come and eat, friend. Nobody enjoys the Faire on an empty belly." },
     { id = "g_back", when = { metBefore = true }, text = "Hungry again already? Good. The grill is hot." },
   },
@@ -899,6 +903,8 @@ P:NPC {
     third = "{name} met Hulfnar Stonetotem in Bloodhoof Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "May the eternal sun shine upon you, friend. The village is the brighter for your coming." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "May the sun shine on you, {class}. The village is quiet, and I'd like it to stay so." },
     { id = "g_default", text = "May the eternal sun shine upon you, {class}. The village is quiet today, which is how I like it." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Good. Bloodhoof is a place people come back to." },
   },
@@ -1000,6 +1006,8 @@ P:NPC {
     third = "{name} met Thontek Rumblehoof, a young brave of Bloodhoof Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ho, friend! You came at a good time. Nothing's tried to eat me, and you're here to boast to!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ho, {class}. Nothing's tried to eat me today. I'd like to keep it that way, so mind yourself." },
     { id = "g_default", text = "Ho, {class}! You came to Bloodhoof at a good time; nothing has tried to eat anyone all morning." },
     { id = "g_back", when = { metBefore = true }, text = "You again! Have you come to hear about my stomp? Everyone does, sooner or later." },
   },

@@ -410,6 +410,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hello, friend, and hello to your companion! Come, let's see how you've both grown." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hello. Let's see your companion, and let's see how you've been treating it." },
     { id = "g_hello", text = "Hello, and hello to whoever's with you, if anyone is." },
     { id = "g_pet", when = { pet = { type = "Beast" } }, text = "And who is this? Hello, {pet}. Your hunter can wait a moment." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Let me see how your companion's coming along." },
@@ -566,6 +568,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Mail, shields, and a strap or two, friend. For you, I'll fit them properly." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mail, shields, straps. Tell me what you need, and quickly." },
     { id = "g_hello", text = "Mail, shields, and a strap or two. What do you need?" },
     { id = "g_back", when = { metBefore = true }, text = "Still standing? Good, then my shields are doing their work." },
   },
@@ -683,6 +687,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Blades and staves, friend. Take all the time you need. I'll find you the best." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Blades and staves. Choose, and pay." },
     { id = "g_hello", text = "Blades and staves. Take your time choosing." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Did the last blade serve you well?" },
   },
@@ -798,6 +804,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hungry? Thirsty? Both, friend? Come in, and I'll give you the freshest of everything!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hungry? Thirsty? Food's on the table. Pay first." },
     { id = "g_hello", text = "Hungry? Thirsty? Both? Come in, everything's fresh today." },
     { id = "g_back", when = { metBefore = true }, text = "There you are again! I saved you a moonberry, or I meant to." },
   },
@@ -1227,6 +1235,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. Walk where you like. The verges are safe enough with you about." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Keep to the middle of the road. The verges are not safe, and neither, I think, are you." },
     { id = "g_hello", text = "Keep to the middle of the road, traveler. The verges belong to the Gnarlpine this season." },
     { id = "g_back", when = { metBefore = true }, text = "You again. The road has been kind to you so far." },
     { id = "g_done", when = { questDone = TODO_QUEST("The Road to Darnassus") }, text = "The ambushers are thinned, and the Priestess rides easier. You have a huntress's thanks." },
@@ -1368,6 +1378,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Come in, come in, friend! Let me look at you. Oh, you look well. I'm so glad." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come in, and let me look at you. Hmm. You could do with better manners, I think." },
     { id = "g_hello", text = "Come in, come in, and let me look at you. Is that what you mean to go out into the world wearing?" },
     { id = "g_back", when = { metBefore = true }, text = "There you are, and still in one piece. Turn round, let me see the hem." },
   },
@@ -1500,6 +1512,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Good day, friend. Your feet are sound today. I'm glad to see it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Good day. You're favouring your left foot. Perhaps you kicked something you shouldn't have." },
     { id = "g_hello", text = "Good day. You are favouring your left foot, did you know? Sit down and tell me what you need." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Let me see how that last wound closed before we talk of anything else." },
     { id = "g_aid", when = { profession = "First Aid" }, text = "Someone has taught you to tie a proper knot. Good. Shall we go on from there?" },
@@ -1632,6 +1646,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome back to Dolanaar, friend! Whatever you've forgotten, I'll find it for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome to Dolanaar. Whatever you've forgotten, I probably have. Pay for it, please." },
     { id = "g_hello", text = "Welcome to Dolanaar. Whatever you have forgotten to pack, I probably sell it." },
     { id = "g_back", when = { metBefore = true }, text = "Back so soon? You ran out of something. Let me guess: torches." },
     { id = "g_pelts", when = { questActive = TODO_QUEST("Soft Saber Pelts") }, text = "Have the nightsabers given up their coats yet? I want the soft ones, mind, and not anything a boar has rolled on." },
@@ -1771,6 +1787,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. Tell me your craft, and I'll give you the best of what I have." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Thread, flux, vials, dye and salt. Tell me your craft, and pay for what you take." },
     { id = "g_hello", text = "Thread, flux, vials, dye and salt. Tell me your craft and I shall tell you what you have forgotten." },
     { id = "g_back", when = { metBefore = true }, text = "You are back. You ran short of thread, I expect; everyone underestimates thread." },
     { id = "g_craft", when = { profession = { "Tailoring", "Leatherworking", "Alchemy", "Blacksmithing", "Enchanting" } }, text = "A working crafter, by your hands. Good. I can speak to you in plain terms." },
@@ -1905,6 +1923,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Spices, flour, and for you, friend, a little extra sweet milk. You deserve it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Spices, flour, sweet milk and salt. And no, I'm not offering you any extra." },
     { id = "g_hello", text = "Spices, flour, sweet milk and salt. And if you are hungry now, say so, for there is always something on my own fire." },
     { id = "g_back", when = { metBefore = true }, text = "You are back! Good, taste this and tell me it does not need more thyme, because Zarrin says it does." },
     { id = "g_active", when = { questActive = TODO_QUEST("Reminders of Home") }, text = "Sister Aquinne sent you for my recipes, did she? That is so like her. Sit a moment while I find the book." },
@@ -2036,6 +2056,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome back, young one. You may touch the edge, friend. You know how." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome, young one. Do not touch the edge. I mean it." },
     { id = "g_hello", text = "Welcome, young one. Do not touch the edge to see whether it is sharp. It is." },
     { id = "g_back", when = { metBefore = true }, text = "You return, and your blade with you. Let me see what you have done to it." },
     { id = "g_warrior", when = { class = "WARRIOR" }, text = "One of Alyissia's students. Stand straight, then, and show me your grip before you show me your purse." },
@@ -2168,6 +2190,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Good morning, friend, or evening! Whatever it is, it's better now you're here." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Good morning, or evening. I lose track. What do you want?" },
     { id = "g_hello", text = "Good morning, or evening, I lose track under the boughs. Have you eaten? No, I can see you have not." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! The same as last time, or shall I surprise you?" },
   },
@@ -2302,6 +2326,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Oh, it's you, friend. Come, listen to this ring with me. It sings for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hm? Oh. Forgive me. I was listening to a ring, and I'd rather go on listening." },
     { id = "g_hello", text = "Hm? Oh, forgive me. I was listening to a ring. You are welcome here; do sit, and mind the dust on that stone." },
     { id = "g_back", when = { metBefore = true }, text = "You have come back to the Glade. Good. I think I have remembered what I meant to tell you last time." },
     { id = "g_ench", when = { profession = "Enchanting" }, text = "You carry a rod, and it has been used. Then we may skip the part where I explain what dust is." },
@@ -2441,6 +2467,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ishnu-alah, friend. For you, the best jerkins, the ones I keep in back." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ishnu-alah. Jerkins, bracers, boots. Choose, and pay." },
     { id = "g_hello", text = "Ishnu-alah. I have jerkins, bracers and boots, all of them cut here in Dolanaar, and all of them cut to last." },
     { id = "g_back", when = { metBefore = true }, text = "You are back, and that strap I looked at has stretched further. Sit, and let me see it." },
     { id = "g_lw", when = { profession = "Leatherworking" }, text = "You work hide yourself, by the look of your thumbs. Then you will know what you are looking at on my table." },
@@ -2571,6 +2599,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome back, friend. Robes, shirts, and a little conversation, if you like." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome. Robes, shirts, plain things. Buy what you need." },
     { id = "g_hello", text = "Welcome, friend. I have robes, shirts and good plain cloth, and nothing here will weigh on you the way mail does." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you have returned, and with a new tear at the cuff, I see. The forest has been at you again." },
     { id = "g_caster", when = { class = { "PRIEST", "MAGE", "WARLOCK" } }, text = "A robe-wearer, at last. I had begun to think all the world went about in leather." },
@@ -2718,6 +2748,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Well met, friend. Mail, leather, shields, all sized for you, and a fair price." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Well met. Mail, leather and shields. Sized for most. Not discounted for you." },
     { id = "g_hello", text = "Well met. Mail, leather and shields, all sized for those who are only beginning. Hold out your arm and let me see the length of it." },
     { id = "g_back", when = { metBefore = true }, text = "You have come back whole, and so the armor did its work. Let me look at the dents and learn what hit you." },
     { id = "g_war", when = { class = "WARRIOR" }, text = "A warrior. Then Alyissia has sent you, and she will have told you a shield is half of fighting. She is right." },
@@ -2846,6 +2878,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Good day to you, friend! Bows, arrows, and a wink for my favorite customer!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Good day. Bows, arrows and quivers. No winks today." },
     { id = "g_hello", text = "Good day to you! Bows, arrows and quivers, and a word of advice with each, whether you want it or not." },
     { id = "g_back", when = { metBefore = true }, text = "You again! Tell me you still have all your arrows, and I shall know you are lying." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter. Ayanna sent you down, did she? Then stand over there and let me see your draw before I sell you anything." },
@@ -2975,6 +3009,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Good day, friend. Water, bread, and a little something extra for your road." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Good day. Water, bread, a bedroll. That's all I've got." },
     { id = "g_hello", text = "Good day. Water, bread, a bedroll and a bag to carry them in, which is everything you need and more than most remember." },
     { id = "g_back", when = { metBefore = true }, text = "Back already? Open your pack, then, and show me what you ran out of." },
     { id = "g_young", when = { maxLevel = 8 }, text = "Your first day out of the glen, is it? Then we shall go slowly, and you will not leave without a waterskin." },
@@ -3103,6 +3139,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Well met, friend. I have leather, and I'll find you the best of it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Well met. I have leather. I'll watch you while you look at it." },
     { id = "g_hello", text = "Well met. I have leather for those who would rather not be heard coming. Have a look and tell me what you hunt." },
     { id = "g_back", when = { metBefore = true }, text = "Still alive, I see, and still in my leather. I shall take the credit for one of those." },
     { id = "g_rogue", when = { class = { "ROGUE", "HUNTER" } }, text = "You walk softly already. Good, for I do not much enjoy selling quiet leather to noisy feet." },
@@ -3239,6 +3277,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ishnu-alah, friend, and welcome. It's always a pleasure to see you here." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ishnu-alah. I am told some things about you. I'll try not to believe all of them." },
     { id = "g_hello", text = "Ishnu-alah, and welcome. I am told that somebody ought to say so to each new face, and I have taken the duty upon myself." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, we have met. You are welcome again, and that is a shorter speech, you will be glad to hear." },
     { id = "g_young", when = { maxLevel = 8 }, text = "A new face in Shadowglen! Be welcome under the boughs. Has anyone yet shown you where the pool is, and where the grells are not?" },

@@ -720,6 +720,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_default", text = "If you seek travel to Auberdine in Darkshore, you have come to the right place." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. The boat is due soon, if you mean to travel." },
     { id = "g_nelf", when = { race = "NightElf" }, text = "Ishnu-alah. It is good to see a kaldorei face among so many strangers." },
@@ -1312,6 +1314,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "Elune's light on you, stranger. Stand a moment, if you like; the statues are better company than they look." },
     { id = "g_back", when = { metBefore = true }, text = "You return. The statues have not moved, if you were wondering." },
     { id = "g_druid", when = { class = "DRUID" }, text = "A child of the Circle, here among the stones. We are a long way from the moonwells, you and I." },
@@ -1596,6 +1600,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "Greetings, {class}. I can show you how to weave magic about yourself to change the appearance of your equipment, if you so desire." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Has your armour grown dull in your eyes already?" },
   },
@@ -1619,6 +1625,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, then. I am listening." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "How does it work?", next = "how" },
         { text = "Why would anyone want this?", next = "why" },
         { text = "What brings you to Stormwind?", next = "here" },

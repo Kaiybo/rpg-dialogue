@@ -453,6 +453,8 @@ P:NPC {
     third = "{name} met Swart, the shaman trainer at Razor Hill.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Welcome, friend. De wind be kind today, and so be de spirits." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome. De wind be dry. Learn, or go." },
     { id = "g_hi", text = "Welcome, mon. The wind be dry today, and it blew you in with de Barrens' red dust all over your boots." },
   },
   start = "hello",
@@ -552,6 +554,8 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue, come to a shaman's fire. The spirits don't mind you, but they always notice you, however quietly you walk." },
       },
       choices = {
+        { text = "De elements should be respected.", next = "BACK", reply = "Dey should, mon. You understand.", fx = { align = { light = 1 } } },
+        { text = "De elements should be commanded.", next = "BACK", reply = "Den dey won't answer you, mon.", fx = { align = { light = -1 } } },
         { text = "The elements must resent the shadow a priest draws on.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What do the spirits of Durotar say, Swart?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What do the spirits say of Durotar?", next = "land" },
@@ -601,6 +605,8 @@ P:NPC {
     third = "{name} met Tarshaw Jaggedscar, the warrior trainer at Razor Hill.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Stand easy, friend. You've earned it. What do you need?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Stand straight, recruit. Speak." },
     { id = "g_hi", text = "Stand straight when you come to my yard, recruit. An orc earns respect on his feet. Now, what is it?" },
   },
   start = "hello",
@@ -716,6 +722,8 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "You think you won't need my lessons, with whatever fights for you. You'll need to know how to stand when it goes down." },
       },
       choices = {
+        { text = "An orc earns respect on his feet.", next = "BACK", reply = "He does. You understand.", fx = { align = { honor = 1 } } },
+        { text = "Respect is taken, not earned.", next = "BACK", reply = "Then take it, and see how far you get.", fx = { align = { honor = -1 } } },
         { text = "Do you want a priest to heal your recruits mid-lesson?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "A shaman can stand in the front line, Tarshaw.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Could a druid hold a line beside your warriors, Tarshaw?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },

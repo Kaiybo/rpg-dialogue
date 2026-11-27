@@ -665,6 +665,8 @@ P:NPC {
     third = "{name} met Daisy, the timekeeper at the Mirage Raceway.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hey, hon! Step right up, you can watch from my spot. I trust you not to fall in." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hey! Step back from the line. I mean it, hon. Back." },
     { id = "g_main", text = "Hey! Step back from the line, hon, because the next lap's coming through, and I'm not paying for anybody's funeral." },
     { id = "g_back", when = { metBefore = true }, text = "You again! Watching the races, or getting in the way?" },
   },
@@ -823,6 +825,8 @@ P:NPC {
     third = "{name} met Wizzle Brassbolts of the gnome racing team at the Mirage Raceway.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Oh, hello, friend! You can hold the expensive wrench, I trust you with it. Careful, though." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Oh. Hello. Don't touch the expensive wrench. Don't touch anything." },
     { id = "g_main", text = "Oh, hello! Careful with that, that's a very expensive wrench, calibrated to a sixteenth of a turn!" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Have you come to see our new design?" },
   },

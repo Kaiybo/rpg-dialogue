@@ -520,6 +520,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Friend! I'd know your face in any crowd on this dock. Where are you bound today? I'll set you right." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Lost again? The boats are marked. Read the signs, and you won't need me." },
     { id = "g_hello", text = "Lost, friend? Everyone on this dock is lost for the first minute, and then I set them right." },
     { id = "g_back", when = { metBefore = true }, text = "Back on the boards, are you? Coming or going this time?" },
   },
@@ -538,6 +540,8 @@ P:NPC {
     landing = {
       lines = { { id = "la_default", text = "Every one, and I've a good memory for faces. Dwarves bound for the dig at Remtravel's, humans who stand and stare at the trees, and our own folk coming home from places they won't talk about. Gwennyth Bly'Leggonde stops half of them before they reach the town, to ask whether they'll look at what the sea has thrown up." } },
       choices = {
+        { text = "Auberdine should welcome every traveler who lands here.", next = "BACK", reply = "That's how I see it. Every face off the boat is a new story.", fx = { align = { light = 1 } } },
+        { text = "Too many strangers come through this dock. It should be watched.", next = "BACK", reply = "The Sentinels watch it well enough. I only point the way.", fx = { align = { light = -1 } } },
         { text = "What has the sea thrown up?", next = "landing2" },
         { text = "Something else.", next = "BACK" },
       },
@@ -644,6 +648,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, it's you. Good. Pull up a crate; I'll show ye a trick wi' the pick that I don't show the soft ones." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ye want to learn? Pay up and listen. I'll no' repeat myself today." },
     { id = "g_hello", text = "Ye want to learn the pick? Good, because nobody else in this soggy town does." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and with dirt on yer hands, I hope." },
   },
@@ -685,6 +691,8 @@ P:NPC {
     ore = {
       lines = { { id = "or_default", text = "Copper and tin in the hills along the road, and the odd seam of silver if ye're lucky and nobody's looking. The trouble is getting to it, because every other vein here has a tree growing out of it, and the elves get funny when ye take a pick near a tree." } },
       choices = {
+        { text = "Mining's honest work, whatever the elves think.", next = "BACK", reply = "Aye, it is. And the elves buy the copper all the same.", fx = { align = { honor = 1 } } },
+        { text = "Mining's just smashing rocks for coin.", next = "BACK", reply = "Then smash 'em yourself and see how far ye get without me.", fx = { align = { honor = -1 } } },
         { text = "Then I'll mine around the trees.", next = "ore_trees" },
         { text = "Silver, you said?", next = "ore_silver" },
         { text = "Something else.", next = "BACK" },
@@ -791,6 +799,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Oh, it's you! Mind the springs, though you always do. Come in, come in, I've a new gadget to show you!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hello. Mind the springs. And the cog. And please don't touch anything else." },
     { id = "g_hello", text = "Hello, hello! Mind the springs, they're loose, and so is the cog by your foot." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! I've adjusted the whistle on the kettle, so if it screams, that's a success." },
   },
@@ -833,6 +843,8 @@ P:NPC {
     why = {
       lines = { { id = "wh_default", text = "When Gnomeregan fell, those of us who got out went wherever there was a roof, and an elf captain offered me passage over the sea. I said yes before I'd thought about it, which is how I make most decisions, and how I make most explosions." } },
       choices = {
+        { text = "Gnomeregan will be retaken someday, mark my words.", next = "BACK", reply = "Oh, I hope so! Until then, I'll keep tinkering here.", fx = { align = { order = 1 } } },
+        { text = "Gnomeregan's gone. Better to build something new.", next = "BACK", reply = "Maybe, but it was home. Please mind the cog.", fx = { align = { order = -1 } } },
         { text = "Do you think Gnomeregan will be taken back?", next = "gnomeregan" },
         { text = "Something else.", next = "BACK" },
       },

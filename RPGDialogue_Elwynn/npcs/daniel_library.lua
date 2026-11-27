@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh! It's you! I've saved you a book, a really good one, and Brother Paxton doesn't even know it's missing." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. Hello. I'm, ah, very busy alphabetising, so if you could be quick, please." },
     { id = "g_shelf", text = "Oh! Sorry, I was just, ah, alphabetising. Can I help you find something?" },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Have you taken up a profession yet? You should, you know, everyone should." },
     { id = "g_inv", when = { questActive = TODO_QUEST("Book Inventory") }, text = "Brother Paxton sent you about the inventory, didn't he? I can tell by your face; he makes everyone look like that." },
@@ -116,6 +118,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're the only one who ever asks me about the books, and I really appreciate that. Really, I do." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You were unkind, and I keep thinking about it while I alphabetise, which slows me down terribly." },
+    },
     background = { { id = "tp_bg", text = "Assistant to Brother Paxton, keeper of the shelves, and the only person in Northshire who knows where the nearest tanner is." } },
     advice = { { id = "tp_ad", text = "Learn a trade early. You'll thank me when you're out of coin and full of copper ore." } },
     _none = { { id = "tp_none", text = "Hmm, that's not in any book I've counted. Brother Paxton might know, if you can catch him in a good mood." } },

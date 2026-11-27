@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, good. Come, stand by the bridge; I'll tell you what my scouts have seen." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. State your business, and keep your filth away from my guards." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "The Blackrock shadowcasters in those hills use the same filth you do, and they've killed three of my guards with it. Keep your hands where my men can see them." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "I've no welcome for a demon-caller in Lakeshire. State your business, and then get back across the bridge." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've killed more orcs for this town than I can count, so I'll stop counting your sins. I'm still watching what follows you, mind." },
@@ -176,6 +178,8 @@ P:NPC {
         { id = "h_again2", text = "Go on; I'm listening with one ear, and the other's on the bridge." },
       },
       choices = {
+        { text = "Lakeshire needs more soldiers, not more farmers.", next = "BACK", reply = "Soldiers need feeding, friend. Without the farmers, my guards would be eating their boots.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Lakeshire should arm its farmers and stop waiting for Stormwind.", next = "BACK", reply = "I've said the same in three letters to the Keep. They've not answered one.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Your gnolls are only hungry. Something drives them down from the hills.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What happened at Stonewatch?", next = "stonewatch" },
         { text = "How bad is it?", next = "bad" },
@@ -333,6 +337,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You've served Lakeshire well, and I'll say so to Stormwind." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've given me cause to doubt you, and my guards have died for less." },
+    },
     second_war = { { id = "tp_second_war", text = "I was a sergeant in the Second War, and I watched orcs take hills like these in an afternoon. I'm not ashamed to say the Blackrock frighten me, because a soldier who isn't frightened of them hasn't been paying attention." } },
     blackrock_spire = { { id = "tp_blackrock_spire", text = "Tharil'zun's orders come down from that black mountain to the north, I'm sure of it, and the mountain has more orcs than Stormwind has soldiers. I'd like a hundred men to hold the passes, and I'd settle for fifty." } },
     bolvar = { { id = "tp_bolvar", text = "I've written to the Highlord three times, and the replies are courteous and empty. I don't blame him, because I know what's on his desk, but I wish Redridge were nearer the top of it." } },

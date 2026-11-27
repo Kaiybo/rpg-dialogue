@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Come in; I've a new plan for the city, and I'd value your eye." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I've plans to draw, and little time for you." },
     { id = "hum_g1", when = { race = "Human" }, priority = 5,
       text = "A Stormwind citizen in the Architect's office, and not to complain about a drain, I hope. Sit, if you can find a chair under the plans." },
     { id = "hum_g2", when = { race = "Human", npcFlagBefore = "baros_hu_soft" }, priority = 10,
@@ -471,6 +473,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You understand stone, and the people who build with it. Rare, in this city." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've done little for this city, and less for me." },
+    },
     kaldorei = { { id = "tp_kaldorei", text = "They grow their buildings instead of raising them, which I find marvellous and slightly insulting. And they won't sell a single Ashenvale oak, not even to their allies." } },
     the_stockade = { { id = "tp_the_stockade", text = "The prisoners have taken the Stockade, and I'm told Bazil Thredd is among the ringleaders. He was a stonemason once, and I knew him, and that is the sort of thing a man keeps to himself in this city." } },
     valley_of_heroes = { { id = "tp_valley_of_heroes", text = "I drew the plans for the Valley of Heroes, or some of them, and I still walk under the arches to see if they've settled. They haven't, and I'm prouder of that than I should be." } },

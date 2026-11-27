@@ -179,6 +179,12 @@ P:Thread {
       fx = { thread = { id = "both_shores", beat = "b1_corithras", state = "stirring" }, learn = { "teldrassil" } },
     },
     {
+      id = "b1_corithras_nightelf", npc = "corithras",
+      when = { race = "NightElf", faction = "Alliance", thread = { id = "both_shores", notBeat = "b1_corithras" } },
+      text = "You know the taste of a clean moonwell, {g:brother|sister}, cold and starlight and nothing else. One of ours tastes faintly of something more, and the Gnarlpine began to change that same season, and I have lived too long to believe in coincidence.",
+      fx = { thread = { id = "both_shores", beat = "b1_corithras", state = "stirring" }, learn = { "teldrassil" } },
+    },
+    {
       id = "b2_athridas", npc = "athridas",
       when = { faction = "Alliance", questDone = TODO_QUEST("Gnarlpine Corruption"), thread = { id = "both_shores", notBeat = "b2_athridas" } },
       text = "Ursal, their own chieftain, fed them the Fel Moss, and they ate it because they trusted him, and that is how a gentle people becomes a raiding one in a single season. What I cannot answer is where a furbolg found fel anything on a tree we grew ourselves, and I would rather not be the only one asking.",

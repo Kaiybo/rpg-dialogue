@@ -149,6 +149,8 @@ P:NPC {
     third = "{name} met Denni'ka, the troll butcher at Malaka'jin.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hey, mon, my friend! Denni'ka save the best cut for you, fresh from the hunt, no extra charge." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hungry, mon? Meat's fresh, mostly. Pay first, then eat. Denni'ka not trust you yet." },
     { id = "g_hi", text = "Hungry, mon? Denni'ka got meat fresh from the hunt, and only a little bit of spider in it." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more? I knew you'd come back, they always do." },
     { id = "g_back2", when = { metBefore = true }, text = "You came back, mon! And the spiders didn't get you, so dat's two good things." },
@@ -311,6 +313,8 @@ P:NPC {
     third = "{name} met Veenix, a Venture Company weapons merchant at Windshear Crag.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, my favorite customer! The Venture Company appreciates loyalty, pal. Here's a discount." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome to Venture Company territory. Don't touch the machinery, and don't touch me." },
     { id = "g_hi", text = "Welcome to Venture Company territory, friend! Don't mind the noise, that's just progress. You buyin'?" },
     { id = "g_back", when = { metBefore = true }, text = "Hey, a repeat customer! The Company loves a repeat customer. What broke?" },
     { id = "g_away", when = { away = 14 }, text = "{away} since your last purchase, pal. That's a long time to go under-equipped in these hills." },
@@ -467,6 +471,8 @@ P:NPC {
     third = "{name} met Nizzik, a Venture Company armour salesman at the Cragpool waterwheel.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hey, hey, friend! Genuine Company armor, and for you, the real genuine kind!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hey. Over here, mind the gap. Armor, if you want it. Pay up front, though." },
     { id = "g_hi", text = "Hey! Hey, over here, mind the gap! Armour, friend, genuine Company armour, and ya look like ya could use some." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and nobody followed ya, so that's a good day already! What'll it be?" },
     { id = "g_away", when = { away = 14 }, text = "{away}, pal, and I'm still on this stinkin' platform. Buy somethin', make my day." },

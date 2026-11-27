@@ -15,6 +15,8 @@ P:NPC {
     third = "{name} met Tuu'li, a Darkspear showman who calls himself a Magnificent Mystic, trading with a goblin partner at the edge of Stonetalon.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Come close, friend! Tuu'li sees good things in your future, and good prices too." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Tuu'li sees all, mon, and what he sees in you, he not like so much." },
     { id = "g_default", text = "Come close, come close! Tuu'li sees all, mon, and what he sees right now is a customer." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, the spirits said you would return, mon. Well, Xaphod said so, but the spirits agreed." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The stars are out, mon, and the mystic is at his most magnificent. Step up!" },
@@ -128,6 +130,8 @@ P:NPC {
     third = "{name} met Xaphod Bizznox, a Booty Bay goblin trading picks and a white kitten at the edge of Stonetalon.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hey, pal, my best customer! Picks, hammers, packs, and the cute one is yours at a discount!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hey, pal. Picks, hammers, packs. Full price, and the cute one's not for sale to you." },
     { id = "g_default", text = "Hey, hey, pal, step right up! Picks, hammers, packs, and one very cute kitten, and every one of 'em is a bargain." },
     { id = "g_back", when = { metBefore = true }, text = "My favorite customer! Well, top ten. Come back to buy the kitten?" },
     { id = "g_alliance", when = { faction = "Alliance" }, text = "Alliance coin spends just like Horde coin, pal, so come right on in, nobody here's checking colors." },

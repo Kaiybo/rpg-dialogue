@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ha! It's you! Hop on, and I'll give ye a ride on Trollplow, treads an' all!" },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Mind the treads, and mind yer business." },
     { id = "g_depot", text = "Mind the treads, {g:lad|lass}! Trollplow doesn't stop fer pedestrians." },
     { id = "g_back", when = { metBefore = true }, text = "Ha! Back fer more, are ye? Good; I like a face that comes back." },
     { id = "g_den", when = { questActive = TODO_QUEST("The Grizzled Den") }, text = "Been tae the Grizzled Den yet? Those wendigos are fierce, so bring me their manes an' keep yer own hide in one piece." },
@@ -157,6 +159,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "Ye've got guts, {g:lad|lass}, an' I like guts. Trollplow likes ye too, I can tell." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "Ye've been a pain in my treads, an' Trollplow doesn't stop fer pains." },
+    },
     background = { { id = "tp_bg", text = "Siege Brigade, since I was old enough tae lift a shell. Trollplow's my third engine an' my favourite." } },
     advice = { { id = "tp_ad", text = "Nerves o' steel an' an iron grip. If ye've got one, work on the other." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "The Trollplow was built from parts we salvaged from Gnomeregan, an' I'd love tae drive her back intae the city an' see what the troggs make o' her. She's got a big enough cannon fer it." } },

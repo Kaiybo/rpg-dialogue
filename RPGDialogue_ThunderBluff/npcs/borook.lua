@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Well, well, friend. You came up this rock again. Good. Sit, and tell me what you need." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Well, well. You came all the way up again. What do you want this time?" },
     { id = "g_default", text = "Well, well. You come all the way up this rock to fight for the Horde on the Darkspear Islands, or just to look at a troll?" },
     { id = "g_low", when = { maxLevel = 29 }, text = "Sorry, {class}, but you not ready for the islands yet. Go and get a few more fights behind you, then climb back up here." },
     { id = "g_back", when = { metBefore = true, minLevel = 30 }, text = "You again. Good, the islands need you more than Borook needs the company, but he'll take both." },

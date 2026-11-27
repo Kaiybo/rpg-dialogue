@@ -13,6 +13,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You. Sit. Durgan would have liked you, I think." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "I stood beside Durgan. You would not have." },
     { id = "g_durgan_resolved", when = { class = "HUNTER", thread = { id = "hun_alliance", state = "resolved" } }, text = "I stood beside Durgan on the dock when he did it, and he sang to the bear the whole time. Thank you for telling me to go." },
     { id = "g_durgan_soured", when = { class = "HUNTER", thread = { id = "hun_alliance", state = "soured" } }, text = "Shadow still looks for Slate when we pass the Auberdine boat. I try not to think about what Durgan looks for." },
     { id = "g_hello", text = "Shadow's decided you're harmless. I'll take her word for it, for now." },
@@ -74,6 +76,8 @@ P:NPC {
         { id = "h_again3", text = "Shadow's put her head back down, so I suppose you're staying. Go on." },
       },
       choices = {
+        { text = "Mercy toward a beast is the kaldorei way.", next = "BACK", reply = "It is. Durgan understood that.", fx = { align = { light = 1 } } },
+        { text = "A beast that attacks deserves to die.", next = "BACK", reply = "Then you would have killed the bear. Go.", fx = { align = { light = -1 } } },
         { text = "Thundris says Slate growls at Durgan longer every night.", next = "durgan_end",
           when = { class = "HUNTER", thread = { id = "hun_alliance", beat = "b2_dorion", state = "unfolding" },
                    any = { { thread = { id = "hun_alliance", beat = "b3_thundris" } }, { thread = { id = "hun_alliance", beat = "b3_daera" } } } } },

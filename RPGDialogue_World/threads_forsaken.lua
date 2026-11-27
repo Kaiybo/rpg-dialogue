@@ -42,6 +42,12 @@ P:Thread {
       fx = { thread = { id = "new_plague", beat = "b1_johaan", state = "stirring" }, learn = { "new_plague" } },
     },
     {
+      id = "b1_johaan_scourge", npc = "johaan",
+      when = { race = "Scourge", minLevel = 6, thread = { id = "new_plague", notBeat = "b1_johaan" } },
+      text = "A new plague, friend, made by our own hands, and you'll understand better than any living fool why that pleases me. Every bottle I fill in Brill goes on to the Master Apothecary, and when it's finished the Scourge will learn how it feels to rot from the inside.",
+      fx = { thread = { id = "new_plague", beat = "b1_johaan", state = "stirring" }, learn = { "new_plague" } },
+    },
+    {
       id = "b2_renferrel", npc = "renferrel",
       when = { any = { { thread = { id = "new_plague", beat = "b1_johaan" } }, { questActive = TODO_QUEST("Delivery to Silverpine Forest") } },
                ["not"] = { thread = { id = "new_plague", beat = "b2_renferrel" } } },

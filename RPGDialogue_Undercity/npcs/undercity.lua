@@ -1795,6 +1795,11 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are! Sit down, and I'll bring the good stuff before the others see." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Pay first, if you please. I've learned that much about you." },
+    { id = "dp_pt_living", when = { party = { race = { "Orc", "Troll", "Tauren" } } }, text = "Your living friends will want food, I suppose. There's bread somewhere, though I can't promise when it was baked." },
+    { id = "dp_pt_any", when = { party = true }, text = "You've brought company down into the dark. How brave of them, or how unwise; I'll let them decide which." },
+    { id = "dp_rep_uc", when = { rep = { faction = "Undercity", min = "Exalted" } }, text = "The Dark Lady's servants speak your name with something close to warmth, and down here, that's the highest honour there is." },
     { id = "g_rest", text = "Sit yourself down and put your feet up, whatever state they're in. Mine have seen better centuries." },
     { id = "g_home", when = { homeInn = { "Undercity" } }, text = "Back under the city, then. Your bed's where you left it, and so's the damp." },
     { id = "g_away", when = { away = 14 }, text = "Back under the city after {away}, then. Your chair's still where you left it, and nobody's taken it, because nobody takes anyone's chair down here." },

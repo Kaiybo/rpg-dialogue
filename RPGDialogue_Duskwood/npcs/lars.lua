@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Friend! Sit by the fire; I've saved you a rabbit, and the snare only took a little of my finger this time." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Mind the snare, and mind your manners too, while you're at it." },
     { id = "g_camp", text = "Mind the snare by the log, friend. It's for rabbits, but it isn't fussy." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Did you bring meat, or are you hoping I did?" },
     { id = "g_wolves", when = { questActive = TODO_QUEST("Wolves at Our Heels") }, text = "Still hunting wolves? I can hear them, so I'd say you've a few left." },
@@ -107,6 +109,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're good company, friend, and Sven says so too, though he'd never say it to your face." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been short with me, and I'm the friendly one in this camp. Ask Sven how rare that is." },
+    },
     background = { { id = "tp_bg", text = "I hunt, I cook, and I keep Sven company. It's not much of a story, but it's mine." } },
     advice = { { id = "tp_ad", text = "Carry the meat on your back, not in your hand. A wolf goes for the hand first." } },
     morbent_fel = { { id = "tp_morbent", text = "Sven's business, mostly, though I'd not weep if somebody finished him.", next = "necro" } },

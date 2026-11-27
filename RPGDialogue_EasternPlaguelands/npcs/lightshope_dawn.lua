@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_rep_ad_r", when = { rep = { faction = "Argent Dawn", min = "Revered" } }, text = "The Light shines brightly on you, and the Dawn knows it. I'm glad you've come." },
     { id = "g_vigil", text = "Few come down here with their eyes open, and fewer still can see me. Be welcome, and speak softly; the stones remember everything." },
     { id = "g_back", when = { metBefore = true }, text = "You've come down to the crypt again. I'm glad, for the living bring warmth even when they don't intend to." },
     { id = "g_trial", when = { questActive = TODO_QUEST("The Balance of Light and Shadow") }, text = "The frightened ones are waiting on the road. Heal them and guard them both, and don't let pride tell you that one hand is enough." },
@@ -188,6 +189,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_rep_ad_h", when = { rep = { faction = "Argent Dawn", min = "Honored" } }, text = "The Dawn's grateful for your work, and I've put a little something aside in the stores for one of our honoured." },
     { id = "g_default", text = "Quartermaster's stores. If ye're here tae browse, ye can browse wi' yer eyes, because the Dawn's goods are for the Dawn's friends." },
     { id = "g_stranger", when = { reputation = { faction = "Argent Dawn", max = "neutral" } }, text = "I don't know yer face, an' neither does the Dawn yet. Bring in some scourgestones, help the officers, an' come back when they've heard yer name." },
     { id = "g_honored", when = { reputation = { faction = "Argent Dawn", min = "honored" } }, text = "There's a face the officers speak well of! Come in, come in, an' see what the chapel can spare for ye." },
@@ -214,6 +218,8 @@ P:NPC {
           text = "I'll tell ye what I tell every young soldier who brags: the dead don't stay down because ye're proud of yerself. They stay down because ye were careful." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'm proud of it all the same. I've earned it.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Fair enough. I'll be careful and keep at it.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Something else, Quartermaster.", next = "BACK" },

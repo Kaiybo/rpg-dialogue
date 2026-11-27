@@ -697,6 +697,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
     { id = "g_fish", text = "Now then. You've the look of somebody who needs to sit by the water awhile." },
   },
 
@@ -717,6 +719,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Only when the tide turns and the harbour noise gets in. Mostly they're like me, in no hurry, and that's the whole secret of it." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Patience catches more than force ever will, Arnold.", next = "BACK", reply = "That it does, and the fish will agree with you. Sit down a while.", fx = { align = { order = 1 } } },
         { text = "Sometimes you have to rush the water to get anything.", next = "BACK", reply = "Then you'll scare off everything in the canal. Try it my way first.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -884,6 +888,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_beg", text = "Could ye spare a coin, friend? Just the one, for a poor man down on his luck." },
   },
 
@@ -1084,6 +1090,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hello again! You're my favourite grown-up, but don't tell my mum." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Go away. I don't like you very much." },
     { id = "g_fish", text = "Hey! Hey, do you wanna hear about the biggest fish ever? It's true, I swear!" },
   },
 

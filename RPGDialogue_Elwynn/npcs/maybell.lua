@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, it's you! I'm so glad; I've been dying to talk to someone, very quietly, of course." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh no, it's you. Please, just go away before someone at the house sees you." },
     { id = "g_hush", text = "Shh, not so loud, please! They'll hear you up at the house." },
     { id = "g_news", when = { questActive = TODO_QUEST("Young Lovers") }, text = "Did you find Tommy Joe? Oh, tell me he's all right." },
     { id = "g_after", when = { questDone = TODO_QUEST("The Escape") }, text = "Oh! It's you, hello. I'm not blushing, it's only the sun." },
@@ -336,6 +338,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're such a good friend, keeping my secret and all, and I'll never forget it." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been unkind to me, and I've got enough trouble with my family already." },
+    },
     knows = {
       { id = "tp_knows", text = "I don't get much past the vineyard, but you'd be surprised what people say over the grapes. Ask me about any of this, only quietly, please." },
     },

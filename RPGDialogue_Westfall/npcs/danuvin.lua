@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Good. Sentinel Hill is safer with you about." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "State your business, and quickly." },
     { id = "hum_g1", when = { race = "Human" }, priority = 5,
       text = "Another one from the city. I'll judge you by the patrol and not the accent, but I'll warn you now that the accent starts you behind." },
     { id = "hum_g2", when = { race = "Human", npcFlagBefore = "danuvin_hu_soft" }, priority = 10,
@@ -351,6 +353,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You've served the Militia well, and Gryan says so too." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've given the Militia cause to doubt you. Mend it." },
+    },
     deadmines = { { id = "tp_deadmines", text = "The Defias have dug themselves into the old Moonbrook mine, and the scouts call it the Deadmines now. I'd send the militia in tomorrow if I thought a single farmer would come back out of it." } },
     stonemasons = { { id = "tp_stonemasons", text = "The Defias started as masons the nobles wouldn't pay, and I'll grant them the grievance. What I won't grant them is my neighbours' farms, which is what they took for it." } },
     bolvar = { { id = "tp_bolvar", text = "The Highlord sends us his sympathy and not a single sword, and I'm tired of reading sympathy by lamplight. Gryan says he's a good man, so I'll leave it there." } },

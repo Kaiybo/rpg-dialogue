@@ -18,6 +18,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_rep_ad_h", when = { rep = { faction = "Argent Dawn", min = "Honored" } }, text = "Ishnu-alah. The Dawn honours you, and I'm glad to have one of our own beside me in these waters." },
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ishnu-alah, my friend. Seeing a friendly face in these dark waters lifts my heart more than I can say." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep your voice down and your business short; the Deeps are dangerous enough without distractions." },
     { id = "g_default", text = "Ishnu-alah, traveler. Step softly here, because the water carries every sound down to the ones who worship below." },
     { id = "g_quest", when = { questActive = TODO_QUEST("Blackfathom Villainy") }, text = "Kelris still draws breath, then. Go deeper, and bring me proof that the Twilight Lord's prayers have ended." },
     { id = "g_done", when = { questDone = TODO_QUEST("Blackfathom Villainy") }, text = "Since Kelris fell, the chanting from below has thinned. It hasn't stopped, but I can sleep an hour at a time now." },
@@ -109,6 +112,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You carry yourself like one of the Dawn, whether you wear our colours or not. I'm glad to fight beside you." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been careless with me and with this place. The Dawn expects better, and so do I." },
+    },
     twilights_hammer = { { id = "tp_th", text = "The Twilight's Hammer, cultists who pray for the end of the world.", next = "hammer" } },
     _none = { { id = "tp_none", text = "I'm sorry, but my mind is on the water. Ask me again somewhere drier." } },
   },

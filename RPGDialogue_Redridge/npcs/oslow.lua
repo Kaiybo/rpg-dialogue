@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Come, I'll show you the bridge plans; the real ones, not the folding ones." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. If you've a plan for a bridge, take it elsewhere." },
     { id = "g_prej", when = { prejudiced = true }, text = "A gnome. If you're from the Tinker Town office with another plan for a bridge that folds up and walks away, the answer's still no, and I'll thank you not to measure anything." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Ah, it's you. I was wrong about gnomes, or about one of them at least, and I've told my lads to stop calling the leaning post 'the Gnomeregan'." },
     { id = "g_busy", text = "Unless you're carrying a hammer, keep walking." },
@@ -346,6 +348,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You've a builder's eye, and a builder's patience. Rare things, both." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been no help with my bridge, and I need help, not hindrance." },
+    },
     thandol_span = { { id = "tp_thandol_span", text = "The dwarves built the Thandol Span in stone and iron without a foreman shouting at them, they say, which is how I know it's a legend. I'd have finished my own bridge by now if I had their stone and half their patience." } },
     stonemasons = { { id = "tp_stonemasons", text = "The Stonemasons' Guild built half of Stormwind and was cheated out of the pay, and I lost good men to that business. I kept my lads honest by keeping them busy, and the Everstill Bridge is still not done, so it's working." } },
     deadmines = { { id = "tp_deadmines", text = "They say the Defias have dug themselves a hideout in the old Moonbrook mines and built a whole ship inside it. That's the sort of engineering I'd admire if it weren't done by thieves with my old crew in their ranks." } },

@@ -129,6 +129,8 @@ P:NPC {
     third = "{name} met Karn Stonehoof, the blacksmithing trainer of Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Come stand by the anvil, friend. You're not afraid of the sparks, and I like that." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come stand by the anvil, and mind the sparks. They don't much like you." },
     { id = "g_hi", text = "Come and stand by the anvil, and don't be afraid of the sparks, because they're more frightened of you." },
   },
   notice = {
@@ -348,6 +350,8 @@ P:NPC {
     third = "{name} met Bulrug, the stable master of Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend! Mind the kodo, but she likes you. She won't bite you, I promise." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind the kodo on your left. She bites when she's bored, and when she's annoyed." },
     { id = "g_hi", text = "Mind the kodo on your left, she bites when she's bored, and she's always bored." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter, and a companion with you. Bring your friend over and let me have a look." },
   },

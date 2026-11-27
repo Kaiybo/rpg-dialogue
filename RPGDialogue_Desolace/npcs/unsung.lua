@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "There you are! I put aside rope and bandages for you. And yes, twice the water." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Water, rope, bread, torches. What'll it be? Quickly." },
     { id = "g_shop", text = "Water, rope, bread and torches, the four things you'll miss most down there. What'll it be?" },
     { id = "g_back", when = { metBefore = true }, text = "You made it back up the mountain! That's more than some can say." },
   },
@@ -135,6 +137,8 @@ P:NPC {
         { id = "h_again2", text = "Go on and ask; I've nothing but time up here on the ridge." },
       },
       choices = {
+        { text = "Good preparation keeps a traveler alive.", next = "BACK", reply = "Exactly. Most think they'll manage. Most don't.", fx = { align = { order = 1 } } },
+        { text = "I'll travel light and figure it out.", next = "BACK", reply = "Then you'll figure out how thirsty you can get. Buy something or don't.", fx = { align = { order = -1 } } },
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "What do I need for Desolace?", next = "need" },
         { text = "Keeping shelves stocked out here can't be easy.", next = "stock" },
@@ -217,6 +221,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "There you are, dear! Sit down; the bread is warm, and I won't let you go hungry." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Bread's warm. Pay first, please, and then you can go." },
     { id = "g_kitchen", text = "Bread's warm and the water's clean, which is more than you'll find down the mountain, dear." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, you're back! Come in and eat something; you look like Desolace chewed you up." },
   },
@@ -339,6 +345,8 @@ P:NPC {
         { id = "h_again2", text = "What else can I get you, dear, while the dough rises?" },
       },
       choices = {
+        { text = "A warm meal is worth more than gold.", next = "BACK", reply = "Oh, it is, dear. Sit, and I'll show you.", fx = { align = { light = 1 } } },
+        { text = "Food's just fuel for the next fight.", next = "BACK", reply = "Then you've never had my bread. Pay and go.", fx = { align = { light = -1 } } },
         { text = "Does anything still grow in Desolace?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Let me see the food.", next = "BUSINESS" },
         { text = "Baking bread out here must take some doing.", next = "bread" },

@@ -114,6 +114,8 @@ P:NPC {
     third = "{name} met Erik Felixe, a Stormwind traveller camped on the Feralas coast.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hello again! Paige, look who it is! Sit, sit, rest your feet with us." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Oh, hello. We're resting. Perhaps another time." },
     { id = "g_default", text = "Hello there! Don't mind us, we're only resting our feet. Paige says I've walked her halfway round Kalimdor." },
   },
   start = "hello",
@@ -122,6 +124,8 @@ P:NPC {
       lines = { { id = "h_default", text = "We sailed over from Stormwind to see the world while we're young enough to enjoy it. The elves at Feathermoon think we're mad, and they may be right." } },
       again = { { id = "h_again", text = "Anything else? Paige has the map, but I've the stories." } },
       choices = {
+        { text = "Seeing the world while you're young is wise.", next = "BACK", reply = "That's what I keep telling Paige! Thank you!", fx = { align = { light = 1 } } },
+        { text = "You should go home before something eats you.", next = "BACK", reply = "Paige says the same. Perhaps you're both right.", fx = { align = { light = -1 } } },
         { text = "Do you ever miss home?", next = "yeri_home" },
         { text = "Why Feralas, of all places?", next = "why" },
         { text = "It's dangerous out here.", next = "danger" },
@@ -224,6 +228,8 @@ P:NPC {
     third = "{name} met Paige Felixe, a Stormwind traveller in Feralas.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Oh, it's you. Good. Erik hasn't talked you into anything, has he? Sit, then." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "If Erik has talked you into anything, don't. And please don't talk to me." },
     { id = "g_default", text = "If Erik has talked you into anything, don't do it. Now, how can I help?" },
   },
   notice = {
@@ -236,6 +242,8 @@ P:NPC {
       lines = { { id = "h_default", text = "Erik wanted adventure, so here we are, sleeping under a tree the size of a cathedral. I wanted a cottage in Goldshire, but I lost that argument on the ship." } },
       again = { { id = "h_again", text = "What else, dear?" } },
       choices = {
+        { text = "A cottage in Goldshire sounds like a fine life.", next = "BACK", reply = "It does, doesn't it? Someday, perhaps.", fx = { align = { order = 1 } } },
+        { text = "Adventure beats a cottage any day.", next = "BACK", reply = "Erik says that too. Look where it got us.", fx = { align = { order = -1 } } },
         { text = "What would your cottage in Goldshire be like?", next = "ypai_cottage" },
         { text = "Where are you headed next?", next = "next" },
         { text = "Do you regret coming?", next = "regret" },
@@ -458,6 +466,8 @@ P:NPC {
     third = "{name} found the Homing Robot OOX-22/FE in Feral Scar Vale.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Bzzt. Friend identified. Distress mode lowered. This unit is pleased to see you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Bzzt. Distress mode active. Your threat level has been noted." },
     { id = "g_default", text = "Bzzt. Distress mode active. This unit has experienced an unscheduled landing. Please contact Oglethorpe Obnoticus of Booty Bay." },
   },
   start = "hello",
@@ -466,6 +476,8 @@ P:NPC {
       lines = { { id = "h_default", text = "Homing Robot OOX-22/FE reporting. My flight systems are damaged, and my homing beacon is pointing directly at that cave full of yetis, which I consider a design flaw." } },
       again = { { id = "h_again", text = "Bzzt. Awaiting further input." } },
       choices = {
+        { text = "Machines should be repaired, not abandoned.", next = "BACK", reply = "Bzzt. Affirmative. This unit agrees completely.", fx = { align = { light = 1 } } },
+        { text = "A broken robot belongs in the scrap pile.", next = "BACK", reply = "Bzzt. Negative. This unit objects.", fx = { align = { light = -1 } } },
         { text = "Does Oglethorpe build many chickens?", next = "yoox_many" },
         { text = "Can you walk?", next = "walk" },
         { text = "Who built you?", next = "maker" },
@@ -691,6 +703,8 @@ P:NPC {
     third = "{name} met Caryssia Moonhunter, the tribal leatherworking trainer at Thalanaar.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Elune's light on you, friend. Sit; I will teach you the old way gladly." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Elune's light. Speak, if you must, and then go." },
     { id = "g_default", text = "Elune's light on you, traveller. If you work leather, you may find what I teach worth the walk." },
   },
   notice = {
@@ -703,6 +717,8 @@ P:NPC {
       lines = { { id = "h_default", text = "Tribal leatherworking is the old way, honouring the beast in what is made from it. Our druids and hunters wore such things before your kingdoms had names." } },
       again = { { id = "h_again", text = "Ask what you would, traveller." } },
       choices = {
+        { text = "Honouring the beast is the heart of tribal leathercraft.", next = "BACK", reply = "It is. You understand the old way.", fx = { align = { honor = 1 } } },
+        { text = "Old crafts don't matter now. Only what works.", next = "BACK", reply = "Then you will make nothing that lasts.", fx = { align = { honor = -1 } } },
         { text = "What happens to a crafter who dishonours the beast?", next = "ycar_dishonour" },
         { text = "How is it different from other leatherworking?", next = "diff" },
         { text = "Why teach here at Thalanaar?", next = "here" },
@@ -802,6 +818,8 @@ P:NPC {
     third = "{name} met Rendow, the leather armour merchant at Thalanaar.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Well met, friend. I've leather set aside that will suit your journey well." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Well met. Leather armour. Buy or move on." },
     { id = "g_default", text = "Well met. If you are heading into the Needles or the deep forest, you will want something better than what you are wearing." },
   },
   notice = {
@@ -816,6 +834,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I sell leather armour, made by the hunters and crafters of the outpost. I also stand a watch when the Sentinels are short, which lately is often." } },
       again = { { id = "h_again", text = "Anything else? Be quick, I may be called to the wall." } },
       choices = {
+        { text = "Standing watch is a worthy duty.", next = "BACK", reply = "It is, though I would rather sell armour.", fx = { align = { order = 1 } } },
+        { text = "The Sentinels should find their own guards.", next = "BACK", reply = "They try. There are not enough of them.", fx = { align = { order = -1 } } },
         { text = "How did your leg break?", next = "yren_leg" },
         { text = "Why are the Sentinels short?", next = "short" },
         { text = "What is Thalanaar for?", next = "outpost" },
@@ -920,6 +940,8 @@ P:NPC {
     third = "{name} met Brienna Starglow, a priestess who sells tailoring supplies at Thalanaar.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Elune-adore, friend. A blessing for you, and thread at a kind price." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Elune-adore. Thread and cloth. That is all." },
     { id = "g_default", text = "Elune-adore, traveller. Thread and cloth on this side, and a blessing on the other, if you want one." },
   },
   notice = {
@@ -932,6 +954,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I keep the outpost in thread and dye, and I tend the moonwell when the others are on patrol. It is quiet work, and I am glad of it." } },
       again = { { id = "h_again", text = "What else, traveller?" } },
       choices = {
+        { text = "Tending the moonwell is sacred work.", next = "BACK", reply = "It is. Thank you for honouring it.", fx = { align = { light = 1 } } },
+        { text = "A moonwell is only water.", next = "BACK", reply = "It is not. Please, take your thread and go.", fx = { align = { light = -1 } } },
         { text = "Was the Raynewood Retreat your home?", next = "ybri_rayne" },
         { text = "A priestess selling thread?", next = "priestess" },
         { text = "Tell me about the moonwell.", next = "well" },
@@ -1027,6 +1051,8 @@ P:NPC {
     third = "{name} met Miblon Snarltooth, the gnoll guarding an Evoroot nursery in Feralas.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Grumble. Oh, it is you. Miblon is less hungry when you are here. You may pass." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Grumble, grumble. Go away. Miblon does not like you." },
     { id = "g_default", text = "Grumble, grumble. Go away. Miblon guards the door, and Miblon is hungry." },
   },
   start = "hello",
@@ -1035,6 +1061,8 @@ P:NPC {
       lines = { { id = "h_default", text = "Miblon watches the plants behind the door. Nobody brings Miblon food, nobody brings Miblon relief, so Miblon stands here and grumbles." } },
       again = { { id = "h_again", text = "Still here? Miblon is still hungry." } },
       choices = {
+        { text = "Miblon guards the door well.", next = "BACK", reply = "Miblon does! Somebody notices, at last.", fx = { align = { order = 1 } } },
+        { text = "Miblon should leave this door and find food.", next = "BACK", reply = "Miblon cannot leave. Go away.", fx = { align = { order = -1 } } },
         { text = "Has Miblon always lived in Feralas?", next = "ymib_always" },
         { text = "What's behind the door?", next = "door" },
         { text = "What would you eat, if you could?", next = "food" },

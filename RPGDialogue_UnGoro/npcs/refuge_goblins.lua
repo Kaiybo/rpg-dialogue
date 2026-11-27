@@ -262,6 +262,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Psst, my friend! I've something special just for you, and I'll knock a bit off for a pal like you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Psst, no. Nothing for you today. Or maybe something. At a price." },
     { id = "g_default", text = "Psst, friend, over here, out of the scientists' earshot. You look like somebody who appreciates an opportunity." },
     { id = "g_back", when = { metBefore = true }, text = "My favourite customer, back again! Well, one of 'em; I've got several favourites, and you're near the top." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, huh? I figured you were dinosaur dinner and I was already writing off your account, pal." },
@@ -378,6 +380,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome, welcome, my friend! For you, a sword sharp enough to make the devilsaurs nervous, and cheap!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Step right up. Prices are as marked, plus a little extra, just for you." },
     { id = "g_default", text = "Welcome, welcome, step right up! Nothin' sells a sword like a crater full of things that want to eat ya." },
     { id = "g_worn", when = { durability = { max = 0.3 } }, text = "Whoa, buddy, that blade's held together with spit and hope. Let's get you something with an edge before a raptor notices." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away}, and still got both arms! That's good for you, and good for business, because you need arms to swing a sword." },

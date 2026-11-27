@@ -16,6 +16,8 @@ P:NPC {
     third = "{name} met Rokar Bladeshadow, an aged orc who farms a small plot east of Razorwind Canyon.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Mind the rows, friend, though you always do. Come and see what grew this season." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind the rows. Two seasons of work. Don't ruin them." },
     { id = "g_default", text = "Mind the rows, {class}. It took me two seasons to coax anything green out of this dirt, and I'll not have it trampled in an afternoon." },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "You walk on the outside of your feet, young one. I know who teaches that, and I know you didn't come here for vegetables." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and you kept to the path this time. Harroc could learn from you." },
@@ -33,6 +35,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, {class}. The weeds will wait, though not for long." },
       },
       choices = {
+        { text = "Farming this dirt takes real strength.", next = "BACK", reply = "It does. More than any battle I fought.", fx = { align = { honor = 1 } } },
+        { text = "Farming is no work for a warrior.", next = "BACK", reply = "I was a warrior. Now I'm a farmer. Mind the rows.", fx = { align = { honor = -1 } } },
         { text = "Every other farm I've passed keeps pigs.", next = "pigs" },
         { text = "Bladeshadow isn't a farmer's name.", next = "name" },
         { text = "Is it safe out here, so far from Razor Hill?", next = "safe" },
@@ -114,6 +118,8 @@ P:NPC {
     third = "{name} met Harroc, the farmhand who works Rokar Bladeshadow's garden.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hail, friend! Rokar's at the front, but I'll talk with you gladly." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hail. Rokar's at the front. Go talk to him." },
     { id = "g_default", text = "Hail, {class}. If you're looking for the old one, he's at the front, and if you're looking for work, there's a second shovel." },
     { id = "g_war", when = { class = "WARRIOR" }, text = "That's a real axe you've got. I swing a hoe all day and tell myself it's the same motion, and it isn't." },
     { id = "g_back", when = { metBefore = true }, text = "You came back! Nobody comes back out here, except the lizards." },
@@ -131,6 +137,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I like the company." },
       },
       choices = {
+        { text = "Digging the fields is honest work.", next = "BACK", reply = "It is, though I'd rather fight sometimes.", fx = { align = { honor = 1 } } },
+        { text = "You should be fighting, not digging.", next = "BACK", reply = "Maybe. But Rokar needs me here.", fx = { align = { honor = -1 } } },
         { text = "What grows in ground like this?", next = "grow" },
         { text = "You'd rather be a grunt, I think.", next = "grunt" },
         { text = "What's Rokar like to work for?", next = "rokar" },

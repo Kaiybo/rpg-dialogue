@@ -37,9 +37,21 @@ P:Thread {
       fx = { thread = { id = "grimtotem", beat = "b1_magatha", state = "stirring" }, learn = { "grimtotem" } },
     },
     {
+      id = "b1_magatha_tauren", npc = "magatha",
+      when = { race = "Tauren", minLevel = 15, thread = { id = "grimtotem", notBeat = "b1_magatha" } },
+      text = "You'll hear things about my kin on the roads through Stonetalon and the Needles, child, and you'll hear them with tauren ears, which is worse. The Grimtotem kept the high places long before Cairne gathered the tribes into his nation, and you might ask yourself who joined whom.",
+      fx = { thread = { id = "grimtotem", beat = "b1_magatha", state = "stirring" }, learn = { "grimtotem" } },
+    },
+    {
       id = "b2_tammra", npc = "tammra",
       when = { questDone = TODO_QUEST("Kaya's Alive"), thread = { id = "grimtotem", notBeat = "b2_tammra" } },
       text = "Kaya sleeps in her father's tent again, and I'm grateful for every hour of it. But the ones who took her were tauren, {class}, tauren who sing to the Earth Mother just as I do, and I keep wondering whether anyone in Thunder Bluff has asked them why.",
+      fx = { thread = { id = "grimtotem", beat = "b2_tammra", state = "unfolding" }, learn = { "grimtotem" } },
+    },
+    {
+      id = "b2_tammra_tauren", npc = "tammra",
+      when = { race = "Tauren", questDone = TODO_QUEST("Kaya's Alive"), thread = { id = "grimtotem", notBeat = "b2_tammra" } },
+      text = "Kaya sleeps in her father's tent again, and I thank the Earth Mother for every hour of it. But the ones who took her wore our braids and sang our songs, {class}, and you know as well as I do that the Grimtotem were our cousins once.",
       fx = { thread = { id = "grimtotem", beat = "b2_tammra", state = "unfolding" }, learn = { "grimtotem" } },
     },
     {

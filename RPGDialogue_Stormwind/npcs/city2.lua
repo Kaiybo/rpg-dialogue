@@ -468,6 +468,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
     { id = "g_paladin", when = { class = "PALADIN" }, text = "{g:Brother|Sister}. Come and kneel a moment before we begin." },
     { id = "g_other", when = { ["not"] = { class = "PALADIN" } }, text = "The Light keep you, friend. The Cathedral has a quiet corner for anyone who needs one." },
   },
@@ -478,6 +480,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "The same as anyone, I suppose: for courage and mercy and a long road home. I don't think the Light would mind your spirits standing near." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Then bless me, Arthur. I'll gladly kneel beside you.", next = "BACK", reply = "Then kneel, friend, and I'll ask the Light to walk beside your spirits. I don't think it will mind the company.", fx = { align = { light = 1 } } },
         { text = "Keep your blessing. My spirits look after me well enough.", next = "BACK", reply = "Then they're doing good work, and I'll not interfere. The Light's still here if they ever need a rest.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },

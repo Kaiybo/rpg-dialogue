@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "You. Good. Stand a while; the gate's quieter with company I trust." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm watching you, and I'll keep watching until you're past the gate." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "My brother went through the Dark Portal with the expedition and never came back, and it was warlocks that opened it. Keep away from my lads." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "I asked the crown for soldiers and got a warlock. Stand by the gate where I can see you, and keep your creature on the far side of it." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've held this gate with us more than once, and the lads have stopped crossing themselves when you come. I haven't, quite, but I'm getting there." },
@@ -240,6 +242,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You've proven yourself, and I've been hard to prove to since my brother went through that portal." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've given me cause to watch you, and I'm good at watching." },
+    },
     background = { { id = "tp_bg", text = "Deputy of the Stormwind Army, at Westbrook. I hold a road with a handful of lads, and that's me." } },
     advice = { { id = "tp_ad", text = "Gnolls go for the gaps in your armor. Close the gaps." } },
     hogger = {

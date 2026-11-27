@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "You. Good. Lakeshire's glad to have you, and so am I." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Move along, unless you've business. Even then, move along." },
     { id = "g_inn", text = "Move along, unless you've business in Lakeshire. If you have, state it." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Have you been to the Stockade in Stormwind yet, to see about Targorr?" },
     { id = "g_active", when = { questActive = TODO_QUEST("What Comes Around...") }, text = "Targorr still breathes, then. Every day he does is a day the wrong people are winning." },
@@ -124,6 +126,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You've done right by Lakeshire, and the Guard won't forget it." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've given the Guard cause to watch you. We will." },
+    },
     the_stockade = {
       { id = "tp_the_stockade", text = "Targorr the Dread was sentenced to die and sent to the Stockade to wait, and now I hear the prisoners have taken the place over. I'd go in myself if the Marshal could spare me, and I'd see the sentence carried out." },
     },

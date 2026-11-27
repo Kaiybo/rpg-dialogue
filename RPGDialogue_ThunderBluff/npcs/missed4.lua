@@ -18,6 +18,8 @@ P:NPC {
     third = "{name} met Henen Ragetotem, who watches the young warriors on Hunter Rise.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Well met, friend. Stand here as long as you wish. You're welcome among us." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Well met, {class}. Stand here if you wish, but stand quietly." },
     { id = "g_hi", text = "Well met, {class}. Stand here if you wish, but stand quietly, because I am watching that one's footwork." },
     { id = "g_back", when = { metBefore = true }, text = "You again. They have not improved since you left, if that is what you came to ask." },
   },
@@ -136,6 +138,8 @@ P:NPC {
     third = "{name} met Kon Yelloweyes, a sharp-sighted tauren on Hunter Rise.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "I saw you on the bridge, friend, and I smiled. Come, sit with me." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "I saw you on the bridge, {class}, some while before you saw me. I was watching." },
     { id = "g_hi", text = "I saw you on the bridge, {class}, some while before you saw me. Come and stand here, for the view is better." },
     { id = "g_back", when = { metBefore = true }, text = "You walk a little differently than you did, friend. Something out there has taught you to watch your left side." },
   },
@@ -254,6 +258,8 @@ P:NPC {
     third = "{name} met Pawe Mistrunner, a quiet tauren of Spirit Rise.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "The spirits are close today, friend, and they're glad you're here." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The spirits are close today, {class}. Walk gently, for they're watching you." },
     { id = "g_hi", text = "The spirits are close today, {class}. Walk gently, and you are welcome here." },
     { id = "g_back", when = { metBefore = true }, text = "You have come back to the rise, friend. It draws some people that way." },
   },
@@ -379,6 +385,8 @@ P:NPC {
     third = "{name} met Sheza Wildmane, who keeps the drums on Thunder Bluff's Elder Rise.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Be welcome, friend. Step where you like. The bluff is glad of you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Be welcome, {class}. Mind where you step, because the bluff does not forget." },
     { id = "g_hi", text = "Be welcome, {class}. Mind where you step, because that small one by your foot took me a whole winter." },
     { id = "g_back", when = { metBefore = true }, text = "You have come back to the drums, friend. They are the same as before, only a little better seasoned." },
   },
@@ -507,6 +515,9 @@ P:NPC {
     third = "{name} met Hunter Ragetotem, who patrols the bank and bridges of Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "The bluff honours you, friend, and so do I. Walk with me a while." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "I am on my round. If you have something to say, say it quickly." },
+    { id = "g_rep1", when = { rep = { faction = "Thunder Bluff", min = "Honored" } }, text = "The bluff honours you, so I will slow my round a step. Only a step, mind." },
     { id = "g_hi", text = "Walk with me if you want to talk, {class}, because the round does not wait." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Keep pace, then." },
   },
@@ -519,6 +530,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", text = "I am a hunter of the Ragetotem, and this turn of the season my hunting ground is the bank and the bridges. It is duller game than centaur, but Cairne asks it, so I walk." },
+        { id = "h_thrag", when = { heardLine = "thrag_stonehoof.b_default" }, text = "You have been at Karn's fire, I can smell the coal on you. If young Thrag sent you to ask about his spearhead, say so, and I will tell you what I can." },
       },
       again = { { id = "h_again_x", text = "Still walking. Still listening." },
         { id = "h_again", text = "What else? Be brief, {class}." },
@@ -627,6 +639,8 @@ P:NPC {
     third = "{name} met Hunter Sagewind, who patrols the walkways of Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "The winds are fair today, friend. Walk beside me, if you like." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The winds are fair today, {class}. Keep your distance, please." },
     { id = "g_hi", text = "The winds are fair today, {class}. Walk beside me if you have a question, for I must keep to my round." },
     { id = "g_back", when = { metBefore = true }, text = "We meet on the bridges again, friend. Hold the rope, the wind is turning." },
   },
@@ -745,6 +759,8 @@ P:NPC {
     third = "{name} met Hunter Thunderhorn, who patrols the walkways of Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Good hunting, friend! I can't stop, but I'm glad to see you!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Good hunting, {class}. I can't stop, and I wouldn't, for you." },
     { id = "g_hi", text = "Good hunting, {class}. I cannot stop, but you are welcome to walk the round with me." },
     { id = "g_back", when = { metBefore = true }, text = "Good hunting again, friend. Still on the same planks, as you see." },
   },

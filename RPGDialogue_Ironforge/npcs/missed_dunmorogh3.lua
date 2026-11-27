@@ -16,6 +16,8 @@ P:NPC {
     third = "{name} met Turuk Amberstill, the weaponsmith of Amberstill Ranch.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_default", text = "Well met, {class}. If ye've come fer a ram, ye want my kin, but if ye've come fer somethin' tae swing, ye want me." },
     { id = "g_war", when = { class = { "WARRIOR", "PALADIN" } }, text = "Ye've the arms fer a proper dwarven hammer, {class}. Come an' try the balance o' this one, an' mind the ram behind ye." },
     { id = "g_done", when = { questDone = TODO_QUEST("Protecting the Herd") }, text = "Ye're the one who put down Vagash! Rudra's slept two nights runnin', an' the whole ranch is the better fer it." },
@@ -37,6 +39,8 @@ P:NPC {
         { id = "h_again_x0", when = { class = "WARRIOR" }, text = "Back fer another look at the hammers, {class}? Mind the ram, he's in a mood." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "A smith on a ram ranch?", next = "smith" },
         { text = "You keep watching the hills.", next = "hills" },
         { text = "What makes a weapon dwarven?", next = "dwarven" },
@@ -210,6 +214,8 @@ P:NPC {
     third = "{name} met Yori Crackhelm, who welcomes newcomers at the Thunderbrew Distillery in Kharanos.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
     { id = "g_default", text = "Welcome tae Kharanos, {class}, an' welcome tae the Thunderbrew Distillery! Stamp the snow off an' come in by the fire." },
     { id = "g_voucher", when = { questActive = TODO_QUEST("Welcome!") }, text = "Is that a voucher ye're holdin'? Well, bring it here, {g:lad|lass}, for I've been keepin' somethin' aside fer whoever carried it." },
     { id = "g_back", when = { metBefore = true }, text = "There's a face I know! Ye see, that's how it goes in Kharanos, ye're a stranger once an' never again." },

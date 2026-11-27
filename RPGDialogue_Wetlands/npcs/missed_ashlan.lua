@@ -13,6 +13,8 @@ P:NPC {
     third = "{name} met Ashlan Stonesmirk, gunsmith to the dwarves camped outside Dun Modr.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome at our fire any night you like." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Stay clear of the camp, unless you've orders to be here." },
     { id = "g_default", text = "Stay low, friend, an' welcome tae what's left o' the Dun Modr garrison. If ye've a gun that needs lookin' at, I'm the dwarf, an' if ye havenae, I'm still the dwarf." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back, an' nobody's shot ye. The Dark Irons must be slippin'." },
   },
@@ -31,6 +33,8 @@ P:NPC {
         { id = "h_again2", text = "Aye, go on, I can file an' listen." },
       },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "How did Dun Modr fall?", next = "fall" },
         { text = "How do you keep rifles working out here?", next = "rifles" },
         { text = "You're smiling. In this place?", next = "smile" },

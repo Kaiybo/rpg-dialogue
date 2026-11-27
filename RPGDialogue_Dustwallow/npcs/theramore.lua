@@ -1855,6 +1855,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "There you are, love. Come in, sit; I saved the warm seat by the fire." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come in out of the damp. Pay first, love." },
     { id = "g_flirt", when = { flirt = true, chance = 0.4 }, text = "Come in out of the damp, love, and let me look at you. My, you clean up nicely for someone who's been wading through Dustwallow all day." },
     { id = "g_flirt_warm", when = { flirt = true, npcFlagBefore = "flirt_warm" }, text = "There you are, love! I kept the stool nearest the fire for you, and I told the soldiers it was saved for someone better looking than the lot of them." },
     { id = "g_flirt_cool", when = { flirt = true, npcFlagBefore = "flirt_declined", chance = 0.5 }, text = "Come in and get dry, love. The soup's on, and I'll keep my compliments for the soup this time." },
@@ -1882,6 +1884,8 @@ P:NPC {
     flirt = {
       lines = { { id = "fl_default", text = "Am I? Well, I suppose I am, and there's no use pretending otherwise at my age. You've good manners and a good appetite, and in an inn full of soldiers who track the swamp across my floor, someone with both is worth a second look." } },
       choices = {
+        { text = "A good inn is a home for travelers.", next = "BACK", reply = "It is, love. Lillian doesn't think so, but she's wrong.", fx = { align = { light = 1 } } },
+        { text = "An inn is just a business.", next = "BACK", reply = "Then pay like a customer, love.", fx = { align = { light = -1 } } },
         { text = "Then I'll come back for a third look, Janene.", next = "flirt_warm", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "flirt_warm" } } } },
         { text = "You're very kind, but I'm only passing through.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "flirt_declined" } } },
           reply = "Most folk are, love, and I'd not keep anyone from the road. The soup will be here when you pass through again." },

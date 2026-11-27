@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my friend! Come in, come in, and pardon the... hic... the smell, as always." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, you. Come in, I suppose, and pardon the smell, or don't." },
     { id = "g_hic", text = "Well, isn't this a surprise? Come in, come in, and pardon the... hic... the smell." },
     { id = "g_back", when = { metBefore = true }, text = "My friend! I remember you, I think, or someone with your face. Sit down, there's a stool somewhere." },
     { id = "g_tablet", when = { questActive = TODO_QUEST("Delivery to Andron Gant") }, text = "Is that the tablet Jediga sent from Azshara? Oh, the scholars upstairs will weep, if they still can." },
@@ -160,6 +162,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're good company, my friend, and I've had little of it since the... hic." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been rude, and I'm too drunk to pretend I didn't notice." },
+    },
     background = { { id = "tp_bg", text = "A merchant before the plague, and a merchant after, only now I can't taste the wine. That's the whole tragedy, really." } },
     advice = { { id = "tp_ad", text = "Always count the coin twice, friend, and if you can't, find someone sober to do it." } },
     syndicate = { { id = "tp_syndicate", text = "The Syndicate? Never heard of them, no, not at all. Is that the time?" } },

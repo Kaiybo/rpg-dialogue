@@ -291,6 +291,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend! The birds are eager today. Fly before the wind turns, and fly well." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The birds are ready. Pay and go. The wind will turn soon." },
     { id = "g_default", text = "Ishnu-alah. The birds are ready if you are, and I'd go before the wind turns." },
     { id = "g_back", when = { metBefore = true }, text = "You again! The birds remember you, which is more than they do for most." },
   },
@@ -401,6 +403,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. The birds are in no hurry, even if you are." },
       },
       choices = {
+        { text = "Astranaar needs the birds to keep its people safe.", next = "BACK", reply = "It does. Without them, we would be cut off.", fx = { align = { order = 1 } } },
+        { text = "The hippogryphs could serve the Sentinels better in battle.", next = "BACK", reply = "They serve well enough by flying. Pay and go.", fx = { align = { order = -1 } } },
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "Why fly so low over the trees?", next = "low" },
         { text = "The birds seem at home in Ashenvale.", next = "birds" },

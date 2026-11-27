@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, dear, there you are. Sit; I've a pie on, and it's yours." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Sit if you must, but no pie." },
     { id = "hum_g1", when = { race = "Human" }, priority = 5,
       text = "Oh, a Stormwind face! Sit down, sit down, because you look like you've walked the whole road from Elwynn on an empty stomach." },
     { id = "g_nelf", when = { race = "NightElf" }, priority = 5,
@@ -453,6 +455,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're a good soul, and Westfall needs good souls." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been unkind, and we've had enough of that." },
+    },
     kaldorei = { { id = "tp_kaldorei", text = "Saldean says they live on dew and moonlight, but the one who sat at my table ate two bowls. They're welcome here like anyone, so long as they duck at the door." } },
     holy_light = { { id = "tp_holy_light", text = "I say grace over every pot I cook, and I don't ask whether the guest at my table says it too. The Light feeds us both, and it may as well find us both thankful." } },
     deadmines = { { id = "tp_deadmines", text = "The Defias are hiding in the mines under Moonbrook, they say, and they're eating our grain while they're down there. I hope they choke on it, though I'd feed them myself if they came to my door hungry." } },

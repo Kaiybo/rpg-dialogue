@@ -19,6 +19,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Easy, friend. Evermore likes you. She wouldn't bite you even if I asked, I think." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Easy. Evermore won't bite unless I ask. Today, I might ask." },
     { id = "g_default", text = "Easy. Evermore won't bite unless I ask, and I rarely ask." },
     { id = "g_back", when = { metBefore = true }, text = "Evermore remembers you. See the ears? That's as much welcome as he gives anyone but me." },
     { id = "g_pet", when = { pet = { family = "Wolf" } }, text = "Keep your wolf on your side, and I'll keep mine on mine, and they can settle who's in charge with a look." },
@@ -124,6 +126,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Well, well, look who come back to the Hall of the Brave! Sit, warrior, and tell me your kills." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Well, look who come into the Hall. Mind yourself, because the brave here have long memories." },
     { id = "g_default", text = "Well, well, look who come into the Hall of the Brave. You ready to fight for the Horde on the old islands, mon?" },
     { id = "g_low", when = { maxLevel = 29 }, text = "Not yet, little {class}. The islands eat the young ones, so come back to Gruga when you got more fights behind you." },
     { id = "g_back", when = { metBefore = true, minLevel = 30 }, text = "Back again, and still standing! The islands didn't get you yet, so let's go and give them another try." },
@@ -274,6 +278,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Greetings, friend. Come into the shade, and Mon'ye will show you the best he has." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Greetings, {class}. Mon'ye will show you his wares, and Mon'ye will count them after you leave." },
     { id = "g_default", text = "Greetings, {class}. Come into the shade and let Mon'ye see what you be wearing, and what you could be wearing instead." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Either you liked the last look, or you've grown tired of it, and both be good for business." },
     { id = "g_naked", when = { nearlyNaked = true }, text = "Mon'ye can change how your armor looks, {class}, but first you got to be wearing some." },

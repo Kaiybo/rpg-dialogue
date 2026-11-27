@@ -19,6 +19,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_rep_tb_h", when = { rep = { faction = "Thorium Brotherhood", min = "Honored" } }, text = "Honoured by the Brotherhood, are you? Then perhaps we can do some real business, friend." },
+    { id = "dp_rep_tb_e", when = { rep = { faction = "Thorium Brotherhood", min = "Exalted" } }, text = "Exalted among the Brotherhood! I've a few things in my pack that I don't show just anyone." },
     { id = "g_default", text = "Keep yer voice down, outsider. The Brotherhood does its trading here because the Emperor's guards are too busy drinking to notice." },
     { id = "g_contract", when = { questActive = TODO_QUEST("A Binding Contract") }, text = "Ye've a contract to bind, have ye? Bring me the thorium and the Brotherhood will hold to its word, as it always does." },
     { id = "g_back", when = { metBefore = true }, text = "Back again with dark iron on yer hands, I hope. Talk's cheap down here, but ore isn't." },
@@ -117,6 +119,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_rep_tb_f", when = { rep = { faction = "Thorium Brotherhood", min = "Friendly" } }, text = "The Thorium Brotherhood speaks for you, I hear. They've no love for the Dark Irons in this city, and neither do I." },
     { id = "g_default", text = "Another face that isn't a Dark Iron jailer. Thank the stone for small mercies, friend." },
     { id = "g_tale", when = { questActive = TODO_QUEST("Kharan's Tale") }, text = "Ye've come for the tale, then. Sit, if ye can find a dry patch, because it isn't a short one." },
     { id = "g_news", when = { questActive = TODO_QUEST("The Bearer of Bad News") }, text = "Ye're carrying my tale to Ironforge, aren't ye? Tell Magni gently, if there's any way to tell a king such a thing gently." },
@@ -672,6 +675,8 @@ P:NPC {
   temper = { "proud", "restless" }, values = { "free", "loyal" },
   notices = { "race" },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
     { id = "g_default", text = "Ye've a key, or ye've an axe, and either one will do. Get me out of this cage before the jailers come back round!" },
   },
   start = "hello",
@@ -780,6 +785,8 @@ P:NPC {
   key = "dg_tobias", id = 9679, name = "Tobias Seecher", role = "prisoner", tier = "service",
   temper = { "wry", "weary" }, values = { "loyal" },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_default", text = "Easy, I'm not one of the dangerous ones, whatever the guards have told you. Is that a key, or are you just glad to see me?" },
   },
   start = "hello",
@@ -870,6 +877,8 @@ P:NPC {
   key = "dg_crest_killer", id = 9680, name = "Crest Killer", role = "prisoner", tier = "service",
   temper = { "menacing", "sneering" }, values = { "self" },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
     { id = "g_default", text = "Well, look who's come to visit. Ye'd best have a good reason for standing so close to my door." },
   },
   start = "hello",
@@ -959,6 +968,8 @@ P:NPC {
   key = "dg_ograbisi", id = 9677, name = "Ograbisi", role = "prisoner", tier = "service",
   temper = { "brutish", "hungry" }, values = { "self" },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
     { id = "g_default", text = "You smell like food that walks. Ograbisi is very hungry, and the little dwarfs only bring gruel." },
   },
   start = "hello",
@@ -1056,6 +1067,8 @@ P:NPC {
   temper = { "zealous", "suspicious" }, values = { "pious" },
   notices = { "race" },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
     { id = "g_default", text = "Halt! Before you come one step nearer, tell me whether you are clean of the plague, stranger." },
     { id = "g_undead", when = { race = "Scourge" }, text = "Abomination! Even in this pit the Light sends me trials, and you are the foulest of them." },
   },

@@ -989,6 +989,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_default", text = "Good day, friend, or a day, anyway. Bids are open, and the cut is what it is." },
     { id = "g_back", when = { metBefore = true }, text = "Still alive, friend. The last owners of most of my lots weren't so lucky, and that's how they became my lots." },
     { id = "g_horde", when = { faction = "Horde" }, text = "Horde coin bids the same as Alliance coin here, friend. In the end it all goes to the same place, which is usually the bottom of the bay." },
@@ -1077,6 +1079,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "Hey, hey, chief, come in, quick, quick, before somebody outbids ya on somethin' you didn't even know you wanted!" },
     { id = "g_back", when = { metBefore = true }, text = "Chief! You're back! Listen, listen, you'll never guess who bought a wedding ring last night." },
     { id = "g_word", when = { word = { "angered", "caughtLying" } }, text = "Chief, word is you made somebody in town real mad. I ain't sayin' who told me, but it was everybody." },
@@ -1210,6 +1214,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_default", text = "Ah, champ, welcome, welcome to the finest auction house south of anywhere! What're we buyin', what're we sellin', what're we dreamin' of?" },
     { id = "g_back", when = { metBefore = true }, text = "Champ! Back for more, I knew it, I knew it, nobody leaves O'reely's counter for long." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, champ, and the bids got dull without ya. Graves tried to tell a joke, and it was awful." },

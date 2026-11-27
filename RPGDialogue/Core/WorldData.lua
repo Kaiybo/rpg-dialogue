@@ -131,6 +131,17 @@ W.HOLIDAYS = {
   { id = "hallowsend", from = { 10, 18 }, to = { 10, 31 } },
   { id = "midsummer", from = { 6, 21 }, to = { 7, 5 } },
   { id = "loveintheair", from = { 2, 9 }, to = { 2, 23 } },
+  -- Moving holidays, approximated (0.x: so they still fire without the calendar).
+  -- Noblegarden is computed from Easter in Context.FallbackHolidays; this is its backstop.
+  { id = "lunar", from = { 1, 22 }, to = { 2, 12 } },
+  { id = "childrensweek", from = { 5, 1 }, to = { 5, 7 } },
+  { id = "harvest", from = { 9, 22 }, to = { 10, 1 } },
+}
+
+-- Condition spellings -> our holiday ids (content writes holiday = "hallows_end" etc.).
+W.HOLIDAY_ALIASES = {
+  winter_veil = "winterveil", hallows_end = "hallowsend", love_is_in_the_air = "loveintheair",
+  childrens_week = "childrensweek", lunar_festival = "lunar", harvest_festival = "harvest",
 }
 
 -- Calendar holiday titles -> our ids.

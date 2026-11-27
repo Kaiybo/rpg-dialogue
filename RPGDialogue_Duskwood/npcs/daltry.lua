@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, it's you! Thank the Light. Sit down; I've got your forms all filled out already, just how you like them." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. I, um, I'm very busy, and I might have misplaced your paperwork, possibly forever." },
     { id = "g_records", text = "Records, permits and deeds, all in order. Which form are you here to fill in wrong?" },
     { id = "g_stalvan", when = { questActive = TODO_QUEST("The Legend of Stalvan") }, text = "The Mistmantle file again, is it? Mind the dust, because I'm fairly sure it's load-bearing." },
     { id = "g_back", when = { metBefore = true }, text = "You again! I've given you a line in the register, several lines, actually." },
@@ -273,6 +275,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You've been very patient with my nerves, and I've noticed. I'd stamp anything for you, within reason." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You frightened me last time, and I don't frighten easily, except I do, which is the problem." },
+    },
     knows = {
       { id = "tp_knows", text = "Everything in Darkshire is written down somewhere, and most of it's written down by me. Ask me about any of this, and mind the ink." },
     },

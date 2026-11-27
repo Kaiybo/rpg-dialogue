@@ -15,6 +15,8 @@ P:NPC {
     third = "{name} met Alexandra Blazen, a priestess who survived the wreck of the Horizon Scout on the Azshara coast.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Oh, it's you. Light bless you; your visits help more than you know. Sit, if you can find a dry spot." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Light be with you, I suppose. I'm very tired, and I'd like to rest." },
     { id = "g_default", text = "Light be with you. Forgive me if I don't stand; I haven't slept since the wreck." },
     { id = "g_healer", when = { class = { "PRIEST", "PALADIN", "SHAMAN", "DRUID" } }, text = "A healer! Oh, thank the Light. Two of the sailors still have fevers, and I'm nearly out of strength." },
     { id = "g_crew", when = { questDone = TODO_QUEST("A Crew Under Fire") }, text = "You held the beach for us when the naga came. I prayed for you that night, {name}, and I'll keep praying." },
@@ -25,6 +27,8 @@ P:NPC {
       narr = "She looks down at her hands; they are still raw from rope and salt.",
       lines = { { id = "xsurvive_default", text = "Patrick pulled me out of the water by my collar. I don't remember much after that, only the singing in the dark and the cold. I woke on the sand with a sailor's head in my lap, and I started praying." } },
       choices = {
+        { text = "The Light will see the survivors home.", next = "BACK", reply = "I believe it will. I have to believe it, or I would not get up in the morning.", fx = { align = { light = 1 } } },
+        { text = "Faith won't get you off this beach. Planning will.", next = "BACK", reply = "Perhaps, but faith is what gets me through the night. Please let me rest.", fx = { align = { light = -1 } } },
         { text = "The singing?", next = "xsing" },
         { text = "Something else.", next = "BACK" },
       },
@@ -106,6 +110,8 @@ P:NPC {
     third = "{name} met Patrick Mills, a paladin who survived the wreck of the Horizon Scout and now guards the captain's camp.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You're a sight for sore eyes, friend. Sit down; the naga have been quiet, thanks to you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hold there. I know you, and I'd rather not. Say what you need, and then let me get back to the watch." },
     { id = "g_default", text = "Hold there. Ah, you're no naga. Forgive me, friend; we're all a little jumpy since the wreck." },
     { id = "g_pal", when = { class = "PALADIN" }, text = "A brother of the Light! Good. One more sword and one more prayer might be the difference out here." },
   },
@@ -118,6 +124,8 @@ P:NPC {
     yvoyage = {
       lines = { { id = "yvoyage_x", text = "We sailed from Stormwind on the Horizon Scout, the captain, twelve sailors, Alexandra, Lindros and me. The sea was calm until the last night. Then the singing started. I'll hear it the rest of my life." } },
       choices = {
+        { text = "Standing by Alexandra is the bravest thing you've done.", next = "BACK", reply = "Maybe it is. It doesn't feel brave, it just feels like the only thing to do.", fx = { align = { honor = 1 } } },
+        { text = "You should have stayed in Stormwind where it was safe.", next = "BACK", reply = "Probably. But then who would have pulled her out of the water?", fx = { align = { honor = -1 } } },
         { text = "What should be done about Lindros?", next = "ylindros" },
         { text = "Something else.", next = "BACK" },
       },
@@ -213,6 +221,8 @@ P:NPC {
     third = "{name} met Lindros, the tight-lipped mage who survived the wreck of the Horizon Scout.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Oh, it's you. Fine, come in. You're the only one here with sense enough to talk to." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You. If you're here about the trunk, it's still at the bottom of the sea. Go away." },
     { id = "g_default", text = "Yes? If you're here to ask about my trunk, it's at the bottom of the sea, and good riddance." },
     { id = "g_mage", when = { class = "MAGE" }, text = "Ah, a mage. Perhaps you, at least, won't ask me foolish questions." },
   },
@@ -221,6 +231,8 @@ P:NPC {
     ysent = {
       lines = { { id = "ysent_x", text = "No one sends me. A patron in Stormwind paid for the voyage, and I agreed to bring back anything of interest. He wants Highborne relics. I want to understand them. Those are different things." } },
       choices = {
+        { text = "The Highborne relics belong in a museum, not a private collection.", next = "BACK", reply = "How quaint. My patron would laugh, but I suppose I don't entirely disagree.", fx = { align = { honor = 1 } } },
+        { text = "Relics go to whoever pays the most. That's the trade.", next = "BACK", reply = "At last, someone honest about it. Not that it makes me like you any better.", fx = { align = { honor = -1 } } },
         { text = "And if he wants something dangerous?", next = "ydanger" },
         { text = "Something else.", next = "BACK" },
       },

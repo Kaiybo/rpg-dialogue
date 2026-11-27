@@ -15,6 +15,8 @@ P:NPC {
     third = "{name} met Bethan Bluewater, a night elf who keeps to the druids' tree-house at Feathermoon Stronghold.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend. The house is quiet, and you are welcome in it. Sit by the water a while." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ishnu-alah. This is a quiet house. I ask you to keep it so, and not stay long." },
     { id = "g_default", text = "Ishnu-alah, {class}. You have come a long way over the water to stand in so quiet a room." },
     { id = "g_back", when = { metBefore = true }, text = "You have returned, and the tide has turned twice since you were last here. Sit a while, if you wish." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Elune is bright on the water tonight. It is the best hour to be on this island, and the hour the naga like best as well." },
@@ -36,6 +38,8 @@ P:NPC {
         { id = "h_again2", text = "There was something more, I think." },
       },
       choices = {
+        { text = "A quiet house is worth tending.", next = "BACK", reply = "It is. The druids need peace for their work.", fx = { align = { order = 1 } } },
+        { text = "Quiet's overrated. A house needs some life in it.", next = "BACK", reply = "Not this one. Please, go softly.", fx = { align = { order = -1 } } },
         { text = "How long have you kept this house?", next = "ybet_long" },
         { text = "Do the naga remember Zin-Azshari?", next = "ybet_naga", when = { race = "NightElf" } },
         { text = "What do you watch the water for?", next = "water" },
@@ -131,6 +135,8 @@ P:NPC {
     third = "{name} met Savanne, who sells fishing supplies at Feathermoon Stronghold.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Elune-adore, friend! Tell me what you mean to catch, and I'll find you the very best hooks." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Tackle. Tell me what you mean to catch, and I'll sell you what you need. No more." },
     { id = "g_default", text = "Elune-adore, {class}. If you have come for tackle, tell me first what you mean to catch, and I will save you the price of three things you do not need." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and I hope with a tale of the one that did not get away." },
   },
@@ -149,6 +155,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, then. The fish will wait, as they always do." },
       },
       choices = {
+        { text = "A good fisherman respects the water.", next = "BACK", reply = "Yes, and the water gives back to those who do.", fx = { align = { light = 1 } } },
+        { text = "The water is just a place to pull fish from.", next = "BACK", reply = "Then you will pull very few. Tackle is there, on the shelf.", fx = { align = { light = -1 } } },
         { text = "Did you fish before Feathermoon?", next = "ysav_before" },
         { text = "I'm a fisher too. Settle the bait argument.", next = "ysav_fish", when = { profession = "Fishing" } },
         { text = "What does a fisher need for these waters?", next = "need" },
@@ -233,6 +241,8 @@ P:NPC {
     third = "{name} met Dulciea Frostmoon, the cloth armor merchant of Feathermoon Stronghold.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend. The salt has spared you this time, I see. Come, let me show you the newest silk." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The salt air has ruined your clothes. Buy something, or go and let it ruin them further." },
     { id = "g_default", text = "Ishnu-alah, {class}. The salt air has not been kind to what you are wearing, and I say so only because I can mend the matter." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. I see the forest has added a few new tears since we last spoke." },
   },
@@ -253,6 +263,8 @@ P:NPC {
         { id = "h_again2", text = "Speak freely. Folding can wait." },
       },
       choices = {
+        { text = "Fine cloth has its place, even among soldiers.", next = "BACK", reply = "It does. The Sentinels need it more than they admit.", fx = { align = { order = 1 } } },
+        { text = "Silk is useless in a war.", next = "BACK", reply = "Then go and buy mail. You will be hot, and miserable.", fx = { align = { order = -1 } } },
         { text = "What did you weave in Ashenvale?", next = "ydul_ash" },
         { text = "My cloth needs your oils. Tell me how.", next = "ydul_tailor", when = { profession = "Tailoring" } },
         { text = "Who buys robes in a garrison?", next = "who" },
@@ -337,6 +349,8 @@ P:NPC {
     third = "{name} met Faralorn, who sells general supplies at Feathermoon Stronghold.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Well met, friend. Tell me where you're bound, and I'll make sure you leave with everything." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Tell me where you're bound, and I'll tell you what you lack. That is all." },
     { id = "g_default", text = "Well met, {class}. Tell me where in Feralas you are bound, and I will tell you what you have forgotten to pack." },
     { id = "g_back", when = { metBefore = true }, text = "You have come back whole, so you must have packed well. What have you run short of?" },
   },
@@ -357,6 +371,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. I am listening while I count." },
       },
       choices = {
+        { text = "Good order keeps travelers alive.", next = "BACK", reply = "It does. Feralas forgives no carelessness.", fx = { align = { order = 1 } } },
+        { text = "I'll go where the road takes me. Plans change.", next = "BACK", reply = "Then the road will take you to an early grave.", fx = { align = { order = -1 } } },
         { text = "What happens if the stores run out?", next = "yfar_out" },
         { text = "Pratt McGrubben, you say?", next = "yfar_dwarf", when = { race = "Dwarf" } },
         { text = "What do travellers forget most?", next = "forget" },
@@ -441,6 +457,8 @@ P:NPC {
     third = "{name} met Logannas, who sells alchemy supplies at Feathermoon Stronghold.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Well met, friend. Mind the crates, but I know you will. I've a new set of vials for Kylanna's students." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Well met. Mind the crates. Please, do not break anything." },
     { id = "g_default", text = "Well met, {class}. Mind the crates by your feet, for every one of them is glass and it came a very long way." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you again. I have set a few vials aside against breakage, as I always do." },
   },
@@ -459,6 +477,8 @@ P:NPC {
         { id = "h_again2", text = "Please, go on." },
       },
       choices = {
+        { text = "Supplying the students is important work.", next = "BACK", reply = "It is humble work, but they need it. Thank you.", fx = { align = { order = 1 } } },
+        { text = "Glass is cheap. Let them break it.", next = "BACK", reply = "Not when it comes across the sea. Please mind the crates.", fx = { align = { order = -1 } } },
         { text = "How did you come to follow Kylanna?", next = "ylog_follow" },
         { text = "What vials does an alchemist need here?", next = "ylog_alch", when = { profession = "Alchemy" } },
         { text = "How do you keep glass whole out here?", next = "glass" },
@@ -543,6 +563,8 @@ P:NPC {
     third = "{name} met Mardrack Greenwell, who sells food and drink at Feathermoon Stronghold.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Elune-adore, friend! Sit, you must be hungry. I saved you the warmest loaf." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You've crossed the water, so you're hungry. Pay first, please." },
     { id = "g_default", text = "Elune-adore, {class}! You have crossed the water, so you are hungry, and I will hear no argument on the matter." },
     { id = "g_back", when = { metBefore = true }, text = "You are back, and thinner than when you left. The mainland feeds nobody well, I have always said so." },
   },
@@ -563,6 +585,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I am only watching the kettle." },
       },
       choices = {
+        { text = "A well-fed soldier fights well.", next = "BACK", reply = "Exactly! You understand what keeps the Sentinels on their feet.", fx = { align = { order = 1 } } },
+        { text = "Soldiers should toughen up and eat dried fruit.", next = "BACK", reply = "They do, far too often. That is why I bake.", fx = { align = { order = -1 } } },
         { text = "How many wars have you cooked through?", next = "ymar_wars" },
         { text = "A cook to a cook: what's the secret?", next = "ymar_cook", when = { profession = "Cooking" } },
         { text = "What does the island put on your table?", next = "table" },
@@ -647,6 +671,8 @@ P:NPC {
     third = "{name} met Marli Wishrunner, who camps by the road between the Twin Colossals in Feralas.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Oh, it's you! Ishnu-alah, friend. Come, sit; the wind is gentle today, and you are welcome." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ishnu-alah. Mind the wind. And please mind your own business, too." },
     { id = "g_default", text = "Oh, a traveller! Ishnu-alah, {class}, and mind the wind between the stones, for it took my good cloak last week." },
     { id = "g_back", when = { metBefore = true }, text = "You came by again! I was sure I had something to tell you, and it will come back to me in a moment." },
     { id = "g_horde", when = { faction = "Horde" }, text = "You are a long way from Camp Mojache. I keep no quarrel with travellers on this road, so long as they keep none with me." },
@@ -666,6 +692,8 @@ P:NPC {
         { id = "h_again2", text = "Yes? I am listening, mostly." },
       },
       choices = {
+        { text = "Watching over Feralas is a worthy duty.", next = "BACK", reply = "It is, though Kalin does the harder half. Thank you.", fx = { align = { order = 1 } } },
+        { text = "Watching from a rock does nothing for anyone.", next = "BACK", reply = "We see what you cannot. Mind the wind.", fx = { align = { order = -1 } } },
         { text = "How old are you, Marli?", next = "ymarl_old" },
         { text = "My people remember the old days too.", next = "ymarl_elf", when = { race = "NightElf" } },
         { text = "What are the two of you watching?", next = "watch" },
@@ -750,6 +778,8 @@ P:NPC {
     third = "{name} met Kalin Windflight, who keeps watch from the top of one of the Twin Colossals.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Well met again, friend. Stand by me; the view is clear today, and the company is good." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Stay back from the edge. Then say what you need, and go back down." },
     { id = "g_default", text = "A visitor, at this height? Well met, {class}, and stay back from the edge, because the wind does not give warnings." },
     { id = "g_back", when = { metBefore = true }, text = "You have climbed the sky twice now. Either you like the view, or Marli has mislaid you again." },
   },
@@ -768,6 +798,8 @@ P:NPC {
         { id = "h_again2", text = "Speak up, the wind takes half of every word." },
       },
       choices = {
+        { text = "Keeping watch from on high saves lives.", next = "BACK", reply = "It does. Feathermoon knows what comes long before it arrives.", fx = { align = { order = 1 } } },
+        { text = "You could see more by walking the forest floor.", next = "BACK", reply = "And you could die more quickly, too. Stay back from the edge.", fx = { align = { order = -1 } } },
         { text = "How long since you last came down?", next = "ykal_down" },
         { text = "A druid could fly you down, Kalin.", next = "ykal_druid", when = { class = "DRUID" } },
         { text = "What can you see from here?", next = "see" },

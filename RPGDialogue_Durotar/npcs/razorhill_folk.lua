@@ -321,6 +321,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hey, friend! Bring de beast; I saved de good straw for it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Bring a beast or go smell somebody else's straw." },
     { id = "g_default", text = "Hey, mon, you bring me a beast or you just come to smell the straw?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Your beasts miss you, or maybe they miss my feed. Hard to tell." },
     { id = "g_pet", when = { pet = { type = "Beast" } }, text = "Ooh, look at {pet}! Come here, beautiful, let Shoja'my see your teeth." },
@@ -359,6 +361,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, ask, I be shovelin' anyway." },
       },
       choices = {
+        { text = "A beast should be cared for like kin.", next = "BACK", reply = "It should, mon. You understand.", fx = { align = { light = 1 } } },
+        { text = "A beast is just a beast.", next = "BACK", reply = "Den I care for it, and you wait outside.", fx = { align = { light = -1 } } },
         { text = "You don't like that I took those eggs, Shoja'my.", next = "dd_eggs", when = { questDone = TODO_QUEST("Break a Few Eggs") } },
         { text = "I need to stable a beast.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "How did a troll end up running Razor Hill's stables?", next = "how" },

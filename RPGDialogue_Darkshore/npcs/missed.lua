@@ -14,6 +14,8 @@ P:NPC {
     third = "{name} met Yalda, a soft-spoken resident of Auberdine.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend. Come and watch the boats with me a while. You always notice the ones I miss." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ishnu-alah. I am watching the boats. Please, let me watch them in peace." },
     { id = "g_default", text = "Ishnu-alah, traveller. You have the look of someone just off a boat, or about to board one." },
     { id = "g_back", when = { metBefore = true }, text = "You have come back to Auberdine. Most pass through only once, so I am glad of it." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "A fair night to you. The mist has lifted enough to show the moon, which does not happen often here." },
@@ -30,6 +32,8 @@ P:NPC {
         { id = "y_y_watch", text = "I watch the boats, mostly. Who comes and who goes, and who never comes back. My mother did the same, and her mother before her. We have no trade, but we have a long memory, and someone in Auberdine must keep it." },
       },
       choices = {
+        { text = "Remembering those who never came back matters.", next = "BACK", reply = "It does. Someone must, or they are lost twice.", fx = { align = { light = 1 } } },
+        { text = "Watching the boats won't bring anyone home.", next = "BACK", reply = "No. But it keeps them from being forgotten. Please, go on your way.", fx = { align = { light = -1 } } },
         { text = "Who never came back?", next = "y_lost" },
         { text = "Something else.", next = "BACK" },
       },
@@ -120,6 +124,8 @@ P:NPC {
     third = "{name} met Ullanna, who sells trade supplies at the Grove of the Ancients in Darkshore.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend, softly now. The Ancient remembers you kindly, and so do I. What can I find for you?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Softly. The Ancient is thinking. Buy what you need, and please be quick about it." },
     { id = "g_default", text = "Ishnu-alah, and softly, please. The Ancient is thinking, and I would not like to be the reason he stops." },
     { id = "g_back", when = { metBefore = true }, text = "You are back at the grove, {class}. Onu has moved one root since you left, so it has been a busy season." },
     { id = "yg_0", when = { race = "Gnome" }, text = "A gnome, at the grove? Softly, little one. Your people tick, and Onu can hear it." },
@@ -135,6 +141,8 @@ P:NPC {
         { id = "y_y_hist", text = "I was a weaver in Darnassus, once, and a good one. Then I came south to rest, and Onu asked me to stay. I opened a shop because I could not sit idle, and I have been here a hundred years. It does not feel like it." },
       },
       choices = {
+        { text = "Onu deserves our quiet and our respect.", next = "BACK", reply = "Yes. He is very old, and very wise. Thank you for understanding.", fx = { align = { order = 1 } } },
+        { text = "An Ancient's just a tree that talks.", next = "BACK", reply = "Shh! Please, go, before he hears you.", fx = { align = { order = -1 } } },
         { text = "Do you miss weaving?", next = "y_weave" },
         { text = "Something else.", next = "BACK" },
       },

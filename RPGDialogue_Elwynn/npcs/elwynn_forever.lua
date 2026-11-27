@@ -469,6 +469,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "Bows, guns, arrows an' shot! Step up, friend, an' have a look at somethin' that'll keep the wolves honest." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Run out o' shot already? That's the sign of a busy {class}, that is." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter! Now there's a customer who knows the difference between a good barrel an' a bad one." },
@@ -497,6 +499,8 @@ P:NPC {
         { id = "h_again2", text = "Aye? What else, friend?" },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Gun or bow: which should I carry?", next = "gunbow" },
         { text = "Why sell out here and not in Ironforge?", next = "road" },
         { text = "Who buys guns in Goldshire?", next = "buyers" },
@@ -738,6 +742,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
     { id = "g_default", text = "Hello there! Mind the peacebloom by your boot, please; it's only just come up." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! The silverleaf's coming in nicely by the vineyard, if you've been looking." },
     { id = "g_herb", when = { profession = "Herbalism" }, text = "An herbalist! I can smell the earthroot on your gloves from here." },
@@ -764,6 +770,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I love a question." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What grows here in Northshire?", next = "herbs" },
         { text = "How do I pick without ruining the plant?", next = "picking" },
         { text = "Do the plants really talk to you?", next = "druid", when = { class = "DRUID" } },
@@ -841,6 +849,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
     { id = "g_default", text = "Care to learn how to gather leather from slain beasts? Or do you need some new tools?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and you've been busy with the wolves, by the look of your sleeves." },
     { id = "g_skin", when = { profession = "Skinning" }, text = "A skinner! Show me your knife, let's see if you've been keeping it sharp." },
@@ -867,6 +877,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. Ask." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "How are you and Eagan related?", next = "eagan" },
         { text = "What makes a good skinner?", next = "craft" },
         { text = "What's worth skinning in Northshire?", next = "beasts" },

@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Come, mind the spiders, and I'll show you the finest silk this side of the Undermarket." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. State your business, and keep your hands off my spiders." },
     { id = "g_op_hammer", when = { gossip = { topic = "twilights_hammer", stance = "redeemable" } }, text = "Zamael, the caged ghost up on Firewatch Ridge, tells anyone who'll listen that you think the Hammer's idolaters can be saved. I'd sooner save the spiders, but it's your time to waste." },
     { id = "g_default", text = "Mind Raze; he's harmless unless I say otherwise, and I rarely say otherwise to people who are useful." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and still in one piece. Good, I prefer my helpers that way." },
@@ -168,6 +170,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're precise, and you're patient, and those are the only virtues I care about." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been careless with my spiders, and they don't forgive carelessness." },
+    },
     background = { { id = "tp_ba", text = "A tailor first and a warlock second, though the second has been very useful to the first." } },
     advice = { { id = "tp_ad", text = "Never buy silk from someone who can't tell you which nest it came from." } },
     burning_legion = { { id = "tp_burning_legion", text = "The Legion's servants are useful, and Raze is the most useful of all. I don't worship them, I employ them." } },

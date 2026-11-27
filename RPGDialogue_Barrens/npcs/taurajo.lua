@@ -664,6 +664,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Welcome, friend. The fire is warm, and I saved a place by it for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome. The fire is lit. Pay first, please." },
     { id = "g_inn", text = "Welcome, traveler. Taurajo's fire is always lit, as An'she keeps the sun lit over the plains, and there's always room by it." },
     { id = "g_home", when = { homeInn = { "Camp Taurajo" } }, text = "You've come back to us, like a calf to the herd. Your bed's ready, and the kodo stew is hot." },
     { id = "g_away", when = { away = 14 }, text = "You've come back to Taurajo after {away} on the road. The fire's lit and the stew's hot, so sit down before the herders take your seat." },
@@ -716,6 +718,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "The tauren welcome travellers, and you are a traveller. We do not know the Light well, so you'll find some of us curious and some uneasy. Don't take offence at the hyenas; they laugh at everyone, even the dead." } },
       choices = {
+        { text = "Taurajo's fire is a blessing.", next = "BACK", reply = "It is. An'she keeps it lit.", fx = { align = { light = 1 } } },
+        { text = "Fires are just for warmth.", next = "BACK", reply = "They are more. Pay first.", fx = { align = { light = -1 } } },
         { text = "I'll take no offence. Thank you for the welcome.", next = "BACK", reply = "You're welcome under my roof as long as you keep the peace. Rest well, and let the hyenas laugh at someone else tonight.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "If they laugh at me, I'll teach them otherwise.", next = "BACK", reply = "Then you'll be busy until the moon sets, because there are many hyenas and only one of you. Sit, eat, and let them laugh.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },

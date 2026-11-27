@@ -20,6 +20,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Mind the circle, but come in; I'll make an exception for you." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Mind the circle, and mind your manners." },
     { id = "g_default", text = "Mind the circle on the floor, if you please; it took me a fortnight to chalk, and I'm not starting again because someone came in with muddy boots." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you've come back. Sit, if you can find a chair under the books, and tell me what brings you up the stairs this time." },
     { id = "g_quest", when = { questActive = Q }, text = "You've not gone north yet? Skuerto is a patient dwarf, which is to say he is not patient at all, and he'll be waiting at Refuge Pointe." },
@@ -415,6 +417,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You've a disciplined mind, and that's rarer than talent." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've scuffed my circle and my patience. Both took a fortnight." },
+    },
     background = { { id = "tp_bg", text = "Stromgarde-trained, two summers in Dalaran, and thirty years in this Sanctum. My master would say I've been sitting still too long.", next = "trelane" } },
     advice = { { id = "tp_ad", text = "Copy before you cast, and read a spell twice before you trust it once. That was Trelane's, and it's served me well." } },
     _none = { { id = "tp_none", text = "I've no idea, and I'm too old to pretend otherwise. Try the library downstairs; someone's always asleep in it who knows." } },

@@ -1851,6 +1851,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. Your usual seat's free, and I made sure of it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "There's a bed if you want it, but don't expect a smile with it." },
+    { id = "dp_pt_any", when = { party = true }, text = "Your friends look as damp as you do. The Wetlands does that, and the ale's the only thing that helps." },
     { id = "o_jaina_traitor", tags = { "news" }, when = { gossip = { topic = "jaina", stance = "traitor" } },
       text = "Careful what ye say about Lady Proudmoore in here; the Theramore sailors heard ye called her a turncoat, an' they've been glarin' at yer stool all week." },
     { id = "o_dragonmaw_march", tags = { "news" }, when = { gossip = { topic = "wl_dragonmaw", stance = "march" } },

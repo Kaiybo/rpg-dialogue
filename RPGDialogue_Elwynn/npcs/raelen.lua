@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. I'll not count the axes when you're around, and that's saying something." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm counting the axes twice tonight, and I'm watching you while I do it." },
     { id = "g_prej", when = { prejudiced = true }, text = "Westfall, is it? I can hear it in how you talk, and I'll tell you now that I count the axes every night, and I've counted fewer since the Defias came up the road from your country." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Ah, you. I had you down as one of the Westfall lot who'd run off with my axes, and instead you've done more honest work for this camp than my own crew." },
     { id = "g_busy", text = "Make it quick, will you, because that order won't fill itself." },
@@ -270,6 +272,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You work hard and you work honest, and that's rare in a logging camp." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've given me cause to doubt you, and I doubt everyone already. Don't make it worse." },
+    },
     background = { { id = "tp_bg", text = "I run the camp, and that's the whole story. The order ships at sundown, so next question." } },
     advice = { { id = "tp_ad", text = "Know your deadline, and then pretend it's a day sooner." } },
     eastvale = { { id = "tp_eastvale", text = "Best timber in Elwynn and the worst luck to go with it. You can write that on my stone." } },

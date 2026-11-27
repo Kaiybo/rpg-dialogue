@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hello, friend. Dadanga's glad to see you, I can tell, and so am I. Come and say hello to her." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hello. Stash the torch, please, and stay back a little. Dadanga's wary of you, and she's often right." },
     { id = "g_default", text = "Hello there. If you're carrying a lit torch, stash it, please; Dadanga dislikes smoke." },
     { id = "g_fed", when = { questDone = TODO_QUEST("Dadanga is Hungry!") }, text = "Dadanga's been watching the path for you since you fed her. She remembers kindness, and so do I." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and Dadanga's put on a little weight while you were away. Don't tell her I said so." },

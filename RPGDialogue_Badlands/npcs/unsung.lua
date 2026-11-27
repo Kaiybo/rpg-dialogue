@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_shop", text = "Coal, flux, iron bars and grinding stones, all at Badlands prices, which means expensive, but expensive with a smile! Step right up, friend, step right up." },
     { id = "g_back", when = { metBefore = true }, text = "Oh good, a customer who's paid before! You're my favourite kind, buddy, right after customers who pay twice." },
     { id = "g_away", when = { away = 14 }, text = "Look who's back after {away} away! Prices went up while you were gone, friend, on account of the ogres, but for a returning customer they went up a little less." },
@@ -37,6 +39,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Can I sell? Buddy, I can sell anything to anybody, and a dead knight with holy hands is a whole new market I've been itchin' to crack. What you'd want is better iron, I'd guess, since the Light doesn't sharpen a blade and my whetstones do." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Sell me honest iron at an honest price.", next = "BACK", reply = "Honest iron at an honest price? Sure, buddy, and I'll even throw in a smile for free. Don't tell the orcs about the smile.", fx = { align = { honor = 1 } } },
         { text = "Charge the orcs double and sell me the good iron.", next = "BACK", reply = "Now that's a customer after my own heart, friend! Double for the orcs and the good stuff for you, and we never had this conversation.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },

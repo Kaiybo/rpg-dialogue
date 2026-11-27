@@ -13,6 +13,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, it's you! Mind the vines, and come try the new vintage, it's lovely." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Mind the vines, and mind your step, and mind your manners." },
     { id = "g_vines", text = "Mind the vines!" },
     { id = "g_crates", when = { questActive = TODO_QUEST("Milly's Harvest") }, text = "Have you any crates for me? Even a few would help." },
     { id = "g_thanks", when = { questDone = TODO_QUEST("Milly's Harvest") }, text = "There's my harvest hero. Mind the vines all the same." },
@@ -225,6 +227,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're a good sort, and the vines like you, I swear it. They grow better when you visit." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been careless with my vines and careless with me. Be gentler." },
+    },
     background = { { id = "tp_bg", text = "I grow grapes, the Abbey buys them, and this year the Defias took them. That's my whole story.", next = "happened" } },
     advice = { { id = "tp_ad", text = "Never leave a harvest in the field overnight, because the Defias will have it in sacks by dawn, and I've the empty rows to prove it." } },
     defias = { { id = "t_defias", text = "They took my harvest and my sleep. Ask me again when they give either back." } },

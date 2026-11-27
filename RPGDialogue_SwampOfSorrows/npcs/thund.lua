@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Peace, my friend. The Earth Mother smiles to see you, and so do I." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Peace, though my heart is guarded today." },
     { id = "g_default", text = "Peace, friend. My captain's spirit called, and I came, as I always did when he called." },
     { id = "g_back", when = { metBefore = true }, text = "You come back to a dead soldier's road. The Earth Mother keeps you, I see." },
     { id = "g_relic", when = { questDone = TODO_QUEST("Heroes of Old") }, text = "Does the relic serve you well? I hope it does. It was never meant to sit in a box." },
@@ -161,6 +163,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You walk with honour, my friend, and my captain would have welcomed you." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've shown little honour, and my captain would have frowned." },
+    },
     background = { { id = "tp_ba", text = "I am a tauren of the Splithooves, a corporal of Thrall's Grasp, and a ghost who doesn't mind it much." } },
     advice = { { id = "tp_ad", text = "Keep the friends who stand beside you in the worst of it, and let the rest go." } },
     cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof is the greatest of us, and I was proud to fight under his blessing in Thrall's Grasp. Tell him a Splithoof died well, if you ever see him." } },

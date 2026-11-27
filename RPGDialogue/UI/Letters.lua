@@ -11,7 +11,7 @@ local L = ns.L
 local P = {}
 ns.UI.Letters = P
 
-local ROWS, ROW_H = 7, 45
+local ROWS, ROW_H = 7, 42
 local INK = {
   name = { 0.24, 0.12, 0.00 },
   text = { 0.18, 0.10, 0.02 },
@@ -22,6 +22,7 @@ local INK = {
 local tab, panel, tabID
 local restoreTitle   -- defined with the tab code below
 local reading, pageNo, replying = nil, 1, false
+local filter = ""   -- the search box text, lower-cased
 local MAX_OPTS = 5
 
 local function ink(fs, key) local c = INK[key]; fs:SetTextColor(c[1], c[2], c[3]); fs:SetShadowOffset(0, 0) end
@@ -124,7 +125,27 @@ local function create()
 
   -- List view.
   panel.list = CreateFrame("Frame", nil, panel)
-  panel.list:SetPoint("TOPLEFT", 6, -6)
+  -- Search box: filters by sender, subject and text; Escape drops focus.
+  panel.search = CreateFrame("EditBox", "RPGDialogueMailLettersSearch", panel, "InputBoxTemplate")
+  panel.search:SetSize(180, 20)
+  panel.search:SetPoint("TOPRIGHT", -10, -6)
+  panel.search:SetAutoFocus(false)
+  panel.search:SetMaxLetters(60)
+  panel.search.hint = panel.search:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
+  panel.search.hint:SetPoint("LEFT", 2, 0)
+  panel.search.hint:SetText(L.LETTER_SEARCH)
+  local function hint(self) self.hint:SetShown(self:GetText() == "" and not self:HasFocus()) end
+  panel.search:SetScript("OnTextChanged", function(self)
+    hint(self)
+    local t = (self:GetText() or ""):lower()
+    if t ~= filter then filter = t; pageNo = 1; P.Render() end
+  end)
+  panel.search:SetScript("OnEditFocusGained", hint)
+  panel.search:SetScript("OnEditFocusLost", hint)
+  panel.search:SetScript("OnEscapePressed", function(self) self:ClearFocus() end)
+  panel.search:SetScript("OnEnterPressed", function(self) self:ClearFocus() end)
+
+  panel.list:SetPoint("TOPLEFT", 6, -30)
   panel.list:SetPoint("BOTTOMRIGHT", -6, 34)
   panel.list:EnableMouseWheel(true)
   panel.list:SetScript("OnMouseWheel", function(_, delta) P.Page(-delta) end)
@@ -270,16 +291,32 @@ end
 
 local function pages(n) return math.max(1, math.ceil(n / ROWS)) end
 
+local function letterMatches(e, needle)
+  local function has(v) return type(v) == "string" and v:lower():find(needle, 1, true) ~= nil end
+  local okF, from = pcall(ns.Letters.From, e.def)
+  if okF and has(from) then return true end
+  if has(e.def.subject) then return true end
+  local okB, body = pcall(ns.Letters.Body, e.def)
+  return has(okB and body or e.def.body)
+end
+
 local function showList()
   panel.letter:Hide(); panel.back:Hide(); panel.burn:Hide(); panel.reply:Hide(); panel.opts:Hide()
-  panel.list:Show(); panel.prev:Show(); panel.next:Show(); panel.pageText:Show()
-  local inbox = ns.Letters.Inbox()
+  panel.list:Show(); panel.prev:Show(); panel.next:Show(); panel.pageText:Show(); panel.search:Show()
+  local all = ns.Letters.Inbox()
+  local inbox = all
+  if filter ~= "" then
+    inbox = {}
+    for _, e in ipairs(all) do
+      if letterMatches(e, filter) then inbox[#inbox + 1] = e end
+    end
+  end
   local n = #inbox
   pageNo = math.max(1, math.min(pageNo, pages(n)))
-  panel.empty:SetText(ns.Letters.Enabled() and L.LETTERS_NONE or L.LETTERS_OFF)
+  panel.empty:SetText(not ns.Letters.Enabled() and L.LETTERS_OFF or (#all > 0 and L.LETTERS_NO_MATCH) or L.LETTERS_NONE)
   panel.empty:SetShown(n == 0)
   local junk = 0
-  for _, e in ipairs(inbox) do if e.def.junk then junk = junk + 1 end end
+  for _, e in ipairs(all) do if e.def.junk then junk = junk + 1 end end
   panel.burnJunk:SetShown(junk > 0)
   panel.prev:SetEnabled(pageNo > 1)
   panel.next:SetEnabled(pageNo < pages(n))
@@ -316,6 +353,7 @@ local function showLetter()
   local rec = ns.char.letters and ns.char.letters[reading]
   if not def or not rec or rec.burned then reading = nil; return showList() end
   panel.list:Hide(); panel.prev:Hide(); panel.next:Hide(); panel.pageText:Hide(); panel.burnJunk:Hide()
+  panel.search:ClearFocus(); panel.search:Hide()
   panel.letter:Show(); panel.back:Show(); panel.burn:Show()
   local canReply = ns.Letters.CanReply(reading)
   if not canReply then replying = false end

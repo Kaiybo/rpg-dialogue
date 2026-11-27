@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "My friend of the road, back again! Sit a while; the carts can wait, and so can I." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. The road's wide enough for both of us, so long as we keep to our own sides." },
     { id = "g_op_refugees_welcome", when = { opinion = { topic = "westfall_refugees", stance = "welcome" } }, text = "Ah, you're back! Two more carts came up from Westfall this week, and I told them a friend of the road had spoken up for them." },
     { id = "g_road", text = "The road south's the best road in Elwynn, friend, because it ends at a warm fire and a soft bed." },
     { id = "g_back", when = { questDone = TODO_QUEST("Rest and Relaxation") }, text = "Well? Is the Lion's Pride everything I said?" },
@@ -361,6 +363,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You've been a true friend to the refugees on this road, and they speak well of you. So do I." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been short with folk on this road who've already lost everything. Have a heart." },
+    },
     background = { { id = "tp_bg", text = "Not much to tell. I stand here, Farley stands there, and between us everybody gets to bed." } },
     advice = {
       { id = "tp_ad", text = "Rest before you need to. Every recruit learns it the hard way; you could be the first to learn it the easy way.", next = "advice" },

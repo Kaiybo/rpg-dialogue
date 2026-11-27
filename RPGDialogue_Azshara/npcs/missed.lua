@@ -14,6 +14,8 @@ P:NPC {
     third = "{name} met Coral Moongale, a night elf keeping her own watch at Bear's Head in Azshara.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend. Sit with me a while; the archmage can wait, and it is good to see a face I trust." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You want the archmage. His servant is below. That is all I can help you with." },
     { id = "g_default", text = "Ishnu-alah, {class}. If you have come for the archmage, his servant is below and his tower is above, and I belong to neither." },
     { id = "g_back", when = { metBefore = true }, text = "You are back on the cliff. Did the archmage have any use for you, or you for him?" },
   },
@@ -28,6 +30,8 @@ P:NPC {
     ylife = {
       lines = { { id = "ylife_x", text = "A Sentinel of Astranaar, under Shandris Feathermoon's command for a time. I fought the Warsong orcs in the forest. When word came of a human mage digging in Azshara, I asked to be the one who watched him. My captain did not refuse." } },
       choices = {
+        { text = "Shandris Feathermoon commands well, and the Sentinels are better for it.", next = "BACK", reply = "She does. I served under her, and I would again, if she asked.", fx = { align = { order = 1 } } },
+        { text = "The Sentinels should answer to no one but themselves.", next = "BACK", reply = "Then they would be bandits with bows. Go and find the archmage.", fx = { align = { order = -1 } } },
         { text = "You chose this post yourself?", next = "ychose" },
         { text = "Something else.", next = "BACK" },
       },
@@ -107,6 +111,8 @@ P:NPC {
     third = "{name} met Nyrill, an apprentice to Archmage Xylem at Bear's Head in Azshara.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Oh, it's you! Good! The Archmage was in a fine mood today, so I'll see what I can arrange for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Oh. You. I'll tell Sanath you're here, I suppose. Please don't make trouble." },
     { id = "g_default", text = "Oh! A visitor. You'll want the Archmage, I expect, and you'll need to speak to Sanath for that, though I should warn you that he's seldom pleasant about it." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again. I hope the Archmage was in one of his better tempers when you went up." },
   },
@@ -123,6 +129,8 @@ P:NPC {
     ydrake = {
       lines = { { id = "ydrake_x", text = "His name was Halden. He came back, mostly. He lost an arm and most of his nerve, and went home to Lakeshire. The Archmage sent a letter of condolence, which was three lines long. I've wondered if I'll be next." } },
       choices = {
+        { text = "A good apprentice learns patience before power.", next = "BACK", reply = "That's what the Archmage says, almost word for word. I'm still learning it.", fx = { align = { order = 1 } } },
+        { text = "Power first. Patience is for people without talent.", next = "BACK", reply = "The Archmage would turn you into a newt for saying that. I'm only half joking.", fx = { align = { order = -1 } } },
         { text = "Then leave, before you are.", next = "yleave" },
         { text = "Something else.", next = "BACK" },
       },

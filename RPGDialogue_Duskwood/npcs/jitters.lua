@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, it's you! It's really you! You're the only one who doesn't make me jump, and I jump at everything." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh no, it's you. Please don't loom; I'm already shaking enough for both of us." },
     { id = "g_op_red_mercy", when = { opinion = { topic = "defias", stance = "mercy" } }, text = "Oh, it's you! You said I could come back from it. I've been saying it to myself every night since, mostly when the howling starts." },
     { id = "g_flinch", text = "Wh-who's there... oh, it's only a person, thank the Light, because you are a person, aren't you?" },
     { id = "g_food", when = { questActive = TODO_QUEST("Jitters' Growling Gut") }, text = "Is that food? Please tell me that's food you've got there." },
@@ -309,6 +311,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're good to me, and I don't deserve it, not after what I did. But I'm glad, I really am." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You scare me, and that's saying something, because everything scares me. Please be nicer." },
+    },
     knows = {
       { id = "tp_knows", text = "I know things, I do, I hear them from out here, and some of them I wish I didn't. Ask me about any of this, but quietly, please, quietly." },
     },

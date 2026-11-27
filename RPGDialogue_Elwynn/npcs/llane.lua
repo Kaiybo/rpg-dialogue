@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, recruit. Come, I'll show you a guard stance that'll save your life someday." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll train you, because that's my duty, but I don't have to like it." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "I stood in a shield line in the Second War and watched a demon walk through it like it was paper. Don't bring one into my yard." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "You let something else bleed for you, and then you call it fighting. I've no respect for that, and I'll not pretend I have." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've stood your own ground a time or two, I'll grant you. I still don't care for your creature, but you've earned a word." },
@@ -305,6 +307,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You've the makings of a real soldier, and I've seen enough to know the difference." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've shown me little discipline, and discipline is the only thing that holds a shield line." },
+    },
     background = { { id = "tp_bg", text = "I train recruits in the Hall of Arms, and before that I was one, and that's all the story a trainer needs." } },
     advice = { { id = "tp_ad", text = "Your shield arm will want to drop, and you mustn't let it. That's the whole lesson, and nobody learns it the first time." } },
     northshire_abbey = { { id = "tp_abbey", text = "The brothers have the halls with books in them, and I have the one with the dents in the floor. We each think ours is the more useful." } },

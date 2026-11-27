@@ -1125,6 +1125,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend. Your bed is made and a meal is warming. Rest; you've earned it here." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You may rest here, as anyone may. I will not refuse a traveler, but I will not pretend to be glad." },
     { id = "g_inn", text = "Ishnu-alah. Rest here; there's little enough comfort in Desolace, and this land has been grey since long before my grandmother's grandmother walked it." },
     { id = "g_home", when = { homeInn = { "Nijel's Point" } }, text = "You've come back to the Point. Your bed's made, though the dust got in anyway." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the dust has had all that time to settle in your room, though I swept it as often as I could. Come in, and rest." },
@@ -1263,6 +1265,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Something else? I'll keep sweeping; the sand comes back faster than I can push it out." } },
       choices = {
+        { text = "Desolace deserves healing, not just survival.", next = "BACK", reply = "It does. Perhaps one day the land will remember what it was.", fx = { align = { light = 1 } } },
+        { text = "Desolace is dead. Take what's left and move on.", next = "BACK", reply = "Then why do you stay at my inn? Rest, and leave in the morning.", fx = { align = { light = -1 } } },
         { text = "Kreldig's been buying drinks? That's unusual for him.", next = "dd_karnitol", when = { questDone = TODO_QUEST("The Karnitol Shipwreck") } },
         { text = "Can this land ever heal, Lyshaerya?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I'd like a room.", next = "BUSINESS" },

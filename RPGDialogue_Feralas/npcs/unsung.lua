@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend. Elune's light is on you, and the birds are eager." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The hippogryphs are rested. Pay, and be gone." },
     { id = "g_roost", text = "Ishnu-alah. The hippogryphs are rested and the winds are fair, and Elune's light is on the water. Where would you fly?" },
     { id = "g_back", when = { metBefore = true }, text = "You've returned to the isle. The birds remember you, and so do I." },
   },
@@ -142,6 +144,8 @@ P:NPC {
         { id = "h_again2", text = "The birds can wait a little longer; they have waited on our people since before the Sundering. What else is on your mind?" },
       },
       choices = {
+        { text = "The hippogryphs keep Feathermoon connected.", next = "BACK", reply = "They do. Without them, the isle would be lost.", fx = { align = { order = 1 } } },
+        { text = "Feathermoon should stand alone. It needs no one.", next = "BACK", reply = "Then try reaching it without my birds.", fx = { align = { order = -1 } } },
         { text = "Do your birds miss the forests of Ashenvale?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Show me where I can fly.", next = "BUSINESS", when = { faction = "Alliance" } },
         { text = "Why build a stronghold on an island?", next = "island" },
@@ -228,6 +232,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, friend. The boats came on time, and I saved the good thread for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Thread, salt, dyes, flux. Pay, please." },
     { id = "g_shop", text = "Thread, salt, dyes and flux, if the boats came in on time. What do you need?" },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back to Feathermoon, and Elune's blessing on you. Your craft is going well, I hope?" },
   },
@@ -351,6 +357,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, and I'll answer as best I can; a few centuries of keeping stores teaches patience." },
       },
       choices = {
+        { text = "Mending keeps the Sentinels ready.", next = "BACK", reply = "It does. Thank you for noticing.", fx = { align = { order = 1 } } },
+        { text = "A torn cloak never stopped a Sentinel.", next = "BACK", reply = "It has stopped more than one. Pay, please.", fx = { align = { order = -1 } } },
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "How do goods reach the isle?", next = "boats" },
         { text = "Feralas must offer plenty to a crafter.", next = "feralas" },
@@ -433,6 +441,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Come, little one. The Earth Mother's gardens are glad to see you. Let me show you a new one." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The gardens are wide. Learn their names, or leave them be." },
     { id = "g_camp", text = "The Earth Mother's gardens are wide here, little one. Come and learn their names." },
     { id = "g_back", when = { metBefore = true }, text = "You have come back to learn more. The plants are glad of it, and so am I." },
   },
@@ -530,6 +540,8 @@ P:NPC {
         { id = "h_again2", text = "Speak; I am listening, as the grass listens to the wind." },
       },
       choices = {
+        { text = "The Earth Mother's gifts should be gathered with care.", next = "BACK", reply = "Yes. Take only what you need, and give thanks.", fx = { align = { light = 1 } } },
+        { text = "Herbs are just plants. Pick them and sell them.", next = "BACK", reply = "Then the Earth Mother will not grow them for you.", fx = { align = { light = -1 } } },
         { text = "Does the forest here still give freely, Ruw?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I've heard there are spirits older than ours here, Ruw.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do the herbs here hold any magic of their own?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
@@ -639,6 +651,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You again. Good. Watch, and I'll show you the cut I only show the careful ones." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Watch first. Cut second. Don't waste my time." },
     { id = "g_camp", text = "You want to learn the knife, then watch me first and cut second." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Let me see if your cuts have improved." },
   },
@@ -723,6 +737,8 @@ P:NPC {
         { id = "h_again2", text = "Ask. I'm listening, and the ancestors who taught me this knife are listening too." },
       },
       choices = {
+        { text = "Waste nothing of the beast.", next = "BACK", reply = "That's the old way. You learn well.", fx = { align = { honor = 1 } } },
+        { text = "Take the best hide and leave the carcass.", next = "BACK", reply = "Then you are no skinner. Go.", fx = { align = { honor = -1 } } },
         { text = "Teach me what you can.", next = "BUSINESS" },
         { text = "What beasts are worth skinning here?", next = "beasts" },
         { text = "Why does waste dishonor the hunt?", next = "waste" },
@@ -822,6 +838,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Welcome back, friend! The caravan came in, and I saved some good dye for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Thread, salt, dyes. Pay, please." },
     { id = "g_camp", text = "Welcome to Mojache. Thread, salt and dyes, if the caravan made it through." },
     { id = "g_back", when = { metBefore = true }, text = "You return! The caravan came in yesterday, so the shelves are full." },
   },
@@ -915,6 +933,8 @@ P:NPC {
         { id = "h_again2", text = "Ask what you like; I'm only counting, and a tauren can count and listen at once." },
       },
       choices = {
+        { text = "The caravan through the Needles is brave work.", next = "BACK", reply = "It is. Every bolt of thread is hard-won.", fx = { align = { honor = 1 } } },
+        { text = "The caravan should find an easier road.", next = "BACK", reply = "There is no easier road. Pay, please.", fx = { align = { honor = -1 } } },
         { text = "Is the road from Thunder Bluff really that dangerous, Sheendra?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "The caravans on this road must have trouble.", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Let me see your goods.", next = "BUSINESS" },

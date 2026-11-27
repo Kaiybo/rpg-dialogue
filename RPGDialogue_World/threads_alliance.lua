@@ -106,6 +106,12 @@ P:Thread {
       fx = { thread = { id = "dwarves_and_dark_iron", beat = "b1_stoutfist", state = "stirring" }, learn = { "thandol_span", "dragonmaw" } },
     },
     {
+      id = "b1_stoutfist_dwarf", npc = "stoutfist",
+      when = { race = "Dwarf", minLevel = 20, thread = { id = "dwarves_and_dark_iron", notBeat = "b1_stoutfist" } },
+      text = "Wi' Dun Algaz watched an' the Thandol Span broken, {g:lad|lass}, this harbour's all that joins yer kin in Khaz Modan tae the rest o' the Alliance. The Dark Irons know it an' the Dragonmaw know it, an' I'd sleep better if the King remembered it.",
+      fx = { thread = { id = "dwarves_and_dark_iron", beat = "b1_stoutfist", state = "stirring" }, learn = { "thandol_span", "dragonmaw" } },
+    },
+    {
       id = "b2_longbraid", npc = "longbraid",
       when = { minLevel = 20, thread = { id = "dwarves_and_dark_iron", notBeat = "b2_longbraid" } },
       text = "I lost the better part o' my company at Grim Batol tae the Dragonmaw an' their red dragons, an' the Dark Irons broke the Span while we were still countin' the dead. Dun Modr fell between the one enemy an' the other, an' I'll forgive neither.",

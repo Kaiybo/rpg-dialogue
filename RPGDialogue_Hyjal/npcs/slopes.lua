@@ -268,6 +268,8 @@ P:NPC {
     third = "{name} met Earthcaller Franzahl, a high elf who studies the elements on Mount Hyjal.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, you again, and welcome. Come and stand by me; the elements have been chattering all morning, and you are one of the few who listens properly." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Yes, yes, I see you. Keep to the far side of the gorge, if you would, and do not touch my stones." },
     { id = "g_default", text = "Ah, a visitor. Do mind the edge; the gorge is deeper than it looks, and noisier." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? I've made some progress since we last spoke, though I fear the elements have not." },
   },
@@ -280,6 +282,8 @@ P:NPC {
       narr = "He polishes a small crystal on his sleeve while he speaks.",
       lines = { { id = "xorigin_default", text = "Quel'Thalas, in my youth, and later wherever my curiosity led. My people study the arcane above all. I found the elements more honest; they never pretend to be anything but what they are." } },
       choices = {
+        { text = "The elements deserve respect, not commands.", next = "BACK", reply = "Quite so. They answer courtesy far more readily than they answer force.", fx = { align = { light = 1 } } },
+        { text = "The elements are tools. Use them and move on.", next = "BACK", reply = "Tools, he says. They will remember that, and so shall I.", fx = { align = { light = -1 } } },
         { text = "Do you miss your homeland?", next = "xhome" },
         { text = "Something else.", next = "BACK" },
       },

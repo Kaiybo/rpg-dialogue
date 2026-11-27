@@ -19,6 +19,8 @@ P:NPC {
     third = "{name} met Soran, the quiet brother at the Bank of Orgrimmar who does not speak of Mount Hyjal.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "The Bank of Orgrimmar, friend. Tell me what you need, and it's done." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The Bank of Orgrimmar. Tell me what you need. Then go." },
     { id = "g_default", text = "The Bank of Orgrimmar. Tell me what you need, and I'll see to it." },
     { id = "g_back", when = { metBefore = true }, text = "You're back. Your goods are as you left them; I looked this morning." },
     { id = "g_away", when = { away = 14 }, text = "It's been some weeks. Nothing has been touched, and I'd know if it had." },
@@ -141,6 +143,8 @@ P:NPC {
     third = "{name} met Auctioneer Wabang, who calls the bids in Orgrimmar and enjoys every one.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Step up, friend! For you, the best bids before anyone else! Something to sell?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Step up. Buying or selling? Quickly, please, there's a line." },
     { id = "g_default", text = "Step up, step up! Something to sell, or something you can't live without?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! You didn't win it, by your face. Then bid higher this time, that's my counsel, and I'm never wrong." },
     { id = "g_rich", when = { money = { min = 1000000 } }, text = "Now there's the walk of someone with gold to spend. Come closer, friend, and let me tell you what came in this morning." },
@@ -260,6 +264,8 @@ P:NPC {
     third = "{name} met Auctioneer Grimful, the exact and dry-spoken keeper of the Orgrimmar auction ledger.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, a trusted name. Buying or selling, friend? I'll waive the dispute fee." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Name and business. Buying, selling, or disputing? The dispute fee is doubled for you." },
     { id = "g_default", text = "Name and business. Buying, selling, or come to dispute a fee?" },
     { id = "g_back", when = { metBefore = true }, text = "You again. Your last sale cleared, if that's what you've come to ask." },
     { id = "g_rich", when = { money = { min = 1000000 } }, text = "You're carrying a great deal of coin for someone standing in a crowd. I'd spend it or bank it, and soon." },
@@ -498,6 +504,8 @@ P:NPC {
     third = "{name} met Sumi, Saru Steelfury's daughter, who keeps the smiths of Orgrimmar supplied.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Flux, coal, or a hammer, friend? I'll find you the best of each." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Flux, coal, or a hammer? You look like you'd break any of them." },
     { id = "g_default", text = "Flux, coal, or a hammer? You've the look of someone who's run out of one of the three." },
     { id = "g_back", when = { metBefore = true }, text = "Back already. You used the flux too thick, didn't you? Everyone does, the first time." },
     { id = "g_smith", when = { profession = "Blacksmithing" }, text = "A smith. Good. Tell me what you're making and I'll tell you what you've forgotten to buy for it." },
@@ -622,6 +630,8 @@ P:NPC {
     third = "{name} met Sovik, the fast-talking goblin who sells engineering parts at Nogg's Machine Shop in Orgrimmar.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hey, my favorite customer! Bolts, powder, fuses, and for you, the good stuff!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hey, a customer. Bolts, powder, fuses. Full price, for you." },
     { id = "g_default", text = "Hey, hey, a customer! Bolts, powder, fuses, you name it, pal, I got it, and if I don't got it I know a guy." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! That means it either worked or it blew up, and either way you need parts. Step right up." },
     { id = "g_eng", when = { profession = "Engineering" }, text = "An engineer, now we're talkin'. I'll tell ya right now, buy the good fuse. The cheap fuse is how I got this eyebrow." },
@@ -747,6 +757,8 @@ P:NPC {
     third = "{name} met Borya, the talkative supplier of thread and gossip at Magar's Cloth Goods in Orgrimmar.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Come in, friend! Thread, dye, and I'll tell you all the newest gossip." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come in. Thread, dye, needles. No gossip for you today, I'm afraid." },
     { id = "g_default", text = "Come in, come in! Thread, dye, needles, and all the news of the Drag for nothing." },
     { id = "g_back", when = { metBefore = true }, text = "There you are again! You'll never guess what Handor said about Tor'phan since you were last in." },
     { id = "g_tailor", when = { profession = "Tailoring" }, text = "A tailor! Don't tell me what you're short of, let me guess. It's coarse thread, because it's always coarse thread." },
@@ -872,6 +884,8 @@ P:NPC {
     third = "{name} met Xen'to, the jolly Darkspear who sells spices at the firepit in Orgrimmar's Drag.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Come close, friend, and smell dis! You will love it, I promise." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come close and smell dis. Or don't. Xen'to not care either way." },
     { id = "g_default", text = "Come close and smell dis, mon! No, do not ask what it is first. Smell, den ask." },
     { id = "g_back", when = { metBefore = true }, text = "Ha, you came back! So de spice did not kill you. I told Zamja it would not." },
     { id = "g_cook", when = { profession = "Cooking" }, text = "A cook! Den you and I be friends already. What be in your pot dis week, and why be it so sad?" },
@@ -1000,6 +1014,8 @@ P:NPC {
     third = "{name} met Sana, the stern mail armor merchant at Soran's armory, who names one price and keeps it.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Mail is on this wall, friend. For you, the prices are a little lower." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mail is on this wall. Prices are marked. They are not negotiable." },
     { id = "g_default", text = "Mail is on this wall. The price is marked on each piece, and it is the price." },
     { id = "g_back", when = { metBefore = true }, text = "You have returned. If something I sold you has failed, show me the rings, and I will tell you whose fault it was." },
     { id = "g_mail", when = { class = { "HUNTER", "SHAMAN" } }, text = "You wear mail, or soon will. Good. Then you will want to see the shoulders first, because that is where a poor weave shows." },
@@ -1131,6 +1147,8 @@ P:NPC {
     third = "{name} met Kareth, the discreet blade merchant of the Slow Blade in Orgrimmar's Cleft of Shadow.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Look as long as you like, friend. I'll not ask your name, because I know it well." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Look as long as you like. I'll not ask your name. I already know it, and what it means." },
     { id = "g_default", text = "Look as long as you like. I'll not ask your name, and I'd be obliged if you didn't offer it." },
     { id = "g_back", when = { metBefore = true }, text = "You've been here before. I remember the hands, if not the face, and that's how I prefer it." },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "One of Shenthul's, by the way you checked the door. Come round to the left case; I keep the better points there." },
@@ -1250,6 +1268,8 @@ P:NPC {
     third = "{name} met Katis, the soft-spoken wand merchant in Orgrimmar's Cleft of Shadow.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. Point to any wand, and I'll tell you its story." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Wands are in the case. Point to the one you want, and pay for it." },
     { id = "g_default", text = "The wands are in the case. Point to the one you'd like to hold, and please don't wave it about until I've stepped to one side." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back. The one you held last time has been restless ever since, if a wand can be said to be." },
     { id = "g_caster", when = { class = { "MAGE", "PRIEST", "WARLOCK" } }, text = "You can use what I sell, which is more than I can. Come and choose slowly; I like to watch someone who knows how." },
@@ -1372,6 +1392,8 @@ P:NPC {
     third = "{name} met Olvia, the brisk butcher of the Chophouse in Orgrimmar's Valley of Strength.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend! Boar, more boar, and the best boar for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Boar, or more boar. Make up your mind." },
     { id = "g_default", text = "What'll it be? I've boar, I've more boar, and I've a little strider if you're quick about it." },
     { id = "g_back", when = { metBefore = true }, text = "You again. The same cut as before, or have you grown ambitious?" },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter. If that beast of yours is hungry, say so now, and I'll see what I have in the scrap pail." },
@@ -1491,6 +1513,8 @@ P:NPC {
     third = "{name} met Gotri, the bag seller in Orgrimmar's Drag who has never traveled and asks everyone about their journeys.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome to Gotri's, friend! Sit and tell me where you've been. I always love your stories." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome to Gotri's. Buy something, if you like. I'll not ask where you've been." },
     { id = "g_default", text = "Welcome to Gotri's! Tell me, friend, where have you come from, and what did you carry it all in?" },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and you've been somewhere new since I saw you, because that's fresh mud on your pack and it's the wrong color for Durotar." },
     { id = "g_far", when = { minLevel = 40 }, text = "Now there's a pack that's been across the sea and back. Sit down a moment, and don't leave anything out." },
@@ -1610,6 +1634,8 @@ P:NPC {
     third = "{name} met Horthus, a plain-spoken reagent vendor in Orgrimmar's Valley of Strength.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Reagents, friend. Tell me the spell, and I'll make sure you have what you need." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Reagents. Tell me the spell, and I'll tell you the price, and that's the end of it." },
     { id = "g_default", text = "Reagents. Tell me the spell and I'll tell you what you need for it, and you can save us both the time of looking round." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, so you've run out again. Buy double this time, and spare your boots the walk." },
     { id = "g_shaman", when = { class = "SHAMAN" }, text = "A shaman, and you'll be after ankhs. They're in the jar on the left, and I'll not ask what you plan to die of." },
@@ -1735,6 +1761,8 @@ P:NPC {
     third = "{name} met Shimra, the sharp-eyed seller of crafters' supplies at the Orgrimmar General Store.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hold out your hands, friend. Ah, yes. You've the hands of a true crafter." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hold out your hands. Hmm. I'll sell to you, but I don't think you'll make anything worth it." },
     { id = "g_default", text = "Don't tell me what you make. Hold out your hands, and I'll tell you, and then I'll tell you what you're short of." },
     { id = "g_back", when = { metBefore = true }, text = "You're back for more of the same, I expect. Crafters are creatures of habit, and I've built a living on it." },
     { id = "g_crafter", when = { any = { { profession = "Tailoring" }, { profession = "Blacksmithing" }, { profession = "Alchemy" }, { profession = "Leatherworking" } } }, text = "A working pair of hands, at last. Half the people through that door only want to know the way to the bank." },
@@ -1854,6 +1882,8 @@ P:NPC {
     third = "{name} met Trak'gen, the open-handed general goods merchant of the Orgrimmar General Store.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Come in, friend, set your pack down. You look tired, and you're always welcome here." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come in, if you must. Set your pack down, buy what you need, and pick it up again." },
     { id = "g_default", text = "Come in, friend, and set that pack down a moment. You look as though you've walked a long way to reach a shop." },
     { id = "g_back", when = { metBefore = true }, text = "There you are again! I was telling Shimra you'd be back, and she said I say that about everyone, which is true." },
     { id = "g_young", when = { maxLevel = 12 }, text = "New to the city, aren't you? Welcome, then. Stand anywhere you like, except across Shimra's line." },
@@ -1973,6 +2003,8 @@ P:NPC {
     third = "{name} met Garyl, who sells guild tabards in Orgrimmar and treats each one as a clan's banner.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Throm-ka, friend. A tabard for you would be an honor to make." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Throm-ka. If you've come for a tabard, I hope you've thought hard about what it means." },
     { id = "g_default", text = "Throm-ka. If you've come for a tabard, I hope you've thought about your colors, because you'll be wearing them for a long time." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Have you settled on the emblem, or are you still torn between the wolf and the axe, like everyone?" },
     { id = "g_guild", when = { guild = true }, text = "You belong to a guild already, by the way you look over my racks. Then you know what a banner is for, and I hope that yours is kept clean." },

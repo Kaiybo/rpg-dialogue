@@ -346,6 +346,8 @@ P:NPC {
     third = "{name} met Gregor MacVince, the horse breeder on Theramore Isle.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Good day, friend! Come see the horses; I've a new foal I'd love to show you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Good day. Horses, for sale. Mind the mud." },
     { id = "g_default", text = "Good day to you! Come and see the finest horses this side of the sea, and mind the mud by the fence." },
     { id = "g_back", when = { metBefore = true }, text = "Back to look at the horses again? I don't blame you, friend, they're worth a second look." },
   },
@@ -372,6 +374,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask. The grey's listening too." },
       },
       choices = {
+        { text = "Careful breeding makes the finest horses.", next = "BACK", reply = "It does! Years of work, and worth every one.", fx = { align = { order = 1 } } },
+        { text = "A horse is a horse. Just pick one.", next = "BACK", reply = "Then go and pick one elsewhere.", fx = { align = { order = -1 } } },
         { text = "Show me the horses.", next = "BUSINESS" },
         { text = "How do you keep horses healthy in a swamp?", next = "swamp" },
         { text = "Why only sell to Stormwind's friends?", next = "rule" },
@@ -442,6 +446,8 @@ P:NPC {
     third = "{name} met Michael, the stable master outside the Theramore inn.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, you. I've a pen ready and a brush for the mud. Bring your beast in." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Need a pen? I've room. Pay first." },
     { id = "g_default", text = "Need a pen for a beast? I've room, and I've a brush for the mud." },
     { id = "g_back", when = { metBefore = true }, text = "Back for your animal, or leaving another with me? Either way, it's been well fed." },
   },
@@ -468,6 +474,8 @@ P:NPC {
         { id = "h_again_b2", text = "Ask away, while this one finishes her supper." },
       },
       choices = {
+        { text = "A beast deserves to be brushed and fed.", next = "BACK", reply = "It does. Most folk forget.", fx = { align = { light = 1 } } },
+        { text = "A beast in a pen doesn't need brushing.", next = "BACK", reply = "It does, in this mud. Pay first.", fx = { align = { light = -1 } } },
         { text = "I need to stable a companion.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "What do people leave with you?", next = "beasts" },
         { text = "How do you keep animals clean in this marsh?", next = "mud" },
@@ -576,6 +584,8 @@ P:NPC {
     third = "{name} met Zulrg, the Stonemaul ogre who sells weapons in Brackenwall Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Friend! Zulrg saved a big stick for you, the best one." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Zulrg has weapons. You pay, you take, you go." },
     { id = "g_default", text = "Zulrg has axes, swords and big sticks. You want to hit things, Zulrg has the thing to hit with." },
     { id = "g_back", when = { metBefore = true }, text = "You come back. Did the last weapon break? Zulrg has more." },
   },
@@ -602,6 +612,8 @@ P:NPC {
         { id = "h_again_b2", text = "Ask. Axes do not go anywhere." },
       },
       choices = {
+        { text = "A good weapon makes a good warrior.", next = "BACK", reply = "Yes! Zulrg agrees. Buy the big stick.", fx = { align = { honor = 1 } } },
+        { text = "Any weapon will do, if you're strong enough.", next = "BACK", reply = "Then use your fists. Zulrg sells weapons.", fx = { align = { honor = -1 } } },
         { text = "Let me see your weapons.", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "Which weapon would you choose?", next = "choose" },
         { text = "Where do the weapons come from?", next = "source" },
@@ -862,6 +874,8 @@ P:NPC {
     third = "{name} met Captain Evencane, who trains warriors in Theramore's Foothold Citadel.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Stand easy, friend. You've earned that much in my yard. What do you need?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Stand straight. Tell me what you want, and quickly." },
     { id = "g_default", text = "Stand straight when you come into my yard, and then tell me what you want." },
     { id = "g_2", when = { metBefore = true }, text = "You're back, so let me see your guard, and I'll know in a moment whether you've practised." },
   },
@@ -889,6 +903,8 @@ P:NPC {
         { id = "hello_again3", text = "Go on, but keep it short, because the tide's coming in over the drill square." },
       },
       choices = {
+        { text = "Discipline makes a warrior.", next = "BACK", reply = "It does. You'll do well here.", fx = { align = { order = 1 } } },
+        { text = "A warrior's fury matters more than discipline.", next = "BACK", reply = "Fury without discipline gets you killed. Stand straight.", fx = { align = { order = -1 } } },
         { text = "I'm here to train.", next = "BUSINESS", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How do you train men to fight in a swamp?", next = "swamp" },
         { text = "Your recruits look young.", next = "young" },
@@ -1029,6 +1045,8 @@ P:NPC {
     third = "{name} met Brother Karman, the paladin trainer of Theramore Isle.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Light be with you, friend. Come in, sit; I'm glad to see you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Light be with you. Speak your need, and go in peace." },
     { id = "g_default", text = "Light be with you, friend. Come out of the wet, such as it is, and tell me what you need." },
     { id = "g_2", when = { metBefore = true }, text = "Well met again. You look a little steadier than when I saw you last, and I'm glad of it." },
   },
@@ -1053,6 +1071,8 @@ P:NPC {
         { id = "hello_again3", text = "Go on, friend." },
       },
       choices = {
+        { text = "The Light guides those who serve it faithfully.", next = "BACK", reply = "It does. You walk a good path.", fx = { align = { light = 1 } } },
+        { text = "The Light is just a story for soldiers.", next = "BACK", reply = "I am sorry you think so. Go in peace.", fx = { align = { light = -1 } } },
         { text = "I've come for training.", next = "BUSINESS", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "What became of the Silver Hand here?", next = "hand" },
         { text = "You teach beside the practice dummies, not in a chapel.", next = "yard" },
@@ -1148,6 +1168,8 @@ P:NPC {
     third = "{name} met Alchemist Narett, the alchemy trainer of Theramore Isle.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, friend! Breathe as you like; the retort is settled today. Come, see." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Don't breathe by the retort. And please, be quick." },
     { id = "g_default", text = "Don't breathe too deeply by that retort, if you please. It won't harm you, but it does linger." },
     { id = "g_2", when = { metBefore = true }, text = "Ah, it's you. I've had a thought since you were last here, and it very nearly worked." },
   },
@@ -1172,6 +1194,8 @@ P:NPC {
         { id = "hello_again3", text = "Yes, yes, what is it?" },
       },
       choices = {
+        { text = "Careful work makes good potions.", next = "BACK", reply = "It does! You'd make a fine alchemist.", fx = { align = { order = 1 } } },
+        { text = "Alchemy is mostly guesswork.", next = "BACK", reply = "Then guess somewhere else, please.", fx = { align = { order = -1 } } },
         { text = "Teach me alchemy.", next = "BUSINESS", when = { faction = "Alliance" } },
         { text = "What does the marsh give an alchemist?", next = "marsh" },
         { text = "Who drinks all these potions?", next = "who" },
@@ -1266,6 +1290,8 @@ P:NPC {
     third = "{name} met Brant Jasperbloom, the herbalism trainer of Theramore Isle.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Good day, friend. The seedlings are cheerful today. Perhaps they like you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind the pots. They're sulking, and so am I." },
     { id = "g_default", text = "Good day to you. Mind the pots by the door, for they're seedlings, and they're sulking about the salt air." },
     { id = "g_2", when = { metBefore = true }, text = "Back again, and with mud to the knee. You've been out picking, haven't you?" },
   },
@@ -1290,6 +1316,8 @@ P:NPC {
         { id = "hello_again3", text = "Go on, friend." },
       },
       choices = {
+        { text = "Gathering without harming the plant is the true art.", next = "BACK", reply = "It is. You understand.", fx = { align = { light = 1 } } },
+        { text = "Pull the whole plant. It's quicker.", next = "BACK", reply = "Then it won't grow back. Mind the pots.", fx = { align = { light = -1 } } },
         { text = "Teach me herbalism.", next = "BUSINESS", when = { faction = "Alliance" } },
         { text = "What's worth picking in the marsh?", next = "picking" },
         { text = "The guards say you go out alone.", next = "alone" },
@@ -1403,6 +1431,8 @@ P:NPC {
     third = "{name} met Bartender Lillian, who keeps the bar at Theramore's inn.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "What'll it be, friend? First one's on me today." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "What'll it be? Wipe your boots." },
     { id = "g_default", text = "What'll it be? And wipe your boots, please, because I've only just swept the marsh out." },
     { id = "g_2", when = { metBefore = true }, text = "Back again. The usual, or have you got brave since last time?" },
   },
@@ -1427,6 +1457,8 @@ P:NPC {
         { id = "hello_again3", text = "Yes? Ask before the watch changes and the rush comes in." },
       },
       choices = {
+        { text = "A good bar keeps the soldiers happy.", next = "BACK", reply = "It does. Janene doesn't think so, but she's wrong.", fx = { align = { light = 1 } } },
+        { text = "Drinking makes soldiers lazy.", next = "BACK", reply = "Then don't drink. Wipe your boots.", fx = { align = { light = -1 } } },
         { text = "Pour me something.", next = "BUSINESS" },
         { text = "What do the soldiers talk about in here?", next = "talk" },
         { text = "That man by the door keeps smiling at nothing.", next = "jim" },
@@ -1550,6 +1582,8 @@ P:NPC {
     third = "{name} met the troll Balai Lok'Wein, who sells potions and reagents in Brackenwall Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Come close, friend. Balai got special tings for you today." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Balai got what ya need. Pay, and go." },
     { id = "g_default", text = "Come close, mon. Balai got what ya need, and a few tings ya don't know ya need yet." },
     { id = "g_2", when = { metBefore = true }, text = "Ya come back to Balai. De spirits said ya would, though dey didn't say when." },
   },
@@ -1574,6 +1608,8 @@ P:NPC {
         { id = "hello_again3", text = "Speak up. De frogs be loud today." },
       },
       choices = {
+        { text = "De right potion saves a life.", next = "BACK", reply = "It does, mon. You understand.", fx = { align = { light = 1 } } },
+        { text = "Potions are for the weak.", next = "BACK", reply = "Den don't buy any, mon. Go.", fx = { align = { light = -1 } } },
         { text = "Show me your wares.", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "How does a troll end up among ogres?", next = "ogres" },
         { text = "You keep looking out at the marsh.", next = "marsh" },
@@ -1697,6 +1733,8 @@ P:NPC {
     third = "{name} met the ogre Krak, who sells armor in Brackenwall Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Friend! Krak made you armor! Strong armor! Krak hit it, and it did not break!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Krak has armor. You pay, Krak gives." },
     { id = "g_default", text = "Krak has armor! Good armor, strong armor. Krak hit it himself, and it did not break." },
     { id = "g_2", when = { metBefore = true }, text = "You are back, and you are not dead. See? Krak's armor works." },
   },
@@ -1721,6 +1759,8 @@ P:NPC {
         { id = "hello_again3", text = "What else? Krak will wait." },
       },
       choices = {
+        { text = "Strong armor keeps you alive.", next = "BACK", reply = "Yes! Krak hit it himself!", fx = { align = { order = 1 } } },
+        { text = "Armor is for cowards.", next = "BACK", reply = "Krak does not like you. Pay or go.", fx = { align = { order = -1 } } },
         { text = "Show me your armor.", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "How do you test your armor?", next = "test" },
         { text = "Where does an ogre get armor to sell?", next = "get" },
@@ -1843,6 +1883,8 @@ P:NPC {
     third = "{name} met the orc Zanara, who sells bows in Brackenwall Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You again. Good. I've a bow the marsh hasn't touched. Look." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Bows, arrows, strings. Look, and be quick." },
     { id = "g_default", text = "Bows, arrows, and strings that the marsh has not rotted. Look them over, and be quick about it." },
     { id = "g_2", when = { metBefore = true }, text = "You return. Good, for the last one who bought from me came back too, and that is the best thing a bowyer can hear." },
   },
@@ -1867,6 +1909,8 @@ P:NPC {
         { id = "hello_again3", text = "Go on." },
       },
       choices = {
+        { text = "A good bow is worth its price in this marsh.", next = "BACK", reply = "It is. The damp rots cheap ones.", fx = { align = { honor = 1 } } },
+        { text = "A cheap bow works as well as a dear one.", next = "BACK", reply = "Not here. Look, and be quick.", fx = { align = { honor = -1 } } },
         { text = "Show me your bows.", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "Why sell bows to ogres at all?", next = "ogres" },
         { text = "How do you keep a bow sound in this damp?", next = "damp" },

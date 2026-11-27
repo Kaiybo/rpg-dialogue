@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "You. Good. I've stopped looking east, but I'm glad to look at you." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I've stopped looking east, and I'll stop looking at you too." },
     { id = "g_op_westfall_help", when = { opinion = { topic = "westfall", stance = "self_reliance" } }, text = "You again, the one who said Westfall should look after itself. I've thought on it, and I've stopped looking east for the king's soldiers." },
     { id = "g_map", text = "Don't stand on the map." },
     { id = "g_bandanas", when = { questActive = TODO_QUEST("Red Leather Bandanas") }, text = "Bandanas? Count them out on the table; every one's a pin on my map." },
@@ -146,6 +148,8 @@ P:NPC {
         { id = "h_again2", text = "More questions? Fine, but mind the pins." },
       },
       choices = {
+        { text = "Westfall should obey Stormwind and wait for help.", next = "BACK", reply = "I waited three years, friend. The help never came.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Westfall should look after itself.", next = "BACK", reply = "That's what Gryan says, and I'm coming round to it.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Why does a scout guard farmland nobody else will?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Show me your map.", next = "map" },
         { text = "They all seem to wear red.", next = "bandanas" },
@@ -255,6 +259,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're steady, and Westfall needs steady." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've given me cause to doubt, and I doubt hard." },
+    },
     deadmines = { { id = "tp_deadmines", text = "The Deadmines are under Moonbrook, and every pin on my map that goes red seems to lead down into them. I've drawn the entrance three times, and every time I'm less sure the mine has only one door." } },
     bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail Buccaneers have been seen along the coast near the lighthouse, and I've started marking their sails. If they ever make common cause with the Defias, I'll need a bigger map and a lot more pins." } },
     si7 = { { id = "tp_si7", text = "SI:7 sends a man to ask for my maps now and then, and he never says why or gives them back. I've started making a second copy, and I'd advise any scout to do the same." } },

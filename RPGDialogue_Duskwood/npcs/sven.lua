@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "You. Sit by the fire, then; I'd not say that to most folk, and you know it." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Move along. I've no fire to spare for you tonight." },
     { id = "g_camp", text = "Sit by the fire or move along; I don't much care which." },
     { id = "g_figure", when = { questActive = TODO_QUEST("The Shadowy Figure") }, text = "Well? Have you found out who was at my farm that night?" },
     { id = "g_after", when = { questDone = TODO_QUEST("Morbent Fel") }, text = "It's done, and I keep waiting to feel something about it." },
@@ -122,6 +124,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, then. The fire's not going anywhere, and neither am I." },
       },
       choices = {
+        { text = "Duskwood needs a strong lord to set it right.", next = "BACK", reply = "It had one, once, and look what came of him. I'll take the woods over another lord.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Duskwood folk are better off ruling themselves.", next = "BACK", reply = "Aye, ruling themselves into early graves. Still, it's their graves.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "What drove the animals away from your land?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What happened to your family?", next = "family" },
         { text = "You look like a man who wants something badly.", next = "want" },
@@ -290,6 +294,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're straight with me, and I value that more than coin. Not many in Duskwood are straight with anybody." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've given me cause to watch you, and I'm a man who watches well. Mind that." },
+    },
     knows = {
       { id = "tp_knows", text = "I've watched these woods a long time from this camp, and very little walks through them I don't see. Ask me about any of this." },
     },

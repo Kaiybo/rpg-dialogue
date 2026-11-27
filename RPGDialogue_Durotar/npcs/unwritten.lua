@@ -14,6 +14,8 @@ P:NPC {
     third = "{name} met Yelnagi Blackarm, an old orc who keeps an eye on Razor Hill's stores.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Another face from the Valley, and a welcome one. Come, the wagons can wait." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Another face. Stay out of the wagons' way." },
     { id = "g_default", text = "Another face on the road from the Valley of Trials. Stay out of the way of the wagons and we will get along fine, {class}." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still in one piece. Razor Hill has seen plenty who could not say the same." },
   },
@@ -30,6 +32,8 @@ P:NPC {
         { id = "h_again2", text = "Speak up, {class}. My ears are not what they were before the camps." },
       },
       choices = {
+        { text = "Counting supplies keeps the Horde fed.", next = "BACK", reply = "It does. Every crate matters.", fx = { align = { order = 1 } } },
+        { text = "Counting crates is busywork.", next = "BACK", reply = "Then you'd starve without it.", fx = { align = { order = -1 } } },
         { text = "What does Razor Hill need most?", next = "need" },
         { text = "Your arm is black as a smith's anvil.", next = "arm" },
         { text = "Who causes trouble around here?", next = "trouble" },
@@ -126,6 +130,8 @@ P:NPC {
     third = "{name} spoke with one of the Sen'jin Watchers who guard the Darkspear village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Welcome back, friend of Sen'jin. Walk freely here." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome to Sen'jin. Keep your weapons sheathed. I be watchin'." },
     { id = "g_default", text = "Welcome to Sen'jin, mon. Keep your weapons sheathed in de village and you be fine." },
   },
   notice = {
@@ -137,6 +143,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I be watchin' de water, {class}, because de Echo Isles still belong to Zalazane and his mad witch doctors. One day we take dem back, but today we just watch." } },
       again = { { id = "h_again", text = "Somethin' else, mon? I still got eyes on de islands." } },
       choices = {
+        { text = "Watching the water keeps Sen'jin safe.", next = "BACK", reply = "It does, mon. De Echo Isles be close.", fx = { align = { order = 1 } } },
+        { text = "De water's safe. Nobody comes from de sea.", next = "BACK", reply = "De naga do, mon. Keep walkin'.", fx = { align = { order = -1 } } },
         { text = "Who is Zalazane?", next = "zalazane" },
         { text = "Why did your people leave the isles?", next = "left" },
         { text = "What's life like in Sen'jin?", next = "xlife" },
@@ -233,6 +241,8 @@ P:NPC {
     third = "{name} spoke with a Steamwheedle Bruiser, one of the Cartel's hired guards.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hey, pal! Good to see a friendly face. Cartel's got no bills on you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Easy there, pal. The Cartel's watching you." },
     { id = "g_default", text = "Easy there, pal. Whatever you're thinkin' about startin', the Cartel already billed somebody to finish it." },
   },
   start = "hello",
@@ -241,6 +251,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I keep the peace for the Steamwheedle Cartel, friend, which means nobody breaks nothin' that belongs to a paying customer. Horde, Alliance, it's all the same coin to me." } },
       again = { { id = "h_again", text = "Still here? Talkin' to me don't cost you nothin', so go on." } },
       choices = {
+        { text = "The Cartel keeps the peace for everyone.", next = "BACK", reply = "It does, pal. That's business.", fx = { align = { order = 1 } } },
+        { text = "The Cartel's just a bunch of crooks.", next = "BACK", reply = "Easy, pal. That kind of talk gets billed.", fx = { align = { order = -1 } } },
         { text = "You'd guard an Alliance merchant too?", next = "neutral" },
         { text = "What happens if someone breaks the peace?", next = "peace" },
         { text = "How did you become a bruiser?", next = "xhow" },
@@ -584,6 +596,8 @@ P:NPC {
     third = "{name} spoke with Blood Guard Hini'wana in the Hall of Legends.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ya come back, mon. Ya got a legend in ya, I see it now. Come." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ya think ya got a legend in ya? Let's see. Not likely." },
     { id = "g_default", text = "Ya come to de Hall of Legends, mon, so ya must think ya got a legend in you. Let's see if de battlefield agrees." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and wit' a few more scars, I see. Good, dat's how it be done." },
   },
@@ -596,6 +610,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I be Hini'wana, blood guard of de Horde, and I give de finest arms to dose who earn dem fightin' de Alliance. No gold buys what I keep, only honour won in de field." } },
       again = { { id = "h_again", text = "Somethin' else on ya mind, mon?" }, { id = "h_again2", text = "Talk quick, de warriors be lining up behind ya." } },
       choices = {
+        { text = "Honor in battle earns its reward.", next = "BACK", reply = "It do, mon. De Horde remember.", fx = { align = { honor = 1 } } },
+        { text = "Rewards come from cunning, not honor.", next = "BACK", reply = "Den ya get no rewards from me.", fx = { align = { honor = -1 } } },
         { text = "How does one earn your notice?", next = "earn" },
         { text = "A troll guarding orc treasures seems odd.", next = "troll" },
         { text = "How long have you served the Horde?", next = "xlong" },
@@ -677,6 +693,8 @@ P:NPC {
     third = "{name} spoke with Scout Manslayer, who patrols Orgrimmar.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You. Good. Walk with me a moment, friend." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Keep moving, or tell me why you're in my road." },
     { id = "g_default", text = "Keep moving, {class}, or tell me why you're standing in my road. I have ground to cover before dark." },
     { id = "g_back", when = { metBefore = true }, text = "You again. You walk too loudly, but at least now I know the sound of it." },
   },
@@ -686,6 +704,8 @@ P:NPC {
       lines = { { id = "h_default", text = "They call me Manslayer, and I earned the name in the wars. Now I walk the city and the roads around it and report what I see to the Warchief's officers." } },
       again = { { id = "h_again", text = "What else? Be quick about it." }, { id = "h_again2", text = "Ask, then. I can listen and walk at the same time." } },
       choices = {
+        { text = "Scouting saves more lives than fighting.", next = "BACK", reply = "It does. Few understand.", fx = { align = { order = 1 } } },
+        { text = "A scout should fight, not just watch.", next = "BACK", reply = "Then you'll be the first to die.", fx = { align = { order = -1 } } },
         { text = "How did you earn that name?", next = "name" },
         { text = "What do you watch for?", next = "watch" },
         { text = "Do you trust everyone in Orgrimmar?", next = "xtrust" },
@@ -767,6 +787,8 @@ P:NPC {
     third = "{name} stood before an Honored Ancestor outside Orgrimmar.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You remember us, child. That is the greatest gift the living can give." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The living still remember us. Some of them, at least." },
     { id = "g_default", text = "The living still remember us. That is the only feast the dead truly need." },
     { id = "g_festival", when = { holiday = "lunar" }, text = "The festival moon has risen, and I am called back to remember and be remembered. Stand with me, child of the Horde." },
     { id = "g_back", when = { metBefore = true }, text = "You return to stand with us again, child of the Horde. It warms what little of me remains." },
@@ -778,6 +800,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I was a warrior once, as you are, and I fell so that others could stand where you stand now. While the harvest is gathered and the fallen remembered, we are allowed to look upon the land again." } },
       again = { { id = "h_again", text = "Ask, while I am here to answer." } },
       choices = {
+        { text = "The ancestors should always be honored.", next = "BACK", reply = "They should. We watch over you still.", fx = { align = { honor = 1 } } },
+        { text = "The dead are gone. The living matter more.", next = "BACK", reply = "Perhaps. But we remember you, too.", fx = { align = { honor = -1 } } },
         { text = "Who were you, in life?", next = "life" },
         { text = "What do the dead want of us?", next = "want" },
         { text = "How did you fall?", next = "xfall" },
@@ -883,6 +907,8 @@ P:NPC {
     third = "{name} woke a lazy peon in the Valley of Trials.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Zzz... oh, it's you! You won't tell the foreman, right? Work work." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Zzz... huh? Go away. Work work." },
     { id = "g_default", text = "Zzz... huh? What? I'm awake! I was just... resting my eyes. Work work." },
     { id = "g_q", when = { questActive = TODO_QUEST("Lazy Peons") }, text = "Ow! All right, all right, no need for that. Thazz'ril sent you, didn't he? I'm going, I'm going." },
   },
@@ -892,6 +918,8 @@ P:NPC {
       lines = { { id = "h_default", text = "The foreman wants this whole pile chopped by sundown, and the sun is very hot, and the shade is very nice. You see my problem." } },
       again = { { id = "h_again", text = "Something else? I could listen lying down." } },
       choices = {
+        { text = "A peon deserves a rest now and then.", next = "BACK", reply = "Thank you! Finally someone understands.", fx = { align = { light = 1 } } },
+        { text = "A peon should work until the pile's done.", next = "BACK", reply = "Ugh. Fine. Work work.", fx = { align = { light = -1 } } },
         { text = "Get back to work, peon.", next = "work" },
         { text = "You've earned a short rest.", next = "rest" },
         { text = "What would you rather be doing?", next = "xrather" },

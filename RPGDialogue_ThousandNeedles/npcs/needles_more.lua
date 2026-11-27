@@ -158,6 +158,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. Thread, cloth, whatever you need. For you, the best of what came up the lift." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Thread, cloth, salt, dye. It came up the lift. Pay, and take it down again." },
     { id = "g_hello", text = "Thread, cloth, salt, dye. Whatever you need, it came up the lift on someone's back, so treat it kindly." },
     { id = "g_supplies", when = { questActive = TODO_QUEST("Stolen Freewind Supplies") }, text = "Any sign of our supplies? Every crate matters up here." },
     { id = "g_done", when = { questDone = TODO_QUEST("Stolen Freewind Supplies") }, text = "The supplies came back thanks to you. I've put the crates where I can see them." },
@@ -284,6 +286,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Meat and drink, friend! The best for you, honest as always, and a little extra." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Meat and drink. Honest meat, honest drink. Pay honestly, and we'll get along." },
     { id = "g_hello", text = "Meat and drink! Good meat, honest drink, and none of it kodo, I swear on my axe." },
     { id = "g_tauren", when = { race = "Tauren" }, text = "No kodo here, friend, I promise. Plainstrider, boar, and something the hunters call cougar." },
   },

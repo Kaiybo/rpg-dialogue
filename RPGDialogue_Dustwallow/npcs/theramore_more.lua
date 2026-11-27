@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Mind the roost, but I know ye will. The birds are glad to see ye." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind the roost. It's slick. Pay an' fly." },
     { id = "g_roost", text = "Mind the roost, {g:lad|lass}, it's slick. Everything on this island is slick, the birds included, and my beard's no' been dry since I got here." },
     { id = "g_back", when = { metBefore = true }, text = "Back on the isle in one piece? Good, that's what I like to see from my passengers, aye." },
   },
@@ -116,6 +118,8 @@ P:NPC {
         { id = "h_again2", text = "Ask away; the birds aren't going anywhere till I say so." },
       },
       choices = {
+        { text = "A gryphon deserves a careful rider.", next = "BACK", reply = "Aye, it does. Most folk forget.", fx = { align = { light = 1 } } },
+        { text = "A gryphon's just a beast to ride.", next = "BACK", reply = "Then it'll throw ye off. Pay an' fly.", fx = { align = { light = -1 } } },
         { text = "Do your gryphons sense the dragons to the south?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Show me where they fly.", next = "BUSINESS" },
         { text = "Gryphons can't take kindly to a swamp.", next = "birds" },

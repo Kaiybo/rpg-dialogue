@@ -14,6 +14,8 @@ P:NPC {
     third = "{name} met Mor'vek, a Darkspear troll who studies the ravasaurs of Un'Goro Crater.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, mon, good to see ya. Come crouch by me and watch the ferns. You know how to keep quiet." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Keep ya voice low, mon, and keep ya distance. The ravasaurs might take a liking to ya." },
     { id = "g_default", text = "Easy, mon, and keep ya voice low. The ravasaurs be huntin' just past those ferns, and they not be likin' strangers who shout." },
     { id = "g_back", when = { metBefore = true }, text = "You be back, and with all ya fingers. Dat be more than I can say for meself some days." },
   },
@@ -34,6 +36,8 @@ P:NPC {
         { id = "h_again2", text = "Ask it soft, and I be answerin'." },
       },
       choices = {
+        { text = "Befriending a beast is kinder than taming it with whips.", next = "BACK", reply = "Ya understand, mon. Patience and kindness, that be the way.", fx = { align = { light = 1 } } },
+        { text = "A ravasaur only respects the whip.", next = "BACK", reply = "Maybe so, mon. But I be tryin' the other way first.", fx = { align = { light = -1 } } },
         { text = "What makes the ravasaurs different?", next = "different" },
         { text = "Have you made friends with one yet?", next = "friends" },
         { text = "Those are bite scars on your arms.", next = "scars" },

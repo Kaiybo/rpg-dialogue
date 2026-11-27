@@ -1565,6 +1565,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. You're always welcome under this roof." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll rent you a room, but there'll be no trouble in my house tonight." },
+    { id = "dp_pt_any", when = { party = true }, text = "Good, you've brought friends. Nobody in Darkshire should walk out at night without a few beside them." },
+    { id = "dp_pt_priest", when = { party = { class = "PRIEST" } }, text = "Your friend's a priest, I see. Tell them we could use a prayer over the Raven Hill road, if they've one to spare." },
     { id = "g_op_dead_burn", when = { gossip = { topic = "duskwood_dead", stance = "burn" } }, text = "The Commander says you'd burn our dead rather than bury them. Keep your voice down in here, friend; half the room has someone up at Raven Hill." },
     { id = "g_beds", text = "Beds are upstairs and blankets are in the chest, and the shutters stay closed. If something scratches at them in the night, it's the wind, and you're not to check." },
     { id = "g_home", when = { homeInn = { "Darkshire", "Scarlet Raven Tavern" } }, text = "Your room's just as you left it, and I checked the shutters twice, out of habit." },
@@ -1757,6 +1761,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
     { id = "g_forge", text = "The forge is hot and the hammer's heavy, and you're standing right where the sparks go, so step left." },
     { id = "g_back", when = { metBefore = true }, text = "More lessons, or more burns? Usually it's both." },
   },
@@ -1779,6 +1785,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Every fighter does, spirits or no, because when the dead get close, it's steel that matters." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Steel and spirits both. I'll gear up properly, Clarise.", next = "BACK", reply = "That's the way, and I'll see you're properly kitted. Spirits and steel.", fx = { align = { honor = 1 } } },
         { text = "My spirits are enough. I don't need steel.", next = "BACK", reply = "Then I'll hope your spirits stop a ghoul's teeth, because my steel would have. Suit yourself.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },

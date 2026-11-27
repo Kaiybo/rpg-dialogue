@@ -14,6 +14,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. Your usual seat's free, and I made sure of it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Pay first, if you please. I've learned that much about you." },
+    { id = "dp_pt_any", when = { party = true }, text = "You and your friends are welcome at Sentinel Hill. Gryan always says there's safety in numbers, and he's right." },
     { id = "g_op_defias_hard", when = { gossip = { topic = "defias", stance = "hardline" } }, text = "Danuvin tells me you'd hang the Defias lads off the tower. Some of those lads drank at my tables once, so I'll be pouring a little slower for you." },
     { id = "g_op_bolvar_soft", when = { gossip = { topic = "bolvar", stance = "soft" } }, text = "The Commander says you told him the Regent's forgotten his oath. Say it again by my fire, love, and the whole room will stand you a drink." },
     { id = "g_inn", text = "In off the road with you. Dust on the mat, please, not on my floor. It's the one clean thing in Westfall." },
@@ -909,6 +912,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_bows", text = "Bows, arrows, and a quiver if you've the coin. Strings are extra, mind; strings are always extra." },
   },
 
@@ -927,6 +932,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "It's poor and dry, since the farms emptied. Your earth spirits might know better wood elsewhere, but I make do." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Patience makes good bows, William. Keep at it.", next = "BACK", reply = "Patience it is, and I've plenty of that. Strings are still extra, mind.", fx = { align = { order = 1 } } },
         { text = "Find better wood. Poor bows get people killed.", next = "BACK", reply = "Better wood costs better coin, and nobody on this hill has it. I'll do what I can.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },

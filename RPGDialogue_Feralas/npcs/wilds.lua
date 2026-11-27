@@ -968,6 +968,8 @@ P:NPC {
     third = "{name} met Jangdor Swiftstrider, the leatherworker at Camp Mojache in Feralas.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, you return, friend. The hides are ready, and I have knowledge to share with you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You bring hides, or you bring nothing. Speak." },
     { id = "g_main", text = "Ah, you bring hides, or you seek knowledge. Either way, you are welcome." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. Show me what you have learned." },
   },
@@ -1049,6 +1051,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else, friend? The hides will keep, as the Earth Mother keeps us." }, { id = "h_again2", text = "Ask away." } },
       choices = {
+        { text = "Armor worthy of hunters honours the beast.", next = "BACK", reply = "It does. Hadoken would agree.", fx = { align = { honor = 1 } } },
+        { text = "Armor is armor. Just make it strong.", next = "BACK", reply = "Then you will never wear anything I make.", fx = { align = { honor = -1 } } },
         { text = "What makes a good hide?", next = "b1_1" },
         { text = "So you know Hadoken.", next = "b2_1" },
         { text = "Is it wrong to hunt for profit?", next = "s_1" },

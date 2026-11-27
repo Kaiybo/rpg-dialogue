@@ -17,6 +17,8 @@ P:NPC {
     third = "{name} met Xylinnia Starshine, the enchanting trainer of Feathermoon Stronghold.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend. Sit. I will teach you something today that I do not teach to everyone." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Sit quietly. Learn, or leave." },
     { id = "g_default", text = "Ishnu-alah. If you have come to learn, sit, and if you have come to watch, sit quietly." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Has your rod cooled since we last spoke, or are you still forcing it?" },
   },
@@ -41,6 +43,8 @@ P:NPC {
         { id = "h_again2", text = "Ask what you wish. Patience is the first lesson anyway." },
       },
       choices = {
+        { text = "Enchanting rewards careful study.", next = "BACK", reply = "It does. And you have the patience for it.", fx = { align = { order = 1 } } },
+        { text = "Magic should be used, not studied to death.", next = "BACK", reply = "Then you will waste many reagents.", fx = { align = { order = -1 } } },
         { text = "I'd like to train.", next = "BUSINESS", when = { profession = "Enchanting" } },
         { text = "What does enchanting ask of those who learn it?", next = "art" },
         { text = "This seems a lonely place to teach.", next = "island" },
@@ -100,6 +104,8 @@ P:NPC {
     third = "{name} met Harklane, who sells fish at Feathermoon Stronghold.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Fresh from the nets, friend. I saved the best fish for you, before the gulls got it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Fresh fish. Buy now, or the gulls will." },
     { id = "g_default", text = "Fresh from the morning nets, and the water is sweet. Buy now, before the gulls decide for you." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. The fish are different, but the price is the same." },
   },
@@ -125,6 +131,8 @@ P:NPC {
         { id = "h_again_b1", text = "Ask on. The tide does not turn for a while yet." },
       },
       choices = {
+        { text = "The sea provides for those who respect it.", next = "BACK", reply = "It does. And it takes from those who don't.", fx = { align = { light = 1 } } },
+        { text = "Fish don't care about respect. Just throw a net.", next = "BACK", reply = "Then throw your own net, and see what you catch.", fx = { align = { light = -1 } } },
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "Who are these neighbours of yours?", next = "naga" },
         { text = "Where are the best waters for fishing?", next = "waters" },
@@ -229,6 +237,8 @@ P:NPC {
     third = "{name} met Antarius, the stable master of Feathermoon Stronghold.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Elune-adore, friend. Your companion is always welcome here, and so are you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Elune-adore. Your companion is welcome. You may wait outside." },
     { id = "g_default", text = "Elune-adore. Your companion is welcome here, and so are you." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. The beasts remember you, even if they pretend otherwise." },
   },
@@ -255,6 +265,8 @@ P:NPC {
         { id = "h_again_b2", text = "Go on, then, but keep your voice as low as mine." },
       },
       choices = {
+        { text = "A soaked companion deserves dry straw and kindness.", next = "BACK", reply = "It does. That is why I am here.", fx = { align = { light = 1 } } },
+        { text = "Companions should be tough enough to handle the rain.", next = "BACK", reply = "They are tough. That does not mean they should suffer.", fx = { align = { light = -1 } } },
         { text = "I need to stable a companion.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "Why are the beasts so angry when they arrive?", next = "crossing" },
         { text = "What beasts does Feralas offer a hunter?", next = "beasts" },
@@ -366,6 +378,8 @@ P:NPC {
     third = "{name} met Jadenvis Seawatcher, the reagent seller on the Feathermoon dock.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Welcome back, friend. I've the herbs you need, and news of who came in on the last boat." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome to Sardor Isle. Reagents are on the shelf. Help yourself, then go." },
     { id = "g_default", text = "Welcome to Sardor Isle. If you need powders or herbs for your craft, you need not go further than this dock." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and dry this time. You are learning." },
   },
@@ -391,6 +405,8 @@ P:NPC {
         { id = "h_again_b1", text = "Go on. I can listen and count sails at once." },
       },
       choices = {
+        { text = "Watching the dock keeps the isle safe.", next = "BACK", reply = "It does. Nothing reaches Feathermoon without passing me.", fx = { align = { order = 1 } } },
+        { text = "One dock doesn't need such careful watching.", next = "BACK", reply = "You would be surprised what washes up.", fx = { align = { order = -1 } } },
         { text = "Show me your reagents.", next = "BUSINESS" },
         { text = "What do you watch for out there?", next = "watch" },
         { text = "Who comes to Feathermoon these days?", next = "visitors" },
@@ -492,6 +508,8 @@ P:NPC {
     third = "{name} met Loorana, who sells food and drink at Camp Mojache.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Come, friend, sit. I saved some melon juice for you, and the bread is fresh." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Bread and water. Pay, please, and go." },
     { id = "g_default", text = "Come, eat something. The forest is long and the road is longer, and neither of them feeds you." },
     { id = "g_back", when = { metBefore = true }, text = "You are back, and thinner, I think. Sit, little one, and eat." },
   },
@@ -517,6 +535,8 @@ P:NPC {
         { id = "h_again_b1", text = "Sit a little longer, then. Nobody ever starved from talking by an oven." },
       },
       choices = {
+        { text = "Simple food carries the braves home.", next = "BACK", reply = "It does. And it will carry you, too.", fx = { align = { light = 1 } } },
+        { text = "A brave should hunt for himself.", next = "BACK", reply = "Then go and hunt. The bread will be here when you are hungry.", fx = { align = { light = -1 } } },
         { text = "I'll buy some food.", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "Where do you get your flour this far from Mulgore?", next = "flour" },
         { text = "Who do you feed here?", next = "feed" },
@@ -625,6 +645,8 @@ P:NPC {
     third = "{name} met Tarhus, the reagent seller of Camp Mojache.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "May the eternal sun shine upon you, friend. Take what you need; I gathered extra this morning." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Seeds and powders. Pay for what you take." },
     { id = "g_default", text = "Seeds, powders and things the forest gives. May the eternal sun shine upon you." },
     { id = "g_back", when = { metBefore = true }, text = "You return, and the season has turned a little. I have new things." },
   },
@@ -650,6 +672,8 @@ P:NPC {
         { id = "h_again_b1", text = "The seeds can wait a little longer. What would you ask?" },
       },
       choices = {
+        { text = "Gathering from the forest spares the kodo.", next = "BACK", reply = "It does. The Earth Mother gives, and we take only what we need.", fx = { align = { light = 1 } } },
+        { text = "Gathering wastes time. Buy it from the caravan.", next = "BACK", reply = "The caravan is slow. Pay for what you take.", fx = { align = { light = -1 } } },
         { text = "Show me your reagents.", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "What does the forest give you?", next = "forest" },
         { text = "Does Feralas feel different from Mulgore?", next = "home" },
@@ -751,6 +775,8 @@ P:NPC {
     third = "{name} met Shyrka Wolfrunner, the orc stable master at Camp Mojache.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You again. Good. Your beast's pen is clean, and the meat is fresh." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You need a pen? Speak, and pay, and go." },
     { id = "g_default", text = "You need a pen for a beast? I have pens, and I have meat. Speak." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Your beast was well behaved, I will say that." },
   },
@@ -778,6 +804,8 @@ P:NPC {
         { id = "h_again_b1", text = "More talk? Fine, but the wolves eat when I say, and I say soon." },
       },
       choices = {
+        { text = "The tauren are right to treat beasts as kin.", next = "BACK", reply = "They are. I learned it from them.", fx = { align = { light = 1 } } },
+        { text = "A beast is a beast. Kin is kin.", next = "BACK", reply = "Then you'll never keep a good beast for long.", fx = { align = { light = -1 } } },
         { text = "I need to stable a companion.", next = "BUSINESS", when = { class = "HUNTER", faction = "Horde" } },
         { text = "How does an orc come to keep a tauren stable?", next = "why" },
         { text = "Tell me about your wolves.", next = "wolves" },
@@ -887,6 +915,8 @@ P:NPC {
     third = "{name} met Jannos Lighthoof, the druid trainer at Camp Mojache.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "The forest speaks kindly of you, friend. Sit, and let us listen together." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The forest is speaking. You are not listening. What do you want?" },
     { id = "g_default", text = "The forest is speaking today, if you will listen. What brings you to me?" },
     { id = "g_back", when = { metBefore = true }, text = "You return. The forest remembers your footsteps; so do I." },
   },
@@ -918,6 +948,8 @@ P:NPC {
         { id = "h_again_b1", text = "Ask again, if you wish. A question is a kind of seed." },
       },
       choices = {
+        { text = "The forest is a teacher, if we listen.", next = "BACK", reply = "It is. You understand the druid's way.", fx = { align = { light = 1 } } },
+        { text = "The forest is just trees. I'll learn from books.", next = "BACK", reply = "Then the forest will teach you nothing. Go.", fx = { align = { light = -1 } } },
         { text = "I'm ready to train.", next = "BUSINESS", when = { class = "DRUID", faction = "Horde" } },
         { text = "What can Feralas teach a druid?", next = "teach" },
         { text = "The kaldorei were druids long before the tauren.", next = "kaldorei" },
@@ -1558,6 +1590,8 @@ P:NPC {
     third = "{name} met Kylanna Windwhisper, the master alchemist of Feathermoon Stronghold.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend. You may touch the lower shelf today; it has settled, and I trust you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Touch nothing. Speak briefly. I have work." },
     { id = "g_default", text = "Ishnu-alah. Touch nothing on the lower shelf, I beg you, for it has not finished settling." },
     { id = "g_2", when = { metBefore = true }, text = "You return, and with all of your fingers. Then you heeded me about the lower shelf." },
   },
@@ -1584,6 +1618,8 @@ P:NPC {
         { id = "hello_again3", text = "I am listening, though my eyes must stay on this flame." },
       },
       choices = {
+        { text = "Patience is the first ingredient of alchemy.", next = "BACK", reply = "Yes. You have learned it well, I see.", fx = { align = { order = 1 } } },
+        { text = "Alchemy is just mixing things until they work.", next = "BACK", reply = "Then you will poison yourself before the year is out.", fx = { align = { order = -1 } } },
         { text = "Teach me what you know.", next = "BUSINESS", when = { faction = "Alliance" } },
         { text = "Why teach here, and not in Darnassus?", next = "here" },
         { text = "These herbs are not from Teldrassil.", next = "herbs" },
@@ -1697,6 +1733,8 @@ P:NPC {
     third = "{name} met Brannock, the fishing trainer of Feathermoon Stronghold.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Quietly, friend, but welcome. The fish know you now; they don't flee your shadow." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Quietly. Mind your shadow. The fish don't like you, and neither do I." },
     { id = "g_default", text = "Quietly, friend, and mind your shadow on the water. The fish here have learned to fear anything that moves." },
     { id = "g_2", when = { metBefore = true }, text = "Back to the dock, are you? Sit, then. There is room on this plank for two, if neither of us talks too much." },
   },
@@ -1721,6 +1759,8 @@ P:NPC {
         { id = "hello_again3", text = "I am listening. So are the fish, sadly." },
       },
       choices = {
+        { text = "Patience is the fisherman's best tool.", next = "BACK", reply = "Ha! It is. You'll catch plenty.", fx = { align = { order = 1 } } },
+        { text = "Fishing's dull. A spear is quicker.", next = "BACK", reply = "Then go and spear something. Mind your shadow on the way.", fx = { align = { order = -1 } } },
         { text = "Teach me to fish.", next = "BUSINESS", when = { faction = "Alliance" } },
         { text = "What bites off this dock?", next = "bites" },
         { text = "The naga must ruin the fishing.", next = "naga" },
@@ -1834,6 +1874,8 @@ P:NPC {
     third = "{name} met Mardrack, who sells food and drink at Feathermoon Stronghold.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Welcome, welcome, friend! I baked extra this morning, guessing you'd come by." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You're hungry, so you're here. Pay, please, I'm busy." },
     { id = "g_default", text = "Welcome, welcome. You have crossed the water, and so you are hungry, and so you have come to the right door." },
     { id = "g_2", when = { metBefore = true }, text = "Back again! The loaves have just come out, and you have Elune's own timing." },
   },
@@ -1858,6 +1900,8 @@ P:NPC {
         { id = "hello_again3", text = "Yes? Speak up over the crackling." },
       },
       choices = {
+        { text = "Good bread keeps the stronghold on its feet.", next = "BACK", reply = "It does. The Sentinels would starve without me.", fx = { align = { order = 1 } } },
+        { text = "The Sentinels could manage on dried fruit.", next = "BACK", reply = "They could, and they'd be miserable. Pay, please.", fx = { align = { order = -1 } } },
         { text = "Let me see what you have.", next = "BUSINESS" },
         { text = "Where does an island get its flour?", next = "flour" },
         { text = "Who eats the most on this isle?", next = "eats" },
@@ -1972,6 +2016,8 @@ P:NPC {
     third = "{name} met Hahrana Ironhide, the master leatherworker of Camp Mojache.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "The sun is kind, and so is your return, friend. Show me your hands; I'll teach you something rare." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The hides are stretched. Learn, or leave them be." },
     { id = "g_default", text = "The hides are stretched and the sun is kind today. Come, and tell me what your hands have learned." },
     { id = "g_2", when = { metBefore = true }, text = "You return. Show me your stitching, and I will know how you have spent your days." },
   },
@@ -1997,6 +2043,8 @@ P:NPC {
         { id = "hello_again3", text = "I am listening. The Earth Mother gave us two ears and only one mouth for a reason." },
       },
       choices = {
+        { text = "A hide should become something worthy of the beast.", next = "BACK", reply = "Yes. That is the heart of the craft.", fx = { align = { honor = 1 } } },
+        { text = "A hide's worth whatever it sells for.", next = "BACK", reply = "Then you will never make anything worth keeping.", fx = { align = { honor = -1 } } },
         { text = "Teach me your craft.", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "Why teach here, so far from Thunder Bluff?", next = "here" },
         { text = "Those are yeti hides on your frames.", next = "yeti" },
@@ -2090,6 +2138,8 @@ P:NPC {
     third = "{name} met Cawind Trueaim, the gunsmith and bowyer of Camp Mojache.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You again. Good. I've a bow set aside, the best I've made this season." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Bows left, rifles right. Buy or don't." },
     { id = "g_default", text = "Bows on the left, rifles on the right. The arrows are fresh, and the powder is dry, which was not easy." },
     { id = "g_2", when = { metBefore = true }, text = "You are back. Did the string hold? Good; I thought that it would." },
   },
@@ -2115,6 +2165,8 @@ P:NPC {
         { id = "hello_again3", text = "I am listening. A bowyer learns to." },
       },
       choices = {
+        { text = "A bow takes skill. A rifle takes powder.", next = "BACK", reply = "True. You understand a tauren's way.", fx = { align = { honor = 1 } } },
+        { text = "A rifle beats a bow every time.", next = "BACK", reply = "Then the rifles are on the right. Buy one.", fx = { align = { honor = -1 } } },
         { text = "Show me your bows and guns.", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "You sound as though you don't care for rifles.", next = "rifles" },
         { text = "What wood makes a good bow in Feralas?", next = "wood" },
@@ -2233,6 +2285,8 @@ P:NPC {
     third = "{name} met Bronk, who sells alchemy supplies at Camp Mojache.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Friend! Come and smell the sungrass. I cut extra this morning, just in case you came." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Vials and herbs. Pay, please, and don't touch the sungrass." },
     { id = "g_default", text = "Vials, herbs and clean water! Come and smell the sungrass, friend, for it was cut only this morning." },
     { id = "g_2", when = { metBefore = true }, text = "Ah, you are back. Did the last batch come out clear? Tell me that it came out clear." },
   },
@@ -2257,6 +2311,8 @@ P:NPC {
         { id = "hello_again3", text = "Yes? There is always time for one more question." },
       },
       choices = {
+        { text = "Feralas is the richest forest in the world.", next = "BACK", reply = "It is! I'll learn every herb in it, mark my words.", fx = { align = { light = 1 } } },
+        { text = "A forest is just weeds until someone sells them.", next = "BACK", reply = "Weeds! Hmph. Pay and go.", fx = { align = { light = -1 } } },
         { text = "Show me your supplies.", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "Who gathers all of this for you?", next = "gather" },
         { text = "You keep one basket well apart from the rest.", next = "basket" },
@@ -2371,6 +2427,8 @@ P:NPC {
     third = "{name} met Thyssiana, the hippogryph master of Thalanaar.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend. The wind is fair, and the birds are glad to see you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The birds are rested. Pay and fly." },
     { id = "g_default", text = "Ishnu-alah, traveler. The hippogryphs are rested, and the wind is from the west, which is the kind one." },
     { id = "g_2", when = { metBefore = true }, text = "You come this way again. The birds know your step, and they did not raise their crests." },
   },
@@ -2395,6 +2453,8 @@ P:NPC {
         { id = "hello_again3", text = "Speak. Thalanaar is quiet, and I do not mind a voice in it." },
       },
       choices = {
+        { text = "Thalanaar holds an important post for our people.", next = "BACK", reply = "It does. Every message passes through here.", fx = { align = { order = 1 } } },
+        { text = "One roost in the forest doesn't matter much.", next = "BACK", reply = "You would think otherwise if the messages stopped.", fx = { align = { order = -1 } } },
         { text = "I need to fly.", next = "BUSINESS", when = { faction = "Alliance" } },
         { text = "What do you watch for in the east?", next = "east" },
         { text = "Your birds seem uneasy at the forest's edge.", next = "uneasy" },

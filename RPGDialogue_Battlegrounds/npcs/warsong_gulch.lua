@@ -17,6 +17,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_rep_sw", when = { rep = { faction = "Silverwing Sentinels", min = "Honored" } }, text = "The Silverwing honour you, and Elune sees it. Stand with us in the gulch." },
     { id = "g_default", text = "Ishnu-alah, {class}. You stand within Silverwing Hold, so keep your blade ready and your voice low." },
     { id = "g_back", when = { metBefore = true }, text = "You return to the Hold. Good, for the orcs have not tired of this gulch, and neither may we." },
     { id = "g_horde", when = { faction = "Horde" }, text = "You should not be inside these walls, and if you have come for our banner, you will leave without it." },
@@ -159,6 +160,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_rep_wo", when = { rep = { faction = "Warsong Outriders", min = "Honored" } }, text = "The Outriders honour you. You fight like a true orc, whatever your blood." },
     { id = "g_default", text = "You stand in the Lumber Mill, {class}, so pick up an axe or pick up a blade, and do it fast." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Good, for the elves have not stopped shooting at my peons." },
     { id = "g_alliance", when = { faction = "Alliance" }, text = "An Alliance dog in the mill. Speak, then, before my axe decides for me." },
@@ -300,6 +302,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Go on through, friend; I'll not trouble you today." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Move along, and stay out of trouble. I'll know if you don't." },
     { id = "g_default", text = "This room holds the banner of Silverwing, {class}. Stand guard or move along, but do not linger idly." },
     { id = "yg_0", when = { race = "NightElf" }, text = "Ishnu-alah, sister or brother. Stand with me, and Elune will guard our banner." },
   },
@@ -311,6 +315,8 @@ P:NPC {
         { id = "y_y_hist", text = "I was a Sentinel in Ashenvale for four centuries before the Warsong came. I watched them cut the first tree, and I swore that day I would stop them. Shandris chose me to guard this banner, and I have not left it since." },
       },
       choices = {
+        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Four centuries is a long time.", next = "y_long" },
         { text = "Something else.", next = "BACK" },
       },
@@ -421,6 +427,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome here, and I'll tell the others so if they ask." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm watching you, so keep your hands where I can see them." },
     { id = "g_default", text = "The banner stays here, {class}. If you are not here to guard it, you are in my way." },
     { id = "yg_0", when = { race = "Tauren" }, text = "Tauren. Stand by the door; the elves will see your size and think twice." },
   },
@@ -432,6 +440,8 @@ P:NPC {
         { id = "y_y_hist", text = "I was a lumberjack for the Warsong before I was a guard. I cut the trees the elves call holy, and I thought nothing of it. Now the elves come for our banner, and I think of the trees more than I used to." },
       },
       choices = {
+        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Do you regret cutting them?", next = "y_regret" },
         { text = "Something else.", next = "BACK" },
       },

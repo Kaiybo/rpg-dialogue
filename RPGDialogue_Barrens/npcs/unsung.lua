@@ -19,6 +19,8 @@ P:NPC {
     third = "{name} met Devrak, the wind rider master of the Crossroads.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Need to fly? The wind riders like you. Where to, friend?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Need to fly? Pay and go." },
     { id = "g_fly", text = "Need to fly, {class}? The wind riders are rested, and the sky over the Barrens is clear enough for an orc to see the Kolkar from the clouds." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? The beasts remember you, so they won't bite. Probably." },
   },
@@ -133,6 +135,8 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "The wind riders smell you before they see you, stranger, so wait at the foot of the tower while I calm them down." },
       },
       choices = {
+        { text = "Wind riders should be treated with respect.", next = "BACK", reply = "They should. You understand.", fx = { align = { light = 1 } } },
+        { text = "Wind riders are just mounts.", next = "BACK", reply = "Then they'll throw you.", fx = { align = { light = -1 } } },
         { text = "You must feel the air spirits up here on the roost.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do the wind riders fly over the Wailing Caverns, Devrak?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I need a flight.", next = "BUSINESS" },
@@ -186,6 +190,8 @@ P:NPC {
     third = "{name} bought supplies from Barg, who keeps the general goods at the Crossroads.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You again. Good. I saved a waterskin for you, though you don't need it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Water, food, bags. Buy and go." },
     { id = "g_shop", text = "Water, food and bags, and you'll want all three out here. An orc who learned thirst in the camps doesn't forget it. What do you need?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again, so you didn't buy enough water last time. Nobody ever does." },
   },
@@ -302,6 +308,8 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Whatever's behind you doesn't drink, I hope, because I'm not selling it water." },
       },
       choices = {
+        { text = "Preparation keeps you alive in the Barrens.", next = "BACK", reply = "It does. Thirst kills.", fx = { align = { order = 1 } } },
+        { text = "The Barrens aren't that dangerous.", next = "BACK", reply = "They are. Buy and go.", fx = { align = { order = -1 } } },
         { text = "I've heard a shaman can find water out here.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "The water seems to be running out, Barg.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "What should a warrior carry in the Barrens, Barg?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
@@ -356,6 +364,8 @@ P:NPC {
     third = "{name} met Hula'mahi, the troll who sells reagents and herbs at the Crossroads.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Friend, mon! Me always in a fine mood when you come by!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Herbs and reagents. What you be needin'?" },
     { id = "g_shop", text = "Herbs and reagents, mon, for every spell and every sickness. What you be needing?" },
     { id = "g_apprentice", when = { origin = "troll_witch_doctor_apprentice" }, text = "Ah, you got a witch doctor's hands, mon, all stained and careful. You grind roots for one of the old ones at Sen'jin, I bet, so you know already that nothing on my shelf be safe to boil if you don't know what it want first." },
     { id = "g_fl", when = { flirt = true, chance = 0.4, ["not"] = { npcFlagBefore = "hula_fl_no" } }, text = "Ooh, look what the road bring Hula'mahi today! Come in, mon, and stand where the light be good, because me want a proper look at you." },
@@ -375,6 +385,8 @@ P:NPC {
     fl = {
       lines = { { id = "fl_default", text = "Me always in a fine mood, mon, but some customers make it better, and you be one of them. A boy from the Echo Isles learn to know a good catch when it swim by, and you got the look of a big one." } },
       choices = {
+        { text = "De right herb heals de sickness.", next = "BACK", reply = "It do, mon! You understand.", fx = { align = { light = 1 } } },
+        { text = "Herbs are just weeds.", next = "BACK", reply = "Den don't buy any, mon.", fx = { align = { light = -1 } } },
         { text = "Then reel me in, Hula'mahi.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "hula_fl_yes" }, clear = { "hula_fl_no" } } } },
         { text = "Aren't I a bit large for you, Hula'mahi?", next = "fl_tauren", when = { race = "Tauren" } },
         { text = "Echo Isles girls always did talk too much.", next = "fl_yes", when = { race = "Troll" }, fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "hula_fl_yes" }, clear = { "hula_fl_no" } } }, reply = "And Echo Isles boys always stand there listenin', mon, so who be the fool?" },
@@ -551,6 +563,8 @@ P:NPC {
     third = "{name} met Uthrok, the bowyer and gunsmith of the Crossroads.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You again. Good. I saved a fine bow for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Bows, guns, arrows. Buy and go." },
     { id = "g_shop", text = "Bows, guns, arrows and shot. An orc likes his axe, but out here, if it kills from a distance, I sell it." },
   },
   notice = {
@@ -666,6 +680,8 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "You've something to stand in front of you, I'd guess, so you don't need a gun. You'd be surprised how many of your sort buy one anyway." },
       },
       choices = {
+        { text = "A ranged weapon keeps you safe in the Barrens.", next = "BACK", reply = "It does. You understand.", fx = { align = { order = 1 } } },
+        { text = "A real warrior fights up close.", next = "BACK", reply = "Then get close, and die.", fx = { align = { order = -1 } } },
         { text = "Which hits harder, lightning or a bullet, Uthrok?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do your hunters ever take more game than the plains can spare?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "A warrior has no need of a gun, Uthrok.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
@@ -726,6 +742,8 @@ P:NPC {
     third = "{name} met Omusa Thunderhorn, the wind rider master of Camp Taurajo.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "The wind is kind today, friend, and so is my heart toward you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The wind riders are ready. Pay, please." },
     { id = "g_fly", text = "The wind riders are ready, friend, and the wind is kind today. Where would you go?" },
   },
   notice = {
@@ -839,6 +857,8 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage at Taurajo. The wind riders don't mind your magic, though they snort at the smell of the burning." },
       },
       choices = {
+        { text = "The wind riders are gifts of the Earth Mother.", next = "BACK", reply = "They are. You understand.", fx = { align = { light = 1 } } },
+        { text = "Wind riders are just beasts.", next = "BACK", reply = "Then fly with respect, or don't fly.", fx = { align = { light = -1 } } },
         { text = "The dwarves seem to be disturbing something at Bael Modan.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What are the dwarves digging for at Bael Modan, Omusa?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I need a flight.", next = "BUSINESS" },
@@ -896,6 +916,8 @@ P:NPC {
     third = "{name} met Bragok, the flight master of Ratchet.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You again. Good. The beasts don't mind you, salt or not." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Flying? Then hurry. The beasts hate the salt." },
     { id = "g_fly", text = "Flying? Then hurry, {class}, because the beasts don't like the salt air, and neither does any orc with sense." },
   },
   start = "hello",
@@ -1005,6 +1027,8 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "The wind riders won't like what's following you, so put it away before you come near my perch." },
       },
       choices = {
+        { text = "The beasts work hard in the salt air.", next = "BACK", reply = "They do. Most don't notice.", fx = { align = { light = 1 } } },
+        { text = "The beasts should toughen up.", next = "BACK", reply = "Then fly yourself.", fx = { align = { light = -1 } } },
         { text = "Do the spirits mind the goblins' smoke and steam?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why do you keep your roost among the goblins, Bragok?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "The goblins of Ratchet look like they need protecting.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
@@ -1058,6 +1082,8 @@ P:NPC {
     third = "{name} met Ironzar, the goblin weaponsmith of Ratchet.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Friend! I've a weapon for you, the finest in Ratchet!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Weapons. Finest in Ratchet. Pay up." },
     { id = "g_shop", text = "Weapons, friend, weapons! The finest in Ratchet and maybe the finest in the Barrens, so step on in and let's talk prices before somebody else buys your sword." },
   },
   notice = {
@@ -1171,6 +1197,8 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Now, your sort doesn't need a blade, I know, chum, but one with a good dagger doesn't panic when the imp dies, and that's what I call an investment." },
       },
       choices = {
+        { text = "A good weapon is worth a good price.", next = "BACK", reply = "It is, friend! You get it.", fx = { align = { honor = 1 } } },
+        { text = "Your weapons are overpriced.", next = "BACK", reply = "Then buy elsewhere.", fx = { align = { honor = -1 } } },
         { text = "Does copper really carry lightning, Ironzar?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why would a druid buy a staff instead of using claws, Ironzar?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Show me your weapons.", next = "BUSINESS" },

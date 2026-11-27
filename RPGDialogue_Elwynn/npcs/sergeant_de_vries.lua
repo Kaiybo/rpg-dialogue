@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_cask", text = "Come in, come in! Something to wet your throat? Morale's my job, and thirst is the enemy of morale." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! I knew you'd miss the place; nobody leaves Westbrook for good." },
     { id = "g_apple", when = { questActive = TODO_QUEST("An Apple Treat") }, text = "You're fetching those apples for the lads' treat, then? Don't let me keep you from it." },
@@ -48,6 +50,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, friend. I've time for a chat; it's a good part of the job." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What does a morale officer do?", next = "job" },
         { text = "Your soldiers look worn thin, Sergeant.", next = "lads" },
         { text = "What's for sale?", next = "BUSINESS" },

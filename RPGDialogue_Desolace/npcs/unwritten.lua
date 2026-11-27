@@ -14,6 +14,8 @@ P:NPC {
     third = "{name} met Marandis' Sister, a dryad of the Cenarion Circle in Desolace.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Be welcome, friend. Come and see what I planted; I think it might take this time." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind where you step. I would rather you did not walk among my seedlings at all." },
     { id = "g_default", text = "Be welcome, traveller. Mind where you step, if you would; I planted something there this morning, and I am hoping it lives until tomorrow." },
     { id = "g_back", when = { metBefore = true }, text = "You came back, and so did the shoot I planted. It is a good day in Desolace when two things return." },
     { id = "yg_0", when = { race = "Tauren" }, text = "A child of the Earth Mother. You feel the hurt in this land too, I think, through your hooves." },
@@ -31,6 +33,8 @@ P:NPC {
         { id = "y_y_plant", text = "This morning, a seedling of mountain ash, from Feralas. Yesterday, a sprig of silverleaf. The day before, a thornroot. Most of them die by nightfall. I keep planting, because one of them, someday, will not." },
       },
       choices = {
+        { text = "Planting here is an act of hope.", next = "BACK", reply = "It is. Most die, but some live. That is enough.", fx = { align = { light = 1 } } },
+        { text = "Nothing grows in Desolace. You're wasting your time.", next = "BACK", reply = "Perhaps. But it is my time to waste. Please step around them.", fx = { align = { light = -1 } } },
         { text = "How many have lived?", next = "y_lived" },
         { text = "Something else.", next = "BACK" },
       },
@@ -122,6 +126,8 @@ P:NPC {
     third = "{name} met Super-Seller 680, the Gizelton Caravan's general goods golem.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Greetings, preferred customer! Super-Seller 680 has applied your loyalty discount. Your custom is valued." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Greetings, customer. Your account has been flagged. Prices are not negotiable." },
     { id = "g_default", text = "Greetings, valued customer! Super-Seller 680 is open for business, and every price has been approved by the Gizelton Caravan Company." },
     { id = "yg_0", when = { race = "Goblin" }, text = "Welcome, goblin customer! Super-Seller 680 will not attempt to sell you anything you could sell back to it. Probably." },
   },
@@ -136,6 +142,8 @@ P:NPC {
         { id = "y_y_route", text = "Super-Seller 680 follows the Gizelton Caravan from Kormek's Hut to Ethel Rethor and back again, forever. The route is very long and the scenery is very grey. Super-Seller 680 has counted the kodo skeletons. There are four hundred and twelve." },
       },
       choices = {
+        { text = "Super-Seller 680 provides an essential service.", next = "BACK", reply = "Correct! Your satisfaction has been logged and appreciated.", fx = { align = { order = 1 } } },
+        { text = "Machines like you should be scrapped.", next = "BACK", reply = "Your feedback has been noted. Super-Seller 680 will continue regardless.", fx = { align = { order = -1 } } },
         { text = "Do you ever stop?", next = "y_stop" },
         { text = "Something else.", next = "BACK" },
       },
@@ -253,6 +261,8 @@ P:NPC {
     third = "{name} met Vendor-Tron 1000, a trade goods golem of the Gizelton Caravan.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Welcome back, valued customer! Vendor-Tron 1000 remembers your excellent purchasing history." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome to Vendor-Tron 1000. Please complete your purchase promptly." },
     { id = "g_default", text = "Welcome to Vendor-Tron 1000, the finest mobile trade goods outlet in Desolace. Please browse carefully, because the road is bumpy and the shelves are not." },
     { id = "yg_0", when = { race = "Dwarf" }, text = "Dwarf detected. Vendor-Tron 1000 reminds you that flux prices are final and not open to discussion. Again." },
   },
@@ -267,6 +277,8 @@ P:NPC {
         { id = "y_y_hist", text = "Vendor-Tron 1000 was built in Ratchet by goblin engineers for the Steamwheedle Cartel. It was the thousandth model. The nine hundred and ninety-nine before it are not discussed. Vendor-Tron 1000 is the one that worked." },
       },
       choices = {
+        { text = "The Steamwheedle Cartel builds reliable machines.", next = "BACK", reply = "Correct! Vendor-Tron 1000 thanks you for your accurate assessment.", fx = { align = { order = 1 } } },
+        { text = "A goblin machine is sure to break down soon.", next = "BACK", reply = "Vendor-Tron 1000 is functioning within normal parameters. Please browse.", fx = { align = { order = -1 } } },
         { text = "What happened to the others?", next = "y_others" },
         { text = "Something else.", next = "BACK" },
       },
@@ -383,6 +395,8 @@ P:NPC {
     third = "{name} spoke with a Shadowprey Guardian in Desolace.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Welcome back, friend of Shadowprey. Your weapon can rest easy here, and so can you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Keep your weapon down. I be watchin' you, every step." },
     { id = "g_default", text = "Welcome to Shadowprey, mon. Keep your weapon down in de village and you and me be fine friends." },
     { id = "g_alliance", when = { faction = "Alliance" }, text = "You be a long way from Nijel's Point, stranger. Walk slow, talk soft, and do your business quick." },
     { id = "yg_0", when = { race = "Orc" }, text = "Ah, orc. De Darkspear owe Thrall plenty, mon. You be welcome in Shadowprey." },
@@ -394,6 +408,8 @@ P:NPC {
         { id = "y_y_hist", text = "I was a fisherman on de Echo Isles before de sea witch came. Thrall saved us, and Vol'jin brought us to Kalimdor. When he asked for guards for dis village, I came. De fish here be different, but de sea be de same." },
       },
       choices = {
+        { text = "Vol'jin chose well, bringin' de Darkspear here.", next = "BACK", reply = "He did. Shadowprey be home now, thanks to him and Thrall.", fx = { align = { order = 1 } } },
+        { text = "De Darkspear should go back to de Echo Isles.", next = "BACK", reply = "De sea witch still waitin' there. You want to go? Keep walkin'.", fx = { align = { order = -1 } } },
         { text = "What happened with the sea witch?", next = "y_witch" },
         { text = "Something else.", next = "BACK" },
       },

@@ -15,6 +15,8 @@ P:NPC {
     third = "{name} met Morgum, who sells leather armor in Soran's Leather and Steel Armory.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Leather on this wall, friend, and for you, the softest hide I've got." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Leather's on the wall, {class}. Steel's next door. You're welcome to both, I suppose." },
     { id = "g_default", text = "Leather is on this wall, {class}, and the steel is Soran's business. Tell me what you fight and I'll tell you what to wear." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and still in one piece, so the last hide I pointed you at did its work." },
   },
@@ -123,6 +125,8 @@ P:NPC {
     third = "{name} met Ollanus, who sells light armor in Soran's Leather and Steel Armory.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Throm-ka, friend. Let me find you something that fits like a second skin." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Throm-ka, {class}. Pick what fits, pay what's marked, and don't try to haggle." },
     { id = "g_default", text = "Throm-ka, {class}. If plate drags at you and leather chafes, then mine is the wall you want." },
     { id = "g_back", when = { metBefore = true }, text = "You have come back to the light wall. Has the last robe held together, or did the Barrens thorns get it?" },
   },
@@ -222,6 +226,8 @@ P:NPC {
     third = "{name} met Urtharo, the weapon merchant at the Shattered Axe in the Valley of Strength.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Lok'tar, friend! The gates of Orgrimmar are always open to you, and so is my stall!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Lok'tar, {class}. You walked through the gates. Walk through my stall quickly." },
     { id = "g_default", text = "Lok'tar, {class}! You have walked through the gates of Orgrimmar, and now you should carry a blade that is worthy of them." },
     { id = "g_back", when = { metBefore = true }, text = "I know that face, and I know that weapon, and one of them has seen hard use since you were last here." },
   },
@@ -320,6 +326,8 @@ P:NPC {
     third = "{name} met Tamar, who sells leatherworking supplies at the Kodohide shop in the Drag.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Thread, salt and dye, friend, and the best of it saved for those I trust." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Thread, salt and dye. Pay for what you take, and take nothing you haven't paid for." },
     { id = "g_default", text = "Thread, salt and dye, {class}. If you work hides, I have what the hide cannot give you." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more thread already? Then you are either working hard or stitching badly." },
   },
@@ -517,6 +525,8 @@ P:NPC {
     third = "{name} met Zeal'aya, the troll herb seller at Jandi's Arboretum in the Drag.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Come in out of de dust, friend! Zeal'aya got de freshest green things for you today." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come in out of de dust, {class}. Zeal'aya be watchin' you near de green things." },
     { id = "g_default", text = "Come in out of de dust, {class}. Everything green in dis shop be alive, so mind where ya put your elbows." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you be back, and the little ones in the pots remember ya. They leaned a bit when you came in." },
     { id = "g_troll", when = { race = "Troll" }, text = "A Darkspear face in the Drag, and a welcome one. Sit a moment, cousin, and smell something dat isn't orc cooking." },
@@ -536,6 +546,8 @@ P:NPC {
         { id = "h_again2", text = "Ask away. The plants aren't in any hurry, and neither am I." },
       },
       choices = {
+        { text = "Keeping green alive in this place is a kindness.", next = "BACK", reply = "Ah, you understand, mon. It be small, but it be good.", fx = { align = { light = 1 } } },
+        { text = "Herbs are for selling, not for coddling.", next = "BACK", reply = "Ya sell what ya coddle, mon, or ya sell nothin' worth havin'.", fx = { align = { light = -1 } } },
         { text = "How does anything grow down here?", next = "grow" },
         { text = "Do the herbs really remember people?", next = "remember" },
         { text = "You must miss the islands.", next = "isles" },
@@ -595,6 +607,8 @@ P:NPC {
     third = "{name} met Sarlek, who argues with his friend Tamaro in an upstairs room in the Drag.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You! Friend! Come here, settle this, because Tamaro won't listen and you're the only one with sense." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You, {class}. I'd ask you to settle something, but I don't trust your judgment." },
     { id = "g_default", text = "You, {class}, come here and settle something, because Tamaro will not listen to sense from me." },
     { id = "g_back", when = { metBefore = true }, text = "Good, you have returned. He is still wrong, and I still need a witness." },
   },
@@ -710,6 +724,8 @@ P:NPC {
     third = "{name} met Tamaro, the quieter half of an old argument upstairs in the Drag.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome, friend. Whatever Sarlek has said, I'll trust you to see the truth of it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome, {class}. If Sarlek has spoken to you, I'll assume you agree with him. Most fools do." },
     { id = "g_default", text = "Welcome, {class}. If Sarlek has already told you I am wrong, then you have heard his half, and you may as well hear mine." },
     { id = "g_back", when = { metBefore = true }, text = "You came back up the stairs, so either you like us or you are lost." },
   },
@@ -823,6 +839,8 @@ P:NPC {
     third = "{name} met Tosamina, who helps care for the war orphans in the Drag.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Oh, it's you. The little ones love it when you visit. Come in, and keep your voice soft." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Keep your voice down, {class}. The small ones are resting, and I'd rather you didn't wake them." },
     { id = "g_default", text = "Keep your voice down a little, {class}, because the small ones have only just settled. You are welcome here, so long as your weapons stay sheathed." },
     { id = "g_back", when = { metBefore = true }, text = "The children asked whether you would come back. I told them heroes are busy, and here you are making a liar of me." },
   },

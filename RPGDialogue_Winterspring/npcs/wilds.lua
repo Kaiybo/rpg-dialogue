@@ -327,6 +327,8 @@ P:NPC {
   },
 
   greetings = {
+
+    { id = "g_rep1", when = { rep = { faction = "Timbermaw Hold", min = "Honored" } }, text = "Salfa smells the tribe's trust on you. Walk freely in the snow, friend of Timbermaw." },
     { id = "g_default", text = "You come out of the tunnel alive, so the Timbermaw have let you pass. Salfa will not argue with that." },
     { id = "g_back", when = { metBefore = true }, text = "Salfa sees you again. The snow has not frozen you yet, which is good." },
   },
@@ -1178,6 +1180,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hot food, hot drink, and for you, friend, the hottest of all, straight from the pot!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hot food, hot drink. Pay for it, and don't burn your tongue." },
     { id = "g_default", text = "Hot food, hot drink, hotter than anywhere north of Felwood, guaranteed, chum! Well, mostly guaranteed, read the small print, and the bits floating in it are mostly turnip." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more, eh, chum? Nobody leaves Himmik's hungry, or at least not for long, and never with a full purse." },
   },

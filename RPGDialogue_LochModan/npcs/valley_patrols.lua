@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
     { id = "g_default", text = "Ho there! Mountaineer Wallbang, an' if ye heard a bang a minute ago, that was me, an' the trogg's no' comin' back." },
     { id = "g_back", when = { metBefore = true }, text = "Ha, it's you again! Still breathin', I see, which in this valley counts as a fine day." },
   },
@@ -34,6 +36,8 @@ P:NPC {
         { id = "dd_wb_1001", text = "A hundred! I've been at it six years an' stopped countin' at four hundred, so ye've a way tae go, but it's a fine start. The trouble is they keep comin' up out o' the dig at Uldaman faster than either of us can count." },
       },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'll stop counting and just keep killing.", next = "BACK", reply = "That's how it goes, in the end. The numbers stop meanin' anythin' after the first few hundred.", fx = { align = { light = -1 } } },
         { text = "I count so I remember what it costs.", next = "BACK", reply = "Hm. That's a priest's answer, but I'll no' laugh at it. Somebody ought tae remember.", fx = { align = { light = 1 } } },
         { text = "Something else, Wallbang.", next = "BACK" },
@@ -199,6 +203,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've fought well, and the company remembers it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Stay clear of the camp, unless you've orders to be here." },
     { id = "g_default", text = "Stop there an' let me look at ye. Aye, ye'll do. Move along, but quietly." },
     { id = "g_back", when = { metBefore = true }, text = "You again. I'd have heard ye comin', but ye've learned tae walk softer." },
   },
@@ -225,6 +231,8 @@ P:NPC {
         { id = "h_again", text = "Anythin' else? Be brief, for I'm watchin' the ridge while we talk." },
       },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What are you watching for?", next = "watch" },
         { text = "Is the patrol a lonely one?", next = "lonely" },
         { text = "What about the Dark Irons at the dam?", next = "dam" },
@@ -342,6 +350,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome at our fire any night you like." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'd not trust you to hold a line, and I'll not pretend otherwise." },
     { id = "g_default", text = "Halt, an' state yer business! Ah, ye're no' a trogg. Sorry, friend, I'm new tae the patrol." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, it's you! I've been practisin' my halt since last time, did ye hear it?" },
   },
@@ -366,6 +376,8 @@ P:NPC {
         { id = "h_again", text = "Anythin' else? I've time, for Langarr does the watchin' an' I do the walkin'." },
       },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Why did you join the Mountaineers?", next = "join" },
         { text = "What's the valley like for a new recruit?", next = "valley" },
         { text = "What do you make of Wallbang and Langarr?", next = "elders" },

@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are, dear! Sit down, and I'll cut you a slice before Tommy Joe eats the lot." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Sit if you must, but don't expect pie." },
     { id = "g_op_alliance_betrayed", when = { opinion = { topic = "alliance", stance = "betrayed" } }, text = "There's the one who agreed with me about the Alliance and our boys. Sit, dear, and don't tell the Marshal what we said about kings." },
     { id = "g_door", text = "Wipe your feet; I've just done that floor. Well, somebody has." },
     { id = "g_tommy", when = { questActive = TODO_QUEST("Speak with Gramma") }, text = "Tommy Joe sent you, didn't he? I know that face; it's the face of someone sent." },
@@ -359,6 +361,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're a good one, dear, with sense in your head and manners on your tongue. My boys could learn from you." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been rude in my kitchen, and nobody's rude in my kitchen twice. Mind yourself." },
+    },
     knows = {
       { id = "tp_knows", text = "I've lived in this valley longer than most of its trees, child, and I've heard a thing or two. Ask me about any of this while the kettle boils." },
     },

@@ -17,6 +17,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hello, my friend! I'm always glad when you come by. Shall we talk about the trades again?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hello, {name}. Have you thought about taking up a trade? Patience might suit you." },
     { id = "g_default", text = "Hello, {name}! Have you thought about taking up a craft?" },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back! Have you settled on a craft yet, or are you still wondering?" },
     { id = "g_grown", when = { metBefore = true, levelsSince = 6 }, text = "You've grown so much since you first stood here! I hope you've found time for a craft along the way." },
@@ -148,6 +150,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Oh, welcome back! I've found a new patch of peacebloom, and I saved it to show you!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome. If you've come to learn, I'll teach you. If not, please keep off the beds." },
     { id = "g_default", text = "Welcome! Have you come to learn the plants, or just to smell the silverleaf?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Did you pick gently? I'll know if you didn't." },
   },
@@ -313,6 +317,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, it's you. Good. How can I help you today, friend?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "How can I help you? Be brief, please." },
     { id = "g_default", text = "How can I help you?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Found any stone yet?" },
   },
@@ -463,6 +469,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. You take leather cleanly now. Come, I'll teach you something finer." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Care to learn properly? I'll teach, but I'll be watching how you treat the beasts." },
     { id = "g_default", text = "Care to learn how to take leather from the beasts you've slain? Or do you need new tools?" },
     { id = "g_back", when = { metBefore = true }, text = "You're back. I hope your knife has been kind." },
   },

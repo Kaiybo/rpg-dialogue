@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "You're on the King's side, I know it. Good to see you on this road." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Halt. I'm still not sure whose side you're on." },
     { id = "g_bridge", text = "Halt. These mountains belong to the King of Stormwind, and I'd like to know you're on his side." },
     { id = "g_flirt", when = { flirt = true, chance = 0.4, ["not"] = { npcFlag = "guard_howe_flirt_no" } }, cooldown = "2d",
       text = "Halt. Oh, it's you, and you may pass, of course, though you needn't hurry about it." },
@@ -158,6 +160,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You've shown your loyalty, and these mountains are safer for it." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've given me cause to doubt your loyalty, and I doubt carefully." },
+    },
     second_war = { { id = "tp_second_war", text = "My father stood on Stormwind's walls when the Horde came the second time, and he said the orcs never once asked whose land they were on. The Blackrock in these hills haven't changed their manners since." } },
     internment = { { id = "tp_internment", text = "We fed those orcs in the camps for years on the King's coin, and the moment they were loose, here they are again on the King's land. I said at the time we should have done otherwise, and nobody listened to a farmer." } },
     thrall = {

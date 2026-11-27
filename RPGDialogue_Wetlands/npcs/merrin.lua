@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend! Keep low on the ridge, but I'm glad tae see ye." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Keep low on the ridge, an' keep away from me." },
     { id = "g_default", text = "Welcome tae our home away from home, though I wish we'd a bit more hospitality tae offer. Keep low on the ridge, for the raptors watch it." },
     { id = "g_back", when = { metBefore = true }, text = "Back on the ridge! Ormer'll be pleased, though he'll never say it." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' we're still here, still diggin' when the raptors let us. Any letters from Menethil in yer pack?" },
@@ -148,6 +150,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "Ye've been a true friend tae the League, an' tae me." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "Ye've been careless on the ridge, an' careless gets diggers killed." },
+    },
     knows = { { id = "tp_knows", text = "I know this dig, an' the hills round it, an' every bone we pulled out o' them. Ask." } },
     background = { { id = "tp_bg", text = "I'm a digger for the Explorers' League an' a weaver's wife, an' I'm better at the first than the second." } },
     advice = { { id = "tp_ad", text = "Never turn yer back on a quiet raptor, for a quiet one's a hungry one." } },

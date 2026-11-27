@@ -15,6 +15,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_rep_tb_f", when = { rep = { faction = "Thorium Brotherhood", min = "Friendly" } }, text = "I hear the Thorium Brotherhood thinks well of you. Odd friends for one of ours, but useful ones out here." },
     { id = "g_op_dragons", when = { opinion = { topic = "black_dragonflight", stance = "respect" } }, text = "Word's come down the road that you've spoken well of the black dragonflight, deputy. I'll assume it was a joke, and I'll expect you not to repeat it inside my walls." },
     { id = "g_default", text = "Another Alliance face this far north? That's the best news I've had all week." },
     { id = "g_back", when = { metBefore = true }, text = "Back from the mountain in one piece, I see. Pull up a crate; it's the only furniture we have." },
@@ -1863,6 +1864,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_op_kaldorei", when = { gossip = { topic = "night_elves", stance = "distrust" } }, text = "Helendis says ye told him tae go back tae his forests. He took it well, for an elf, which means he's said nothin' tae anyone for two days." },
     { id = "g_default", text = "Need a bird? Mind the ash; they hate it on their feathers." },
     { id = "g_back", when = { metBefore = true }, text = "Ye again. The birds remember ye, which is more than they do for most." },

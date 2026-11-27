@@ -400,6 +400,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "Hungry? Course ye are, for everyone in this camp's hungry, so step up an' let's see what I've got left." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more! I knew ye would, my sausages have that effect." },
   },
@@ -422,6 +424,8 @@ P:NPC {
         { id = "h_again", text = "What else? I've a carcass waitin' on me, so quick now." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Let me see your meat.", next = "BUSINESS" },
         { text = "Where does it come from?", next = "meat" },
         { text = "How do the soldiers eat?", next = "soldiers" },
@@ -464,6 +468,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
     { id = "g_default", text = "Bring your beast. I'll see it fed." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Your beast remembers me, even if you don't." },
   },
@@ -529,6 +535,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "Thread, dye, flux, salt. Buy something or step aside, because there's a line behind you." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. What did you run out of this time?" },
   },
@@ -549,6 +557,8 @@ P:NPC {
         { id = "h_again", text = "What else? Be quick about it; I've customers." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your goods.", next = "BUSINESS" },
         { text = "How do the goods get here?", next = "supply" },
         { text = "Who buys the most?", next = "buyers" },

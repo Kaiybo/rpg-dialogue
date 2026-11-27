@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, it's you, it's you, my friend, and ye're welcome by my fire! Sit, sit, and I'll not even check yer sleeves this time." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm watchin' ye, I am, and I've watched worse than ye go into the dark an' not come out." },
     { id = "g_default", text = "Who's that? Oh, it's you, it's only you, and ye're not wearing their robes, so come closer, {g:lad|lass}, and keep your voice down." },
     { id = "g_back", when = { metBefore = true }, text = "Ye came back, and nobody followed ye, did they? Good, because the wind out here has ears, I'm sure of it, and a lizard has been watching me for three days running." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I counted every night of it, for the ground hums louder when I'm alone out here." },
@@ -230,6 +232,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "Ye're the only one who never laughed at old Theldurin, and I'd trust ye with the scroll itself, I would." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "Ye've been cruel tae a mad old dwarf, and the mad remember everythin'. Everythin'." },
+    },
     background = { { id = "tp_ba", text = "I was a miner, then a cultist, then a thief, and now I'm a madman on a rock, and of the four I liked mining best, for honest stone never lied to me." } },
     advice = { { id = "tp_ad", text = "Never say a name you don't want answering you, friend, because some of them are always listening." } },
     uldaman = { { id = "tp_uldaman", text = "There's something under the stone at Uldaman, and it breathes. I heard it when I was digging, and I'll never dig again." } },

@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Good. Keep your voice down, but I'm glad you're here." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Keep your voice down, and keep your distance." },
     { id = "g_quiet", text = "Keep your voice down. The Council could walk through that door any moment." },
     { id = "g_back", when = { metBefore = true }, text = "You came back to Pyrewood on purpose. Either you're brave, or you've come to help me finish the job." },
     { id = "g_ready", when = { questActive = TODO_QUEST("Pyrewood Ambush") }, text = "Be ready. They come in waves, and the Lord Mayor always arrives last, as if he were too important to die early." },
@@ -60,6 +62,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, but keep one ear on the stairs." },
       },
       choices = {
+        { text = "The Council of Pyrewood deserves no mercy.", next = "BACK", reply = "They'll receive none from me. You understand the work, I see.", fx = { align = { light = -1 } } }, -- dp_stance
+        { text = "The Pyrewood folk are cursed, not wicked.", next = "BACK", reply = "Perhaps, but the curse doesn't care, and neither can I.", fx = { align = { light = 1 } } }, -- dp_stance
         { text = "Who are the Pyrewood Council?", next = "council" },
         { text = "What does Arugal want with this village?", next = "arugal" },
         { text = "You look like you've been waiting here a long while.", next = "waiting" },
@@ -143,6 +147,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're useful, and you're discreet. The Dark Lady values both." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been careless, and careless gets deathstalkers killed." },
+    },
     background = { { id = "tp_bg", text = "I serve the Dark Lady and I stand in dark rooms. That's all of my story that's useful to you." } },
     advice = { { id = "tp_ad", text = "Learn where the floor creaks before you need to know, because finding out during a fight is too late." } },
     worgen = { { id = "tp_worgen", text = "They come out of Pyrewood's windows at night and go back in at dawn. Draw your own conclusions; mine are already drawn." } },

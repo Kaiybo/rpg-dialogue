@@ -16,6 +16,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_rep_ad_h", when = { rep = { faction = "Argent Dawn", min = "Honored" } }, text = "The Argent Dawn speaks highly of you, and they don't speak highly of many. You're welcome at Chillwind." },
     { id = "g_hu", when = { race = "Human" }, priority = 5,
       text = "Stormwind steel, and on its feet in the Plaguelands. Good. Stormwind sent me north to fight for a kingdom that isn't ours any more, and I'm glad of every countryman who comes to share the honour." },
     { id = "g_hu_north", when = { race = "Human", origin = "human_lordaeron_refugee" }, priority = 6,
@@ -1478,6 +1479,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_rep_ad_f", when = { rep = { faction = "Argent Dawn", min = "Friendly" } }, text = "You've done good work for the Dawn, friend. Keep bringing those scourgestones, and the Light will repay you." },
     { id = "g_dawn", text = "For the Dawn, friend, and whatever else you fight for, add that to it." },
     { id = "g_xknight", when = { origin = "forsaken_risen_knight" }, text = "You took the oath once, I think, back in Uther's day, and the Light still answers you. The Dawn doesn't ask what you are now, friend, only what you fight." },
     { id = "g_back", when = { metBefore = true }, text = "Well met again. Have you any scourgestones in your pack? The Dawn will always take them off your hands." },
@@ -2003,6 +2005,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
     { id = "g_fly", text = "Wings ready! Well, their wings are ready, anyway, since mine are purely theoretical." },
     { id = "g_back", when = { metBefore = true }, text = "Back for a ride? Good timing, too, since Snowtail's in a mood today, so I'll give you the nice one." },
   },

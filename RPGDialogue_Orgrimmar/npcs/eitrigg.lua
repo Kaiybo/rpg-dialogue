@@ -16,6 +16,10 @@ P:NPC {
   },
 
   greetings = {
+
+
+    { id = "g_rep2", when = { rep = { faction = "Orgrimmar", min = "Exalted" } }, text = "The whole city speaks your name with pride now. Thrall chose well in trusting you." },
+    { id = "g_rep1", when = { rep = { faction = "Orgrimmar", min = "Honored" } }, text = "Orgrimmar honours you, and the Warchief hears of it. Few earn that, and fewer keep it." },
     { id = "g_overheard", when = { overheard = "ex_thrall_eitrigg_council" }, text = "You were close enough to hear all that, I suppose. Good, because the Warchief listens to old men, and young ones should too." },
     { id = "g_hold", text = "Speak plainly, {class}. The Warchief's hall has no patience for anything else, and neither have I." },
     { id = "g_rend", when = { questActive = TODO_QUEST("Eitrigg's Wisdom") }, text = "You carry word from the Steppes. Come here, and let me see what Goretooth has written." },

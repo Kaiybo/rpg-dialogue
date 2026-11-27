@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "My dearest, most understanding friend! Come in, come in, and see how the work has grown since your last visit." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, you. I'm rather busy with my... project. Perhaps another time, when you're more understanding." },
     { id = "g_op_necro", when = { opinion = { topic = "necromancy", stance = "tempting" } }, text = "Ah, my understanding friend! Do come in. The work has come along wonderfully since we talked, and I'd so like a second opinion." },
     { id = "g_hermit", text = "A visitor, how lovely! I don't get many, dear, not living ones." },
     { id = "g_supplies", when = { questActive = TODO_QUEST("Supplies from Darkshire") }, text = "Back from Darkshire already, dear? No, of course not; everyone's so slow these days, though I'm not, not anymore." },
@@ -312,6 +314,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're the only one who truly understands, my friend. Everyone else runs away screaming, but you stay and listen." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been unkind about my work, and I don't take kindly to that. I've made friends out of less." },
+    },
     knows = {
       { id = "tp_knows", text = "Oh, an old hermit hears all sorts out here, you know, with only the crows for company. Ask me about any of this, and I'll put the kettle on." },
     },

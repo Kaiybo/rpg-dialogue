@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
     { id = "g_default", text = "Stand fast, friend! If the dead are walking in Darrowshire again, then so am I." },
     { id = "g_paladin", when = { class = "PALADIN" }, text = "A brother of the Hand! Light's blessing on you, {class}, and on whatever brought you to my town." },
     { id = "g_battle", when = { questActive = TODO_QUEST("The Battle of Darrowshire") }, text = "Keep Horgus off me this time, friend, and I'll keep the rest off Joseph. We've a debt to settle with that brute." },
@@ -45,6 +47,8 @@ P:NPC {
         { id = "h_again3", text = "Go on, then. I can hear them gathering on the north road, but they're not here yet." },
       },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Why did you come back to Darrowshire?", next = "home" },
         { text = "Tell me about Horgus.", next = "horgus" },
         { text = "What do you think of the Silver Hand now?", next = "hand" },

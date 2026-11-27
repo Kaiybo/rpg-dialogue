@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "My friend returns, and not a beetle among you! Come up, and I'll find you a chair that has all its legs." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind the broken stair. Say what you need, and let me get back to my work before the light goes." },
     { id = "g_default", text = "Ah, a visitor who isn't a beetle. Come up, and mind the broken stair; I no longer need it, but you do." },
     { id = "g_back", when = { metBefore = true }, text = "You came back, and willingly. The living so rarely visit twice." },
     { id = "g_circle", when = { reputation = { faction = "Cenarion Circle", min = "honored" } }, text = "The Circle speaks well of you, even to the dead. Come, I have something worth your hands." },

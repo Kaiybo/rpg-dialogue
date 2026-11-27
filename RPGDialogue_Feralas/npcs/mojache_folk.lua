@@ -330,6 +330,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "The sky's wet and the riders are happy, and you're here! Where to, friend?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Riders are fed. Pay and fly." },
     { id = "g_hello", text = "The riders are fed and the sky is wet, which is how they like it. Where to?" },
     { id = "g_back", when = { metBefore = true }, text = "You again! They remember you; this one tried to nibble your hair last time." },
   },
@@ -343,6 +345,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else before you fly?" } },
       choices = {
+        { text = "The wind riders bind the Horde together.", next = "BACK", reply = "They do. Without them, the camps would be very lonely.", fx = { align = { order = 1 } } },
+        { text = "Wind riders are just beasts to carry cargo.", next = "BACK", reply = "Tell them that, and see how far they carry you.", fx = { align = { order = -1 } } },
         { text = "I need a flight.", next = "BUSINESS" },
         { text = "Is flying over Feralas dangerous?", next = "danger" },
         { text = "Do the riders like the rain?", next = "rain" },

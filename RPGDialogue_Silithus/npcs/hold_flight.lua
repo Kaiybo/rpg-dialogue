@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Good winds to you, friend. I've the steadiest rider in Silithus saved for you, and that's no idle boast." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The wind rider flies whoever pays. Don't take it to mean I'm happy to see you." },
     { id = "o_cc_distrust", when = { gossip = { topic = "cenarion_circle", stance = "distrust" } }, text = "Windcaller Proudhorn says you think the Circle asks everyone else to bleed. The wind riders bleed too, traveller, and they don't complain about it." },
     { id = "g_default", text = "The riders are rested and the sky is clear, for now, as the Earth Mother wills it. Where are you bound?" },
     { id = "g_back", when = { metBefore = true }, text = "You again. The riders know your smell by now, which is a kind of welcome." },
@@ -100,6 +102,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You're back! Ishnu-alah! I'd been hoping it'd be you. Where to? The birds are as glad as I am." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ishnu-alah. Where to? Quickly, please, the birds are restless and so am I." },
     { id = "g_default", text = "Where to, friend? Ishnu-alah; the birds are eager, and so am I, frankly." },
     { id = "g_back", when = { metBefore = true }, text = "Back so soon! The birds remember you, they're fluffing up." },
   },

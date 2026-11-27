@@ -110,6 +110,8 @@ P:NPC {
     third = "{name} met Cenarion Scout Azenel, a night elf scouting inside Hive'Zora for the Cenarion Circle.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You. Good, I'd rather it was you than anyone else down here. Keep low and stay near me." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Keep your voice down, and keep your distance. I don't trust anyone easily in this hive, least of all you." },
     { id = "g_default", text = "Keep your voice down, {class}. The walls carry sound in here, and everything in this hive is listening." },
     { id = "g_report", when = { questActive = TODO_QUEST("Hive'Zora Scout Report") }, text = "The Hold sent you for my report? Good. Take it quickly, because I cannot stay in one tunnel for long." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and still alive. Speak softly, and be quick." },
@@ -200,6 +202,8 @@ P:NPC {
     third = "{name} met Cenarion Scout Landion, a night elf scouting inside Hive'Regal for the Cenarion Circle.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You found me, and for once I'm glad of it. Stand against the wall, friend, and we'll talk quietly." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You found me, which annoys me. Stand against the wall, say your piece, and then move on." },
     { id = "g_default", text = "You found me, {class}, which means I chose this corner badly. Stand against the wall, and tell me your business in a whisper." },
     { id = "g_report", when = { questActive = TODO_QUEST("Hive'Regal Scout Report") }, text = "You have come from the Hold for my report. Take it and go by the way you came, for the other tunnels are worse." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. One of us must be very brave or very lost, and I know which I am." },

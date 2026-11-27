@@ -1089,8 +1089,8 @@ P:NPC {
         { id = "dr_sentinels_dr", when = { class = "DRUID" }, text = "They do say it, young druid, and you'll hear it more now that you wear the Circle's colours. The Sisterhood held our people together for ten thousand years while we walked the Dream, and I have never once argued with a Sentinel about it." },
       },
       choices = {
-        { text = "The druids' sleep kept the world whole. It mattered.", next = "BACK", reply = "I believe it did, though I'd rather a Sentinel said so than a druid. Bless you for saying it.", fx = { align = { order = 1 }, opinion = { druids = "dreamers" } } },
-        { text = "The Sisterhood paid for the Circle's dreaming.", next = "BACK", reply = "They did, and the Circle has a long debt to pay. I try to pay a little of it every day.", fx = { align = { order = -1 }, opinion = { druids = "slept_too_long" } } },
+        { text = "The druids' sleep kept the world whole. It mattered.", next = "BACK", reply = "I believe it did, though I'd rather a Sentinel said so than a druid. Bless you for saying it.", fx = { align = { order = 1 }, opinion = { druids = "admire" } } },
+        { text = "The Sisterhood paid for the Circle's dreaming.", next = "BACK", reply = "They did, and the Circle has a long debt to pay. I try to pay a little of it every day.", fx = { align = { order = -1 }, opinion = { druids = "wary" } } },
         { text = "Something else, Denatharion.", next = "BACK" },
       },
     },

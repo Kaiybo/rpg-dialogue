@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Speak plainly; I'll hold the image a little longer for you." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak plainly, and quickly; the image is costly, and you're not worth it today." },
     { id = "g_default", text = "Speak plainly; holding this image together is harder than it looks." },
     { id = "g_horde", when = { faction = "Horde" }, text = "Stay your weapon. I'm not really here, and you'd only embarrass yourself." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. Good; the city has need of you still." },
@@ -248,6 +250,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You've a sharp mind and a steady hand. Dalaran could use more like you." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've wasted my time, and holding this image is not cheap." },
+    },
     background = { { id = "tp_bg", text = "I'm a magus of the Kirin Tor and I serve my city. The rest can wait until it isn't on fire." } },
     advice = { { id = "tp_ad", text = "Don't touch anything that hums. In Dalaran just now, that's most things." } },
     _none = { { id = "tp_none", text = "I haven't the attention to spare for that just now. Ask me again when the city is quiet." } },

@@ -784,6 +784,8 @@ P:NPC {
     third = "{name} met Krakle, a goblin near the hot springs of Un'Goro Crater.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hey, it's my favorite friend! The water's hot, but the company's warm too. Have a seat, careful of the vents." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hey, careful there. And stay careful. I can't afford the lawsuit, and you look like a lawsuit." },
     { id = "g_main", text = "Hey, careful there, friend! The water's hotter than it looks, and I can't afford the lawsuit." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, friend! Got any readings for me? Readings are money, and money's the only thing hotter than this water." },
   },

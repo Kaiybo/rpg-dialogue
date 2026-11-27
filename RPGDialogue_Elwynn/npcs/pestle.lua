@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my friend! Come in, and I'll show you the new purple one. It's safe, mostly." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Don't touch anything, and especially don't touch me." },
     { id = "g_mind", text = "Don't touch the green one, or the blue one either, now I think of it." },
     { id = "g_candles", when = { questActive = TODO_QUEST("Kobold Candles") }, text = "Have you any candles for me? The kobold kind, mind." },
     { id = "g_sit", when = { metBefore = true }, text = "Good day, good day! Sit and have a drink, only not that one." },
@@ -254,6 +256,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're careful and clever, a rare mix in an inn. I'd let you mix the green one, even." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been careless with my potions and my patience. Mind both." },
+    },
     knows = {
       { id = "tp_knows", text = "An apothecary hears a good deal while folk wait for their remedies. Ask me about any of this, and I'll tell you what I can." },
     },

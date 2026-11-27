@@ -223,6 +223,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ratchet looks after its friends, and you're the best of them! Pull up a stool!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Pull up a stool, if you must. Pay first." },
+
+    { id = "g_rep1", when = { rep = { faction = "Ratchet", min = "Friendly" } }, text = "Ratchet looks after its friends, and you're one of them now. Pull up a stool." },
     { id = "g_inn", text = "Welcome to Ratchet's finest inn, pal, and also its only inn, which keeps my prices steady and my competition imaginary." },
     { id = "g_home", when = { homeInn = { "Ratchet" } }, text = "Your bed's still made, chum, and still paid for, which is my favourite kind of bed." },
     { id = "g_away", when = { away = 14 }, text = "Look who's back after {away}! I kept your stool warm, pal, or at least somebody sat on it." },
@@ -283,6 +287,8 @@ P:NPC {
         { id = "h_again", text = "What else, pal? Talk's free and the stew's two silver, so pick wisely." },
       },
       choices = {
+        { text = "Ratchet's a good port for everyone.", next = "BACK", reply = "It is, friend! Neutral and proud.", fx = { align = { order = 1 } } },
+        { text = "Ratchet's just a goblin den of thieves.", next = "BACK", reply = "Then go elsewhere, pal.", fx = { align = { order = -1 } } },
         { text = "I drowned out there, Wiley. It wasn't pleasant.", next = "dd_drowned", when = { deathCause = "drowning" } },
         { text = "Who stays at your inn?", next = "guests" },
         { text = "The boat to Booty Bay doesn't look safe.", next = "boat" },
@@ -386,6 +392,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, you, pal. Your vault's safe and sound. What can I do?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Deposits left, withdrawals right, complaints in the sea." },
     { id = "g_bank", text = "Deposits on the left, withdrawals on the right, and complaints in the sea, pal." },
     { id = "g_back", when = { metBefore = true }, text = "Valued customer! Your vault's right where you left it, chum, and so's everything in it, which is the whole idea." },
   },
@@ -407,6 +415,8 @@ P:NPC {
         { id = "h_again", text = "Something else, pal? The interest on this conversation is zero, so make it quick." },
       },
       choices = {
+        { text = "A safe vault is worth the fee.", next = "BACK", reply = "It is, pal. You get it.", fx = { align = { honor = 1 } } },
+        { text = "Banks just take your money.", next = "BACK", reply = "Then keep it under your bed.", fx = { align = { honor = -1 } } },
         { text = "Is the vault really that safe?", next = "vault" },
         { text = "Horde and Alliance gold in the same vault, then.", next = "both" },
         { text = "I'd like to see my vault.", next = "BUSINESS" },
@@ -509,6 +519,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Pal! I got armor that fits you perfect, saved just for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Armor, shields. Buy something that fits." },
     { id = "g_shop", text = "Armor, shields, the works, pal, and all of it fits better than what you're wearing." },
     { id = "g_back", when = { metBefore = true }, text = "Still alive! See, that's my armor working, pal, and you can tell your friends I said so." },
   },
@@ -530,6 +542,8 @@ P:NPC {
         { id = "h_again", text = "What else, pal? Make it quick, because the tide's bringing in a shipment." },
       },
       choices = {
+        { text = "Good armor keeps a traveler alive.", next = "BACK", reply = "It does, pal. You get it.", fx = { align = { order = 1 } } },
+        { text = "Armor's too heavy to bother with.", next = "BACK", reply = "Then die light.", fx = { align = { order = -1 } } },
         { text = "Where does your armor come from?", next = "source" },
         { text = "What sells best in Ratchet?", next = "sells" },
         { text = "Show me what you've got.", next = "BUSINESS" },
@@ -624,6 +638,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Pal! Rope, and more rope, and a discount for you!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Water, bags, torches, rope. Pay up." },
     { id = "g_shop", text = "Water, bags, torches, rope, more rope, pal, step right up!" },
     { id = "g_back", when = { metBefore = true }, text = "Back for more rope? Everybody comes back for more rope, chum, it's the law of the Barrens." },
   },
@@ -643,6 +659,8 @@ P:NPC {
         { id = "h_again", text = "Anything else, chum? I've got a whole crate of candles that need a good home." },
       },
       choices = {
+        { text = "Rope is always useful.", next = "BACK", reply = "It is, pal! You get it.", fx = { align = { order = 1 } } },
+        { text = "Nobody needs that much rope.", next = "BACK", reply = "You'll see. Pay up.", fx = { align = { order = -1 } } },
         { text = "Why so much rope?", next = "rope" },
         { text = "What do travellers forget most?", next = "forget" },
         { text = "Let me see your goods.", next = "BUSINESS" },
@@ -738,6 +756,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Fresh fish for you, pal, actually fresh today." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Fresh fish, or fresh enough. Pay." },
     { id = "g_shop", text = "Fresh fish, pal, or fresh enough, and tackle for catching your own." },
     { id = "g_dawn", when = { timeOfDay = "dawn" }, text = "Morning catch just came in, chum, so this is the best the fish are ever gonna smell." },
   },
@@ -757,6 +777,8 @@ P:NPC {
         { id = "h_again", text = "Anything else? The fish ain't getting any fresher while we talk, pal." },
       },
       choices = {
+        { text = "Fresh fish is worth paying for.", next = "BACK", reply = "It is, pal. You get it.", fx = { align = { honor = 1 } } },
+        { text = "Old fish is just as good.", next = "BACK", reply = "Then eat old fish.", fx = { align = { honor = -1 } } },
         { text = "What's biting off Ratchet?", next = "biting" },
         { text = "The pirates must bother your boats.", next = "pirates" },
         { text = "Show me your tackle.", next = "BUSINESS" },
@@ -861,6 +883,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hey, sweetheart. You can look at the red crates; I trust you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Don't touch the red crates, sweetheart." },
     { id = "g_shop", text = "Don't touch the red crates, sweetheart, and we'll get along fine." },
     { id = "g_eng", when = { profession = "Engineering" }, text = "An engineer! Come in, come in, and tell me what you've blown up this week." },
   },
@@ -882,6 +906,8 @@ P:NPC {
         { id = "h_again", text = "What else, sweetheart? Mind your elbows on the way round." },
       },
       choices = {
+        { text = "Careful handling keeps everyone safe.", next = "BACK", reply = "It does, sweetheart. You get it.", fx = { align = { order = 1 } } },
+        { text = "A little danger makes things exciting.", next = "BACK", reply = "Not in my shop.", fx = { align = { order = -1 } } },
         { text = "Your neighbours must hate the explosions.", next = "neighbours" },
         { text = "Who buys engineering supplies out here?", next = "buyers" },
         { text = "I'm a gnome. We invented half of this.", next = "gnome", when = { race = "Gnome" } },

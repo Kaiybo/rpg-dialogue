@@ -146,6 +146,8 @@ P:NPC {
     third = "{name} met Tenell Leafrunner of the Emerald Circle, who keeps watch at the Emerald Sanctuary.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, it's you. Your eyes are clear, as always. Come, the road has been quiet, and I'd welcome the company." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Stop there. I'll look you over twice, and then you may pass, and then you may keep walking." },
     { id = "g_default", text = "Hold there a moment. Good, your eyes are clear. One must look, in this wood." },
     { id = "g_2", when = { metBefore = true }, text = "You are back, and still yourself. I marked you down as likely to return, and I am glad to be right." },
   },
@@ -168,6 +170,8 @@ P:NPC {
         { id = "hello_again3", text = "Go on, I am listening." },
       },
       choices = {
+        { text = "The road must be watched, whatever it costs.", next = "BACK", reply = "It must. Someone has to stand here while the rest of the world forgets.", fx = { align = { order = 1 } } },
+        { text = "Watching the road is pointless. Clear out the corruption at its root.", next = "BACK", reply = "Bold words from someone who will be gone tomorrow. I will still be here.", fx = { align = { order = -1 } } },
         { text = "What do you watch for?", next = "watch" },
         { text = "Why did you check my eyes?", next = "eyes" },
         { text = "Your sister seems more hopeful than you are.", next = "ivy" },
@@ -281,6 +285,8 @@ P:NPC {
     third = "{name} met Nalesette Wildbringer, who tends hunters' beasts at Talonbranch Glade.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, old friend. Bring your companion close; I will look at it first, and then we may talk as long as you like." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "If you have a beast to stable, I will see to it. I will see to it for the beast's sake, not yours." },
     { id = "g_default", text = "Ishnu-alah. If you have a beast with you, let me see its eyes and its paws before anything else." },
     { id = "g_2", when = { metBefore = true }, text = "You return. And how is your companion's appetite? That is the first thing to go, in this wood." },
   },
@@ -303,6 +309,8 @@ P:NPC {
         { id = "hello_again3", text = "Go on. The beasts do not mind your voice." },
       },
       choices = {
+        { text = "A companion is owed the same care as a friend.", next = "BACK", reply = "It is. Most hunters know it, but few say it so plainly.", fx = { align = { light = 1 } } },
+        { text = "A beast is a beast. If it's sick, get another.", next = "BACK", reply = "Then you should not keep one. I will look after it, and you may wait outside.", fx = { align = { light = -1 } } },
         { text = "My companion needs training.", next = "BUSINESS", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What does Felwood do to a beast?", next = "felwood" },
         { text = "Who else keeps the Glade running?", next = "glade" },

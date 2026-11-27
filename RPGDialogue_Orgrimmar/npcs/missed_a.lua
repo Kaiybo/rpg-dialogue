@@ -15,6 +15,8 @@ P:NPC {
     third = "{name} met Advisor Willington, the Forsaken who advises the officers in the Hall of Legends.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You may approach, {class}. The Lady has been told good things of you, and so have I." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You may approach, {class}, though I would ask you to keep a respectful distance." },
     { id = "g_default", text = "You may approach, {class}, though I would ask you not to shout. The orcs do quite enough of that for one hall." },
     { id = "g_back", when = { metBefore = true }, text = "You have returned, and in one piece, which is more than I can say for most of the reports that cross my hands." },
   },
@@ -134,6 +136,8 @@ P:NPC {
     third = "{name} met First Sergeant Hola'mahi, the troll who keeps the champions' armor in the Hall of Legends.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, you, mon! Stand easy. I can tell a good fighter by now, and you be one." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Stand up straight and let me look at you, mon. I can tell trouble, and you smell of it." },
     { id = "g_default", text = "Stand up straight and let me look at you, mon. I can tell what a soldier has earned before they open their mouth." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, eh? Let's see if you grew into anything on my racks since the last time." },
   },
@@ -244,6 +248,8 @@ P:NPC {
     third = "{name} met Grunt Korf, one of the guards of the Hall of Legends.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You stand in the Hall of Legends, friend, and you belong here. Walk with pride." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You stand in the Hall of Legends, {class}. Keep your weapon sheathed and your mouth shut." },
     { id = "g_default", text = "You stand in the Hall of Legends, {class}. Keep your weapons sheathed and your voice down." },
     { id = "g_back", when = { metBefore = true }, text = "You again. You know the rules of this hall, so I will not repeat them." },
   },
@@ -340,6 +346,8 @@ P:NPC {
     third = "{name} met Grunt Bek'rah, the loud guard of the Hall of Legends.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ho, friend! Walk where you like. The Hall is glad of you, and so am I." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hold there, {class}! Walk where you like, but touch nothing. I'll be watching." },
     { id = "g_default", text = "Hold there, {class}! Walk where you like, but touch nothing on the racks unless you have the rank for it." },
     { id = "g_back", when = { metBefore = true }, text = "Ha, you are back! Have you killed anything worth telling me about since last time?" },
   },
@@ -650,7 +658,7 @@ P:NPC {
           fx = { affinity = 1, align = { honor = 1 }, opinion = { druids = "balance" } } },
         { text = "I'll serve the Circle, but I won't forget the Horde.", next = "BACK",
           reply = "Nor should you, and I haven't either, whatever the elves think. Only keep your quarrels outside the Hold's walls, and we'll get along well enough.",
-          fx = { align = { honor = -1 }, opinion = { druids = "duty" } } },
+          fx = { align = { honor = -1 }, opinion = { druids = "balance" } } },
         { text = "Who leads the Circle in the desert?", next = "d_hold2" },
       },
     },
@@ -674,10 +682,10 @@ P:NPC {
       choices = {
         { text = "Then the Circle isn't as neutral as it claims.", next = "BACK",
           reply = "It isn't, and I've said as much in Moonglade, and been glared at for it. Neutral is a thing we try to be, friend, not a thing we are.",
-          fx = { align = { order = -1 }, opinion = { druids = "closed" } } },
+          fx = { align = { order = -1 }, opinion = { druids = "wary" } } },
         { text = "My people have the spirits. We don't need the Circle.", next = "BACK",
           reply = "Perhaps not, and your shamans have done well by the land without us. The Circle would still be glad of your help in Silithus, if not of your vows.",
-          fx = { align = { order = 1 }, opinion = { druids = "respect" } } },
+          fx = { align = { order = 1 }, opinion = { druids = "balance" } } },
         { text = "Something else, Emissary.", next = "BACK" },
       },
     },

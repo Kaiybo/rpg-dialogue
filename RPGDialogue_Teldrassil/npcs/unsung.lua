@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Arrows, bows, quivers, whatever you need, friend! For you, the finest!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Arrows, bows, quivers. Whatever you need. Pay up front." },
     { id = "g_default", text = "Arrows, bows, quivers, whatever you need for the road, and advice for free if you stand still long enough. Every Sentinel on Teldrassil has heard it, so you may as well too." },
     { id = "g_back", when = { metBefore = true }, text = "Back already? You must be using those arrows, which is the whole idea. Elune guide the next ones straighter." },
   },
@@ -247,6 +249,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ishnu-alah, friend, and welcome back to Dolanaar. Come, let us train." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ishnu-alah. If you've come to train, let's begin. If not, please move on." },
     { id = "g_default", text = "Ishnu-alah, and welcome to Dolanaar. If you've come to learn the blade, you've found the right elf, though I warn you that the Sentinels trained me hard." },
     { id = "g_back", when = { metBefore = true }, text = "There you are, and you're standing better than last time, so something I said must be sinking in." },
   },
@@ -501,6 +505,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ishnu-alah, friend. You speak softly now. The timid ones like you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ishnu-alah. Keep your voice low. The timid ones hide from you." },
     { id = "g_default", text = "Ishnu-alah. Please keep your voice low, for the tincture is settling, and it is as easily startled as a fawn." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. Have you found any interesting herbs since we last spoke?" },
   },
@@ -695,6 +701,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ishnu-alah, friend. Step where you like; you know where the earthroot grows." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ishnu-alah. Mind where you step. There's earthroot underfoot, and I've seen you trample it." },
     { id = "g_default", text = "Ishnu-alah. Mind where you step; there's earthroot under that bench." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. I hope you've been leaving the roots in the ground." },
   },
@@ -883,6 +891,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ishnu-alah, friend! Come in, you're always welcome. Sit, sit." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ishnu-alah. You're welcome here, I suppose. Mind the hides." },
     { id = "g_default", text = "Ishnu-alah, come in, you're welcome here. We haven't much beneath this roof, but what we have is yours to share." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back to our home. Let me see your stitches; I hope they've gotten smaller." },
   },
@@ -1080,6 +1090,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hm, friend. You're here to learn skinning? Good. Come, sit." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hm, a visitor. If you're here to learn skinning, come. If not, go." },
     { id = "g_default", text = "Hm, a visitor. If you're here to learn skinning, come and stand by the rack, and thank the beast before you touch the knife." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back, and your knife looks sharper than last time." },
   },
@@ -1266,6 +1278,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ishnu-alah, friend! Welcome back to Rut'theran! Lines, hooks, and a story for you!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ishnu-alah. Lines, hooks. Buy what you need and fish quietly." },
     { id = "g_default", text = "Ishnu-alah, and welcome to Rut'theran! Lines, hooks and bait, and the best gossip on the shore of Teldrassil for nothing." },
     { id = "g_back", when = { metBefore = true }, text = "There you are again! Did the fish bite, or did you only feed them?" },
   },
@@ -1496,6 +1510,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Sit down by me, friend. The fish aren't in a hurry, and neither am I with you here." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Sit if you like. The fish aren't in a hurry. You seem to be, though." },
     { id = "g_default", text = "Sit down if you like. The fish aren't in any hurry, so neither am I." },
     { id = "g_back", when = { metBefore = true }, text = "Back by the water again, I see. Good, the water missed you." },
   },

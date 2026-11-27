@@ -247,6 +247,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You hold a bow properly now. Good. Let me show you my best." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Show me how you hold a bow. No. Try again elsewhere." },
     { id = "g_default", text = "Show me how you hold a bow before you ask the price of one." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and still holding that thing wrong, I see. Come in, then." },
   },
@@ -353,6 +355,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. My fingers are split from the string, so I'll take any excuse to rest them." },
       },
       choices = {
+        { text = "A good bow is made from old wood and patience.", next = "BACK", reply = "It is. You know your craft.", fx = { align = { order = 1 } } },
+        { text = "A bow is just a bent stick with string.", next = "BACK", reply = "Then go and bend a stick yourself.", fx = { align = { order = -1 } } },
         { text = "Let me see your bows.", next = "BUSINESS" },
         { text = "A good bow must take some making.", next = "bows" },
         { text = "Isn't it lonely out here?", next = "alone" },
@@ -714,8 +718,8 @@ P:NPC {
       big = true,
       lines = { { id = "dr_circle", text = "In Moonglade they do, and I have sat at Keeper Remulos's fire beside kaldorei who would not look at me in Ashenvale. Hamuul Runetotem says the Circle is older than our quarrels, and I believe him, though this cage tests that belief a little." } },
       choices = {
-        { text = "The Circle comes before the Horde or the Alliance.", next = "BACK", reply = "That is what Hamuul teaches, and I am glad to hear it from a young druid. Say it gently in Splintertree, though.", fx = { align = { order = -1 }, opinion = { druids = "one_circle" } } },
-        { text = "The Horde comes first. The elves chose this war.", next = "BACK", reply = "Some of them did, and some of ours chose it back. I will not argue with you here, but I will ask you to remember Moonglade.", fx = { align = { order = 1 }, opinion = { druids = "horde_first" } } },
+        { text = "The Circle comes before the Horde or the Alliance.", next = "BACK", reply = "That is what Hamuul teaches, and I am glad to hear it from a young druid. Say it gently in Splintertree, though.", fx = { align = { order = -1 }, opinion = { druids = "balance" } } },
+        { text = "The Horde comes first. The elves chose this war.", next = "BACK", reply = "Some of them did, and some of ours chose it back. I will not argue with you here, but I will ask you to remember Moonglade.", fx = { align = { order = 1 }, opinion = { druids = "wary" } } },
         { text = "Something else.", next = "BACK" },
       },
     },

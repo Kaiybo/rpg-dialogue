@@ -511,6 +511,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_goods", text = "Everyday Merchandise, friend, and everything you'll wish you'd brought, right here on the corner." },
   },
 
@@ -531,6 +533,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Water, always, and a spare bag. Even shamans need to drink, I'd wager, whatever the water spirits say." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "A prepared traveller lives longer. Thanks for the advice.", next = "BACK", reply = "You're welcome, friend. That advice is free; the waterskin isn't.", fx = { align = { order = 1 } } },
         { text = "I'll trust my spirits to provide. They always have.", next = "BACK", reply = "They might, friend, but I'd still carry a spare bag, just in case they're busy.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -694,6 +698,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_arsenal", text = "Weller's Arsenal. Look all you like, and pick it up before you buy it." },
   },
 
@@ -714,6 +720,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "A grip that trusts the balance, not the shine. A shaman needs a weapon that answers like the elements do, honest and steady." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Honest balance beats any shine. I'll pick carefully.", next = "BACK", reply = "There's a sensible customer. I'll show you the plain ones.", fx = { align = { honor = 1 } } },
         { text = "Shine sells, Gunther. Don't knock it.", next = "BACK", reply = "It sells, aye, and then it breaks. I'll not stock it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },

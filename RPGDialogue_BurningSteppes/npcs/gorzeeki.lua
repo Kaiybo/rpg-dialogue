@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Pal! My favourite customer! Don't mind the jar; he's in a good mood today, which means he only bites a little." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, you. The imp doesn't like you, pal, and between you and me, neither do I." },
     { id = "g_op_demons", when = { gossip = { topic = "demons", stance = "fear" } }, text = "The boss says you told him you're scared of his little friends. Smart, pal, real smart, because I'm scared of 'em too, and I get paid to be." },
     { id = "g_default", text = "Got any spiders or beetles on you, pal? They scurry fast, but if you're faster, they're a treat, and the best part is they don't cost a copper!" },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Did you bring bugs this time? No? Well, I'll forgive you, chum, just this once, and I'll put it on your account." },
@@ -151,6 +153,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're all right, pal, a real straight shooter, and I don't say that to everyone who walks past the Altar of Storms." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been nothing but grief to me, pal, and I've got an imp for grief already. Lay off." },
+    },
     background = { { id = "tp_ba", text = "A goblin alchemist who left trading for demons, pal, best career move I ever made, and I've never looked back, except to check for bugs." } },
     advice = { { id = "tp_ad", text = "Eat what scurries, friend, because it's free and it's everywhere, and free is the best price there is." } },
     burning_legion = { { id = "tp_burning_legion", text = "The Legion's demons are wonderful, pal, just wonderful, and they pay in power instead of gold. Mor'zul says I'm too enthusiastic, but I say there's no such thing." } },

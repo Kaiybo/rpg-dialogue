@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'd not trust you to hold a line, and I'll not pretend otherwise." },
     { id = "g_cold", text = "You're new. Where have you come from, and who sent you?" },
     { id = "g_back", when = { metBefore = true }, text = "You again. Your story hasn't changed since last time, which is either a good sign or a well-practised one." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}. I'll want to know where, eventually, but it can wait until you've had something to eat." },
@@ -45,6 +47,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. I've time, if you have answers." },
       },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What do the cultists tell you?", next = "cultists" },
         { text = "How do you make them talk?", next = "methods" },
         { text = "Why the questions? I'm on your side.", next = "trust" },

@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. From up here I see much, and I'm glad to see you. Where shall I send you?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "I hear things of you. From up here I see the Galak, and I see you. Where do you want to fly?" },
     { id = "o_cent_war", when = { gossip = { topic = "centaur", stance = "war" } }, text = "I hear you've no mercy left for the Galak. From up here you can see their fires every night, so I can't say I blame you." },
     { id = "g_default", text = "The wind is good today, and the riders are eager to be off the mesa. Where are you bound?" },
     { id = "g_alliance", when = { faction = "Alliance" }, text = "My wind riders don't carry the Alliance, stranger. You'll have to find your way down the lift and out of the canyons on foot." },
@@ -202,6 +204,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome, friend. The beasts are calm and happy you've come. Bring yours in to rest." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The beasts are calm, which means the wind is kind. I'd ask you not to disturb that." },
     { id = "g_default", text = "Welcome, friend. The beasts are calm today, which means the wind is kind. Have you brought me someone to look after?" },
   },
 
@@ -350,6 +354,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hey, friend! Pozzik's sulking, but you're here, so that's good! Buy something shiny?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Pozzik's sulking, and now you're here. Great. Buy something and go." },
     { id = "o_gn_admire", when = { gossip = { topic = "gnomes", stance = "admire" } }, text = "Pozzik, the goblin team's boss, is sulking because somebody called gnomes brilliant engineers, and I hear it was you! I haven't enjoyed a goblin's face that much all season." },
     { id = "g_default", text = "Bolts, tubes, blasting powder and gears! Both teams buy from me, and both teams think the other one's cheating." },
   },

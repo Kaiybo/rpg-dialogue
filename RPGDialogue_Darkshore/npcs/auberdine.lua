@@ -1541,6 +1541,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend. Your old room is free, and I kept the window shut against the wind for you. Rest as long as you need." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You may rest here, as anyone may. I keep a quiet house, and I ask you to keep it quiet too." },
     { id = "g_rest", text = "Ishnu-alah. Your spirit is tired, I can tell, so rest here; the waves are loud, but they'll sing you to sleep after a night or two." },
     { id = "g_flirt", when = { flirt = true, chance = 0.4, ["not"] = { npcFlag = "shaussiy_flirt_no" } }, cooldown = "2d",
       text = "Ishnu-alah. I've brought tea, as I always do, though I'll admit I made this pot a little more carefully than the others." },
@@ -1649,6 +1651,8 @@ P:NPC {
         { id = "ddm_default", text = "Happier and louder, both. For a season they were afraid to row past the point, and the boats came in half empty, so my kitchen went short too. Now there's grouper on the fire again, and the fishermen sing badly, and I wouldn't change a note." },
       },
       choices = {
+        { text = "The fishermen deserve safe water to row in.", next = "BACK", reply = "They do. A full boat means a full kitchen, and a happier town.", fx = { align = { light = 1 } } },
+        { text = "The murlocs were there first. Let the fishermen go elsewhere.", next = "BACK", reply = "Then where would my kitchen get its fish? Rest, and we will not speak of it.", fx = { align = { light = -1 } } },
         { text = "The murlocs will be back sooner or later.", next = "dd_murk2" },
         { text = "Something else, Shaussiy.", next = "BACK" },
       },

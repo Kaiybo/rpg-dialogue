@@ -15,6 +15,8 @@ P:NPC {
     third = "{name} met Mikal Pierce, a father of two who lives in Theramore.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Good day, friend! Come in; the children have been asking after you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Good day. Mind the toys, and mind yourself." },
     { id = "g_default", text = "Good day to you, {class}. Mind your step coming in, for my son leaves his toys wherever he happens to drop them." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. The children asked after you, which means they want to hear about monsters." },
   },
@@ -32,6 +34,8 @@ P:NPC {
         { id = "ybmikalpierce2", when = { class = { "PRIEST", "PALADIN" } }, text = "Some nights I pray, though I'm not as good at it as you, I expect. I ask for the walls to hold." },
       },
       choices = {
+        { text = "A quiet family life is worth protecting.", next = "BACK", reply = "It is. Amie and I treasure it.", fx = { align = { light = 1 } } },
+        { text = "A man should be out fighting, not playing house.", next = "BACK", reply = "I fought enough before. Mind the toys on your way.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -129,6 +133,8 @@ P:NPC {
     third = "{name} met Amie Pierce, who keeps the Pierce household in Theramore.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hello, friend! Don't worry about the boots; you're always welcome here." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Wipe your boots. And please don't stay long." },
     { id = "g_default", text = "Hello, {class}. Wipe the marsh off your boots, if you'd be so kind, for I've only just swept." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Sara's been telling everyone she knows a real adventurer, so you've a reputation to keep up." },
   },
@@ -146,6 +152,8 @@ P:NPC {
         { id = "ybamiepierce2", when = { class = "PRIEST" }, text = "Any day a priest stops by, if I'm honest. The children go quiet as mice, and I get a whole cup of tea drunk while it's still warm." },
       },
       choices = {
+        { text = "A clean home is a small comfort in this marsh.", next = "BACK", reply = "It is. And comforts are rare here.", fx = { align = { order = 1 } } },
+        { text = "A little mud never hurt anyone.", next = "BACK", reply = "It hurts my floor. Please, wipe your boots.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -247,6 +255,8 @@ P:NPC {
     third = "{name} met Sara Pierce, a fearless little girl who lives in Theramore.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You came back! You're my favourite adventurer. Tell me a story, please!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Oh. You again. Mama says I shouldn't talk to strangers." },
     { id = "g_default", text = "Are you a real adventurer? You look like one, because you're all muddy and you've got scratches." },
     { id = "g_back", when = { metBefore = true }, text = "It's you! Did you fight anything since last time, and did you win?" },
   },
@@ -264,6 +274,8 @@ P:NPC {
         { id = "ybsarapierce2", when = { class = "PRIEST" }, text = "Are you a priest? Our priest says the Light is in everyone, even Dahne when he's being annoying." },
       },
       choices = {
+        { text = "Learning your letters is important.", next = "BACK", reply = "The priest says so too! I'm getting good at them.", fx = { align = { order = 1 } } },
+        { text = "Letters are boring. Adventure is better.", next = "BACK", reply = "That's what I think! But Mama says no.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -361,6 +373,8 @@ P:NPC {
     third = "{name} met Dahne Pierce, a shy little boy who lives in Theramore.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hello! Sara says you're our friend now. Do you want to see Splinter?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hello. Sara says I should go inside now." },
     { id = "g_default", text = "Hello. Sara says I'm allowed to talk to you, as long as you're not a murloc." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, it's you again. I remembered you, and I told Sara I would." },
   },
@@ -378,6 +392,8 @@ P:NPC {
         { id = "ybdahnepierce2", when = { class = { "WARRIOR", "PALADIN" } }, text = "What's your sword called? Is it something brave? Mine's called Splinter, but that's brave too." },
       },
       choices = {
+        { text = "Splinter is a fine name for a sword.", next = "BACK", reply = "Papa says so too! I'm going to be a guard.", fx = { align = { honor = 1 } } },
+        { text = "Wooden swords are for babies.", next = "BACK", reply = "They're not! Sara, they said a mean thing.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -475,6 +491,8 @@ P:NPC {
     third = "{name} met Smiling Jim, the innkeeper of the burned Shady Rest, who sits beside the inn at Theramore.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Welcome, welcome, friend! There's always a table for you. Sit, sit." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome. A table will be free in a moment. Or perhaps not." },
     { id = "g_default", text = "Welcome, welcome, friend, and sit yourself down. There'll be a table free in a moment, I'm sure of it, once Lynn has cleared the plates." },
     { id = "g_back", when = { metBefore = true }, text = "I know you, don't I? You've stayed with us before, and you'll have your usual." },
   },
@@ -490,6 +508,8 @@ P:NPC {
         { id = "ybsmilingjim2", when = { race = "Tauren" }, text = "A tauren! You must have a story from the plains. Sit, and tell me while I fetch your supper." },
       },
       choices = {
+        { text = "The evening hearth brings out the best stories.", next = "BACK", reply = "It does. It does. Sit, and listen.", fx = { align = { light = 1 } } },
+        { text = "The inn's a ruin. You should leave.", next = "BACK", reply = "A table will be free in a moment. A moment.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -582,6 +602,8 @@ P:NPC {
     third = "{name} met Ingo Woolybush of the Explorers' League, who keeps a room above the Theramore inn.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, there ye are! Come in, the maps are in order, an' I've a new one to show ye!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind the maps. Don't touch them. What do ye want?" },
     { id = "g_default", text = "Mind the maps, {g:lad|lass}, they're in an order even if ye cannae see it! Now then, what can the Explorers' League do for ye?" },
     { id = "g_back", when = { metBefore = true }, text = "Ach, it's yerself again. Step over the big chart there, the ink's not dry." },
   },
@@ -599,6 +621,8 @@ P:NPC {
         { id = "ybingowoolybush2", when = { race = "Dwarf" }, text = "I'd show ye, if ye promise nae to tell the humans. A dwarf knows the value o' keeping one's mouth shut." },
       },
       choices = {
+        { text = "Old maps teach us what the land has forgotten.", next = "BACK", reply = "Aye, they do! Ye understand.", fx = { align = { order = 1 } } },
+        { text = "Maps are just paper. The land tells the truth.", next = "BACK", reply = "Then go an' walk it. Leave my maps alone.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -687,6 +711,8 @@ P:NPC {
     third = "{name} met Jensen Farran, the bowyer of Theramore.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Good day, friend. I've a bow set aside for you, the best of the season." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Good day. Tell me what you'll shoot, and I'll sell you a bow." },
     { id = "g_default", text = "Good day, {class}. If you're after a bow, tell me what you mean to shoot at, because a raptor and a murloc want different arrows." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more shafts? The marsh eats arrows, I've always said so." },
   },
@@ -704,6 +730,8 @@ P:NPC {
         { id = "ybjensenfarran2", when = { class = "HUNTER" }, text = "He'd follow you about like a pup, if you let him. He thinks hunters are the bravest folk alive." },
       },
       choices = {
+        { text = "The right bow for the right beast.", next = "BACK", reply = "Exactly. A raptor and a deer need different bows.", fx = { align = { order = 1 } } },
+        { text = "Any bow will do, if you can aim.", next = "BACK", reply = "Then buy any bow, and see what happens.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -794,6 +822,8 @@ P:NPC {
     third = "{name} met Decedra Willham, who directs travellers on the docks of Theramore.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Good day, friend! The pier's yours, and I'll make sure you get the best spot on the boat." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Good day. This is the pier for Menethil. Get on or get off." },
     { id = "g_default", text = "Good day, {class}! This is the pier for Menethil Harbor, and if that's not where you're bound, you're standing in the wrong place." },
     { id = "g_back", when = { metBefore = true }, text = "You again! Coming or going this time?" },
   },
@@ -810,6 +840,8 @@ P:NPC {
         { id = "ydecedrawillham1", text = "Damp, much like here, but older and greyer, with dwarves on the docks and a keep that's half sunk into the bog. I've only seen it from the rail, mind, because I never get off the boat at the far end." },
       },
       choices = {
+        { text = "The boats keep Theramore connected to home.", next = "BACK", reply = "They do! Without them, we'd be very lonely.", fx = { align = { order = 1 } } },
+        { text = "Theramore doesn't need the Eastern Kingdoms.", next = "BACK", reply = "Perhaps. But the flour comes from there.", fx = { align = { order = -1 } } },
         { text = "Why not?", next = "ywhy" },
         { text = "Something else.", next = "BACK" },
       },
@@ -900,6 +932,8 @@ P:NPC {
     third = "{name} met Dwane Wertle, the chef who feeds the garrison at Foothold Citadel.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "In, in, friend! I've a hot pot with your name on it, and no charge today." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "In or out, but not in the doorway. Pay first." },
     { id = "g_default", text = "In or out, {class}, but not in the doorway, for I've hot pots coming through. If you're hungry, say so, and I'll see to it." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, so the food can't have been that bad. Sit where you sat before." },
   },
@@ -917,6 +951,8 @@ P:NPC {
         { id = "ybdwanewertle2", when = { race = "Dwarf" }, text = "For a dwarf, I'd roast a ram, if I had one. I'll settle for a boar and a barrel, and you'll not complain." },
       },
       choices = {
+        { text = "A good feast keeps the town cheerful.", next = "BACK", reply = "It does! You understand.", fx = { align = { light = 1 } } },
+        { text = "A feast is a waste of good supplies.", next = "BACK", reply = "Then you'll not be at my table. Out of the doorway.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

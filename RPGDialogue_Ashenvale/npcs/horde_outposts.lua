@@ -660,6 +660,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "There's my favourite. In, in! The stew's hot and I saved you the good bowl." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "In, if you must. Stew's hot. Don't make trouble." },
     { id = "g_hello", text = "In, in, before the elves see the door open. There's stew, and it's hot, and that's the best I can say for it." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and walking. Sit, eat, and don't tell me what you killed." },
     { id = "g_flirt", when = { flirt = true, chance = 0.4, ["not"] = { npcFlag = "kaylisk_flirt_no" } }, cooldown = "2d",
@@ -708,6 +710,8 @@ P:NPC {
         { id = "h_again2", text = "What else can I do for you?" },
       },
       choices = {
+        { text = "A warm bowl keeps the raiders fighting.", next = "BACK", reply = "That it does. Torek's lads would be dead without my stew.", fx = { align = { order = 1 } } },
+        { text = "The raiders should eat what they kill.", next = "BACK", reply = "They kill elves. I don't cook elves.", fx = { align = { order = -1 } } },
         { text = "Torek's raiders are telling stories about me?", next = "dd_torek", when = { questDone = TODO_QUEST("Torek's Assault") } },
         { text = "Let me see what you have.", next = "BUSINESS" },
         { text = "How do you keep an inn in a war?", next = "war" },
@@ -836,6 +840,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You again. Good. My riders like you. Where to?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Need to get out? Pay and get on. Don't waste my time." },
     { id = "g_hello", text = "Need to get out, or need to get somewhere? Either way, my riders are ready." },
     { id = "g_back", when = { metBefore = true }, text = "Back on the ground, I see. Where to this time?" },
   },
@@ -860,6 +866,8 @@ P:NPC {
         { id = "h_again2", text = "What else?" },
       },
       choices = {
+        { text = "A wind rider deserves a careful rider.", next = "BACK", reply = "They do. Most don't hold on properly.", fx = { align = { light = 1 } } },
+        { text = "A wind rider's just a beast with wings.", next = "BACK", reply = "Then it'll treat you like a sack of grain.", fx = { align = { light = -1 } } },
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "Is it safe to fly over Ashenvale?", next = "safe" },
         { text = "What are wind riders like to keep?", next = "riders" },
@@ -945,6 +953,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hey, friend. Da beasts be quiet for you. Come in, and leave your worries at de gate." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Easy, mon. Da beasts don't like you today, so keep your voice down." },
     { id = "g_hello", text = "Easy, mon. Leave da shouting at da gate, da beasts don't like it." },
     { id = "g_back", when = { metBefore = true }, text = "You come back for your beast, or bring me another one?" },
   },
@@ -968,6 +978,8 @@ P:NPC {
         { id = "h_again2", text = "Ask. Da beasts don't mind." },
       },
       choices = {
+        { text = "Quiet beasts be happy beasts.", next = "BACK", reply = "Dat be true, mon. You learn well.", fx = { align = { light = 1 } } },
+        { text = "Beasts need discipline, not coddling.", next = "BACK", reply = "Den keep your own beast, and see how long it stay.", fx = { align = { light = -1 } } },
         { text = "I'd like to use the stables.", next = "BUSINESS" },
         { text = "How do you keep them so calm?", next = "calm" },
         { text = "Any beasts here worth taming?", next = "tame" },

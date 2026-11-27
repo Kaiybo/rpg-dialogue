@@ -327,7 +327,20 @@ local function build()
     note(L.OPT_TTS_MISSING, 20)
   else
     checkbox(L.OPT_TTS_QUESTS, "ttsQuests", { dependsOn = "tts" })
-    -- Hear the voices now; voice, speed and volume are the game's own TTS options.
+    -- Voices: the game's two picks, or one per race and gender (Systems/Barks.lua, ns.Voices).
+    if s().ttsVoiceMode == nil then s().ttsVoiceMode = "game" end
+    if s().ttsRate == nil then s().ttsRate = 0 end
+    if s().ttsVolume == nil then s().ttsVolume = 100 end
+    if ns.Voices then
+      cycle(rawget(L, "OPT_TTS_VOICES") or "Voices", "ttsVoiceMode", { "game", "race" },
+        { rawget(L, "OPT_TTS_VOICES_GAME") or "The game's two voices", rawget(L, "OPT_TTS_VOICES_RACE") or "One per race and gender" })
+      checkbox(rawget(L, "OPT_TTS_CUSTOM") or "Use my own speech speed and volume", "ttsCustom", { dependsOn = "tts" })
+      slider(rawget(L, "OPT_TTS_RATE") or "Speech speed", "ttsRate", -10, 10, 1,
+        function(v) return v == 0 and "normal" or string.format("%+d", v) end, { dependsOn = "ttsCustom" })
+      slider(rawget(L, "OPT_TTS_VOLUME") or "Speech volume", "ttsVolume", 5, 100, 5,
+        function(v) return string.format("%d%%", v) end, { dependsOn = "ttsCustom" })
+    end
+    -- Hear the voices now.
     buttonRow(L.OPT_TTS_TEST_LABEL, L.OPT_TTS_TEST, function() ns.Slash.Handle("tts") end, 20)
     note(L.OPT_TTS_NOTE, 20)
   end

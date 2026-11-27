@@ -682,6 +682,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hello, hello, friend! And hello to your companion! You're both my favorites!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hello. And hello to your companion. I'll look after them, at least." },
     { id = "g_hello", text = "Hello, hello! And hello to whoever's with you, too." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Your companions ask after you, you know." },
   },

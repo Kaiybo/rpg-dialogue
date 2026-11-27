@@ -14,6 +14,8 @@ P:NPC {
     third = "{name} met Rallic Finn, the soft-spoken bowyer of Eastvale Logging Camp.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_default", text = "Bows, arrows and quivers, and all of it made from Elwynn wood. Have a look." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Your string's held up, I hope, or you'd be scowling." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter. You'll want arrows, I expect, and plenty of them." },
@@ -32,6 +34,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I'd swear they do, the good ones at least. A bow made from a willing tree shoots straighter, and I won't be told otherwise." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Then honour the tree, Rallic, and the bow will honour you.", next = "BACK", reply = "I always do, and the good bows know it. You'd make a fair bowyer yourself, I think.", fx = { align = { honor = 1 } } },
         { text = "Wood's just wood. Any bow is only as good as its maker.", next = "BACK", reply = "Then you've never felt a willing stave bend in your hands, friend. I'll not argue it further.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -213,6 +217,8 @@ P:NPC {
     third = "{name} met Drake Lindgren, who keeps Eastvale Logging Camp in general goods and trade supplies.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "Thread, flour, parchment, shot. If the camp needs it, I sell it." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. Prices haven't changed since you left, more's the pity for me." },
   },
@@ -228,6 +234,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "It runs short of everything eventually: thread, rope, nails and patience. Your spirits won't sell me any of that, so I'll stick to coin." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Good stock keeps a camp running. That's worth paying for.", next = "BACK", reply = "It is, and I'll not apologise for my prices. You'll find them fair.", fx = { align = { order = 1 } } },
         { text = "I'll find what I need elsewhere for less.", next = "BACK", reply = "You might, but you'll be walking a long way for it. I'll be here when you're back.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -399,6 +407,8 @@ P:NPC {
     third = "{name} met Terry Palin, a cheerful lumberjack at the Eastvale mill.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
     { id = "g_default", text = "Mind the sawdust, friend; it gets everywhere and never comes out." },
     { id = "g_back", when = { metBefore = true }, text = "You again! Come to watch an honest man work, or to keep him from it?" },
   },

@@ -17,6 +17,10 @@ P:NPC {
   },
 
   greetings = {
+
+
+    { id = "g_rep2", when = { rep = { faction = "Cenarion Circle", min = "Exalted" } }, text = "There are archdruids who have done less for the balance than you have. Moonglade is your home whenever you need one." },
+    { id = "g_rep1", when = { rep = { faction = "Cenarion Circle", min = "Honored" } }, text = "The Circle speaks well of you, little one, and the glade hears what the Circle says. Sit, and be welcome in my father's grove." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "My father died to orcs drunk on a demon's blood, and you drink from the same well. You may rest in this glade, but do not mistake me for your friend." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "Something of the Nether walks in my father's glade again. Speak, mortal, and keep it away from the water." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You have come to Moonglade often and kept its peace each time. I still feel the Nether on you, but I will grant that you have not let it loose here." },
@@ -71,8 +75,8 @@ P:NPC {
       big = true,
       lines = { { id = "dr_rms_default", text = "It is not breaking, little one, but it is stretched, the way a bough stretches in the wind. Darnassus looks to its Arch Druid and Thunder Bluff to Hamuul Runetotem, and both look to Moonglade when they remember to, and my task is to keep the glade a place they cannot help but remember." } },
       choices = {
-        { text = "Then I'll be a druid of the glade first, not of a city.", next = "d_road", reply = "Then the glade is glad of you, and you will be caught between the cities often. Bear it gently, little one.", fx = { affinity = 2, align = { order = -1 }, opinion = { druids = "united" } } },
-        { text = "Each people should lead its own druids, Keeper. That's natural.", next = "d_road", reply = "Perhaps it is, as herds keep to their own pastures. Only remember that the forest does not know which herd is grazing it.", fx = { align = { order = 1 }, opinion = { druids = "divided" } } },
+        { text = "Then I'll be a druid of the glade first, not of a city.", next = "d_road", reply = "Then the glade is glad of you, and you will be caught between the cities often. Bear it gently, little one.", fx = { affinity = 2, align = { order = -1 }, opinion = { druids = "balance" } } },
+        { text = "Each people should lead its own druids, Keeper. That's natural.", next = "d_road", reply = "Perhaps it is, as herds keep to their own pastures. Only remember that the forest does not know which herd is grazing it.", fx = { align = { order = 1 }, opinion = { druids = "wary" } } },
         { text = "What does Hamuul Runetotem make of it?", next = "d_split2" },
         { text = "Something else, Keeper.", next = "d_road" },
       },
@@ -818,6 +822,8 @@ P:NPC {
   },
 
   greetings = {
+
+    { id = "g_rep1", when = { rep = { faction = "Cenarion Circle", min = "Honored" } }, text = "Ah, the Circle's friend. I set your name aside on my list of those who may have the better herbs without haggling." },
     { id = "g_house", text = "Be at ease here. I keep the Keeper's house in order, and the Keeper's visitors. Speak, please." },
     { id = "g_back", when = { metBefore = true }, text = "Again you come to Nighthaven, and I don't think that's chance. I don't believe in chance." },
     { id = "g_away", when = { away = 14 }, text = "You return to Nighthaven after {away}, and again I don't think it is chance. Speak, please, and tell me what has drawn you back." },
@@ -1214,6 +1220,8 @@ P:NPC {
   },
 
   greetings = {
+
+    { id = "g_rep1", when = { rep = { faction = "Cenarion Circle", min = "Revered" } }, text = "Word of your deeds reaches even my quiet corner of the glade. The Circle reveres you, and I see why." },
     { id = "g_trial", text = "Balance be with you. If you've come for the trials, you've come to the right elf. If not, the village is lovely this time of year." },
     { id = "g_druid", when = { class = "DRUID", maxLevel = 12 }, text = "A young druid, fresh from the trainer? Good. The Circle has been expecting you, even if you didn't know it." },
     { id = "g_away", when = { away = 14 }, text = "Balance be with you, and welcome back after {away}. The village is still lovely this time of year, I'm pleased to report, though it was lovely when you left as well." },
@@ -1565,6 +1573,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, my friend. The owls marked your coming before I did. Shall we see what the wild has left for you to learn?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "I will teach you, because the Circle asks it of me. Whether you have earned more than that is another matter." },
+
+    { id = "g_rep1", when = { rep = { faction = "Cenarion Circle", min = "Honored" } }, text = "The Circle counts you among its friends now. I am glad of it, and so, I think, are the owls." },
     { id = "g_dr_first", when = { class = "DRUID", maxLevel = 11 }, text = "You've come by the Circle's own road for the first time, I think, because you're still looking for the door you walked through. There isn't one, {g:brother|sister}, only the glade, so sit and let your feet catch up with you." },
     { id = "g_prejlock1", when = { class = "WARLOCK", prejudiced = true }, text = "There's no balance in the fel, only hunger, and you've chosen to feed it. I'll teach whoever comes, but I won't pretend I'm glad to see you." },
     { id = "g_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "You've kept your hungry thing quiet in Nighthaven every time. I'm still watching the scale, but it hasn't tipped yet." },
@@ -1718,8 +1730,8 @@ P:NPC {
         { id = "dr_lgs_tauren", when = { race = "Tauren" }, text = "It is split, and you'll have felt it more than I have, I expect. Your people learn from Hamuul on the Elder Rise and mine from the Arch Druid in Darnassus, and the two of them don't write to each other unless the Keeper makes them, so this glade is the only place where the Circle is still one thing." },
       },
       choices = {
-        { text = "One Circle, whatever the banners say. The Keeper's right.", next = "d_road", reply = "Then you'll be welcome on my bench, and on Hamuul's too, I suspect. It's the young who'll mend it, if anyone does.", fx = { affinity = 1, align = { order = -1 }, opinion = { druids = "united" } } },
-        { text = "Each people should lead its own druids. That's only natural.", next = "d_road", reply = "Perhaps it is, as herds keep to their own pastures. Only remember that the forest doesn't know which herd is grazing it.", fx = { align = { order = 1 }, opinion = { druids = "divided" } } },
+        { text = "One Circle, whatever the banners say. The Keeper's right.", next = "d_road", reply = "Then you'll be welcome on my bench, and on Hamuul's too, I suspect. It's the young who'll mend it, if anyone does.", fx = { affinity = 1, align = { order = -1 }, opinion = { druids = "balance" } } },
+        { text = "Each people should lead its own druids. That's only natural.", next = "d_road", reply = "Perhaps it is, as herds keep to their own pastures. Only remember that the forest doesn't know which herd is grazing it.", fx = { align = { order = 1 }, opinion = { druids = "wary" } } },
         { text = "What do the tauren druids want from the Circle?", next = "d_split2" },
         { text = "Back to the road.", next = "d_road" },
       },
@@ -1746,8 +1758,8 @@ P:NPC {
       big = true,
       lines = { { id = "dr_lgn_default", text = "They say it to me as well, every time I visit Darnassus, which is why I visit so rarely. They mean that the Circle teaches tauren and doesn't follow the Arch Druid's every word, and I've never thought either of those was softness." } },
       choices = {
-        { text = "Our secrets should have stayed with our own people.", next = "d_road", reply = "Perhaps, if secrets kept the forest safe, but they never have. Ashenvale is felled every season whether the tauren know the bear's shape or not.", fx = { align = { order = 1 }, opinion = { druids = "kaldorei_first" } } },
-        { text = "Teaching the tauren was the wisest thing the Circle did.", next = "d_road", reply = "I think so too, and the Keeper thinks so, and that's company enough for me. Say it in Darnassus, though, and mind the looks you get.", fx = { affinity = 1, align = { order = -1 }, opinion = { druids = "united" } } },
+        { text = "Our secrets should have stayed with our own people.", next = "d_road", reply = "Perhaps, if secrets kept the forest safe, but they never have. Ashenvale is felled every season whether the tauren know the bear's shape or not.", fx = { align = { order = 1 }, opinion = { druids = "wary" } } },
+        { text = "Teaching the tauren was the wisest thing the Circle did.", next = "d_road", reply = "I think so too, and the Keeper thinks so, and that's company enough for me. Say it in Darnassus, though, and mind the looks you get.", fx = { affinity = 1, align = { order = -1 }, opinion = { druids = "balance" } } },
         { text = "Back to the road.", next = "d_road" },
       },
     },
@@ -2442,6 +2454,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Oh, it's you! I'll give you the gentle bird, the one that doesn't dip over the lake. Climb up, friend." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Rut'theran, I suppose. The hippogryph will carry you, and I'll thank you not to tug its feathers." },
     { id = "g_flight", when = { class = "DRUID", faction = "Alliance" }, text = "Going home? The Circle's hippogryphs will carry you to Rut'theran, so climb on." },
     { id = "g_horde", when = { class = "DRUID", faction = "Horde" }, text = "Your flight's with Bunthen, friend, over by the wind riders. He'll see you to Thunder Bluff." },
     { id = "g_not", when = { ["not"] = { class = "DRUID" } }, text = "I'm sorry, but these birds fly for druids only. The Circle's rule, not mine." },
@@ -2465,7 +2479,7 @@ P:NPC {
       lines = { { id = "dr_svh_default", text = "Never, by the old one's choice and the Circle's both, because Bunthen's riders carry the Horde's druids home and mine carry ours. We share the perch and the gossip and nothing else, and I think the arrangement suits the birds better than it suits us." } },
       choices = {
         { text = "Good. Some lines are worth keeping, even here.", next = "BACK", reply = "Perhaps, though I'd say the line is the sea and not the perch. Bunthen and I would both fly anyone, if our beasts would let us.", fx = { align = { order = 1 } } },
-        { text = "One Circle ought to mean one perch, Silva.", next = "BACK", reply = "You'd have the Keeper's blessing for that, I think, and the old one's teeth against it. Tell her yourself; I'll watch.", fx = { affinity = 1, align = { order = -1 }, opinion = { druids = "united" } } },
+        { text = "One Circle ought to mean one perch, Silva.", next = "BACK", reply = "You'd have the Keeper's blessing for that, I think, and the old one's teeth against it. Tell her yourself; I'll watch.", fx = { affinity = 1, align = { order = -1 }, opinion = { druids = "balance" } } },
         { text = "Something else, Silva.", next = "BACK" },
       },
     },
@@ -2645,6 +2659,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Earth Mother keep you, friend. I always saddle the steadiest rider for those I trust, and today that's you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The wind rider will fly you where you're going. That's my duty, and I'll do it, but I've nothing more to offer." },
     { id = "g_flight", when = { class = "DRUID", faction = "Horde" }, text = "Earth Mother keep you. The wind rider's saddled; Thunder Bluff is a long way and a short flight." },
     { id = "g_alliance", when = { class = "DRUID", faction = "Alliance" }, text = "Your flight's with Silva, little friend; her hippogryphs go to Rut'theran." },
     { id = "g_not", when = { ["not"] = { class = "DRUID" } }, text = "You're no druid, and these riders fly for the Circle alone. I'm sorry." },

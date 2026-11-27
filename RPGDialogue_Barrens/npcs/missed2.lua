@@ -16,6 +16,8 @@ P:NPC {
     third = "{name} met Gruk, an orc boy who fetches bread for the guard on the Ratchet road.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hello! I'm so glad to see you. Guard Taruc can wait a moment." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hello. I can't stop. Guard Taruc wants bread." },
     { id = "g_default", text = "Hello, {g:sir|ma'am}! I can't stop long, because Guard Taruc wants more bread and he gets loud when he's hungry." },
     { id = "g_war", when = { class = { "WARRIOR", "HUNTER" } }, text = "Is that a real weapon? Mine's only a stick so far, but it's going to be a spear when I find the right rock." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again, {g:sir|ma'am}! I remembered you, and I remembered the bread this time too." },
@@ -33,6 +35,8 @@ P:NPC {
         { id = "h_again2", text = "I can talk a bit longer, but then I have to run." },
       },
       choices = {
+        { text = "Helping Guard Taruc is good work.", next = "BACK", reply = "It is! He says I'm the best runner.", fx = { align = { order = 1 } } },
+        { text = "You should be playing, not working.", next = "BACK", reply = "Maybe. But Guard Taruc needs me.", fx = { align = { order = -1 } } },
         { text = "Tell me about your spear.", next = "spear" },
         { text = "Is Guard Taruc good to you?", next = "taruc" },
         { text = "Where are your mother and father?", next = "yfolk" },
@@ -120,6 +124,8 @@ P:NPC {
     third = "{name} met Karu, Kranal Fiss's daughter, who cooks and keeps her brother and sister in line.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hello! I made extra, just in case you came. Sit, but mind the pot." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind the pot. It's hot. Please go away." },
     { id = "g_default", text = "Hello! Mind the pot, please, because it's hot and I'm not allowed to let strangers get burned." },
     { id = "g_shaman", when = { class = "SHAMAN" }, text = "You're one of Papa's shaman, aren't you? He's up by the fire, and you should say hello properly, because he notices." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, it's you again! Have you seen my brother Trok? He's supposed to be doing his chores." },
@@ -137,6 +143,8 @@ P:NPC {
         { id = "h_again2", text = "You can ask, but I'm watching the pot." },
       },
       choices = {
+        { text = "Cooking for the family is important.", next = "BACK", reply = "It is! Papa says so too.", fx = { align = { order = 1 } } },
+        { text = "Cooking is boring work.", next = "BACK", reply = "It's not! You're mean.", fx = { align = { order = -1 } } },
         { text = "What are you cooking?", next = "cook" },
         { text = "Your brother gives you trouble, I think.", next = "trok" },
         { text = "Where is your mother, Karu?", next = "ymama" },
@@ -217,6 +225,8 @@ P:NPC {
     third = "{name} met Okla, Kranal Fiss's daughter, who collects pretty rocks to make a necklace.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hello, friend! I found a new rock for my necklace. Do you want to see?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Please don't step there. Go away, please." },
     { id = "g_default", text = "Hello! Please don't step there, because I haven't looked at those rocks yet." },
     { id = "g_miner", when = { profession = "Mining" }, text = "You have a pick! Do you find shiny rocks with it, and do you ever have any left over?" },
     { id = "g_back", when = { metBefore = true }, text = "Hello again! My bucket is heavier than last time, look." },
@@ -234,6 +244,8 @@ P:NPC {
         { id = "h_again2", text = "You can ask while I look, I can do both." },
       },
       choices = {
+        { text = "A necklace of found rocks is special.", next = "BACK", reply = "It is! Every rock is different.", fx = { align = { light = 1 } } },
+        { text = "Rocks are just rocks.", next = "BACK", reply = "They're not! Go away.", fx = { align = { light = -1 } } },
         { text = "What makes a rock good enough?", next = "good" },
         { text = "Do you keep the sharp rocks too?", next = "gruk" },
         { text = "What's your favourite rock?", next = "yfav" },
@@ -313,6 +325,8 @@ P:NPC {
     third = "{name} met Trok, Kranal Fiss's son, who was being chased by bees.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Help! Oh, it's you! Help me, please, the bees are still angry!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Help! The bees! You're not helping!" },
     { id = "g_default", text = "Help! I can't stand still, because there are bees and they're all angry at me and they sting!" },
     { id = "g_mage", when = { class = { "MAGE", "SHAMAN" } }, text = "You know magic, don't you? Can you tell bees to go away, please, only without setting anything on fire?" },
     { id = "g_back", when = { metBefore = true }, text = "It's you! They're still after me, and I'm so tired of running." },
@@ -330,6 +344,8 @@ P:NPC {
         { id = "h_again2", text = "I'm listening, but I'm also running." },
       },
       choices = {
+        { text = "Bees only sting when they're scared.", next = "BACK", reply = "Really? I'll try to be calm, then.", fx = { align = { light = 1 } } },
+        { text = "Just squash the bees.", next = "BACK", reply = "I can't! There are too many!", fx = { align = { light = -1 } } },
         { text = "What did you do to the nest?", next = "nest" },
         { text = "Your sister says you skipped your chores.", next = "chores" },
         { text = "How long have the bees been chasing you?", next = "ylong" },
@@ -409,6 +425,8 @@ P:NPC {
     third = "{name} met Captain Gerogg Hammertoe, who commands the guard at Bael'dun Keep.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, ye made it through again. Good. Sit, friend, an' rest yer feet." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hold there. My lads have their eyes on ye." },
     { id = "g_default", text = "Hold there, {class}. Ye came through my gate without an arrow in ye, so my lads have already judged ye a friend, and I'll take their word for it." },
     { id = "g_dwarf", when = { race = "Dwarf" }, text = "A face from home, by the forge! Tell me there's still snow on Dun Morogh, {g:lad|lass}, for I've nearly forgotten what cold feels like." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still in one piece. The road from Theramore's no kinder than it was, I'd wager." },
@@ -426,6 +444,8 @@ P:NPC {
         { id = "h_again2", text = "Speak up, and keep it short." },
       },
       choices = {
+        { text = "Bael'dun must be held, whatever the cost.", next = "BACK", reply = "Aye. We'll hold it.", fx = { align = { order = 1 } } },
+        { text = "Bael'dun's a waste of good dwarves.", next = "BACK", reply = "That's no' for ye to say.", fx = { align = { order = -1 } } },
         { text = "Who attacks the keep?", next = "attack" },
         { text = "How many guards do you have?", next = "guards" },
         { text = "What news would you have from Ironforge?", next = "home", when = { race = { "Dwarf", "Gnome" } } },
@@ -510,6 +530,8 @@ P:NPC {
     third = "{name} met Digger Flameforge, the excavation specialist at the Bael Modan dig.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, you! Mind the lines, though ye always do. I've found somethin'!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind the string lines! Don't touch anything." },
     { id = "g_default", text = "Mind the string lines, {class}! Every one of them marks a layer, and if ye kick one I'll have to measure the whole trench again." },
     { id = "g_miner", when = { profession = "Mining" }, text = "Ah, ye know yer way round a pick, I can tell by yer hands. Come and look at this seam, then, and tell me I'm not seeing things." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back, and we're a full hand's breadth deeper than when ye left. That's fast work, for careful work." },
@@ -527,6 +549,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I can talk and brush." },
       },
       choices = {
+        { text = "Careful digging preserves history.", next = "BACK", reply = "Aye! Every layer tells a story.", fx = { align = { order = 1 } } },
+        { text = "Dig fast, find the treasure, move on.", next = "BACK", reply = "Then ye'll find nothin'.", fx = { align = { order = -1 } } },
         { text = "What are you digging for?", next = "what" },
         { text = "Where do the picks stop?", next = "stop" },
         { text = "What does the stone look like, down there?", next = "seam", when = { profession = "Mining" } },
@@ -612,6 +636,8 @@ P:NPC {
     third = "{name} met Heggin Stonewhisker, the chief engineer who keeps Bael Modan's crane and flying machines working.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You again! Stand clear, but stay a moment, friend. She's holding today." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Stand clear of the hoist! Now!" },
     { id = "g_default", text = "Stand clear of the hoist, {class}! She's lifting four tons of rock on a chain I've mended twice this week." },
     { id = "g_eng", when = { profession = "Engineering" }, text = "Is that grease under yer nails? Thank the forge, somebody who'll understand me when I complain." },
     { id = "g_back", when = { metBefore = true }, text = "Ye again. The crane's still standing, before ye ask, and no thanks to the sand." },
@@ -629,6 +655,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, but mind the chain." },
       },
       choices = {
+        { text = "Good engineering keeps the dig safe.", next = "BACK", reply = "Aye, it does. Most dinnae notice.", fx = { align = { order = 1 } } },
+        { text = "The hoist will break no matter what you do.", next = "BACK", reply = "No' on my watch.", fx = { align = { order = -1 } } },
         { text = "What breaks most often?", next = "breaks" },
         { text = "Flying machines, out here?", next = "fly" },
         { text = "What would you ask an engineer to bring you?", next = "parts", when = { profession = "Engineering" } },
@@ -713,6 +741,8 @@ P:NPC {
     third = "{name} met Malgin Barleybrew, the morale officer who keeps the bar at Bael Modan.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Welcome back, friend! First keg's on me today. Pull up a seat!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome to the bar. Pay first." },
     { id = "g_default", text = "Welcome to the only proper bar between here and Theramore, {class}! Pull up a keg and tell me what the road's done to ye." },
     { id = "g_dwarf", when = { race = "Dwarf" }, text = "A {g:kinsman|kinswoman}, by my beard! Sit down, sit down, and tell me what they're pouring in Ironforge these days." },
     { id = "g_back", when = { metBefore = true }, text = "There ye are again! I kept yer stool warm, by which I mean nobody else wanted it." },
@@ -730,6 +760,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm a grand listener. It's most of the job." },
       },
       choices = {
+        { text = "Good beer keeps the lads cheerful.", next = "BACK", reply = "Aye! Morale is my job.", fx = { align = { light = 1 } } },
+        { text = "Drinking makes soldiers lazy.", next = "BACK", reply = "Then dinnae drink. Pay first.", fx = { align = { light = -1 } } },
         { text = "How is morale, Morale Officer?", next = "morale" },
         { text = "Barleybrew is a brewing name.", next = "name" },
         { text = "What would a dwarf drink, this far from home?", next = "drink", when = { race = "Dwarf" } },

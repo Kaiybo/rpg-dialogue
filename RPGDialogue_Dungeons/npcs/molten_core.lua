@@ -18,6 +18,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "You again. If I must serve, I suppose I'd rather it were you than the others, though it scalds me to say it." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Every word I give you burns, and you've given me reason to wish it burned you instead." },
     { id = "g_default", text = "Impudent whelps. You have bested me, so I am bound to serve your wishes, though it burns worse than any flame." },
   },
 
@@ -123,6 +125,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You fought well, mortal, and I respect strength above all things. That is all the praise you'll get." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've mocked a servant of the Firelord in his own chains. The flames will remember, even if I cannot act." },
+    },
     _none = { { id = "tp_none", text = "Such matters mean nothing in the Firelord's hall. Ask something worthy of fire." } },
   },
 }

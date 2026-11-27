@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Keep yer voice down, friend, but I'm glad tae see ye, truly." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Keep yer voice down, an' keep yer distance too." },
     { id = "g_gorge", text = "Keep yer voice down, friend! The Dark Irons have patrols on every ridge, an' I'd like tae keep my head, seein' as my hat only fits the one." },
   },
 
@@ -217,6 +219,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "Ye've helped me more than ye know, an' I'd share the find with ye if I could." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "Ye've been careless, an' careless gets heads lost in the Gorge." },
+    },
     dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons have patrols on every ridge, an' they'd as soon put an axe in ye as look at ye. My team's somewhere in their hands, an' I'll no' leave them." } },
     magni = { { id = "tp_magni", text = "King Magni sent the League out to find the Suntara Stones, an' I mean to bring him back somethin' worth the cost. I just wish the cost weren't so high." } },
     blackrock_depths = { { id = "tp_blackrock_depths", text = "Under the mountain the Dark Irons have a whole city, an' a fire lord to rule it. Nae dwarf o' Ironforge has seen it an' come back the same." } },

@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite writ-filler! Come in, come in, and I'll let ye stroke the beard for luck, just this once." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, aye, it's you. The writs are on the board, and the beard's not for admirin' today." },
     { id = "g_default", text = "Ho there! Come tae fill a writ, or just tae admire the beard?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! The wind told me ye were comin', or maybe that was the smell o' yer cookfire." },
     { id = "g_elixir", when = { questDone = TODO_QUEST("Craftsman's Writ: Elixir of Wisdom") }, text = "There's my alchemist! The shamans back home are still thankin' ye, in their quiet way." },
@@ -167,6 +169,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "Ye've a Wildhammer heart in ye, whatever yer blood, and I'd fly beside ye over the Highlands any day." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "Ye've a way o' rubbin' a dwarf the wrong way, like a gryphon preenin' backwards. Fix it, or fly elsewhere." },
+    },
     background = { { id = "tp_bg", text = "Aerie Peak born, gryphon raised, an' sent out wi' a purse because I'm the best haggler in the clan. Or the loudest, anyway." } },
     advice = { { id = "tp_ad", text = "Pay fair an' ye'll always have someone tae sell tae. Cheat once an' ye'll be buyin' from goblins forever." } },
     _none = { { id = "tp_none", text = "Ha! No idea, friend. Ask me about elixirs instead; them I know." } },

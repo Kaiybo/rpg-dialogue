@@ -2100,6 +2100,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
     { id = "g_default", text = "Need a gryphon? Keep your voice down near the roost; they're napping off the heat." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. The birds remember you, which is more than they do for most." },
   },
@@ -2299,6 +2301,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_op_defias", when = { gossip = { topic = "defias", stance = "nobles_to_blame" } }, text = "The Quartermaster says you've a soft spot for the Defias' side of things. Don't say it too loud at my counter, friend, because half the stew in this pot came up the Westfall road." },
     { id = "g_default", text = "Hungry? Course you are; everyone who comes up that road is. Have a look." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Sit down, the stew's hot, and it's the only warm thing this side of the Keep." },
@@ -2317,6 +2321,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They talk about everything, and you'd be news for a week, I'd guess. Some say it's orc magic and some say the dwarves always did talk to rocks, and I just say pass the cheese." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Let them talk. I serve Ironforge, same as them.", next = "BACK", reply = "That's the spirit, and the lads will come round. Ironforge is big enough for spirits too.", fx = { align = { order = 1 } } },
         { text = "Let them call it orc magic. The spirits don't mind.", next = "BACK", reply = "Ha! Let them call it what they like, then. The spirits and the stew both, I'd say.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -2501,6 +2507,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "Armor, mended or sold. Either way it costs patience, mine an' yers." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and dented again, by the sound of ye." },
   },

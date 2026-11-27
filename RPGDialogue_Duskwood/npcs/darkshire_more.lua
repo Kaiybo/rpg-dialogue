@@ -539,6 +539,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "Come in, come in, and have something to drink, friend. Darkshire's grim enough without dry throats." },
     { id = "g_psst", text = "Lean in a moment. There's a new jug under the counter, if you take my meaning." },
     { id = "g_back", when = { metBefore = true }, text = "There's a face I remember! That's either a compliment to you or a warning about my memory." },
@@ -558,6 +560,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Strong enough to see spirits without being a shaman, and the whispering's part of the flavour, so lean in close and try a sip!" } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'll give it a fair try, Hann, and keep your secret.", next = "BACK", reply = "Honest and quiet, that's the way, friend! Here's a wee taste, if you'll pay the copper for it.", fx = { align = { honor = 1 } } },
         { text = "I'm telling the Watch, Hann. Moonshine's nothing but trouble.", next = "BACK", reply = "Tell the Watch? They're my best customers! You'll get no moonshine, then.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -739,6 +743,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "Reagents, powders, candles and seeds. If it's for a spell, I've likely got it, and if it's for a curse, ask my grandmother." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more? Good, because the candles don't buy themselves, and Grandmother keeps telling me business will pick up." },
   },
@@ -756,6 +762,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I roll my eyes at every warning, but I love her. Your spirits might agree with her more than I do." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Love her and listen. That's honest, Alyssa.", next = "BACK", reply = "That's what I try to do, mostly. She's right sometimes, which is the annoying part.", fx = { align = { honor = 1 } } },
         { text = "Ignore her warnings and buy a better lock.", next = "BACK", reply = "That's what I tell her, and she laughs at me. Good locks never fail me.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -944,6 +952,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "Tubes, flux, blasting powder, coal! Mind the shelf, it bites. Well, it falls, which is nearly the same." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, a returning customer! I'll note it down; it's a rare species in these woods." },
   },
@@ -963,6 +973,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "We understand gears and powder, mostly, and spirits are messy. Still, anyone who comes to Darkshire must have courage, and courage I understand." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Courage and good order, Herble. They go together.", next = "BACK", reply = "They do, they do, and you've just described my workshop! Messy, but orderly.", fx = { align = { order = 1 } } },
         { text = "Messy is fine. Not everything needs gears.", next = "BACK", reply = "Oh, you sound like Finbus, and he's usually wrong. But I'll grant you a point.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -1166,6 +1178,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
     { id = "g_default", text = "Has anyone come yet, anyone at all? The dead walk the roads, and still nobody lifts a finger to stop them." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, it's you again. I don't suppose you've brought any news, because nobody ever does." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Don't stand near the window. Something bad is on its way here, I can feel it, and I don't want it seeing us through the glass." },
@@ -1399,6 +1413,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
     { id = "g_default", text = "Easy, easy. Not you; the horse. What can I do for you?" },
     { id = "g_back", when = { metBefore = true }, text = "Back for your companion? They ate well, and slept badly, like everyone here." },
   },

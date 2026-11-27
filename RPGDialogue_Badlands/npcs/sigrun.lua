@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite face in the Badlands! Sit down, and I'll find you the one stool that doesn't wobble." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. I'm busy, and the salt's for the folk who've been decent to me, sorry to say." },
     { id = "g_op_elements", when = { gossip = { topic = "the_elements", stance = "respect" } }, text = "Lotwil Veriatus, the gnome up in Arathi who binds elementals, writes that you told him to let them go. His letters have been shorter since, so thank you for that." },
     { id = "g_default", text = "Welcome to the finest camp in the Badlands, {g:lad|lass}, which isn't saying much, so mind the anvil and don't ask what's for supper." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and a welcome sight ye are! Pull up a crate, if ye can find one the ogres didn't carry off." },
@@ -224,6 +226,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're a good friend to a girl with a broken forge, and I'll remember it when I'm a master smith with a forge of my own." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've not been kind to me, and out here kindness is about the only thing that doesn't run short. Try a little." },
+    },
     background = { { id = "tp_ba", text = "I'm Ironforge born and Feranor Steeltoe's apprentice, and now I'm the camp smith at a dig nobody's digging. It's been a strange year, and not one I'd drink to." } },
     advice = { { id = "tp_ad", text = "Never leave a dig without your supper, friend, because the ogres won't save you any." } },
     uldaman = { { id = "tp_uldaman", text = "Uldaman's where the real digging was, until the troggs and the Dark Irons ran us out. Here I just sharpen shovels nobody's using." } },

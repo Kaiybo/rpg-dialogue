@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+
+    { id = "g_rep1", when = { rep = { faction = "Gadgetzan", min = "Honored" } }, text = "My bruisers know your face, and they know to leave it alone. That's Gadgetzan's thanks, friend." },
     { id = "g_pj_rogue", when = { prejudiced = true }, text = "Hold it right there, pal, and keep your hands out of your sleeves. I know a pickpocket's walk when I see one, and the Water Company doesn't pay me to give anybody the benefit of the doubt." },
     { id = "g_pj_over", when = { prejudiced = "overcome" }, text = "Oh, it's you, and I didn't even check my coin purse, and that's a first in this job. I had you down in the book as a liability, buddy, and I've moved you over to assets." },
     { id = "g_default", text = "We're here to make a profit, pal, and having our goods stolen is no way to make one. What do you want, and is it going to cost me?" },

@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "You're back! Good. Sit, but don't make me laugh, because it still hurts something awful." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm still breathing, no thanks to you, so keep your distance." },
     { id = "g_low", text = "Still breathin', just about. Don't make me laugh, it hurts." },
     { id = "g_after", when = { questDone = TODO_QUEST("The Symbol of Life") }, text = "Ah, my favourite paladin! Ye're the only one I've got, mind." },
   },
@@ -246,6 +248,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're a good sort, friend, and you came back for a broken man. I'll not forget that." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been cruel to a man who can't get up, and that's a coward's sport." },
+    },
     background = { { id = "tp_bg", text = "A dwarf far from the mountain, watchin' thieves for the humans. I got killed for it, an' then I got better." } },
     advice = { { id = "tp_ad", text = "If yer friend's caught, go in after him, but bring a paladin." } },
     defias = { { id = "tp_defias", text = "They don't fight fair an' they don't leave witnesses, an' I'm the exception, which I'm very proud of." } },

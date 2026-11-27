@@ -18,6 +18,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "There you are! I saved you the good cakes, the ones that aren't secretly rockets, and I've been telling everyone you'd be back." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Oh. It's you. Well, the crates are for sale like they are to anyone, so pick what you like and mind your elbows." },
     { id = "g_default", text = "Welcome, welcome! Mind the crates, because some are rockets and some are cakes, and I can never remember which." },
     { id = "g_festival", when = { holiday = "lunar" }, text = "Happy new year, and Elune's light on you! The sky's been quiet for a whole twelvemonth, so let's make up for it tonight." },
     { id = "g_back", when = { metBefore = true }, text = "You came back! Either you liked the rockets, or you've come to complain about them, and I'm happy either way." },

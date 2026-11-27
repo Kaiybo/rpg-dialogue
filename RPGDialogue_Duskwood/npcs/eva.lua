@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. The cards told me you would come, and they seemed pleased about it." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You return. The cards are cool toward you today, and so am I." },
     { id = "g_hu", when = { race = "Human" }, priority = 5,
       text = "Ah, one of my own kind, with a short life and a long shadow. Sit down, dear; the cards have been restless all evening, and now I see why." },
     { id = "g_op_light_doubt", when = { opinion = { topic = "the_light", stance = "doubt" } }, text = "The sceptic returns. Sit, sit; the Blade has been turning up all week, and I suspected it was waiting for you." },
@@ -440,6 +442,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You have a bright thread in a dark weave, child, and I find myself hoping it holds." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You have been careless with an old woman's patience. The cards forgive, but they do not forget." },
+    },
     knows = {
       { id = "tp_knows", text = "The cards show me a great many things, child, and the people of Darkshire show me the rest. Ask me about any of this." },
     },

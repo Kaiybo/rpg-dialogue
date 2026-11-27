@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_shop", text = "Looking for something particular? Speak softly; the walls here are thin." },
     { id = "g_back", when = { metBefore = true }, text = "Back so soon. Business must be good, or very bad." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}. I won't ask where; it's the house rule." },
@@ -45,6 +47,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. I'm discreet, not deaf." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Who buys poison in a town like this?", next = "who" },
         { text = "This trade seems a little dishonourable to me.", next = "honour" },
         { text = "What do you use against orcs?", next = "orcs", when = { class = "ROGUE" } },

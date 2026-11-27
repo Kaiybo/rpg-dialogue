@@ -91,6 +91,8 @@ P:NPC {
     third = "{name} met Winkey, a gnome taking a very long holiday on a small island off the coast of Tanaris.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Oh, it's you! I'm so glad! Come sit on the dock and tell me everything you've seen out there." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Oh. You swam all the way out here again? Well, I suppose you can stay for a bit." },
     { id = "g_default", text = "Oh, hello! You swam all the way out here? You're not from Gadgetzan about the mooring fee, are you, because I've checked and this island isn't on their map." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! I've turned over since you were last here, so that's my day's work done." },
     { id = "yg_0", when = { race = "Dwarf" }, text = "A dwarf! Lovely! You won't make me talk about gears, will you? Dwarves only ever want to talk about gears, or beer." },

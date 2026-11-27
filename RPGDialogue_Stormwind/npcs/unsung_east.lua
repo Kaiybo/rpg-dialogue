@@ -14,6 +14,8 @@ P:NPC {
     third = "{name} met Agustus Moulaine of Righteous Plates in Cathedral Square.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "Welcome to Righteous Plates. Armour fit for the Light's own defenders, and for anyone else with the coin." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. Has the Light, and my steel, kept you whole?" },
   },
@@ -31,6 +33,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Every plate I sell has a blessing behind it. A shaman's mail might have a spirit instead. Both protect." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Blessings and spirits both shield the faithful, I suppose.", next = "BACK", reply = "I'd like to think so, friend, and I've never known either to fail a believer who kept his straps tight.", fx = { align = { light = 1 } } },
         { text = "Armour's metal, Agustus. It doesn't pray.", next = "BACK", reply = "No, but I do, and I'll keep doing it whether the steel listens or not. My mother never sold an unblessed buckle.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -192,6 +196,8 @@ P:NPC {
     third = "{name} met Theresa Moulaine, who sells robes at Righteous Plates in Cathedral Square.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "May the Light guide your path and aid you on your journeys. If you need help, I'll be right over here." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. The Light has kept you, I see, and I'm glad of it." },
   },
@@ -209,6 +215,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Everyone who asks with an open heart, I believe. Your spirits may bless differently, but kindness is kindness." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Kindness is kindness, Theresa. I'll take your blessing gladly.", next = "BACK", reply = "Then hold still, dear, and I'll say it now. Kindness travels well, whatever road you take.", fx = { align = { light = 1 } } },
         { text = "Blessings are cheap. I'd rather have a good robe.", next = "BACK", reply = "Then you'll have both, dear, because I'll bless the robe anyway. It costs me nothing.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -365,6 +373,8 @@ P:NPC {
     third = "{name} met Jenova Stoneshield, the dwarf stable master of Stormwind's Dwarven District.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_default", text = "Aye, what is it? If ye've a beast to leave, I've room, and if ye don't, mind the straw." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, are ye? Yer beast's been fed and brushed, and better behaved than you, I'd wager." },
   },
@@ -534,6 +544,8 @@ P:NPC {
     third = "{name} met Billibub Cogspinner, a gnome who sells engineering supplies in the Dwarven District.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "Tubes, bolts, blasting powder and flux! Everything a growing engineer needs, and most of it only explodes when you want it to." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and with all your eyebrows! That's a very good sign." },
   },
@@ -551,6 +563,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Of course they mix, because half my workshop runs on fire and lightning! Lilliam says they don't, but she's no fun." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Lilliam's right. Some things are best kept apart.", next = "BACK", reply = "You and Lilliam both! I'll tell her you said so, and she'll be unbearable for a week.", fx = { align = { order = 1 } } },
         { text = "Mix them! Let's see what happens.", next = "BACK", reply = "Yes! Finally, someone with vision! Stand back a bit, though, maybe behind that crate.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },

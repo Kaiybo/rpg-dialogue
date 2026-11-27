@@ -18,6 +18,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Oh, it's you, it's you! Come here, let me look. I've been saving a bolt of moonweave in your colors, just in case." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Robes are on the rack. You'll find your size, I'm sure. I'm rather busy today, so do call if you need me." },
     { id = "g_default", text = "Oh, come in, come in! Let me see you in the light. Yes, I thought so; you need a new robe." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! I knew that color would bring you back to me." },
   },

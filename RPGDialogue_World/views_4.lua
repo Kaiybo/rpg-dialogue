@@ -50,11 +50,11 @@ P:Views { topic = "satyrs", views = {
 } }
 
 P:Views { topic = "xylem", views = {
-  { id = "admire", text = "A mage who stands alone on Azshara's coast has my respect.", fx = { opinion = { xylem = "respect" }, trait = { kind = 1 } }, replies = {
+  { id = "admire", text = "A mage who stands alone on Azshara's coast has my respect.", fx = { align = { order = 1 }, opinion = { xylem = "respect" }, trait = { kind = 1 } }, replies = {
     { id = "a", text = "He'll like hearing that, though he'd say respect is the least he's owed. He's not wrong about how dangerous that tower is.", fx = { affinity = 1 } },
     { id = "b", text = "Alone with a dozen servants and a teleport stone, aye. Still, it's more nerve than most archmages show." },
   } },
-  { id = "arrogant", text = "Brilliant, maybe, but he treats everyone as an errand-runner, me included.", fx = { opinion = { xylem = "distrust" }, trait = { proud = 1 } }, replies = {
+  { id = "arrogant", text = "Brilliant, maybe, but he treats everyone as an errand-runner, me included.", fx = { align = { order = -1 }, opinion = { xylem = "distrust" }, trait = { proud = 1 } }, replies = {
     { id = "a", text = "Everyone notices that inside a minute. The trick is to get paid before he remembers he's above thanking you." },
     { id = "b", text = "He does, and he'll go on doing it. Archmages are like that; it's being right so often that ruins them." },
   } },
@@ -65,7 +65,7 @@ P:Views { topic = "xylem", views = {
 } }
 
 P:Views { topic = "morphaz", views = {
-  { id = "kill", text = "A drake that swallows apprentices deserves a blade through the belly.", fx = { opinion = { morphaz = "hate" }, trait = { brave = 1 } }, replies = {
+  { id = "kill", text = "A drake that swallows apprentices deserves a blade through the belly.", fx = { align = { honor = 1 }, opinion = { morphaz = "hate" }, trait = { brave = 1 } }, replies = {
     { id = "a", text = "Ha! Find him first. He sleeps in the drowned temple in the Swamp of Sorrows, among his own green kin.", fx = { affinity = 1 } },
     { id = "b", text = "Plenty have said that, and Xylem would pay well to hear it done. Mind his breath, though; it isn't fire, but it's worse in a closed room." },
   } },
@@ -73,7 +73,7 @@ P:Views { topic = "morphaz", views = {
     { id = "a", text = "Cruel, {class}, and maybe not wrong. He talks about both, but I've noticed which one comes first." },
     { id = "b", text = "Harsh, for a man who lost his student. Archmages grieve badly, but they still grieve.", fx = { affinity = -1 } },
   } },
-  { id = "wary", text = "A dragon is a dragon. I'll not go poking one for a wizard's grudge.", fx = { opinion = { morphaz = "fear" }, trait = { cautious = 1 } }, replies = {
+  { id = "wary", text = "A dragon is a dragon. I'll not go poking one for a wizard's grudge.", fx = { align = { honor = -1 }, opinion = { morphaz = "fear" }, trait = { cautious = 1 } }, replies = {
     { id = "a", text = "Sensible. Grudges get people eaten, and the drake isn't the one who'll feel sorry afterward." },
     { id = "b", text = "Fair, though it isn't only Xylem's grudge. Something's wrong with those green dragons lately, and nobody can say what." },
   } },
@@ -140,11 +140,11 @@ P:Views { topic = "arkkoroc", views = {
 } }
 
 P:Views { topic = "horizon_scout", views = {
-  { id = "sorry", text = "Losing a ship and half a crew on that coast. I'm sorry for them.", fx = { opinion = { horizon_scout = "pity" }, trait = { kind = 1 } }, replies = {
+  { id = "sorry", text = "Losing a ship and half a crew on that coast. I'm sorry for them.", fx = { align = { light = 1 }, opinion = { horizon_scout = "pity" }, trait = { kind = 1 } }, replies = {
     { id = "a", text = "So am I. Beltis, their captain, keeps the survivors together, but you can see it costing her, every night.", fx = { affinity = 1 } },
     { id = "b", text = "Kindly said. They don't hear much kindness out in those ruins, only the surf and the naga." },
   } },
-  { id = "salvage", text = "A wreck that fresh still has cargo in it. Somebody should go and get it.", fx = { opinion = { horizon_scout = "profit" }, trait = { greedy = 1 } }, replies = {
+  { id = "salvage", text = "A wreck that fresh still has cargo in it. Somebody should go and get it.", fx = { align = { light = -1 }, opinion = { horizon_scout = "profit" }, trait = { greedy = 1 } }, replies = {
     { id = "a", text = "Somebody will, and it'll likely be the naga. If you beat them to it, at least ask the captain what was hers first.", fx = { affinity = -1 } },
     { id = "b", text = "There speaks a goblin at heart, {class}. A real goblin would already be halfway there with a rope and a price list." },
   } },
@@ -172,11 +172,11 @@ P:Views { topic = "ahn_qiraj", views = {
 } }
 
 P:Views { topic = "silithid_hives", views = {
-  { id = "burn", text = "Every hive in Silithus should be burned down to the bedrock.", fx = { opinion = { silithid_hives = "hate" }, trait = { stern = 1 } }, replies = {
+  { id = "burn", text = "Every hive in Silithus should be burned down to the bedrock.", fx = { align = { light = -1 }, opinion = { silithid_hives = "hate" }, trait = { stern = 1 } }, replies = {
     { id = "a", text = "Bring a lot of oil, {class}. Those tunnels go deeper than anyone's mapped, and the bugs breed faster than we burn." },
     { id = "b", text = "That's the sentiment at Cenarion Hold, more or less. Some of the druids would rather study them first, but they're losing the argument.", fx = { affinity = 1 } },
   } },
-  { id = "study", text = "Somebody's guiding those bugs. Learn how the hives work and you'll know who.", fx = { opinion = { silithid_hives = "doubt" }, trait = { curious = 1 } }, replies = {
+  { id = "study", text = "Somebody's guiding those bugs. Learn how the hives work and you'll know who.", fx = { align = { light = 1 }, opinion = { silithid_hives = "doubt" }, trait = { curious = 1 } }, replies = {
     { id = "a", text = "Larksbane at Cenarion Hold says the same, and she's been in Hive'Ashi with a notebook, which is either very brave or very silly.", fx = { affinity = 1 } },
     { id = "b", text = "Maybe, but you'll learn it from inside a tunnel, and the tunnel will be learning about you as well." },
   } },
@@ -221,11 +221,11 @@ P:Views { topic = "southwind", views = {
     { id = "a", text = "Thank you. The ones who died there have long memories, and some of them still walk its streets.", fx = { affinity = 1 } },
     { id = "b", when = { race = "NightElf" }, text = "Ishnu-alah. It was your people's, and the sands swallowed it, and still they go back to tend it. That is the kaldorei way." },
   } },
-  { id = "retake", text = "Someone ought to clear the cult out and give those spirits peace.", fx = { opinion = { southwind = "respect" }, trait = { brave = 1 } }, replies = {
+  { id = "retake", text = "Someone ought to clear the cult out and give those spirits peace.", fx = { align = { light = 1 }, opinion = { southwind = "respect" }, trait = { brave = 1 } }, replies = {
     { id = "a", text = "Layo Starstrike at Valor's Rest has tried more than once, and she'd welcome the help.", fx = { affinity = 1 } },
     { id = "b", text = "Someone ought to, and maybe you're that someone. The Twilight's Hammer don't care whose bones they camp on." },
   } },
-  { id = "doomed", text = "Building a village on the edge of the sands was asking for it.", fx = { opinion = { southwind = "doubt" }, trait = { skeptical = 1 } }, replies = {
+  { id = "doomed", text = "Building a village on the edge of the sands was asking for it.", fx = { align = { light = -1 }, opinion = { southwind = "doubt" }, trait = { skeptical = 1 } }, replies = {
     { id = "a", text = "Asking for it? They were guarding the rest of us, {class}, and they paid for it with everything.", fx = { affinity = -1 } },
     { id = "b", text = "Maybe, but somebody has to stand at the edge, or the edge just comes closer." },
   } },

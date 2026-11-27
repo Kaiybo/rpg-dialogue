@@ -141,6 +141,8 @@ P:NPC {
     third = "{name} met Claude Erksine, the pet trainer at the Farstrider Lodge.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
     { id = "g_default", text = "Mind where ye step, for there's usually somethin' asleep under the bench. What can I do for ye?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again, are ye? I remember the face, though I'd have remembered a beast's sooner." },
     { id = "g_pet", when = { pet = { type = "Beast" } }, text = "Now there's a fine animal. Let {pet} come an' have a sniff o' me, an' we'll talk after." },
@@ -160,6 +162,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listenin', an' so's whatever's under the bench." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Which beasts around the loch make good companions?", next = "beasts" },
         { text = "Those are a lot of scars.", next = "scars" },
         { text = "What can you teach my companion?", next = "teach", when = { class = "HUNTER" } },
@@ -248,6 +252,8 @@ P:NPC {
     third = "{name} met Kelt Thomasin, a hunter at the Farstrider Lodge who watches the loch.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_default", text = "Good day. You'll forgive me if I keep one eye on the loch while we talk, for I'd hate to miss it." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, it's you. Nothing's surfaced since we spoke, if you were wondering." },
   },
@@ -367,6 +373,8 @@ P:NPC {
     third = "{name} met Thorvald Deepforge, a weaponsmith in the Valley of Kings.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_default", text = "Welcome tae the Valley o' Kings! Ye'll want steel in yer hand before ye go further, an' I've steel tae spare." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, a returnin' customer. The edge held, I trust?" },
   },
@@ -385,6 +393,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I can talk an' hammer both." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "How long have the Deepforges been smiths?", next = "ytho_family" },
         { text = "What do you think of a gnome blacksmith?", next = "ytho_gnome", when = { race = "Gnome" } },
         { text = "Do the kings watch over your work?", next = "ytho_kings" },
@@ -486,6 +496,8 @@ P:NPC {
     third = "{name} met Dakk Blunderblast, a sleepless townsman of Thelsamar.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "Oh! Ye gave me a start, creepin' up like that. I've no' been sleepin' well, ye understand." },
     { id = "g_back", when = { metBefore = true }, text = "It's yerself again. Ye didnae see anythin' wi' too many legs on yer way intae town, did ye?" },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Ye're up late as well? Good, then there's two of us tae keep watch." },

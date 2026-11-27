@@ -17,6 +17,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hi! I've been practising being brave, just like you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Mum says I'm not to talk to you." },
     { id = "g_default", text = "I'm in charge upstairs. Mostly." },
     { id = "g_mage", when = { class = "MAGE" }, text = "You're a real mage! Show me something, please?" },
   },
@@ -164,6 +166,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hi! I've been practising being brave, just like you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'm not playing with you today." },
     { id = "g_default", text = "Shh, the Baron's asleep. Talk quietly, please." },
     { id = "g_pet", when = { pet = true }, text = "Is your pet friendly with rabbits? Please keep it by the door." },
   },
@@ -275,6 +279,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hello again! You're my favourite grown-up, but don't tell my mum." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'm not playing with you today." },
     { id = "g_default", text = "Come sit by the fire! I'm in the middle of a story." },
     { id = "g_skyborne", when = { race = "Skyborne" }, text = "You're from the sky! Are you? You are!" },
   },
@@ -397,6 +403,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's you! I told everyone you'd come back, and they didn't believe me!" },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You're mean, and I'm telling." },
     { id = "g_default", text = "Forty, forty-one... sorry, I'm counting." },
     { id = "g_warrior", when = { class = { "WARRIOR", "PALADIN" } }, text = "You've got armour! Are you here to guard us?" },
   },
@@ -518,6 +526,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hello again! You're my favourite grown-up, but don't tell my mum." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You're mean, and I'm telling." },
     { id = "g_default", text = "Luna, sit! Sorry, she likes new people." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "You've got a beast too! Does yours do tricks?" },
   },
@@ -632,6 +642,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back! Do you want to see the thing I found? It's a secret." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Mum says I'm not to talk to you." },
     { id = "g_default", text = "Hello. I'm not supposed to talk to strangers." },
     { id = "g_human", when = { race = "Human" }, text = "Are you from Stormwind? You look like you might be." },
   },
@@ -740,6 +752,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "Fresh bread, still warm! Every loaf you buy feeds a child." },
     { id = "g_morning", when = { timeOfDay = "dawn" }, text = "Up with the bakers, are you? First batch is just out." },
   },
@@ -752,6 +766,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else, friend? The pie's cooling, so I've a minute." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Mulgore Spice Bread, in Dalaran?", next = "mulgore" },
         { text = "How many children live here?", next = "children" },
         { text = "When does a baker's day start?", next = "day" },
@@ -845,6 +861,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_default", text = "Best supplies in the city, and the prices don't move." },
     { id = "g_cook", when = { profession = "Cooking" }, text = "A cook! Mind the cats, and don't touch my stockpot." },
   },
@@ -862,6 +880,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Something else? The soup won't stir itself, and the children won't stop asking about it." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Mind the cats?", next = "cats" },
         { text = "How do you feed so many children?", next = "feed" },
         { text = "Why won't your prices move?", next = "prices" },

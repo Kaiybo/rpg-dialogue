@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
     { id = "g_default", text = "Speak softly in this room, {class}. The things I teach about are listening, even when the students aren't." },
     { id = "g_lock", when = { class = "WARLOCK" }, text = "Sit down, warlock, and tell me what you've bound lately, and whether it's still afraid of you." },
     { id = "g_back", when = { metBefore = true }, text = "You came back, which means whatever you called up last time didn't eat you. That's a good start." },
@@ -54,6 +56,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. The demons aren't the only ones in Stonard with patience." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "Why teach warlocks here, of all places?", next = "place" },
         { text = "What's the first thing you teach?", next = "lesson" },
@@ -238,6 +242,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
     { id = "g_default", text = "Don't waste my time, {class}. If you've no bow and no beast, you've no business here." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter, and with mud to the knee, so you've been out in the swamp already. Good, now we can talk." },
     { id = "g_back", when = { metBefore = true, class = "HUNTER" }, text = "Back again, and still in one piece. The swamp must be teaching you something, too." },
@@ -260,6 +266,8 @@ P:NPC {
           text = "Grokor would say you should've tamed one instead of killing it. Grokor would make a pet of an ogre if it sat still long enough." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Killing them is cleaner than taming them.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Grokor's right. A tamed beast is worth ten dead ones.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else, Ogromm.", next = "BACK" },
@@ -459,6 +467,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
     { id = "g_default", text = "If you've a beast with you, bring it closer so I can see it. If you haven't, you've come to the wrong orc." },
     { id = "g_pet", when = { pet = { type = "Beast" } }, text = "Let me look at your {pet} before you say a word, friend, because the beast tells me more than you will." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Let me see whether you've been feeding that beast properly." },
@@ -489,6 +499,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listening, and so is everything in the pens." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me what you can teach my beast.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "Teach me to keep a beast alive out here.", next = "k_pens", when = { class = "HUNTER" } },
         { text = "What does a beast actually learn from you?", next = "teach" },
@@ -666,6 +678,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
     { id = "g_default", text = "Mind the bench, friend, and mind the green flask especially. It's been bubbling since morning and I'm not entirely sure why." },
     { id = "g_alch", when = { profession = "Alchemy" }, text = "An alchemist! Come and smell this, and tell me straight whether it smells like progress or like something died in it." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good, because I've three new failures to show you and one thing that might be a success." },
@@ -694,6 +708,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, the flask needs another few minutes anyway." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Train me.", next = "BUSINESS", when = { profession = "Alchemy" } },
         { text = "Thrall sent you here himself?", next = "thrall" },
         { text = "What grows in this swamp worth having?", next = "herbs" },
@@ -840,6 +856,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
     { id = "g_default", text = "Peace, traveler. Speak softly here; the water is listening, and it has been sad a long time." },
     { id = "g_back", when = { metBefore = true }, text = "You return. The spirits of this place remember you, and so do I." },
     { id = "g_shaman", when = { class = "SHAMAN" }, text = "A shaman, come so far east. Sit, and let us hear what the swamp has to say to you." },
@@ -870,6 +888,8 @@ P:NPC {
         { id = "h_again2", text = "Speak. I am listening." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me, Haromm.", next = "BUSINESS", when = { class = "SHAMAN" } },
         { text = "Why does the water grieve?", next = "water" },
         { text = "Who is Bath'rah?", next = "bathrah", when = { class = "SHAMAN", minLevel = 50 } },

@@ -1321,7 +1321,7 @@ P:NPC {
         { id = "dr_ask_sky", when = { race = "Skyborne" }, text = "That you serve the Circle before your winds, sky-folk, and before your own curiosity. Teldrassil must grow strong and Ashenvale must be held, and I have no use for a druid who stops to admire the weather." },
       },
       choices = {
-        { text = "The Circle first, Arch Druid. I'll serve where I'm sent.", next = "BACK", reply = "Then you will rise in it, and quickly. Mathrengyl will tell you where you are needed most.", fx = { affinity = 1, align = { order = 1 }, opinion = { druids = "duty" } } },
+        { text = "The Circle first, Arch Druid. I'll serve where I'm sent.", next = "BACK", reply = "Then you will rise in it, and quickly. Mathrengyl will tell you where you are needed most.", fx = { affinity = 1, align = { order = 1 }, opinion = { druids = "balance" } } },
         { text = "I serve the balance, not any one Arch Druid.", next = "BACK", reply = "The balance and the Arch Druid want the same thing, and you would do well to remember that before you say it again in my hearing.", fx = { affinity = -1, align = { order = -1 }, opinion = { druids = "balance" } } },
         { text = "Where am I needed most, then?", next = "d_ask2" },
       },
@@ -1341,8 +1341,8 @@ P:NPC {
       big = true,
       lines = { { id = "dr_malf", text = "Shan'do Stormrage sleeps in the barrow dens of Moonglade and walks the Dream on business older than this tree, so do not imagine it is my place to wake him. While he sleeps, someone must decide for our people, and the Circle chose me, whatever the Temple whispers." } },
       choices = {
-        { text = "The Circle chose well. Someone must lead while he dreams.", next = "BACK", reply = "At last, someone on these terraces who says it plainly. Say it in the Temple, too, if you have the nerve.", fx = { affinity = 2, align = { order = 1 }, opinion = { druids = "lead" } } },
-        { text = "He should be woken. The Circle needs its true teacher.", next = "BACK", reply = "Spoken like the High Priestess, and as foolishly. Do you think Malfurion sleeps for his own comfort?", fx = { affinity = -2, align = { order = -1 }, opinion = { druids = "wake_malfurion" } } },
+        { text = "The Circle chose well. Someone must lead while he dreams.", next = "BACK", reply = "At last, someone on these terraces who says it plainly. Say it in the Temple, too, if you have the nerve.", fx = { affinity = 2, align = { order = 1 }, opinion = { druids = "balance" } } },
+        { text = "He should be woken. The Circle needs its true teacher.", next = "BACK", reply = "Spoken like the High Priestess, and as foolishly. Do you think Malfurion sleeps for his own comfort?", fx = { affinity = -2, align = { order = -1 }, opinion = { druids = "wary" } } },
         { text = "Do you miss him, Arch Druid?", next = "d_malf2" },
       },
     },
@@ -2007,7 +2007,7 @@ P:NPC {
         { id = "dr_bear_done", when = { questDone = TODO_QUEST("Body and Heart") }, text = "You have already stood before the Great Bear Spirit and faced Lunaclaw at the stone, so you know more of this trial than my words can tell you. I only ask whether you understood what it was testing." },
       },
       choices = {
-        { text = "Strength is for standing between the weak and harm.", next = "d_road", reply = "That is the Claw's own answer, and the Great Bear will be glad to hear it from you.", fx = { affinity = 1, align = { honor = 1 }, opinion = { druids = "guardians" } } },
+        { text = "Strength is for standing between the weak and harm.", next = "d_road", reply = "That is the Claw's own answer, and the Great Bear will be glad to hear it from you.", fx = { affinity = 1, align = { honor = 1 }, opinion = { druids = "guard" } } },
         { text = "Strength is for winning. The bear never asks why.", next = "d_road", reply = "The bear never asks, which is exactly why a druid must ask for it. Remember Oben Rageclaw, if you ever forget.", fx = { align = { honor = -1 } } },
         { text = "Who is Lunaclaw, and why must I fight him?", next = "d_bear2" },
       },
@@ -2027,8 +2027,8 @@ P:NPC {
       big = true,
       lines = { { id = "dr_glade2", text = "Truly, and Keeper Remulos sees to it, though it sits ill with some in this Enclave to share a fire with tauren. Hamuul Runetotem's druids learned from Malfurion just as we did, and the Arch Druid has never quite forgiven him for teaching them." } },
       choices = {
-        { text = "Then the tauren druids are our kin in the Circle.", next = "d_road", reply = "In Moonglade they are, and I have shared bread with several of them. Do not say it too loudly on these terraces.", fx = { align = { order = -1 }, opinion = { druids = "one_circle" } } },
-        { text = "The Circle's secrets were ours. Malfurion erred.", next = "d_road", reply = "Fandral would embrace you for that, and I will not quarrel with you, only remind you that Cenarius taught Malfurion first.", fx = { align = { order = 1 }, opinion = { druids = "kaldorei_only" } } },
+        { text = "Then the tauren druids are our kin in the Circle.", next = "d_road", reply = "In Moonglade they are, and I have shared bread with several of them. Do not say it too loudly on these terraces.", fx = { align = { order = -1 }, opinion = { druids = "balance" } } },
+        { text = "The Circle's secrets were ours. Malfurion erred.", next = "d_road", reply = "Fandral would embrace you for that, and I will not quarrel with you, only remind you that Cenarius taught Malfurion first.", fx = { align = { order = 1 }, opinion = { druids = "wary" } } },
         { text = "Back to the road.", next = "d_road" },
       },
     },
@@ -2127,7 +2127,7 @@ P:NPC {
       narr = "He folds both hands over his staff and is quiet for a long moment.",
       lines = { { id = "dr_sixty", text = "Nothing that I can teach, and a great deal that the world will. The elders speak of a Cenarion raiment still being woven for druids not yet found, and of Malfurion sleeping in the barrow dens of Moonglade until the Dream needs him less, and some druids go looking for the first while others keep watch over the second." } },
       choices = {
-        { text = "I'll keep watch over Malfurion's sleep.", next = "d_road", reply = "Then you will be lonely sometimes, and you will be right. Keeper Remulos will be glad of another watcher.", fx = { affinity = 1, align = { order = 1 }, opinion = { druids = "watchers" } } },
+        { text = "I'll keep watch over Malfurion's sleep.", next = "d_road", reply = "Then you will be lonely sometimes, and you will be right. Keeper Remulos will be glad of another watcher.", fx = { affinity = 1, align = { order = 1 }, opinion = { druids = "guard" } } },
         { text = "I'll go looking for what's still being woven.", next = "d_road", reply = "Then go, and bring the Circle back a story. The young ones need to see that the road leads somewhere.", fx = { align = { order = -1 } } },
         { text = "Will Malfurion ever wake, Mathrengyl?", next = "d_sixty2" },
       },
@@ -2140,8 +2140,8 @@ P:NPC {
       big = true,
       lines = { { id = "dr_sleep", text = "Perhaps, one day, if the Circle calls you and you are willing. The old druids slept ten thousand years in the barrow dens, walking the Dream, and some of us came back to find that our sisters had fought every war alone. I will not tell you it was right, only that it was done for love of the world." } },
       choices = {
-        { text = "I'd sleep, if the Dream needed me.", next = "BACK", reply = "Then you have a druid's heart, and I hope the Dream asks gently when it asks.", fx = { align = { order = 1 }, opinion = { druids = "dreamers" } } },
-        { text = "I'd rather stay awake beside the Sentinels.", next = "BACK", reply = "Then the Sisterhood will be glad of you, and I will not blame you, because we owe them that much.", fx = { align = { order = -1 }, opinion = { druids = "slept_too_long" } } },
+        { text = "I'd sleep, if the Dream needed me.", next = "BACK", reply = "Then you have a druid's heart, and I hope the Dream asks gently when it asks.", fx = { align = { order = 1 }, opinion = { druids = "admire" } } },
+        { text = "I'd rather stay awake beside the Sentinels.", next = "BACK", reply = "Then the Sisterhood will be glad of you, and I will not blame you, because we owe them that much.", fx = { align = { order = -1 }, opinion = { druids = "wary" } } },
         { text = "Do the sleepers hear the waking world?", next = "d_sleep2" },
       },
     },
@@ -2903,6 +2903,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend. Your room is ready, and I chose the one where the branches rock gentlest." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You may rest, as any traveller may. The branches rock at night; you will manage." },
     { id = "g_rest", text = "Ishnu-alah, traveller, and rest a while. The branches rock a little at night, and most find it soothing." },
     { id = "g_home", when = { homeInn = { "Darnassus", "Craftsmen's Terrace" } }, text = "You're home. Elune guard your dreams tonight." },
     { id = "g_fl_moon", when = { flirt = true, timeOfDay = "night", chance = 0.35 },
@@ -2933,6 +2935,8 @@ P:NPC {
         { id = "op_ask_default", text = "The humans, if I'm honest, because they climb the tree tired and somehow leave it hungrier. They talk of their missing king and their boy-king and the lady at his court, and I never know what to say. What do you think of Stormwind's people?" },
       },
       choices = {
+        { text = "Darnassus should welcome all our allies.", next = "BACK", reply = "It should. Even the humans, loud as they are.", fx = { align = { light = 1 } } },
+        { text = "Outsiders have no place in Teldrassil.", next = "BACK", reply = "Then you will find the inn a little crowded.", fx = { align = { light = -1 } } },
         { text = "Stout hearts. They rebuilt a whole city from ashes.", next = "op_r1", fx = { affinity = 1, trait = { kind = 1 }, opinion = { humans = "admire" } } },
         { text = "Short-lived and quarrelsome. They'll squabble the Alliance away.", next = "op_r2", fx = { trait = { skeptical = 1 }, opinion = { humans = "distrust" } } },
         { text = "Their court worries me. Ask who really advises the boy-king.", next = "op_r3", fx = { trait = { cautious = 1 }, opinion = { prestor = "distrust" } } },

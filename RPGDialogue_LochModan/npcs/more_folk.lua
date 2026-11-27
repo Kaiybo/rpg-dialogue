@@ -123,6 +123,8 @@ P:NPC {
     third = "{name} met Dargh Trueaim, the hunter trainer at the Farstrider Lodge.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
     { id = "g_back", when = { metBefore = true }, text = "Back at the Lodge. Did ye hit what ye aimed at, or what was standin' next tae it?" },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Nae shootin' in this light. Sit by the fire an' I'll talk, if talk's what ye're after." },
     { id = "g_hi", text = "Mind the trophies; Marek's very proud o' them. What brings ye tae the Lodge?" },
@@ -148,6 +150,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, then." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "What's the secret to a good shot?", next = "shot" },
         { text = "What do the Farstriders hunt?", next = "farstriders" },
@@ -290,6 +294,8 @@ P:NPC {
     third = "{name} met Deek Fizzlebizz, a gnome engineering trainer on the Stonewrought Dam.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
     { id = "g_back", when = { metBefore = true }, text = "You came back! Nobody comes back, they say the wind's too much. Come and see what I've done to the number three sluice." },
     { id = "g_hi", text = "Hello, hello! Isn't the dam marvellous? Six thousand tons of stone, and every gear in it calculated to the last tooth!" },
     { id = "g_eng", when = { profession = "Engineering" }, text = "A fellow engineer! Come, come, I've something to show you." },
@@ -314,6 +320,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask me anything!" },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Train me in engineering.", next = "BUSINESS", when = { profession = "Engineering" } },
         { text = "Tell me about the dam.", next = "dam" },
         { text = "Why train here, and not Ironforge?", next = "why" },
@@ -398,6 +406,8 @@ P:NPC {
     third = "{name} met Greishan Ironstove, a travelling bread merchant on the roads of Loch Modan.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Ye're on the road late! So am I, mind. Have a heel o' bread an' walk wi' me as far as the next post." },
     { id = "g_hi", text = "Bread! Fresh bread, or as fresh as it gets after a day on the road. Hungry?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Ye must like my bread, or ye're just hungry." },
@@ -422,6 +432,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I've a minute." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your bread.", next = "BUSINESS" },
         { text = "Isn't the road dangerous?", next = "road" },
         { text = "What's the news on the road?", next = "news" },
@@ -508,6 +520,8 @@ P:NPC {
     third = "{name} met Xandar Goodbeard, who sells general supplies at the Farstrider Lodge in Loch Modan.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Ye're in late! The hunters are all at the fire tellin' lies, but I'm still open, if ye need somethin' for the mornin'." },
     { id = "g_hi", text = "Come in, come in! If ye're headed out after game, tell me what ye've packed an' I'll tell ye what ye've forgotten." },
     { id = "g_back", when = { metBefore = true }, text = "Back from the hills! An' I'd wager ye ran out o' somethin', for everybody does." },
@@ -531,6 +545,8 @@ P:NPC {
         { id = "h_again3", text = "Aye? I'm listenin', an' combin', but mostly listenin'." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me what you've got.", next = "BUSINESS" },
         { text = "What do hunters forget most?", next = "forget" },
         { text = "How do supplies reach the Lodge?", next = "carts" },
@@ -603,6 +619,8 @@ P:NPC {
     third = "{name} met Irene Sureshot, the gunsmith at the Farstrider Lodge in Loch Modan.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_dwarf", when = { race = "Dwarf" }, text = "A dwarf, good, then ye'll want a rifle that outlasts ye, same as yer grandsire's did. Step up an' let me see what ye're carryin' now." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "I dinnae test barrels after dark, so it's quiet for once. What are ye after?" },
     { id = "g_hi", text = "Rifles, shot an' powder. If ye've come tae tell me yer last one pulled left, I'll ask tae see ye shoot it first." },
@@ -627,6 +645,8 @@ P:NPC {
         { id = "h_again3", text = "Aye? Speak up over the porch, somebody's testin' a fowler." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Let me see your rifles.", next = "BUSINESS" },
         { text = "What makes a rifle shoot true?", next = "true_shot" },
         { text = "A gunsmith and a bowyer under one roof.", next = "cliff" },
@@ -698,6 +718,8 @@ P:NPC {
     third = "{name} met Cliff Hadin, a human bowyer at the Farstrider Lodge in Loch Modan.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Good evening. I've put the tools away, but I'm happy to talk, if you don't mind the smell of glue." },
     { id = "g_hi", text = "Good day to you. Bows and arrows here, for the few in this lodge who still care for a quiet shot." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again. How is the string holding? Loch Modan's damp is hard on a string." },
@@ -721,6 +743,8 @@ P:NPC {
         { id = "h_again3", text = "Yes? Take your time; I always do." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your bows.", next = "BUSINESS" },
         { text = "A bowyer among riflemen.", next = "rifles" },
         { text = "How do you make a good bow?", next = "craft" },
@@ -793,6 +817,8 @@ P:NPC {
     third = "{name} met Kat Sampson, who sells leather armour at the Farstrider Lodge in Loch Modan.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter. Good, then you'll have hides for me, or you'll want something to keep yours whole. Which is it?" },
     { id = "g_night", when = { timeOfDay = "night" }, text = "I'm stitching by lamplight, so mind you don't stand in it. What do you need?" },
     { id = "g_hi", text = "Leather armour, cut and stitched here at the Lodge. Have a look, and tell me what's been biting you." },
@@ -817,6 +843,8 @@ P:NPC {
         { id = "h_again3", text = "Yes? Ask, and pass me that awl while you're there." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your armour.", next = "BUSINESS" },
         { text = "Which hides make the best armour here?", next = "hides" },
         { text = "How does a human end up at a dwarven lodge?", next = "lodge" },
@@ -888,6 +916,8 @@ P:NPC {
     third = "{name} met Aldren Cordon, the clothier at the Farstrider Lodge in Loch Modan.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_caster", when = { class = { "MAGE", "PRIEST", "WARLOCK" } }, text = "A robe! Come in, come in, an' dinnae mind the hunters starin'. They've never seen cloth that reaches the floor." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Still up? I'm only pressin' tomorrow's shirts. Come in, an' mind the iron." },
     { id = "g_hi", text = "Ah, a customer! Stand still a moment. Aye, ye've a button hangin' by a thread, an' I cannae talk tae ye till that's seen tae." },
@@ -912,6 +942,8 @@ P:NPC {
         { id = "h_again3", text = "Aye? Ask away, an' mind the bolts on the bench." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "Do hunters buy much cloth?", next = "hunters" },
         { text = "What should a traveller wear on the loch?", next = "wear" },
@@ -981,6 +1013,8 @@ P:NPC {
     third = "{name} met Gothor Brumn, the armorer in Thelsamar.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_dwarf", when = { race = "Dwarf" }, text = "Armour, shields an' helms, cut for a proper frame. Step up, {g:lad|lass}, an' I'll no' have tae shorten anythin'." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The forge is banked, but the shop's open. If ye've been out on the hills after dark, ye'll be needin' me." },
     { id = "g_hi", text = "Armour, shields an' helms. Turn round an' let me see what the troggs have done tae what ye're wearin'." },
@@ -1005,6 +1039,8 @@ P:NPC {
         { id = "h_again3", text = "Aye? Ask, an' dinnae lean on the shields." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your armour.", next = "BUSINESS" },
         { text = "You outfit the mountaineers?", next = "mountaineers" },
         { text = "What does a trogg do to armour?", next = "troggs" },
@@ -1076,6 +1112,8 @@ P:NPC {
     third = "{name} met Nillen Andemar, a macecrafter who sells his work on the Stonewrought Dam in Loch Modan.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_dwarf", when = { race = "Dwarf" }, text = "Maces an' hammers! A dwarf kens what a hammer's for, in the forge an' out o' it. Have a heft o' this one." },
     { id = "g_hi", text = "Maces an' hammers, friend! Pick one up an' feel the head pull. That's what a trogg feels, only faster." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! How did she swing? Dinnae tell me ye've chipped the flanges already." },
@@ -1099,6 +1137,8 @@ P:NPC {
         { id = "h_again3", text = "Aye? Speak up over the water." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your maces.", next = "BUSINESS" },
         { text = "Why a mace over a blade?", next = "why" },
         { text = "Why sell on the dam?", next = "dam" },

@@ -447,6 +447,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
     { id = "g_smoke", text = "Aye? Speak up, or get out of me smoke." },
     { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' the smoke's been just as thick without ye. Speak up, then." },
     { id = "g_word_scared", when = { word = "intimidated" }, text = "Heard ye put the wind up somebody at the chapel. Do that out in the fields, not in here, or ye'll answer tae me." },

@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Neighbour! Great to see ya! For you, I've got the good stuff under the counter, and I mean the really good stuff." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Shop's open, prices are up, and no, that's not a coincidence." },
     { id = "g_default", text = "Hey there, neighbour! Lotta ruckus today, huh? Great day for business, though, if you know where the good stuff landed." },
     { id = "g_back", when = { metBefore = true }, text = "You again, pal! Still lookin' around, or lookin' for me? 'Cause only one of those does anything for my margins." },
     { id = "g_away", when = { away = 14 }, text = "Hey, neighbour, back after {away} away! I've rescued a whole lotta stuff since you left, and some of it's even for sale, at a very reasonable markup." },
@@ -119,6 +121,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're a solid customer and a better neighbour, and in a city this crazy that's worth gold. Lots of gold." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been bad for business, pal, and bad for my nerves. Shape up or shop somewhere else." },
+    },
     trade = { { id = "tp_trade", text = "Buyin' low, sellin' high, and leavin' before anybody asks for a receipt, pal, which is all the business school a goblin ever needs." } },
     dalaran = { { id = "tp_dalaran", text = "Dalaran's got more shiny stuff per square foot than anywhere on this continent, pal, and the magi don't count half of it. I'm just helpin' with the inventory, is all, very informally." } },
     kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor think a borrowed robe and a serious face make you a magus, and you know what, mostly they're right! Don't tell 'em I said that, because it's my whole business plan." } },

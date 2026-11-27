@@ -240,6 +240,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
     { id = "g_default", text = "Sit, if you're staying, and don't touch the inkwell, because it isn't ink." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Let's see whether your last lesson stuck or rotted." },
     { id = "g_woman", when = { gender = "female", class = "WARLOCK" }, text = "Ah, madam, your curses were the neatest in the quarter last time, and I've been waiting to see if you could keep it up." },
@@ -265,6 +267,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm still here, and I'm always still here." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Train me.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "My imp keeps arguing with its own contract.", next = "imp_trouble", when = { class = "WARLOCK", pet = { family = "Imp" } } },
         { text = "My curses don't take hold the way they should.", next = "curses", when = { class = "WARLOCK" } },
@@ -424,6 +428,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
     { id = "g_default", text = "Another seeker in the dark. Come closer, and let me see what you're made of before the shadows do." },
     { id = "g_back", when = { metBefore = true }, text = "You come back to the dark, as they all do in the end, so sit and tell me what you've burned." },
     { id = "g_orc", when = { race = "Orc" }, text = "One of my own blood, this far from Durotar and down among the dead. Sit, and tell me what brought you to the one city where nobody flinches at my trade." },
@@ -452,6 +458,8 @@ P:NPC {
         { id = "h_again2", text = "What else is in that head of yours, seeker?" },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Soulreaper can't have been your name in life.", next = "name" },
         { text = "What are soul shards for, really?", next = "shards" },
         { text = "Teach me what the others won't, Soulreaper.", next = "BUSINESS", when = { class = "WARLOCK" } },
@@ -609,6 +617,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
     { id = "g_default", text = "Speak quickly. The candle I'm reading by is the last one I have." },
     { id = "g_back", when = { metBefore = true }, text = "Back so soon. Either you're learning fast or forgetting faster." },
     { id = "g_human_tone", when = { gender = "male", class = "MAGE" }, text = "Another young man who thinks a fireball makes him interesting. Prove me wrong, please; I'd enjoy the novelty." },
@@ -624,6 +634,8 @@ P:NPC {
     dd_dalaran = {
       lines = { { id = "dd_dalaran_default", text = "Pleased is a small word for it. They shut their gates while the plague took the rest of us, and now they send children in violet robes to poke about in Silverpine as though nothing happened, so every one you drop is a debt Dalaran finally pays." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "They'll keep paying until their walls come down.", next = "BACK", reply = "Now that is a sentence I'd like engraved somewhere. Go on, then, and bring me back a robe or two.", fx = { align = { light = -1 }, affinity = 1 } },
         { text = "Most of them were apprentices. They didn't close those gates.", next = "BACK", reply = "They live behind them, and that's close enough for me. You'll lose that tenderness in a year or two, I promise.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -838,6 +850,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
     { id = "g_default", text = "Oh! A visitor. Forgive me, I was halfway through a sentence in a book, and I've lost my place again." },
     { id = "g_back", when = { metBefore = true }, text = "It's you again, isn't it? I never forget a face, though I sometimes misplace whose it is." },
   },
@@ -859,6 +873,8 @@ P:NPC {
         { id = "h_again2", text = "Another question? Splendid, I'd nearly run out of things to think about." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Your school must have closed long ago.", next = "school" },
         { text = "Do the dead learn magic differently?", next = "dead" },
         { text = "Teach me.", next = "BUSINESS", when = { class = "MAGE" } },
@@ -1072,6 +1088,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
     { id = "g_default", text = "Please don't lean on the table. The runes on it are older than this city's new name." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. I hope your rods are cleaner than last time." },
     { id = "g_artisan", when = { profession = { name = "Enchanting", min = 225 } }, text = "Ah, an enchanter of some standing at last. Come in, and do wipe your rod before it touches anything of mine." },
@@ -1096,6 +1114,8 @@ P:NPC {
         { id = "h_again2", text = "Yes? Do be concise. Enchanting is the art of saying exactly enough, and I prefer conversation the same way." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What separates an artisan from the rest?", next = "artisan" },
         { text = "You learned your craft somewhere fine, by the look of it.", next = "learned" },
         { text = "Isn't dust just dust?", next = "dust" },
@@ -1186,6 +1206,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_default", text = "Powders, candles, chalk and grave dust, the usual things for the unusual folk. What'll it be?" },
     { id = "g_back", when = { metBefore = true }, text = "Back for more? I knew you would be; everyone runs out of something, and down here the dead run out of patience first." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Evening, love. Mind you step in with your right foot first; it's a dark night, and I'm not taking chances." },
@@ -1208,6 +1230,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, love, ask away. Just don't whistle while you do it; it's bad luck indoors." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'd guess the warlocks are your best customers.", next = "customers" },
         { text = "Where do you get it all?", next = "source" },
         { text = "Why is there a horseshoe over your table?", next = "horseshoe" },

@@ -900,6 +900,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "There you are, friend. Your bed is warm, and the Sentinels speak kindly of you. Rest a while." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You may rest, as the Sentinels do. Keep to yourself, and keep it quiet." },
     { id = "o_sh_failed", when = { gossip = { topic = "silver_hand", stance = "failed" } }, text = "Pratt's been quiet at his bench since you two talked, and he's usually such a chatterbox. Whatever you said about the old order, it stayed with him." },
     { id = "o_tyr_distrust", when = { gossip = { topic = "tyrande", stance = "distrust" } }, text = "The General has been sharp with everyone since you spoke, and I'm told it was about the High Priestess. Sit down and have some tea, and let's not mention it again." },
     { id = "g_inn", text = "Come in from the rain. Feralas is always wet; at least here it's warm and wet, and the roof only leaks over the table nobody sits at." },
@@ -1032,6 +1034,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else? The kettle's on, and the moon won't be up for an hour yet." } },
       choices = {
+        { text = "The Sentinels deserve a warm bed between watches.", next = "BACK", reply = "They do. I see to it, every shift.", fx = { align = { order = 1 } } },
+        { text = "The Sentinels should toughen up and sleep in the field.", next = "BACK", reply = "They sleep in the field enough. Here, they rest. As will you, quietly.", fx = { align = { order = -1 } } },
         { text = "Is the isle a restful place, Shyria?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I'd like a room.", next = "BUSINESS" },
         { text = "The Sentinels here seem to have plenty to talk about.", next = "talk" },
@@ -1783,6 +1787,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "There's my favourite traveller. Sit by the fire; I've a bowl set aside just for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Sit if you want. Eat if you pay. Don't start trouble in my camp." },
     { id = "o_war_soft", when = { gossip = { topic = "warchief", stance = "soft" } }, text = "Rok's been stomping around the camp since you told her the Warchief's gone soft. Sit by my fire a while, and give her time to cool off." },
     { id = "g_inn", text = "Come in, come in! Feralas is wide and wet and full of teeth, but in here it's just warm, and the only thing that bites is the pepper in the stew." },
     { id = "g_home", when = { homeInn = { "Camp Mojache" } }, text = "Welcome home to Mojache. The hides are dry, the kettle's on, and the Earth Mother kept the rain off the cookfire for once." },
@@ -1882,6 +1888,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Something more? Sit a while longer; the rain isn't going anywhere, and the Earth Mother means it to grow the grass." } },
       choices = {
+        { text = "Every brave deserves a fire and a full bowl.", next = "BACK", reply = "That's my creed. Mojache keeps them safe, and I keep them fed.", fx = { align = { light = 1 } } },
+        { text = "Braves should hunt their own food, not wait to be fed.", next = "BACK", reply = "They do hunt. Then they come here, and they eat. As will you.", fx = { align = { light = -1 } } },
         { text = "What do the braves whisper about, Greul?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Tell me about Mojache.", next = "camp" },
         { text = "That orc by the gate is a loud one.", next = "rok" },

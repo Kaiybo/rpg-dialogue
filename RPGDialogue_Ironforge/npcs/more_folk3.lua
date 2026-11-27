@@ -129,6 +129,8 @@ P:NPC {
     third = "{name} met Veron Amberstill, the ram breeder who sells mounts at Amberstill Ranch in Dun Morogh.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_dwarf", when = { race = "Dwarf" }, text = "A dwarf come for a ram. That's as it should be. Come tae the fence, {g:lad|lass}, an' I'll show ye what a proper mount looks like." },
     { id = "g_hi", text = "These are Amberstill rams, the best in Khaz Modan. Look all ye like, an' we'll see whether one o' them takes tae ye." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back at my fence. They remember ye, the grey one's lookin' over." },
@@ -151,6 +153,8 @@ P:NPC {
         { id = "h_again2", text = "Aye, ask." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your rams.", next = "BUSINESS" },
         { text = "Why only dwarves and their friends?", next = "dwarves" },
         { text = "What makes an Amberstill ram the best?", next = "best" },
@@ -224,6 +228,8 @@ P:NPC {
     third = "{name} met Ultham Ironhorn, the ram riding instructor at Amberstill Ranch in Dun Morogh.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
     { id = "g_hi", text = "Come tae learn the saddle? Grand! The first thing ye'll learn is the ground, so I hope ye bounce." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back, an' walkin' straight, so ye've stayed on. Well done!" },
     { id = "g_mounted", when = { mounted = true }, text = "Sit back a wee bit, ye're perched like a crow on a fence. There, now ye look like ye belong up there." },
@@ -245,6 +251,8 @@ P:NPC {
         { id = "h_again2", text = "Aye, go on, I'm only watchin' the pen." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me to ride.", next = "BUSINESS" },
         { text = "What's the trick to staying on a ram?", next = "trick" },
         { text = "Four hundred falls?", next = "falls" },
@@ -541,6 +549,8 @@ P:NPC {
     third = "{name} met Maxan Anvol, the priest trainer in the Thunderbrew Distillery in Kharanos.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
     { id = "g_hi", text = "Light be wi' ye. Mind the noise from below, an' tell me what brings ye up the stair." },
     { id = "g_back", when = { metBefore = true }, text = "Ye've returned. Have ye kept up yer prayers, or only yer travels?" },
     { id = "g_priest", when = { class = "PRIEST" }, text = "A priest, good. I'll hear how ye've used what ye were taught at Anvilmar before I teach ye more." },
@@ -562,6 +572,8 @@ P:NPC {
         { id = "h_again2", text = "Aye. Speak, I've a dressing tae change after." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Train me.", next = "BUSINESS" },
         { text = "A priest above a distillery is an odd sight.", next = "tavern" },
         { text = "How do you test your students?", next = "test" },
@@ -635,6 +647,8 @@ P:NPC {
     third = "{name} met Branstock Khalder, the priest trainer in Anvilmar in Coldridge Valley.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
     { id = "g_hi", text = "Come in out o' the snow! Ye look frozen. D'ye ken why the trogg crossed the valley? Neither does he, that's the trouble wi' troggs." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! I've a new joke, an' it's worse than the last, so brace yerself." },
     { id = "g_priest", when = { class = "PRIEST" }, text = "Ah, ye'll be the one wi' the rune from Sten Stoutarm. Welcome, {g:lad|lass}. Sit by the fire an' we'll talk about the Light, an' I'll try no' tae jest. Much." },
@@ -656,6 +670,8 @@ P:NPC {
         { id = "h_again2", text = "Aye, ask away." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Train me.", next = "BUSINESS" },
         { text = "Why all the jokes?", next = "jokes" },
         { text = "What does a novice priest learn first?", next = "first" },
@@ -729,6 +745,8 @@ P:NPC {
     third = "{name} met Azar Stronghammer, the paladin trainer in the Thunderbrew Distillery in Kharanos.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
     { id = "g_hi", text = "Well met! Come up out o' the crush, there's room on the landing an' the Light's as good here as anywhere." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back, an' still in one piece! The Light's been busy wi' ye." },
     { id = "g_pal", when = { class = "PALADIN" }, text = "A paladin, grand! Show me how ye hold that hammer, an' then show me how ye kneel." },
@@ -751,6 +769,8 @@ P:NPC {
         { id = "h_again3", text = "Aye, go on, I'm glad o' the company." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Train me.", next = "BUSINESS" },
         { text = "How long have you carried the hammer?", next = "long" },
         { text = "What do paladins do for Kharanos?", next = "kharanos" },
@@ -822,6 +842,8 @@ P:NPC {
     third = "{name} met Magis Sparkmantle, the gnome mage trainer in the Thunderbrew Distillery in Kharanos.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
     { id = "g_hi", text = "Hello! Careful of the bucket, it's there for a reason, and the reason is mostly Tuesdays." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, splendid! Have you blown anything up, on purpose, I mean?" },
     { id = "g_mage", when = { class = "MAGE" }, text = "A mage, wonderful! Light this candle for me, would you, and only the candle, please, because the beam above it is load-bearing." },
@@ -838,6 +860,8 @@ P:NPC {
       big = true,
       lines = { { id = "mgsp_default", text = "Sheep, yes, and you'll want to practise on something that doesn't mind, and nothing in Dun Morogh minds less than a boar with a full belly. Please don't practise on the Thunderbrews' ram, because I did that once by accident and I'm still paying for the fence." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'll practise on troggs. They've earned it.", next = "BACK", reply = "They have, rather, though a trogg sheep is still very bad-tempered, so don't stand too close to it.", fx = { align = { light = -1 } } },
         { text = "I'll practise on something that won't be hurt by it.", next = "BACK", reply = "That's lovely of you, and the boars will thank you, in their way.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else, Magis.", next = "BACK" },
@@ -951,6 +975,8 @@ P:NPC {
     third = "{name} met Hogral Bakkan, the rogue trainer in the Thunderbrew Distillery in Kharanos.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
     { id = "g_hi", text = "Ye'll be wantin' the bar, friend, it's back the way ye came. Unless ye meant tae find me, in which case shut the door." },
     { id = "g_back", when = { metBefore = true }, text = "Ye again. Ye came in by the front this time. I'd hoped I'd taught ye better." },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "There ye are. I heard ye on the third stair, so we'll start wi' that." },
@@ -972,6 +998,8 @@ P:NPC {
         { id = "h_again2", text = "Aye. Go on, an' pass me that knife. The wee one." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Train me.", next = "BUSINESS" },
         { text = "Why the kitchen?", next = "kitchen" },
         { text = "Does Belm really not know?", next = "belm" },
@@ -1049,6 +1077,8 @@ P:NPC {
     third = "{name} met Kogan Forgestone, a regular at the Thunderbrew Distillery in Kharanos.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_hi", text = "Pull up a stool, stranger! Belm, a mug for this one. Ye'll settle an argument for us in a minute, so drink first." },
     { id = "g_back", when = { metBefore = true }, text = "There ye are! Belm said ye'd no' be back, an' I said ye would, so that's a round he owes me." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Still up, are ye? So's Belm, an' so am I, an' naebody's won the argument yet." },
@@ -1145,6 +1175,8 @@ P:NPC {
     third = "{name} met Golorn Frostbeard, the tradesman at Kharanos in Dun Morogh.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_hi", text = "Thread, flux, vials an' salt. If ye make things, I've what ye've run out of." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more? Ye go through flux like a dwarf goes through ale. Good, that's my livin'." },
     { id = "g_craft", when = { profession = "Tailoring" }, text = "A tailor, wi' needle marks on the thumb. Ye'll be wantin' coarse thread, an' I've the last three spools this side o' Ironforge." },
@@ -1166,6 +1198,8 @@ P:NPC {
         { id = "h_again2", text = "Aye, ask." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your trade goods.", next = "BUSINESS" },
         { text = "Who are your best customers?", next = "customers" },
         { text = "You count everything twice.", next = "thrift" },
@@ -1234,6 +1268,8 @@ P:NPC {
     third = "{name} met Gamili Frosthide, who sells cloth and leather armour at Kharanos in Dun Morogh.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_hi", text = "Come in out o' the wind! Ye're no' dressed for this country, I can see that from here, an' I can mend it." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back, an' ye've all yer fingers, so the gloves did their work. I'm glad of it." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Out at this hour, in that? Ye'll freeze solid. Come an' stand by the brazier while ye look." },
@@ -1255,6 +1291,8 @@ P:NPC {
         { id = "h_again2", text = "Aye, ask away." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your armour.", next = "BUSINESS" },
         { text = "You line everything with fleece?", next = "fleece" },
         { text = "Is the cold truly so dangerous?", next = "cold" },
@@ -1323,6 +1361,8 @@ P:NPC {
     third = "{name} met Thrawn Boltar, who sells blacksmithing supplies at Kharanos in Dun Morogh.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_hi", text = "Hammers, tongs, flux an' coal. If ye're here tae look at swords, the weaponsmith's that way." },
     { id = "g_back", when = { metBefore = true }, text = "Ye again. Have ye worn out that hammer already, or only lost it?" },
     { id = "g_smith", when = { profession = "Blacksmithing" }, text = "A smith, good! Tell me what ye're makin' an' I'll tell ye what ye're missin'." },
@@ -1344,6 +1384,8 @@ P:NPC {
         { id = "h_again2", text = "Aye. Go on." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "Your tools hang in a very exact order.", next = "order" },
         { text = "What does a village forge make most?", next = "village" },
@@ -1413,6 +1455,8 @@ P:NPC {
     third = "{name} met Peria Lamenur, the pet trainer at Kharanos in Dun Morogh.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
     { id = "g_hi", text = "Hello there. Keep yer hands low an' yer voice soft a moment, for I've a young bear here who's still decidin' about strangers." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. Let me see how ye've both been gettin' on." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter, good. I'll no' ask how well ye shoot, but I will ask when yer beast last ate, an' whether ye ate first." },
@@ -1434,6 +1478,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, softly." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Train my companion.", next = "BUSINESS" },
         { text = "What do hunters get wrong with their beasts?", next = "wrong" },
         { text = "You and Grif seem very different.", next = "grif" },
@@ -1544,6 +1590,8 @@ P:NPC {
     third = "{name} met Gimrizz Shadowcog, the warlock trainer at Kharanos in Dun Morogh.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
     { id = "g_hi", text = "Close the door behind you. The dwarves are tolerant so long as they don't have to look, and I prefer to keep them tolerant." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back intact, and I'll assume your judgment has too until you show me otherwise." },
     { id = "g_lock", when = { class = "WARLOCK" }, text = "Alamar Grimm taught you at Anvilmar, I expect, which means you know the incantations and have been told a great deal about whose fault everything is." },
@@ -1569,6 +1617,8 @@ P:NPC {
         { id = "h_again3", when = { class = "WARLOCK" }, text = "Is there another question? Ask it now, while the room's quiet, rather than later in the snow when it isn't." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Train me.", next = "BUSINESS" },
         { text = "My imp likes me, I think.", next = "likes", when = { class = "WARLOCK", pet = { family = "Imp" } } },
         { text = "When can I bind something bigger than an imp?", next = "void", when = { class = "WARLOCK", maxLevel = 15 } },
@@ -1661,6 +1711,8 @@ P:NPC {
     third = "{name} met Dannie Fizzwizzle, the demon trainer at Kharanos in Dun Morogh.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
     { id = "g_hi", text = "Hello! Don't mind the smell, it's only brimstone, and you stop noticing after about a fortnight." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, hello again! Nothing's followed you in, has it? No, good, though one does have to ask." },
     { id = "g_lock", when = { class = "WARLOCK" }, text = "A warlock! Lovely. Bring it out, then, and let's see whether it fears you yet." },
@@ -1687,6 +1739,8 @@ P:NPC {
         { id = "h_again3", when = { class = "WARLOCK" }, text = "Anything else about your little horror? I can always use another page." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Train my demon.", next = "BUSINESS" },
         { text = "Have a look at my demon, would you?", next = "look", when = { class = "WARLOCK" } },
         { text = "What does my demon hate most?", next = "hates", when = { class = "WARLOCK", minLevel = 10 } },
@@ -1794,6 +1848,8 @@ P:NPC {
     third = "{name} met Tognus Flintfire, the blacksmithing trainer at Kharanos in Dun Morogh.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
     { id = "g_hi", text = "Welcome tae the forge! Mind yer feet, there's a pair o' tongs on the floor somewhere, an' they may still be hot." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Ye havenae seen a wee ball-peen hammer on yer travels, have ye? I had it a minute ago." },
     { id = "g_smith", when = { profession = "Blacksmithing" }, text = "A smith, grand! Grab that bar an' hold it steady, I've three jobs on an' two hands." },
@@ -1815,6 +1871,8 @@ P:NPC {
         { id = "h_again2", text = "Aye, ask!" },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Train me in blacksmithing.", next = "BUSINESS" },
         { text = "You seem to have lost something.", next = "lost" },
         { text = "What do you teach a beginner first?", next = "nails" },
@@ -1881,6 +1939,8 @@ P:NPC {
     third = "{name} met Gremlock Pilsnor, the cooking trainer at the Thunderbrew Distillery in Kharanos.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
     { id = "g_hi", text = "In or out, but shut that door, the draught's flattenin' my bread! Have ye eaten? No, I can see ye havenae, so sit down." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back, an' ye're thinner. What have ye been eatin' out there, snow?" },
     { id = "g_cook", when = { profession = "Cooking" }, text = "A cook! Wash yer hands an' taste this, an' tell me what it's missin'. If ye say salt, I'll ken ye're guessin'." },
@@ -1902,6 +1962,8 @@ P:NPC {
         { id = "h_again2", text = "Aye, go on, I can shout an' chop at once." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me to cook.", next = "BUSINESS" },
         { text = "What's the first thing a cook should learn?", next = "first" },
         { text = "What do you cook from, in all this snow?", next = "larder" },
@@ -1970,6 +2032,8 @@ P:NPC {
     third = "{name} met Thamner Pol, the physician at the Thunderbrew Distillery in Kharanos.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
     { id = "g_hi", text = "If ye're no' bleedin', then ye can wait a moment while I finish this splint, an' I'll be wi' ye." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back, an' upright, so show me the hands. Aye, they're clean, so ye listened." },
     { id = "g_hurt", when = { durability = { max = 0.3 } }, text = "Sit down. No, dinnae tell me ye're fine, everybody tells me they're fine. Where does it hurt when ye breathe in?" },
@@ -1991,6 +2055,8 @@ P:NPC {
         { id = "h_again2", text = "Aye. Go on." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me first aid.", next = "BUSINESS" },
         { text = "What do you treat most?", next = "treat" },
         { text = "You and the priest divide the work?", next = "priest" },
@@ -2065,6 +2131,8 @@ P:NPC {
     third = "{name} met Wren Darkspring, the demon trainer at Anvilmar in Coldridge Valley.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
     { id = "g_hi", text = "Hello. Come round to this side of the bench, if you would, so you're not standing between the imp and the door." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again. It's quieter today, and Alamar has only complained twice." },
     { id = "g_lock", when = { class = "WARLOCK" }, text = "You've bound your first, I see, so let it have a look at me, and don't speak for a moment while it does." },
@@ -2089,6 +2157,8 @@ P:NPC {
         { id = "h_again3", when = { class = "WARLOCK" }, text = "Anything else you've noticed about it? The small things are usually the important ones." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Train my demon.", next = "BUSINESS" },
         { text = "My imp set fire to my sleeve again.", next = "sleeve", when = { class = "WARLOCK", maxLevel = 12 } },
         { text = "Does it ever stop being frightening?", next = "fear", when = { class = "WARLOCK" } },
@@ -2196,6 +2266,8 @@ P:NPC {
     third = "{name} met Marryk Nurribit, the mage trainer at Anvilmar in Coldridge Valley.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
     { id = "g_hi", text = "Hello, hello! You wouldn't happen to have a few coppers about you? No, no, forget I asked, and tell me what I can do for you." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, my friend returns! And the barrel's still half full, so it's a good day all round." },
     { id = "g_mage", when = { class = "MAGE" }, text = "Ah, you'll be the one with the memorandum! Sit down, sit down, and we'll begin with frost, since there's so much of it lying about going to waste." },
@@ -2211,6 +2283,8 @@ P:NPC {
     mk_water = {
       lines = { { id = "mkw_default", text = "You cup your hands and think of the coldest, cleanest water you've ever tasted, and the spell does the rest, though I'd advise you not to think about ale, because I tried that once and got something very disappointing. It'll keep you alive on the road, and it costs you nothing but a little mana." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Did you ever manage to conjure ale?", next = "BACK", reply = "Never once, and not for want of trying, so some magic is simply cruel." },
         { text = "Something else, Marryk.", next = "BACK" },
       },
@@ -2348,6 +2422,8 @@ P:NPC {
     third = "{name} met Kazan Mogosh, who sells food and drink at Gol'Bolar Quarry in Dun Morogh.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_hi", text = "Welcome tae Gol'Bolar, what's left of it. I've bread, cheese an' ale, an' ye can eat it lookin' at a hole full o' troggs." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back! Have ye been down in the pit? Ye've the dust on ye. Sit, an' have somethin'." },
     { id = "g_miner", when = { profession = "Mining" }, text = "A miner! Ye'll find nae work here, friend, no' till the hole's cleared. But ye'll find ale, an' company that kens yer trade." },
@@ -2369,6 +2445,8 @@ P:NPC {
         { id = "h_again2", text = "Aye, ask. I've nae rush on." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me what you've got.", next = "BUSINESS" },
         { text = "How did the troggs take the quarry?", next = "troggs" },
         { text = "How are the crews bearing it?", next = "crews" },
@@ -2434,6 +2512,8 @@ P:NPC {
     third = "{name} met Cook Ghilm, the cooking trainer at Gol'Bolar Quarry in Dun Morogh.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
     { id = "g_hi", text = "Come an' get it while it's hot! Oh, ye're no' one o' the crew. Never mind, there's enough. There's always enough if ye add water." },
     { id = "g_back", when = { metBefore = true }, text = "Back for seconds! That's the finest thing anybody can say tae a cook." },
     { id = "g_cook", when = { profession = "Cooking" }, text = "A cook! Taste this an' tell me true. I've been makin' boar stew wi'out onions for a month, an' I've lost the knack o' judgin' it." },
@@ -2455,6 +2535,8 @@ P:NPC {
         { id = "h_again2", text = "Aye, ask away!" },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me to cook.", next = "BUSINESS" },
         { text = "What do you cook from, up here?", next = "larder" },
         { text = "Miners make good cooks?", next = "miners" },
@@ -2520,6 +2602,8 @@ P:NPC {
     third = "{name} met Dank Drizzlecut, the mining trainer at Gol'Bolar Quarry in Dun Morogh.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
     { id = "g_hi", text = "Hmph. Another one come tae gawp at the hole. Unless ye've a pick, in which case show me how ye hold it, so I can tell ye it's wrong." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back. Still swingin' from the elbow, I'll wager. Shoulder! How often must I say it?" },
     { id = "g_miner", when = { profession = "Mining" }, text = "So ye call yerself a miner, do ye? Dinnae tell me who taught ye, for I'll ken by the swing." },
@@ -2541,6 +2625,8 @@ P:NPC {
         { id = "h_again2", text = "Aye. Go on, an' stand up straight." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me mining.", next = "BUSINESS" },
         { text = "Sixty years at one quarry?", next = "sixty" },
         { text = "Everyone swings a pick wrong, you say.", next = "swing" },
@@ -2610,6 +2696,8 @@ P:NPC {
     third = "{name} met Frast Dokner, the apprentice weaponsmith at Gol'Bolar Quarry in Dun Morogh.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_hi", text = "Good day! Are ye goin' down intae the pit? Then ye'll want somethin' heavy. I've axes, mostly, for axes are what folk here want." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back! Did it hold? Let me see the edge, then. Oh, that's a relief, I worried about that one." },
     { id = "g_smith", when = { profession = "Blacksmithing" }, text = "Ye're a smith, a proper one? Would ye look at this weld an' tell me honestly? My master's in Ironforge, an' I've naebody tae ask." },
@@ -2631,6 +2719,8 @@ P:NPC {
         { id = "h_again2", text = "Aye, ask, please." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "Business must be good.", next = "business" },
         { text = "What works best on troggs?", next = "troggs" },
@@ -2703,6 +2793,8 @@ P:NPC {
     third = "{name} met Yarlyn Amberstill, a child who sells rabbits at Amberstill Ranch in Dun Morogh.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_hi", text = "Did you see a rabbit? A white one? She went that way, or maybe that way, and I've got to catch her before Da sees she's been in the forge again!" },
     { id = "g_back", when = { metBefore = true }, text = "Oh, it's you! Fluffy got out again, she always gets out, and have you got a carrot?" },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "You're a hunter! You're not allowed to hunt Fluffy. Or any of the white ones by the pen, they're mine, I counted them." },
@@ -2724,6 +2816,8 @@ P:NPC {
         { id = "h_again2", text = "Yes? Is it about rabbits?" },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your rabbits.", next = "BUSINESS" },
         { text = "How did Fluffy get out?", next = "fluffy" },
         { text = "How do you look after so many rabbits?", next = "care" },

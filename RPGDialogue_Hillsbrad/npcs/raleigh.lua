@@ -20,6 +20,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my friend. Come in, sit; the Light has brought you back, and I'm grateful." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll speak with you, but my heart is guarded." },
     { id = "g_hu", when = { race = "Human" }, priority = 5,
       text = "You're of Lordaeron's blood, or Stormwind's; it makes no difference to the Crusade, which will call you pure until the day it calls you plagued." },
     { id = "g_prej1", when = { prejudiced = true }, text = "There's something cold about you. I'll ask you to keep your hands where I can see them, and I'm sorry for asking, because six years of Crusade sermons don't wash out in one winter." },
@@ -420,6 +422,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You walk in the Light, my friend, whether you know it or not. I see it in your deeds." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've given me cause to doubt your heart. Pray on it, as I will." },
+    },
     knows = {
       { id = "tp_knows", text = "I don't know much, but what I know cost me two teeth and a good horse. Ask, and I'll tell you true." },
     },

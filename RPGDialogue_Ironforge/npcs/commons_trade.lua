@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "Buyin' or sellin'? Either way, mind the deposit, for the house keeps it if yer goods don't move." },
     { id = "g_back", when = { metBefore = true }, text = "Back tae see if yer bids came good? Let's have a look at the ledger, then." },
   },
@@ -241,6 +243,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_default", text = "Hello, hello! Listing, bidding or browsing? I can do all three at once, with a margin of error under two percent, if you talk quickly." },
     { id = "g_back", when = { metBefore = true }, text = "You again! I've already worked out the three most probable things you're going to ask, so go on and tell me which one it is." },
   },
@@ -459,6 +463,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "Bread, water, bags an' shot, love, an' the bread's fresh this mornin', whatever the baker says." },
     { id = "g_back", when = { metBefore = true }, text = "There ye are again. Have ye been eatin' properly, out there?" },
   },
@@ -476,6 +482,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Some mutter when ye pass, an' one or two said they'd no' sell tae anybody practisin' orc magic. But I've seen what a shaman's hands can do for a wounded mountaineer, an' I'll sell tae ye at the same price as anyone, an' they can mutter at me instead." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Thank you. I'll earn the Commons' trust the proper way.", next = "BACK", reply = "Ye'll have it, in time. The Commons are slow tae warm, but they never forget a kindness, nor a fair price paid.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let them mutter. I don't need the Commons' good opinion.", next = "BACK", reply = "Fair enough, but the Commons are where the bread is, so ye might want a wee bit o' their good opinion come suppertime.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -675,6 +683,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_default", text = "Ye've the look o' someone who could lead a company, friend. Come tae start a guild?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Found yer fellows yet, or are ye still collectin' names?" },
   },
@@ -692,6 +702,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Aye, if ye paid the fee an' chose a name I could spell. The Senate's old families would grumble that I'd given good Ironforge ink tae Wildhammer mystics, an' they'd grumble at me in the Commons, where everyone could hear. I'd write it anyway, for the book's for anyone wi' coin an' a crest." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Then we'll register properly, fee, crest and all.", next = "BACK", reply = "That's what I like tae hear, an' I'll write it in my best hand, so the old families have somethin' handsome tae grumble at.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The earth doesn't need a guild charter, Jondor.", next = "BACK", reply = "No, but the Senate does, an' they'll want tae know who ye are when ye come marchin' through the Commons in matchin' cloaks.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -880,6 +892,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "Lookin' for a tabard? I've the guild's colors here, if yer guild's registered wi' Jondor at the next counter." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back. Has yer guild settled on its colors yet, or are they still arguin'?" },
   },
@@ -897,6 +911,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I've been thinkin' on it since ye walked up! An anvil, for Ironforge, wi' a flame an' a wave an' a gust round it, so nobody could say ye'd forgotten where ye came from. The Wildhammers would want a gryphon on it, I expect, but I'd fight them on that." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "The anvil first. I'm Ironforge before I'm anything else.", next = "BACK", reply = "Spoken like a true son o' the mountain, an' I'll put the anvil front an' centre, wi' the elements round it like a crown.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Put the gryphon on it. The Wildhammers kept the old ways alive.", next = "BACK", reply = "Ha, the old families will choke on their ale, an' I'll love every minute o' it, so a gryphon it is, wings an' all.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -1077,6 +1093,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "Welcome tae the Vault o' Ironforge. Yer things are just where ye left them, I promise ye." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. Nothin's been touched since yer last visit, no' even by me." },
   },

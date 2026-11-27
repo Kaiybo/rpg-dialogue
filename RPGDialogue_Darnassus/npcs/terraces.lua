@@ -1099,6 +1099,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "A warrior faces her enemy with her own blade. You do. I respect that." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You send others to bleed for you. I have nothing for you." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "A warrior faces her enemy with her own blade. You send a demon to bleed for you, and I have no respect for that." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "Keep that thing out of my courtyard. My students have enough to learn without learning to fear it." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You fight more of your own battles than I expected, demon at your heel or not. I'll grant you that much, and not a word more." },
@@ -1210,6 +1212,8 @@ P:NPC {
         { id = "arb_default", text = "So you have, and you have come back to tell me, which means you still remember who taught you to stand. The berserker gives up the guard for the strike, and a kaldorei who gives up her guard must keep her mind, or she becomes what we fought at Hyjal." },
       },
       choices = {
+        { text = "A warrior fights with honor.", next = "BACK", reply = "She does. You understand.", fx = { align = { honor = 1 } } },
+        { text = "Victory matters more than honor.", next = "BACK", reply = "Then you are no warrior.", fx = { align = { honor = -1 } } },
         { text = "My mind is my guard now. I've kept it.", next = "BACK", reply = "Then you have learned the hardest lesson on this Terrace without me. I am glad.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "In the stance, I don't think. I strike.", next = "BACK", reply = "That is exactly what I feared, and exactly what it is for. Come back to me if it frightens you.", fx = { align = { order = -1 } } },
         { text = "What happened at Hyjal, Bladesinger?", next = "ar_hyjal" },
@@ -1581,6 +1585,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Welcome back, hero! It's an honor to provide for you, truly!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome. It's an honor. Mostly." },
     { id = "g_honor", text = "Welcome! It's an honor to provide for adventurers; you're heroes in the making, every one of you." },
     { id = "g_back", when = { metBefore = true }, text = "Back for supplies? I knew you'd make it home again." },
   },
@@ -1702,6 +1708,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else? Take your time, for my people never rush a guest." } },
       choices = {
+        { text = "Supplying adventurers is honorable work.", next = "BACK", reply = "It is! Thank you!", fx = { align = { honor = 1 } } },
+        { text = "Adventurers are just mercenaries.", next = "BACK", reply = "Oh. I hope not.", fx = { align = { honor = -1 } } },
         { text = "Let me see your wares.", next = "BUSINESS" },
         { text = "Why call us heroes in the making?", next = "heroes" },
         { text = "Who is Nessa Shadowsong?", next = "nessa", when = { any = { { questActive = TODO_QUEST("Nessa Shadowsong") }, { questDone = TODO_QUEST("Nessa Shadowsong") } } } },
@@ -2003,6 +2011,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hello, friend! Are you here about leather? Oh, I hope so!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hello. Leather? No? Then go away." },
     { id = "g_hello", text = "Hello! Are you here about leather? Please say you're here about leather." },
     { id = "g_back", when = { metBefore = true }, text = "You came back! I've learned two new stitches since you were here, and nearly a third." },
   },
@@ -2122,6 +2132,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else? Ask me quickly before Faldron gives me something to sew." } },
       choices = {
+        { text = "Leather is a fine material.", next = "BACK", reply = "It is! Finally, someone agrees!", fx = { align = { order = 1 } } },
+        { text = "Leather is for peasants.", next = "BACK", reply = "Oh. Well.", fx = { align = { order = -1 } } },
         { text = "Can you help me train?", next = "BUSINESS", when = { profession = "Leatherworking" } },
         { text = "What are your teachers like?", next = "teachers" },
         { text = "Do you want to be a crafter forever?", next = "future" },

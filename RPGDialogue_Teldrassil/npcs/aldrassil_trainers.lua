@@ -19,6 +19,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Be still with me a moment, friend. The tree breathes easier when you are near." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Be still. The tree is breathing, and it does not breathe easy around you." },
     { id = "g_hello", text = "Be still a moment. Can you hear the tree breathing? Most can't, at first." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back, young one. The tree remembers you, and so do I." },
     { id = "g_sigil", when = { questActive = TODO_QUEST("Verdant Sigil") },
@@ -175,6 +177,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You stand straight already, I see. Good. I've been looking forward to training you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Stand up straight. You've given me no reason to go easy on you." },
     { id = "g_hello", text = "Stand up straight, because if you slouch like that against a grell, it'll take your ear off." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still standing, which is a good start. Show me what you've learned since." },
     { id = "g_sigil", when = { questActive = TODO_QUEST("Simple Sigil") },
@@ -347,6 +351,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You found me again. That's talent, friend, and I'm glad of it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You found me. That's luck, I think. Don't count on it twice." },
     { id = "g_hello", text = "You found me. That's either talent or luck, and I'll want to know which." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. You walked louder this time, so practise." },
     { id = "g_sigil", when = { questActive = TODO_QUEST("Encrypted Sigil") },
@@ -474,6 +480,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You climbed all the way up again! Good legs and a good heart. Come, sit by me." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You climbed up. Good legs. Now let's see if the rest of you is as sound." },
     { id = "g_hello", text = "You climbed all the way up! Good legs. A hunter needs them." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. What did the glade teach you today?" },
     { id = "g_sigil", when = { questActive = TODO_QUEST("Etched Sigil") },
@@ -684,6 +692,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Elune's light on you, child. I'm always glad when you come to me." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Elune's light on you, child. She shines on all, even those who stray." },
     { id = "g_hello", text = "Elune's light on you, child. Come in out of the dark." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back. The Mother Moon notices those who return." },
     { id = "g_sigil", when = { questActive = TODO_QUEST("Hallowed Sigil") },

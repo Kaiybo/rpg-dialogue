@@ -20,6 +20,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Out here, that's the best greeting anyone gets, and you've earned it." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep your distance and keep your blade up, and we'll get along well enough." },
     { id = "g_default", text = "Keep your blade up and your eyes on the sand. The qiraji don't announce themselves." },
     { id = "g_rajaxx", when = { killed = { name = "General Rajaxx", min = 1 } }, text = "Rajaxx is dead. I've waited a thousand years to say that, and it sounds no less sweet than I hoped." },
     { id = "g_back", when = { metBefore = true }, text = "You came back into this pit. Good. My elite and I could use soldiers who don't flinch." },
@@ -119,6 +121,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You fight like someone who means to come home, and that's the kind I want beside me on the sand." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been reckless, and recklessness gets people killed out here. Mine, if I let it." },
+    },
     rajaxx = { { id = "tp_rajaxx", text = "General Rajaxx, the qiraji warlord of the outer city.", next = "rajaxx" } },
     cenarion_circle = { { id = "tp_cc", text = "The Circle has always guarded this border. It is why we were here when the wall rose." } },
     _none = { { id = "tp_none", text = "I've been sealed in a ruin for a very long time. I know nothing of that." } },

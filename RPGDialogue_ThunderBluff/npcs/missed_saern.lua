@@ -13,6 +13,8 @@ P:NPC {
     third = "{name} met Saern Priderunner, a tauren brave on Hunter Rise in Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "The winds greet you on Hunter Rise, friend. Stand with me and watch the plains." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The winds greet you on Hunter Rise, {class}. They're cold today, for you." },
     { id = "g_default", text = "The winds greet you on Hunter Rise, {class}. Stand a while and look out, for there is no finer view of Mulgore." },
     { id = "g_back", when = { metBefore = true }, text = "You have climbed the Rise again. The plains have not changed, and I am glad of that." },
   },

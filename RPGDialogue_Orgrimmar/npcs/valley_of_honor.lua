@@ -281,6 +281,8 @@ P:NPC {
     third = "{name} met Sorek, one of the warrior trainers in Orgrimmar's Valley of Honor.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Find a space in the yard, friend. Today, you go first." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Find a space in the yard and wait your turn. Wait a long time." },
     { id = "g_hi", text = "Find a space in the yard and wait your turn, grunt. Grezz shouts enough for both of us." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You're standing better than last time I saw you. Someone's been teaching you the hard way, I see." },
   },
@@ -479,6 +481,8 @@ P:NPC {
     third = "{name} met Sayoc, a weapon master in Orgrimmar's Valley of Honor.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Let me see what you're carrying, friend. You've always kept it well." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Let me see what you're carrying, warrior. And then let me see if you can use it." },
     { id = "g_hi", text = "Let me see what you're carrying, warrior, and then let me guess what you should be carrying instead." },
     { id = "g_back", when = { metBefore = true }, text = "Back for another weapon? Good, because there's always another weapon." },
     { id = "g_grip", text = "Hold that up for me. No, the other way, the way you'd hold it if somebody were actually trying to kill you." },
@@ -600,6 +604,8 @@ P:NPC {
     third = "{name} met Hanashi, a Darkspear weapon master in Orgrimmar's Valley of Honor.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Every weapon got a spirit, friend, and yours be happy. Come, let's train." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Every weapon got a spirit, mon. Yours be grumpy, like you." },
     { id = "g_hi", text = "Every weapon got a spirit in it, mon, and some of them be sulking. Come and see." },
     { id = "g_troll", when = { race = "Troll" }, text = "A Darkspear! Good, you already know a spear be better than an axe, whatever the orcs say." },
     { id = "g_back", when = { metBefore = true }, text = "You come back, and you brought that weapon with you again. It looks a little happier this time." },
@@ -725,6 +731,8 @@ P:NPC {
     third = "{name} met Xao'tsu, the pet trainer in Orgrimmar's Valley of Honor.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Bring your beast here, friend. Oh, it looks happy. You treat it well." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Bring your beast here. Let me see it. And let me see you, because I wonder." },
     { id = "g_hi", text = "Bring your beast here, let me see it. Oh, and you as well, I suppose." },
     { id = "g_pet", when = { pet = { type = "Beast" } }, text = "Ah, {pet}! You be looking well, and you've been fed properly, I see." },
     { id = "g_back", when = { metBefore = true }, text = "You came back, and so did your beast, which be the more important part. Let me have a look." },
@@ -908,6 +916,8 @@ P:NPC {
     third = "{name} met Kaja, the tauren who sells guns and ammunition at Boomstick Imports in Orgrimmar's Valley of Strength.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome to Boomstick Imports, friend! For you, the best boomsticks!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome to Boomstick Imports. Everything's for sale. Full price." },
     { id = "g_hi", text = "Welcome to Boomstick Imports, friend, where everything goes bang and almost nothing goes bang in the wrong direction." },
     { id = "g_back", when = { metBefore = true }, text = "You came back, and the Earth Mother smiles on that. I have new stock in from the coast, and some of it is barely singed." },
   },
@@ -1052,6 +1062,8 @@ P:NPC {
     third = "{name} met Jin'sora, the Darkspear bowyer of Orgrimmar's Valley of Honor.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "A good bow be quiet, friend, like you. Come, let me show you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "A good bow be quiet, mon. Not like you." },
     { id = "g_hi", text = "A good bow be quiet, mon. Not like Kaja's noisy sticks down in the Valley of Strength." },
     { id = "g_back", when = { metBefore = true }, text = "Back for a better bow, I hope, and not for Kaja's thunder." },
     { id = "g_flinch", text = "Did you hear that bang just now? That be the third one this morning, and every bird in the valley flown off to the Barrens because of it." },

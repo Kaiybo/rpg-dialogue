@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. At your service, and gladly; I'll even lean on the railing for you." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "At your service, I suppose, though I'd rather not be." },
     { id = "g_landing", text = "Markel Smythe, at your service, so long as your service doesn't involve me going over this railing. What can I do for you?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and with all your limbs! I was half expecting to witness your will the next time we met." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the jungle road eats people for less. I'm glad to see you up these stairs again, friend." },
@@ -66,6 +68,8 @@ P:NPC {
         { id = "h_again3", text = "Ask away. Nobody will need a witness until the evening ships come in." },
       },
       choices = {
+        { text = "A wager is sacred, whatever the stakes.", next = "BACK", reply = "Exactly so, and that's why I'm paid to watch them. Sacred things need witnesses.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A wager's only binding if you can't slip out.", next = "BACK", reply = "Then you'll never have a witness like me, and you'll never be trusted twice in Booty Bay.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What's a human doing in a goblin port?", next = "salvage" },
         { text = "A sworn witness? What does that mean here?", next = "work" },
         { text = "Tell me about the people around here.", next = "around" },
@@ -404,6 +408,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're a fair dealer, and a sworn witness doesn't say that lightly." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been a poor sport, and I've witnessed it. Mind that." },
+    },
     knows = {
       { id = "tp_knows", text = "I know who owes whom on this landing, and what they swore to, and when. Ask me, and if it's not in my book, I'll tell you who's lying about it." },
     },

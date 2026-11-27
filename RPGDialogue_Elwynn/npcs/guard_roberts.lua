@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, good to see you. Pull up a rock; I'd stand, but my leg's still not on speaking terms with me." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm resting, and I'd rest better if you moved along." },
     { id = "g_lake", text = "Don't mind me. I'm only resting my eyes, and my leg, and most of my ribs." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Come to see if I've got up yet? I haven't." },
     { id = "g_healed", when = { questDone = TODO_QUEST("Garments of the Light") }, text = "Still a bit stiff, but I'm standing my post again, thanks to you. Well, sitting it, mostly." },
@@ -119,6 +121,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're decent, and the Guard could use a few more like you. Don't tell my sergeant I said so." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've given me cause to doubt you, and I've not got the ribs for a fight, so keep it civil." },
+    },
     background = { { id = "tp_bg", text = "Stormwind Guard, posted to Elwynn. Normally I do it standing up." } },
     advice = { { id = "tp_ad", text = "Mind the lakeshore after dark. The bank's softer than it looks, whatever I told the marshal." } },
     defias = { { id = "tp_defias", text = "They're on every road these days, and I'll swear one of them was on mine.", next = "hurt" } },

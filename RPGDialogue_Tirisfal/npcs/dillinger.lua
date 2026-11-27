@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "You. Good. Stay off the graves, but stay a while." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Stay off the graves, and stay off my road." },
     { id = "g_post", text = "Stay off the graves, and keep your eyes on the west road. That's where the trouble comes from." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Good; the west road hasn't gone quiet while you were away." },
     { id = "g_claws", when = { questActive = TODO_QUEST("A Putrid Task") }, text = "Bring me those claws, {class}. The rotting dead won't hand them over, so don't wait for them to." },
@@ -171,6 +173,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're reliable. The Dark Lady values that." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've given me cause to watch you. I will." },
+    },
     background = { { id = "tp_bg", text = "I was a soldier before, and I'm a soldier now. What happened in between isn't worth the telling." } },
     advice = { { id = "tp_ad", text = "Never turn your back on a corpse until you've seen it fall over twice, because in Tirisfal once is a habit, not a promise." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "Executor Zygand worries about the Crusade, and he's right to. I worry about the Scourge, because they never stop coming and they never get tired." } },

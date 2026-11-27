@@ -15,6 +15,8 @@ P:NPC {
     third = "{name} met Gazlowe, the goblin boss of Ratchet who once helped build Orgrimmar.",
   },
   greetings = {
+    { id = "g_rep2", when = { rep = { faction = "Ratchet", min = "Exalted" } }, text = "You've done so much for this port, I ought to name a crane after you. Don't hold me to that." },
+    { id = "g_rep1", when = { rep = { faction = "Ratchet", min = "Honored" } }, text = "Hey, it's Ratchet's favourite helper! The docks run smoother when you're around, and I notice that." },
     { id = "g_overheard", when = { overheard = "ex_gazlowe_dizzywig" }, text = "Heard all that with Dizzywig, huh? Don't worry, pal, the skimmin' stops today, and you ain't on the suspect list. Yet." },
     { id = "g_hu_human", when = { race = "Human" }, priority = 5,
       text = "Hey, a human! Welcome to Ratchet, pal, the only town on this coast where you won't get a spear in the back, as long as you pay your docking fees and don't tell Northwatch what you saw." },
@@ -670,6 +672,7 @@ P:NPC {
     third = "{name} met Sputtervalve, a fretful goblin tinker in Ratchet.",
   },
   greetings = {
+    { id = "g_rep1", when = { rep = { faction = "Ratchet", min = "Honored" } }, text = "The whole port's talking about you, and for once it's good talk. What can I do for you?" },
     { id = "g_hi", text = "Oh! A customer, or a helper, or maybe both, which would be best of all, pal, because a helper who pays is the rarest part in any workshop." },
   },
   notice = {
@@ -1004,6 +1007,7 @@ P:NPC {
     third = "{name} met Wharfmaster Dizzywig, who runs Ratchet's docks.",
   },
   greetings = {
+    { id = "g_rep1", when = { rep = { faction = "Ratchet", min = "Friendly" } }, text = "Good to see a friend of the docks. I'll make sure your crate doesn't end up in the harbour." },
     { id = "g_hu_human", when = { race = "Human" }, priority = 5,
       text = "A human on my wharf! Lemme guess, pal: your ship's got a hole, your captain's got a grudge, and nobody's got the mooring fee." },
     { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "dizzywig_human_soft" }, priority = 10,

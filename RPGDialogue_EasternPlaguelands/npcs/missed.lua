@@ -14,6 +14,8 @@ P:NPC {
     third = "{name} met Adon, a high elf waiting at the closed gate of Quel'Thalas in the Thalassian Pass.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_default", text = "You have come a long way north to find a locked door, {class}. I should know, for I have been admiring it rather longer than you have." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, the traveller again. No, it has not opened, though I thank you for the hope in your face." },
   },

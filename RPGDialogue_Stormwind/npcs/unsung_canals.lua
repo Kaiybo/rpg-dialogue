@@ -14,6 +14,8 @@ P:NPC {
     third = "{name} met Lucan Cordell, the foremost enchanter in Stormwind.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
     { id = "g_default", text = "Welcome. If you have what it takes, I'll gladly show you the way." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. I hope your rods have been keeping their charge." },
   },
@@ -31,6 +33,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They might, but I'd not trust it. Arcane enchantment is precise; spirits are moods. Still, I'd be curious." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Precision and patience make the best work. I'll learn.", next = "BACK", reply = "That's the right attitude, and rarer than you'd think. Come back with a steady hand and I'll show you a rune or two.", fx = { align = { order = 1 } } },
         { text = "Moods can be powerful too. Don't scorn them.", next = "BACK", reply = "I don't scorn them, I only don't trust them near a rod. A mood can't be measured, and what can't be measured can't be undone.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -199,6 +203,8 @@ P:NPC {
     third = "{name} met Jessara Cordell, who sells enchanting supplies in the Cordells' shop.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "Rods, vials and formulae. If you want Lucan, he's teaching, so please be quick about it." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Let me guess: you've broken another rod." },
   },
@@ -214,6 +220,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They're frightened of everything, which is useful. A shaman with lightning at his fingers won't help that, so be gentle with them." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'll be gentle with them, Jessara. Fear isn't respect.", next = "BACK", reply = "Good. They break things when they're frightened, and I'm the one who pays for it.", fx = { align = { order = 1 } } },
         { text = "A little fear keeps them sharp.", next = "BACK", reply = "Sharp, aye, and twitchy, and my shelves can't take it. Gentle, please.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -372,6 +380,8 @@ P:NPC {
     third = "{name} met Catherine Leland, who sells fishing supplies on the Stormwind canals.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_default", text = "Best deals in all of Stormwind, friend, you won't find better. Browsing, or after something in particular?" },
     { id = "g_back", when = { metBefore = true }, text = "There's my angler again! Did the lakes treat you kindly, or did the big one slip the hook?" },
   },
@@ -387,6 +397,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They do, the way soldiers come back from campaign, a few fewer every year. Perhaps your spirits could bring more of them." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Then fish the canals fairly, Catherine. Leave some for next year.", next = "BACK", reply = "I do, and I always have. My mother fished the same stones before me, and she'd box my ears from the grave if I emptied them.", fx = { align = { order = 1 } } },
         { text = "Fish while they're biting. Next year's not certain.", next = "BACK", reply = "They're not certain, no, but the fish will be. Fish fair, at least.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -546,6 +558,8 @@ P:NPC {
     third = "{name} met Lisbeth Schneider, the clothier of the Canal Tailor and Fit Shop.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "Come in, friend, and mind the damp. Are you browsing, or do you need something fitted?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! I remember your size, you know. I never forget a size." },
   },
@@ -561,6 +575,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Whatever won't burn when lightning goes off, I'd guess. Come back and I'll fit you properly." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "A proper fit is worth paying for. Thank you, Lisbeth.", next = "BACK", reply = "You're welcome, dear. Come back in a week and I'll have it ready.", fx = { align = { honor = 1 } } },
         { text = "I'll make do. Fancy clothes don't fight.", next = "BACK", reply = "They don't, but they'll keep you warmer while you do. Suit yourself.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },

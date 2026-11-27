@@ -1764,6 +1764,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Sit, warrior! Food first, then tell me who you fought. The best seat is yours tonight." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Sit, if you must. Food first, then pay, then tell me nothing. I've heard enough about you." },
     { id = "g_tusk", text = "Sit, warrior. Food first, then you tell me who you fought. That's the price of a seat at the Tusk." },
     { id = "g_home", when = { homeInn = { "Orgrimmar", "Valley of Strength" } }, text = "The Tusk missed you! Your bed's warm and there's a haunch on the spit, so your timing's good." },
     { id = "g_away", when = { away = 14 }, text = "There you are! You've been gone {away}, and I was starting to think something out there ate you before I could feed you, so sit down while the spit's turning." },
@@ -2071,6 +2073,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Oh, hello! You never hit me. You're my favorite. Sit with me, if you like." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Oh, hello. You're going to hit me, aren't you? Everyone does. Go on, then." },
     { id = "g_sigh", text = "Oh, hello. You're not going to hit me, are you? Everyone hits me, and I stopped asking the Earth Mother why a long time ago." },
     { id = "g_low", when = { maxLevel = 5 }, text = "Another young one. Let me guess: you heard there's a tauren in the inn you can beat up. There is, but please don't." },
     { id = "g_away", when = { away = 14 }, text = "Oh, it's you again, after {away}. Nobody else stops to talk instead of hitting me, so I noticed you were gone, the way the grass notices when the rain stops." },
@@ -2256,6 +2260,8 @@ P:NPC {
     third = "{name} spoke with one of the fierce grunts who guard Grommash Hold.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You stand in Grommash Hold, friend, before the Warchief's seat. You are welcome here." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You stand in Grommash Hold, before the Warchief's seat. Watch yourself, or I will." },
     { id = "g_default", text = "You stand in Grommash Hold, before the Warchief's seat. Speak carefully, {class}." },
     { id = "g_orc", when = { race = "Orc" }, text = "Blood of my blood, in Grom's hall. Speak, but keep your hand away from your weapon." },
   },

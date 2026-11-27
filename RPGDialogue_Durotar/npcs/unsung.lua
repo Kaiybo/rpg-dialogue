@@ -20,6 +20,8 @@ P:NPC {
     third = "{name} met Frang, the warrior trainer in the Valley of Trials' Den.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "On your feet! Ah, you. Good bruises. Show me more." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "On your feet! Show me your bruises, or go away." },
     { id = "g_war", when = { class = "WARRIOR" }, text = "On your feet, recruit! If you are here, you have bruises to show me, and I want to see them." },
     { id = "g_other", when = { ["not"] = { class = "WARRIOR" } }, text = "You are not one of mine, but stand up straight anyway; the Den does not like a slouch." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "I've buried two recruits this season because of the Burning Blade's imps. You'll forgive me if I don't turn my back on you." },
@@ -138,6 +140,8 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage in the Den! Stand back from my ring, because my recruits throw each other, and I won't have them throwing a spellcaster." },
       },
       choices = {
+        { text = "Bruises are the best teachers.", next = "BACK", reply = "They are! You learn well.", fx = { align = { honor = 1 } } },
+        { text = "Getting hit means you're weak.", next = "BACK", reply = "Then don't get hit. On your feet!", fx = { align = { honor = -1 } } },
         { text = "Do your recruits ever thank the priests for mending them?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Warriors and shamans can't fight well together, I'd guess.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Would you want a bear to spar with your recruits, Frang?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
@@ -240,6 +244,8 @@ P:NPC {
     third = "{name} met Ken'jai, the troll priest trainer in the Valley of Trials.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, friend, sit. Catch your breath. Ken'jai glad to see you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ah. Sit, if you must. Speak quick." },
     { id = "g_priest", when = { class = "PRIEST" }, text = "Ah, mon, you be one of mine. Sit down, catch your breath, and tell Ken'jai what the valley did to you." },
     { id = "g_other", text = "You be hurt, you come to Ken'jai, and if you be not hurt yet, give it a day in this valley. The boars here bite ankles, and the recruits run into cactus backwards." },
     { id = "g_loa", when = { origin = "troll_loa_speaker" }, text = "Ah, the one the loa talk to, come to the valley. Tell them Ken'jai say hello and keep the jokes kind, mon, because my recruits be bleeding enough without the spirits laughing at them." },
@@ -350,6 +356,8 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue, mon? Ken'jai mend priests, warriors and whoever else fall down, and rogues fall down too, just more quietly." },
       },
       choices = {
+        { text = "Healing is as important as fighting.", next = "BACK", reply = "It be, mon. You understand.", fx = { align = { light = 1 } } },
+        { text = "Healers should fight like everyone else.", next = "BACK", reply = "Den who heal you, mon?", fx = { align = { light = -1 } } },
         { text = "Do your Loa and my elements ever disagree, Ken'jai?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Green magic must be very different from a priest's.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
@@ -418,6 +426,8 @@ P:NPC {
     third = "{name} bought supplies from Duokna, who keeps general goods for the recruits of the Valley of Trials.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You again. Good. I set aside a waterskin, though I know you don't need it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Water, bread, bags. Buy, and go." },
     { id = "g_shop", text = "Water, bread, thread and bags, everything a recruit forgets until it is too late. We had none of it in the camps, so nobody leaves my shop without it. What do you need?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again, so the valley has eaten through your supplies already. That is what it does." },
   },
@@ -534,6 +544,8 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Did you remember water? Whatever follows you won't fetch it." },
       },
       choices = {
+        { text = "A recruit should come prepared.", next = "BACK", reply = "They should. Most don't.", fx = { align = { order = 1 } } },
+        { text = "A recruit learns by forgetting things.", next = "BACK", reply = "Then they learn by starving. Buy, and go.", fx = { align = { order = -1 } } },
         { text = "Do you keep supplies aside for healers, Duokna?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What do shamans usually forget to carry?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "A druid could live off the land out there, Duokna.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
@@ -595,6 +607,8 @@ P:NPC {
     third = "{name} met Uhgar, the weaponsmith of Razor Hill.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, you. I've a blade set aside, sharp enough for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Blades, axes, maces. Look. Don't touch." },
     { id = "g_shop", text = "Blades, axes and maces, all of them sharp enough for orc hands. Look, but do not touch the edges unless you are buying." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Show me what you did to the last one I sold you." },
   },
@@ -699,6 +713,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll want a gun or a bow from somebody else, but you'll want something for close work from me." },
       },
       choices = {
+        { text = "A sharp blade honors the smith.", next = "BACK", reply = "It does. You understand.", fx = { align = { honor = 1 } } },
+        { text = "Any blade will do.", next = "BACK", reply = "Then buy any blade elsewhere.", fx = { align = { honor = -1 } } },
         { text = "Why are priests so fond of maces, Uhgar?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What weapon suits a shaman, Uhgar?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "A druid hardly needs your weapons, Uhgar.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
@@ -761,6 +777,8 @@ P:NPC {
     third = "{name} met Thotar, who teaches Razor Hill's hunters to read the land and trust their beasts.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "A hunter with plains dust on you. Good. Sit and tell me everything you've tracked." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "A hunter. Tell me what you've tracked, and quickly." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter, and with the dust of the plains on you. Come and tell me what you have been tracking." },
     { id = "g_other", when = { ["not"] = { class = "HUNTER" } }, text = "You walk loudly, stranger, and every beast in Durotar heard you coming." },
   },
@@ -880,6 +898,8 @@ P:NPC {
         { id = "tra_low", when = { maxLevel = 9 }, text = "Your aspects and your stings, before anything with teeth. Take on the monkey's quickness and you will slip the boars, and put a serpent sting in a scorpid and let the poison work while you step back, because patience kills more than arrows do." },
       },
       choices = {
+        { text = "A hunter should master their aspects first.", next = "BACK", reply = "They should. You learn well.", fx = { align = { order = 1 } } },
+        { text = "Aspects are a waste of time. Just shoot.", next = "BACK", reply = "Then you'll miss when it matters.", fx = { align = { order = -1 } } },
         { text = "A sting that kills slowly seems cruel to me.", next = "tr_sting" },
         { text = "Back to the road.", next = "h_road" },
       },
@@ -1078,6 +1098,8 @@ P:NPC {
     third = "{name} found Kaplak, the rogue trainer hidden beneath Razor Hill.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You found the burrow again. Good. Come in; I've a new trick to show you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You found the burrow. Keep your voice low and speak fast." },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "You found the burrow on your own, so you are learning. Come in, keep your voice low, and leave your pride at the door; it clanks." },
     { id = "g_other", when = { ["not"] = { class = "ROGUE" } }, text = "This burrow is not for sightseers, so either you are lost or you are nosy. Which is it?" },
   },
@@ -1172,6 +1194,8 @@ P:NPC {
     xorig_spy = {
       lines = { { id = "xsy_default", text = "So you're the one paddling out past the reef while the rest of us sleep. Quiet work and good work, and nobody will ever sing about it, which is the best kind. Has Zalazane's lot ever come close to seeing you?" } },
       choices = {
+        { text = "A rogue's skills should serve Sen'jin.", next = "BACK", reply = "They should. Vol'jin needs us.", fx = { align = { order = 1 } } },
+        { text = "A rogue serves only his own pocket.", next = "BACK", reply = "Then go fill your pocket elsewhere.", fx = { align = { order = -1 } } },
         { text = "Once. I lay in the surf until dawn.", next = "BACK", fx = { trait = { cautious = 1 } } },
         { text = "Never. They're hexed, not watchful.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
       },
@@ -1243,6 +1267,8 @@ P:NPC {
     third = "{name} met Tai'jin, the troll priest trainer at Razor Hill.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, friend! Tai'jin be so glad to see you. Sit, sit." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ah. A healer. Sit, if you must." },
     { id = "g_priest", when = { class = "PRIEST" }, text = "Ah, a healer come to see Tai'jin! Sit down, sit down, and tell me what you be needing." },
     { id = "g_other", text = "Welcome, mon. If you be hurt, Tai'jin can see to it, and if not, you can still keep me company." },
     { id = "g_echo", when = { origin = "troll_echo_isles" }, text = "Another one from the isles, mon! You smell the sea on the wind from here too, don't you? Every night I tell myself we going back, and every morning I go mend orcs instead." },
@@ -1341,6 +1367,8 @@ P:NPC {
     xorig_bwon = {
       lines = { { id = "xbw_default", text = "Then you carry a heavy song, mon, and I hear you at the fires some nights when the wind come in off the sea. My brother fell on those isles when Zalazane turned, so if you ever have a verse to spare, would you sing his name for me?" } },
       choices = {
+        { text = "Healing serves de whole Horde.", next = "BACK", reply = "It do, mon. You understand.", fx = { align = { light = 1 } } },
+        { text = "Healers should only help their own.", next = "BACK", reply = "Den you not understand de Light, mon.", fx = { align = { light = -1 } } },
         { text = "I'll sing it tonight, Tai'jin.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Bwonsamdi already knows his name, Tai'jin.", next = "BACK", fx = { trait = { stern = 1 } } },
       },
@@ -1423,6 +1451,8 @@ P:NPC {
     third = "{name} met Un'Thuwa, the troll mage trainer of Sen'jin Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Another student, and a good one. Come in, friend, before you set something on fire." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Another student. Come in before you burn something." },
     { id = "g_mage", when = { class = "MAGE" }, text = "Another student of the arcane, mon. Come in, before you set something on fire out there." },
     { id = "g_other", when = { ["not"] = { class = "MAGE" } }, text = "You not be a mage, I can tell, but you can still stand there and admire the hut." },
     { id = "g_primer", when = { origin = "orc_camp_primer" }, text = "So you be the orc who learn letters from a human guard's book, and then learn fire all alone! Come in, mon, because Un'Thuwa did near the same thing with an elf's scroll, and nobody ever believe either of us." },
@@ -1518,6 +1548,8 @@ P:NPC {
     xorig_zand = {
       lines = { { id = "xzd_default", text = "Zandalari scrolls, mon? Un'Thuwa would trade his best robe for one page of those, and you learned from them before you were half grown. The Zandalari be the oldest of all the trolls, so tell me, do you still have them?" } },
       choices = {
+        { text = "The arcane needs careful study.", next = "BACK", reply = "It do, mon. You learn well.", fx = { align = { order = 1 } } },
+        { text = "The arcane should be used, not studied.", next = "BACK", reply = "Den you set somethin' on fire.", fx = { align = { order = -1 } } },
         { text = "They're safe, and they're staying that way.", next = "BACK", fx = { trait = { cautious = 1 } } },
         { text = "Some. Others burned when I got a spell wrong.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
       },

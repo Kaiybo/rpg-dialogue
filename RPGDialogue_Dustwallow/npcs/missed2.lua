@@ -16,6 +16,8 @@ P:NPC {
     third = "{name} met Combat Master Criton, who drills recruits for the Theramore Guard.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "There you are! Feet apart, yes, perfect. You've been practicing. Come, show me." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Feet apart! No, wrong. Wrong again. What do you want?" },
     { id = "g_default", text = "Feet apart, {class}, you're standing like a man waiting for a carriage! There, that's better, now what do you want?" },
     { id = "g_back", when = { metBefore = true }, text = "You again, and still leaning on your back foot. We'll mend that yet." },
   },
@@ -33,6 +35,8 @@ P:NPC {
         { id = "ybcombatmastercriton2", when = { class = "WARRIOR" }, text = "Worse than you, if you can believe it. He's a sergeant now. Don't tell him I said that about either of you." },
       },
       choices = {
+        { text = "Good footwork wins more fights than strength.", next = "BACK", reply = "Yes! Finally, someone who listens.", fx = { align = { order = 1 } } },
+        { text = "Strength beats footwork every time.", next = "BACK", reply = "Then you'll fall on your face. Feet apart!", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -130,6 +134,8 @@ P:NPC {
     third = "{name} met Combat Master Szigeti, who teaches swordwork to the Theramore Guard.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Good day, friend. You may stand closer today; I trust you to keep clear." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You may watch. Stand clear, and stay clear." },
     { id = "g_default", text = "Good day, {class}. You may watch, if you stand clear of the swing." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back. You watched closely last time, and I noticed that." },
   },
@@ -145,6 +151,8 @@ P:NPC {
         { id = "ybcombatmasterszigeti2", when = { class = "ROGUE" }, text = "You would understand. A blade is a conversation. The sooner one stops talking, the better." },
       },
       choices = {
+        { text = "Precision is the heart of swordsmanship.", next = "BACK", reply = "It is. My father taught me that.", fx = { align = { order = 1 } } },
+        { text = "A sword is for hacking, not dancing.", next = "BACK", reply = "Then go and hack somewhere else.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -243,6 +251,8 @@ P:NPC {
     third = "{name} met Captain Andrews, who leads the Red Team of the Theramore Guard in training.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, you! Watch, Tark's about to land one! Now, what can I do for you, friend?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hold on, Tark's about to land one. What do you want?" },
     { id = "g_default", text = "Hold a moment, {class}, Tark's about to land one! There, did you see that? Now, what can I do for you?" },
     { id = "g_back", when = { metBefore = true }, text = "Back to watch the Reds win? You've good taste, I'll say that." },
   },
@@ -258,6 +268,8 @@ P:NPC {
         { id = "ybcaptainandrews2", when = { race = "Human" }, text = "You'd know the old kingdoms, then. We left Lordaeron with nothing but our swords, and we built this town with them, one plank at a time." },
       },
       choices = {
+        { text = "A bit of competition keeps the soldiers sharp.", next = "BACK", reply = "It does! The Reds are ahead, too.", fx = { align = { order = 1 } } },
+        { text = "Training games are a waste of time.", next = "BACK", reply = "Then you've never seen a real fight.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -356,6 +368,8 @@ P:NPC {
     third = "{name} met Captain Thomas, who leads the Blue Team of the Theramore Guard in training.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Good day, friend. The figures show the Blues are ahead, and I'll gladly show you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Good day. If Andrews told you the Reds are ahead, he's wrong." },
     { id = "g_default", text = "Good day, {class}. If Andrews has told you the Reds are ahead, I have the figures here that say otherwise." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. The tally has moved two bouts in our favour since you were last here." },
   },
@@ -371,6 +385,8 @@ P:NPC {
         { id = "ybcaptainthomas2", when = { race = "Human" }, text = "You'd know how it was, then. Lordaeron gone and the east in chaos. We came west because the Lady asked, and we stayed because she was right." },
       },
       choices = {
+        { text = "A methodical approach wins in the end.", next = "BACK", reply = "It does. Andrews would disagree, of course.", fx = { align = { order = 1 } } },
+        { text = "Luck wins more fights than method.", next = "BACK", reply = "Luck runs out. Method does not.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -469,6 +485,8 @@ P:NPC {
     third = "{name} met Guard Jarad of the Theramore Guard's Red Team.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hey, you! Watch me land this one. Red Team's got the strongest arm in the yard!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Make it quick. I'm up in a moment." },
     { id = "g_default", text = "Make it quick, {class}, I'm up again in a moment. Red Team doesn't keep the Blues waiting, we just knock them down." },
     { id = "g_back", when = { metBefore = true }, text = "You again? Stay and watch this time, I'm in good form today." },
   },
@@ -487,6 +505,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, be quick about it." },
       },
       choices = {
+        { text = "Strength is what wins fights.", next = "BACK", reply = "That's what I keep telling everyone!", fx = { align = { honor = 1 } } },
+        { text = "Strength is nothing without patience.", next = "BACK", reply = "Patience is for the Blues. Watch this.", fx = { align = { honor = -1 } } },
         { text = "Who gives you the hardest bout?", next = "hardest" },
         { text = "Strength isn't everything in a fight.", next = "strength" },
         { text = "Who's the strongest on the Blue Team?", next = "xblue" },
@@ -565,6 +585,8 @@ P:NPC {
     third = "{name} met Guard Lana of the Theramore Guard's Red Team.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Guard Lana. Good to see you, friend. Ask what you like." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Guard Lana. If it's about the mud, keep walking." },
     { id = "g_default", text = "Guard Lana, Red Team. If you've come to ask about the mud, {class}, you can keep walking." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again. You didn't mention the mud last time, and I appreciated it." },
   },
@@ -583,6 +605,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I am listening." },
       },
       choices = {
+        { text = "A level head is worth more than a strong arm.", next = "BACK", reply = "It is. Jarad doesn't think so.", fx = { align = { order = 1 } } },
+        { text = "A strong arm beats a level head.", next = "BACK", reply = "Then go and talk to Jarad.", fx = { align = { order = -1 } } },
         { text = "What did happen with the mud?", next = "mud" },
         { text = "Does the sparring make better guards?", next = "better" },
         { text = "How do you keep Jarad and Tark in line?", next = "xline" },
@@ -661,6 +685,8 @@ P:NPC {
     third = "{name} met Guard Tark of the Theramore Guard's Red Team.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Guard Tark. Ah, you. Stand with me a moment; I've worked out what Edward does wrong." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Guard Tark. Give me a moment. Actually, give me a few." },
     { id = "g_default", text = "Guard Tark. Give me a moment, {class}, I'm working out why Edward drops his shoulder before he cuts left." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, it's you. I've solved Edward since we spoke, and now it's Narrisha I can't read." },
   },
@@ -676,6 +702,8 @@ P:NPC {
         { id = "ybguardtark2", when = { class = "ROGUE" }, text = "You'd know about planting ideas. Any advice for making a captain think he thought of it first?" },
       },
       choices = {
+        { text = "Studying your opponent wins the fight.", next = "BACK", reply = "It does. Most just swing harder.", fx = { align = { order = 1 } } },
+        { text = "Thinking too much slows you down.", next = "BACK", reply = "Maybe. But I'm still winning.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -771,6 +799,8 @@ P:NPC {
     third = "{name} met Guard Edward of the Theramore Guard's Blue Team.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Guard Edward, Blue Team. Good to see you, friend. Stand where you like today." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Guard Edward. Mind the chalk line, and mind yourself." },
     { id = "g_default", text = "Guard Edward, Blue Team. Good day to you, {class}, and mind you stand outside the chalk line." },
     { id = "g_back", when = { metBefore = true }, text = "Good to see you again. I'm still standing, as you can see." },
   },
@@ -786,6 +816,8 @@ P:NPC {
         { id = "ybguardedward2", when = { race = "Dwarf" }, text = "Kahil would love a dwarf at the dice table. He'd lose all his pay, and maybe learn something." },
       },
       choices = {
+        { text = "A steady stance holds the line.", next = "BACK", reply = "It does. That's my job on the Blues.", fx = { align = { order = 1 } } },
+        { text = "Holding the line is boring. Attack instead.", next = "BACK", reply = "Then join the Reds. I'll hold.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -881,6 +913,8 @@ P:NPC {
     third = "{name} met Guard Kahil of the Theramore Guard's Blue Team.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Guard Kahil! Friend, you're back! Talk while I stretch, I'm happy to see you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Guard Kahil. Talk while I stretch, or go." },
     { id = "g_default", text = "Guard Kahil, Blue Team! You'll have to talk while I stretch, {class}, or I'll stiffen up before the next bout." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again! Did you see the last one? Jarad swung so hard he turned himself round." },
   },
@@ -899,6 +933,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listening, I'm only bouncing." },
       },
       choices = {
+        { text = "Quick feet win more than heavy arms.", next = "BACK", reply = "They do! That's why I'm on the Blues.", fx = { align = { order = 1 } } },
+        { text = "Speed is no match for strength.", next = "BACK", reply = "Tell that to Jarad, when I beat him.", fx = { align = { order = -1 } } },
         { text = "Doesn't all that dodging wear you out?", next = "tired" },
         { text = "Tark says you always break right.", next = "right" },
         { text = "What's your secret for winning?", next = "xsecret" },
@@ -984,6 +1020,8 @@ P:NPC {
     third = "{name} met Guard Narrisha of the Theramore Guard's Blue Team.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Guard Narrisha. Ah, you again. Ask your question, friend; I'll answer gladly." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Guard Narrisha. You've been watching. Ask, and then go." },
     { id = "g_default", text = "Guard Narrisha. You've been watching from the rail a while, {class}, so you may as well ask what you came to ask." },
     { id = "g_back", when = { metBefore = true }, text = "You're back. Stand on the other side this time; the light's better for watching." },
   },
@@ -999,6 +1037,8 @@ P:NPC {
         { id = "ybguardnarrisha2", when = { race = "Human" }, text = "You came from the east, I'd guess. Do the old kingdoms still talk about us, or have they forgotten?" },
       },
       choices = {
+        { text = "A sharp plan wins before the fight starts.", next = "BACK", reply = "It does. I plan for the Blues.", fx = { align = { order = 1 } } },
+        { text = "Plans fall apart once the fighting starts.", next = "BACK", reply = "Mine don't. Ask, and go.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1096,6 +1136,8 @@ P:NPC {
     third = "{name} met Guard Lasiter, the archer of the Theramore Guard who never stops practising.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "One moment, friend. There. Dead centre, thanks to your luck. How can I help?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "One moment. A thumb low again. What do you want?" },
     { id = "g_default", text = "One moment, {class}, let me loose this one. There, a thumb's width low again. Now, how can I help you?" },
     { id = "g_back", when = { metBefore = true }, text = "Hello again. I've put four hundred arrows in that target since you left, and I'm still not satisfied." },
   },
@@ -1111,6 +1153,8 @@ P:NPC {
         { id = "ybguardlasiter2", when = { class = "HUNTER" }, text = "Look at the draw on that. You'll know the weight's more than I can manage. I'll grow into it, I suppose." },
       },
       choices = {
+        { text = "A good archer practices every morning.", next = "BACK", reply = "I do. Every morning, rain or fog.", fx = { align = { order = 1 } } },
+        { text = "Archery's luck more than skill.", next = "BACK", reply = "Then why do I keep missing? Go away.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1200,6 +1244,8 @@ P:NPC {
     third = "{name} met Pained, the night elf who stands watch beside Lady Jaina Proudmoore in Theramore.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You may approach freely. The Lady trusts you, and so do I." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You may approach. Keep your hands in sight." },
     { id = "g_default", text = "You may approach, {class}. Keep your hands in sight, and speak to the Lady with courtesy." },
     { id = "g_back", when = { metBefore = true }, text = "I remember you. You gave me no cause for concern before, so do not begin now." },
   },
@@ -1217,6 +1263,8 @@ P:NPC {
         { id = "ybpained2", when = { race = "NightElf" }, text = "You know how it is, sister. The night is ours, and Elune watches with me." },
       },
       choices = {
+        { text = "Guarding the Lady is an honor.", next = "BACK", reply = "It is. I would give my life for her.", fx = { align = { order = 1 } } },
+        { text = "The Lady can protect herself.", next = "BACK", reply = "She can. That is not the point. Keep your hands in sight.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1305,6 +1353,8 @@ P:NPC {
     third = "{name} met Captain Wymor, who commands the Theramore Guard's watch at Sentry Point.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, you. Good, you're no deserter. Come in, friend, and sit." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hold there. Let me look at you. Hmm. Say your piece quickly." },
     { id = "g_default", text = "Hold there, {class}, and let me have a look at you. Good, you're no deserter and no murloc, so you may pass or you may talk." },
     { id = "g_back", when = { metBefore = true }, text = "Back through my post again. The marsh let you go, I see, which it doesn't do for everyone." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "You're on the road late. Stay by the torches while we talk, for the things out there know to keep clear of them." },
@@ -1322,6 +1372,8 @@ P:NPC {
         { id = "ycaptainwymor1", text = "Grunts from Brackenwall, now and then, and a tauren trader once who bowed to the tower before he passed. The Lady's peace holds on this road because both sides want it to, and I'd like to keep it that way." },
       },
       choices = {
+        { text = "Keeping deserters out keeps Theramore strong.", next = "BACK", reply = "It does. One bad soldier spoils a hundred.", fx = { align = { order = 1 } } },
+        { text = "Some deserters had good reasons.", next = "BACK", reply = "Perhaps. But that's not for me to judge.", fx = { align = { order = -1 } } },
         { text = "Do your guards share that view?", next = "yguards" },
         { text = "Something else.", next = "BACK" },
       },

@@ -1155,6 +1155,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
     { id = "g_default", text = "Come for a lesson? The bay's in a giving mood today, mostly." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Caught anything worth bragging about?" },
   },
@@ -1172,6 +1174,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I think it favours the patient ones, and the ones who don't fish near the wrecks. Some of the old sailors leave a coin in the harbour for luck, and I've never had the nerve to tell them a murloc probably eats it. You'd say there's something in the water that notices, I suppose." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Respect the water, and it'll respect your line.", next = "BACK", reply = "That's the way of it exactly, and you'll make a fisherman yet. The water gives back what you give it.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Luck's for fools. Better bait catches more fish.", next = "BACK", reply = "Better bait helps, I'll grant you, but the old sailors would throw you off the pier for saying it. I've caught nothing for a week with the best bait in Menethil.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -1340,6 +1344,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_default", text = "A traveller! Sit, sit, and let me try a new verse on you before I lose my nerve." },
     { id = "g_back", when = { metBefore = true }, text = "My one faithful audience returns! I've a new song since last time, and it rhymes almost everywhere." },
     { id = "g_flirt", when = { flirt = true, chance = 0.4, ["not"] = { npcFlag = "camerick_flirt_no" } }, cooldown = "2d",
@@ -1587,6 +1593,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_default", text = "Have a look, friend. These are the finest steeds you'll find anywhere, and the grey only bites people he likes." },
     { id = "g_back", when = { metBefore = true }, text = "Back to see the horses? They remember you, I think, and they're good judges." },
   },
@@ -1606,6 +1614,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They seem to like you, which is more than they think of most dwarves. A horse doesn't care about the Light or the elements, only whether your hands are steady and your voice is calm. If the spirits give you both, then I've no quarrel with your spirits." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Steady hands and a calm voice. That's honest work.", next = "BACK", reply = "It is, and I'm glad you see it. A horse can tell a nervous rider from across the yard, and I've had plenty.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Horses like whoever feeds them. Nothing more to it.", next = "BACK", reply = "Feed them, aye, and much more besides. A horse is cleverer than you'd think, and it remembers more than its supper.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },

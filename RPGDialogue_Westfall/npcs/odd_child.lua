@@ -18,6 +18,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Erm... 'ello! It's you! I'm not supposed to talk to strangers, but you're not a stranger anymore." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Erm... it's you. I'm not supposed to talk to you." },
     { id = "g_default", text = "Erm... 'ello, {g:mister|miss}. I'm not supposed to talk to strangers, but you don't look very strange." },
     { id = "g_back", when = { metBefore = true }, text = "'Ello again! You came back! Nobody ever comes back, they just walk past the barn." },
     { id = "g_q1", when = { questActive = Q1 }, text = "'Ello again! Did you bring back alchemy stuff?" },
@@ -245,6 +247,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're nice. I like you. Don't tell anyone I said that." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You were mean. I don't like mean people." },
+    },
     background = { { id = "tp_bg", text = "I live in Moonbrook, sort of, and in the barn, mostly. That's all I'm allowed to say." } },
     advice = { { id = "tp_ad", text = "Try the first thing that comes to mind! Sometimes it's gross, but something always happens." } },
     _none = { { id = "tp_none", text = "I don't know that one. Is it a grown-up thing? Daddy says I'm not to listen to grown-up things." } },

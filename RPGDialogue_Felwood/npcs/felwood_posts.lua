@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend. The hippogryphs know your scent now, and so do I. Where shall they carry you, away from this sorrow?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You want a hippogryph. Very well. Pay, mount, and hold on, and spare me the conversation." },
     { id = "g_default", text = "Ishnu-alah. The hippogryphs are rested, and they would be glad to leave this poisoned forest behind them, as would I." },
     { id = "g_horde", when = { faction = "Horde" }, text = "My hippogryphs fly for the Alliance, stranger, not for you. Your people keep their wind riders at Bloodvenom Post, away to the southwest." },
     { id = "g_away", when = { away = 14 }, text = "Ishnu-alah. You've been away {away}, and I've counted more fires over the forest since you left, though I'm glad to see you safe." },
@@ -145,6 +147,8 @@ P:NPC {
         { id = "h_again2", text = "Speak, then, and I will listen, as the kaldorei have learned to listen to grief." },
       },
       choices = {
+        { text = "Felwood can be healed, given time and care.", next = "BACK", reply = "I pray you are right. The birds still nest here, and that gives me some hope.", fx = { align = { light = 1 } } },
+        { text = "This forest is lost. Burn it and start again.", next = "BACK", reply = "Spoken like someone who never saw it green. Take your flight and go.", fx = { align = { light = -1 } } },
         { text = "Where can I fly?", next = "BUSINESS", when = { faction = "Alliance" } },
         { text = "How do the hippogryphs bear this forest?", next = "corrupt" },
         { text = "Felwood must have been something else, before.", next = "before" },
@@ -206,6 +210,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You're back, and still in one piece. Good. My wind riders like you, and they don't like many people." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You. Say where you want to go and get on the beast. I've got no time for talk." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "I drank the demon's blood with the rest of my clan, and I spent years in the camps paying for it. Take your green fire away from my wind riders." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've flown with me enough times that the riders don't snap at you now. I still won't smile at you, but I'll fly you." },
     { id = "g_default", text = "You want a wind rider? Good, because nobody should stay in this cursed forest a moment longer than they must, and the wyverns agree. One bit a grunt last week for dawdling at the saddle." },
@@ -337,6 +343,8 @@ P:NPC {
         { id = "h_again2", text = "Speak. I've time, but not much patience." },
       },
       choices = {
+        { text = "Every orc can pay off the blood debt, given time.", next = "BACK", reply = "Aye. Some of us are still paying. It's good to hear someone believe it.", fx = { align = { light = 1 } } },
+        { text = "The blood made us strong. No shame in that.", next = "BACK", reply = "Strong, and slaves to demons. Get on the wind rider before I lose my temper.", fx = { align = { light = -1 } } },
         { text = "Do the winds over Felwood trouble your riders, Brakkar?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Where can I fly?", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "Why keep a post in this forest at all?", next = "post" },
@@ -395,6 +403,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "The Earth Mother walks with you, friend. Sit a moment; I saved a loaf from this morning's cart, and it is yours at the old price." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Water and bread, at the usual price. I sell to everyone, and that is all I owe you." },
     { id = "g_default", text = "Welcome, traveler, and may the Earth Mother keep you. I have clean water and bread that did not grow in this forest, and that is the best thing I can offer you here." },
   },
 
@@ -518,6 +528,8 @@ P:NPC {
         { id = "h_again2", text = "Take your time. There's no hurry in my corner; the herd always waits for the slowest calf." },
       },
       choices = {
+        { text = "Paying a fair price keeps the cart coming.", next = "BACK", reply = "Just so. The road from Thunder Bluff is long, and the drivers must eat too.", fx = { align = { honor = 1 } } },
+        { text = "I'd take what I need if the price ran high.", next = "BACK", reply = "Then you would find the cart stops coming, and you would go hungry with the rest of us.", fx = { align = { honor = -1 } } },
         { text = "Can the earth of Felwood ever heal, Bale?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "Nothing here is fit to eat?", next = "food" },

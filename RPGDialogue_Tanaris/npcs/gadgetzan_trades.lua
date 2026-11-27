@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, my favorite bidder! For you, pal, front row seats and a whisper on what's selling cheap." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Oh, you. The auction's open to everyone, more's the pity. Place your bid and step back." },
     { id = "o_sw_admire", when = { gossip = { topic = "steamwheedle", stance = "admire" } }, text = "I hear you're a fan of the Cartel! Smart customer, and smart customers get the best seats at the auction, figuratively speakin'." },
     { id = "g_default", text = "Buying or selling, friend? Either way the Cartel takes its little slice, and either way I'm happy to see you, because happy auctioneers get better prices." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Something of yours sold while you were out, or it didn't, and either way I've got a listing with your name on it." },
@@ -234,6 +236,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, it's you. Bring your animal round. I'll find a bit of extra water for it, the clean stuff." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind the troughs, pal. Water's dear. I'll stable your beast, and that's the extent of my charity." },
     { id = "g_default", text = "Mind the troughs, pal, they're full, which is more water than my purse can afford since the Water Company raised the rate." },
   },
 
@@ -426,6 +430,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Oh, hey, pal! Step anywhere you like, I'll warn ya about the live crates. I trust you not to kick 'em." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Careful where you step, pal. And I mean careful. You've got a way of finding the live crate." },
     { id = "g_default", text = "Careful where you step, pal, that crate's live! No, the other one. Actually, step around both, and don't sneeze, because I can't afford another roof this year." },
     { id = "g_back", when = { metBefore = true }, text = "Still in one piece, I see, kid! That's the first sign of a promising engineer, and the second sign is paying your fees on time." },
   },
@@ -627,6 +633,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You again, pal. Good. I'll teach you the deep veins, the ones I don't show the lazy ones." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Pick, back, patience. I'll teach you, pal, but you better bring more patience than you did last time." },
     { id = "g_default", text = "Pick, a good back and a little patience, pal; that's all mining takes, and I'll teach you the rest for a fee, a fair one, by goblin reckoning." },
   },
 

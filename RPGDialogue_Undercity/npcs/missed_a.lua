@@ -15,6 +15,8 @@ P:NPC {
     third = "{name} met Adrian Bartlett, a pupil at Jezelle Pruitt's demon lessons in the Magic Quarter.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_default", text = "Keep your voice down, if you please. Mistress Pruitt is lecturing, and she has a long memory for interruptions." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and between demonstrations too, which is the only safe time to talk to me." },
     { id = "g_warlock", when = { class = "WARLOCK" }, text = "A practising warlock, standing in a lesson for beginners. I'll try not to be envious, though I make no promises." },
@@ -115,6 +117,8 @@ P:NPC {
     third = "{name} met Alyssa Blaye, a recruit drilling under Sergeant Houser in the War Quarter.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep your distance, and keep out of the way of real soldiers." },
     { id = "g_default", text = "Talk if you must, but stand clear of my sword arm, because the sergeant won't excuse a missed stroke on your account." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and I'm still at the same dummy. It has not yet surrendered." },
     { id = "g_warrior", when = { class = "WARRIOR" }, text = "You carry steel as if you've used it. Watch my guard a moment, and tell me whether Houser is right about my elbow." },
@@ -128,6 +132,8 @@ P:NPC {
     ylife = {
       lines = { { id = "ylife_x", text = "A miller's girl from outside Andorhal. I carried flour sacks all day and wished somebody would hand me a sword instead. Then the plague came through and somebody did, though it took dying first." } },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Andorhal. Do you ever think of going back?", next = "yandorhal" },
         { text = "Something else.", next = "BACK" },
       },
@@ -214,6 +220,8 @@ P:NPC {
     third = "{name} met Andrew Hartwell, a loud spectator at the War Quarter's fighting pit.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
     { id = "g_default", text = "Find a place at the rail, friend, and don't block my view. Brother Malach is about to send in the next lot." },
     { id = "g_back", when = { metBefore = true }, text = "Back for another bout? I knew you had the look of someone who enjoys a proper show." },
     { id = "g_human", when = { race = "Human" }, text = "A living human, standing at the rail instead of down in the sand. You've a stronger stomach than the last three we had in there." },
@@ -310,6 +318,8 @@ P:NPC {
     third = "{name} met Apothecary Vallia of the Royal Apothecary Society on her rounds through the Undercity.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "Walk with me if you wish to talk, because the Society does not pay me to stand still." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Keep pace this time, and mind the satchel." },
     { id = "g_alch", when = { profession = "Alchemy" }, text = "You've stains on your cuffs that I recognise. Walk with me, then, and tell me what you've been ruining lately." },
@@ -406,6 +416,8 @@ P:NPC {
     third = "{name} met Auctioneer Stockton, who follows every price in the Undercity's auction ring.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_default", text = "Good day. Copper ore is up and linen is down, in case you were wondering, and you ought to be." },
     { id = "g_back", when = { metBefore = true }, text = "Back to watch the prices, or to move them? Either way, I've news since you were last here." },
     { id = "g_gather", when = { profession = "Herbalism" }, text = "An herbalist, I'd wager, by the satchel. Whatever you've picked, the Apothecarium wants it more than you do, so list it." },
@@ -425,6 +437,8 @@ P:NPC {
         { id = "h_again2", text = "Ask away. Knowledge keeps better than most of what I sell." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What do the prices tell you?", next = "prices" },
         { text = "What should I be gathering to sell?", next = "gather" },
         { text = "Where do all these goods come from?", next = "source" },

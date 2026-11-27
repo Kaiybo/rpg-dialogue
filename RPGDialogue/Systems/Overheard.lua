@@ -27,8 +27,20 @@ local playing = false
 
 function Over.IsPlaying() return playing end
 
+Over.remarks = {}
+local remarkById = {}
+
 function Over.Add(def)
   if type(def.id) ~= "string" or type(def.lines) ~= "table" then return false end
+  -- A remark (deed = .., remark = true): one person, one line, said as you pass.
+  if def.remark then
+    if remarkById[def.id] then
+      for i, old in ipairs(Over.remarks) do if old == remarkById[def.id] then table.remove(Over.remarks, i); break end end
+    end
+    remarkById[def.id] = def
+    Over.remarks[#Over.remarks + 1] = def
+    return true
+  end
   if byId[def.id] then
     for i, old in ipairs(Over.list) do if old == byId[def.id] then table.remove(Over.list, i); break end end
   end
@@ -91,19 +103,112 @@ local function sideScore(side)
   return (side.npc and 100 or 0) + (side.subtitle and 30 or 0) + (side.role and 10 or 0)
 end
 
+---------------------------------------------------------------------------
+-- Deeds that travel (0.117.0): a big stance (a big or doubled alignment shift) or an
+-- opinion on a watched topic is written down as a deed with where and to whom it was said.
+-- Exchanges and remarks with `deed = "id" | {ids}` need one such deed, at least
+-- Over.DEED_MIN_SECONDS old (word takes a while to travel) and at most DEED_MAX_DAYS;
+-- `side = "Alliance"|"Horde"` limits them to one faction, `sameTown = true` to people of
+-- the town where it was said, and they are never said by the person who heard it.
+---------------------------------------------------------------------------
+Over.DEED_MIN_SECONDS = 300
+Over.DEED_MAX_DAYS = 30
+Over.REMARK_SECONDS = 1800   -- at most one passing remark every 30 minutes
+Over.REMARK_CHANCE = 0.1
+Over.WATCHED = { jaina = true, warchief = true, thrall = true, scourge = true, druids = true,
+  cenarion_circle = true, sylvanas = true, forsaken = true, scarlet_crusade = true, peace = true,
+  demons = true, bolvar = true, prestor = true, night_elves = true, humans = true, orcs = true }
+
+local function deedData(id, env)
+  if not (ns.Trackers and ns.Trackers.Deed and ns.char and ns.char.deeds) then return end
+  local fresh = ns.char.deeds[id] == nil
+  local d = ns.Trackers.Deed(id)
+  if not fresh and d.said then return end
+  local info = env and env.info
+  d.said = true
+  d.npc = info and ns.Memory.Key(info) or nil
+  d.npcName = info and info.name or nil
+  d.town = info and info.communities and info.communities[1] or nil
+  d.side = C.Faction("player")
+  d.zone = C.Zone and (C.Zone()) or nil
+end
+
+-- Called from Effects.Apply (wrapped below; Core may also call it directly).
+function Over.RecordDeeds(fx, env)
+  if type(fx) ~= "table" then return end
+  env = env or {}
+  if type(fx.align) == "table" then
+    local big = fx.big or env.nodeBig
+    for axis, d in pairs(fx.align) do
+      if type(d) == "number" and (big or math.abs(d) >= 2) and d ~= 0 then
+        deedData("said:align_" .. axis .. (d > 0 and "_up" or "_down"), env)
+      end
+    end
+  end
+  if type(fx.opinion) == "table" then
+    for topic, stance in pairs(fx.opinion) do
+      if Over.WATCHED[topic] and type(stance) == "string" then deedData("said:" .. topic .. "_" .. stance, env) end
+    end
+  end
+end
+
+if ns.Effects and ns.Effects.Apply and not ns.Effects._deedWrapped then
+  local apply = ns.Effects.Apply
+  ns.Effects.Apply = function(fx, env)
+    local r = apply(fx, env)
+    pcall(Over.RecordDeeds, fx, env)
+    return r
+  end
+  ns.Effects._deedWrapped = true
+end
+
+-- The deed this def needs, if the player has it in a fit state; nil otherwise.
+local function deedFor(def, now, speakers)
+  if not def.deed then return true end
+  if def.side and def.side ~= C.Faction("player") then return nil end
+  local deeds = ns.char and ns.char.deeds or {}
+  for _, id in ipairs(U.AsList(def.deed)) do
+    local d = deeds[id]
+    local age = d and now - (d.t or now)
+    if d and age >= Over.DEED_MIN_SECONDS and age <= Over.DEED_MAX_DAYS * 86400 then
+      local ok = true
+      for _, info in ipairs(speakers) do
+        if d.npc and ns.Memory.Key(info) == d.npc then ok = false end
+      end
+      if ok and def.sameTown and d.town then
+        ok = false
+        for _, info in ipairs(speakers) do
+          for _, t in ipairs(info.communities or {}) do if t == d.town then ok = true end end
+        end
+      end
+      if ok then return d end
+    end
+  end
+  return nil
+end
+Over.DeedFor = deedFor
+
+-- {deedNpc} and {deedZone} in deed lines: who heard it and where.
+local function deedText(text, d)
+  if type(d) ~= "table" then return text end
+  text = text:gsub("{deedNpc}", d.npcName or "someone"):gsub("{deedZone}", d.zone or "town")
+  return text
+end
+
 -- Candidates for one pair of people (both ways round).
 local function candidates(ia, ib, ctx, env, now)
   local s, out = store(), {}
   for _, def in ipairs(Over.list) do
-    if fresh(def, s, now) then
+    local deed = fresh(def, s, now) and deedFor(def, now, { ia, ib })
+    if deed then
       local first, second
       if sideMatches(ia, def.a) and sideMatches(ib, def.b) then first, second = ia, ib
       elseif sideMatches(ib, def.a) and sideMatches(ia, def.b) then first, second = ib, ia end
       if first and first ~= second then
         local pass, score = ns.Conditions.Eval(def.when, ctx, env)
         if pass then
-          out[#out + 1] = { def = def, a = first, b = second,
-            score = sideScore(def.a) + sideScore(def.b) + (score or 0) }
+          out[#out + 1] = { def = def, a = first, b = second, deed = deed ~= true and deed or nil,
+            score = sideScore(def.a) + sideScore(def.b) + (score or 0) + (def.deed and 40 or 0) }
         end
       end
     end
@@ -147,7 +252,7 @@ local function play(c, ctx, env)
     -- Cut short when a fight starts or the player opens a conversation of their own.
     local sess = ns.Conversation.session
     if not l or C.InCombat() or (sess and sess.mode == "full") then playing = false; return end
-    local text = ns.Tokens.Render(l.text or l[2] or "", ctx, env)
+    local text = ns.Tokens.Render(deedText(l.text or l[2] or "", c.deed), ctx, env)
     local who = l.who or l[1]
     if who == "a" or who == "b" then
       C.Print(("|cffffff9f%s says: %s|r"):format(speakerName(who == "a" and c.a or c.b), text))
@@ -209,6 +314,33 @@ function Over.Try(force)
   return true
 end
 
+-- A passing remark about a deed, from someone you target or mouse over. Same setting and
+-- the same quiet places as exchanges; rarer still.
+local lastRemark = 0
+function Over.TryRemark(unit, force)
+  if playing or not ns.char or not ns.db or #Over.remarks == 0 then return false end
+  if not force and not enabled() then return false end
+  local now = C.Now()
+  if not force and now - lastRemark < Over.REMARK_SECONDS then return false end
+  local info, ctx = infoFor(unit)
+  if not info or info.role == "quiet" or info.role == "corpse" then return false end
+  if not force and math.random() > Over.REMARK_CHANCE then lastRemark = now - Over.REMARK_SECONDS / 2; return false end
+  local s = store()
+  local env = ns.Engine.NewEnv(info, ctx, ns.Memory.Get(ns.Memory.Key(info)) or {})
+  local cands = {}
+  for _, def in ipairs(Over.remarks) do
+    local deed = fresh(def, s, now) and sideMatches(info, def.a) and deedFor(def, now, { info })
+    if deed and ns.Conditions.Eval(def.when, ctx, env) then cands[#cands + 1] = { def = def, deed = deed } end
+  end
+  if #cands == 0 then return false end
+  local c = cands[math.random(#cands)]
+  lastRemark, s[c.def.id] = now, now
+  local l = c.def.lines[1]
+  local text = ns.Tokens.Render(deedText(l.text or l[2] or "", c.deed), ctx, env)
+  C.Print(("|cffffff9f%s says: %s|r"):format(speakerName(info), text))
+  return true
+end
+
 local function remember(unit)
   local guid = C.GUID(unit)
   if not guid or C.IsPlayer(unit) then return end
@@ -220,7 +352,7 @@ ns.On("NAME_PLATE_UNIT_ADDED", function(_, unit)
   Over.Try()
 end)
 ns.On("PLAYER_TARGET_CHANGED", function()
-  if C.Exists("target") then remember("target"); Over.Try() end
+  if C.Exists("target") then remember("target"); if not Over.Try() then Over.TryRemark("target") end end
 end)
 ns.On("UPDATE_MOUSEOVER_UNIT", function()
   if C.Exists("mouseover") then remember("mouseover"); Over.Try() end

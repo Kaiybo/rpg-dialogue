@@ -18,6 +18,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "There you are, friend! I put a little extra by for you, as usual. Talonbranch is brighter with you about." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You'll pay what everyone pays, and you'll check your own change. That's all I'll say." },
     { id = "g_default", text = "Welcome to Talonbranch, friend. Everything on my table came from outside Felwood, so it's safe to eat." },
     { id = "g_horde", when = { faction = "Horde" }, text = "You're a long way from Bloodvenom, and the Sentinels here will be watching you. Buy what you need and keep your weapons sheathed." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away}, and still breathing. Felwood hasn't had you yet, then." },
@@ -43,6 +45,8 @@ P:NPC {
         { id = "h_again2", text = "Ask away. Customers are rare enough up here." },
       },
       choices = {
+        { text = "It's good of you to keep the glade supplied.", next = "BACK", reply = "Someone must, and the Sentinels would starve if they had to cook for themselves.", fx = { align = { honor = 1 } } },
+        { text = "I'd sooner forage than pay these prices.", next = "BACK", reply = "Forage in Felwood, then, and come back when the berries have made you sick.", fx = { align = { honor = -1 } } },
         { text = "What's Talonbranch Glade like?", next = "glade" },
         { text = "How do you get supplies up here?", next = "supplies" },
         { text = "Is the forest food really so bad?", next = "food" },
@@ -132,6 +136,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, you. Let me see your blade. Yes, you've kept it well, as I knew you would. What can I sell you today?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Your blade's a disgrace, and I doubt you'll listen. Buy something or move along." },
     { id = "g_default", text = "Let me see your blade. No, really, let me see it; I can tell a lot about someone from their edge." },
     { id = "g_worn", when = { durability = { max = 0.3 } }, text = "Elune's mercy, what have you been hitting with that? Put it on the counter before it falls apart in your hand." },
     { id = "g_horde", when = { faction = "Horde" }, text = "I don't sell steel to the Horde, and I'd think twice before drawing yours in this glade. Move along." },
@@ -157,6 +163,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, then. The blades aren't going anywhere." },
       },
       choices = {
+        { text = "A fighter should honor the blade that keeps them alive.", next = "BACK", reply = "Exactly. Neglect a weapon and it will fail you on the worst day of your life.", fx = { align = { honor = 1 } } },
+        { text = "Blades break. I'll buy another when this one does.", next = "BACK", reply = "And it will break at the worst possible moment. Go on, then.", fx = { align = { honor = -1 } } },
         { text = "Why does Felwood ruin steel?", next = "steel" },
         { text = "Who buys weapons out here?", next = "buyers" },
         { text = "What should I fight with here?", next = "advice" },

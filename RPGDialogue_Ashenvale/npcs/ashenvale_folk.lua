@@ -530,6 +530,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, it's you. The animals know your step and stay calm for it. Come in; I've a quiet stall ready." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Quietly. The animals are resting. Say what you need, and let them be." },
     { id = "g_hello", text = "Quietly, please. The animals are resting, and so am I." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Come for a companion, or to leave one with me?" },
   },
@@ -555,6 +557,8 @@ P:NPC {
         { id = "h_again2", text = "What else can I do for you?" },
       },
       choices = {
+        { text = "A companion left in good hands rests easier.", next = "BACK", reply = "It does. I treat each one as my own.", fx = { align = { light = 1 } } },
+        { text = "A beast doesn't care who feeds it.", next = "BACK", reply = "They care a great deal. Speak more quietly, please.", fx = { align = { light = -1 } } },
         { text = "I'd like to see the stables.", next = "BUSINESS" },
         { text = "What sort of beasts do you keep?", next = "beasts" },
         { text = "How do the animals take the war?", next = "war" },

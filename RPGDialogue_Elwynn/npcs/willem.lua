@@ -13,6 +13,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Northshire's a little safer with you about, and I'll say so to anyone." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep moving; I've no time for you today." },
     { id = "hum_g1", when = { race = "Human" }, priority = 5,
       text = "Another face from Elwynn! You'll know the valley, then, or you will by sundown, and I'm glad of someone who doesn't need the Abbey pointed out." },
     { id = "g_morning", when = { timeOfDay = { "dawn", "day" } }, text = "Morning! Keep to the road and you'll keep your purse." },
@@ -369,6 +371,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You've done right by Northshire, and I've seen it. That counts for a lot." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've given me cause to watch you, and I'm a deputy, so watching's what I do." },
+    },
     knows = {
       { id = "tp_knows", text = "I keep the Abbey gate, so I see everyone who comes and goes, and I count them too. Ask me about any of this." },
     },

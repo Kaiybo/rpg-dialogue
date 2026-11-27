@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "You return, and the loa smile, for once. Sit, and I will tell you what they whisper." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. The loa do not favour you today, and neither do I." },
     { id = "g_default", text = "You are brave to come here, or foolish, and in Shadra'Alor the loa do not trouble to tell the two apart." },
     { id = "g_back", when = { metBefore = true }, text = "You return, and the Witherbark have not killed you yet. Speak quickly, before they reconsider." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and I am still here, still an exile. Time passes differently for those with nowhere to go, and the spirits of my fathers do not visit an outcast's fire." },
@@ -145,6 +147,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You listen, and you doubt, and that is wisdom. Jammal'an never understood that." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You have shown me contempt, and I am already an exile. Do not make me an enemy." },
+    },
     knows = { { id = "tp_knows", text = "I know the Atal'ai, their temple and their god, more than I would wish to, for I sang his hymns with blood on my hands. Ask, stranger." } },
     background = { { id = "tp_bg", text = "A priest of the Atal'ai, once. Now only an exile, and the Witherbark do not let me forget it." } },
     advice = { { id = "tp_ad", text = "If you enter the temple, do not listen to the singing. Some of it is meant for you." } },

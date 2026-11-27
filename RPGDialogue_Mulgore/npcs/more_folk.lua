@@ -275,6 +275,8 @@ P:NPC {
     third = "{name} met Moodan Sungrain, the jovial baker at Camp Narache.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "There's my hungry friend! Sit, eat, and I'll find you the big loaf, the one I save for favorites." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hungry? Food's on the board, and the price is the price. Eat, and let others get to the counter." },
     { id = "g_hi", text = "Hungry? Of course you are, everyone up here is hungry. Sit, eat, and tell me who you've been fighting." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and thinner, I think. Here, have a loaf." },
     { id = "g_away", when = { away = 14 }, text = "It has been {away} since you last ate at my fire. Sit down before you fall down." },
@@ -421,6 +423,8 @@ P:NPC {
     third = "{name} met Harant Ironbrace, the armorer and shieldcrafter of Bloodhoof Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, you. Show me your armor; you've treated it well, and it shows. I'll do my best work on it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Armor and shields. Let me see what you've done to yours, and I'll tell you what it'll cost to undo." },
     { id = "g_hi", text = "Armour and shields. Let me see how you've been treating what you have on." },
     { id = "g_back", when = { metBefore = true }, text = "More dents. You've been busy, I see." },
     { id = "g_away", when = { away = 14 }, text = "You have been gone {away}, and you are still in one piece. Then what I sold you did its work." },
@@ -567,6 +571,8 @@ P:NPC {
     third = "{name} met Uthan Stillwater, who teaches fishing beside Stonebull Lake.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, sit by me, friend. The fish know you by now, I think. They bite better when you're here." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Shh. Sit if you must, but quietly. The fish do not care for you, and neither, I think, do I." },
     { id = "g_hi", text = "Shh. Sit, if you like, but quietly. The fish are listening." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you're back. Did they bite for you?" },
     { id = "g_away", when = { away = 14 }, text = "{away} since you last sat on this bank. The lake has not changed, and neither have I." },
@@ -723,6 +729,8 @@ P:NPC {
     third = "{name} met Rimblat Earthshatter, a young Earthen Ring shaman at Camp Gev'rek.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome back, friend! Gev'rek is glad of you. The earth has been good, and it's better with you here." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome to Gev'rek. Keep your boots on the path, please. The earth is good, and I'd like it to stay so." },
     { id = "g_hi", text = "Welcome to Gev'rek. The earth is good here, and the wind is better." },
     { id = "g_back", when = { metBefore = true }, text = "You return. The spirits have been calm today; I hope you have been too." },
     { id = "g_away", when = { away = 14 }, text = "You have been away {away}. The grass has grown a little since then, and that is always good news." },
@@ -1172,6 +1180,8 @@ P:NPC {
     third = "{name} met Harb Clawhoof, who raises the riding kodo of Bloodhoof Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "She's turned her head to you, friend. She knows you, and a kodo doesn't forget a kindness." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come up slowly. A kodo forgives little, and she has not forgiven you yet. Nor have I." },
     { id = "g_hi", text = "Come up slowly, and from the side where she can see you. A kodo forgives a great deal, but not being startled." },
     { id = "g_back", when = { metBefore = true }, text = "You are back, and the grey one lifted her head. She does not do that for everyone." },
     { id = "g_away", when = { away = 14 }, text = "{away} since you last stood at my fence. The calves you saw then are half grown now." },
@@ -1320,6 +1330,8 @@ P:NPC {
     third = "{name} met Chaw Stronghide, the leatherworking trainer of Bloodhoof Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, you. Sit and take up the awl, friend. You've a good hand, and I'll show you more today." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Sit and take up the awl, if you've come to learn. If you've come to talk, I've nothing to say." },
     { id = "g_hi", text = "If you have come to learn, sit down and pick up an awl. If you have come to talk, you may still pick up an awl." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Show me your last piece, and do not hide the bad seam under your thumb." },
     { id = "g_away", when = { away = 14 }, text = "{away} away from the bench. Your hands will have forgotten half of what I showed them." },
@@ -1468,6 +1480,8 @@ P:NPC {
     third = "{name} met Pyall Silentstride, who teaches cooking at Bloodhoof Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, come taste this, friend. You have a good tongue, and I trust it more than my own sometimes." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Taste this, if you must. Say what it lacks, plainly, and then I'll get back to my work." },
     { id = "g_hi", text = "Taste this, and tell me what it lacks. I have been standing over it too long to know." },
     { id = "g_back", when = { metBefore = true }, text = "You are back. Good, the pot has been waiting for a second opinion." },
     { id = "g_away", when = { away = 14 }, text = "{away} since you last ate here. Sit, and I will not ask what you have been eating instead." },
@@ -1608,6 +1622,8 @@ P:NPC {
     third = "{name} met Wunna Darkmane, who sells trade goods in Bloodhoof Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend! Tell me your craft and I'll give you the best of my stock, at a price you'll like." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Thread, dye, flux or salt? Decide quickly. I have other customers, ones I trust more." },
     { id = "g_hi", text = "Thread, dye, flux or salt? Tell me your craft, and I will tell you what you have run out of." },
     { id = "g_back", when = { metBefore = true }, text = "Back already. Then you used it all, and I was right about how much you needed." },
     { id = "g_away", when = { away = 14 }, text = "{away} gone, and three caravans in and out since. You have missed the good dyes." },
@@ -1748,6 +1764,8 @@ P:NPC {
     third = "{name} met Kawnie Softbreeze, who sells general goods at Camp Narache.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Come in, come in, young one! Oh, it's good to see you. Sit down and let me fuss over you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come in out of the wind. I'll help you, as I help everyone, but I've not forgotten what folk say." },
     { id = "g_hi", text = "Come in out of the wind, young one. Tell me where you are bound, and I will tell you what you have forgotten to pack." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and with a lighter pack than I sent you off with. Let us see what needs filling." },
     { id = "g_away", when = { away = 14 }, text = "{away} away from the mesa! You have grown, and your waterskin has not, so sit a moment." },
@@ -1899,6 +1917,8 @@ P:NPC {
     third = "{name} met Marjak Keenblade, the weaponsmith at Camp Narache.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Your hands are good hands, friend. I needn't see them. Look at the blades as long as you like." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Let me see your hands before you touch my blades. Slowly, please. I want to see them both." },
     { id = "g_hi", text = "Step in, and let me see your hands before you look at my blades. The hand chooses the weapon, whatever the eye may want." },
     { id = "g_back", when = { metBefore = true }, text = "You have returned. Show me the edge, and I will know how you have been treating it." },
     { id = "g_away", when = { away = 14 }, text = "{away} since I saw that weapon. It has been used, which is more than I can say for some I have sold." },
@@ -2050,6 +2070,8 @@ P:NPC {
     third = "{name} met Varia Hardhide, who sells leather armor at Camp Narache.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Come and be measured, friend! I'll tell you honestly what fits, and I'll give you a good price." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come and be measured. I'll tell you honestly what fits, and honestly, I'd rather you shopped elsewhere." },
     { id = "g_hi", text = "Come and be measured, young one. I will tell you honestly what fits, which is more than the two smiths beside me will do." },
     { id = "g_back", when = { metBefore = true }, text = "There you are again, and that jerkin has stretched across the shoulders. You are growing, or you have been caught in the rain." },
     { id = "g_away", when = { away = 14 }, text = "{away}, and you are still wearing leather. Good, it means you came home in it." },
@@ -2191,6 +2213,8 @@ P:NPC {
     third = "{name} met Bronk Steelrage, the armorer and shieldcrafter at Camp Narache.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ho, friend! Come here, come here! I've a new strap and I want you to try it before anyone else!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ho, young one. Put your arm through the strap, and tell me if it fits. Then you can be off." },
     { id = "g_hi", text = "Ho, young one! Come here and put your arm through this strap, and tell me you do not feel safer already." },
     { id = "g_back", when = { metBefore = true }, text = "Ho, you are back, and in one piece! I will take the credit for that, whatever Marjak says." },
     { id = "g_away", when = { away = 14 }, text = "{away}! Let me see the shield, for the dents will tell me the whole story faster than you can." },
@@ -2333,6 +2357,8 @@ P:NPC {
     third = "{name} met Reban Freerunner, the pet trainer in Bloodhoof Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Be welcome, friend, and your beast too. You treat it well, and it trusts you. So do I." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Stand easy. Your beast may come forward, if it likes. I'll judge you through it, I think." },
     { id = "g_hi", text = "Be welcome, and stand easy. If a beast walks with you, let it come forward first, for I learn more from it than from you." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Tell me how your companion has fared, and I will know how you have fared." },
     { id = "g_away", when = { away = 14 }, text = "{away} on the trail. A beast changes in that time, and so does the one it follows." },
@@ -2554,6 +2580,8 @@ P:NPC {
     third = "{name} met Moorat Longstride, who sells general goods in Bloodhoof Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome back, friend! Set your pack down and tell me everything. I've missed your stories." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome, traveller. Set your pack down, buy what you need, and pick it up again." },
     { id = "g_hi", text = "Welcome, traveller! Set your pack down and tell me which road you came in by, and I will tell you what it has worn out." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and glad I am to see it. Where have your hooves or boots taken you since?" },
     { id = "g_away", when = { away = 14 }, text = "{away}! You will have been past Camp Taurajo at least, in that time. Come, tell me how the road stands." },
@@ -2703,6 +2731,8 @@ P:NPC {
     third = "{name} met Kennah Hawkseye, the gunsmith in Bloodhoof Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome, friend. I trust you to keep the muzzle down without my saying. What do you need?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Keep the muzzle of anything you carry toward the ground, please, and keep your hand off it." },
     { id = "g_hi", text = "Welcome. Keep the muzzle of anything you carry toward the ground while you are in my tent, and we shall be friends." },
     { id = "g_back", when = { metBefore = true }, text = "You are back. Has it fired true for you, or has it taught you to clean it?" },
     { id = "g_away", when = { away = 14 }, text = "{away} of hunting. Let me look down the barrel, for I can read a season in the fouling." },
@@ -2844,6 +2874,8 @@ P:NPC {
     third = "{name} met Vira Younghoof, the bandage trainer in Bloodhoof Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Stand still, friend, let me look. Good. You've been looking after yourself, and I'm glad of it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Stand still. Good, nothing is bleeding. I'll teach you, but I'd rather you stopped needing patching." },
     { id = "g_hi", text = "Stand still a moment and let me look at you. Good, nothing is bleeding, so now you may tell me why you have come." },
     { id = "g_back", when = { metBefore = true }, text = "You are back, and walking evenly. Either you have been careful, or you have been binding your own wounds as I showed you." },
     { id = "g_away", when = { away = 14 }, text = "{away} away, and a new scar that I did not dress. It has healed cleanly enough, so I shall say nothing." },
@@ -2994,6 +3026,8 @@ P:NPC {
     third = "{name} met Yonn Deepcut, the skinning trainer in Bloodhoof Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome, friend. Your knife is sharp, I can tell without looking. Come, I'll show you something." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Show me your knife before anything else. A dull blade tears the hide, and a careless hand worse." },
     { id = "g_hi", text = "Welcome. Show me your knife before anything else, for a dull one tears, and I will not teach tearing." },
     { id = "g_back", when = { metBefore = true }, text = "You have come back. Did the hides come away whole, or did you bring Chaw Stronghide rags again?" },
     { id = "g_away", when = { away = 14 }, text = "{away} of hunting. I hope you wasted nothing, and I shall know if you did when I see your next hide." },
@@ -3145,6 +3179,8 @@ P:NPC {
     third = "{name} met Harn Longcast, who sells fishing supplies by the bridge at Bloodhoof Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Walk where you like on the bridge, friend. The fish feel your hooves and don't mind them." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Walk softly on the bridge, please. The fish feel every hoof, and they don't care for yours." },
     { id = "g_hi", text = "Walk softly on the bridge, friend, for the fish feel every hoof. There, now you may talk as loudly as you please." },
     { id = "g_back", when = { metBefore = true }, text = "Back to the bridge, are you? Tell me what you caught, and I will tell you what you ought to have used." },
     { id = "g_away", when = { away = 14 }, text = "{away} gone. The lake has turned over once since then, and the big ones are sitting deep." },

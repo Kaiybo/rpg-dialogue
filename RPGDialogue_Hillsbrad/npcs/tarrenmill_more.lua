@@ -930,6 +930,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
     { id = "g_default", text = "The bats are hungry and so is the wind. Where are you going?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again. The bats remember your smell, which is a compliment, mostly." },
   },
@@ -1095,6 +1097,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "Rope, flasks, thread, and food for those who still need it. What will it be?" },
   },
 
@@ -1109,6 +1113,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Rope, bandages and patience, same as everyone, though some say paladins need a little more of the last. I'd keep a few bandages anyway, because I hear the Light doesn't always come as quickly to a dead hand as to a living one." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "It comes when I'm worthy of it. I'll stay worthy.", next = "BACK", reply = "Then stay worthy, and buy some bandages anyway. Worthiness and bandages go well together.", fx = { align = { light = 1 } } },
         { text = "I don't wait on the Light. Bandages will do.", next = "BACK", reply = "Sensible. I'd keep the Light for emergencies and the bandages for everything else.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },

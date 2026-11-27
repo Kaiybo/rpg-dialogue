@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my friend! Come closer, the grunts don't bite, and I've a secret for you." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Stay where you are, please." },
     { id = "g_default", text = "Another visitor for the prisoner! Come closer, friend, the grunts don't bite unless I talk too loudly." },
     { id = "g_back", when = { metBefore = true }, text = "You came back. Either you're curious, or they've sent you to soften me up, and I don't much mind which." },
     { id = "g_scourge", when = { race = "Scourge" }, text = "Stay back! No, no, I'll keep my voice down, I swear it. Just stay where the grunts can see you." },
@@ -174,6 +176,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're the only one who listens to a prisoner. I'll remember that." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been rough with me, and I'm already a prisoner." },
+    },
     background = { { id = "tp_ba", text = "Stormwind trained me to listen and lie, and the orcs caught me doing both. That's all you'll get for free." } },
     advice = { { id = "tp_ad", text = "Never drink anything offered by someone who smiles too much. Don't ask me why I've been thinking about that." } },
     _none = { { id = "tp_none", text = "I don't know, and if I did, I'd be saving it for someone with a key." } },

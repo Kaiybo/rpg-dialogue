@@ -15,6 +15,8 @@ P:NPC {
     third = "{name} met Aaron, one of the six children who march together out of Goldshire.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hi! I've been practising being brave, just like you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Go away. I don't like you very much." },
     { id = "g_default", text = "You have to walk beside us if you want to talk, because we aren't allowed to stop until Cameron says so." },
     { id = "g_back", when = { metBefore = true }, text = "It's you again! I've counted four thousand steps since you last came by, and I only lost my place once." },
   },
@@ -111,6 +113,8 @@ P:NPC {
     third = "{name} met Cameron, the boy who walks in the middle of Goldshire's marching children.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hello again! You're my favourite grown-up, but don't tell my mum." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'm not playing with you today." },
     { id = "g_default", text = "You may approach the king, but you mustn't step inside the ring, because the guards get upset." },
     { id = "g_back", when = { metBefore = true }, text = "I remember you! You were very polite last time, so you may approach the king again." },
   },
@@ -207,6 +211,8 @@ P:NPC {
     third = "{name} met Dana, the sharpest-eyed of the six children who march out of Goldshire.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hello again! You're my favourite grown-up, but don't tell my mum." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'm not playing with you today." },
     { id = "g_default", text = "I saw you coming from all the way back at the bend, before anybody else did. I always see things first." },
     { id = "g_back", when = { metBefore = true }, text = "I spotted you first again! Cameron didn't even look up." },
   },
@@ -303,6 +309,8 @@ P:NPC {
     third = "{name} met John, the most footsore of the six children who march out of Goldshire.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hi! I've been practising being brave, just like you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Go away. I don't like you very much." },
     { id = "g_default", text = "Have you come from Goldshire? Is it far behind us? It feels like it's ever so far behind us." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, it's you. We're still walking, in case you wondered, because we're always still walking." },
   },
@@ -397,6 +405,8 @@ P:NPC {
     third = "{name} met Jose, the laughing collector among the six children who march out of Goldshire.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hello again! You're my favourite grown-up, but don't tell my mum." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'm not playing with you today." },
     { id = "g_default", text = "Hello! Do you want to see what I found? It's in this pocket, or it might be in the other one." },
     { id = "g_back", when = { metBefore = true }, text = "You came back! I've found three new things since you went, and one of them is still alive." },
   },
@@ -491,6 +501,8 @@ P:NPC {
     third = "{name} met Lisa, who knows every face on the road among the six children who march out of Goldshire.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's you! I told everyone you'd come back, and they didn't believe me!" },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You're mean, and I'm telling." },
     { id = "g_default", text = "Hello! I haven't seen you on this road before, and I know nearly everybody on this road." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again! I told Guard Thomas about you, and he said he thinks he knows who I mean." },
   },
@@ -586,6 +598,8 @@ P:NPC {
     third = "{name} met Joshua, a Goldshire boy who plays behind the smithy with Bo and Mark.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's you! I told everyone you'd come back, and they didn't believe me!" },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Go away. I don't like you very much." },
     { id = "g_default", text = "Are you a real adventurer, or do you only dress like one? Bo says every one of you is real, but Bo believes anything." },
     { id = "g_back", when = { metBefore = true }, text = "It's you. I've decided you're real, so you needn't prove it again." },
   },
@@ -679,6 +693,8 @@ P:NPC {
     third = "{name} met Mark, the quick, cheeky Goldshire boy who plays behind the smithy with Bo and Joshua.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's you! I told everyone you'd come back, and they didn't believe me!" },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Mum says I'm not to talk to you." },
     { id = "g_default", text = "I didn't do it! Oh, you're not Argus. Hello, then." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again! Is Argus looking this way? Stand just there, would you, so he can't see me." },
   },
@@ -775,6 +791,8 @@ P:NPC {
     third = "{name} met Markus, the boy who plays in the garden of Clara Charles's farm.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hello again! You're my favourite grown-up, but don't tell my mum." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'm not playing with you today." },
     { id = "g_default", text = "Mind the cabbages! Well, mind the ones that are left, because I've had to move a few." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! I played at being you all week, and I beat four gnolls, but they were fence posts really." },
   },
@@ -871,6 +889,8 @@ P:NPC {
     third = "{name} met Merissa Stilwell, who welcomes new arrivals at Northshire.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
     { id = "g_default", text = "Welcome to Northshire, {class}! You've picked a fine morning to arrive, kobolds notwithstanding." },
     { id = "g_back", when = { metBefore = true }, text = "It's good to see you again, {name}. The valley's been quieter since you started lending a hand." },
     { id = "g_voucher", when = { questActive = TODO_QUEST("Welcome!") }, text = "Ah, you've a voucher with you, I see! Let me have a look at it, and welcome to Northshire." },

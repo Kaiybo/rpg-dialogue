@@ -14,6 +14,8 @@ P:NPC {
     third = "{name} spoke with the ghost of one of Caer Darrow's guardsmen.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Go on through, friend; I'll not trouble you today." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm watching you, so keep your hands where I can see them." },
     { id = "g_default", text = "Halt, in the name of Lord Barov! State your business in Caer Darrow, traveller." },
     { id = "g_back", when = { metBefore = true }, text = "You again, traveller. Strange, I can't remember the last time anyone came twice." },
   },
@@ -27,6 +29,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I keep the peace in Caer Darrow, same as every day, though the town's been terribly quiet of late. The Barovs keep to the keep and the folk keep to their houses, and nobody tells a guardsman why." } },
       again = { { id = "h_again", text = "Anything else, traveller? I've my rounds to walk." } },
       choices = {
+        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "When did you last see Lord Barov?", next = "xbarov" },
         { text = "What do you do when your shift ends?", next = "xshift" },
         { text = "You are dead. Look at your hands.", next = "xhands" },
@@ -116,6 +120,8 @@ P:NPC {
     third = "{name} spoke with the ghost of one of Caer Darrow's cannoneers.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'd not trust you to hold a line, and I'll not pretend otherwise." },
     { id = "g_default", text = "Stand clear of the gun, friend! She's loaded and she's touchy, and so am I." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Stand clear, same as before, and keep your torch away from the powder." },
   },
@@ -129,6 +135,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I man the cannons of Caer Darrow, and I watch the lake for raiders, as Lord Barov ordered. Nothing has come across the water in a very long time, but I keep watching, because those are my orders." } },
       again = { { id = "h_again", text = "What else? Make it quick, I'm on watch." } },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "When did you last fire the cannon?", next = "xfire2" },
         { text = "Who gives you your orders now?", next = "xorders" },
         { text = "I'm a dwarf. That's a fine gun.", next = "xdwarf", when = { race = "Dwarf" } },
@@ -208,6 +216,8 @@ P:NPC {
     third = "{name} spoke with the ghost of one of Caer Darrow's horsemen.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'd not trust you to hold a line, and I'll not pretend otherwise." },
     { id = "g_default", text = "Whoa, steady there! You came up so quiet, traveller, I nearly rode you down." },
     { id = "g_back", when = { metBefore = true }, text = "You again, traveller! Have you come to ride with me, or just to stare?" },
   },
@@ -221,6 +231,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I ride the patrol around Caer Darrow, the same circle as always, the shore, the gate, the keep and round again. My horse knows the way so well I could sleep in the saddle, and maybe I do." } },
       again = { { id = "h_again", text = "Anything else, traveller? My horse is restless." } },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What's your horse's name?", next = "xname" },
         { text = "Who rides with you on patrol?", next = "xwho" },
         { text = "I'm a paladin. Your horse is a spirit too.", next = "xpal", when = { class = "PALADIN" } },
@@ -301,6 +313,8 @@ P:NPC {
     third = "{name} spoke with the ghost of one of Caer Darrow's townsfolk.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "Oh! Good day to you, stranger, I didn't hear you on the cobbles. It's been so long since we had visitors in town." },
     { id = "g_back", when = { metBefore = true }, text = "You came back! How nice, nobody ever comes back to Caer Darrow." },
   },
@@ -605,6 +619,8 @@ P:NPC {
     third = "{name} met Lysta Bancroft in the War Quarter of the Undercity.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "Come to watch the sparring, have you? Brother Malach's students need something to hit, and I keep the somethings." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. You do enjoy a show, don't you?" },
   },

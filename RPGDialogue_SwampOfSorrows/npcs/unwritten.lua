@@ -13,6 +13,8 @@ P:NPC {
     third = "{name} spoke with one of the orcs who live in Stonard.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
     { id = "g_default", text = "Another traveller come to sink in the swamp. Speak your business, and mind the mud by the walls." },
     { id = "g_back", when = { metBefore = true }, text = "Still here? The swamp hasn't swallowed you yet, then. Give it time." },
   },
@@ -129,6 +131,8 @@ P:NPC {
     third = "{name} spoke with one of the hunters of Stonard.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_default", text = "Move softly here, stranger. The crocolisks hear a footstep long before you see them." },
     { id = "g_back", when = { metBefore = true }, text = "You came back with all your toes. You must be learning the swamp." },
   },
@@ -245,6 +249,8 @@ P:NPC {
     third = "{name} spoke with one of the shamans of Stonard.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
     { id = "g_default", text = "The waters are troubled today, traveller. Come in out of the rain, if you can find a place where it isn't raining." },
     { id = "g_back", when = { metBefore = true }, text = "The spirits remember you, and so do I. Welcome back." },
   },
@@ -350,6 +356,8 @@ P:NPC {
     third = "{name} spoke with one of the explorers of Stonard.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'd not trust you to hold a line, and I'll not pretend otherwise." },
     { id = "g_default", text = "Back from the edge of the map, are you, or headed toward it? Either way, I envy you the dry roads." },
     { id = "g_back", when = { metBefore = true }, text = "You again! Did you find anything worth the walk this time?" },
   },
@@ -363,6 +371,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I walk the swamp's edges for the garrison, from the Blasted Lands' red border to the Deadwind Pass. Somebody has to know what's out there before it comes knocking on our gates." } },
       again = { { id = "h_again", text = "Anything else? I leave at dusk." } },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What's south, toward the Blasted Lands?", next = "south" },
         { text = "And west, toward Deadwind Pass?", next = "west" },
         { text = "Have you ever seen Stormwind?", next = "stormwind" },
@@ -443,6 +453,8 @@ P:NPC {
     third = "{name} spoke with the cartographer of Stonard.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_default", text = "Careful, careful, do not drip on the maps! The swamp has ruined three already this season." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, the traveller. Have you anything for me, a path, a ruin, a river that moved?" },
   },
@@ -536,6 +548,8 @@ P:NPC {
     third = "{name} spoke with one of the wayfinders of Stonard.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome at our fire any night you like." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
     { id = "g_default", text = "Lost already? Most folk are, the first time they leave the road in this swamp." },
     { id = "g_back", when = { metBefore = true }, text = "You found your way back. I'll take some of the credit for that." },
   },
@@ -551,6 +565,8 @@ P:NPC {
         { id = "ybsosstonardwayfinder2", when = { class = "SHAMAN" }, text = "The spirits might know how it got there. Ask them, if you're braver than me." },
       },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -652,6 +668,8 @@ P:NPC {
     third = "{name} met a Broken Exile at the Harborage in the Swamp of Sorrows.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
     { id = "g_default", text = "You come to the Harborage, stranger. There is little here but mist and memory, but you may rest a while." },
     { id = "g_orc", when = { race = "Orc" }, text = "An orc. Your people burned my world. Say your piece and go, before my courage fails." },
   },

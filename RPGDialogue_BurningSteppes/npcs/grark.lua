@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "You again. Strange, but I find I don't mind your face as much as the others, errand-runner." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Every time you come, I think about the guards, and how fast they'd come if I called." },
     { id = "g_default", text = "Another of Lexlort's errand-runners, come all this way into a Blackrock fortress. Brave, or very stupid, and I've lost money betting on the first one before." },
     { id = "g_back", when = { metBefore = true }, text = "Still alive? The Blackrock must be getting soft, and they were the last orcs with any blood left in them." },
     { id = "g_chained", when = { questActive = TODO_QUEST("Precarious Predicament") }, text = "These shackles won't hold me for long, and nothing will hold back my friends when they come for you." },
@@ -134,6 +136,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're not like the rest of Lexlort's dogs. You might even understand why a smart orc picks the winning side." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've made an enemy of me, and the Blackrock have long arms. Remember that when you sleep." },
+    },
     background = { { id = "tp_ba", text = "I served at Kargath until I found a better master, one who still remembers the strength the old Horde had. That's all you need to know." } },
     advice = { { id = "tp_ad", text = "Always know who's winning, and stand beside them before they've won." } },
     thrall = {

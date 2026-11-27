@@ -17,6 +17,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend! Come in, mind the step, and I'll show you my newest enchantment." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Mind the step, and mind your manners." },
     { id = "g_default", text = "Hail, traveler! What brings you to my doorstep? Mind the step; it's the one Lucan keeps meaning to fix." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, it's you again! Come up, come up. Nothing's on fire today, which I'm counting as a good sign." },
     { id = "g_ench", when = { profession = "Enchanting" }, text = "You've got dust on your cuffs, the shimmery sort. A fellow enchanter! Sit down before you fall over from all that unmaking." },
@@ -362,6 +364,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're a delight, truly, and Lucan says so too, when he's not fixing steps." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been unkind, and I'm usually so cheerful. Please don't make it hard." },
+    },
     background = { { id = "tp_bg", text = "Goldshire born, a cooper's daughter, swept floors at Cordell's for two years, and now I teach. It's not a grand story, but the middle has a sneezing jar in it." } },
     advice = { { id = "tp_ad", text = "Never hold a rod like a spoon, and never open anything from Dalaran without a label." } },
     _none = { { id = "tp_none", text = "Oh, I wouldn't know about that. Ask Jessara downstairs; she knows everything, and she'll tell you, too." } },

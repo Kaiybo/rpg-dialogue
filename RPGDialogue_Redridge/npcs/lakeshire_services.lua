@@ -20,6 +20,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
     { id = "g_default", text = "Wipe your boots, love, the straw's fresh. What can I do for you?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Your beasts have been good as gold, mostly." },
     { id = "g_pet", when = { pet = { type = "Beast" } }, text = "Oh, and who's this? {pet}, is it? Aren't you a handsome one." },
@@ -156,6 +158,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "Hello, dear! Thread, flint, a little something for the road? Have a look." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Did you pass the bridge? Was my Ashlock still standing up straight?" },
   },
@@ -182,6 +186,8 @@ P:NPC {
         { id = "h_again2", text = "Ask away, I'm just restocking." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Let me see your supplies.", next = "BUSINESS" },
         { text = "Tell me about your husband.", next = "husband" },
         { text = "What sells best in Lakeshire?", next = "sells" },
@@ -282,6 +288,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
     { id = "g_default", text = "Come in, come in! Mind the pot, and don't touch the spice jar, it's my mother's." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more lessons? Good, you've a cook's patience, I can see it." },
   },
@@ -298,6 +306,8 @@ P:NPC {
         { id = "dd_crystal_g_a", text = "You did, and I'll not have you thinking that's a small thing, because a soldier on an empty stomach makes mistakes. Breanna feeds the whole garrison on scraps, and a good pot of goulash is worth three swords on the wall." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Then I'm glad to have fed them.", next = "dd_crystal_g2" },
         { text = "Could you teach me to make it?", next = "dd_crystal_g2" },
       },
@@ -431,6 +441,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
     { id = "g_default", text = "Long walk out here for a chat. You want to learn to skin, or are you lost?" },
     { id = "g_back", when = { metBefore = true }, text = "You again. Must be serious about skinning, coming all this way twice." },
   },
@@ -454,6 +466,8 @@ P:NPC {
         { id = "h_again2", text = "Ask. I'm listening while I scrape." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Train me in skinning.", next = "BUSINESS", when = { profession = "Skinning" } },
         { text = "Why live all the way out here?", next = "why" },
         { text = "Is it safe, with the orcs so close?", next = "safe" },

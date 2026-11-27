@@ -13,6 +13,8 @@ P:NPC {
     third = "{name} met Dane Winslow, who trains warlocks' demons in the graveyard at Northshire Abbey.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
     { id = "g_default", text = "Good day. If you've no business with the things beyond, then mine isn't with you, and we may part friends." },
     { id = "g_2", when = { metBefore = true }, text = "You again. The Brothers haven't driven me off yet, as you see." },
     { id = "g_3", when = { class = "WARLOCK" }, text = "Ah, a practitioner. Are you weary of one of your charges, or only hoping for one with a more agreeable name?" },
@@ -40,6 +42,8 @@ P:NPC {
         { id = "hello_again3", when = { class = "WARLOCK" }, text = "Something more for the ledger, then?" },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I need your services.", next = "BUSINESS" },
         { text = "Why work in a graveyard?", next = "graveyard" },
         { text = "What becomes of a minion you unmake?", next = "unmake" },
@@ -170,6 +174,8 @@ P:NPC {
     third = "{name} met Donni Anthania, who keeps and sells cats in a cottage in Elwynn Forest.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_default", text = "Oh, hello, dear! Mind where you step, that's Mister Whiskers, and he was there first. Have you come about a kitten?" },
     { id = "g_2", when = { metBefore = true }, text = "You came back! The bombay's been asking after you. Well, she looked at the door twice, which is the same thing." },
     { id = "g_3", when = { class = "HUNTER" }, text = "Now you keep that beast of yours on its manners, dear. My babies were here first, and the tabby has never lost a fight." },
@@ -195,6 +201,8 @@ P:NPC {
         { id = "hello_again3", text = "Yes, dear? Speak up, there's purring." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'd like to see the kittens.", next = "BUSINESS" },
         { text = "How many cats live here?", next = "many" },
         { text = "Tell me about these tea parties.", next = "tea" },
@@ -288,6 +296,8 @@ P:NPC {
     third = "{name} met Eldrin, the tailoring trainer at the Eastvale Logging Camp.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
     { id = "g_default", text = "Good day, and oh, dear, I can tell at a glance that your wardrobe is in dire need of care. Do come in." },
     { id = "g_2", when = { metBefore = true }, text = "Ah, you're back. Turn round for me, please; yes, the seam's held, and I'm gratified." },
     { id = "g_3", when = { questActive = TODO_QUEST("Camping 101: Tailoring") }, text = "You've the look of someone sent on an errand. Is this about a camp? I was told to expect it, and I've laid out the canvas." },
@@ -313,6 +323,8 @@ P:NPC {
         { id = "hello_again3", text = "Yes? Ask, by all means." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me tailoring.", next = "BUSINESS" },
         { text = "Why would a tailor live at a logging camp?", next = "camp" },
         { text = "What's the first thing a tailor should learn?", next = "learn" },
@@ -524,6 +536,8 @@ P:NPC {
     third = "{name} met Quartermaster Hicks, who keeps the weapons at Westbrook Garrison in Elwynn Forest.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_y1", when = { timeOfDay = "night" }, text = "Night issue. Sign for what you take, and bring it back with blood on it or not at all." },
     { id = "g_default", text = "Westbrook armoury. Swords on the left, axes on the right, and hands off the rack until you've said what you want." },
     { id = "g_2", when = { metBefore = true }, text = "You're back. How did the edge hold?" },
@@ -550,6 +564,8 @@ P:NPC {
         { id = "hello_again3", text = "Aye?" },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me the weapons.", next = "BUSINESS" },
         { text = "What does the garrison fight out here?", next = "fight" },
         { text = "You share this room with Hudson.", next = "hudson" },
@@ -643,6 +659,8 @@ P:NPC {
     third = "{name} met Quartermaster Hudson, who keeps the armour and shields at Westbrook Garrison.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_y1", when = { timeOfDay = "night" }, text = "Out at night, are you? Wonderful. They can see in the dark, you know, and you can't. Take a second shield." },
     { id = "g_default", text = "Come for armour? Good, because you'll need it. Have you seen what's out in those woods? No, you haven't, or you'd be wearing more." },
     { id = "g_2", when = { metBefore = true }, text = "You're alive! That's a pleasant surprise, and I don't get many." },
@@ -669,6 +687,8 @@ P:NPC {
         { id = "hello_again3", text = "Aye, what?" },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me the armour.", next = "BUSINESS" },
         { text = "Is it really as bad as you say?", next = "bad" },
         { text = "What makes a good shield?", next = "shield" },
@@ -762,6 +782,8 @@ P:NPC {
     third = "{name} met Veldan Lightfoot, who sells leather armour at Westbrook Garrison.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "Good day, good day! Leather's my line, friend, light on the shoulders and quiet in the woods. Let me look at the length of your arm." },
     { id = "g_2", when = { metBefore = true }, text = "Welcome back! That jerkin's worn in nicely. It'll be the better for a little oil, mind, which I happen to sell." },
     { id = "g_3", when = { class = { "ROGUE", "HUNTER", "DRUID" } }, text = "Now here's somebody who knows what they need. Step past the ironmongers, friend, the good stuff's in my corner." },
@@ -787,6 +809,8 @@ P:NPC {
         { id = "hello_again3", text = "Yes, ask away, by all means." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your leathers.", next = "BUSINESS" },
         { text = "How does a merchant end up in a garrison?", next = "garrison" },
         { text = "Where does your leather come from?", next = "leather" },

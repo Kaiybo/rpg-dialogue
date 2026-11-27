@@ -663,6 +663,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
     { id = "g_default", text = "Quiet on the dock, if you would. The fish listen, even when the murlocs don't." },
     { id = "g_back", when = { metBefore = true }, text = "Back for another lesson? Good, the lake's in a teaching mood today." },
   },
@@ -680,6 +682,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "It wasn't, friend; it was peaceful once, like an old friend, and now it's full of murlocs and worse. Your water spirits might know how to cleanse it." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Then let's restore it, Matthew. The lake deserves peace.", next = "BACK", reply = "Let's, and I'll fish it every morning until it's peaceful again. Thank you, friend.", fx = { align = { order = 1 } } },
         { text = "The lake's ruined. Fish somewhere else.", next = "BACK", reply = "Somewhere else? There's no other water I'd rather fish. I'll stay with my old friend.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -860,6 +864,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "Bread, cheese, a good cut of meat, and milk. No, not ale; Daniels does the ale." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! And you didn't ask for ale. Light bless you, friend." },
     { id = "g_dry", when = { questActive = TODO_QUEST("Dry Times") }, text = "Running Daniels's errand? Then you'll know why everyone keeps asking me for drink, since he's got none." },
@@ -878,6 +884,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Daniels serves ale; I serve food. People forget, and I remind them with good humour, mostly." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Good humour's a virtue, Wental. Keep it.", next = "BACK", reply = "I will, friend, it's the only virtue I've got left. Bread and cheese?", fx = { align = { honor = 1 } } },
         { text = "Just serve the ale. People want it.", next = "BACK", reply = "I'd love to, friend, but Daniels has it and he hasn't got any. Bread and milk it is.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -1053,6 +1061,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
     { id = "g_default", text = "Wipe your boots, please; I've seedlings drying by the door." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Show me your hands, and tell me you've been cutting the stems, not tearing them." },
   },
@@ -1070,6 +1080,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They are, and the orcs and gnolls trample them more each day. Your spirits might help them heal." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Then let's help them heal, Alma. Gently.", next = "BACK", reply = "Gently, yes, that's the only way. Thank you for understanding.", fx = { align = { light = 1 } } },
         { text = "Gardens grow back. Don't fret about it.", next = "BACK", reply = "They do, but slowly, and the gnolls don't wait. I'll fret, thank you.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -1242,6 +1254,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
     { id = "g_default", text = "Mind your feet, there's stone everywhere and it all wants to land on someone." },
     { id = "g_back", when = { metBefore = true }, text = "You again? Grab the other end of this, then, if you're going to stand there." },
   },

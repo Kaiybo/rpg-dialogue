@@ -138,6 +138,8 @@ P:NPC {
     third = "{name} met Hecht Copperpinch, a goblin selling Smokywood Pastures food and drink near Mor'shan.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hungry, friend? I saved the best treats for you!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hungry? Thirsty? Pay up." },
     { id = "g_default", text = "Hungry? Thirsty? Both, if you have been out on the road. Smokywood Pastures has you covered." },
     { id = "g_back", when = { metBefore = true }, text = "A repeat customer, my favourite kind. What will it be today?" },
   },
@@ -147,6 +149,8 @@ P:NPC {
       lines = { { id = "h_default", text = "Hecht Copperpinch, at your service, selling the finest Smokywood goods this side of anywhere. The soldiers at the rampart eat my sausages, and nobody has died of them yet." } },
       again = { { id = "h_again", text = "Anything else? I have a tin for every mood." } },
       choices = {
+        { text = "Smokywood treats bring joy to the road.", next = "BACK", reply = "They do, friend! You get it.", fx = { align = { light = 1 } } },
+        { text = "Holiday treats are just a goblin scheme.", next = "BACK", reply = "Hey, that's business.", fx = { align = { light = -1 } } },
         { text = "What is Smokywood Pastures?", next = "smoky" },
         { text = "Who buys from you out here?", next = "buyers" },
         { text = "What's in the sausages, honestly?", next = "xsausage" },
@@ -407,6 +411,8 @@ P:NPC {
     third = "{name} met Grenthar, a Darkspear axe thrower on the walls of the Crossroads.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hey, friend! Stand where you like. Your ears be safe with me." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Don't stand in front of me." },
     { id = "g_default", text = "Hey, mon. Don't stand in front of me if you be wantin' to keep your ears." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, mon? Still got both ears, I see. Good." },
   },
@@ -419,6 +425,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else, mon? The road be quiet for now." } },
       choices = {
+        { text = "Watching the road keeps the Crossroads safe.", next = "BACK", reply = "It do, mon. You understand.", fx = { align = { order = 1 } } },
+        { text = "The road's safe enough.", next = "BACK", reply = "Not with de centaur about.", fx = { align = { order = -1 } } },
         { text = "What comes over the hill?", next = "threats" },
         { text = "How did you learn to throw like that?", next = "axes" },
         { text = "Darkspear guarding an orc town?", next = "darkspear" },
@@ -510,6 +518,8 @@ P:NPC {
     third = "{name} met the Herald of Thrall, who carries the Warchief's words to the Crossroads.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hear me, friend! The Warchief knows your name." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hear me, warrior! The Warchief's word reaches even you." },
     { id = "g_default", text = "Hear me, warrior! The Warchief's word reaches even the Barrens." },
     { id = "g_back", when = { metBefore = true }, text = "You return. The Warchief's voice is the same, and so is mine." },
   },
@@ -519,6 +529,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I am the Herald of Thrall, sent to speak the Warchief's words where he cannot go himself. When a great deed is done for the Horde, I am the one who cries it across the plains." } },
       again = { { id = "h_again", text = "Speak, and I will answer in the Warchief's name." } },
       choices = {
+        { text = "The Warchief leads the Horde wisely.", next = "BACK", reply = "He does! You understand.", fx = { align = { order = 1 } } },
+        { text = "The Warchief is too soft on the Alliance.", next = "BACK", reply = "Your words reach no one.", fx = { align = { order = -1 } } },
         { text = "What is the Warchief's Blessing?", next = "blessing" },
         { text = "Do you know Thrall yourself?", next = "thrall" },
         { text = "What deeds have you cried lately?", next = "xdeeds" },
@@ -649,6 +661,8 @@ P:NPC {
     third = "{name} met Kiknikle, a goblin clothier selling robes from a camp west of the Lushwater Oasis.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Oh, look at you! Marvellous. We can make you even better." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Oh, look at you. No. We can fix that. Maybe." },
     { id = "g_default", text = "Oh, look at you. No, really, look at you. We can fix that." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more style? I knew you had taste somewhere under the dust." },
   },
@@ -661,6 +675,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Something else, or shall we talk hemlines?" } },
       choices = {
+        { text = "Style matters, even on the road.", next = "BACK", reply = "It does! You have taste.", fx = { align = { honor = 1 } } },
+        { text = "Style is pointless in the Barrens.", next = "BACK", reply = "Then look terrible.", fx = { align = { honor = -1 } } },
         { text = "Why sell robes in the middle of the Barrens?", next = "why" },
         { text = "Your neighbour sells leather.", next = "pizz" },
         { text = "Who are your best customers?", next = "xcust" },
@@ -786,6 +802,8 @@ P:NPC {
     third = "{name} met Pizznukle, a goblin leather merchant camped west of the Lushwater Oasis.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You again. Good. I saved some sturdy leather for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Leather. Sturdy, cheap. Buy or don't." },
     { id = "g_default", text = "Leather, here. Sturdy, cheap, and it doesn't fall apart in the rain. What more do you want?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Something you bought tear already? No? Then you want more." },
   },
@@ -798,6 +816,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else? I'm not getting any younger." } },
       choices = {
+        { text = "Sturdy leather lasts.", next = "BACK", reply = "It does. You understand.", fx = { align = { order = 1 } } },
+        { text = "Cheap leather falls apart.", next = "BACK", reply = "Not mine. Buy or don't.", fx = { align = { order = -1 } } },
         { text = "Where do your hides come from?", next = "hides" },
         { text = "Is this camp safe?", next = "safe" },
         { text = "What makes good leather?", next = "xgood" },
@@ -922,6 +942,8 @@ P:NPC {
     third = "{name} met Pooka, an orc mother raising her son Mogg on the northern plains.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Lok'tar, friend! Mogg likes you now. Come, sit." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind Mogg. He thinks you're a harpy." },
     { id = "g_default", text = "Mind Mogg, he thinks every traveller is a harpy. Lok'tar, and welcome." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Mogg will want to show you his new stick." },
   },
@@ -931,6 +953,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I am Pooka, and that loud little warrior is my son Mogg. His father is away fighting for the Horde, so Mogg has decided to guard the hut against every harpy in the Barrens." } },
       again = { { id = "h_again", text = "Anything else? Mind the washing." } },
       choices = {
+        { text = "A warrior's family is his strength.", next = "BACK", reply = "It is. My husband fights for us.", fx = { align = { honor = 1 } } },
+        { text = "A warrior should fight, not tend family.", next = "BACK", reply = "My husband fights. I tend family.", fx = { align = { honor = -1 } } },
         { text = "Where is his father fighting?", next = "father" },
         { text = "Mogg will make a fine warrior.", next = "mogg" },
         { text = "Why live out here alone?", next = "alone" },
@@ -1175,6 +1199,8 @@ P:NPC {
     third = "{name} stood before the Manifestation of Water at the Tidus Stair.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "The tide remembers you, small one. Speak, and I will listen." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The tide answers the shaman. Not you. Speak quickly." },
     { id = "g_default", text = "The shaman calls, and the tide answers. Speak, small one, before I return to the deep." },
   },
   start = "hello",
@@ -1186,6 +1212,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Ask. The tide is turning." } },
       choices = {
+        { text = "Water gives life to the Barrens.", next = "BACK", reply = "It does. The deep remembers.", fx = { align = { light = 1 } } },
+        { text = "Water is just water.", next = "BACK", reply = "The deep does not forgive.", fx = { align = { light = -1 } } },
         { text = "What sickness is in the water?", next = "sick" },
         { text = "Why answer Islen at all?", next = "islen" },
         { text = "What is the sea like, where you come from?", next = "xsea" },
@@ -1411,6 +1439,8 @@ P:NPC {
     third = "{name} met Jaxxil Sparks, a goblin who sells holiday fireworks in the Ratchet inn.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Friend! Rockets for you, half price! Light the sky!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Rockets, crackers. Pay up front." },
     { id = "g_default", text = "Rockets, crackers, fountains of colour! Light the sky, friend, and pay up front." },
     { id = "g_back", when = { metBefore = true }, text = "Back for another bang? I knew you had the spark in you." },
   },
@@ -1420,6 +1450,8 @@ P:NPC {
       lines = { { id = "h_default", text = "Jaxxil Sparks, purveyor of explosive celebration. When the festivals roll around, I'm the reason the sky over Ratchet turns every colour it has." } },
       again = { { id = "h_again", text = "Anything else? Don't stand too close to the crate." } },
       choices = {
+        { text = "Fireworks bring joy to everyone.", next = "BACK", reply = "They do! You get it, friend.", fx = { align = { light = 1 } } },
+        { text = "Fireworks are dangerous and wasteful.", next = "BACK", reply = "Then don't light them.", fx = { align = { light = -1 } } },
         { text = "Isn't selling fireworks inside an inn dangerous?", next = "danger" },
         { text = "What festivals do you sell for?", next = "festivals" },
         { text = "What's your best firework?", next = "xbest" },
@@ -1545,6 +1577,8 @@ P:NPC {
     third = "{name} inspected Wrenix's Gizmotronic Apparatus, a vending machine in Ratchet.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Greetings, valued customer. Your patronage is appreciated." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Greetings. Please insert coin. Please do not kick." },
     { id = "g_default", text = "Greetings, valued customer. Please insert coin. Please do not kick the apparatus." },
   },
   start = "hello",
@@ -1556,6 +1590,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Please make a selection. The apparatus is listening." } },
       choices = {
+        { text = "The apparatus provides excellent service.", next = "BACK", reply = "Thank you, valued customer.", fx = { align = { order = 1 } } },
+        { text = "This apparatus is a heap of scrap.", next = "BACK", reply = "Feedback logged. Please insert coin.", fx = { align = { order = -1 } } },
         { text = "Who approves the customers?", next = "approve" },
         { text = "Kick the machine.", next = "kick" },
         { text = "Who built you?", next = "xbuilt" },
@@ -2019,6 +2055,8 @@ P:NPC {
     third = "{name} spoke with Cannoneer Smythe at Northwatch Hold.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You again. Good. Stand where you like; you know the kegs." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind the powder kegs. Don't stand in front of the barrel." },
     { id = "g_default", text = "Mind the powder kegs, and don't stand in front of the barrel. We've lost enough good boots that way." },
     { id = "g_horde", when = { faction = "Horde" }, text = "Horde on the tower! Somebody sound the bell, and somebody else hand me a fuse!" },
   },
@@ -2028,6 +2066,8 @@ P:NPC {
       lines = { { id = "h_default", text = "Smythe, cannoneer of Northwatch, by order of Lady Proudmoore. We keep the guns trained on the coast road, and the Horde knows it, which is why they keep sending people to kill us." } },
       again = { { id = "h_again", text = "Anything else? I've a gun to clean." } },
       choices = {
+        { text = "Northwatch must be held.", next = "BACK", reply = "It must. By order.", fx = { align = { order = 1 } } },
+        { text = "Northwatch is a waste of good soldiers.", next = "BACK", reply = "Mind the kegs.", fx = { align = { order = -1 } } },
         { text = "Why is Northwatch here at all?", next = "why" },
         { text = "The Horde wants you dead?", next = "dead" },
         { text = "How long have you served at Northwatch?", next = "xserve" },
@@ -2165,6 +2205,8 @@ P:NPC {
     third = "{name} met Cannoneer Whessan, a gunner at Northwatch Hold.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Oh! It's you! Good day, friend. Come, sit." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Oh. At ease. Good day." },
     { id = "g_default", text = "Oh! At ease, at ease, I mean, good day to you. We don't get many visitors who aren't trying to kill us." },
   },
   start = "hello",
@@ -2173,6 +2215,8 @@ P:NPC {
       lines = { { id = "h_default", text = "Whessan, second gun on the Northwatch wall. Smythe has the better cannon, but I have the better view of the sea, so I think I came out ahead." } },
       again = { { id = "h_again", text = "Something else? I'm not going anywhere, believe me." } },
       choices = {
+        { text = "Visitors make Northwatch less lonely.", next = "BACK", reply = "They do! Thank you.", fx = { align = { light = 1 } } },
+        { text = "Northwatch should keep visitors out.", next = "BACK", reply = "Oh. Well. Good day.", fx = { align = { light = -1 } } },
         { text = "What can you see from here?", next = "view" },
         { text = "How did you end up in the Barrens?", next = "how" },
         { text = "Do you get along with Smythe?", next = "xsmythe" },
@@ -2306,6 +2350,8 @@ P:NPC {
     third = "{name} spoke with an excavator at Bael'dun Keep.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, it's ye. Watch yer step, but come on down." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Watch yer step. I'm in nae mood." },
     { id = "g_default", text = "Watch yer step, {g:lad|lass}, the trench is deeper than it looks and I'm in nae mood to haul ye out." },
   },
   start = "hello",
@@ -2317,6 +2363,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Aye? Somethin' else?" } },
       choices = {
+        { text = "Diggin' is honest work.", next = "BACK", reply = "Aye, it is.", fx = { align = { honor = 1 } } },
+        { text = "Diggin' is a waste of time.", next = "BACK", reply = "Then dinnae dig.", fx = { align = { honor = -1 } } },
         { text = "What are you digging for?", next = "dig" },
         { text = "The tauren don't seem happy you're here.", next = "tauren" },
         { text = "How long have you been digging out here?", next = "xlong" },
@@ -2414,6 +2462,8 @@ P:NPC {
     third = "{name} met the foreman at Bael'dun Keep.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, ye again. Good. I've a moment for ye, friend." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ye're no digger. Be quick." },
     { id = "g_default", text = "Ye're no digger, so ye must be a visitor, and I've nae time for visitors. Be quick about it." },
   },
   start = "hello",
@@ -2422,6 +2472,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I run the dig at Bael'dun, which means I take the blame when it floods and the credit goes to someone in Ironforge. What d'ye want?" } },
       again = { { id = "h_again", text = "Still here? Out with it, then." } },
       choices = {
+        { text = "A good foreman keeps the dig moving.", next = "BACK", reply = "Aye, he does.", fx = { align = { order = 1 } } },
+        { text = "The dig would go faster without a foreman.", next = "BACK", reply = "Then ye'd be buried.", fx = { align = { order = -1 } } },
         { text = "What's down there that's worth all this?", next = "worth" },
         { text = "Are the Horde a threat to the dig?", next = "horde" },
         { text = "How many diggers do you have?", next = "xcrew" },
@@ -2568,6 +2620,8 @@ P:NPC {
     third = "{name} spoke with an officer at Bael'dun Keep.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, you. State your business, friend; I'll hear it gladly." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "State yer business, quickly." },
     { id = "g_default", text = "State yer business, and quickly. This is a military post, not an inn." },
   },
   start = "hello",
@@ -2576,6 +2630,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I command the guard here at Bael'dun, such as it is. My orders are to keep the diggers alive and the Horde out, and I'm managin' one of those better than the other." } },
       again = { { id = "h_again", text = "Anythin' else, soldier?" } },
       choices = {
+        { text = "Bael'dun's orders must be followed.", next = "BACK", reply = "Aye, they must.", fx = { align = { order = 1 } } },
+        { text = "Some orders should be questioned.", next = "BACK", reply = "No' at Bael'dun.", fx = { align = { order = -1 } } },
         { text = "Which one are you managing?", next = "which" },
         { text = "Who sent you to the Barrens?", next = "sent" },
         { text = "How many riflemen do you command?", next = "xmen" },
@@ -2712,6 +2768,8 @@ P:NPC {
     third = "{name} talked with a rifleman guarding Bael'dun Keep.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, you. Stand where ye like; my finger's steady today." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Dinnae stand in my line." },
     { id = "g_default", text = "Dinnae stand in my line, {g:lad|lass}. I've a twitchy finger and a long day behind me." },
   },
   start = "hello",
@@ -2720,6 +2778,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I watch the grass for tauren and quilboar, and I shoot at whichever comes first. It's no glamorous, but the pay comes regular." } },
       again = { { id = "h_again", text = "Aye? Make it quick, I'm watchin'." } },
       choices = {
+        { text = "A steady watch keeps Bael'dun safe.", next = "BACK", reply = "Aye, it does.", fx = { align = { order = 1 } } },
+        { text = "Watching grass all day is pointless.", next = "BACK", reply = "Then ye'd never see the tauren coming.", fx = { align = { order = -1 } } },
         { text = "Seen much trouble?", next = "trouble" },
         { text = "That's a fine rifle.", next = "rifle" },
         { text = "Why do you call your rifle Bessie?", next = "xbessie" },
@@ -2847,6 +2907,8 @@ P:NPC {
     third = "{name} talked with a Darkspear axe thrower at the Far Watch Post.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hey, friend! Keep your head low, but stay a while." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hey. Keep your head low and keep movin'." },
     { id = "g_default", text = "Hey, mon, you be keepin' your head low on dis road. Alliance scouts like to sneak down from the north." },
   },
   start = "hello",
@@ -2858,6 +2920,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else you be wantin', mon?" } },
       choices = {
+        { text = "Watching de north keeps de Horde safe.", next = "BACK", reply = "It do, mon.", fx = { align = { order = 1 } } },
+        { text = "De Alliance won't come down here.", next = "BACK", reply = "Dey already do, mon.", fx = { align = { order = -1 } } },
         { text = "What comes out of Ashenvale?", next = "north" },
         { text = "How good is your aim?", next = "aim" },
         { text = "How long have you held this post?", next = "xlong" },
@@ -2980,6 +3044,8 @@ P:NPC {
     third = "{name} met Koiter, the spirit who watches over the Shrine of the Fallen Warrior.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Be still, friend. You remember the fallen, and they remember you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Be still. This is a place of remembering. Remember quietly." },
     { id = "g_default", text = "Be still a moment, traveller. This is a place of remembering, and every visitor makes it a little warmer." },
   },
   start = "hello",
@@ -2988,6 +3054,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I watch over this shrine, and the warrior who rests beneath it. Few stop here, but those who do are always welcome." } },
       again = { { id = "h_again", text = "Is there more you would ask of me?" } },
       choices = {
+        { text = "The fallen deserve to be remembered.", next = "BACK", reply = "They do. Thank you.", fx = { align = { honor = 1 } } },
+        { text = "The dead are gone. Let them rest.", next = "BACK", reply = "They do rest. Be still.", fx = { align = { honor = -1 } } },
         { text = "Who was the fallen warrior?", next = "warrior" },
         { text = "Why do you stay here?", next = "stay" },
         { text = "Were you a warrior too, once?", next = "xonce" },
@@ -3105,6 +3173,8 @@ P:NPC {
     third = "{name} met Grimble, the goblin shipmaster who keeps the Ratchet boat to Booty Bay running.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, you. The boat's coming soon, and I've saved you a good spot." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Boat comes when the sea says so. Wait." },
     { id = "g_default", text = "Boat to Booty Bay comes in when the sea says so, and not a minute before. Need something while you wait?" },
     { id = "g_back", when = { metBefore = true }, text = "Back on my dock again? The boat hasn't learned to come faster since you left." },
   },
@@ -3114,6 +3184,8 @@ P:NPC {
       lines = { { id = "h_default", text = "Grimble, shipmaster of Ratchet. Every crate, passenger and drowned rat that crosses to Stranglethorn goes past me first, and I keep a ledger of all of them." } },
       again = { { id = "h_again", text = "Anything else, or are you just watching the water?" } },
       choices = {
+        { text = "A punctual ship is a rare thing.", next = "BACK", reply = "It is. The sea decides.", fx = { align = { order = 1 } } },
+        { text = "The boat should keep a schedule.", next = "BACK", reply = "Tell the sea.", fx = { align = { order = -1 } } },
         { text = "When does the boat to Booty Bay leave?", next = "boat" },
         { text = "Who uses this crossing?", next = "who" },
         { text = "Do you trust the Steamwheedle captains?", next = "captains" },
@@ -3241,6 +3313,8 @@ P:NPC {
     third = "{name} met Erk, an orc child who brings fish to the guards north of the Crossroads.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hey! Fang likes you! You're a real adventurer!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hey. Fang's growling. Go away." },
     { id = "g_default", text = "Hey! Are you a real adventurer? Fang thinks you are. He growls at the ones who aren't." },
     { id = "g_back", when = { metBefore = true }, text = "You came back! Fang, look, it's our friend again." },
   },
@@ -3250,6 +3324,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I'm Erk, and this is Fang. I catch fish in the lake for the guards, because Guard Kurall says a grunt can't stand watch on an empty belly." } },
       again = { { id = "h_again", text = "Do you want to hear more? I know lots of things." } },
       choices = {
+        { text = "Catching fish for the guards is good work.", next = "BACK", reply = "It is! I catch the most!", fx = { align = { order = 1 } } },
+        { text = "Fishing's boring.", next = "BACK", reply = "It's not! Fang, growl.", fx = { align = { order = -1 } } },
         { text = "Fang is a fine wolf.", next = "fang" },
         { text = "Isn't it dangerous out here for you?", next = "danger" },
         { text = "What do you want to be when you're grown?", next = "grown" },
@@ -3347,6 +3423,8 @@ P:NPC {
     third = "{name} spoke with a Horde guard posted in the Barrens.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Keep moving, friend, or stay a while. You're welcome either way." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Keep moving, or tell me what you need." },
     { id = "g_default", text = "Keep moving, traveller, or tell me what you need. Out here, standing still gets you noticed." },
   },
   start = "hello",
@@ -3355,6 +3433,8 @@ P:NPC {
       lines = { { id = "h_default", text = "The Barrens are wide and the Horde is spread thin across them. Quilboar to the south, centaur on every side, and Alliance scouts pushing in from Theramore. What do you need?" } },
       again = { { id = "h_again", text = "Anything else? Make it quick." } },
       choices = {
+        { text = "The Horde must guard the Barrens.", next = "BACK", reply = "It must. We are spread thin.", fx = { align = { order = 1 } } },
+        { text = "The Barrens can't be guarded. Too big.", next = "BACK", reply = "We do our best. Keep moving.", fx = { align = { order = -1 } } },
         { text = "Where is the Crossroads?", next = "road" },
         { text = "What's the greatest threat out here?", next = "threat" },
         { text = "How long have you served the Horde?", next = "xlong" },

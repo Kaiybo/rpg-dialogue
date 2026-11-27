@@ -15,6 +15,8 @@ P:NPC {
     third = "{name} met Miss Danna, the school mistress who walks her pupils around Stormwind's great sights.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "Good day to you. Children, stand to one side, please, and let the {class} pass; we do not block the road." },
     { id = "g_back", when = { metBefore = true }, text = "Good day again. We have lost nobody since you last saw us, which I count a successful outing." },
   },
@@ -128,6 +130,8 @@ P:NPC {
     third = "{name} met Mikey, a schoolboy on Miss Danna's tour of Stormwind.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's you! I told everyone you'd come back, and they didn't believe me!" },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Mum says I'm not to talk to you." },
     { id = "g_default", text = "Hello. We've been walking forever, and Twain keeps poking me, and Miss Danna won't do anything about it." },
     { id = "g_back", when = { metBefore = true }, text = "You again! We're still walking, and he's still poking me." },
   },
@@ -244,6 +248,8 @@ P:NPC {
     third = "{name} met Pat, a curious schoolgirl on Miss Danna's tour of Stormwind.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hi! I've been practising being brave, just like you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You're mean, and I'm telling." },
     { id = "g_default", text = "Hello! Are you an adventurer, and have you been outside the walls, and did you see any gnolls?" },
     { id = "g_back", when = { metBefore = true }, text = "It's you! I thought of four more questions after you went away." },
   },
@@ -336,6 +342,8 @@ P:NPC {
     third = "{name} met Steven, a schoolboy on Miss Danna's tour who dreams of the Mage Tower.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's you! I told everyone you'd come back, and they didn't believe me!" },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Mum says I'm not to talk to you." },
     { id = "g_default", text = "Hello. Do you know when we're going to see the sparkly Mage Tower, because Miss Danna won't say?" },
     { id = "g_back", when = { metBefore = true }, text = "Hello again. We still haven't been to the tower." },
   },
@@ -448,6 +456,8 @@ P:NPC {
     third = "{name} met Twain, the mischief-maker of Miss Danna's class.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back! Do you want to see the thing I found? It's a secret." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You're mean, and I'm telling." },
     { id = "g_default", text = "Hello! Is that a real weapon? Can I hold it, just for a bit, if I'm careful?" },
     { id = "g_back", when = { metBefore = true }, text = "It's you! I still haven't held it, you know." },
   },
@@ -560,6 +570,8 @@ P:NPC {
     third = "{name} met Roman, a boy fishing in Stormwind's canals with his friends.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back! Do you want to see the thing I found? It's a secret." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Mum says I'm not to talk to you." },
     { id = "g_default", text = "Shh, not so loud! Justin says you'll scare the fish, and we've been here ages and haven't got one." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again. No, we still haven't caught anything, so don't ask." },
   },
@@ -661,6 +673,8 @@ P:NPC {
     third = "{name} met William, a boy on the run through Stormwind with a stolen doll.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hi! I've been practising being brave, just like you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'm not playing with you today." },
     { id = "g_default", text = "Can't stop, can't stop! Is she behind me, and how far, because I'm not allowed to look round?" },
     { id = "g_back", when = { metBefore = true }, text = "You again! She's still after me, and I've been round the whole square twice." },
   },
@@ -766,6 +780,8 @@ P:NPC {
     third = "{name} met Morgg Stormshot, a dwarven smith at the forges of Stormwind's Dwarven District.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_default", text = "Mind the sparks, {g:lad|lass}! Stand over there where it's only warm, an' tell me what ye're after." },
     { id = "g_back", when = { metBefore = true }, text = "Back at the forge, are ye? I knew ye'd come round tae proper dwarven work in the end." },
   },

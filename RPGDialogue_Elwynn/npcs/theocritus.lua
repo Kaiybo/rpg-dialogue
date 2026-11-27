@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my clever friend! Come in; I've a new book I'm not supposed to have, and I'm dying to share it." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm very busy, and you've done little to earn my time." },
     { id = "g_op_kirintor", when = { opinion = { topic = "kirin_tor", stance = "too_cautious" } }, text = "Ah, the one who thinks Dalaran's vaults should be opened. Come in; I've a book I'm not supposed to have, and I'd value your opinion of it." },
     { id = "g_stairs", text = "You climbed all those stairs, which is admirable, if probably pointless." },
     { id = "g_morganth", when = { questActive = TODO_QUEST("Morganth") }, text = "Is he dead yet? If he isn't, I can't think why you're standing in my tower." },
@@ -388,6 +390,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You've a fine mind, and a curious one, and that is the rarest thing in Elwynn." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been rude in my tower, and a mage does not forget rudeness." },
+    },
     knows = {
       { id = "tp_knows", text = "I have studied a great many things from this tower, most of them beyond your concern. These, however, I might explain." },
     },

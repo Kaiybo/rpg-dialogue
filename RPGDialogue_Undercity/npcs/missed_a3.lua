@@ -15,6 +15,8 @@ P:NPC {
     third = "{name} met Eldin Partridge, a careful recruit drilling under Sergeant Houser in the War Quarter.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Stay clear of the camp, unless you've orders to be here." },
     { id = "g_default", text = "Good day. I can talk for as long as the sergeant is shouting at Travist, which is usually a fair while." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again. I've improved since you saw me last, though the sergeant hasn't noticed and the dummy hasn't either." },
     { id = "g_mage", when = { class = { "MAGE", "PRIEST", "WARLOCK" } }, text = "You've a scholar's hands, as I had once. Tell me, does it ever stop feeling absurd to be sent to war?" },
@@ -28,6 +30,8 @@ P:NPC {
     ylife = {
       lines = { { id = "ylife_x", text = "I kept the tax rolls for the parish of Brill, which is how I know half the names on the graveyard stones. I counted their sheep and their debts, and then I counted their dead, and then I joined them." } },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Do you still keep accounts?", next = "yaccounts" },
         { text = "Something else.", next = "BACK" },
       },
@@ -111,6 +115,8 @@ P:NPC {
     third = "{name} met Ganoosh, a leper gnome who lives among the apothecaries of the Undercity.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "Oh, hello, hello! Stand just there, please, about four and a half feet off, because that's the distance where I stop making people's teeth itch." },
     { id = "g_back", when = { metBefore = true }, text = "It's you again, the same you! I've a note of you somewhere, under 'visitors, not yet glowing'." },
     { id = "g_gnome", when = { race = "Gnome" }, text = "A gnome! A clean one, with the proper colour and everything! Don't come closer, I mean it kindly, I'm at least sixty parts in a hundred unsafe." },
@@ -207,6 +213,8 @@ P:NPC {
     third = "{name} met Gerard Abernathy, who keeps a human mindslave named Theresa in the Undercity's War Quarter.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "Ah, a new audience. You've arrived in time to see Theresa run an errand, which she does without a word of complaint." },
     { id = "g_back", when = { metBefore = true }, text = "You return, and so does she, every time I send her. I never tire of the demonstration." },
     { id = "g_human", when = { race = "Human" }, text = "A living human, here of your own will, or so you suppose. Do come closer, for Theresa so seldom sees her own kind." },
@@ -283,6 +291,8 @@ P:NPC {
     third = "{name} met Gothard Winslow, an old tracker who watches the comings and goings of the Rogues' Quarter.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_default", text = "You came down by the west stair and stopped once on the way, at the leather stall, I'd say. Don't look alarmed, for it's only the mud on your boots talking." },
     { id = "g_back", when = { metBefore = true }, text = "You've been out in the Glades since last time, and through a stream. Welcome back to the dry, or what passes for it." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter, and a living one. It does me good to see the trade carried on by somebody the beasts will still come near." },
@@ -386,6 +396,8 @@ P:NPC {
     third = "{name} met Helena Atwood, who practises her marksmanship in the Undercity's War Quarter.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome at our fire any night you like." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep your distance, and keep out of the way of real soldiers." },
     { id = "g_default", text = "Stand behind me and to the left, and don't speak until after the shot. Now then, what is it?" },
     { id = "g_back", when = { metBefore = true }, text = "You again. I've put another two hundred through the target since, and I can still find the first hole." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "You shoot, I see. Stand there and watch the next three, and tell me honestly whether I'm pulling to the right." },
@@ -399,6 +411,8 @@ P:NPC {
     ylife = {
       lines = { { id = "ylife_x", text = "I shot crows off my uncle's barley near Stratholme. Then I shot ghouls off the barley. Then I didn't shoot fast enough. Nicholas sold me my first rifle after I rose, and wouldn't take a copper for it." } },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Why wouldn't he take payment?", next = "ypay" },
         { text = "Something else.", next = "BACK" },
       },
@@ -482,6 +496,8 @@ P:NPC {
     third = "{name} met Hepzibah Sedgewick, who walks the Undercity with fist weapons on her hands.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_default", text = "Walk on my left if you're going to walk with me, because the right hand likes its room." },
     { id = "g_back", when = { metBefore = true }, text = "You again. You've a nerve, coming up on me from behind a second time, and I rather like it." },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "You're one of Carkad's, or you'd like to be. Keep your hands out of your sleeves while we talk, and we'll get along." },

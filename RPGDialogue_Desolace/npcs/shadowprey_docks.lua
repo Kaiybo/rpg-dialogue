@@ -190,6 +190,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Welcome back! Your bed is aired and dry, and I put some fresh cheese aside. Sit." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Beds are dry, cheese is fresh. Pay first, please." },
     { id = "g_default", text = "Welcome to Shadowprey, {class}. The beds are dry, the cheese is fresh, and the trolls only sing until midnight, mostly." },
     { id = "g_back", when = { metBefore = true }, text = "Back on the coast! Your bed's where you left it, and nobody's slept in it but a crab, and I chased him out." },
     { id = "g_home", when = { homeInn = true }, text = "Home again, {name}. That's what this inn is to you now, whether you meant it or not." },
@@ -230,6 +232,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask. Innkeepers hear everything, so I've plenty to tell." },
       },
       choices = {
+        { text = "An inn is a shelter for all, friend or stranger.", next = "BACK", reply = "That is how I run it. Most nights, at least.", fx = { align = { light = 1 } } },
+        { text = "An inn's a business. Shelter's what you pay for.", next = "BACK", reply = "Then pay for it, and we will both be happy.", fx = { align = { light = -1 } } },
         { text = "Did Taiga say what she'll do with the hand?", next = "dd_iruxos", when = { questDone = TODO_QUEST("Hand of Iruxos") } },
         { text = "A tauren innkeeper in a troll village?", next = "trolls" },
         { text = "What's the news on the coast?", next = "news" },
@@ -311,6 +315,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Flying again, friend? The wind is good for you today. It usually is." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Flying? Pay. The wind does not care for you today, and nor do I." },
     { id = "g_default", text = "Flying, {class}? The sea wind is good for it today." },
     { id = "g_back", when = { metBefore = true }, text = "You again. The riders are rested; they'll take you wherever you're bound." },
     { id = "g_away", when = { away = 14 }, text = "{away} since you last flew from here. The riders have kept the sky warm for you." },
@@ -340,6 +346,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, then. The tide's turning; I've time." },
       },
       choices = {
+        { text = "The Burning Blade must be driven out of Desolace.", next = "BACK", reply = "Yes. My riders say the fires burn lower. Good.", fx = { align = { order = 1 } } },
+        { text = "The Burning Blade aren't my problem. I'm just passing through.", next = "BACK", reply = "Then pass through quickly, and do not stop near Thunder Axe.", fx = { align = { order = -1 } } },
         { text = "Why keep the riders out on the dock?", next = "dock" },
         { text = "What do you see from up there?", next = "see" },
         { text = "I need a flight.", next = "BUSINESS" },

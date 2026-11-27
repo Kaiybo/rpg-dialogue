@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "You again, mortal, and I find I do not mind. Sit, if your kind can bear the heat." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I've eaten creatures for less insolence than yours. Be brief." },
     { id = "g_default", text = "Only a fool disturbs me in my own lair. Are you a fool, mortal, or merely lost?" },
     { id = "g_back", when = { metBefore = true }, text = "You again, still unburned and still impertinent. I'm almost impressed." },
   },
@@ -216,6 +218,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You are less of a fool than most of your kind, mortal, and that is high praise from me." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've wearied me, mortal, and a weary dragonspawn is a hungry one. Mend your tongue." },
+    },
     background = { { id = "tp_bg", text = "I am of the Flight, and that is all the history a mortal needs.", next = "who" } },
     advice = { { id = "tp_ad", text = "Never wake a sleeping dragon, mortal, and never assume that it was sleeping. I heard you coming up the road an hour ago." } },
     black_dragonflight = { { id = "tp_dragons", text = "We were masters of this world before it had a name, and we will be masters of it after.", next = "who" } },

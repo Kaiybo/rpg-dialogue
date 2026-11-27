@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you. Come, sit by the wagon; I'll find you something to eat." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. The wagon's broken, and so's my patience." },
     { id = "hum_g1", when = { race = "Human" }, priority = 5,
       text = "Oh, you've the look of an Elwynn child, dear. Mind Blanchy, she's tired, but she'll still have your sleeve if you stand too close." },
     { id = "g_wagon", text = "Careful round the wagon, dear. It's held up with string and prayer." },
@@ -257,6 +259,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You've been kind to us, and we'll not forget it." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been rude, and we've had enough rudeness since the farm." },
+    },
     holy_light = { { id = "tp_holy_light", text = "I pray to the Light every night for Theodore, for Blanchy and for whatever's left of our farm. I don't ask for much, and I think that's why it keeps listening." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Theodore bought me a little carved horse at the Darkmoon Faire once, years ago, and I still keep it in my apron pocket. It looks a little like Blanchy, if you squint and love her." } },
     deadmines = { { id = "tp_deadmines", text = "The Defias are hiding in the old Moonbrook mines, I hear, and that's where our grain and our tools have gone. I don't want them back so much as I want the Defias to have to carry them." } },

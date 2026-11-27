@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You return to Hgarth, worthy seeker. Sit, and receive knowledge few are given." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You seek the knowledge of Hgarth? It is not freely given to those who disappoint." },
     { id = "g_default", text = "Have you come to seek the knowledge of Hgarth? You must have, because nobody climbs that path by accident." },
     { id = "g_back", when = { metBefore = true }, text = "You found the path a second time. Good; most forget it, and I don't remind them." },
   },

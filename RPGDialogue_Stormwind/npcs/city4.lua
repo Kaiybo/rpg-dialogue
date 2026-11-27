@@ -911,6 +911,8 @@ P:NPC {
     third = "{name} met Thomas Miller, the Trade District's walking baker, whose basket always wins the argument with his feet.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_bread", text = "Bread, friend? Best price in the Trade District, and I'll stand behind every crust." },
   },
 
@@ -927,6 +929,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Better than any almanac, though it complains about everything. Maybe your spirits and my foot are kin, eh?" } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'd take your kindness over any almanac, Thomas.", next = "BACK", reply = "You're very kind, friend, and my foot agrees. It's grumbling about the rain already.", fx = { align = { light = 1 } } },
         { text = "Your foot's a fine prophet. Charge for it.", next = "BACK", reply = "Charge for it? Light, my wife would love that, but my customers would never believe a word.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },

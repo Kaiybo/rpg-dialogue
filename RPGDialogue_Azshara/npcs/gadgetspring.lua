@@ -18,6 +18,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "A customer! Our favourite customer! Blimo, the good kettle, it's them! What can I get you, friend?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Oh. It's you. Well, a coin's a coin. What do you need, and quickly, please?" },
     { id = "g_default", text = "A customer! On our beach! Blimo, put the kettle on, we've got a customer!" },
     { id = "g_back", when = { metBefore = true }, text = "You came back! Blimo owes me a silver; he said nobody comes back." },
   },
@@ -43,6 +45,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask away, the rocket needs another hour to cool anyway." },
       },
       choices = {
+        { text = "Pulling sailors from the wreck was the right thing to do.", next = "BACK", reply = "It was! And they'll need rope, so if you see any more, send them my way.", fx = { align = { light = 1 } } },
+        { text = "I helped them because they'd pay me.", next = "BACK", reply = "Well, I can't argue with paying. Still, I'd hoped for a nicer answer.", fx = { align = { light = -1 } } },
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "Why live on a beach in Azshara?", next = "beach" },
         { text = "Aren't you afraid of the naga?", next = "naga" },
@@ -142,6 +146,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Oh, hello, hello! Come in, come in! Jubie's upstairs breaking something, so you have me all to yourself." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Oh. Hello. I'll fetch what you need, if you'll just tell me what it is and then go." },
     { id = "g_default", text = "Hello, hello! Don't mind the thumping upstairs, that's just Jubie. At least, I hope it is." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you again! I lost a silver on you, you know. Jubie was quite smug." },
   },
@@ -175,6 +181,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I don't mind. It's nice to talk to someone who isn't on fire." },
       },
       choices = {
+        { text = "Clearing out the naga made this beach safer for everyone.", next = "BACK", reply = "It did! I've slept a whole week without the hissing. Thank you, really.", fx = { align = { light = 1 } } },
+        { text = "I killed the naga for the loot, not for you.", next = "BACK", reply = "Oh. Well, I suppose the result is the same. Still, it's not very nice to hear.", fx = { align = { light = -1 } } },
         { text = "Do the naga come close to your house?", next = "dd_naga", when = { killed = { name = "Spitelash", min = 40 } } },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Do you like living here?", next = "here" },

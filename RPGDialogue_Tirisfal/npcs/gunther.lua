@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Come in; you may even touch the books, carefully." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Stand where I can see you, and keep away from my books." },
     { id = "g_wary", text = "Stand where I can see you, and keep your hands away from my books." },
     { id = "g_back", when = { metBefore = true }, text = "You again. My servants let you through, which means I must have told them to, though I don't remember deciding it." },
     { id = "g_proof", when = { questActive = TODO_QUEST("Proving Allegiance") }, text = "The altar is off the southern shore. Light the candle, and we'll see whose servant you are." },
@@ -207,6 +209,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You've a scholar's respect for knowledge. Rare, in the Forsaken." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been careless with my books, and I do not forgive that." },
+    },
     background = { { id = "tp_bg", text = "I was Kirin Tor once, a corpse briefly, and a free man since, if a man is what I am. That's the short version, and the long one is mostly cellars." } },
     advice = { { id = "tp_ad", text = "Never trust a friend who hasn't died. That's a joke, mostly, but it's served me well." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "The last living men who rowed out here wore red and carried torches, and they called me an abomination before they'd even reached the beach. My servants sent them home, those who could still swim." } },

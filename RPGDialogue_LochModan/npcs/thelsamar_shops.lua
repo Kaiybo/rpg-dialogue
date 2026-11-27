@@ -17,6 +17,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "Need a gryphon? The wind's fair over the loch today, so ye'll have a smooth ride." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! The birds remember ye, for they've stopped hissin'." },
   },
@@ -223,6 +225,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_default", text = "I sell mail, friend, the finest in Loch Modan, an' I'll tell ye why if ye've a minute." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! I knew ye'd come back for the heavier coat." },
   },
@@ -420,6 +424,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_default", text = "Fresh bread, still warm from the oven! Ye'll no' find better on this side o' the mountains." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! I saved ye a loaf, or I would have if I'd known ye were comin'." },
   },
@@ -437,6 +443,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Most do, once they've had a bite tae eat. The old miners say ye're Wildhammer-touched, the mountaineers say ye're handy in a fight, an' the bairns only want tae see ye make it rain. I tell them all ye're a dwarf like anyone else, an' then I sell them a roll." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'm a dwarf like anyone else, and glad to be.", next = "BACK", reply = "Glad, are ye? That's good tae hear, an' it's the best way tae be. Have a roll, on the house o' my good mood.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'm Wildhammer-touched, Honni, and proud of it.", next = "BACK", reply = "Proud, is it? Then the miners can whisper all they like. Ye're welcome at my counter either way.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -613,6 +621,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "Picks, flux an' blastin' powder, an' that's all I sell, so don't ask for bread." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, are ye? Still diggin' in those hills, I suppose." },
   },
@@ -630,6 +640,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Worry? No. Annoy, aye. A miner wants tae think he found the seam by sweat an' skill, an' then some shaman walks past an' says the rock told him where it was. I've lost two customers tae a shaman's word, an' I'm still decidin' whether tae be cross." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Sweat and skill are honest. I'd not take that from anyone.", next = "BACK", reply = "Aye, that's my thinkin' exactly. A miner's pride is in the sweat, an' I'd no' take it from him either.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "No need to sweat when the rock tells you where to dig.", next = "BACK", reply = "No need tae sweat? Then ye'll never know the joy o' findin' it yerself. I'll sell ye a pick anyway.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },

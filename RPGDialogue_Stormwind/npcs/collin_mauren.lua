@@ -19,6 +19,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my friend! Come in; Gaxim wrote again, and only one page was singed this time." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. I'm very busy with my spells today." },
     { id = "g_op_gnomes", when = { opinion = { topic = "gnomes", stance = "reckless" } }, text = "Ah, the one who thinks gnomes reckless! Gaxim wrote last month, and only two pages of the letter were singed, so I'm counting it as progress." },
     { id = "g_study", text = "Good day. Mind the scale dust on the table; a pinch of it costs more than your boots." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, hello again. Have you come back from somewhere interesting? People usually have." },
@@ -354,6 +356,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You've a curious mind and a gentle manner. A rare pairing, and a welcome one." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been unkind, and I've enough singed letters without singed feelings." },
+    },
     dalaran = { { id = "tp_dalaran", text = "The Kirin Tor are rebuilding Dalaran, I'm told, and I'd give anything to see their libraries again. I studied there once, and I learned more in a week than in a year anywhere else." } },
     kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are the finest mages in the world, and they're very slow to share what they know. I've learned to make my own spells from scraps, because I couldn't wait for them." } },
     kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was a fine mage, before he turned to the dead, and I read his early work as a student. It's a terrible thing to admire a man's mind and despise everything he did with it." } },

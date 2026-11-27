@@ -20,6 +20,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Here's my favourite debater! Sit down, an' I'll pour ye an ale while I convert ye." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Sit if ye must, but I'll not be convertin' ye today." },
     { id = "g_op_robbers", when = { opinion = { topic = "explorers_league", stance = "grave_robbers" } }, text = "Here's the one who'd keep every tomb shut! Sit down, sit down; I'll convert ye yet, or I'll die tryin', which at my age is likely." },
     { id = "g_district", text = "Pull up a crate, {g:lad|lass}, if ye've a minute fer an old explorer." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Sit, sit. My knees have been tellin' me ye'd come." },
@@ -347,6 +349,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "Ye've a sharp mind an' a stubborn heart, an' that's a dwarf's best compliment." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "Ye've been rude tae the League, an' the League remembers." },
+    },
     explorers_league = { { id = "tp_explorers_league", text = "The Explorers' League sent me into every hole in Khaz Modan, and I came out of most of them. Now I'm a wee bit too stiff for holes, and I've to send younger knees in my place." } },
     uldaman = { { id = "tp_uldaman", text = "Uldaman's the oldest dig there is, {g:lad|lass}, and there's things in its halls that make the titans look like they were in a hurry. I'd go back tomorrow if my knees would only agree with me." } },
     magni = { { id = "tp_magni", text = "King Magni's the best patron the League ever had, and he funds digs that would make a goblin weep. He wants to know where we came from, and so do I, though I'd settle for knowing where I left my pipe." } },

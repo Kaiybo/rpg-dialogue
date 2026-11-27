@@ -16,6 +16,8 @@ P:NPC {
     third = "{name} met Sergeant Rutger, a sergeant of the Deathguard in the Undercity's War Quarter.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'd not trust you to hold a line, and I'll not pretend otherwise." },
     { id = "g_default", text = "State your business, {class}. I've a watch to post and four names fewer to post it with than I had last week." },
     { id = "g_back", when = { metBefore = true }, text = "You're still in one piece, I see. Then you're doing better than the patrol I sent to the Bulwark." },
   },
@@ -35,6 +37,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, {class}, I'm listening." },
       },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Where do you send them?", next = "posts" },
         { text = "How many come back?", next = "back" },
         { text = "The Horde could send you soldiers.", next = "horde", when = { race = { "Orc", "Tauren", "Troll" } } },
@@ -111,6 +115,8 @@ P:NPC {
     third = "{name} met Silas Zimmer, who keeps a table of old charms in the Undercity's Temple of the Damned.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
     { id = "g_default", text = "Look all you like, but nothing here is priced. I haven't decided yet whether any of it ought to leave my keeping." },
     { id = "g_back", when = { metBefore = true }, text = "You're back at my table. The charms haven't changed, and neither has my mind about them." },
   },
@@ -209,6 +215,8 @@ P:NPC {
     third = "{name} met Susan Tillinghast, a wanderer of the Undercity's Rogues' Quarter who knows how to live rough.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "You walk loudly for someone in this quarter. Nobody will rob you for it, but they'll all know where you are." },
     { id = "g_back", when = { metBefore = true }, text = "I heard you on the bridge before I saw you. You're a little quieter than last time, I'll grant." },
   },
@@ -304,6 +312,8 @@ P:NPC {
     third = "{name} met Theodore Griffs, who reads at a bookshelf in the Undercity's Apothecarium.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_default", text = "Hm? Oh, do come in, only don't move the green volume, because I've left it open at a page I shall want again." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, it's you, I know the footsteps. I'm on the same shelf, I'm afraid, though two books further along." },
   },
@@ -402,6 +412,8 @@ P:NPC {
     third = "{name} met Travist Bosk, a recruit training under Sergeant Houser in the Undercity's War Quarter.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep your distance, and keep out of the way of real soldiers." },
     { id = "g_default", text = "I can't stop to talk, the Sergeant's watching, so I'll have to keep swinging while you ask whatever it is." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, hello again. I've hit it nine times running since you were last here, though the Sergeant says only six of them counted." },
   },
@@ -421,6 +433,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, quickly, he's looking the other way." },
       },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Why did you join the Deathguard?", next = "join" },
         { text = "Is Sergeant Houser as hard as he sounds?", next = "houser" },
         { text = "You drop your guard after each swing.", next = "guard", when = { class = { "WARRIOR", "ROGUE", "PALADIN" } } },
@@ -500,6 +514,8 @@ P:NPC {
     third = "{name} met Tyler, who fights in the pit of the Undercity's War Quarter.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
     { id = "g_default", text = "Talk fast, friend, because Malach doesn't wait, and the next one's usually bigger than the last." },
     { id = "g_back", when = { metBefore = true }, text = "You came back to watch! Stay for the abomination; I've been working on something for it." },
   },
@@ -512,6 +528,8 @@ P:NPC {
     ydesert = {
       lines = { { id = "ydesert_x", text = "Did he now? He's right. I ran from the Andorhal garrison to warn my mum about the grain. I got there three days too late. Edward covered for me, and I owe him every fight I'll ever win." } },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Did you find your mother?", next = "ymum" },
         { text = "Something else.", next = "BACK" },
       },
@@ -601,6 +619,8 @@ P:NPC {
     third = "{name} met Victor Bartholomew, a cautious pupil at Jezelle Pruitt's demon lessons.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "Not so loud, please. Mistress Pruitt has something half summoned, and I'm told they come through in a worse temper if they're startled." },
     { id = "g_back", when = { metBefore = true }, text = "You again. We've had the imp twice since you left, and it remembered my name, which I didn't care for." },
   },
@@ -704,6 +724,8 @@ P:NPC {
     third = "{name} met Winifred Kerwin, the quickest pupil at Jezelle Pruitt's demon lessons.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
     { id = "g_default", text = "If you have a question, ask me and not Mistress Pruitt, since she's mid-summoning and I very probably know the answer." },
     { id = "g_back", when = { metBefore = true }, text = "You're back. I have learned the felhunter's binding since you left, in theory, and I'd be glad to recite it." },
   },

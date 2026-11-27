@@ -13,6 +13,8 @@ P:NPC {
     third = "{name} met Grezz Ragefist, the warrior trainer in Orgrimmar's Valley of Honor.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, warrior. You stand like you belong in the Valley. Good." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Into the Valley of Honor, are you? Then stand like you mean it." },
     { id = "g_hi", text = "Into the Valley of Honor, are you? Then stand like you mean it." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and I'll wager your arms have gone soft. Pick up a blade and show me I'm wrong." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "When you first came to my yard you were all elbows, and now look at you. Somebody's been knocking you around out there, and it's done you good." },
@@ -334,6 +336,8 @@ P:NPC {
     third = "{name} met Ormak Grimshot, the hunter trainer in Orgrimmar.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Mind the beasts, friend, but they like you. Most of them, anyway." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind the beasts. Most of them bite, and the rest are thinking about it." },
     { id = "g_hi", text = "Mind the beasts. Most of them bite, and the rest are thinking about it." },
     { id = "g_hunter", when = { class = "HUNTER", pet = { type = "Beast" } }, text = "Bring {pet} in where I can see it. I'll judge the beast first and you after, the same as always." },
     { id = "g_nopet", when = { class = "HUNTER", minLevel = 12, ["not"] = { pet = { type = "Beast" } } }, text = "A hunter walking in alone. Either your beast is with the stable master or you've lost it, and I'd like to know which before we talk." },
@@ -655,6 +659,8 @@ P:NPC {
     third = "{name} met Kardris Dreamseeker, a shaman trainer in Orgrimmar's Valley of Wisdom.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "The spirits are easy around you today, friend. That is a good sign." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The spirits draw away from you, and so do I." },
     { id = "g_prej", when = { prejudiced = true }, text = "The spirits draw away from you, warlock, and so do I. Our people drank the demon's blood once and burned Draenor for it, so tell me why an orc would reach for that cup again." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "I was hard on you when we met, warlock, and the spirits have since told me what you are, which is not what I feared. Sit, if you like; I'll not move my mat away." },
     { id = "g_hi", text = "The spirits are restless in the city today. Come, sit where they are quieter." },
@@ -860,6 +866,8 @@ P:NPC {
     third = "{name} met Zevrost, the warlock trainer in Orgrimmar's Cleft of Shadow.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome to the Cleft, friend. Even the rats seem glad you've come." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome to the Cleft. The rats down here are friendlier than I'll be." },
     { id = "g_hi", text = "Welcome to the Cleft. The rats down here are friendlier than the faces above, and better fed." },
     { id = "g_lock", when = { class = "WARLOCK" }, text = "Come in out of the light, my friend. Nobody up there will miss you, and down here someone always notices when you're gone." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away}, and still in one piece, I see. The Cleft keeps a student's place for as long as the student keeps their nerve." },

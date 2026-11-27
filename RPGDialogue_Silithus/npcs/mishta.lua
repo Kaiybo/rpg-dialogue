@@ -13,6 +13,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Oh, thank Elune, a friendly face! You've no idea how much it helps to see someone sensible in this awful sand." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Oh. It's you. Well, I'm very low on supplies, so whatever you want, I probably haven't got much of it." },
     { id = "g_default", text = "Oh dear, I'm running dangerously low on supplies! By Elune, what is taking that blasted goblin so long?" },
     { id = "g_back", when = { metBefore = true }, text = "You again! You haven't passed a goblin with a cart on the road, by any chance? No, of course not." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the goblin still hasn't come. I've started counting the thread twice a day." },
@@ -39,6 +41,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm only counting thread." },
       },
       choices = {
+        { text = "I'll be patient with your shortages. You're doing your best.", next = "BACK", reply = "Oh, thank you! That's the kindest thing anyone's said all week.", fx = { align = { honor = 1 } } },
+        { text = "A shopkeeper who can't keep stock isn't much use.", next = "BACK", reply = "Well! I'll tell that to the goblin, if he ever turns up.", fx = { align = { honor = -1 } } },
         { text = "Who brings your shipments?", next = "goblin" },
         { text = "Why keep shop in Silithus?", next = "why" },
         { text = "You look to be running low on a few things.", next = "low" },

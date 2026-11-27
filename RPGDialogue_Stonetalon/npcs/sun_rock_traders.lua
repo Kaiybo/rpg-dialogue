@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, you. Here, friend, the freshest bread, carried up the mountain just for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Bread, water, bags and thread. All of it carried up the mountain. Pay for the carrying." },
     { id = "g_default", text = "Bread, water, bags and thread, all of it carried up the mountain the hard way. Buy something, so the kodo's back ache was worth it." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good, because the last caravan made it up without losing a crate, and I'd like to sell what's in them." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and the prices haven't moved while you were away, though the road's got twice as dangerous." },
@@ -159,6 +161,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome, friend. Tell me what you make, and I'll find the best of everything for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome, {class}. Tell me what you need, and I'll tell you what it costs." },
     { id = "g_default", text = "Welcome, {class}. Tell me what you make, and I'll tell you what you need, which is not always the same thing." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back to my corner. Good; I've new thread from Thunder Bluff, and it's finer than the last." },
   },
@@ -289,6 +293,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Meat! Ham, mutton, the finest haunch, and for you, friend, a little extra on the side!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Meat. Ham, mutton, quail. None of it's harpy. Pay, and be quick about it." },
     { id = "g_default", text = "Meat! Ham, mutton, haunch and quail, and none of it harpy, whatever the braves tell you." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more? Good; a hungry fighter is a bad fighter, and a well-fed one is a regular customer." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Late for meat, but I'm still here, and so's the ham, so let's not waste the evening." },
@@ -399,6 +405,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. Bows, arrows, and I'll mend your gear for nothing while you browse." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Bows, arrows, quivers. I'll mend your gear too, if you pay for it." },
     { id = "g_default", text = "Bows, arrows and quivers, and I'll mend what you're wearing while you look. Mind the shavings." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Did the last string hold? It should have; I waxed it myself." },
   },

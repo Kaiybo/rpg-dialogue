@@ -1430,6 +1430,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. Your usual seat's free, and I made sure of it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Sit where you like, and I'll get to you when I get to you." },
     { id = "g_inn", text = "Grab a mug, find a stool, an' put yer feet near the fire. Ye've earned it, whatever it was." },
     { id = "g_fl_fluster", when = { flirt = true, chance = 0.35 },
       text = "Grab a mug, find a stool, an'... well, ye look very fine this evenin', is what I was goin' tae say, so I'll just go an' fetch the mug." },

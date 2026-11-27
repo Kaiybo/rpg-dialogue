@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Mind the planks, but I'll not mind you; you're always welcome here." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Mind the planks, and mind your step around me." },
     { id = "g_dock", text = "Mind the planks; the third one's loose, and the fourth too, now I think of it." },
     { id = "g_fins", when = { questActive = TODO_QUEST("Murloc Poachers") }, text = "Fins? Bring me fins, because every fin's a fish saved." },
     { id = "g_after", when = { questDone = TODO_QUEST("Murloc Poachers") }, text = "The nets came up full this morning, full! I'd half forgotten what that looked like." },
@@ -217,6 +219,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're a good sort, and the docks are better for your visits." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've given me cause to doubt you, and I've enough loose planks without loose friends." },
+    },
     background = { { id = "tp_bg", text = "I'm the dockmaster of Lakeshire: boats, nets and weather. I've never wanted a bigger job; this one's big enough." } },
     advice = { { id = "tp_ad", text = "Don't swim east of the bridge. Whatever's in the deep doesn't care who you are." } },
     murlocs_east = { { id = "tp_murlocs", text = "Elwynn's got them too? They must be breeding in the rivers, then, which is lovely." } },

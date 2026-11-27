@@ -15,6 +15,8 @@ P:NPC {
     third = "{name} met Karne Grayhoof, who guides the young tauren of Camp Narache toward a trade.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, {name}, my friend. Sit, and let me tell you about the trades. You'd be good at any of them." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ah, {name}. Have you thought about a trade? It might do you good to learn some patience." },
     { id = "g_default", text = "Ah, {name}. Have you thought about taking up a trade? Sit, and let us talk about it." },
     { id = "g_back", when = { metBefore = true }, text = "You have returned, and I am glad, because a trade is not chosen in one morning. Take all the time you need." },
     { id = "g_gather", when = { any = { { profession = "Mining" }, { profession = "Skinning" }, { profession = "Herbalism" } } }, text = "You have begun to gather, I see. Now you must think about what your hands will make of it." },
@@ -116,6 +118,8 @@ P:NPC {
     third = "{name} met Garan Sunstrider, the gentle junior herbalism trainer of Camp Narache.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Peace, friend. The Earth Mother has been generous, and I'm glad to share her gifts with you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Peace. The Earth Mother gives to all. I teach because she asks it, not because I wish it." },
     { id = "g_default", text = "Peace, friend. The Earth Mother has been generous this season; come and see." },
     { id = "g_herb", when = { profession = "Herbalism" }, text = "You smell of earthroot. You've been digging, then, and listening." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. The silverleaf has come on nicely since you were last here." },
@@ -273,6 +277,8 @@ P:NPC {
     third = "{name} met Nawka Wildsong, the junior skinning trainer of Camp Narache.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, a skinner worth teaching! Come, friend. I'll show you how to take a hide whole and clean." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Care to learn properly this time? Or have you come to waste another hide?" },
     { id = "g_default", text = "Care to learn how to take a hide from a beast properly? Or have you come for tools?" },
     { id = "g_skin", when = { profession = "Skinning" }, text = "You've been working. Did you thank them before you cut, as I taught you?" },
     { id = "g_back", when = { metBefore = true }, text = "You again. Show me your knife before you show me anything else." },
@@ -428,6 +434,8 @@ P:NPC {
     third = "{name} met Vartha Rockmane, the junior mining trainer of Camp Narache.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, my friend! How can I help you today? Anything you like." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "How can I help you? Quickly, please." },
     { id = "g_default", text = "How can I help you?" },
     { id = "g_mine", when = { profession = "Mining" }, text = "There is stone dust on your hands, so you have been working. Good." },
     { id = "g_back", when = { metBefore = true }, text = "You have come back, and that is good. The stone has waited." },
@@ -585,6 +593,8 @@ P:NPC {
     third = "{name} spoke with a brave guarding the way onto Red Cloud Mesa.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Walk in peace, friend. Camp Narache is glad of you, and so are the young ones." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Walk in peace, {class}, and keep it. The young ones of Narache are watching you, and learning." },
     { id = "g_default", text = "Walk in peace, {class}. The young ones of Camp Narache are beyond me, and I keep the path safe for them." },
     { id = "g_nottauren", when = { ["not"] = { race = "Tauren" } }, text = "A guest on Red Cloud Mesa. The young of Camp Narache rarely see outsiders, so forgive them if they stare." },
   },

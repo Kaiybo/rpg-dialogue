@@ -14,6 +14,8 @@ P:NPC {
     third = "{name} met Grimbooze Thunderbrew, a rhyming dwarf who brews lager in the Dagger Hills of Westfall.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "Come in from the dust and sit by the still, and buy what ye like, for there's lager to spill!" },
     { id = "g_back", when = { metBefore = true }, text = "Back again, are ye, my thirsty friend? I've barrels enough that will never quite end." },
   },
@@ -31,6 +33,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "A rhyme for the barley, a rhyme for the yeast, a rhyme for the spirits to come to the feast! The rhymes are terrible, I know, but the lager's honest." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Your lager's honest work. Keep brewing it, Grimbooze.", next = "BACK", reply = "Ye've a heart that knows barley and hops when it sees, and I'll brew on for ye till my beard reaches my knees!", fx = { align = { honor = 1 } } },
         { text = "Drop the rhymes. They're ruining a good beer.", next = "BACK", reply = "Ye'd rob a poor brewer of all of his art? The rhymes are the lager, the lager's the heart, so ye'll take them together or none, friend, apart.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -221,6 +225,8 @@ P:NPC {
     third = "{name} met Kriggon Talsone, a fisherman on Westfall's Longshore.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
     { id = "g_default", text = "Tide's coming in, friend. Mind your boots, and mind the murlocs." },
     { id = "g_back", when = { metBefore = true }, text = "You again. The fish weren't biting then, and they aren't now, either." },
   },

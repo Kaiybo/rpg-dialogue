@@ -137,6 +137,8 @@ P:NPC {
     third = "{name} met Harlown Darkweave, the leatherworker who keeps camp with Bolyun in the hills of Ashenvale.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Bolyun trusts you now. So do I. Come, look at the hides." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You may stay. Don't touch the hides." },
     { id = "g_default", text = "If Bolyun let you up the path, you can stay. Don't touch the hides." },
   },
   notice = {
@@ -148,6 +150,8 @@ P:NPC {
       narr = "Harlown sets down his awl and looks toward the path.",
       lines = { { id = "xbolyun_default", text = "The one who keeps the path to this camp, and the one who decides who walks it. He's slow to trust and slower to forget, and I've never seen him wrong about anybody yet." } },
       choices = {
+        { text = "Bolyun guards this path well.", next = "BACK", reply = "He does. Slow to trust, slower to forget.", fx = { align = { order = 1 } } },
+        { text = "Bolyun is too suspicious for his own good.", next = "BACK", reply = "That suspicion keeps us alive. Don't touch the hides.", fx = { align = { order = -1 } } },
         { text = "Why does the camp keep so hidden?", next = "xhidden" },
         { text = "Something else.", next = "BACK" },
       },
@@ -270,6 +274,8 @@ P:NPC {
     third = "{name} met Lilyn Darkriver, who keeps vigil at the Shrine of Aessina in Ashenvale.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend. Aessina's place welcomes you. Walk with me a while." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Walk gently, and walk on. This is Aessina's place." },
     { id = "g_default", text = "Ishnu-alah. Walk gently here; this is Aessina's place." },
   },
   start = "hello",
@@ -278,6 +284,8 @@ P:NPC {
       narr = "Lilyn looks down at her hands, then back toward the trees.",
       lines = { { id = "xwait_default", text = "My brother, Elendil. He went south with the Sentinels toward Felfire Hill a season ago and did not come back with them. They say he fell. I come here because the wisps were his favourite thing, when we were small." } },
       choices = {
+        { text = "Waiting for a loved one is an act of faith.", next = "BACK", reply = "It is. I will wait as long as I must.", fx = { align = { light = 1 } } },
+        { text = "He's not coming back. You should move on.", next = "BACK", reply = "You may be right. Please, walk on.", fx = { align = { light = -1 } } },
         { text = "Do you believe he's gone?", next = "xgone" },
         { text = "I'm sorry, Lilyn.", next = "BACK", reply = "Thank you. Not many think to say it." },
       },
@@ -400,6 +408,8 @@ P:NPC {
     third = "{name} met Gapp Jinglepocket, the Smokywood Pastures merchant at Silverwing Grove.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Happy Winter Veil, pal! Best customer I've had all season. Here, have a sample!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Happy Winter Veil, I guess. Buy somethin' or move along." },
     { id = "g_default", text = "Happy Winter Veil, pal! Smokywood Pastures, finest treats in Kalimdor, and the only ones this side of the Barrens!" },
   },
   start = "hello",
@@ -408,6 +418,8 @@ P:NPC {
       narr = "He tugs at a bell on his hat, which jingles at the worst possible moment.",
       lines = { { id = "xhow_default", text = "Smokywood drew lots, pal, and I drew the short one. The Ironforge stall went to my cousin, and I got a forest full of elves who think gingerbread is a kind of tree bark. I'm turnin' it around, though." } },
       choices = {
+        { text = "Bringing Winter Veil to Ashenvale is a fine thing.", next = "BACK", reply = "Ha! You get it, pal. Spread the cheer!", fx = { align = { light = 1 } } },
+        { text = "Winter Veil's just a goblin trick to sell sweets.", next = "BACK", reply = "Hey, that's business, pal. Buy or move along.", fx = { align = { light = -1 } } },
         { text = "How are the elves taking to it?", next = "xelves" },
         { text = "Something else.", next = "BACK" },
       },
@@ -523,6 +535,8 @@ P:NPC {
     third = "{name} met Loruk Foreststrider, a tauren at Splintertree Post in Ashenvale.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Peace, friend. The Earth Mother sees you kindly, and so do I." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Peace, traveler. I have little to say today." },
     { id = "g_default", text = "Peace, traveler. The Earth Mother sees you, even here among the stumps." },
   },
   start = "hello",
@@ -531,6 +545,8 @@ P:NPC {
       narr = "He sets down a heavy bundle of arrows, carefully, as though the wood could still feel it.",
       lines = { { id = "xjob_default", text = "I hunt for the post, so the peons and grunts eat. I take only the old beasts and the sick ones, and I speak the words over each of them. The orcs laugh at that, but they eat what I bring." } },
       choices = {
+        { text = "Taking only the old beasts honors the Earth Mother.", next = "BACK", reply = "It does. I speak the words for each one.", fx = { align = { light = 1 } } },
+        { text = "Take whatever beast you can. Meat is meat.", next = "BACK", reply = "Then the herd will thin, and the post will starve.", fx = { align = { light = -1 } } },
         { text = "What words do you speak?", next = "xwords" },
         { text = "Something else.", next = "BACK" },
       },
@@ -651,6 +667,8 @@ P:NPC {
     third = "{name} met Sargath, a Highborne spirit freed from a soul gem near Maestra's Post.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You. I owe you my freedom. Sit, if you like, and I will talk as long as you wish." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You. I am free, but I do not owe you conversation." },
     { id = "g_default", text = "Free. After all this time, I am free. Is that you I have to thank?" },
   },
   start = "hello",
@@ -659,6 +677,8 @@ P:NPC {
       narr = "The spirit's outline wavers, as if remembering costs him something.",
       lines = { { id = "xold_default", text = "Towers of white stone over a great blue lake, and music in every courtyard. We thought we were the center of the world, and we were right, until the world shattered around us." } },
       choices = {
+        { text = "The old days of the Highborne should be remembered.", next = "BACK", reply = "They should. We were the center of the world, once.", fx = { align = { order = 1 } } },
+        { text = "The Highborne deserved their fall.", next = "BACK", reply = "Perhaps we did. Leave me be.", fx = { align = { order = -1 } } },
         { text = "Did you know the Queen?", next = "xqueen" },
         { text = "Something else.", next = "BACK" },
       },
@@ -780,6 +800,8 @@ P:NPC {
     third = "{name} met Shandrina, who sells trade goods at Silverwind Refuge in Ashenvale.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend! I've a little of everything, and a lot set aside for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Thread, salt, flux. Buy, please, and go." },
     { id = "g_default", text = "Ishnu-alah. Need thread? Salt? Flux? I've a little of everything and a lot of nothing." },
   },
   notice = {
@@ -791,6 +813,8 @@ P:NPC {
       narr = "She pats a crate stamped with Astranaar's crescent.",
       lines = { { id = "xsource_default", text = "Astranaar, mostly, and Auberdine by way of the Zoram Strand road when it's open. Some of the thread comes all the way from Darnassus, which is why it costs what it does." } },
       choices = {
+        { text = "Keeping the road open keeps us supplied.", next = "BACK", reply = "It does. When it's closed, we go short.", fx = { align = { order = 1 } } },
+        { text = "The road should be left to the Sentinels.", next = "BACK", reply = "They have enough to do. Buy, please.", fx = { align = { order = -1 } } },
         { text = "Is the road safe?", next = "xroad" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1025,6 +1049,8 @@ P:NPC {
     third = "{name} stood before Keeper Ordanus, a son of Cenarius, at Raynewood Retreat.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Welcome, child. The Raynewood remembers your kindness. Speak freely here." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You stand in the Raynewood. Speak gently, and briefly." },
     { id = "g_default", text = "You stand in the Raynewood, mortal, among the children of Cenarius. Speak gently here." },
     { id = "g_druid", when = { class = "DRUID" }, text = "A druid climbs to my grove, and the Dream stirs to welcome you. Be at ease." },
   },
@@ -1034,6 +1060,8 @@ P:NPC {
       narr = "The keeper's voice comes slowly, like wind moving through high branches.",
       lines = { { id = "xkeeper_default", text = "We are the sons of Cenarius, born of the forest and bound to it. Each of us keeps a grove, and each grove keeps a little of our father's memory alive. When a grove falls, a little of that memory goes with it." } },
       choices = {
+        { text = "The forest must be protected from those who would harm it.", next = "BACK", reply = "It must. Cenarius would agree.", fx = { align = { light = 1 } } },
+        { text = "The forest can protect itself.", next = "BACK", reply = "It cannot, against the Horde's axes. Go.", fx = { align = { light = -1 } } },
         { text = "How many groves remain in Ashenvale?", next = "xgroves" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1120,6 +1148,8 @@ P:NPC {
     third = "{name} spoke with a Cenarion Protector guarding Keeper Ordanus.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You may climb, friend. Keeper Ordanus knows you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Halt. You may not climb. Speak your purpose, then go." },
     { id = "g_default", text = "Halt and be known. Keeper Ordanus rests above, and no one climbs to him without our leave." },
   },
   start = "hello",
@@ -1128,6 +1158,8 @@ P:NPC {
       narr = "He shifts his grip on the staff, and the moss stirs around its foot.",
       lines = { { id = "xserve_default", text = "I studied in Moonglade for a long while, as all of the Circle do. When the Horde came into Ashenvale, the Arch Druid sent some of us to stand with the keepers, and I asked to be sent here." } },
       choices = {
+        { text = "The keeper deserves our protection.", next = "BACK", reply = "He does. We guard him with our lives.", fx = { align = { order = 1 } } },
+        { text = "The keeper should defend himself.", next = "BACK", reply = "He is old and weary. Go back down.", fx = { align = { order = -1 } } },
         { text = "Why Raynewood in particular?", next = "xwhy" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1213,6 +1245,8 @@ P:NPC {
     third = "{name} met one of the Cenarion Vindicators guarding Keeper Ordanus.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You have climbed far, friend. The keeper's guardians welcome you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You have climbed far. The guardians are wary of you. Speak, and go." },
     { id = "g_default", text = "You have climbed far, little one. Speak your purpose before the keeper's guardians lose their patience." },
   },
   start = "hello",
@@ -1221,6 +1255,8 @@ P:NPC {
       narr = "He lifts his head slowly, and the leaves in his antlers whisper.",
       lines = { { id = "xdays_default", text = "We do not count days the way you do. We count seasons and the rings of trees, and we listen for the wrong sounds: the axe, the saw, the goblin engine coughing in the valley." } },
       choices = {
+        { text = "The Circle's work is patient and good.", next = "BACK", reply = "It is. We count seasons, not days.", fx = { align = { order = 1 } } },
+        { text = "The Circle moves too slowly to matter.", next = "BACK", reply = "Patience is what keeps the forest alive.", fx = { align = { order = -1 } } },
         { text = "Do you ever sleep?", next = "xsleep" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1345,6 +1381,8 @@ P:NPC {
     third = "{name} met a Forsaken herbalist working at Bathran's Haunt.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, you. You may pick from my patch, this once. Don't tell anyone." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Step carefully. That patch is mine. Stay away from it." },
     { id = "g_default", text = "Step carefully. That patch is mine, and it has taken weeks to find anything worth picking in this wretched forest." },
     { id = "g_undead", when = { race = "Scourge" }, text = "Ah, one of our own. You'll forgive me if I don't get up; my knees are older than my grudges." },
   },
@@ -1354,6 +1392,8 @@ P:NPC {
       narr = "The herbalist pauses, a leaf halfway to the satchel.",
       lines = { { id = "xbefore_default", text = "An apothecary's apprentice in Brill, if you can believe it. I mixed tonics for farmers with bad backs. Then the grain went bad and so did I, and now I mix things for people with no backs left to hurt." } },
       choices = {
+        { text = "The Forsaken are wise to study the land.", next = "BACK", reply = "We are. The living rarely notice what grows here.", fx = { align = { order = 1 } } },
+        { text = "The Forsaken should leave this forest alone.", next = "BACK", reply = "How kind of you to say. Step away.", fx = { align = { order = -1 } } },
         { text = "You don't sound bitter about it.", next = "xbitter" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1439,6 +1479,8 @@ P:NPC {
     third = "{name} spoke with a Splintertree raider in Torek's war band.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You march with us? Good! Torek will be glad of your axe, friend." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You march with us? Hmph. Stay out of my way." },
     { id = "g_default", text = "You march with us, {class}? Good, for Torek wants every axe he can get when we hit the elves." },
   },
   start = "hello",
@@ -1447,6 +1489,8 @@ P:NPC {
       narr = "He spits to one side and grins without much humour.",
       lines = { { id = "xlong_default", text = "Three winters, though there is no winter in this cursed wood, only rain. I came with the first lumber teams, and of those I came with, five are left. I count them every morning." } },
       choices = {
+        { text = "The Horde needs every axe in Ashenvale.", next = "BACK", reply = "It does! We'll take the forest yet.", fx = { align = { order = 1 } } },
+        { text = "Fighting the elves for trees is pointless.", next = "BACK", reply = "Then go home and cower.", fx = { align = { order = -1 } } },
         { text = "Why stay, after so much loss?", next = "xstay" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1532,12 +1576,16 @@ P:NPC {
     third = "{name} met a Warsong runner carrying word through Ashenvale.",
   },
   greetings = { { id = "g_default", text = "Make it fast, friend. I've orders to carry, and the elves shoot at anything that stands still." } },
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You, friend! I'll tell you the news as I run. Quick, keep up!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Make it fast. I've orders to carry." },
   start = "hello",
   nodes = {
     xlong = {
       narr = "He bounces on his heels, still moving even while standing.",
       lines = { { id = "xlong_default", text = "Since I was too small to swing an axe. The chieftain said legs are worth as much as arms, and in this forest they're worth more, since arms can't outrun arrows." } },
       choices = {
+        { text = "A runner's legs matter as much as any axe.", next = "BACK", reply = "They do! The chieftain says so, and so do I.", fx = { align = { order = 1 } } },
+        { text = "A runner's just a messenger. Not a warrior.", next = "BACK", reply = "Tell that to the elves who chase me.", fx = { align = { order = -1 } } },
         { text = "Have you ever been caught?", next = "xcaught" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1647,6 +1695,8 @@ P:NPC {
     third = "{name} spoke with a Warsong scout in Ashenvale.",
   },
   greetings = { { id = "g_default", text = "Quiet. The forest has ears, and most of them are pointed." } },
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You. Good. Quiet now, but stay close. The forest is safer with you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Quiet. The forest has ears. So do I." },
   start = "hello",
   nodes = {
     xbecame = {
@@ -1657,6 +1707,8 @@ P:NPC {
     xnight = {
       lines = { { id = "xnight_default", text = "Wisps, sometimes, drifting like lost lanterns. Owls that are too large, and eyes that are too high. Once a whole tree walked past me, slow as an old man, and I did not breathe until it was gone." } },
       choices = {
+        { text = "Listening saves more lives than fighting.", next = "BACK", reply = "It does. You understand.", fx = { align = { order = 1 } } },
+        { text = "A scout should fight, not just listen.", next = "BACK", reply = "Then you'll be the first to die.", fx = { align = { order = -1 } } },
         { text = "A walking tree?", next = "xtree" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1762,12 +1814,16 @@ P:NPC {
     third = "{name} spoke with a Sentinel guarding Astranaar.",
   },
   greetings = { { id = "g_default", text = "Elune's light upon you, traveller. You stand in Astranaar; keep your weapons sheathed." } },
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Elune's light upon you, friend of Astranaar. Walk freely." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You stand in Astranaar. Keep your weapons sheathed. I am watching." },
   start = "hello",
   nodes = {
     xtown = {
       narr = "She glances back over the bridge toward the lamps of the town.",
       lines = { { id = "xtown_default", text = "Astranaar stands on an island in Lake Iris, and the water is half our wall. Raene Wolfrunner commands here, and Shindrell Swiftfire keeps the moonwell's light, though both of them sleep less than they should." } },
       choices = {
+        { text = "The Sentinels keep Astranaar safe.", next = "BACK", reply = "We do. Raene sees to it.", fx = { align = { order = 1 } } },
+        { text = "Astranaar should strike the Horde first.", next = "BACK", reply = "Raene decides that, not you.", fx = { align = { order = -1 } } },
         { text = "Who is Raene Wolfrunner?", next = "xraene" },
         { text = "Something else.", next = "BACK" },
       },

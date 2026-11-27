@@ -17,6 +17,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. Mind the tails, but they know you by now. Choose your rider and fly well." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind the tails, {class}. The riders sting first and think later, and so might I." },
     { id = "g_default", text = "Mind the tails, {class}, for the riders on this rock sting first and think about it afterward. Where do the winds carry you today?" },
     { id = "g_back", when = { metBefore = true }, text = "You have come back to the rock in one piece, and the riders remember you, so they will only hiss a little." },
     { id = "g_word_brave", when = { word = "brave" }, text = "The braves say you went where most would not. That is good, because a wind rider can smell fear on a passenger, and you will give them none." },
@@ -185,6 +187,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, you. You can talk as loud as you like near the pens, friend. The new ones like you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Keep your voice down near the pens, {class}. The new ones are nervous, and you make me nervous." },
     { id = "g_default", text = "Keep your voice down near the pens, {class}, because the new ones are still nervous. You got a beast that needs a rest?" },
     { id = "g_back", when = { metBefore = true }, text = "You came back, and your beasts still remember the water here. That says more good about you than anything you could tell me." },
   },

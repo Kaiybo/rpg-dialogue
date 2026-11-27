@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my friend! Come, come, and mind the wires; I've a new machine I'm burstin' tae show ye." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Don't touch anythin', and that includes me." },
     { id = "g_tinker", text = "Mind the wires, {g:lad|lass}, and don't touch anything that's humming, especially if it's humming at ye." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Good, I've made adjustments since ye were last here, and only one of them caught fire, which is better odds than most Ironforge workshops." },
     { id = "g_blaster", when = { questActive = TODO_QUEST("The Restless Souls") }, text = "Use the blaster on the ghosts in the streets, and then again on what comes out of them. Compassion, mind, not target practice." },
@@ -181,6 +183,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "Ye understand the work, {g:lad|lass}, ye really do, and that's worth more tae me than any cog or crystal." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "Ye've been careless with my machines and careless with me, and both of us hum when we're angry." },
+    },
     background = { { id = "tp_bg", text = "A dwarf with a toolkit and a grudge, and a mother somewhere in Stratholme. That's my story, and I'd sooner have a spanner in my hand than tell it twice." } },
     advice = { { id = "tp_ad", text = "Hate'll get you started, but it won't keep you going. Find the other thing, and hold on to it." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "They'd burn every ghost in Stratholme if they could reach them, and call it mercy. It isn't." } },

@@ -188,6 +188,8 @@ P:NPC {
     third = "{name} met Groum Stonebeard, an apprentice blacksmith at the Great Forge of Ironforge.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
     { id = "g_default", text = "Mind the sparks, {class}! I'm Groum, and I'm only the apprentice, so if it's proper work ye need, ye'll want my da or Master Bengus." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again! I've nae burned myself since ye were last here, and that's a personal best." },
   },
@@ -291,6 +293,8 @@ P:NPC {
     third = "{name} met Gwenna Firebrew, who pours the drinks at the Stonefire Tavern in Ironforge.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my favourite guest. The fire's warm and the room's ready." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Sit where you like, and I'll get to you when I get to you." },
     { id = "g_default", text = "Welcome to the Stonefire, {class}! Get yerself near the hearth and tell me what ye're drinkin', for ye look as though ye've earned one." },
     { id = "g_back", when = { metBefore = true }, text = "There ye are again! Sit down and tell me where ye've been, and I'll pour while ye talk." },
   },
@@ -395,6 +399,8 @@ P:NPC {
     third = "{name} met Harick Boulderdrum, who sells wands at the Fighting Wizard in Ironforge.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "Wands, {class}, if ye've the knack for them. Take yer time lookin', for I'm in nae hurry and the wands certainly aren't." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back. The last one's still workin', I hope, and still pointed away from ye." },
   },
@@ -415,6 +421,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, when ye're ready." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "You sell wands but can't use them?", next = "use" },
         { text = "How does one choose a wand?", next = "choose" },
         { text = "Bingus says you're very calm.", next = "bingus" },
@@ -497,6 +505,8 @@ P:NPC {
     third = "{name} met Hjoldir Stoneblade, who sells blades at Stoneblade's in the Forlorn Cavern.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "Stoneblade's. Look as long as ye like, {class}, and I'll nae ask what it's for." },
     { id = "g_back", when = { metBefore = true }, text = "Ye've been here before. I remember the face, and I've forgotten everythin' else, as is my custom." },
   },
@@ -517,6 +527,8 @@ P:NPC {
         { id = "h_again2", text = "Aye, I'm listenin'." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Why keep shop in the Forlorn Cavern?", next = "cavern" },
         { text = "Your blades are very plain.", next = "plain" },
         { text = "How do you bear Binny's improvements?", next = "binny" },
@@ -604,6 +616,8 @@ P:NPC {
     third = "{name} met Ingrys Stonebrow, who sells cloth armour at Maeva's Mystical Apparel in Ironforge.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "Come in, come in, {class}. Stand in the light and let me see what ye're wearin', for I can tell already it's nae warm enough for Dun Morogh." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, dear? Turn round and let me see how the last lot's wearin' at the elbows." },
   },
@@ -626,6 +640,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I can talk and fold." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Can cloth really be called armour?", next = "armour" },
         { text = "What do casters forget to buy?", next = "forget" },
         { text = "A dwarf selling cloth is unusual.", next = "dwarf" },

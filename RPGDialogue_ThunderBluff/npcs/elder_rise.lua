@@ -266,6 +266,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "The Arch Druid speaks well of you, friend. Come, sit with me." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The Arch Druid says things of you. I am not sure I agree." },
     { id = "o_ne_admire", when = { gossip = { topic = "night_elves", stance = "admire" } }, text = "The Arch Druid says you think well of the kaldorei. Sit with that a while, and you'll find it makes a druid's lessons easier." },
     { id = "g_hi", text = "Sit, and breathe, and let the Earth Mother settle you. Then tell me what you've come to learn." },
     { id = "g_back", when = { metBefore = true }, text = "You're back. The Great Bear Spirit has been patient with you, I hope." },
@@ -403,10 +405,10 @@ P:NPC {
       choices = {
         { text = "Then the Circle should ask, and decide.", next = "BACK",
           reply = "You may be right, and I'll say so to Hamuul over tea, though he'll only smile. Doors open slowly on Elder Rise, but they do open.",
-          fx = { align = { order = -1 }, opinion = { druids = "closed" } } },
+          fx = { align = { order = -1 }, opinion = { druids = "wary" } } },
         { text = "My people have their own ways. That's enough.", next = "BACK",
           reply = "They do, and good ones, from what I've seen of your shamans. The Earth Mother made more than one road to her door.",
-          fx = { align = { order = 1 }, opinion = { druids = "respect" } } },
+          fx = { align = { order = 1 }, opinion = { druids = "balance" } } },
         { text = "Something else, Sheal.", next = "BACK" },
       },
     },
@@ -439,6 +441,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "There you are, friend! Let's not waste An'she's light! Come, let's train!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "There you are. Let's not waste the light. I'd rather not waste it on you, but here we are." },
     { id = "g_hi", text = "There you are! Let's not waste An'she's light, what do you need?" },
     { id = "g_back", when = { metBefore = true }, text = "Back already? Good, you've been running, I can tell." },
   },

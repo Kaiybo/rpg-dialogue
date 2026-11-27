@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
     { id = "g_ledge", text = "Gryphons for the Alliance, this side of the ledge. Wind riders are round the other side, and we don't mix the birds." },
     { id = "g_back", when = { metBefore = true }, text = "Back in the cove? The birds were starting to miss the weight." },
   },
@@ -213,6 +215,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
     { id = "g_ledge", text = "These wind riders carry the Horde and nobody else, pal, fare up front. Stand clear of the tails, because the stingers aren't for show and I don't cover the healer's bill." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Good, the beasts like a familiar smell, and I like a familiar purse." },
   },
@@ -399,6 +403,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_vault", text = "Welcome, welcome, friend! Your valuables are safe with the Steamwheedle, safer than with you, frankly, and the fees are modest by Booty Bay standards." },
     { id = "g_back", when = { metBefore = true }, text = "A returning customer! My favorite kind, after the rich kind, and you might be both, given time and compound interest." },
   },
@@ -614,6 +620,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_blades", text = "Every blade on this wall is sharp, and most of them are old. Look all you like, but keep your hands behind your back." },
   },
 
@@ -630,6 +638,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Maybe, maybe not, but look at the nicks along the edge and tell me it never held a bridge against somebody. A blade remembers what it's done, friend, even if the seller forgets, and a warrior can always feel the difference." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'll judge a sword by its steel, not your tall tales.", next = "BACK", reply = "Fair, and you'll find the steel's sound, story or no story. The nicks are real, at least, whatever made them.", fx = { align = { honor = 1 } } },
         { text = "A good story sells a sword. I'd tell it too.", next = "BACK", reply = "Ha! Now you're talking like a trader. A good tale doubles the price, and nobody ever asks for a refund on a story.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -797,6 +807,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_forge", text = "My steel is new, properly forged and priced to match. If you want rust and a story, Jutak's next door." },
   },
 
@@ -1011,6 +1023,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_hats", text = "Come in, come in, pal! I sell everything a fearsome buccaneer needs except the ship and the nerve, and I can get you a very good price on the nerve, in bottles." },
   },
 
@@ -1025,6 +1039,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Plenty, pal, because a big soldier in a pirate hat gets a laugh in every tavern on the coast and a wide berth from the Bruisers. Half the swagger on these piers comes out of my shop at four silver a hat, and the other half comes out of a rum barrel." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "A warrior's reputation should be earned, not bought in a hat.", next = "BACK", reply = "Earned, sure, but a hat makes the earning a lot more fun, buddy. Wear it once and see how the tavern treats you.", fx = { align = { honor = 1 } } },
         { text = "If a hat makes them fear me, I'll wear it gladly.", next = "BACK", reply = "That's the spirit, pal! Fear and laughs are the same price, and the hat buys you both.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -1186,6 +1202,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_flirt", when = { flirt = true, chance = 0.4 }, text = "Well hello, sweetheart, the Salty Sailor just got better lookin' by a margin I can't even put a price on! Sit down, sit down, the smile's free and the bread's a copper." },
     { id = "g_flirt_warm", when = { flirt = true, npcFlagBefore = "flirt_warm" }, text = "There's my favourite customer, sweetheart! I saved you the table with only one wobbly leg, which around here counts as a reservation, and I didn't even bill you for the sentiment." },
     { id = "g_flirt_cool", when = { flirt = true, npcFlagBefore = "flirt_declined", chance = 0.5 }, text = "Food or drink, pal, strictly business, just like you asked! Then again, business is the one thing I never get tired of." },
@@ -1202,6 +1220,8 @@ P:NPC {
     flirt = {
       lines = { { id = "fl_default", text = "Every customer? No, no, I call the ones I like sweetheart, and the rest I call pal and add a copper to the bill. Listen, I close the kitchen at midnight, and a goblin with a full larder and an empty table is a sad sight, so if you came by after hours, I'd call it customer relations." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Midnight it is, then. Save me some bread.", next = "flirt_warm", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "flirt_warm" } } } },
         { text = "Is there any decent ale in that larder, goblin?", next = "flirt_ale", when = { race = "Dwarf" } },
         { text = "You're sweet, but I'm only here for the food.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "flirt_declined" } } },
@@ -1404,6 +1424,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_cloth", text = "I've thread, cloth and patterns for anyone who sews, pal, but please don't touch the silk with tar on your hands, because you'll be buying the whole bolt." },
   },
 
@@ -1418,6 +1440,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because a tabard says who you fight for, and a frayed one says nobody's looking after you, and nobody hires a soldier who looks cheap. Stitch it right and stitch it tight, I always say, and you'll look like a soldier and not a scarecrow out of Westfall." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "You're right. A soldier should look after his colors.", next = "BACK", reply = "There's a soldier who listens! Bring it by, pal, and I'll have it looking like parade day by morning.", fx = { align = { order = 1 } } },
         { text = "My tabard's torn from fighting. That's all it needs to say.", next = "BACK", reply = "It says plenty, pal, mostly that nobody loves you. Bring it in, and I'll make it say something better.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },

@@ -14,6 +14,8 @@ P:NPC {
     third = "{name} met Celes Earthborne, a quiet druid of the Cenarion Circle in Nighthaven.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ishnu-alah, friend. The glade is glad of you, and so am I. Sit a while if your road allows it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You may walk here, as any guest of the Circle may. I only ask that you walk more gently than you have before." },
     { id = "g_default", text = "Ishnu-alah, {class}. Walk softly in Nighthaven, for you are a guest of the Circle here, whoever you may be elsewhere." },
     { id = "g_back", when = { metBefore = true }, text = "The glade has drawn you back. It does that, to those who have need of quiet." },
   },
@@ -107,6 +109,8 @@ P:NPC {
     third = "{name} met Moren Riverbend, a tauren druid of the Cenarion Circle living in Nighthaven.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, it warms me to see you. Come, the fire is high tonight, and there's room beside it for a friend." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The fire is open to all who come in peace, {class}. I hope that is how you come today." },
     { id = "g_default", text = "The Earth Mother's peace upon you, {class}. You are welcome at the Riverbend fire, as all are who come to Moonglade in good faith." },
     { id = "g_back", when = { metBefore = true }, text = "The winds have carried you back to us. Sit, and tell me where they took you." },
   },
@@ -126,8 +130,8 @@ P:NPC {
         { id = "dr_mr_elf", when = { race = "NightElf" }, text = "Then you are one of those who kept the old ways, and I am one of those who came late to them. Some of your elders still look at my people sideways on the benches, and I have never once held it against them, for ten thousand years is a long time to be alone." },
       },
       choices = {
-        { text = "The Circle is stronger with tauren in it. I'm sure of it.", next = "BACK", reply = "I hope so, and I try each day to make it true. The Keeper believed it first, and I would not like to prove him wrong.", fx = { affinity = 1, align = { order = -1 }, opinion = { druids = "united" } } },
-        { text = "Each people learns best among its own kind.", next = "BACK", reply = "Perhaps, as calves learn best from their own herd. But a herd that never meets another forgets there is more than one way to cross a river.", fx = { align = { order = 1 }, opinion = { druids = "divided" } } },
+        { text = "The Circle is stronger with tauren in it. I'm sure of it.", next = "BACK", reply = "I hope so, and I try each day to make it true. The Keeper believed it first, and I would not like to prove him wrong.", fx = { affinity = 1, align = { order = -1 }, opinion = { druids = "balance" } } },
+        { text = "Each people learns best among its own kind.", next = "BACK", reply = "Perhaps, as calves learn best from their own herd. But a herd that never meets another forgets there is more than one way to cross a river.", fx = { align = { order = 1 }, opinion = { druids = "wary" } } },
         { text = "Let us speak of something else.", next = "BACK" },
       },
     },
@@ -182,6 +186,8 @@ P:NPC {
     third = "{name} met Mylentha Riverbend, a tauren of the Cenarion Circle who keeps a lodge in Nighthaven.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome back, friend. I hoped the wind would bring you this way again. Sit, and rest your feet." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You may rest here, as anyone may. I'll not pretend I've forgotten how you carried yourself last time." },
     { id = "g_default", text = "Come and rest, {class}. You have the dust of a long road on you, and Moonglade is a good place to shake it off." },
     { id = "g_back", when = { metBefore = true }, text = "You are back, and your boots are no better. Sit, and let your feet remember what stillness is." },
   },

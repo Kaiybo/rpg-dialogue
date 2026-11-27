@@ -17,6 +17,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Elune's light on you, friend. Your deposit is safe with me." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Elune's light. State your business." },
     { id = "g_default", text = "Elune's light on you. If you are here to deposit something, I can help, and if you are here to admire the gardens, they are free." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. Nothing in your box has moved since you last stood here, because nothing in my care ever does." },
   },
@@ -129,6 +131,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. I have nowhere to be until the Temple bells." },
       },
       choices = {
+        { text = "A precise banker is a trustworthy one.", next = "BACK", reply = "I am. Thank you.", fx = { align = { order = 1 } } },
+        { text = "Bankers are all the same.", next = "BACK", reply = "Not this one.", fx = { align = { order = -1 } } },
         { text = "I'd like to see my box.", next = "BUSINESS" },
         { text = "Why keep a bank beside the Temple?", next = "temple" },
         { text = "I'd guess nothing ever goes missing here.", next = "missing" },
@@ -207,6 +211,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Feet apart, shoulders loose. Good. You've improved." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Feet apart, shoulders loose. Stand properly." },
     { id = "g_default", text = "Feet apart and shoulders loose, and if you came to talk, you can do it standing properly." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, are you? Then show me you've kept your guard up since last time." },
   },
@@ -327,6 +333,8 @@ P:NPC {
         { id = "h_again2", text = "Your question, then, and keep your chin up while you ask it." },
       },
       choices = {
+        { text = "Proper form wins fights.", next = "BACK", reply = "It does. You understand.", fx = { align = { order = 1 } } },
+        { text = "Form doesn't matter. Strength does.", next = "BACK", reply = "Then you'll fall over.", fx = { align = { order = -1 } } },
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "My shield arm still drops when I'm tired.", next = "shield", when = { class = "WARRIOR", minLevel = 10, maxLevel = 39 } },
         { text = "How do I hold a line against the Warsong?", next = "warsong_line", when = { class = "WARRIOR", minLevel = 20 } },
@@ -434,6 +442,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend! Pick this one up; it suits you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Pick them up properly, or don't pick them up." },
     { id = "g_default", text = "Ishnu-alah. Come and look, but pick them up properly, because a blade tells you more in the hand than on the rack." },
     { id = "g_back", when = { metBefore = true }, text = "There you are. Did the last one serve you well, or have you come to tell me otherwise?" },
   },
@@ -546,6 +556,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I've time while the Terrace is quiet." },
       },
       choices = {
+        { text = "A blade tells you about its wielder.", next = "BACK", reply = "It does! You understand.", fx = { align = { honor = 1 } } },
+        { text = "A blade is just steel.", next = "BACK", reply = "Then buy any steel.", fx = { align = { honor = -1 } } },
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "How do I choose the right weapon?", next = "choose" },
         { text = "You must have plenty of customers up here.", next = "buyers" },
@@ -620,6 +632,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Slowly, friend, but come. The sabers know you now." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Slowly. Let them see your hands. Slower." },
     { id = "g_default", text = "Slowly, please, and let them see your hands. My sabers are gentle, but they don't like surprises." },
     { id = "g_back", when = { metBefore = true }, text = "They remember your scent now. That one in the corner even stopped growling." },
   },
@@ -752,6 +766,8 @@ P:NPC {
         { id = "h_again2", text = "Ask away. They're calm this time of day." },
       },
       choices = {
+        { text = "Sabers deserve gentle handling.", next = "BACK", reply = "They do. You understand.", fx = { align = { light = 1 } } },
+        { text = "Sabers are just big cats.", next = "BACK", reply = "They will remember that.", fx = { align = { light = -1 } } },
         { text = "Let me see the sabers.", next = "BUSINESS" },
         { text = "Where do frostsabers come from?", next = "frost" },
         { text = "Training a saber to carry a rider must take years.", next = "train" },
@@ -821,6 +837,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Here to learn, friend? I'll make sure you don't fall off." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Here to learn, or to watch someone fall? You, I think." },
     { id = "g_default", text = "Here to learn to ride, or here to watch someone else fall off? Both are popular." },
     { id = "g_back", when = { metBefore = true }, text = "Still in one piece, I see. That's a credit to one of us." },
   },
@@ -935,6 +953,8 @@ P:NPC {
         { id = "h_again2", text = "Ask on. The sabers are napping." },
       },
       choices = {
+        { text = "Learning to ride takes patience.", next = "BACK", reply = "It does. And bruises.", fx = { align = { order = 1 } } },
+        { text = "Riding is easy.", next = "BACK", reply = "Then fall off.", fx = { align = { order = -1 } } },
         { text = "Teach me to ride.", next = "BUSINESS" },
         { text = "What's the hardest part of riding a saber?", next = "hard" },
         { text = "I take it you work for Lelanai.", next = "lelanai" },
@@ -1000,6 +1020,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend. Sit; I'd gladly hear why you'd found a guild." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ishnu-alah. Sit, and tell me why. Convince me." },
     { id = "g_default", text = "Ishnu-alah. If you mean to found a guild, sit down, because I'll want to hear why." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Have you found your companions, or are you still looking?" },
   },
@@ -1122,6 +1144,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. Charters can wait for a good question." },
       },
       choices = {
+        { text = "A guild should stand for something.", next = "BACK", reply = "It should. You understand.", fx = { align = { order = 1 } } },
+        { text = "A guild is just a group of friends.", next = "BACK", reply = "Then call it that.", fx = { align = { order = -1 } } },
         { text = "I'd like to see about a charter.", next = "BUSINESS" },
         { text = "Why do you care what a guild is for?", next = "purpose" },
         { text = "Most guilds don't seem to last.", next = "last" },
@@ -1197,6 +1221,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Oh, do come in, friend! I've a new shade just for you!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Oh. Come in. Mind the bolts." },
     { id = "g_default", text = "Oh, do come in! Mind the bolts of cloth, they've just been sorted by shade." },
     { id = "g_back", when = { metBefore = true }, text = "You again! I hope you've been wearing the colors with pride, and not under a cloak." },
   },
@@ -1304,6 +1330,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask. I promise to keep it short this time." },
       },
       choices = {
+        { text = "A good tabard shows pride.", next = "BACK", reply = "It does! You understand.", fx = { align = { honor = 1 } } },
+        { text = "Tabards are just cloth.", next = "BACK", reply = "Oh. Well.", fx = { align = { honor = -1 } } },
         { text = "I'd like to design a tabard.", next = "BUSINESS" },
         { text = "What makes a good tabard?", next = "good" },
         { text = "You must have made a few ugly ones.", next = "worst" },
@@ -1369,6 +1397,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Fresh venison, friend, and I saved the best cut for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Fresh venison. The quail's off. Pay." },
     { id = "g_default", text = "Fresh venison this morning, and the boar's from Dolanaar. The quail's off, because a nightsaber kit got into the larder, so what'll it be?" },
     { id = "g_back", when = { metBefore = true }, text = "Back for more? I knew the venison would win you over." },
   },
@@ -1483,6 +1513,8 @@ P:NPC {
         { id = "h_again2", text = "Ask quickly, before the venison goes." },
       },
       choices = {
+        { text = "Fresh meat is worth the price.", next = "BACK", reply = "It is. You understand.", fx = { align = { honor = 1 } } },
+        { text = "Old meat is just as good.", next = "BACK", reply = "Then eat old meat.", fx = { align = { honor = -1 } } },
         { text = "Let me see what you have.", next = "BUSINESS" },
         { text = "Do the druids object to your trade?", next = "druids" },
         { text = "Your meat looks fresh off the hunt.", next = "hunters" },
@@ -1566,6 +1598,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Elune's peace, friend. Your hands are steady now. Let me teach you more." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Elune's peace. Show me your hands. Hm." },
     { id = "g_default", text = "Elune's peace on you. Sit down a moment and let me see your hands, because steady hands make good bandages." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. I hope you've needed my lessons less than you feared." },
   },
@@ -1677,6 +1711,8 @@ P:NPC {
         { id = "ddd_default", text = "Then let me teach you to count something else, like the seconds between a wound and a bandage. Most deaths I hear about began as a cut that someone meant to see to after the fight, and then the fight went on too long." },
       },
       choices = {
+        { text = "First aid saves lives.", next = "BACK", reply = "It does. You understand.", fx = { align = { light = 1 } } },
+        { text = "First aid is for the weak.", next = "BACK", reply = "Then you'll bleed.", fx = { align = { light = -1 } } },
         { text = "That's fair. Teach me what you can.", next = "BUSINESS" },
         { text = "I'll see to my wounds after the fighting.", next = "BACK", reply = "That's what they all say, and then they come back pale from the spirit healer and say it again. Think on it, please." },
       },
@@ -1778,6 +1814,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Careful, friend, but come. I've a new brew to show you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Careful. That one's warm. What do you want?" },
     { id = "g_default", text = "Careful, that one's still warm, and it has been brewing since the last new moon. What can I do for you?" },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you again. You still have all your eyebrows, so you must be doing something right." },
   },
@@ -1890,6 +1928,8 @@ P:NPC {
         { id = "h_again2", text = "Ask on, but keep your sleeves clear of the burner." },
       },
       choices = {
+        { text = "Patient brewing makes strong potions.", next = "BACK", reply = "It does. You understand.", fx = { align = { order = 1 } } },
+        { text = "Fast brewing works just as well.", next = "BACK", reply = "It does not.", fx = { align = { order = -1 } } },
         { text = "Train me in alchemy.", next = "BUSINESS" },
         { text = "What should a new alchemist learn first?", next = "first" },
         { text = "Where do the best herbs grow?", next = "herbs" },

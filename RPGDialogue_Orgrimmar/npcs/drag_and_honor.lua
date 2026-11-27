@@ -220,6 +220,8 @@ P:NPC {
     third = "{name} met Mayhoa Skyhoof, a tauren girl selling prairie wolf pups in Orgrimmar.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Oh, it's you! Come see the puppies! They've been asking for you, I swear they have." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The puppies are sleeping. Please keep your voice down, and your hands to yourself." },
     { id = "g_default", text = "Do you want to see the puppies? They're prairie wolves from Mulgore, and they need good homes before they chew through my basket." },
     { id = "g_tauren", when = { race = "Tauren" }, text = "You're from home! Do you want a puppy? They're Mulgore wolves, so they'll like you better than these orcs." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "You've got a pet already, so you'll know how to look after one of mine, won't you?" },

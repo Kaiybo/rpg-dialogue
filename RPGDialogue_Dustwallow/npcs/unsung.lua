@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Come in, friend! I saved dry socks for you, and a good torch." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come in. Bread, rope, torches. Pay, please." },
     { id = "g_shop", text = "Come in, come in! Bread, flasks, rope and torches, and dry socks, which you'll want in this marsh." },
     { id = "g_back", when = { metBefore = true }, text = "There you are again! Still keeping your feet dry, I hope?" },
   },
@@ -138,6 +140,8 @@ P:NPC {
         { id = "h_again2", text = "Yes, dear? Ask away." },
       },
       choices = {
+        { text = "Dry socks are the best thing in this marsh.", next = "BACK", reply = "They are! Everyone forgets them.", fx = { align = { order = 1 } } },
+        { text = "Wet feet never hurt anyone.", next = "BACK", reply = "They will in this marsh. Pay, please.", fx = { align = { order = -1 } } },
         { text = "Is there a way to keep the marsh from rotting your goods?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Let me see what you have.", next = "BUSINESS" },
         { text = "The marsh looks hard on a traveller's kit.", next = "marsh" },
@@ -226,6 +230,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, you. I've a shield set aside, the best of the lot." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Armor and shields. Hands off the display." },
     { id = "g_forge", text = "Armor and shields, made for the guard and sold to anyone who pays. Keep your hands off the oiled pieces." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Let's see if you've kept the rust off this time." },
   },
@@ -349,6 +355,8 @@ P:NPC {
         { id = "h_again2", text = "Speak up. The hammer drowns out quiet voices." },
       },
       choices = {
+        { text = "Good armor honors the smith who makes it.", next = "BACK", reply = "It does. You understand.", fx = { align = { honor = 1 } } },
+        { text = "Armor is armor, whoever makes it.", next = "BACK", reply = "Then buy from someone else.", fx = { align = { honor = -1 } } },
         { text = "Does the marsh treat leather any better than steel?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Let me see your armor.", next = "BUSINESS" },
         { text = "Rust must be the bane of your forge here.", next = "rust" },
@@ -449,6 +457,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, friend! Come feel this blade's balance; I made it thinking of you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You think the peace is a lie. I hope you're wrong." },
     { id = "o_horde_war", when = { gossip = { topic = "horde", stance = "war" } }, text = "The Captain says you think the peace is a lie. I hope you're wrong, friend, because I've sold more swords this month than I'd like." },
     { id = "g_forge", text = "Swords, axes, maces, and a spear or two for the long-armed. Have a look, friend." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still in one piece. My work must be holding up." },
@@ -573,6 +583,8 @@ P:NPC {
         { id = "h_again2", text = "Ask away; Hans does the shouting in this part of town, not me." },
       },
       choices = {
+        { text = "Peace with the Horde is worth trying for.", next = "BACK", reply = "It is. Lady Proudmoore believes it, and so do I.", fx = { align = { light = 1 } } },
+        { text = "The peace with the Horde won't last.", next = "BACK", reply = "I hope you're wrong. Truly.", fx = { align = { light = -1 } } },
         { text = "Do you ever forge for the Circle?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "What's the best weapon for the marsh?", next = "marsh" },

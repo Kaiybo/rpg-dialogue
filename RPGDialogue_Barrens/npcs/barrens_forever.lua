@@ -224,6 +224,8 @@ P:NPC {
     third = "{name} met Pallwick Boneset, a Forsaken who sets broken bones at the Crossroads.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, you. Nothing broken? Good, for once I'm glad. Sit, and let me talk to someone who listens." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Something broken? No? Then I have nothing for you." },
     { id = "g_default", text = "Something broken? No? Pity. I'm always looking for practice." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still in one piece. How disappointing for me." },
   },
@@ -259,6 +261,8 @@ P:NPC {
         { id = "w_default", text = "Because the Dark Lady sent some of us to show the Horde we're worth keeping, and I'm useful. I knew this work when I was alive, and the dead remember their trades better than their names." },
       },
       choices = {
+        { text = "The Forsaken have earned their place in the Horde.", next = "BACK", reply = "We have. The Dark Lady will be pleased someone noticed.", fx = { align = { order = 1 } } },
+        { text = "The Forsaken are a danger to the Horde.", next = "BACK", reply = "How original. Do try to get injured; I need the practice.", fx = { align = { order = -1 } } },
         { text = "What was your name, in life?", next = "name" },
         { text = "Something else.", next = "BACK" },
       },
@@ -527,6 +531,8 @@ P:NPC {
     third = "{name} met Aza'bek, the jungle troll who cooks for the Durotar Supply and Logistics camp outside the Crossroads.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Come in, friend! Aza'bek saved de best bowl for you. Nobody leave hungry, you least of all." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "De pot be on. Pay, eat, and go." },
     { id = "g_default", text = "Come in close, {g:mon|sister}, de pot be on and nobody leave my fire hungry." },
     { id = "g_back", when = { metBefore = true }, text = "You be back! Either de stew be good or you got nowhere else to eat, and I be happy either way." },
   },
@@ -564,6 +570,8 @@ P:NPC {
     pot = {
       lines = { { id = "p_default", text = "Zhevra, plainstrider, a little kodo dat Okamache swear died of old age, and enough pepper to make a grunt see his ancestors. De orcs complain every night and dey finish it every night, so I know I be doin' it right." } },
       choices = {
+        { text = "A shared pot makes the camp strong.", next = "BACK", reply = "It do, mon! Everybody eat together.", fx = { align = { light = 1 } } },
+        { text = "Every warrior should feed himself.", next = "BACK", reply = "Den feed yourself, mon. De pot be for friends.", fx = { align = { light = -1 } } },
         { text = "Do you cook for the tauren too?", next = "tauren" },
         { text = "Something else.", next = "BACK" },
       },
@@ -660,6 +668,8 @@ P:NPC {
     third = "{name} met Beneris, a Skyborne enchanter at the Durotar Supply and Logistics camp outside the Crossroads.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Well met again, friend. The wind is quiet, and your company suits me." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Well met. I am busy with my work. Speak briefly." },
     { id = "g_default", text = "Well met, traveller. The wind is quiet today, which suits my work, if not my mood." },
     { id = "g_back", when = { metBefore = true }, text = "You return. I hope the road was kind, or at least not unkind." },
   },
@@ -704,6 +714,8 @@ P:NPC {
     work = {
       lines = { { id = "w_default", text = "Every blade and boot that leaves this camp goes to someone who will fight with it, and a little enchantment can be the difference between a wound and a grave. Gor'mak makes the steel, and I make it remember it was meant to protect someone." } },
       choices = {
+        { text = "Enchanting serves those who will fight.", next = "BACK", reply = "It does. Every blade I bless might save a life.", fx = { align = { light = 1 } } },
+        { text = "Enchanting is just making things shiny.", next = "BACK", reply = "Then you have never seen a blade fail.", fx = { align = { light = -1 } } },
         { text = "What does Gor'mak think of you?", next = "gormak" },
         { text = "Something else.", next = "BACK" },
       },
@@ -777,6 +789,8 @@ P:NPC {
     third = "{name} met Apothecary Durelle, a Forsaken alchemist of the Royal Apothecary Society working at the Durotar Supply and Logistics camp.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, you. You may come closer to the bench. I trust you to know which is which." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind the bench. Some bottles are not medicine." },
     { id = "g_default", text = "Mind the bench. Some of these bottles are medicine, and some are very much not." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and still breathing, I see. The Barrens hasn't finished with you yet." },
   },
@@ -822,6 +836,8 @@ P:NPC {
     caravans = {
       lines = { { id = "c_default", text = "Antivenom, chiefly, because every snake and scorpid between here and Ratchet seems to want a bite of a kodo driver. After that, healing draughts, and after that, something to keep the grunts awake on the night watch." } },
       choices = {
+        { text = "Antivenom saves the caravans.", next = "BACK", reply = "It does. The snakes are relentless.", fx = { align = { light = 1 } } },
+        { text = "Poison is more useful than medicine.", next = "BACK", reply = "For some. Mind the bench.", fx = { align = { light = -1 } } },
         { text = "Does Aza'bek's cooking count as poison?", next = "azabek" },
         { text = "Something else.", next = "BACK" },
       },
@@ -896,6 +912,8 @@ P:NPC {
     third = "{name} met Gor'mak, the orc blacksmith at the Durotar Supply and Logistics camp outside the Crossroads.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You again. Good. Stand close; I'll show you a plan worth having." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Stand back from the sparks." },
     { id = "g_default", text = "Stand back from the sparks, unless you want a new scar to brag about." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Is that blade still holding its edge, or did you come to tell me it broke?" },
   },
@@ -952,6 +970,8 @@ P:NPC {
     camps = {
       lines = { { id = "ca_default", text = "Well enough. The humans fed us slop and watched us waste away, and most of us were too sick in the blood to care. I mended their chains because it was that or sit and rot." } },
       choices = {
+        { text = "A good plan makes a good sword.", next = "BACK", reply = "It does. You understand.", fx = { align = { order = 1 } } },
+        { text = "A good smith doesn't need plans.", next = "BACK", reply = "Then he makes bad swords.", fx = { align = { order = -1 } } },
         { text = "What broke the lethargy, for you?", next = "camps_thrall" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1003,6 +1023,8 @@ P:NPC {
     third = "{name} met Jim'bek, the jungle troll tailor at the Durotar Supply and Logistics camp outside the Crossroads.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, friend! Your stitching be better now, mon. Come, I show you somethin' new." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Look at dat stitching. Bad, mon. Very bad." },
     { id = "g_default", text = "Ah, look at dat stitching on you, mon. We can do better, ya, much better." },
     { id = "g_back", when = { metBefore = true }, text = "Back to Jim'bek! You finally decide to dress like you mean it?" },
   },
@@ -1050,6 +1072,8 @@ P:NPC {
     customer = {
       lines = { { id = "cu_default", text = "A Forsaken warlock from Undercity who come through every month and buy de black cloth by de bolt. She never smile, she never haggle, and she pay in gold, so she be my favourite customer in de whole world, mon." } },
       choices = {
+        { text = "Good stitching is a craft worth learning.", next = "BACK", reply = "It be, mon! My mother taught me.", fx = { align = { order = 1 } } },
+        { text = "Stitching's just sewing holes together.", next = "BACK", reply = "Den go sew your own holes.", fx = { align = { order = -1 } } },
         { text = "And your worst?", next = "customer_worst" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1110,6 +1134,8 @@ P:NPC {
     third = "{name} met Okamache, the tauren who handles the pack kodo of the Durotar Supply and Logistics camp.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Walk freely, friend. The kodo remember kindness, and they remember you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Walk slowly near the kodo. They remember rudeness." },
     { id = "g_default", text = "Walk slowly near the kodo, friend. They are tired, and they remember rudeness." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. The herd is well, and I hope you are too." },
   },
@@ -1165,6 +1191,8 @@ P:NPC {
     routes = {
       lines = { { id = "ro_default", text = "North to Orgrimmar through the pass, south to Camp Taurajo, and west sometimes to the Stonetalon road. The southern road is the hardest, because the centaur ride along it and the Kolkar think every caravan is a gift from their spirits." } },
       choices = {
+        { text = "The kodo deserve respect for their work.", next = "BACK", reply = "They do. They carry the Horde.", fx = { align = { light = 1 } } },
+        { text = "Kodo are just beasts of burden.", next = "BACK", reply = "Then they will remember that.", fx = { align = { light = -1 } } },
         { text = "Do you lose many kodo to raiders?", next = "routes_raid" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1219,6 +1247,8 @@ P:NPC {
     third = "{name} met Pawani, the tauren leatherworker at the Durotar Supply and Logistics camp outside the Crossroads.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "May the eternal sun shine upon you, friend. Come, the racks are steady today." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind the drying racks. They lean." },
     { id = "g_default", text = "May the eternal sun shine upon you. Mind the drying racks; they lean." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back, and your boots still hold. Good, I hoped they would." },
   },
@@ -1266,6 +1296,8 @@ P:NPC {
     scouts = {
       lines = { { id = "sc_default", text = "Soft boots that don't creak, vests that don't shine, and gloves thin enough to feel a bowstring. A scout who is heard is a scout who doesn't come back, and I would rather lose sleep stitching than lose a scout." } },
       choices = {
+        { text = "Leather should honor the beast.", next = "BACK", reply = "It should. The Earth Mother watches.", fx = { align = { light = 1 } } },
+        { text = "Leather is just hide. Sell it.", next = "BACK", reply = "Then it will not last.", fx = { align = { light = -1 } } },
         { text = "Do they come back to thank you?", next = "scouts_back" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1315,6 +1347,8 @@ P:NPC {
   role = "creature", tier = "service",
   communities = { "crossroads" },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "The kodo rumbles happily and leans its great head against your shoulder." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The kodo snorts and turns its broad back on you." },
     { id = "g_default", text = "The kodo chews slowly and regards you with deep, unbothered patience." },
   },
   start = "hello",
@@ -1324,6 +1358,8 @@ P:NPC {
         { id = "h_default", key = true, text = "The kodo lets out a long, rumbling sigh and shifts its weight off one sore foot. There are pale marks on its back where the pack straps sit, and it clearly has no plans to wear them today." },
       },
       choices = {
+        { text = "You deserve a good rest, old kodo.", next = "BACK", reply = "The kodo lets out a long, contented sigh.", fx = { align = { light = 1 } } },
+        { text = "Get up and work, lazy kodo.", next = "BACK", reply = "The kodo stamps once and pointedly ignores you.", fx = { align = { light = -1 } } },
         { text = "Scratch it behind the horn.", next = "scratch" },
         { text = "Leave it to its rest.", next = "END" },
       },
@@ -1349,6 +1385,8 @@ P:NPC {
     third = "{name} met Auctioneer Quickcoin, the goblin who runs auctions at the Durotar Supply and Logistics camp and at Three Corners in Redridge.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Friend! For you, the house takes a little less. Don't tell nobody." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Buyin' or sellin'? The house takes its cut." },
     { id = "g_default", text = "Buyin' or sellin', friend? Either way the house takes a little, and the house is me." },
     { id = "g_back", when = { metBefore = true }, text = "My favourite customer, or my fourth favourite, which is still very good, pal." },
   },
@@ -1398,6 +1436,8 @@ P:NPC {
     sells = {
       lines = { { id = "se_default", text = "Linen, wool, copper bars, anything a fella can make bandages or daggers out of, because everybody out here's either bleedin' or about to. Hides from the Barrens go for a fortune up in Orgrimmar, so I'm the middleman, and the middle's where the money sits." } },
       choices = {
+        { text = "The auction house keeps the trade moving.", next = "BACK", reply = "It does, friend. That's business.", fx = { align = { order = 1 } } },
+        { text = "Auctioneers are just thieves with a counter.", next = "BACK", reply = "The house takes a little more from you, then.", fx = { align = { order = -1 } } },
         { text = "So you buy low here, sell high there?", next = "sells_deal" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1444,6 +1484,8 @@ P:NPC {
   role = "worker", tier = "service",
   communities = { "crossroads" }, temper = { "harried" }, values = { "diligent" },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hey, pal! Your mail's right on top, sorted and everything." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mail's in, mail's out. Sign here. Thanks." },
     { id = "g_default", text = "Mail's in, mail's out, sign here, no, there, the other there, thanks, pal." },
     { id = "g_back", when = { metBefore = true }, text = "You again! Got somethin' to send, or are ya just makin' me nervous?" },
   },
@@ -1482,6 +1524,8 @@ P:NPC {
     tired = {
       lines = { { id = "ti_default", text = "I am, buddy, because the boss says time is money and he means my time and his money. Three runs a day to the Crossroads and back, and I swear the kodo walk slower when I'm in a hurry." } },
       choices = {
+        { text = "The mail keeps the Horde connected.", next = "BACK", reply = "It does, pal. Every letter counts.", fx = { align = { order = 1 } } },
+        { text = "The mail's too slow to be useful.", next = "BACK", reply = "Then walk it yourself, pal.", fx = { align = { order = -1 } } },
         { text = "You should ask for better pay.", next = "tired_stance" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1522,6 +1566,8 @@ P:NPC {
     third = "{name} met Fizzlefuse, a goblin engineer selling parts and ammunition at the supply camp outside the Crossroads.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Yo, friend! I got the stuff that HAS been tested, just for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Yo. Tubes, powder, shells. Most of it hasn't exploded yet." },
     { id = "g_default", text = "Yo, what do you need? Tubes, powder, shells, flux, I got it all, and most of it hasn't even blown up yet." },
     { id = "g_back", when = { metBefore = true }, text = "Hey, a repeat customer! I love repeat customers, pal, because they've already learned not to haggle." },
   },
@@ -1541,6 +1587,8 @@ P:NPC {
         { id = "h_again2", text = "Anything more? Clock's ticking, and that clock cost me twelve silver." },
       },
       choices = {
+        { text = "Engineering takes guts and brains.", next = "BACK", reply = "Ha! You get it, pal.", fx = { align = { honor = 1 } } },
+        { text = "Goblin engineering is a disaster waiting to happen.", next = "BACK", reply = "Then stand back, pal.", fx = { align = { honor = -1 } } },
         { text = "Why set up out here, of all places?", next = "why" },
         { text = "Do you sell to the Alliance too?", next = "both" },
         { text = "You look like something blew up near you recently.", next = "eyebrows" },

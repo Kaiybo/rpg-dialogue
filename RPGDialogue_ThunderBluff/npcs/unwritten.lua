@@ -16,6 +16,8 @@ P:NPC {
     third = "{name} met Seersa Copperpinch, who sells Smokywood Pastures treats in Thunder Bluff at Winter Veil.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Happy Winter Veil, friend! For you, the best treats at the best prices!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Happy Winter Veil. Treats, trinkets and cheer. Pay for them." },
     { id = "g_default", text = "Happy Winter Veil! Treats, trinkets and cheer, priced for every purse." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more cheer? I knew you were a festive one." },
   },
@@ -140,6 +142,8 @@ P:NPC {
     third = "{name} met Whulwert Copperpinch, who sells Smokywood Pastures' finer goods in Thunder Bluff at Winter Veil.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, a discerning friend. Welcome, and let me show you the finest quality." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ah, a shopper. Welcome. The quality goods are over there. Look, don't touch." },
     { id = "g_default", text = "Ah, a discerning shopper. Welcome to the quality end of the cart." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. Quality always calls its customers back." },
   },
@@ -263,6 +267,8 @@ P:NPC {
     third = "{name} met Cor Grimtotem, one of Magatha's tribe on the Elder Rise.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You walk on Grimtotem ground, friend. You walk well. That's rare." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You walk on Grimtotem ground now, stranger. Walk softly, or don't walk at all." },
     { id = "g_default", text = "You walk on Grimtotem ground now, stranger. Walk softly." },
     { id = "g_back", when = { metBefore = true }, text = "You again. You have a way of wandering where you are not asked." },
   },
@@ -364,6 +370,8 @@ P:NPC {
     third = "{name} met Gorm Grimtotem, a brooding Grimtotem tauren on the Elder Rise.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hmph. You again. You're all right, I suppose. What do you want?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hmph. Another wanderer. Go away." },
     { id = "g_default", text = "Hmph. Another wanderer. What do you want?" },
     { id = "g_back", when = { metBefore = true }, text = "You keep coming back. I have not decided if I mind." },
   },
@@ -488,6 +496,8 @@ P:NPC {
     third = "{name} met a Midsummer Merchant at the Fire Festival.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Happy Midsummer, friend! Warm your hands by the fire, and take a little something on me!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Happy Midsummer. Warm your hands, and buy something." },
     { id = "g_default", text = "Happy Midsummer! Warm your hands, and buy something bright." },
   },
   start = "hello",
@@ -610,6 +620,8 @@ P:NPC {
     third = "{name} met Rumstag Proudstrider, who gathers cloth for the Horde in Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome, friend. Have you brought cloth for the Horde? You always do your part." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome. Have you brought cloth for the Horde? Or have you come empty-handed again?" },
     { id = "g_default", text = "Welcome, friend. Have you brought cloth for the Horde's need?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and with full packs, I hope." },
   },
@@ -822,7 +834,9 @@ P:NPC {
     first = "A tauren Bluffwatcher stands at ease near the edge of the mesa, halberd planted, watching the plains below as if counting every blade of grass.",
     third = "{name} spoke with a Bluffwatcher of Thunder Bluff.",
   },
-  greetings = { { id = "g_default", text = "Peace be on your path, traveller. The bluffs are high; walk carefully near the edges." } },
+  greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Peace be on your path, friend. The bluffs are glad of you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Peace be on your path, traveller. The bluffs are high. Mind your footing, and your manners." }, { id = "g_default", text = "Peace be on your path, traveller. The bluffs are high; walk carefully near the edges." } },
   start = "hello",
   nodes = {
     yfear = {
@@ -943,7 +957,9 @@ P:NPC {
     first = "An Honor Guard of the Bloodhoof stands rigid beside the great lodge, painted in the colours of the chieftain, and does not blink when you approach.",
     third = "{name} spoke with an Honor Guard of Thunder Bluff.",
   },
-  greetings = { { id = "g_default", text = "You stand before the guard of the High Chieftain. Speak with respect." } },
+  greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You stand before the guard of the High Chieftain, friend. You are welcome." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You stand before the guard of the High Chieftain. Mind yourself." }, { id = "g_default", text = "You stand before the guard of the High Chieftain. Speak with respect." } },
   start = "hello",
   nodes = {
     yfamily = {

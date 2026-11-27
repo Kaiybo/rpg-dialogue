@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "You. Sit; I've a drink and a story, and you're the only one I'd tell it to." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep talking loudly, and I'll keep listening, and neither of us will like it." },
     { id = "g_op_militia", when = { opinion = { topic = "peoples_militia", stance = "doomed" } }, text = "You're the one who thinks Gryan's farmers are finished. Keep saying that, loudly, in every inn you pass; it'll do the Brotherhood's overconfidence a world of good." },
     { id = "g_corner", text = "You're in my light." },
     { id = "g_gryan", when = { questActive = TODO_QUEST("The Defias Brotherhood") }, text = "Stoutmantle sent you; I can smell Westfall on you." },
@@ -279,6 +281,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're smarter than you look, and I like that in a drinking companion." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've talked too much and listened too little, and I've noticed." },
+    },
     deadmines = { { id = "tp_deadmines", text = "The Deadmines are under Moonbrook, and they're full of Defias, and VanCleef's at the bottom of them. That's all I'll say about that, and that's more than I said to Stoutmantle." } },
     the_stockade = { { id = "tp_the_stockade", text = "The Stockade's full of men who wore red with me, and some of them would love to see me in a cell beside them. I sleep with one eye open, and I sleep in this corner for a reason." } },
     stonemasons = { { id = "tp_stonemasons", text = "I was a mason once, before the nobles cheated us, before the red bandanas. Stoutmantle says that's the past now, and I'd like to believe him." } },

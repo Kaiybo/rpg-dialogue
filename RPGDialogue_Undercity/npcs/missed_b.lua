@@ -16,6 +16,8 @@ P:NPC {
     third = "{name} met Joanna Whitehall, a Forsaken of the War Quarter with firm opinions on mindslaves.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "If you've come to stare at Theresa, do it quickly, because Gerard dislikes it when she's distracted from her errands." },
     { id = "g_back", when = { metBefore = true }, text = "You again. We are still talking about the same thing, since very little else happens in this corner." },
   },
@@ -114,6 +116,8 @@ P:NPC {
     third = "{name} met Leona Tharpe, a Forsaken of the War Quarter who wonders what a mindslave remembers.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_default", text = "Did you see her go by just now, the living woman with the empty face? I watch for her every time, and I couldn't tell you why." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back, and so has she, twice, with a basket each time. I've been counting." },
   },
@@ -207,6 +211,8 @@ P:NPC {
     third = "{name} met Lucian Fenner, a Forsaken of the Rogues' Quarter with a professional interest in locks.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "I'm not selling anything, friend, and I'm not buying, so you may put your hand back on your purse and relax." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back with everything you left with, I trust. I'd hate to be blamed for somebody else's work." },
   },
@@ -302,6 +308,8 @@ P:NPC {
     third = "{name} met Marla Fowler, who cheers the fighters in the Undercity's War Quarter.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "Stand here if you want to see, but don't block me, because I've been shouting at Tyler's footwork all day and I'm not finished." },
     { id = "g_back", when = { metBefore = true }, text = "You're back for the next bout! Good, you've missed nothing but a ghoul, and it didn't last." },
   },
@@ -397,6 +405,8 @@ P:NPC {
     third = "{name} met Mattie Alred, who walks the rings of the Undercity with Edrick Killian.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
     { id = "g_default", text = "Walk with us if you want to talk, because Edrick won't stop and I'd sooner not lose him at the next bridge." },
     { id = "g_back", when = { metBefore = true }, text = "There you are again. We've been round the ring twice since we saw you last, by my count." },
   },

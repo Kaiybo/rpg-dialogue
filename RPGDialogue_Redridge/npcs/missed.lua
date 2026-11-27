@@ -16,6 +16,8 @@ P:NPC {
     third = "{name} met Bridge Worker Daniel, one of Foreman Oslow's crew on the Lakeshire bridge.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
     { id = "g_default", text = "Mind the fresh course there, if you would. It wants another day before anyone leans on it." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again. The same stone's still drying, so the same warning stands." },
   },
@@ -111,6 +113,8 @@ P:NPC {
     third = "{name} met Guard Hiett of the Lakeshire watch.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. The streets feel a little safer with you walking them." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Move along, and stay out of trouble. I'll know if you don't." },
     { id = "g_default", text = "Move along or state your business, {class}. I don't mind which, so long as it's one of them." },
     { id = "g_back", when = { metBefore = true }, text = "You're still about, then. Good; the ones who stay are worth more than the ones who pass through." },
   },
@@ -129,6 +133,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, {class}." },
       },
       choices = {
+        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Hiett? Like the fletcher?", next = "kim" },
         { text = "Why do you prefer the wall?", next = "wall" },
         { text = "How is the watch holding up?", next = "holding" },
@@ -202,6 +208,8 @@ P:NPC {
     third = "{name} met Auctioneer Quickcoin, the goblin who runs auctions for the Azeroth Commerce Authority at Three Corners.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_default", text = "Step right up, friend, bids open, fees modest, and the Bruisers don't bite unless you do." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more, pal? I like a customer with a habit." },
   },
@@ -223,6 +231,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I can talk and count at the same time." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Why Three Corners?", next = "why" },
         { text = "Isn't it dangerous out here, with the gnolls?", next = "gnolls" },
         { text = "Let's see the auctions.", next = "BUSINESS" },
@@ -299,6 +309,8 @@ P:NPC {
   role = "worker", tier = "service",
   temper = { "harried" }, values = { "diligent" },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
     { id = "g_default", text = "Mail! Parcels! Letters to your sweetheart in Goldshire, no questions asked, small fee." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, it's you. Send somethin' or move along, pal, I got a schedule." },
   },

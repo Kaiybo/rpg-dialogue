@@ -172,6 +172,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
     { id = "g_default", text = "Hold still, hold still, is that blood or swamp water? Either way, sit down and let me look." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still in one piece, mostly! I'll take some of the credit, if you don't mind." },
   },
@@ -198,6 +200,8 @@ P:NPC {
         { id = "h_again", text = "What else? Ask quickly, I've a sailor upstairs with a fishhook in his thumb." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me first aid.", next = "BUSINESS" },
         { text = "How does a gnome end up in Menethil?", next = "past" },
         { text = "What wounds do you see here?", next = "wounds" },
@@ -252,6 +256,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
     { id = "g_default", text = "Ishnu-alah, traveler. Mind the bundles by the door, they're still drying." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned, and your hands smell of swamp. Good, that means you've been working." },
   },
@@ -278,6 +284,8 @@ P:NPC {
         { id = "h_again", text = "Is there something more? I have time, as my people always do." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me herbalism.", next = "BUSINESS" },
         { text = "Why would a night elf live in Menethil?", next = "why" },
         { text = "What grows in the Wetlands?", next = "herbs" },
@@ -327,6 +335,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "Wipe yer boots before ye come in, an' yer beast's too, if it has boots." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, an' muddier than last time. I'll take the beast, but ye can stand outside." },
   },
@@ -398,6 +408,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "Line, hooks, bait or supper, friend? I've got all four, and the supper's fresh this morning." },
     { id = "g_back", when = { metBefore = true }, text = "Back on the dock! Catch anything, or are you buying supper from me again?" },
   },
@@ -420,6 +432,8 @@ P:NPC {
         { id = "h_again", text = "Anything else? The tide's turning, so I've a minute before the boats come in." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me what you sell.", next = "BUSINESS" },
         { text = "Where's the best fishing?", next = "spots" },
         { text = "What's that wreck in the bay?", next = "wreck" },
@@ -472,6 +486,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_default", text = "Mind the rack, it's freshly oiled. What's rustin' on ye, then?" },
     { id = "g_back", when = { metBefore = true }, text = "Back, are ye? Let's see what the swamp has done tae my work this time." },
   },
@@ -494,6 +510,8 @@ P:NPC {
         { id = "h_again", text = "What else? I'm oilin' either way, so talk." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Let me see your armor.", next = "BUSINESS" },
         { text = "How do you fight the rust?", next = "rust" },
         { text = "Who buys armor here?", next = "buyers" },

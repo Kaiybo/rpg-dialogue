@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "You stand straight now, {class}, and I see it. Come, sit by an old orc, and speak plainly as you always do." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Say your piece quickly, because I have little patience left for you." },
     { id = "g_default", text = "Stand straight when you speak to me, {class}, and speak plainly. I'm too old for riddles, and an orc's word should be as blunt as his axe." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Good, I had a use for you, and the last grunt I had a use for is still picking drake scales out of his teeth." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and the drakes are still breathing in their ravine. Tell me you've come to change that." },
@@ -50,6 +52,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, then, but be quick about it." },
       },
       choices = {
+        { text = "The old Horde's ways should stay buried.", next = "BACK", reply = "Buried, aye, but never forgotten, or we'll dig them up again by accident.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "The old Horde was strong. We've gone soft.", next = "BACK", reply = "Strong, and drunk on demon blood. I was there, {class}, and soft is better than damned.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Who are the two in chains?", next = "drakes" },
         { text = "Why kill them now, after all these years?", next = "honor" },
         { text = "Have you tried to reach those two before?", next = "ogres" },
@@ -173,6 +177,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You have the bearing of the old Horde, before the blood and the shame, and I do not say that to many." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've no honor in how you deal with me, and an old orc remembers. Earn it back, or keep your distance." },
+    },
     background = { { id = "tp_ba", text = "I fought in the Second War, sat in the camps after it, and walked out free when Thrall broke them open. Kargath is where I've chosen to be useful." } },
     advice = { { id = "tp_ad", text = "Never hire a mercenary who's stronger than the soldiers guarding your coin." } },
     second_war = { { id = "tp_second_war", text = "I fought in the Second War, beside the black dragons, and I didn't know then what they were. Now I want two of them dead, and I call it cleaning up after myself." } },

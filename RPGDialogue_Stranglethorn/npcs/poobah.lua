@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "You've come back! By the Earth Mother, I knew you would. Sit, and I'll tell you my latest message." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. You. I've written a bottle about you, and it's not flattering." },
     { id = "g_default", text = "Have you come to free me? Please say that you have, by the Earth Mother, because I've run out of bottles." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned! Is that gorilla king dealt with yet, or have you simply come to admire my predicament?" },
     { id = "g_freed", when = { questDone = TODO_QUEST("Message in a Bottle") }, text = "Thank you again for your aid. May the winds always be at your back, and may the eternal sun shine upon your travels." },
@@ -142,6 +144,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're a true friend to a captive princess, and I'll put it in my next bottle." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been rude to a princess, and princesses remember rudeness." },
+    },
     background = { { id = "tp_ba", text = "A princess of the tauren, I'll have you know, captured twice and rescued once, so far." } },
     advice = { { id = "tp_ad", text = "Never swim when you're upset. The Earth Mother gave tauren hooves for walking, and you end up on islands." } },
     _none = { { id = "tp_none", text = "A princess doesn't concern herself with that sort of thing, and the Earth Mother can't hear me out here anyway." } },

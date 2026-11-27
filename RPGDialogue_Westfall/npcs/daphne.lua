@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, love, there you are! Mind the basket, and take an apple, a good one." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Mind the basket, and mind yourself." },
     { id = "g_apples", text = "Mind the basket, love; those are the good apples." },
     { id = "g_valor", when = { questActive = TODO_QUEST("The Tome of Valor") }, text = "Duthorian Rall sent you? Then pick up a weapon, not an apple." },
     { id = "g_after", when = { questDone = TODO_QUEST("The Tome of Valor") }, text = "There's my defender! Take an apple, or take two; you've earned the good ones." },
@@ -222,6 +224,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're a dear, love, and I'd share my best apples with you any day." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been rude, love, and I don't share apples with the rude." },
+    },
     holy_light = {
       { id = "tp_holy_light", text = "The Light's kept this farm through thieves and drought, and I've never once doubted it would. I keep my prayers short and my blade sharp, which I think is how the Light prefers it." },
       { id = "tp_holy_light2", when = { class = "PRIEST" }, text = "You'll know better than me, friend, but I think the Light likes a woman who prays with a sword in reach. I've had no complaints from it so far." },

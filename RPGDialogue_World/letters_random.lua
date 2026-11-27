@@ -12,7 +12,7 @@ P:Letter {
   body = "{name},\n\nYou left a sock under the bed in the corner room, and I've kept it on a nail behind the bar in case you come back for it, though the cat has been taking an interest. Business is good. The miners from Jasperlode have started drinking here again now that the kobolds have been thinned out, and they sing worse than the kobolds ever did.\n\nIf you're passing through Goldshire, the stew is on and the fire is lit, same as always.\n\nInnkeeper Farley, the Lion's Pride Inn",
   replies = {
     { id = "sock", text = "Keep the sock on the nail, Farley. I'll come back for it.", fx = { affinity = 1, letter = "rand_farley_re_sock" } },
-    { id = "cat", text = "Give the sock to the cat. It's clearly earned it." },
+    { id = "cat", text = "Give the sock to the cat, since it has clearly earned it." },
     { id = "miners", text = "Tell the miners to sing quieter, or I'll bring the kobolds back." },
   },
 }
@@ -442,7 +442,7 @@ P:Letter {
   replies = {
     { id = "oats", text = "I'll bring Old Blanchy the best oats I can find, Verna.", fx = { affinity = 1, letter = "rand_verna_re_oats" } },
     { id = "theodore", text = "Tell Theodore I believe him about the spring.", fx = { affinity = 1 } },
-    { id = "eating", text = "I'm eating properly, Verna. Mostly." },
+    { id = "eating", text = "I'm eating properly, Verna, or properly enough." },
   },
 }
 

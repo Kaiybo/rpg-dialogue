@@ -19,6 +19,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome back, valued friend! Your valuables are safe, and so is your good name with me." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome to the Bank of Everlook. Your valuables are safe. Your reputation, less so." },
     { id = "g_default", text = "Welcome to the Bank of Everlook, friend, where your valuables are safe, warm and very modestly charged." },
     { id = "g_back", when = { metBefore = true }, text = "A returning customer! My favorite kind, pal, because returning customers have already read the small print." },
   },
@@ -134,6 +136,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend! Picks, flux, coal, all saved for you. Step right in, and I'll get you warm." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Picks, flux, coal. Everything a miner forgets. Buy it, and don't forget to pay." },
     { id = "g_default", text = "Picks, flux, coal, all the things a miner forgets to pack! Step on in, sweetheart." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! The mountains eat picks, don't they, pal? Good for me, bad for you." },
   },
@@ -241,6 +245,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hey, friend! Step anywhere you like, I'll warn you about the wires. You're my favorite!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hey, careful where you step. That's a live wire, and I'm not sure I'd warn you twice." },
     { id = "g_default", text = "Hey, hey, careful where you step, pal, that's a live wire and it's very proud of itself!" },
     { id = "g_back", when = { metBefore = true }, text = "You came back! Most people don't, and I'm still workin' out whether that's the imploder or my personality." },
   },
