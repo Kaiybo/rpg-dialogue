@@ -307,6 +307,8 @@ function C.SetGamePadHandler(frame, handler)
 end
 
 function C.GamePadButtons(frame, on)
+  -- Restricted in combat (the attempt alone raises "blocked from an action"; pcall can't stop it).
+  if C.InCombat() then return end
   if type(frame.EnableGamePadButton) == "function" then
     pcall(frame.EnableGamePadButton, frame, on and true or false)
   end
