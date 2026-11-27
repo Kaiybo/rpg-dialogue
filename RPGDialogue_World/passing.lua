@@ -919,3 +919,30 @@ P:Pool { id = "pass_child_more", role = "child",
     { id = "b_m_night", when = { timeOfDay = "night" }, text = "I'm supposed to be in bed, so don't tell Mama you saw me out here!" },
     { id = "b_m_regular", when = { timesTalked = { min = 5 } }, text = "It's you again! You're my favorite hero, and I tell everyone." },
   } }
+
+-- Greetings for someone you just overheard (Systems/Overheard.lua, condition `overheard`).
+P:Pool { id = "pass_overheard_guard", role = "guard",
+  greetings = {
+    { id = "g_oh_guard1", when = { overheard = true }, text = "You heard all that, didn't you? Forget it, {class}; a guard grumbles, but a guard still does the job." },
+    { id = "g_oh_guard2", when = { overheard = true }, text = "Ears like a hunting cat, you have. Well, now you know what the watch really talks about." },
+  },
+}
+P:Pool { id = "pass_overheard_citizen", role = "citizen",
+  greetings = {
+    { id = "g_oh_cit1", when = { overheard = true }, text = "Oh! You were standing right there, weren't you? I hope we didn't say anything too foolish." },
+    { id = "g_oh_cit2", when = { overheard = true }, text = "I suppose you caught all of that. Folk talk, you know, and half of it is only talk." },
+    { id = "g_oh_cit3", when = { overheard = true }, text = "Don't repeat what you just heard, please. My neighbour has a long memory and a short temper." },
+  },
+}
+P:Pool { id = "pass_overheard_vendor", role = "vendor",
+  greetings = {
+    { id = "g_oh_ven1", when = { overheard = true }, text = "Never mind what you heard about my prices; for you they're the honest ones, more or less." },
+    { id = "g_oh_ven2", when = { overheard = true }, text = "Gossip is free, friend, but the goods are not. Was there something you wanted?" },
+  },
+}
+P:Pool { id = "pass_overheard_innkeeper", role = "innkeeper",
+  greetings = {
+    { id = "g_oh_inn1", when = { overheard = true }, text = "Heard us chattering, did you? An innkeeper hears everything, and now and then repeats a little." },
+    { id = "g_oh_inn2", when = { overheard = true }, text = "Pull up a stool if you want the rest of that story, though I'll warn you it gets worse." },
+  },
+}
