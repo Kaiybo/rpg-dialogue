@@ -28,10 +28,25 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2first = {
+      lines = { { id = "w2fs_default", text = "Turnips, from seed I traded off a Mulgore caravan. Every one of them came up the size of a pebble and as hard as one, and I ate them anyway, all winter, because I had planted them myself." } },
+      choices = {
+        { text = "What made the second season better?", next = "w2first2" },
+        { text = "A winter of pebbles. That's devotion.", next = "w2first2" },
+        { text = "Something else, Rokar.", next = "BACK" },
+      },
+    },
+    w2first2 = {
+      lines = {
+        { id = "w2fs2_herb", when = { profession = "Herbalism" }, text = "Listening, the same as you do when you gather. I watched which weeds grew best and where, and I planted beside them, because a weed that thrives in Durotar knows more about this soil than any farmer." },
+        { id = "w2fs2_default", text = "Listening. I watched which weeds grew best and where, and planted beside them, because a weed that thrives in Durotar knows more about this soil than any farmer ever will." },
+      },
+      choices = { { text = "Wisdom from weeds.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Rokar Bladeshadow, and these days I'm a farmer, whatever the name suggests. I grow what this red ground will give me, and Harroc does the digging that my back won't do anymore." } },
       again = {
-        { id = "h_again", text = "What else would you ask an old farmer?" },
+        { id = "h_again", text = "Ask, then, but mind where you stand while you think of it. That row's onions, and they've had a hard enough year." },
         { id = "h_again2", text = "Go on, {class}. The weeds will wait, though not for long." },
       },
       choices = {
@@ -43,6 +58,7 @@ P:NPC {
         { text = "Why did you put down the blade?", next = "ywhy" },
         { text = "What do you think of Harroc?", next = "yharroc" },
         { text = "You were in the old Horde?", next = "yold", when = { race = "Orc" } },
+        { text = "What was the first thing you planted here?", next = "w2first" },
         { text = "May your harvest be good, Rokar.", next = "END" },
       },
     },
@@ -130,11 +146,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2dug = {
+      lines = { { id = "w2dg_default", text = "A centaur arrowhead, black stone, older than anything I know of, and a boar's skull with a human knife still stuck in it. Rokar looked at the knife a long time and then told me to throw it in the river." } },
+      choices = {
+        { text = "Did you throw it in?", next = "w2dug2" },
+        { text = "Why would Rokar care about an old knife?", next = "w2dug2" },
+        { text = "Something else, Harroc.", next = "BACK" },
+      },
+    },
+    w2dug2 = {
+      lines = { { id = "w2dg2_default", text = "I did, and I didn't ask why, because he had the look he gets when someone mentions the old Horde. I kept the arrowhead, though. It's on a string round my neck, for luck, and so far it's working." } },
+      choices = { { text = "Wise not to ask.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "I'm Harroc, and I dig for Rokar Bladeshadow. He says what goes where and I put it there, and between us we've grown more green in this patch than you'll see between here and the river." } },
       again = {
         { id = "h_again", text = "What else? I can dig and listen at once." },
-        { id = "h_again2", text = "Go on, I like the company." },
+        { id = "h_again2", text = "Go on, ask! Talking keeps my mind off how many rows are left, and Rokar never says a word while he hoes." },
       },
       choices = {
         { text = "Digging the fields is honest work.", next = "BACK", reply = "It is, though I'd rather fight sometimes.", fx = { align = { honor = 1 } } },
@@ -146,6 +174,7 @@ P:NPC {
         { text = "Will you ever join the grunts?", next = "yjoin" },
         { text = "What does Rokar teach you?", next = "yteach" },
         { text = "Show me how to dig.", next = "ydig" },
+        { text = "What's the oddest thing you've dug up?", next = "w2dug" },
         { text = "Keep digging, Harroc.", next = "END" },
       },
     },
@@ -232,6 +261,52 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2dish = {
+      lines = { { id = "w2ds_default", text = "Roast boar glazed with Mulgore honey, which the tauren bring up the road every year in great clay jars. The first year, the grunts didn't know what honey was, and now they queue for it before the fireworks start." } },
+      choices = {
+        { text = "Honey on boar sounds strange.", next = "w2dish2" },
+        { text = "Who roasts the boar?", next = "w2dish2" },
+        { text = "Something else, Javnir.", next = "BACK" },
+      },
+    },
+    w2dish2 = {
+      lines = {
+        { id = "w2ds2_orc", when = { race = "Orc" }, text = "It is, and that's the point, blood of my blood. We ate grey mush in the camps for years, and now there's honey from our allies on our own meat. Taste it, and tell me that isn't a victory." },
+        { id = "w2ds2_default", text = "It is strange, and that's the point. Orcs ate grey mush in the camps for years, and now there's honey from our allies on our own meat. Taste it, and tell me that isn't a victory." },
+      },
+      choices = { { text = "It sounds like one.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
+    jn_table = {
+      lines = { { id = "jn_table_l", text = "It does, because the Barrens send grain, Mulgore sends meat and bread, and the Darkspear bring fish up from Sen'jin. Durotar itself gives us cactus and boar, and we eat those first, so the land knows we're grateful." } },
+      choices = {
+        { text = "The Horde feeds itself together.", next = "jn_table2" },
+        { text = "Cactus is hardly a feast.", next = "jn_table2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jn_table2 = {
+      lines = { { id = "jn_table2_l", text = "It isn't, but it's ours, and it was hard won. On Draenor we raided for our food, and in the camps we begged for it, so a feast we grew ourselves tastes better than any banquet I could describe." } },
+      choices = {
+        { text = "The Horde should feed itself, and never raid again.", next = "BACK", reply = "That's the Warchief's hope, and mine. A full harvest is a quieter victory than any battle, and a longer one.", fx = { align = { light = 1 } } },
+        { text = "If the harvest fails, the Horde takes what it needs.", next = "BACK", reply = "Spoken like the old Horde, and some days I fear you're right. Let's pray to the spirits the harvest never fails.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jn_kin = {
+      lines = { { id = "jn_kin_l", text = "They do, and every year more of them. The tauren bring their drums and the Darkspear bring their dances, and last year the Forsaken sent a cask of something I'd rather not describe." } },
+      choices = {
+        { text = "Did anyone drink it?", next = "jn_kin2" },
+        { text = "The Forsaken have strange gifts.", next = "jn_kin2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jn_kin2 = {
+      lines = { { id = "jn_kin2_l", text = "One grunt did, on a dare, and he spoke to his ancestors for two days without a shaman's help. Next year I'll keep that cask further from the fire, and further from the grunts." } },
+      choices = {
+        { text = "A wise precaution.", next = "BACK" },
+        { text = "Something else, Javnir.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_done", when = { questDone = TODO_QUEST("Honoring a Hero") },
@@ -249,6 +324,9 @@ P:NPC {
         { text = "Orcs holding a harvest feast seems a new thing.", next = "feast" },
         { text = "Fireworks, at a remembrance?", next = "fireworks" },
         { text = "I've stood at Grom's monument.", next = "stood", when = { questDone = TODO_QUEST("Honoring a Hero") } },
+        { text = "The table holds more than Durotar could grow.", next = "jn_table" },
+        { text = "Do the tauren and trolls join the feast?", next = "jn_kin" },
+        { text = "What dish do you look forward to most at the feast?", next = "w2dish" },
         { text = "I'll eat, and remember. Farewell.", next = "END" },
       },
     },

@@ -208,3 +208,65 @@ P:Thread {
     },
   },
 }
+
+-- Thelsamar's thin line (Alliance, ~10-20). Loch Modan's mountaineers hold the south gate
+-- against the Stonesplinter troggs, the mines against the Tunnel Rat kobolds and the north
+-- shore against Mo'grosh, with half the Reserve gone north to the Wetlands. Magistrate
+-- Bluntnose writes to Ironforge about it every week. Cobbleflint, Stormpike, Rockgar and
+-- Bluntnose; In Defense of the King's Lands is the resolving quest. No invented events.
+P:Thread {
+  id = "thelsamar_line",
+  theme = "Loch Modan is held by a handful of mountaineers and one magistrate's letters, and everyone in Thelsamar knows how thin that is.",
+  title = "The thin line at Thelsamar",
+  story = {   -- the journal's Stories page, by state
+    stirring = { first = "Mountaineer Cobbleflint holds the south gate against the troggs, and Stormpike watches the mines, and both of them say the same thing: there aren't enough mountaineers in Loch Modan to watch everything at once.",
+      third = "{name} heard Loch Modan's mountaineers say there weren't enough of them to watch the whole valley." },
+    unfolding = { first = "Magistrate Bluntnose writes to Ironforge every week asking for more of the Reserve, and every week the answer is that the Wetlands need them more. Rockgar says the troggs have noticed, and so have the ogres on the north shore.",
+      third = "{name} learned that Magistrate Bluntnose's letters to Ironforge went unanswered while the troggs grew bolder." },
+    resolved = { first = "The troggs at the south gate are thinned, and Bluntnose wrote one more letter to Ironforge, this time to say that Loch Modan had held without them. He read it to me twice, and I think it was the proudest piece of writing he's ever done.",
+      third = "{name} helped hold Loch Modan's line, and Magistrate Bluntnose wrote to Ironforge that the valley had held without them." },
+  },
+  npcs = { "cobbleflint", "stormpike_mtn", "rockgar", "lm_bluntnose" },
+  states = { "dormant", "stirring", "unfolding", "resolved" },
+  endings = {
+    resolved = "Loch Modan held, and Bluntnose told Ironforge so in a letter he read aloud twice.",
+  },
+  pacing = { minConversations = 2, minSeconds = 900 },
+  reflection = {
+    first = "Every mountaineer in Loch Modan has told me there aren't enough of them, and every one of them is still standing at his post.",
+    third = "{name} had heard every mountaineer in Loch Modan say there weren't enough of them, and seen every one of them still at his post.",
+  },
+  beats = {
+    {
+      id = "b1_cobbleflint", npc = "cobbleflint",
+      when = { faction = "Alliance", minLevel = 9, thread = { id = "thelsamar_line", notBeat = "b1_cobbleflint" } },
+      text = "There's three of us on this gate where there ought tae be ten, {class}, an' the Stonesplinter troggs can count as well as I can. Half the Reserve went north tae the Wetlands when the Span came down, an' the other half's tryin' tae be in two places at once.",
+      fx = { thread = { id = "thelsamar_line", beat = "b1_cobbleflint", state = "stirring" }, learn = { "troggs" } },
+    },
+    {
+      id = "b2_stormpike", npc = "stormpike_mtn",
+      when = { faction = "Alliance", minLevel = 9, thread = { id = "thelsamar_line", notBeat = "b2_stormpike" } },
+      text = "I held this valley once already, when the Horde came through in the war, an' I did it wi' twice the men I've got now. The kobolds in the mines know it, the troggs know it, an' I'd wager the ogres up north know it too, for they've been bolder every week.",
+      fx = { thread = { id = "thelsamar_line", beat = "b2_stormpike", state = "stirring" } },
+    },
+    {
+      id = "b3_bluntnose", npc = "lm_bluntnose",
+      when = { any = { { thread = { id = "thelsamar_line", beat = "b1_cobbleflint" } }, { thread = { id = "thelsamar_line", beat = "b2_stormpike" } } },
+               ["not"] = { thread = { id = "thelsamar_line", beat = "b3_bluntnose" } } },
+      text = "I've written tae Ironforge eleven times this season askin' for more o' the Reserve, an' eleven times they've written back tae say the Wetlands need them more. They're no' wrong, which is the worst of it, so I've stopped askin' for soldiers an' started askin' for folk like you.",
+      fx = { thread = { id = "thelsamar_line", beat = "b3_bluntnose", state = "unfolding" } },
+    },
+    {
+      id = "b4_rockgar", npc = "rockgar",
+      when = { thread = { id = "thelsamar_line", beat = "b3_bluntnose" }, ["not"] = { thread = { id = "thelsamar_line", beat = "b4_rockgar" } } },
+      text = "The magistrate's been readin' ye his letters, has he? Then ye'll know the troggs are comin' up faster than we can put them down, an' that every mountaineer in this valley is doin' the work o' three, so whatever ye've got in ye, the loch could use it.",
+      fx = { thread = { id = "thelsamar_line", beat = "b4_rockgar", state = "unfolding" } },
+    },
+    {
+      id = "b5_bluntnose", npc = "lm_bluntnose",
+      when = { questDone = TODO_QUEST("In Defense of the King's Lands"), thread = { id = "thelsamar_line", notBeat = "b5_bluntnose" } },
+      text = "I've written tae Ironforge one more time, {class}, an' this time I didnae ask for a single soldier. I told them Loch Modan held wi'out them, an' I named you in it, an' I'll confess I read it aloud twice before I sealed it, for it's the best letter I've ever written.",
+      fx = { thread = { id = "thelsamar_line", beat = "b5_bluntnose", state = "resolved" } },
+    },
+  },
+}

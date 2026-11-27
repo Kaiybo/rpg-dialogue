@@ -584,6 +584,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_hardest = {
+      lines = {
+        { id = "w3_hardest_1", text = "Not the Crusade, which is only arithmetic: they come, we count them, we kill them. The hard part is the ones who come out of the crypt still belonging to the Lich King, because Bartrand and I have to put them down while the newly risen watch." },
+      },
+      choices = {
+        { text = "Why let the newly risen watch?", next = "w3_watch" },
+        { text = "That's a grim duty, Executor.", next = "BACK", reply = "It is. I'd give it to someone else if there were anyone else, and there isn't, so I do it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_watch = {
+      lines = {
+        { id = "w3_watch_1", text = "Because it shows them what they were spared, and what they'll become if they lose their nerve. Every Deathguard in Tirisfal learned it here, by that crypt, and every one of them stands a little straighter for it." },
+      },
+      choices = {
+        { text = "Understood, Executor. Something else.", next = "BACK" },
+      },
+    },
     dd_war = {
       lines = { { id = "dd_war_default", text = "Then you've seen what they are when there are more than a handful of them, all hymns and fire. Tell me, did any of them say anything to you before the end?" } },
       choices = {
@@ -654,6 +672,7 @@ P:NPC {
         { text = "Would you take help from something with claws, Executor?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Shall I watch the Crusade's camp from the trees, Executor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I could shame the Crusade with the Light, Executor.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "What's the hardest part of keeping Deathknell?", next = "w3_hardest" },
         { text = "Understood, Executor.", next = "END", fx = { affinity = 1, standing = { deathknell = 1 } } },
         { text = "I fought the Crusade near Brill, Executor, as you trained me.", next = "dd_war", when = { questDone = TODO_QUEST("At War With The Scarlet Crusade") } },
       },

@@ -62,7 +62,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? Talk while I watch the road." },
-        { id = "h_again2", text = "Go on, but keep your voice down." },
+        { id = "h_again2", text = "Go on, but quietly. SI:7 didn't keep me alive this long by talking loud in camps." },
       },
       choices = {
         { text = "You had a file on Araj?", next = "dd_araj", when = { killed = { name = "Araj" } } },
@@ -201,6 +201,46 @@ P:NPC {
 
   start = "hello",
   nodes = {
+
+    ai_rumour = {
+      lines = { { id = "air_1", text = "A Scarlet deserter in a Southshore taproom, three ales in an' weepin' about the things he'd seen at Hearthglen. He said the mage's workshop was locked an' sealed the day they hanged him, an' nobody's been let in since." } },
+      choices = {
+        { text = "A deserter's word isn't worth much.", next = "ai_rumour2" },
+        { text = "I'm a mage. Enchanting a bow isn't simple work.", next = "ai_magecraft", when = { class = "MAGE" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ai_rumour2 = {
+      lines = { { id = "air2_1", text = "Normally I'd agree wi' ye, but he drew me the workshop on a napkin, door an' window an' all, an' a liar doesnae draw that steady. Besides, Weldon Barov in the camp here says his family heard the same tale years back." } },
+      choices = {
+        { text = "Weldon Barov trades in rumours, I hear.", next = "BACK", reply = "Aye, an' in deeds an' land an' anythin' else wi' a Barov name on it. Mind him, an' mind his brother at the Bulwark more." },
+        { text = "Then the workshop's worth a look.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ai_magecraft = {
+      lines = { { id = "aim_1", text = "So I'm told, an' that's half why the tale caught me. A mage who could put a charm in a bowstring that holds through a winter's damp would be worth more than a dozen Scarlet captains, an' they hanged him like a horse thief." } },
+      choices = {
+        { text = "If the charms held, his notes will be there too.", next = "BACK", reply = "That's my hope, {class}. I cannae read them, but I know folk in Ironforge who'd pay tae try." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ai_trade = {
+      lines = { { id = "ait_1", text = "Ha! Ye've a sharp eye. I'm no' a soldier, I'm a dealer in fine things, bows an' blades an' the odd clockwork toy, an' I go where the rumours of good craft take me." } },
+      choices = {
+        { text = "Does Valorfist mind a trader in his camp?", next = "ai_trade2" },
+        { text = "Dealers usually stay where it's safe.", next = "ai_trade2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ai_trade2 = {
+      lines = { { id = "ait2_1", text = "Valorfist minds anybody who isnae holdin' a sword the right way round, so I keep out o' his sight. The gryphon master, Bibilfaz, is better company, an' he'll fly ye tae Ironforge if yer boots give out like mine." } },
+      choices = {
+        { text = "I'll keep Bibilfaz in mind.", next = "BACK" },
+        { text = "Your boots will carry you. Dwarves don't quit.", next = "BACK", reply = "No' often, an' never wi' a prize at the end o' the road.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     dd_scarlet = {
       lines = {
         { id = "dd_scarlet_1",
@@ -228,7 +268,30 @@ P:NPC {
         { text = "What do you want with the weapons?", next = "want" },
         { text = "Hearthglen is crawling with Scarlets.", next = "hearthglen" },
         { text = "What do you make of Chillwind Camp?", next = "camp" },
+        { text = "Who told you about this murdered mage?", next = "ai_rumour" },
+        { text = "You don't walk like a soldier.", next = "ai_trade" },
+        { text = "What's the finest weapon you've ever seen?", next = "w9_finest" },
         { text = "Safe travels, Alexia.", next = "END" },
+      },
+    },
+
+    w9_finest = {
+      lines = {
+        { id = "w9_finest_d", text = "A dwarven war axe in a Southshore tavern, owned by a fella who couldnae lift it, an' I've thought about the balance o' that thing ever since. Whoever forged it knew the steel the way a mother knows a bairn, an' I'd walk to Hearthglen twice tae see another like it." },
+        { id = "w9_finest_v1", when = { race = "Dwarf" }, text = "A war axe from yer own forges, kinsman, hangin' in a Southshore tavern on a fella who couldnae lift it. Whoever forged it knew the steel like a mother knows a bairn, an' I'd wager it came out o' the Great Forge itself." },
+      },
+      choices = {
+        { text = "What happened to it?", next = "w9_finest2" },
+        { text = "You sound more trader than soldier.", next = "w9_finest2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_finest2 = {
+      lines = { { id = "w9_finest2_d", text = "He lost it at cards tae a Stromgarde mercenary, an' it went east, an' I lost the trail at Refuge Pointe. That's the trouble wi' fine things, they never stay where ye leave 'em, which is why I'm after these Scarlet ones before somebody else is." } },
+      choices = {
+        { text = "I hope you find them first.", next = "BACK", reply = "So do I. Keep an eye out for me, an' I'll no' forget it." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

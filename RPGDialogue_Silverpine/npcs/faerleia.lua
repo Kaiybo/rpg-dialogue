@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Good. Keep your voice down, but I'm glad you're here." },
-    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Keep your voice down, and keep your distance." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Speak softly and stand back from me; the wolves have keener ears than you'd think." },
     { id = "g_quiet", text = "Keep your voice down. The Council could walk through that door any moment." },
     { id = "g_back", when = { metBefore = true }, text = "You came back to Pyrewood on purpose. Either you're brave, or you've come to help me finish the job." },
     { id = "g_ready", when = { questActive = TODO_QUEST("Pyrewood Ambush") }, text = "Be ready. They come in waves, and the Lord Mayor always arrives last, as if he were too important to die early." },
@@ -34,6 +34,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_taught = {
+      lines = {
+        { id = "w3_taught_1", text = "Mennet Carkad picked me out in the Rogues' Quarter, and Gregory Charles taught me to stand still in a lit room, which is most of what I'm doing tonight. The rest I learned in Silverpine, from the worgen, who are very good teachers if you survive the lesson." },
+      },
+      choices = {
+        { text = "What did the worgen teach you?", next = "w3_worgen" },
+        { text = "Charles taught me the same lesson.", next = "BACK", when = { class = "ROGUE" }, reply = "Then you'll know why I haven't moved in an hour. Don't fidget now; you'll shame us both." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_worgen = {
+      lines = {
+        { id = "w3_worgen_1", text = "To watch the wind, since they hunt by scent and not by sight, and to never stand where a howl comes from twice. They're beasts, mostly, but there's something cunning left in them that I'd rather not think about too closely." },
+      },
+      choices = {
+        { text = "Arugal's curse leaves a mind behind. Something else.", next = "BACK" },
+      },
+    },
     dd_moonrage = {
       lines = { { id = "dd_moonrage_default", text = "Some of them were Pyrewood villagers, and some came from behind the Greymane Wall, and the curse took all of them the same. I was a person once too, and nobody spared me for it, so I've stopped asking what they were." } },
       choices = {
@@ -70,6 +88,7 @@ P:NPC {
         { text = "Are there other deathstalkers watching Pyrewood?", next = "yorick" },
         { text = "I'm a deathstalker in training too.", next = "rogue", when = { class = "ROGUE", race = "Scourge" } },
         { text = "I'm with you. Let them come.", next = "BUSINESS" },
+        { text = "Who taught you the deathstalker's trade?", next = "w3_taught" },
         { text = "I'll leave you to your ambush.", next = "END" },
         { text = "The Moonrage worgen were people once. Does that trouble you?", next = "dd_moonrage", when = { killed = { name = "Moonrage", min = 40 } } },
       },

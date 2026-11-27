@@ -10,22 +10,31 @@ P:Pool {
   topics = {
     knows = {
       { id = "kn1", text = "I hear a good deal standing at this post, and most of it I'd rather not have heard. Here's what I can speak to, if it helps you." },
-      { id = "kn2", text = "You learn the town's business from the gate, whether you want it or not. Ask me about any of this." },
+      { id = "kn2", text = "You learn a town's business standing at its gate, whether you want to or not, so ask me about any of this and I'll tell you what came past." },
       { id = "kn_warm", when = { disposition = { min = 65 } }, text = "For you I'll tell what I can, and I won't make you fill out a report first." },
       { id = "kn_cold", when = { disposition = { max = 34 } }, text = "I'll answer what I'm paid to answer, and not a word past it." },
     },
     trade = {
-      { id = "tr1", text = "Stand here, watch that, and stop anyone who needs stopping. Most days nobody does, and those are the good days." },
-      { id = "tr2", text = "I keep the peace. The peace mostly keeps itself, but somebody has to be seen doing it." },
+      { id = "tr1", text = "I stand here, I watch the road, and I stop anyone who needs stopping, though most days nobody does, and those are the good days." },
+      { id = "tr2", text = "I keep the peace, {class}, which mostly keeps itself, but somebody has to be seen doing it or folk start to wonder." },
       { id = "tr_cold", when = { disposition = { max = 34 } }, text = "I stop people who need stopping, and right now I'm deciding about you." },
     },
     advice = {
-      { id = "ad1", text = "Don't draw steel inside the walls, don't run from the watch, and don't make me write a report." },
-      { id = "ad2", when = { band = { "Greenhorn", "Blooded" } }, text = "Stay on the roads. Everything out there's had longer to practise than you." },
+      { id = "ad_w2_dwarf", when = { race = "Dwarf" }, text = "Keep your rifle unloaded inside the walls, {g:lad|lass}. I know it's a fine piece, but so was the last one that went off in the market." },
+      { id = "ad_w2_gnome", when = { race = "Gnome" }, text = "Don't leave any of your contraptions running unattended near the gate. The last one walked off on its own and we spent the afternoon chasing it." },
+      { id = "ad_w2_nightelf", when = { race = "NightElf" }, text = "Folk here aren't used to someone who can vanish into the shadows the way your people do, so stay visible near the guardposts and save us all a fright." },
+      { id = "ad_w2_troll", when = { race = "Troll" }, text = "Keep the voodoo for the hunting grounds, if you please. The peons start muttering every time a troll draws a circle in the dust." },
+      { id = "ad_w2_tauren", when = { race = "Tauren" }, text = "Mind the doorframes, friend, because this town was built by folk a head shorter than you, and I've seen more than one brave knocked senseless by a lintel." },
+      { id = "ad_w2_undead", when = { race = "Scourge" }, text = "Keep your hood up in the busier streets. It's nothing against you, but the children haven't got used to the Dark Lady's people yet." },
+      { id = "ad_w2_orc", when = { race = "Orc" }, text = "If a fight finds you here, bring it to the guards before you bring it to your axe. The Warchief's law holds inside these walls the same as in Orgrimmar." },
+      { id = "ad_w2_human", when = { race = "Human" }, text = "Keep your papers handy if you're heading north. The checkpoints past the Thandol Span have grown fussy since the trouble at Dun Modr." },
+      { id = "ad_w2_priest", when = { class = "PRIEST" }, text = "If you've a moment between patrols, the wounded in the barracks would be glad of you. They won't ask, so I'm asking for them." },
+      { id = "ad1", text = "Don't draw steel inside the walls, don't run when the watch calls after you, and for pity's sake don't make me write a report." },
+      { id = "ad2", when = { band = { "Greenhorn", "Blooded" } }, text = "Stay on the roads, {class}, because everything out past the fences has had a lot longer to practise than you have." },
       { id = "ad3", when = { timeOfDay = "night" }, text = "Find a bed before the lamps go out. Whatever's out there sees better in the dark than you do." },
       -- Faction flavour shares the top band with the lines above (faction weighs 5), so
       -- every guard's advice still varies.
-      { id = "ad4", when = { faction = "Alliance" }, text = "If you're heading for the hills, tell somebody where. Saves us guessing which ravine to look in." },
+      { id = "ad4", when = { faction = "Alliance" }, text = "If you're heading into the hills, tell somebody where you're going, because it saves us guessing which ravine to search." },
       { id = "ad5", when = { faction = "Horde" }, text = "Strength is good, but strength with a plan is better. Strength without one ends up in the healer's tent." },
       { id = "ad_warm", when = { disposition = { min = 65 } }, text = "Learn the names of the guards on your road, and we'll learn yours. A guard runs faster for someone he knows." },
       { id = "ad_warrior", when = { class = "WARRIOR" }, text = "Don't start a fight on the road just because you'd win it. Somebody has to write it up afterwards, and that's me." },
@@ -38,8 +47,10 @@ P:Pool {
       { id = "ad_druid", when = { class = "DRUID" }, text = "Take your own shape before you come through the gate. We've standing orders about bears." },
     },
     background = {
-      { id = "bg1", text = "I signed on because it paid and the boots were free. They were not good boots." },
-      { id = "bg2", text = "I grew up three streets from here and never left. Never needed to; trouble comes to me." },
+      { id = "bg_w2_alliance", when = { faction = "Alliance" }, text = "My father stood the walls after the First War, when there was hardly a wall left to stand on, and I took his place when his knees went. It's quieter now, though not by much." },
+      { id = "bg_w2_horde", when = { faction = "Horde" }, text = "I spent my youth in a human camp watching their guards walk the fence, and now I walk one of my own. I try to do it better than they did." },
+      { id = "bg1", text = "I signed on because it paid regular and the boots came free, and I'll tell you now they were not good boots." },
+      { id = "bg2", text = "I grew up three streets from this post and never left, and I never needed to, because trouble always comes to the gate sooner or later." },
     },
   },
 }
@@ -53,12 +64,19 @@ P:Pool {
       { id = "kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you what's common talk at the bar, and you'll pay for your drink like anyone else." },
     },
     trade = {
-      { id = "tr1", text = "Beds, bowls and a fire. Everything else people bring with them: news, mud, arguments. I clean up all three." },
-      { id = "tr2", text = "I listen for a living. The food's how I get paid for it." },
+      { id = "tr_w2_horde", when = { faction = "Horde" }, text = "I keep a fire for any who serve the Horde, and the stew's the same for an orc as for a tauren, though the tauren eat less meat and more of my bread." },
+      { id = "tr_w2_alliance", when = { faction = "Alliance" }, text = "Soldiers, miners, pilgrims to the Cathedral and the odd lost gnome: I feed them all, and I water the ale only a little, whatever they tell you." },
+      { id = "tr1", text = "I offer beds, bowls and a fire, and everything else folk bring in with them, news and mud and arguments, and I sweep up all three come morning." },
+      { id = "tr2", text = "I listen for a living, if I'm honest, and the stew is just how I get paid for it." },
     },
     advice = {
-      { id = "ad1", text = "Make this your home, if you like; I'll remember you. And eat before you sleep, not after." },
-      { id = "ad2", text = "Never trust a stranger who buys the whole room a drink. Accept the drink, mind; just don't trust him." },
+      { id = "ad_w2_dwarf", when = { race = "Dwarf" }, text = "Our ale isn't Thunderbrew, I'll admit that before you do, so take it slow and don't send it back. The cellarman takes it to heart." },
+      { id = "ad_w2_undead", when = { race = "Scourge" }, text = "I've a corner table by the cellar stair where it's cool and nobody minds the quiet. I keep it for your sort, and I don't charge you for the food you won't eat." },
+      { id = "ad_w2_tauren", when = { race = "Tauren" }, text = "The big chair by the hearth is the only one that'll hold you, so claim it early before some dwarf puts his boots up on it." },
+      { id = "ad_w2_gnome", when = { race = "Gnome" }, text = "Mind you don't take apart the bellows again. Somebody did last spring, and they put it back together so it blew smoke into the dining room." },
+      { id = "ad_w2_priest", when = { class = "PRIEST" }, text = "Say a word over the supper now and then, would you? It does the room good to hear it, even the ones who pretend they aren't listening." },
+      { id = "ad1", text = "Make this your home if you like, and I'll remember your face. Eat before you sleep, though, not after; you'll thank me in the morning." },
+      { id = "ad2", text = "Never trust a stranger who buys the whole room a drink. Take the drink, mind you, but keep one eye on him while you do." },
       { id = "ad_cold", when = { disposition = { max = 34 } }, text = "Pay up front, keep your boots off the table, and don't start anything you can't finish outside." },
       { id = "ad_warrior", when = { class = "WARRIOR" }, text = "Eat a proper supper before you go out. You burn through a meal faster than anyone under this roof." },
       { id = "ad_mage", when = { class = "MAGE" }, text = "Conjured bread fills you, but it's no comfort. Have a real meal now and then, cooked by somebody who likes you." },
@@ -71,7 +89,7 @@ P:Pool {
     },
     background = {
       { id = "bg1", text = "I inherited the place from someone who inherited it from someone, and the cellar's older than the town." },
-      { id = "bg2", text = "I travelled once. Then I realised the whole world comes through this door eventually, so I stopped." },
+      { id = "bg2", text = "I travelled once, until I realised the whole world comes through this door sooner or later, so I stopped walking and started pouring." },
       { id = "bg_warm", when = { disposition = { min = 65 } }, text = "Since you ask kindly: I meant to stay one winter, and the winter's lasted twenty years. I don't regret a night of it." },
     },
   },
@@ -86,14 +104,19 @@ P:Pool {
       { id = "kn_cold", when = { disposition = { max = 34 } }, text = "Talk costs nothing, which is exactly what I'll spend on it. Ask about one of these, and then buy something." },
     },
     trade = {
-      { id = "tr1", text = "I buy cheap, sell fair, and remember who haggles. Haggle if you like, but I'll remember." },
-      { id = "tr2", text = "Everything on this table came a long way to get here. The price is mostly the road." },
+      { id = "tr1", text = "I buy cheap and sell fair, and I remember who haggles, so haggle all you like, friend, but know that I'll remember." },
+      { id = "tr2", text = "Everything on this table came a long way to get here, and most of what you're paying for is the road it travelled." },
       { id = "tr_warm", when = { disposition = { min = 65 } }, text = "For you, I'd haggle against myself, if I didn't have mouths at home to feed. Take your time and look properly." },
-      { id = "tr_cold", when = { disposition = { max = 34 } }, text = "I sell to anyone with coin. I don't have to smile while I do it, though." },
+      { id = "tr_cold", when = { disposition = { max = 34 } }, text = "I'll sell to anyone with coin, but nobody said I had to smile while I do it." },
     },
     advice = {
-      { id = "ad1", text = "Sell the grey stuff before it piles up. Nobody wants to carry wolf teeth into a fight." },
-      { id = "ad2", text = "Carry water and something to eat. Heroes forget, and hungry heroes don't come back." },
+      { id = "ad_w2_warrior", when = { class = "WARRIOR" }, text = "Buy a second set of bandages before you need the first, {class}, because you'll go through them faster than anyone else who comes to this table." },
+      { id = "ad_w2_priest", when = { class = "PRIEST" }, text = "Candles and holy water keep, and you'd be surprised how many folk run out in the middle of nowhere, so stock up now while the price is fair." },
+      { id = "ad_w2_shaman", when = { class = "SHAMAN" }, text = "Your totems don't need much, but the odd stone and a bit of bone go a long way, and nobody else in town sells them as cheap as I do." },
+      { id = "ad_w2_warlock", when = { class = "WARLOCK" }, text = "I'll sell you what you ask for and I won't ask what it's for, but I'd take it kindly if you didn't open the bag in front of my other customers." },
+      { id = "ad_w2_druid", when = { class = "DRUID" }, text = "Bring me whatever herbs you can't use, friend, because a druid's leavings are worth more to an alchemist than most folk's harvest." },
+      { id = "ad1", text = "Sell off the odds and ends before they pile up in your pack, because nobody wants to carry a sack of wolf teeth into a fight." },
+      { id = "ad2", text = "Always carry water and something to eat. Heroes forget, and a hungry hero is a slow one who doesn't come back." },
       { id = "ad3", when = { faction = "Alliance" }, text = "Buy your arrows and thread in Stormwind or Ironforge when you can, because out here every spool has paid a toll on the road." },
       { id = "ad4", when = { faction = "Horde" }, text = "Orgrimmar's market sets the price for half of Kalimdor, so don't let a trader in the Barrens tell you otherwise." },
       { id = "ad_rogue", when = { class = "ROGUE" }, text = "Buy your flash powder from someone who doesn't ask questions, and don't tell me who, because I'd rather not know." },
@@ -102,8 +125,8 @@ P:Pool {
       { id = "ad_warm", when = { disposition = { min = 65 } }, text = "Come to me before you sell anything rare to a stranger, and I'll tell you honestly whether you're being robbed." },
     },
     background = {
-      { id = "bg1", text = "My family's sold from this spot for three generations. The spot hasn't moved; the town grew round it." },
-      { id = "bg2", text = "I came here with a cart and a debt, and I kept the cart." },
+      { id = "bg1", text = "My family's sold from this very spot for three generations, and the spot never moved, {class}; the town just grew up round it." },
+      { id = "bg2", text = "I came here with a cart and a debt, and I'm proud to say I've still got the cart." },
       { id = "bg_dwarf", when = { race = "Dwarf" }, text = "My cousins sell ale in Ironforge, and I sell everything else out here, so between us we've the whole of Khaz Modan covered, {g:lad|lass}." },
     },
   },
@@ -118,23 +141,27 @@ P:Pool {
       { id = "kn_cold", when = { disposition = { max = 34 } }, text = "I've no time for gossip, but I'll answer one or two of these while the iron heats." },
     },
     trade = {
-      { id = "tr1", text = "Heat, hammer, quench, swear, and repeat until it holds an edge or I lose my temper." },
-      { id = "tr2", text = "I mend what you break, and you break a lot, so business is good." },
+      { id = "tr1", text = "I heat it, hammer it, quench it and swear at it, and I keep on doing all four until it holds an edge or I lose my temper." },
+      { id = "tr2", text = "I mend what you lot break, and you break a great deal, so business has never been better." },
       { id = "tr3", text = "I turn ore into something you can trust your life to, and then you walk off and trust it to a gnoll's skull." },
       { id = "tr_warm", when = { disposition = { min = 65 } }, text = "Mostly repairs, if I'm honest, but now and then somebody brings me good iron and a good reason, and I remember why I took the trade." },
     },
     advice = {
-      { id = "ad1", text = "Have your armour seen to before it falls off, not after, because after costs more." },
-      { id = "ad2", when = { class = { "WARRIOR", "PALADIN" } }, text = "Plate's only as good as the straps, so check the straps." },
-      { id = "ad_warm", when = { disposition = { min = 65 } }, text = "Bring me anything that rattles, before it breaks, and I'll look at it first, ahead of the queue. Don't tell the queue." },
+      { id = "ad_w2_paladin", when = { class = "PALADIN" }, text = "Have that hammer's haft looked at before you go back out, {class}. A blessed head on a split handle is still a split handle." },
+      { id = "ad_w2_warrior", when = { class = "WARRIOR" }, text = "A good shield is worth more than a good sword on most days, so don't skimp on the one to pay for the other." },
+      { id = "ad_w2_priest", when = { class = "PRIEST" }, text = "Even a priest ought to carry a mace that won't break on the first skull, because the Light doesn't always answer before the skull does." },
+      { id = "ad1", text = "Have your armour seen to before it falls off you, not after, because after always costs more and sometimes costs everything." },
+      { id = "ad2", when = { class = { "WARRIOR", "PALADIN" } }, text = "Plate is only as good as the straps holding it on, so check your straps every morning before you check anything else." },
+      { id = "ad_warm", when = { disposition = { min = 65 } }, text = "Bring me anything that rattles before it breaks, and I'll look at it ahead of the queue, so long as you don't tell the queue." },
       { id = "ad_rogue", when = { class = "ROGUE" }, text = "Hone your blades after every fight, not before the next one. A dull dagger is just a heavy finger." },
       { id = "ad_hunter", when = { class = "HUNTER" }, text = "Keep your arrowheads dry and your gun barrel clean, and check both before you need them." },
       { id = "ad_shaman", when = { class = "SHAMAN" }, text = "Mail rusts faster than plate if you never oil it, and no totem will help you with that." },
       { id = "ad_caster", when = { class = { "MAGE", "WARLOCK" } }, text = "Cloth doesn't need a smith, but carry a decent dagger anyway. Spells run out; steel doesn't." },
-      { id = "ad_druid", when = { class = "DRUID" }, text = "Leather breathes and so do you. Don't let anyone talk you into anything heavier." },
+      { id = "ad_druid", when = { class = "DRUID" }, text = "Leather breathes the way you do, so don't let any smith talk you into anything heavier, even me." },
     },
     background = {
-      { id = "bg1", text = "Apprenticed at eight, burned my hand at nine, and learned the difference between hot and very hot at ten." },
+      { id = "bg_w2_horde", when = { faction = "Horde" }, text = "I learned to work iron in a human camp, mending their chains for scraps of bread. Now I make axes for the Horde, and I like to think every blade pays off a little of that debt." },
+      { id = "bg1", text = "I was apprenticed at eight and burned my hand at nine, and by ten I'd learned the difference between hot and very hot, which is the whole trade really." },
       { id = "bg2", text = "My father beat iron at this same anvil, and his father before him, and I've the burn scars to prove the family's good name." },
       { id = "bg_dwarf", when = { race = "Dwarf" }, text = "I learned the forge in Ironforge, {g:lad|lass}, where a smith who can't hear when the steel is ready isn't let near the Great Forge twice." },
     },
@@ -146,17 +173,22 @@ P:Pool {
   topics = {
     knows = {
       { id = "kn1", text = "A teacher hears more than lessons, since students talk when they think I've stopped listening. Here's what I can speak to." },
-      { id = "kn_warm", when = { disposition = { min = 65 } }, text = "You've been a good student, and good students get the long answers." },
+      { id = "kn_warm", when = { disposition = { min = 65 } }, text = "You've been a good student, {class}, and good students get the long answers, so sit down." },
       { id = "kn_cold", when = { disposition = { max = 34 } }, text = "Learn your lessons first, and then I might have patience for questions; a few of these, at most." },
     },
     trade = {
-      { id = "tr1", text = "I teach. Most of it's watching people make the same mistake I made, and saying so earlier than anyone said it to me." },
+      { id = "tr1", text = "I teach, which mostly means watching people make the same mistakes I made and telling them sooner than anyone told me." },
       { id = "tr2", text = "I take people who swing wildly and teach them to swing on purpose, and it takes longer than either of us would like." },
       { id = "tr_cold", when = { disposition = { max = 34 } }, text = "I teach those who listen, and I've decided you listen about half the time, which is better than most." },
     },
     advice = {
-      { id = "ad1", text = "Come back when you've learned something out there. I can only teach you what you're ready to hear." },
-      { id = "ad2", text = "Practise the dull things, because the dull things keep you alive." },
+      { id = "ad_w2_paladin", when = { class = "PALADIN" }, text = "The Light gives freely, {class}, but don't spend it all on yourself. A paladin who heals only his own wounds is just a knight who prays a lot." },
+      { id = "ad_w2_hunter", when = { class = "HUNTER" }, text = "Learn the ground before you learn the shot. A hunter who knows where his quarry will run never has to chase it." },
+      { id = "ad_w2_rogue", when = { class = "ROGUE" }, text = "Patience is your sharpest blade, {class}, so wait one breath longer than feels comfortable before you strike." },
+      { id = "ad_w2_mage", when = { class = "MAGE" }, text = "Never cast a spell you can't stop halfway, because the halfway point is where most young mages find out what they've done." },
+      { id = "ad_w2_shaman", when = { class = "SHAMAN" }, text = "Ask the spirits; never command them. The elements remember every shaman who forgot that, and they don't remember fondly." },
+      { id = "ad1", text = "Come back when you've learned something out there, because I can only teach you what you're ready to hear." },
+      { id = "ad2", text = "Practise the dull things until you're sick of them, because it's the dull things that keep you alive when the clever ones fail." },
       { id = "ad_warm", when = { disposition = { min = 65 } }, text = "You've come further than most I've taught. Now teach someone else what you know; it's the fastest way to find out what you don't." },
       { id = "ad_low", when = { band = { "Greenhorn", "Blooded" } }, text = "Come back every couple of seasons, because the lessons you're ready for change faster than you'd think at your age." },
       { id = "ad_warrior", when = { class = "WARRIOR" }, text = "Learn to hold your ground before you learn to charge, {class}, since anyone can run at a fight." },
@@ -165,7 +197,7 @@ P:Pool {
       { id = "ad_druid", when = { class = "DRUID" }, text = "Spend time in every shape, not only the one you like best. The wild punishes a druid who knows one trick." },
     },
     background = {
-      { id = "bg1", text = "I was a student once, and a bad one, which is what makes me a good teacher. Ask my teacher." },
+      { id = "bg1", text = "I was a student once, and a bad one, which is what makes me a good teacher now, and my own teacher would laugh to hear me say it." },
       { id = "bg2", text = "I fought for years before I taught, and the ones I trained beside are mostly in the ground now, so I teach what killed them." },
     },
   },
@@ -179,22 +211,24 @@ P:Pool {
       { id = "kn_warm", when = { disposition = { min = 65 } }, text = "You fly with me often enough that you've earned the gossip from the high roads, so here it is." },
     },
     trade = {
-      { id = "tr1", text = "I keep the birds fed, the saddles sound and the riders from falling off. Two out of three, most days." },
+      { id = "tr1", text = "I keep the birds fed, the saddles sound and the riders from falling off, and most days I manage two out of the three." },
       { id = "tr2", text = "I keep the routes open between here and every roost the birds know, and I count every rider back in at dusk." },
       { id = "tr_horde", when = { faction = "Horde" }, text = "My wind riders are proud beasts, and they'll carry you across the Barrens if you treat them like warriors, not like mules." },
       { id = "tr_alliance", when = { faction = "Alliance" }, text = "The gryphons come from the Wildhammer stock in the Hinterlands, and they know it, so mind your manners in the saddle." },
     },
     advice = {
-      { id = "ad1", text = "Visit every roost you pass and say hello, and then the birds know the way home." },
-      { id = "ad2", text = "Don't look down. Well, no, do look down, it's the best part; just don't lean." },
-      { id = "ad_mage", when = { class = "MAGE" }, text = "Take the bird now and then, even when you could teleport. You'll see what you've been missing." },
-      { id = "ad_hunter", when = { class = "HUNTER" }, text = "Your beast will find you at the other end of the flight, so don't fret over it." },
-      { id = "ad_rogue", when = { class = "ROGUE" }, text = "Don't go poking in the saddlebags mid-flight. The bird bites, and it's a long way to fall." },
-      { id = "ad_druid", when = { class = "DRUID" }, text = "Four legs are quicker than two, but wings beat both. Pay the fare and rest your paws." },
+      { id = "ad1", text = "Stop at every roost you pass and say hello to the master there, and then the birds will always know the way to bring you home." },
+      { id = "ad2", text = "Don't look down. Well, no, do look down, because it's the best part of the ride, but whatever you do, don't lean." },
+      { id = "ad_mage", when = { class = "MAGE" }, text = "Take the bird now and then, {class}, even when you could teleport, and you'll see what you've been missing from up there." },
+      { id = "ad_hunter", when = { class = "HUNTER" }, text = "Your beast will be waiting at the other end of the flight, so don't fret over it the whole way." },
+      { id = "ad_rogue", when = { class = "ROGUE" }, text = "Don't go poking in the saddlebags mid-flight, because the bird bites and it's a very long way to fall." },
+      { id = "ad_druid", when = { class = "DRUID" }, text = "Four legs are quicker than two, I'll grant you, but wings beat both, so pay the fare and rest your paws a while." },
       { id = "ad_skyborne", when = { race = "Skyborne" }, text = "Don't try your glide off the back of a gryphon. Nobody's ever proved it works, and I don't want to be the one who finds out." },
     },
     background = {
-      { id = "bg1", text = "I grew up mucking stalls, got bitten by a bird and decided I liked it. Nobody understands that part." },
+      { id = "bg_w2_horde", when = { faction = "Horde" }, text = "I raised my first wind rider from an egg in the hills above the Crossroads, and she still won't let anyone else saddle her, which tells you something about the pair of us." },
+      { id = "bg_w2_dwarf", when = { race = "Dwarf" }, text = "I learned the birds from a Wildhammer at Aerie Peak who taught me to whistle before he'd let me touch a saddle, and I still whistle the same tune to every bird I meet." },
+      { id = "bg1", text = "I grew up mucking out stalls until a bird bit me and I decided I liked it, and nobody's ever understood that part." },
       { id = "bg2", text = "I flew dispatches in the Second War and saw more of the world from the air than most generals ever saw on their maps." },
     },
   },
@@ -204,17 +238,17 @@ P:Pool {
   id = "ask_stablemaster", role = "stablemaster", askOnly = true,
   topics = {
     knows = {
-      { id = "kn1", text = "The animals don't talk, but their owners never stop. This is what I've heard over the feed troughs." },
+      { id = "kn1", text = "The animals don't talk, but their owners never stop, so here's what I've heard over the feed troughs this season." },
       { id = "kn_cold", when = { disposition = { max = 34 } }, text = "Ask quickly, since I've hungry mouths waiting and yours isn't one of them." },
       { id = "kn_warm", when = { disposition = { min = 65 } }, text = "Your beast likes you, and that's the best reference anyone gets from me, so ask whatever you want." },
     },
     trade = {
-      { id = "tr1", text = "Your companions stay with me when you can't take them along. I feed them better than you do." },
+      { id = "tr1", text = "Your companions stay with me when you can't take them along, and I'll say it plainly: I feed them better than you do." },
       { id = "tr2", text = "I feed them, brush them, keep them calm while you're off getting stabbed, and hand them back without a scratch." },
       { id = "tr_hunter", when = { class = "HUNTER" }, text = "Leave your spare companions with me, {class}, and they'll be fed and rested when you want them back, I promise you that." },
     },
     advice = {
-      { id = "ad1", text = "An animal that trusts you will die for you, so don't make it." },
+      { id = "ad1", text = "An animal that trusts you will die for you if you ask it to, so never put it in a place where you have to." },
       { id = "ad_hunter", when = { class = "HUNTER" }, text = "Feed your companion what it likes, not what's cheap. It'll fight harder for a meal it loves." },
       { id = "ad_druid", when = { class = "DRUID" }, text = "You know what it is to be the animal, so you'll know never to tie one too short." },
       { id = "ad_warlock", when = { class = "WARLOCK" }, text = "Whatever you keep on that leash of yours, never bring it near an animal that trusts you." },
@@ -224,7 +258,7 @@ P:Pool {
       { id = "ad_nightelf", when = { race = "NightElf" }, text = "A nightsaber remembers every slight, so never feed it late twice in a row, or you'll wake up with no boots." },
     },
     background = {
-      { id = "bg1", text = "Animals were always easier than people, and they still are. No offence." },
+      { id = "bg1", text = "Animals were always easier than people, and they still are, so I hope you'll take no offence." },
       { id = "bg2", text = "I grew up in a stable loft and slept beside the mares most winters, which is why I smell the way I do." },
     },
   },
@@ -239,18 +273,18 @@ P:Pool {
       { id = "kn_cold", when = { disposition = { max = 34 } }, text = "Discretion is the whole job, so you'll get only what is already public record." },
     },
     trade = {
-      { id = "tr1", text = "I keep things safe, your things and everyone's things. Safe is boring, and boring is the whole service." },
+      { id = "tr1", text = "I keep things safe, yours and everyone else's, and safe is boring, {class}, but boring is the whole of the service." },
       { id = "tr_cold", when = { disposition = { max = 34 } }, text = "I keep things safe for people I trust, and for everyone else I keep them safe anyway, but I keep a closer eye." },
     },
     advice = {
-      { id = "ad1", text = "Don't carry everything you own into a dungeon. Leave some of it with me; I'll still be here." },
+      { id = "ad1", text = "Don't carry everything you own into a dungeon. Leave some of it in the vault with me, because I'll still be here when you come back, which is more than I can promise for you." },
       { id = "ad2", text = "Put a little aside every time you come to town, because the day you need it is never the day you've got it." },
       { id = "ad_goblinish", when = { faction = "Horde" }, text = "Don't trust a goblin's interest rate, and do trust that he'll collect it. Keep your savings where there's a vault door." },
       { id = "ad_rogue", when = { class = "ROGUE" }, text = "Whatever you're carrying that isn't yours, don't deposit it here, because my ledgers are read by people with badges." },
       { id = "ad_cold", when = { disposition = { max = 34 } }, text = "Keep your accounts tidy and your voice down in the hall, and we'll get on perfectly well." },
     },
     background = {
-      { id = "bg1", text = "I count, and I've always counted. There isn't much more to tell, and I'd know." },
+      { id = "bg1", text = "I count, and I've always counted, and there isn't much more to the story than that, which I'd know better than anyone." },
       { id = "bg_warm", when = { disposition = { min = 65 } }, text = "I wanted to be an adventurer once, if you'll believe it, and then I saw what they spent their gold on and decided to hold it instead." },
     },
   },
@@ -270,12 +304,12 @@ P:Pool {
       { id = "tr_cold", when = { disposition = { max = 34 } }, text = "I list your goods, I take my fee, and I don't care to hear how much your grandfather paid for that sword." },
     },
     advice = {
-      { id = "ad1", text = "Buy when everyone's selling and sell when everyone's buying. Nobody listens, which is how I stay in work." },
+      { id = "ad1", text = "Buy when everyone's selling and sell when everyone's buying, {class}. Nobody ever listens, which is how I stay in work." },
       { id = "ad2", text = "Don't list everything at once, friend, because you only drive your own price down. Hold back a few and watch the market." },
       { id = "ad_low", when = { band = { "Greenhorn", "Blooded" } }, text = "Linen and copper sell better than you'd guess, since every new hand needs them, so don't vendor what folk will bid on." },
     },
     background = {
-      { id = "bg1", text = "I started out selling my own things, ran out of things, and started selling other people's." },
+      { id = "bg1", text = "I started out selling my own things until I ran out of them, and then I started selling other people's, and found I was better at that." },
     },
   },
 }
@@ -324,6 +358,8 @@ P:Pool {
       { id = "tr_horde", when = { faction = "Horde" }, text = "I tend to the spirits of those who've passed and the wounds of those who haven't, and I'm never short of either." },
     },
     advice = {
+      { id = "ad_w2_undead", when = { race = "Scourge" }, text = "I'll not pretend I know what the Light makes of your people, but it hasn't struck you down for asking, has it? Keep asking." },
+      { id = "ad_w2_horde", when = { faction = "Horde" }, text = "The ancestors watch over those who honour them, so speak their names when you can, even the ones you never met." },
       { id = "ad1", text = "Be kind when it costs you nothing, and then practise when it does." },
       { id = "ad2", when = { alignment = { axis = "light", max = -20 } }, text = "Whatever you're carrying, put some of it down. It gets heavier the longer you hold it." },
       { id = "ad3", text = "Say a word over the fallen when you can, friend, even enemies. It costs a moment, and it keeps you human, or whatever you are." },
@@ -332,7 +368,7 @@ P:Pool {
       { id = "ad_warm", when = { disposition = { min = 65 } }, text = "You carry yourself well, so keep doing what you're doing, and come back to me if ever it gets too heavy." },
     },
     background = {
-      { id = "bg1", text = "I heard a call. It was quiet, and it didn't stop, so here I am." },
+      { id = "bg1", text = "I heard a call once, quiet as a whisper, and it never stopped, so in the end I answered it and here I am." },
       { id = "bg_warm", when = { disposition = { min = 65 } }, text = "I nearly didn't answer the call, you know. I was afraid I wasn't good enough, and I still am, most mornings. It helps to say so." },
     },
   },
@@ -350,7 +386,7 @@ P:Pool {
       { id = "tr1", text = "Soldiering's mostly waiting, marching and digging. The fighting is the short part, but it's the part you remember." },
     },
     advice = {
-      { id = "ad1", text = "Keep your boots dry and your mouth shut. Both will save your life one day." },
+      { id = "ad1", text = "Keep your boots dry and your mouth shut on the march, because both of them will save your life one day." },
       { id = "ad2", text = "Never charge alone. If nobody follows you, it isn't a charge, it's a funeral." },
       { id = "ad_cold", when = { disposition = { max = 34 } }, text = "Stay out from under my feet when the fighting starts, and we'll both live longer." },
       { id = "ad_warrior", when = { class = "WARRIOR" }, text = "Hold the line, and let the clever ones be clever behind you. That's what they're there for." },
@@ -363,6 +399,8 @@ P:Pool {
       { id = "ad_druid", when = { class = "DRUID" }, text = "Be the bear when the line breaks, and the healer when it holds. Most druids get it backwards once, and the bear gets the blame." },
     },
     background = {
+      { id = "bg_w2_horde", when = { faction = "Horde" }, text = "I fought at Hyjal beside the Warchief, with the night elves on one side and the humans on the other, and if you'd told me that before the battle I'd have laughed in your face." },
+      { id = "bg_w2_alliance", when = { faction = "Alliance" }, text = "I marched with Lordaeron's last army until there was no Lordaeron left, then I took ship south with what was left of my company, and here I am." },
       { id = "bg1", text = "I joined young and stayed because the others did. Now I'm the one the young ones stay for." },
       { id = "bg_warm", when = { disposition = { min = 65 } }, text = "I had a brother in the same company, once. I don't talk about him much, but you've the same way of standing, and it made me think of him." },
     },
@@ -452,17 +490,20 @@ P:Pool {
       { id = "kn_cold", when = { disposition = { max = 34 } }, text = "I've a field to see to, so ask about one of these and let me get back to it." },
     },
     trade = {
-      { id = "tr1", text = "Plant it, water it, chase things off it, pray over it and pick it, then do it all again. That's farming." },
+      { id = "tr1", text = "You plant it, water it, chase things off it, pray over it and pick it, and then you do it all again, and that's farming for you." },
     },
     advice = {
-      { id = "ad1", text = "Never trust a dry spring or a friendly crow." },
+      { id = "ad_w2_alliance", when = { faction = "Alliance" }, text = "Watch the field edges at dusk, because that's when the Defias come for the pumpkins and the gnolls come for the farmer, and neither knocks first." },
+      { id = "ad_w2_horde", when = { faction = "Horde" }, text = "Water is worth more than gold out here, so never waste a drop of it, and never trust a quilboar who says the well is his." },
+      { id = "ad_w2_tauren", when = { race = "Tauren" }, text = "You'll know the land better than I do, being of the Earth Mother's people, so tell me if my soil's sick, and I'll not be too proud to listen." },
+      { id = "ad1", text = "Never trust a dry spring or a friendly crow, {class}, because neither one means you any good." },
       { id = "ad2", when = { origin = "human_westfall_farmhand" }, text = "You know the soil; I can see it in your hands. Don't let fighting make you forget it." },
       { id = "ad_hunter", when = { class = "HUNTER" }, text = "Keep your beast out of my turnips and you'll hear no complaint from me." },
       { id = "ad_druid", when = { class = "DRUID" }, text = "If you've the knack of making things grow, my corn could do with a word from you." },
       { id = "ad_warrior", when = { class = "WARRIOR" }, text = "If you're going to fight in a field, fight in the one that's already been harvested." },
     },
     background = {
-      { id = "bg1", text = "Born in a field, near enough. My mother was out with the harvest and wouldn't come in." },
+      { id = "bg1", text = "I was born in a field, near enough, because my mother was out with the harvest and wouldn't come in for anyone." },
       { id = "bg_warm", when = { disposition = { min = 65 } }, text = "My grandmother planted the first row on this land with a stick and a prayer, and I still plant it the same way, give or take the stick." },
     },
   },
@@ -480,7 +521,7 @@ P:Pool {
       { id = "tr_cold", when = { disposition = { max = 34 } }, text = "What I do for coin is my own business, and I'd thank you to keep yours out of it." },
     },
     advice = {
-      { id = "ad1", text = "Be polite to the innkeeper and the guards; everyone else is optional." },
+      { id = "ad1", text = "Be polite to the innkeeper and the guards, whatever else you do, because in a town like this everyone else is optional." },
       { id = "ad_rogue", when = { class = "ROGUE" }, text = "Don't do anything in this town you'd not want the guards to hear about. They hear about everything." },
       { id = "ad_hunter", when = { class = "HUNTER" }, text = "Keep your animal off the market stalls. The fishmonger has a long memory and a longer knife." },
       { id = "ad2", text = "Find out who's in charge here before you need them, because it's never the one with the loudest voice." },
@@ -488,7 +529,9 @@ P:Pool {
       { id = "ad_horde", when = { faction = "Horde" }, text = "Show respect to the elders and the warriors both, and you'll find the Horde takes care of its own." },
     },
     background = {
-      { id = "bg1", text = "Nothing anyone would write down. I'd like to keep it that way." },
+      { id = "bg_w2_horde", when = { faction = "Horde" }, text = "I came across the sea with the Warchief's people, crammed into the hold of a stolen human ship, and I've never been so glad to see dry land as when we sighted Kalimdor." },
+      { id = "bg_w2_alliance", when = { faction = "Alliance" }, text = "My family came down from Lordaeron with the refugees, three wagons and a goat, and only the goat ever complained about the road." },
+      { id = "bg1", text = "There's nothing in my life anyone would bother writing down, and I'd like to keep it that way." },
       { id = "bg_warm", when = { disposition = { min = 65 } }, text = "I lost my home in the wars like half the people you'll meet, and I've made a new one here. It's smaller, but it's mine." },
     },
   },
@@ -498,16 +541,16 @@ P:Pool {
   id = "ask_questgiver", role = "questgiver", askOnly = true,
   topics = {
     knows = {
-      { id = "kn1", text = "Half my work is knowing things before anyone else does. Here's what I'm willing to part with." },
+      { id = "kn1", text = "Half my work is knowing things before anyone else does, so here's what I'm willing to part with today." },
       { id = "kn_warm", when = { disposition = { min = 65 } }, text = "You've done good work for me, so I'll tell you the parts I usually keep for myself." },
       { id = "kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you what you need for the work and not a word more, since I don't know yet whether you'll see it through." },
     },
     trade = {
-      { id = "tr1", text = "I find people who need things done and people who can do them. Today you're the second sort." },
+      { id = "tr1", text = "I find people who need things done and people who can do them, and today, {class}, you look like the second sort." },
       { id = "tr2", text = "I keep a list of troubles, and I hand them to whoever looks able, and then I wait and hope I chose well." },
     },
     advice = {
-      { id = "ad1", text = "Read the whole job before you take it. The part at the bottom is usually the part that bites." },
+      { id = "ad1", text = "Read the whole job before you take it, because the part at the bottom of the page is usually the part that bites." },
       { id = "ad2", text = "Come back and tell me when it's done, even if it went badly. I'd rather know the truth than guess at it." },
       { id = "ad_low", when = { band = { "Greenhorn", "Blooded" } }, text = "Start with the small jobs near town, {class}, because the far ones are on my list for a reason." },
       { id = "ad_warm", when = { disposition = { min = 65 } }, text = "You're one of the few I don't worry about once you're out of sight, and that's high praise from me." },
@@ -527,11 +570,13 @@ P:Pool {
       { id = "kn_cold", when = { disposition = { max = 34 } }, text = "I can spare a few words on these, but do try to be brief about it." },
     },
     trade = {
-      { id = "tr1", text = "Trade? I have people for that. I suppose you could say my trade is having people." },
+      { id = "tr1", text = "Trade? I have people for that, so I suppose you might say my trade is having people." },
       { id = "tr_warm", when = { disposition = { min = 65 } }, text = "Officially I manage the family's holdings, though in truth my steward does that and I manage my steward, which is quite tiring enough." },
     },
     advice = {
-      { id = "ad1", text = "Know who owes you, and never let them know you know." },
+      { id = "ad_w2_warrior", when = { class = "WARRIOR" }, text = "Learn to bow properly before you learn to swing properly, {class}. You'll find the first opens more doors than the second ever breaks." },
+      { id = "ad_w2_rogue", when = { class = "ROGUE" }, text = "Whatever you're planning, plan it away from my estate. I've a very good memory for faces and an even better one for missing silver." },
+      { id = "ad1", text = "Always know who owes you, and never, ever let them see that you know it." },
       { id = "ad_cold", when = { disposition = { max = 34 } }, text = "Learn your place before someone teaches it to you, and they will be less patient than I am." },
       { id = "ad2", text = "Dress for the company you hope to keep, {class}, and you'll find doors open that would otherwise stay politely shut." },
       { id = "ad_human", when = { race = "Human" }, text = "Learn which houses sit in the House of Nobles and which only wish they did. It will save you a good many embarrassing dinners." },
@@ -551,17 +596,19 @@ P:Pool {
       { id = "kn_warm", when = { disposition = { min = 65 } }, text = "A curious mind, and a patient one! Pull up a chair, because I've been waiting for someone to ask me this." },
     },
     trade = {
-      { id = "tr1", text = "Reading, mostly, and then writing about what I read so someone else can read it. It's a living, barely." },
+      { id = "tr1", text = "Reading, mostly, and then writing about what I've read so somebody else can read it, which is a living, though only just." },
     },
     advice = {
-      { id = "ad1", text = "Read whatever you find lying around: books, letters, gravestones. The world leaves notes." },
-      { id = "ad_mage", when = { class = "MAGE" }, text = "Read the footnotes. The arcane hides its traps in the footnotes." },
-      { id = "ad_warlock", when = { class = "WARLOCK" }, text = "Read the other side's books too, but never read them aloud." },
-      { id = "ad_shaman", when = { class = "SHAMAN" }, text = "Write down what the spirits tell you, or nobody will ever believe you." },
+      { id = "ad1", text = "Read whatever you find lying about, books and letters and gravestones alike, because the world leaves its notes in strange places." },
+      { id = "ad_mage", when = { class = "MAGE" }, text = "Read the footnotes, {class}, because the arcane always hides its nastiest traps down in the footnotes." },
+      { id = "ad_warlock", when = { class = "WARLOCK" }, text = "Read the other side's books as well as your own, but never read them aloud, and never after dark." },
+      { id = "ad_shaman", when = { class = "SHAMAN" }, text = "Write down whatever the spirits tell you, or nobody in a library will ever believe a word of it." },
       { id = "ad_druid", when = { class = "DRUID" }, text = "The Circle keeps very few books, so whatever you learn in the wild, someone ought to write it down." },
     },
     background = {
-      { id = "bg1", text = "I asked too many questions as a child. Nobody ever made me stop." },
+      { id = "bg_w2_gnome", when = { race = "Gnome" }, text = "I kept my notes in Gnomeregan until the day we fled, and I carried out three volumes and left forty behind. I still dream about the forty." },
+      { id = "bg_w2_dwarf", when = { race = "Dwarf" }, text = "I took my first notes in the Hall of Explorers, sweeping up after the League's diggers and reading every scrap they threw away." },
+      { id = "bg1", text = "I asked far too many questions as a child, and nobody ever managed to make me stop." },
     },
   },
 }
@@ -570,17 +617,17 @@ P:Pool {
   id = "ask_spirithealer", role = "spirithealer", askOnly = true,
   topics = {
     trade = {
-      { id = "tr1", text = "I stand at the edge, and send you back across it. What lies past it is not mine to tell." },
+      { id = "tr1", text = "I stand at the edge of things and send you back across it, and what lies beyond is not mine to tell you." },
     },
     advice = {
-      { id = "ad1", text = "Rest when you return. The body forgets faster than the soul, but not by much." },
+      { id = "ad1", text = "Rest when you return, because the body forgets its dying faster than the soul does, though not by much." },
       { id = "ad2", text = "Each time you return, a little of your strength stays behind with me for a while. Do not make a habit of dying." },
     },
     background = {
-      { id = "bg1", text = "I am what stands here. If there was more, I was not permitted to keep it." },
+      { id = "bg1", text = "I am what stands in this place, and if ever there was more of me, I was not permitted to keep it." },
     },
     rumors = {
-      { id = "ru1", text = "The dead do not gossip; they only remember." },
+      { id = "ru1", text = "The dead do not gossip, little one; they only remember, and they remember everything." },
     },
     knows = {
       { id = "kn1", text = "Little of the living world reaches me here, mortal, but a few things linger on the souls who pass, and those I can tell." },
@@ -1325,3 +1372,139 @@ for _, town in ipairs({ "booty_bay", "gadgetzan", "ratchet", "everlook" }) do
     P:Pool { id = "ask_goblin_" .. role .. "_" .. town, role = role, community = town, askOnly = true, topics = copy(GOBLIN_TAKES) }
   end
 end
+
+---------------------------------------------------------------------------
+-- Writing pass (World): what the common roles say about the peoples of the world, the
+-- arcane and the druids, when asked (topics.lua: humans, kaldorei, tauren, mages, druids,
+-- alliance). Faction is the player's, and near enough the speaker's.
+---------------------------------------------------------------------------
+P:Pool {
+  id = "ask_guard_peoples", role = "guard", askOnly = true,
+  topics = {
+    humans = {
+      { id = "p_humans_a", when = { faction = "Alliance" }, text = "Stubborn, quarrelsome and too proud of their walls, and I'd not swap them for any other people on this road. They rebuilt Stormwind twice, which is two more times than most would bother." },
+      { id = "p_humans_h", when = { faction = "Horde" }, text = "They kept our people in pens and called it mercy, and now they talk of truce at Theramore. I'll believe in human mercy when I see a human guard turn his back on me." },
+    },
+    kaldorei = {
+      { id = "p_kaldorei_a", when = { faction = "Alliance" }, text = "Quiet, tall and older than the hills, and their Sentinels can put an arrow through a keyhole at a hundred paces. I'm glad they're on our side, and I'm still not sure they're glad of us." },
+      { id = "p_kaldorei_h", when = { faction = "Horde" }, text = "They shoot our woodcutters in Ashenvale and call it protecting the forest. The Warsong have buried enough grunts under those trees to know an elf's patience runs out quick." },
+    },
+    tauren = {
+      { id = "p_tauren_a", when = { faction = "Alliance" }, text = "Big as a barn door and gentle as a lamb until you threaten their herds, from what the Theramore patrols say. I've never fought one, and I'd like to keep it that way." },
+      { id = "p_tauren_h", when = { faction = "Horde" }, text = "The best neighbours the Horde ever had, and the strongest shoulders in any shield wall. When a tauren guard says the road is clear, I don't bother checking." },
+    },
+    mages = {
+      { id = "p_mages", text = "Useful in a fight and a nuisance everywhere else, because something always catches fire. We keep a bucket by the gate on account of the last one who came through." },
+    },
+    druids = {
+      { id = "p_druids", text = "I've standing orders about bears, and I'll leave it at that. The ones I've met were polite enough once they'd decided to be people again." },
+    },
+  },
+}
+
+P:Pool {
+  id = "ask_innkeeper_peoples", role = "innkeeper", askOnly = true,
+  topics = {
+    humans = {
+      { id = "p_humans_a", when = { faction = "Alliance" }, text = "They drink like dwarves and sing like gnomes, which is to say loudly and badly, and they tip better than both. I've no complaint against humans that a good mop won't fix." },
+      { id = "p_humans_h", when = { faction = "Horde" }, text = "Travellers from Theramore come through sometimes under a white flag, and they're polite enough, though they watch the door the whole while. I give them the seat by it, so they can see it better." },
+    },
+    kaldorei = {
+      { id = "p_kaldorei_a", when = { faction = "Alliance" }, text = "A night elf will nurse one cup of moonberry juice from dusk to midnight and leave the bench cleaner than she found it. I'd fill the place with them, if only they drank." },
+      { id = "p_kaldorei_h", when = { faction = "Horde" }, text = "I've never had one under my roof, and from what the Splintertree lads say, I'd not want one near my woodpile either." },
+    },
+    tauren = {
+      { id = "p_tauren", text = "A tauren will eat half a loaf in one bite and thank you for it like you'd baked it for them alone, and they never once start a fight. They're my favourite guests, and I don't care who knows it." },
+    },
+    mages = {
+      { id = "p_mages", text = "A mage once conjured a whole table's worth of bread to save on supper, and the bread vanished before morning, and so did he without paying for the beds. I make them pay up front now." },
+    },
+    druids = {
+      { id = "p_druids", text = "Druids are fine guests, except the one who slept as a cat on my best rug and left half its coat behind. Tell your druid friends the rug is for feet." },
+    },
+  },
+}
+
+P:Pool {
+  id = "ask_citizen_peoples", role = "citizen", askOnly = true,
+  topics = {
+    humans = {
+      { id = "p_humans_a", when = { faction = "Alliance", race = { "Dwarf", "Gnome", "NightElf" } }, text = "The humans run the kingdom, and they'd tell you so if you didn't know it. They mean well, mostly, and they built the biggest city I've ever got lost in." },
+      { id = "p_humans_a2", when = { faction = "Alliance" }, text = "We're humans, mostly, round here, and we've been through two wars and a plague and come out still arguing about the taxes. I suppose that's a kind of strength." },
+      { id = "p_humans_h", when = { faction = "Horde" }, text = "The old ones still flinch at a human voice, and the young ones have never heard one except at the end of a sword. I don't know which is worse." },
+    },
+    kaldorei = {
+      { id = "p_kaldorei_a", when = { faction = "Alliance" }, text = "They came out of their forests a few years ago looking like they'd stepped down off the moon. They're very polite, and I've never once felt I knew what one was thinking." },
+      { id = "p_kaldorei_h", when = { faction = "Horde" }, text = "Purple elves with glowing eyes who think every tree is their grandmother. My cousin went to Ashenvale to cut wood and came back with an arrow in his shoulder and a terrible opinion of them." },
+    },
+    tauren = {
+      { id = "p_tauren_a", when = { faction = "Alliance" }, text = "I've only seen one, at a distance, near the Theramore road, and I'd swear the ground shook when it walked. Folk say they're peaceful, but I'd not test it." },
+      { id = "p_tauren_h", when = { faction = "Horde" }, text = "Gentle folk, and wiser than they let on. A tauren elder told me once that the wind remembers every word you say, and I've been minding my tongue ever since." },
+    },
+    alliance = {
+      { id = "p_alliance_a", when = { faction = "Alliance" }, text = "Stormwind, Ironforge and Darnassus, and whoever else will still sign the papers. It's held this long, and I'm grateful every time the dwarves send their rifles south." },
+      { id = "p_alliance_h", when = { faction = "Horde" }, text = "The humans and their allies, who'd have us back in the camps if they had their way. I don't lose any sleep over them, but I keep my door barred all the same." },
+    },
+  },
+}
+
+P:Pool {
+  id = "ask_soldier_peoples", role = "soldier", askOnly = true,
+  topics = {
+    humans = {
+      { id = "p_humans_a", when = { faction = "Alliance" }, text = "Give a human a spear and a wall to stand on and he'll hold it until he drops, and that's how Stormwind came back from the ashes of the First War. They're not the strongest, but they don't know when to quit." },
+      { id = "p_humans_h", when = { faction = "Horde" }, text = "They fight in tight ranks behind big shields, and they hold better than you'd think for something so small. Break their knights and the footmen falter, every time." },
+    },
+    kaldorei = {
+      { id = "p_kaldorei_a", when = { faction = "Alliance" }, text = "You never hear a Sentinel coming, and you never see the owl until it's too late. I'd sooner have one at my back than any ten men from the Stormwind levy." },
+      { id = "p_kaldorei_h", when = { faction = "Horde" }, text = "They fight from the trees and vanish into the dark, and they never stand to be hit. If you want to fight one, light a fire first, so you can see her coming." },
+    },
+    tauren = {
+      { id = "p_tauren_a", when = { faction = "Alliance" }, text = "A tauren charge will go through a shield wall like a cart through a hedge. Plant your spears deep and pray for the archers." },
+      { id = "p_tauren_h", when = { faction = "Horde" }, text = "Put a tauren at the front of the line and the line stays where it is. I've seen one hold a gate alone while we brought up the wounded." },
+    },
+    mages = {
+      { id = "p_mages", text = "Keep the mage behind you and the enemy in front, and whatever you do, don't stand where she's pointing. The rest takes care of itself." },
+    },
+  },
+}
+
+P:Pool {
+  id = "ask_priest_peoples", role = "priest", askOnly = true,
+  topics = {
+    humans = {
+      { id = "p_humans_a", when = { faction = "Alliance" }, text = "We are a short-lived people with long memories for our griefs, and the Light asks us to set some of them down. Most of my work is helping folk find which ones." },
+      { id = "p_humans_h", when = { faction = "Horde" }, text = "The humans claim the Light as theirs, but the Light has never asked whose it is. I pray that one day they'll learn to see an orc as something other than a memory of the war." },
+    },
+    kaldorei = {
+      { id = "p_kaldorei", text = "Their priestesses pray to Elune, and I've seen them heal wounds I'd have given up on. Whatever name they give the moon, it listens to them." },
+    },
+    tauren = {
+      { id = "p_tauren", text = "The tauren see the sacred in every blade of grass and every running stream, and I confess I sometimes envy them it. It must be a comfort to find your faith underfoot." },
+    },
+    druids = {
+      { id = "p_druids", text = "The druids tend the world as we tend souls, and neither of us gets much thanks for it. I've found them good company, when they're in a shape that can hold a cup." },
+    },
+  },
+}
+
+P:Pool {
+  id = "ask_scholar_peoples", role = "scholar", askOnly = true,
+  topics = {
+    kaldorei = {
+      { id = "p_kaldorei", text = "The kaldorei have records older than every human kingdom put together, and they keep most of them in their heads. Trying to get a straight date out of one is like trying to get a straight answer out of an ancient, and I've tried both." },
+    },
+    humans = {
+      { id = "p_humans", text = "The seven human kingdoms grew from Arathor, which grew from a handful of tribes the high elves taught to fight trolls. It's a young history, but a crowded one, and we've filled it with more wars than we can count." },
+    },
+    tauren = {
+      { id = "p_tauren", text = "The tauren keep their history in songs and in the patterns of their totems, which makes them maddening to cite. I've spent a season trying to transcribe one chant, and the elder kept changing the verses to see if I'd notice." },
+    },
+    mages = {
+      { id = "p_mages", text = "The arcane came to men from the high elves, and to the high elves from the Highborne, and the Highborne very nearly ended the world with it. Every mage should read that sentence once a day." },
+    },
+    druids = {
+      { id = "p_druids", text = "Malfurion Stormrage learned from Cenarius himself, and the druids have kept to his teaching for ten thousand years, mostly by sleeping through it. I mean that more kindly than it sounds." },
+    },
+  },
+}

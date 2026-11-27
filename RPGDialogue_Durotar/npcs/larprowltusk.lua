@@ -31,6 +31,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2ration = {
+      lines = { { id = "w2rt_default", text = "Dried fish from Sen'jin an' a little cactus fruit, mon, an' never a fire. De Kolkar can smell smoke from de Crag, an' a scout who wants a hot supper be a scout who gets an arrow for dessert." } },
+      choices = {
+        { text = "Don't you get cold?", next = "w2ration2" },
+        { text = "I couldn't go a night without a fire.", next = "w2ration2" },
+        { text = "Something else, scout.", next = "BACK" },
+      },
+    },
+    w2ration2 = {
+      lines = {
+        { id = "w2rt2_rogue", when = { class = "ROGUE" }, text = "Every night, mon, an' you'll learn it too if you work de shadows. De trick be to stop fightin' de cold an' let it sit wit' you like an old dog. It keeps you awake, an' awake be what keeps you alive." },
+        { id = "w2rt2_default", text = "Every night, mon. De trick be to stop fightin' de cold an' let it sit wit' you like an old dog. It keeps you awake, an' awake be what keeps a scout alive." },
+      },
+      choices = { { text = "A hard way to live.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Lar Prowltusk, scout of the Darkspear. I watch the ridge to the west, because over it be Kolkar Crag, and the centaur there got more on their minds than raiding." },
@@ -52,6 +67,7 @@ P:NPC {
         { text = "Why do the centaur want Durotar?", next = "kolkar" },
         { text = "I move unseen too. Let me scout the Crag.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I'll see what needs doing.", next = "BUSINESS" },
+        { text = "What do you eat, watching the ridge all night?", next = "w2ration" },
         { text = "I'll keep my voice down. Farewell.", next = "END" },
       },
     },

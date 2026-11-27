@@ -272,7 +272,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Good, because if anything goes wrong between here and Feralas, you're the closest thing to a healer this caravan has ever had." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. Don't conjure anything into my wagons, please, because I count every crate and a crate of water that wasn't there yesterday ruins a whole page of the ledger." },
       },
-      again = { { id = "h_again", text = "Anything else? I've a ledger waiting." }, { id = "h_again2", text = "Go on, I'm listening, and counting." } },
+      again = { { id = "h_again", text = "Anything else, friend? Make it quick, the ledger's open and every minute it sits there it's losin' me money." }, { id = "h_again2", text = "Go on, I'm listening, and counting." } },
       choices = {
         { text = "What's it like working with Cork?", next = "b1_1" },
         { text = "That ledger looks heavier than the cargo.", next = "b2_1" },

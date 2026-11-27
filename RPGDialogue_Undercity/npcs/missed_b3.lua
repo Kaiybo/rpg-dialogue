@@ -27,14 +27,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_four = {
+      lines = {
+        { id = "w3_four_1", text = "A patrol on the road past Agamand Mills, sent to clear a farmhouse of the mindless dead. They found the dead, and the dead found a Scarlet scouting party already there, and only the horse came back." },
+      },
+      choices = {
+        { text = "Did you know them well?", next = "w3_names" },
+        { text = "The Scarlets will pay for it.", next = "BACK", reply = "They'll pay when we catch them, and we'll catch them in the end, since they cannot help lighting fires everywhere they go." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_names = {
+      lines = {
+        { id = "w3_names_1", text = "I know every name I post, {class}, because I write them in the roll myself, and I cross them out myself too. One of those four had been a cooper in Brill, and he used to mend the water barrels at the gate for nothing, and the barrels are leaking already." },
+      },
+      choices = {
+        { text = "Someone should mend them in his name.", next = "BACK", reply = "Someone will. I'll see to it, and I'll tell whoever does it whose barrels they are." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
         { id = "h_default", key = true, text = "Sergeant Rutger, of the Deathguard. Houser makes the soldiers and I decide where they stand, which is the less cheerful half of the work, since I'm the one who knows how many come back." },
       },
       again = {
-        { id = "h_again", text = "Anything else? Be quick about it." },
-        { id = "h_again2", text = "Go on, {class}, I'm listening." },
+        { id = "h_again", text = "State the rest of it, {class}. My recruits slack the moment I stop watching them." },
+        { id = "h_again2", text = "Go on, {class}. I'm listening, and I'm counting the watch while I do." },
       },
       choices = {
         { text = "Every name on the casualty roll deserves to be recorded properly.", next = "BACK", reply = "It does. I write them carefully, every one. It's all I can do for them.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -43,6 +62,7 @@ P:NPC {
         { text = "How many come back?", next = "back" },
         { text = "The Horde could send you soldiers.", next = "horde", when = { race = { "Orc", "Tauren", "Troll" } } },
         { text = "Who were you, before the Deathguard?", next = "sr_before" },
+        { text = "You said four names fewer. What happened?", next = "w3_four" },
         { text = "As you were, Sergeant.", next = "END" },
       },
     },
@@ -126,13 +146,31 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_find = {
+      lines = {
+        { id = "w3_find_1", text = "In the empty houses of Tirisfal, mostly, under floorboards and behind loose bricks where frightened people hid what they loved. The Scarlets find some before me and burn them as heathen, and the Scourge find some and simply walk past, and between the two I get the rest." },
+      },
+      choices = {
+        { text = "The Scarlets burn their own people's relics?", next = "w3_burn" },
+        { text = "You're a graverobber with good manners.", next = "BACK", reply = "A graverobber takes from the dead. I am the dead, and I'm only taking our things home." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_burn = {
+      lines = {
+        { id = "w3_burn_1", text = "If a Forsaken hand has touched them, yes, and they've decided that mine have touched everything in Lordaeron. I watched one of them throw a saint's medal into a fire near Brill, and say a prayer over it, and it was the same prayer that was written on the back." },
+      },
+      choices = {
+        { text = "That's a cruel kind of faith. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
         { id = "h_default", key = true, text = "Silas Zimmer. I gather relics, the small sort that people kept in drawers and wore under their shirts, and I bring them here because the warlocks' temple is the one place in the city where nobody asks what a thing is for." },
       },
       again = {
-        { id = "h_again", text = "Was there more? Don't lean on the table." },
+        { id = "h_again", text = "Was there more? Don't lean on the table, the medals don't like it." },
         { id = "h_again2", text = "Ask, then. I'm in no haste." },
       },
       choices = {
@@ -140,6 +178,7 @@ P:NPC {
         { text = "Hannah Akeley sells; why don't you?", next = "hannah" },
         { text = "Is any of this safe to touch?", next = "safe" },
         { text = "Which relic means the most to you?", next = "sz_dear" },
+        { text = "Where do you find these relics?", next = "w3_find" },
         { text = "I'll leave you to them.", next = "END" },
       },
     },
@@ -226,6 +265,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_shout = {
+      lines = {
+        { id = "w3_shout_1", text = "I did, and I'll go on doing it. In the woods the Scourge came to noise like flies to a carcass, and I learned to hate a raised voice the way you'd hate the sound of a trap snapping." },
+      },
+      choices = {
+        { text = "Did you lose anyone that way?", next = "w3_lost" },
+        { text = "Down here, a shout is only a shout.", next = "BACK", reply = "Is it? Then the whole city is lying to me, every time a gate slams. Walk on, and I'll try to believe you." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_lost = {
+      lines = {
+        { id = "w3_lost_1", text = "A man who'd woken in the same field I had, and who couldn't stop calling his wife's name. I begged him to stop, and the third night he didn't, and by morning there was one of us and a great many of them." },
+      },
+      choices = {
+        { text = "I'm sorry. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
@@ -233,13 +290,14 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Walk with me, I don't stop for long." },
-        { id = "h_again2", text = "Go on, and keep your voice down." },
+        { id = "h_again2", text = "Go on, and keep your voice down; the canal carries it further than you think." },
       },
       choices = {
         { text = "How did you survive out there?", next = "survive" },
         { text = "Why keep to the Rogues' Quarter?", next = "quarter" },
         { text = "Tirisfal's game is poor hunting.", next = "hunter", when = { class = "HUNTER" } },
         { text = "What was Agamand Mills like, before?", next = "st_mills" },
+        { text = "You flinched when someone shouted just now.", next = "w3_shout" },
         { text = "Walk safely, Susan.", next = "END" },
       },
     },
@@ -323,6 +381,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_green = {
+      lines = {
+        { id = "w3_green_1", text = "A Dalaran herbal on peacebloom and its cousins, which some earlier reader has written all over in a very small, very angry hand. He disagrees with nearly every page, and I've begun to think he was right, which is a great nuisance when one is meant to be quoting the book." },
+      },
+      choices = {
+        { text = "Do you know who wrote the notes?", next = "w3_reader" },
+        { text = "Perhaps you should quote him instead.", next = "BACK", reply = "I should like to, but one can hardly cite \"an angry man in a margin\" to Master Faranell. He'd want a name." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_reader = {
+      lines = {
+        { id = "w3_reader_1", text = "I've a guess, from the initials at the back, that it was an apothecary of the old royal court who died in the plague. If so, he may well be walking about the Apothecarium today, and I've been too shy to ask anyone whether he still disagrees with himself." },
+      },
+      choices = {
+        { text = "You ought to ask. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
@@ -330,13 +406,14 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Yes? I'm listening, though I may not look as if I am." },
-        { id = "h_again2", text = "Do go on. I can read and hear at once, more or less." },
+        { id = "h_again2", text = "Do go on. I can read and hear at once, more or less, and mostly less." },
       },
       choices = {
         { text = "What's on that shelf?", next = "shelf" },
         { text = "Do the apothecaries thank you for it?", next = "thanks" },
         { text = "You never turn round, do you?", next = "turn" },
         { text = "What are you looking up today?", next = "tg_today" },
+        { text = "What's in the green volume you left open?", next = "w3_green" },
         { text = "I'll leave you to your shelf.", next = "END" },
       },
     },
@@ -423,13 +500,31 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_mates = {
+      lines = {
+        { id = "w3_mates_1", text = "Well, I think, though Alyssa calls me \"Bread\" and Eldin keeps working out my odds of being killed and then not telling me. We sit together after drill, and they let me talk about dough, which I'm told is very boring." },
+      },
+      choices = {
+        { text = "Bread's not a bad name, considering.", next = "BACK", reply = "It isn't, is it? I'd rather be Bread than \"Bosk, you're late,\" anyway." },
+        { text = "Eldin calculates everything, I hear.", next = "w3_eldin" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_eldin = {
+      lines = {
+        { id = "w3_eldin_1", text = "He does, and he hums while he does it, and once he told me I'd have a better chance if I only stopped swinging so hard. The Sergeant heard and shouted at both of us, so I don't think Eldin will help me again for a while." },
+      },
+      choices = {
+        { text = "Swing a bit softer, Bosk. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
         { id = "h_default", key = true, text = "Travist Bosk, recruit, though the Sergeant mostly calls me 'Bosk, you're late.' I'm training for the Deathguard with Alyssa Blaye and Eldin Partridge, and I'm the worst of us three, but I'm less the worst than I was." },
       },
       again = {
-        { id = "h_again", text = "What else? I have to keep my feet moving while you ask." },
+        { id = "h_again", text = "What else? I have to keep my feet moving while you ask, or he'll notice." },
         { id = "h_again2", text = "Go on, quickly, he's looking the other way." },
       },
       choices = {
@@ -439,6 +534,7 @@ P:NPC {
         { text = "Is Sergeant Houser as hard as he sounds?", next = "houser" },
         { text = "You drop your guard after each swing.", next = "guard", when = { class = { "WARRIOR", "ROGUE", "PALADIN" } } },
         { text = "How are you finding the training?", next = "tb_training" },
+        { text = "How do you get on with Alyssa and Eldin?", next = "w3_mates" },
         { text = "Keep at it, Bosk.", next = "END" },
       },
     },
@@ -525,6 +621,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_best = {
+      lines = {
+        { id = "w3_best_1", text = "A Hillsbrad militia captain, a big grey-bearded man with a farmer's arms, who came out of that gate shouting his daughter's name and nearly took my head off with a hoe handle. Edward held him and I took him, and the rail cheered, and I didn't feel like cheering at all." },
+      },
+      choices = {
+        { text = "Why not? He was an enemy.", next = "w3_why" },
+        { text = "A brave man, then.", next = "BACK", reply = "The bravest, and he never stood a chance. I think about that more than I'd like." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_why = {
+      lines = {
+        { id = "w3_why_1", text = "Because he was only what I'd been, a man trying to get home to someone. I'm not sorry I won, mind, but I made Malach tell me his name afterwards so I could remember it, and I do." },
+      },
+      choices = {
+        { text = "That's to your credit, Tyler. Something else.", next = "BACK" },
+      },
+    },
     ydesert = {
       lines = { { id = "ydesert_x", text = "Did he now? He's right. I ran from the Andorhal garrison to warn my mum about the grain. I got there three days too late. Edward covered for me, and I owe him every fight I'll ever win." } },
       choices = {
@@ -553,7 +667,7 @@ P:NPC {
         { id = "yh_rogue", when = { class = "ROGUE" }, text = "A rogue, watching me. I like that. You see the feint before the crowd does, don't you?" },
       },
       again = {
-        { id = "h_again", text = "What else? One eye on the gate while you ask, mind." },
+        { id = "h_again", text = "What else? One eye on the gate while you ask, mind, the other on Edward." },
         { id = "h_again2", text = "Go on, I've got until the next one stands up." },
       },
       choices = {
@@ -563,6 +677,7 @@ P:NPC {
         { text = "How would you take an abomination?", next = "abom", when = { class = { "WARRIOR", "ROGUE", "HUNTER" } } },
         { text = "Edward says you were a deserter.", next = "ydesert" },
         { text = "What will you do when you stop fighting?", next = "ystop" },
+        { text = "Who's the best fighter Malach ever sent against you?", next = "w3_best" },
         { text = "Fight well, Tyler.", next = "END" },
       },
     },
@@ -630,6 +745,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_pruitt = {
+      lines = {
+        { id = "w3_pruitt_1", text = "An excellent one, and a terrifying one, which I gather are often the same thing. She never raises her voice, because she has never once had to, and when a demon misbehaves she looks at it until it stops, and then she looks at us." },
+      },
+      choices = {
+        { text = "What happens when a student misbehaves?", next = "w3_student" },
+        { text = "Terror keeps a circle safe, I suppose.", next = "BACK", reply = "It does, and I'd never complain of it, though I've been taking notes in a much smaller hand since I started." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_student = {
+      lines = {
+        { id = "w3_student_1", text = "Adrian broke the circle once, reaching in to touch an imp, and she made him stand inside it with the creature for an hour while it described his faults aloud. He's been very careful since, and the imp has asked for him by name." },
+      },
+      choices = {
+        { text = "I'd stay well back, Victor. Something else.", next = "BACK" },
+      },
+    },
     ylife = {
       lines = { { id = "ylife_x", text = "A clerk at the Scholomance, before it was the Scholomance. When it was still the Barov family's estate, I kept their household accounts. I saw strange men arrive in black robes and I wrote them down as guests." } },
       choices = {
@@ -671,6 +804,7 @@ P:NPC {
         { text = "What were you in life?", next = "ylife" },
         { text = "What do you plan to do with your notes?", next = "ynotes" },
         { text = "Why stand behind the others?", next = "ybehind" },
+        { text = "Is Mistress Pruitt a good teacher?", next = "w3_pruitt" },
         { text = "Mind your notes, Victor.", next = "END" },
       },
     },
@@ -735,6 +869,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_name = {
+      lines = {
+        { id = "w3_name_1", text = "Nothing at all, because a name is a gift and I don't intend to give it one. Adrian has already chosen a name for his, which tells you everything about Adrian, and Victor has written out a list of eleven and crossed them all through." },
+      },
+      choices = {
+        { text = "Does Richard name his demons?", next = "w3_richard" },
+        { text = "An imp without a name sounds lonely.", next = "BACK", reply = "An imp is never lonely; it has its own voice to listen to, and it never tires of the sound." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_richard = {
+      lines = {
+        { id = "w3_richard_1", text = "Never, and he says that every warlock who did came to regret it, since a demon with a name begins to believe it's a person. I agree with him, though I'd sooner swallow my own quill than tell him so." },
+      },
+      choices = {
+        { text = "Your secret's safe. Something else.", next = "BACK" },
+      },
+    },
     ylife = {
       lines = { { id = "ylife_x", text = "A Kerwin, which in Lordaeron meant a family of scribes and dull clerics. I was the dullest of them, by design. I went to the cathedral every day and prayed for something interesting to happen. Something did." } },
       choices = { { text = "Something else.", next = "BACK" } },
@@ -765,7 +917,7 @@ P:NPC {
         { id = "yh_warlock", when = { class = "WARLOCK" }, text = "A warlock. Do you know my kinsman Richard? I trust you'll tell him I was at the front of the class today." },
       },
       again = {
-        { id = "h_again", text = "Another question? Good, I like them." },
+        { id = "h_again", text = "Another question? Good, I like them, as long as they're not Adrian's." },
         { id = "h_again2", text = "Go on, and be precise, please." },
       },
       choices = {
@@ -776,6 +928,7 @@ P:NPC {
         { text = "Who were you in life?", next = "ylife" },
         { text = "What do you want from your studies?", next = "ywant" },
         { text = "Do you worry about failing?", next = "yfail" },
+        { text = "What would you call your first imp?", next = "w3_name" },
         { text = "Back to your lesson, then.", next = "END" },
       },
     },

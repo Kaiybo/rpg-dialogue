@@ -46,7 +46,7 @@ P:NPC {
           text = "You don't walk the druid's path, I can see it, but you're welcome to sit here anyway. The tree doesn't mind who listens." },
       },
       again = {
-        { id = "h_again", text = "What else would you know?" },
+        { id = "h_again", text = "What more would you learn of the Cenarion way, young one?" },
         { id = "h_again2", text = "Ask. We have time; trees always have time." },
         { id = "h_again3", text = "Breathe, and ask the next thing. There's no hurry in here." },
       },
@@ -375,7 +375,7 @@ P:NPC {
           text = "A rogue, newly woken in the glade. Come closer, quietly, and we'll see whether you have the hands for it." },
       },
       again = {
-        { id = "h_again", text = "Something else? Keep it low." },
+        { id = "h_again", text = "Something else? Keep your voice down; the shadows here are for listening." },
         { id = "h_again2", text = "Ask, but softly." },
         { id = "h_again3", text = "Still here? Good, you're learning patience, at least." },
       },
@@ -387,6 +387,7 @@ P:NPC {
         { text = "I nearly walked straight past you.", next = "past" },
         { text = "What's out in the Shadowthread Cave?", next = "cave" },
         { text = "In Stormwind, rogues keep to guilds. Here?", next = "guilds", when = { race = "Human" } },
+        { text = "Who was your best student?", next = "w_best" },
         { text = "I'll go quietly.", next = "END" },
       },
     },
@@ -456,6 +457,25 @@ P:NPC {
       lines = { { id = "gu_default", text = "We've no guilds and no secret handshakes, I'm afraid, only Syurna in the Cenarion Enclave and whoever she judges worth her time. Your people's way sounds louder, but I suppose it suits a louder city." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    w_best = {
+      lines = {
+        { id = "w_best_default", text = "A girl who never once tried to sneak up on me. Every other student spends their first week trying to prove they can, and she spent hers watching how I stood, and on the eighth day she simply walked past me with a cup of tea and I did not notice." },
+      },
+      choices = {
+        { text = "Where is she now?", next = "w_best2" },
+        { text = "Clever girl.", next = "w_best2" },
+      },
+    },
+    w_best2 = {
+      lines = {
+        { id = "w_best2_default", text = "In Ashenvale, watching the Warsong camps for the Sentinels, and they do not know she is one of mine. She writes to me once a year, in a hand that changes every time, and I burn every letter after I have read it twice." },
+        { id = "w_best2_w1", when = { class = "ROGUE" }, text = "You have a little of that patience in you, I think. Do not waste the first week proving yourself to me; spend it watching." },
+      },
+      choices = {
+        { text = "Patience beats cleverness.", next = "BACK", fx = { trait = { patient = 1 } } },
+        { text = "Something else, Frahun.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -508,7 +528,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? I've time; the glade is quiet." },
-        { id = "h_again2", text = "Ask away." },
+        { id = "h_again2", text = "Ask away, young hunter." },
         { id = "h_again3", text = "Something else on your mind? Look down there while you think; you can see the whole glade." },
       },
       choices = {
@@ -731,6 +751,7 @@ P:NPC {
         { text = "You seem very certain of her.", next = "sure" },
         { text = "Who teaches me after you?", next = "laurna", when = { class = "PRIEST" } },
         { text = "My people pray to the Light. Is that so different?", next = "light", when = { race = { "Human", "Dwarf", "Gnome" } } },
+        { text = "How did you come to teach priests here?", next = "w_teach" },
         { text = "Thank you, Shanda.", next = "END" },
       },
     },
@@ -793,6 +814,26 @@ P:NPC {
     light = {
       lines = { { id = "li_default", text = "Less than either of our priests would like to admit, I think. Your Light and our Mother Moon both ask you to heal, to hope and to stand between the weak and the dark, and I've never seen one of your priests do worse at it than one of mine." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, learn = { "holy_light" } } } },
+    },
+    w_teach = {
+      lines = {
+        { id = "w_teach_default", text = "The High Priestess sent me, after Hyjal, when the children were being raised under the new tree and somebody had to stand beside the moonwell and answer their questions about the Goddess. I thought it would be for a season, child. That was a long time ago." },
+      },
+      choices = {
+        { text = "Do you miss the Temple?", next = "w_teach2" },
+        { text = "The children are lucky.", next = "w_teach2" },
+      },
+    },
+    w_teach2 = {
+      lines = {
+        { id = "w_teach2_default", text = "The Temple is beautiful, but nobody there asks me why the moon changes shape, or whether Elune minds being asked for a lost toy. Those questions are holier than they sound, and I would not give them up for the finest seat in Darnassus." },
+        { id = "w_teach2_w1", when = { race = "NightElf" }, text = "You will have asked me something like that yourself, child, when you were small. I remember most of them, though I am too kind to say which was yours." },
+      },
+      choices = {
+        { text = "Simple questions matter.", next = "BACK", fx = { align = { light = 1 } }, reply = "They do, and the Goddess hears them more gladly than the grand ones, I think." },
+        { text = "The Temple needs you more.", next = "BACK", fx = { align = { light = -1 } }, reply = "Perhaps, but the Temple has many voices already. This glade has mine." },
+        { text = "Something else, Shanda.", next = "BACK" },
+      },
     },
   },
 

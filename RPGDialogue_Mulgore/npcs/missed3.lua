@@ -45,7 +45,54 @@ P:NPC {
         { text = "What do you see in the sky?", next = "sky" },
         { text = "What should a newcomer know of Bloodhoof?", next = "village" },
         { text = "I have no voucher. Am I still welcome?", next = "welcome" },
+        { text = "Bloodhoof Village seems to welcome everyone.", next = "welcomes" },
+        { text = "Do the clouds warn of danger?", next = "warn" },
+        { text = "The winds speak to me too, Skyseer.", next = "shaman_wind", when = { class = "SHAMAN" } },
         { text = "May the sky stay clear for you.", next = "END", fx = { affinity = 1 } },
+      },
+    },
+    welcomes = {
+      lines = { { id = "welcomes_d", text = "It does, for the High Chieftain's own kin keep it, and he has taught us that a guest is a gift as much as any voucher. Orcs and trolls and even the Forsaken pass through on the road to the Barrens, and every one of them leaves a little different than they came." } },
+      choices = {
+        { text = "Baine Bloodhoof keeps the village?", next = "welcomes_baine" },
+        { text = "Even the Forsaken are welcome?", next = "welcomes_dead" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    welcomes_baine = {
+      lines = { { id = "welcomes_baine_d", text = "Baine stands among the elders here while his father keeps Thunder Bluff, and he is young but listens well. The sky has always been gentle over him, and I take that as a good sign for the village." } },
+      choices = {
+        { text = "A chieftain's son with good omens.", next = "BACK", reply = "So I hope. The sky does not lie, though it does not always explain itself." },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    welcomes_dead = {
+      lines = { { id = "welcomes_dead_d", text = "They are, though the elders watch them closely and so do I. Their sky is always grey, friend, even in full sun, and I cannot read it, which troubles me more than anything they say aloud." } },
+      choices = {
+        { text = "Perhaps the grey is only grief.", next = "BACK", reply = "Perhaps. You see more kindly than I do, and I will try to see as you do." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    warn = {
+      lines = { { id = "warn_d", text = "They do, if you know how to listen. Storms gather over the Venture Company mine to the east, where the goblins have torn the ground open, and the birds will not fly over the Windfury cliffs at all." } },
+      choices = {
+        { text = "Storms over the mine?", next = "warn_mine" },
+        { text = "Birds avoiding the harpies seems simple enough.", next = "BACK", reply = "It is simple, and that is why I trust it. The sky speaks plainly to those who listen plainly." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    warn_mine = {
+      lines = { { id = "warn_mine_d", text = "Dark clouds that come from nowhere and do not move with the wind. I think the land is angry at what the goblins take from it, and I have told Baine so, though he says anger alone will not drive the goblins away." } },
+      choices = {
+        { text = "Then someone must drive them away.", next = "BACK", reply = "Someone young and strong, perhaps. The sky would be glad of it." },
+        { text = "Another question, then.", next = "BACK" },
+      },
+    },
+    shaman_wind = {
+      lines = { { id = "shaman_wind_d", text = "Then you know that the sky and the wind are cousins, but not friends. The wind tells you what is coming, and the sky tells you what has been, and a skyseer must listen to both and believe neither too quickly." } },
+      choices = {
+        { text = "I'll listen to both, then.", next = "BACK", reply = "Good. The elements will be pleased to be heard by someone so willing." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     voucher = {

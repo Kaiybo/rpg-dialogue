@@ -29,11 +29,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_mem = {
+      lines = { { id = "w8_mem_a", text = "Breakfast! Toast with gear-grease jam, which is a joke, it's apricot, and the morning siren going off three times instead of twice. I thought someone had miscalibrated it and went to file a complaint, and then I seem to have filed it with the troggs." } },
+      choices = {
+        { text = "The siren was the evacuation warning, Kernobee.", next = "w8_mem2" },
+        { text = "Apricot jam sounds lovely.", next = "w8_mem2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w8_mem2 = {
+      lines = { { id = "w8_mem2_a", text = "Was it? Oh dear, that does make the complaint look rather silly. Still, I'd like to file it properly when we get to Ironforge, because three sirens is very confusing for those of us who only listened for two." } },
+      choices = {
+        { text = "I'll help you file it.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Kernobee, assistant engineer, third level, west wing. Or east wing. Something's happened to the signs, and to the walls, and to the troggs, come to think of it." },
       },
-      again = { { id = "h_again", text = "Sorry, where were we? I lose the thread a bit lately." } },
+      again = { { id = "h_again", text = "Sorry, where were we? I lose the thread a bit lately, and sometimes the spool as well." } },
       choices = {
         { text = "Kernobee, Gnomeregan was evacuated.", next = "evac" },
         { text = "Do you remember the troggs coming?", next = "troggs" },
@@ -42,6 +58,7 @@ P:NPC {
         { text = "I'm from Tinker Town. Do you remember me?", next = "tinker", when = { race = "Gnome" } },
         { text = "Come with me. I'll get you out.", next = "escort" },
         { text = "Do you have any family, Kernobee?", next = "yfamily" },
+        { text = "What's the last thing you remember clearly?", next = "w8_mem" },
         { text = "Stay safe. I'll be back.", next = "END" },
       },
     },
@@ -153,6 +170,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_hold = {
+      lines = { { id = "w8_hold_a", text = "Since the fall, give or take, and I've stopped counting days because it's bad for morale and I'm the only morale there is down here. I've got water from a cracked coolant pipe and three crates of biscuits, and I'm on the last crate." } },
+      choices = {
+        { text = "You'll be out of here soon.", next = "w8_hold2" },
+        { text = "Why didn't you leave with the others?", next = "w8_hold2" },
+        { text = "Something else, Emi.", next = "BACK" },
+      },
+    },
+    w8_hold2 = {
+      lines = { { id = "w8_hold2_a", text = "Because I opened half these tunnels, and I'm not leaving them open for the troggs to walk up into Dun Morogh. Seal them, then biscuits, then sunlight, in that order, and if you keep them off me, we'll do all three today." } },
+      choices = {
+        { text = "Then let's seal them.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Emi Shortfuse, and demolitions are my specialty. The troggs keep pouring through those tunnels, and I've got enough charges to seal them, if someone can keep them off me while I set them." },
@@ -166,6 +199,7 @@ P:NPC {
         { text = "I'm from Gnomeregan too. What's left of it?", next = "home", when = { race = "Gnome" } },
         { text = "I know a little about explosives myself.", next = "engineer", when = { race = { "Dwarf", "Gnome" } } },
         { text = "What did you do before the city fell?", next = "ybefore" },
+        { text = "How long have you been holding out down here?", next = "w8_hold" },
         { text = "Let's do it.", next = "END" },
       },
     },
@@ -262,6 +296,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_stk = {
+      lines = { { id = "w8_stk_a", text = "A volunteer brings a crate down from Tinker Town once a fortnight, and I check every item with a gauge for glow before it goes on the shelf! Anything that glows a little I sell at a discount, and anything that glows a lot I put in the decontamination puddle and hope." } },
+      choices = {
+        { text = "Does the puddle work?", next = "w8_stk2" },
+        { text = "Selling glowing parts seems risky.", next = "w8_stk2" },
+        { text = "I'm an engineer. Your gauge needs recalibrating.", next = "w8_stk2", when = { profession = "Engineering" } },
+        { text = "Something else, Tink.", next = "BACK" },
+      },
+    },
+    w8_stk2 = {
+      lines = {
+        { id = "w8_stk2_a", text = "Statistically, the puddle reduces glow by about forty percent, which is not nothing! The rest of the glow is technically a feature, because you can find your spanner in the dark." },
+        { id = "w8_stk2_eng", when = { profession = "Engineering" }, text = "Oh, it absolutely does, it's reading eight percent low since a trogg sat on it, and I can't get the needle off the pin without a jeweller's screwdriver. If you've got one, I'll trade you a whole crate of the non-glowing sprockets for five minutes with it." },
+      },
+      choices = {
+        { text = "Keep your spanners glowing, Tink.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", key = true, text = "Tink Sprocketwhistle, engineering supplies, at your service and very much open for business, though business has been down roughly ninety-seven percent since the troggs moved in. Still, the Clean Zone is clean, mostly, and my stock is excellent." } },
       again = {
@@ -279,6 +333,7 @@ P:NPC {
         { text = "Who else lives in the Clean Zone?", next = "xwho" },
         { text = "I'm an engineer. What's worth buying here?", next = "xeng", when = { profession = "Engineering" } },
         { text = "I grew up in Gnomeregan too.", next = "xgnome", when = { race = "Gnome" } },
+        { text = "How do you get stock down into the city?", next = "w8_stk" },
         { text = "Good luck, Tink.", next = "END" },
       },
     },
@@ -342,6 +397,26 @@ P:NPC {
   greetings = { { id = "g_default", text = "Are you hurt? Irradiated? Both? Hold still and let me have a look at you." } },
   start = "hello",
   nodes = {
+    w8_safe = {
+      lines = { { id = "w8_safe_a", text = "A lead apron, a mask with three filters and a strict rule about washing my hands every hour, which my patients find very tedious. I've a little glow in my fingertips anyway, and I've decided to call it a useful reading light." } },
+      choices = {
+        { text = "Does it hurt?", next = "w8_safe2" },
+        { text = "You should go up to Ironforge and rest.", next = "w8_safe2" },
+        { text = "I'm a priest. Let me look at your hands.", next = "w8_safe2", when = { class = "PRIEST" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w8_safe2 = {
+      lines = {
+        { id = "w8_safe2_a", text = "Only when I think about it, so I try not to, which is very nearly a medical technique. I'll go up to Ironforge when the holdouts stop needing stitches, and they show no sign of stopping." },
+        { id = "w8_safe2_pr", when = { class = "PRIEST" }, text = "Would you? That's kind, and I'll admit it tingles less when somebody prays over it, though I don't know if it's the Light or just the company. Thank you, truly, and now go and look at the holdouts by the airlock, because they need it more than I do." },
+      },
+      choices = {
+        { text = "Take care of yourself, too.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", key = true, text = "I patch up the holdouts who defend the Clean Zone, and lately I've been patching faster than they can get hurt again, which is a terrible ratio. The troggs come in waves and the radiation never stops." } },
       again = {
@@ -356,6 +431,7 @@ P:NPC {
         { text = "Do the irradiated ever recover?", next = "xcure" },
         { text = "I'm a priest. Can I help with the wounded?", next = "xheal", when = { class = { "PRIEST", "PALADIN", "DRUID", "SHAMAN" } } },
         { text = "I'm a gnome too. Gnomeregan was my home.", next = "xgnome", when = { race = "Gnome" } },
+        { text = "How do you keep yourself safe from the radiation?", next = "w8_safe" },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -424,10 +500,26 @@ P:NPC {
   greetings = { { id = "g_default", text = "Careful where you step, that cable carries enough current to curl your eyebrows permanently." } },
   start = "hello",
   nodes = {
+    w8_bld = {
+      lines = { { id = "w8_bld_a", text = "A proper air plant on the fourth level, with real filters and a backup that doesn't depend on a single relay older than I am. And a memorial in the tram station, with every name on it, including Pindle's, spelled correctly for once." } },
+      choices = {
+        { text = "That's a worthy plan.", next = "w8_bld2" },
+        { text = "Air before memorials, surely.", next = "w8_bld2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w8_bld2 = {
+      lines = { { id = "w8_bld2_a", text = "Air first, yes, because you can't remember anyone if you can't breathe. But I've started a list of names in my toolbox lid, and every time I fix a relay I add one more, so the memorial is getting built, a relay at a time." } },
+      choices = {
+        { text = "Keep adding names.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", key = true, text = "I keep the scrubbers, the lights and the turrets running so the Clean Zone stays clean. Every hour something breaks, and every hour I fix it, and the troggs chew through another cable just to spite me." } },
       again = {
-        { id = "h_again", text = "Make it quick, the third relay is sparking again." },
+        { id = "h_again", text = "Make it quick, the third relay is sparking again and I've only got two hands and one good spanner." },
         { id = "xh_again2", text = "Still here? Hand me that spanner while you're asking, then." },
       },
       choices = {
@@ -438,6 +530,7 @@ P:NPC {
         { text = "What are those turrets you keep up?", next = "xturret" },
         { text = "I'm an engineer. Can I lend a hand?", next = "xeng", when = { profession = "Engineering" } },
         { text = "Did you lose anyone when the city fell?", next = "ylost" },
+        { text = "What would you build if Gnomeregan were yours again?", next = "w8_bld" },
         { text = "Carry on.", next = "END" },
       },
     },

@@ -164,7 +164,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! Blanchy's been nervous all day, dear. Do your spirits speak to old horses, by any chance?" },
       },
       again = {
-        { id = "h_again", text = "Anything else, dear?" },
+        { id = "h_again", text = "Anything else, dear? Ask, but mind Blanchy; she's been looking hungrily at your sleeve." },
         { id = "h_again2", text = "Go on. Blanchy's not going anywhere, and neither am I." },
       },
       choices = {

@@ -32,6 +32,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_drill = {
+      lines = { { id = "w8_drill_a", text = "There are no recruits, {g:son|lass}, only the men who walked out with us, and I drill them as if there were. Every morning, before the heat, shields up and spears level, because the day they stop drilling is the day Kurzen walks in." } },
+      choices = {
+        { text = "Don't they resent it?", next = "w8_drill2" },
+        { text = "Discipline keeps soldiers alive.", next = "w8_drill2" },
+        { text = "I'm a warrior. Would you let me drill with them?", next = "w8_drill2", when = { class = "WARRIOR" } },
+        { text = "Something else, Sergeant.", next = "BACK" },
+      },
+    },
+    w8_drill2 = {
+      lines = {
+        { id = "w8_drill2_a", text = "Of course they resent it, and they're meant to. A soldier who's busy hating his sergeant isn't lying awake thinking about the friends he left in that compound, and that's worth more to me than their love." },
+        { id = "w8_drill2_war", when = { class = "WARRIOR" }, text = "Dawn, by the fire, and if you're late I'll treat you like one of mine. The lads could do with a fresh face to knock about, and you look like you'd knock back." },
+      },
+      choices = {
+        { text = "I'll be there at dawn.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -62,6 +82,7 @@ P:NPC {
         { text = "Why fight Kurzen at all?", next = "leave" },
         { text = "I could help make your remedies.", next = "xalchemy", when = { profession = "Alchemy" } },
         { text = "Let me tend your wounded, Sergeant.", next = "xheal", when = { class = { "PRIEST", "PALADIN", "DRUID", "SHAMAN" } } },
+        { text = "How do you train recruits out here?", next = "w8_drill" },
         { text = "I'll get to work.", next = "END" },
       },
     },

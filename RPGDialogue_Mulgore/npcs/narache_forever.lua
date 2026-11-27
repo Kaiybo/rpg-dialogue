@@ -43,7 +43,76 @@ P:NPC {
         { text = "Who teaches here in Narache?", next = "who" },
         { text = "Are you related to Mor Grayhoof?", next = "mor" },
         { text = "Show me the way to a trainer.", next = "BUSINESS" },
+        { text = "Narache feels like a camp built to be left.", next = "narache" },
+        { text = "Which trades does the tribe need most?", next = "need" },
+        { text = "Can a druid take up a trade as well?", next = "druid_trade", when = { class = "DRUID" } },
+        { text = "What trade did you follow, before you guided others?", next = "w7_own" },
         { text = "Thank you, elder.", next = "END" },
+      },
+    },
+    w7_own = {
+      lines = {
+        { id = "w7_own_l1", text = "Leather, little one, for forty winters, until my hands began to ache in the cold and the needle would not obey them. Now I teach the young to choose, and I find it is the better work, though I miss the smell of a fresh hide." },
+      },
+      choices = {
+        { text = "Do you regret giving it up?", next = "w7_own2" },
+        { text = "You should still keep a hand in.", next = "w7_own3" },
+        { text = "Something else, elder.", next = "BACK" },
+      },
+    },
+    w7_own2 = {
+      lines = {
+        { id = "w7_own2_l1", text = "No, for a trade is like a long walk across the plains: there comes a place where you sit down and let the young go on ahead. I sit here, and I point, and every one of them is a little of the work I can no longer do." },
+        { id = "w7_own2_l2", when = { race = "Tauren" }, text = "No. Our grandmothers said a tauren lives three lives: the calf who learns, the hunter who does, and the elder who points the way. I am in my third life now, and it is not the least of them." },
+      },
+      choices = {
+        { text = "That's a fine way to see it.", next = "BACK", reply = "It is the only way that lets an old bull sleep at night." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_own3 = {
+      lines = {
+        { id = "w7_own3_l1", text = "I mend my own boots, and Chaw Stronghide in Bloodhoof sends me a scrap now and then to keep my fingers honest. That is enough hand for me." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    narache = {
+      lines = { { id = "narache_d", text = "It is, little one, and that is no insult to it. Chief Hawkwind keeps it so that the young may learn to stand on their own hooves, and when Grull says they are ready, they walk down the road to Bloodhoof Village and do not often come back up." } },
+      choices = {
+        { text = "What waits for them in Bloodhoof?", next = "narache_down" },
+        { text = "Leaving home is the first trial.", next = "BACK", reply = "It is, and the one nobody prepares you for. You have a wise head for one so young." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    narache_down = {
+      lines = { { id = "narache_down_d", text = "Better teachers than I am, and more of them, in every craft the tribe keeps. There are skinners and leatherworkers among the tents there, and Innkeeper Kauth, who will tell you he has fed every brave in Mulgore." } },
+      choices = {
+        { text = "Then I'll go down hungry.", next = "BACK", reply = "Do, and tell him Karne sent you. He will feed you twice to spite me." },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    need = {
+      lines = { { id = "need_d", text = "Skinning and leather, always, for the herds give us hides and the tribe needs them turned into everything from tents to shoes. Herbs are next, for the healers, and since the Horde came to us, there is more call for smiths than any tauren ever expected." } },
+      choices = {
+        { text = "Smiths? The tauren never needed them before.", next = "need_smiths" },
+        { text = "Hides and herbs. The old ways endure.", next = "BACK", reply = "They do. The Earth Mother does not change her gifts because we change our friends." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    need_smiths = {
+      lines = { { id = "need_smiths_d", text = "We did not, little one, for a spear of stone and a harness of hide were enough against the centaur. Now our braves fight beside orcs in far lands, and they come home asking for iron, so the young who take up the hammer will never want for work." } },
+      choices = {
+        { text = "Then perhaps I'll take up the hammer.", next = "BACK", reply = "Perhaps. Ask in Thunder Bluff when you are older, and feel the weight first." },
+        { text = "Another question, then.", next = "BACK" },
+      },
+    },
+    druid_trade = {
+      lines = { { id = "druid_trade_d", text = "A druid more than anyone, for who better knows the herbs that grow and the hides the beasts give? The old druids say that a healer who cannot gather her own leaves has only learned half her path." } },
+      choices = {
+        { text = "Then I'll learn both halves.", next = "BACK", reply = "That is the spirit of the Earth Mother speaking, little one. Go well." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     what = {
@@ -141,7 +210,7 @@ P:NPC {
       },
       again = {
         { id = "h_again3", text = "Yes, friend? Mind the seedlings by your hoof." },
-        { id = "h_again", text = "What else, friend?" },
+        { id = "h_again", text = "What else, friend? Speak gently; the silverleaf by the tent pole has only just decided to bloom." },
         { id = "h_again2", text = "Ask what you like. The plants are patient, and so am I." },
       },
       choices = {
@@ -153,7 +222,36 @@ P:NPC {
         { text = "The quilboar must trample what you tend.", next = "bristle" },
         { text = "I brew potions from what I pick.", next = "brew", when = { profession = "Alchemy" } },
         { text = "My grandmother picked herbs the same way.", next = "gran", when = { race = "Tauren" } },
+        { text = "What is the hardest herb to find on the mesa?", next = "w7_rare" },
         { text = "Peace, Garan.", next = "END" },
+      },
+    },
+    w7_rare = {
+      lines = {
+        { id = "w7_rare_l1", text = "Earthroot, which hides under the stones on the windward side of Red Cloud Mesa and only shows a single leaf above the ground. The young ones walk past it every day and never see it, and I let them, until they learn to look down." },
+      },
+      choices = {
+        { text = "How do you spot it?", next = "w7_rare2" },
+        { text = "Why not just tell them where it grows?", next = "w7_rare3" },
+        { text = "Something else, Garan.", next = "BACK" },
+      },
+    },
+    w7_rare2 = {
+      lines = {
+        { id = "w7_rare2_l1", text = "By the stone, more than the leaf. Earthroot likes a flat grey stone with a little shade on the north side, and when you have found one, you lift it slowly, and say thank you to whatever was living under it." },
+        { id = "w7_rare2_l2", when = { profession = "Herbalism" }, text = "By the stone, as you will learn. A flat grey stone with shade on the north side, lifted slowly. Take one root in three, and leave the smallest, so the plant can find its way back to the light." },
+      },
+      choices = {
+        { text = "I'll look under the stones.", next = "BACK", reply = "And thank them, friend. The stones have kept a secret for you." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_rare3 = {
+      lines = {
+        { id = "w7_rare3_l1", text = "Because a gatherer who is told where everything grows learns nothing about the land. One who searches learns its every fold, and is never lost on it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     herbs = {
@@ -302,7 +400,7 @@ P:NPC {
       again = {
         { id = "h_again3", text = "Speak while I scrape, because I can do both." },
         { id = "h_again", text = "What else? Quickly, the hides are drying." },
-        { id = "h_again2", text = "Ask, I'm listening." },
+        { id = "h_again2", text = "Ask, I'm listening, though my eyes stay on this hide; a scraper that wanders makes a hole." },
       },
       choices = {
         { text = "What should I skin around here?", next = "beasts" },
@@ -313,7 +411,36 @@ P:NPC {
         { text = "That knife has seen a great deal of work.", next = "knife" },
         { text = "My beast makes most of my kills.", next = "beast", when = { class = "HUNTER" } },
         { text = "I work the hides I take.", next = "lw", when = { profession = "Leatherworking" } },
+        { text = "What happens to the hides once you've taken them?", next = "w7_hides" },
         { text = "Not now, Nawka.", next = "END" },
+      },
+    },
+    w7_hides = {
+      lines = {
+        { id = "w7_hides_l1", text = "The best go down the road to Chaw Stronghide in Bloodhoof, and the rough ones stay here for Varia Hardhide's leathers. A few I keep, the ones from a beast that fought hard, to remind the students what they are cutting." },
+      },
+      choices = {
+        { text = "Which beast fought the hardest?", next = "w7_hides2" },
+        { text = "Keeping hides seems morbid.", next = "w7_hides3" },
+        { text = "Something else, Nawka.", next = "BACK" },
+      },
+    },
+    w7_hides2 = {
+      lines = {
+        { id = "w7_hides2_l1", text = "An old prairie wolf, grey to the muzzle, who held off three students for a whole afternoon to give its pack time to run. I took its hide myself, slowly, and hung it above my bench, and I tell every student its story." },
+        { id = "w7_hides2_l2", when = { class = "HUNTER" }, text = "A grey old prairie wolf who stood against three students so its pack could flee. You know beasts; you know that kind of courage. I hung its hide above my bench, and every hunter I train hears of it." },
+      },
+      choices = {
+        { text = "A brave beast.", next = "BACK", reply = "Braver than most braves I have met. Remember it, as they do." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_hides3 = {
+      lines = {
+        { id = "w7_hides3_l1", text = "Not morbid. Honest. A skinner who forgets that the hide was once alive becomes careless, and carelessness wastes the gift." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     beasts = {
@@ -457,8 +584,8 @@ P:NPC {
         { id = "h_miner", when = { profession = "Mining" }, text = "I am Vartha Rockmane. You carry a pick already, so I will not tell you which end to hold, but there is always more the stone can teach." },
       },
       again = {
-        { id = "h_again3", text = "Yes? I am listening." },
-        { id = "h_again", text = "What else would you know?" },
+        { id = "h_again3", text = "Yes? Speak up over the pick; I have a stubborn vein of copper here and it does not like conversation." },
+        { id = "h_again", text = "What else would you know? Ask slowly, the way stone answers, and I will give you a slow, true answer." },
         { id = "h_again2", text = "Ask. The stone will wait." },
       },
       choices = {
@@ -470,7 +597,36 @@ P:NPC {
         { text = "The goblins dig without asking anyone.", next = "venture" },
         { text = "Who shares the teaching with you?", next = "others" },
         { text = "I've worked veins outside Mulgore.", next = "veins", when = { profession = { name = "Mining", min = 50 } } },
+        { text = "What do you do with the stone you dig out?", next = "w7_stone" },
         { text = "Not today, Vartha.", next = "END" },
+      },
+    },
+    w7_stone = {
+      lines = {
+        { id = "w7_stone_l1", text = "Nothing is wasted, as Nawka would tell you. The good copper goes to the smiths, the broken rock lines the paths of the camp, and the round stones I give to the calves to carry up the mesa, so their legs grow strong." },
+      },
+      choices = {
+        { text = "The calves carry stones?", next = "w7_stone2" },
+        { text = "That's a lot of work for rocks.", next = "w7_stone3" },
+        { text = "Something else, Vartha.", next = "BACK" },
+      },
+    },
+    w7_stone2 = {
+      lines = {
+        { id = "w7_stone2_l1", text = "Every morning, up the long path from the spring to the top of the mesa, one stone each. They grumble, and then one day they find they can run the path without stopping, and they look at me as if I have done magic." },
+        { id = "w7_stone2_l2", when = { race = "Tauren" }, text = "Every morning, one stone each. You may have carried one yourself, not long ago. Those stones line the path to Chief Hawkwind's tent now, and every calf's stone is in it somewhere." },
+      },
+      choices = {
+        { text = "A clever lesson.", next = "BACK", reply = "The Earth Mother teaches slowly. I only help her a little." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_stone3 = {
+      lines = {
+        { id = "w7_stone3_l1", text = "It is, and that is the point. The work is the lesson; the rocks are only what we carry it in." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     ore = {
@@ -619,7 +775,47 @@ P:NPC {
         { text = "What is the trial of the young?", next = "trial" },
         { text = "You must get bored up here.", next = "bored" },
         { text = "I passed my trial here once.", next = "mine", when = { race = "Tauren", minLevel = 11 } },
+        { text = "What do you see from the edge of the mesa?", next = "edge" },
+        { text = "Your spear looks older than you are.", next = "spear" },
+        { text = "Do the wolves up here make good companions?", next = "wolves", when = { class = "HUNTER" } },
         { text = "Earth Mother keep watch with you.", next = "END" },
+      },
+    },
+    edge = {
+      lines = { { id = "edge_d", text = "All of Mulgore, from the smoke of Bloodhoof Village to the great bluffs in the north where the High Chieftain keeps his city. On a clear day you can see the lifts moving, and the young ones always stop here to stare before they go down." } },
+      choices = {
+        { text = "Thunder Bluff from here must be a sight.", next = "edge_bluff" },
+        { text = "I stopped and stared too.", next = "BACK", reply = "Everyone does. I still do, some mornings, and I've stood here for years." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    edge_bluff = {
+      lines = { { id = "edge_bluff_d", text = "It is, and it was a dream for most of my life. When I was young our people slept wherever the centaur let us, and now there is a city on the mesas that no raider can climb, and I can see it from my post." } },
+      choices = {
+        { text = "That's worth guarding, then.", next = "BACK", reply = "It is, and that's why I don't mind the long watches." },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    spear = {
+      lines = { { id = "spear_d", text = "It belonged to the brave who stood this post before me, and to the one before her. A Narache spear is never thrown away, for it has watched over more young ones than any of us will, and we only borrow it." } },
+      choices = {
+        { text = "Does it need much care?", next = "spear_care" },
+        { text = "A spear that remembers. I like that.", next = "BACK", reply = "So do I, though I'd never say so to the other braves." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    spear_care = {
+      lines = { { id = "spear_care_d", text = "Oil for the haft and a whetstone for the point, every evening, and a new binding when the wind wears the old one through. The care is part of the watch, and a brave with a dull spear is only standing about." } },
+      choices = {
+        { text = "Then I'll keep my own weapon sharp.", next = "BACK", reply = "Good. The Bristleback won't wait for you to sharpen it." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    wolves = {
+      lines = { { id = "wolves_d", text = "Not these ones, {class}. The wolves on the mesa are lean and bad-tempered and they've learned to wait for stragglers, though Grull says a patient hunter could tame one in the end, if they had patience to spare." } },
+      choices = {
+        { text = "I've patience enough.", next = "BACK", reply = "Then try it below the mesa, where there's room to run if you're wrong." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     danger = {

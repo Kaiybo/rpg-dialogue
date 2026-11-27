@@ -58,7 +58,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? I've letters to answer, but ask." },
         { id = "h_again2", text = "Go on. I'd rather answer questions than write another report for the Council." },
-        { id = "h_again3", when = { faction = "Horde" }, text = "Is there more? Be brief." },
+        { id = "h_again3", when = { faction = "Horde" }, text = "Is there more? Be brief; the High Order does not keep a Supreme Magister waiting on Horde business." },
       },
       choices = {
         { text = "What exactly does the High Order mean to do?", next = "purpose" },
@@ -411,6 +411,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_arc = {
+      lines = { { id = "w8_arc_a", text = "A ledger of supplies from the voyage up to Skywall, kept by someone with terrible handwriting and a great many complaints about the rations. It's the most precious thing we own, and I've read it so often I could recite the bread counts." } },
+      choices = {
+        { text = "What did they complain about?", next = "w8_arc2" },
+        { text = "A supply ledger? That's precious?", next = "w8_arc2" },
+        { text = "I'm a mage. Old records hide surprising things.", next = "w8_arc2", when = { class = "MAGE" } },
+        { text = "Something else, Dondallion.", next = "BACK" },
+      },
+    },
+    w8_arc2 = {
+      lines = {
+        { id = "w8_arc2_a", text = "The dried fish, mostly, and the wind, and somebody called Tavael who kept singing at night. It's precious because it's real; the histories tell us we were heroes, but the ledger tells us we were frightened people counting bread, and I find that more comforting." },
+        { id = "w8_arc2_mage", when = { class = "MAGE" }, text = "They do! There's a margin note on page forty that mentions a ward 'anchored stone to stone', which is exactly how the Kirin Tor anchor Dalaran's walls, so somebody aboard knew the trick long before we ever met a human mage. I've told the Supreme Magister, and he said 'interesting', which from him is a speech." },
+      },
+      choices = {
+        { text = "Frightened people counting bread. I like that.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Dondallion Whisperwind, of the High Order. I keep notes for the order, mostly, and lately I'm also keeping track of who has gone out to study and hasn't come back, which is not a list I ever wanted to keep." },
@@ -430,6 +450,7 @@ P:NPC {
         { text = "Whisperwind is an old name.", next = "name" },
         { text = "How does a scholar end up on the road?", next = "xmage", when = { class = "MAGE" } },
         { text = "Our High Priestess is a Whisperwind too.", next = "xnelf", when = { race = "NightElf" } },
+        { text = "What's the oldest record in the order's archive?", next = "w8_arc" },
         { text = "Winds' tidings, Dondallion.", next = "END" },
       },
     },
@@ -577,6 +598,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_dng = {
+      lines = { { id = "w8_dng_a", text = "That green flask, which is a Highborne formula for keeping a mind awake for three days, and which I have not yet managed to make without also keeping the drinker awake for a fortnight. Don't touch it, and don't breathe near it." } },
+      choices = {
+        { text = "Who tested it?", next = "w8_dng2" },
+        { text = "Why make it at all?", next = "w8_dng2" },
+        { text = "I'm an alchemist. Your base is too strong.", next = "w8_dng2", when = { profession = "Alchemy" } },
+        { text = "Something else, Iaadaria.", next = "BACK" },
+      },
+    },
+    w8_dng2 = {
+      lines = {
+        { id = "w8_dng2_a", text = "I did, and I reorganised the whole workroom twice before I could sleep again. The magisters want it for the ley line studies, and I want to give it to them without anyone going mad, which is proving to be the harder part." },
+        { id = "w8_dng2_alc", when = { profession = "Alchemy" }, text = "Too strong? It's half the Highborne measure already. Though if I cut it again with silverleaf instead of water, the leaf might hold the edge off, and I hate that you might be right, so I'll try it tonight." },
+      },
+      choices = {
+        { text = "Get some sleep first.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Iaadaria Bitterwind. I teach alchemy to the High Order and sell vials to anyone with coin, and I'm happier doing the first than talking about it. What is it you need?" },
@@ -586,7 +627,7 @@ P:NPC {
           text = "It's quiet again, thanks to you, and I've had three good days of work in a row. That's a record on this isle lately." },
       },
       again = {
-        { id = "h_again", text = "Anything else? Quickly, please." },
+        { id = "h_again", text = "Anything else? Quickly, please, before this tincture turns the wrong shade of blue." },
         { id = "h_again2", text = "Ask, and I'll answer while I stir." },
       },
       choices = {
@@ -597,6 +638,7 @@ P:NPC {
         { text = "What did the Highborne know that you don't?", next = "highborne" },
         { text = "What do you need from an herbalist?", next = "xherb", when = { profession = { "Herbalism" } } },
         { text = "What should an alchemist look for below the clouds?", next = "xalch", when = { profession = { "Alchemy" } } },
+        { text = "What's the most dangerous thing on your bench?", next = "w8_dng" },
         { text = "Farewell, Iaadaria.", next = "END" },
       },
     },
@@ -737,6 +779,66 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    oth_dye1 = {
+      lines = {
+        { id = "oth_dye1_1", text = "Carefully, and not very often, because a crushed windstone in the vat gives a blue that shifts in the light like sky over water. The High Order think it's a waste of good stones, and they wear it every chance they get." },
+      },
+      choices = {
+        { text = "So the magisters wear your blue.", next = "oth_dye2" },
+        { text = "Something else, Othesia.", next = "BACK" },
+      },
+    },
+    oth_dye2 = {
+      lines = {
+        { id = "oth_dye2_1", text = "Every one of them, and I've never yet had a magister admit where it came from. I've thought about stitching my name inside the collars, but it would only start another argument about whose house is whose." },
+      },
+      choices = {
+        { text = "Leave them guessing.", next = "oth_dye3" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    oth_dye3 = {
+      lines = {
+        { id = "oth_dye3_1", text = "That's my plan exactly, and a tailor's revenge is a quiet one. They'll go on lecturing me on the value of windstones in a robe I dyed with them, and I'll go on hemming." },
+      },
+      choices = {
+        { text = "A fine revenge. Something else.", next = "BACK" },
+      },
+    },
+    oth_fine1 = {
+      lines = {
+        { id = "oth_fine1_1", text = "That's kind of you, and I'll believe it, since I've never seen the mainland. We spin it from the fleece of the isle's sheep, very fine, and we spin it while the wind's blowing, which my grandmother swore made it stronger." },
+      },
+      choices = {
+        { text = "Does it really make it stronger?", next = "oth_fine2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    oth_fine2 = {
+      lines = {
+        { id = "oth_fine2_1", text = "I've no idea, but I've never once spun on a still day, and I'm not going to start now. Some traditions are only habits, and some are wisdom, and you only find out which by breaking them." },
+      },
+      choices = {
+        { text = "Then keep it. Something else.", next = "BACK" },
+      },
+    },
+    oth_les1 = {
+      lines = {
+        { id = "oth_les1_1", text = "Young Skyborne who want a trade before they go wandering, mostly, and a few of the High Order's apprentices who've been told to learn something useful. The apprentices are the worst students, because they keep trying to enchant the needle." },
+      },
+      choices = {
+        { text = "Do the enchanted needles work?", next = "oth_les2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    oth_les2 = {
+      lines = {
+        { id = "oth_les2_1", text = "One did, for an afternoon, and stitched an entire cloak by itself before it ran through the window. We never found it, and I like to think it's out in the wilds somewhere, still sewing." },
+      },
+      choices = {
+        { text = "I'll watch for it. Back to other matters.", next = "BACK" },
+      },
+    },
     -- Deeds pass: Belathaan Brightwish, avenged for Elaadrin.
     dd_belathaan = {
       lines = { { id = "db_default", text = "A little. He bought his robes from me, plain blue-grey and never anything showy, because he said a man going to talk of peace shouldn't look as though he'd come to win. I made the last one he wore, and I've wondered since whether they buried him in it." } },
@@ -765,6 +867,9 @@ P:NPC {
         { text = "Are you related to the Supreme Magister?", next = "name" },
         { text = "Who designed the Al'Aketh's robes?", next = "robes" },
         { text = "Why do so many people wear feathers in their hair?", next = "feathers" },
+        { text = "How do you dye with windstones?", next = "oth_dye1" },
+        { text = "Your thread is finer than any on the mainland.", next = "oth_fine1", when = { ["not"] = { race = "Skyborne" } } },
+        { text = "Who comes to you for lessons?", next = "oth_les1" },
         { text = "Winds be with you, Othesia.", next = "END" },
       },
     },
@@ -857,6 +962,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_fun = {
+      lines = { { id = "w8_fun_a", text = "A dwarf off the skycutter who knelt down and kissed the stone of the steps, because he said it was the first thing in an hour that hadn't moved under him. Then a gust came up and blew his hat into the hall, right onto the Supreme Magister's desk." } },
+      choices = {
+        { text = "What did the Supreme Magister do?", next = "w8_fun2" },
+        { text = "Poor dwarf.", next = "w8_fun2" },
+        { text = "Something else, Gelia.", next = "BACK" },
+      },
+    },
+    w8_fun2 = {
+      lines = { { id = "w8_fun2_a", text = "He came out holding the hat with two fingers, gave it back without a word, and went inside again, and the dwarf bowed to him four times. I've told that story to everyone on the street, and I'll tell it to you again next time if you like." } },
+      choices = {
+        { text = "I'd like that.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     people = {
       lines = {
         { id = "pe_default", text = "Nearly everyone, and what I don't know I ask. Othesia the tailor waves when she passes, Iaadaria the alchemist never does, and poor Dondallion always looks as if he's lost a book and is afraid to say which one." },
@@ -930,6 +1051,7 @@ P:NPC {
         { text = "You mentioned refugees from the fallen places.", next = "refugees" },
         { text = "Tell me what a neighbour says of all this, Gelia.", next = "xsky", when = { race = "Skyborne" } },
         { text = "Do the magisters ever stop to talk to you?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What's the funniest thing you've seen from this step?", next = "w8_fun" },
         { text = "Farewell, Gelia.", next = "END" },
       },
     },
@@ -1024,6 +1146,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_fly = {
+      lines = { { id = "w8_fly_a", text = "Once, as a young rigger, on the last run to Anvilas before the skystreams closed. I've not been aboard since, because a dockmaster's place is the dock, and because I remember what the sky looked like when the stream gave way behind us." } },
+      choices = {
+        { text = "What did it look like?", next = "w8_fly2" },
+        { text = "So you stayed to keep others safe.", next = "w8_fly2" },
+        { text = "Something else, Dockmaster.", next = "BACK" },
+      },
+    },
+    w8_fly2 = {
+      lines = { { id = "w8_fly2_a", text = "Like a door closing in a house you were still inside. We made it home, and Anvilas didn't, and so I keep the figures straight and the lines fast, and no ship leaves this dock on a guess while I'm here." } },
+      choices = {
+        { text = "The dock is in good hands.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     crew = {
       lines = {
         { id = "cw_default", text = "It does. The pilot holds the route, the riggers hold the ship, and I hold the dock, and none of us does the others' work. I check the readings before she casts off, and she doesn't cast off until I've signed for them." },
@@ -1098,6 +1236,7 @@ P:NPC {
         { text = "This dock was quiet before the mainlanders, I'd guess.", next = "before" },
         { text = "I'm bound below for the first time, Dockmaster.", next = "xsky", when = { race = "Skyborne" } },
         { text = "How do your magisters read the safe routes?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Have you ever flown a skycutter yourself?", next = "w8_fly" },
         { text = "Thank you, Dockmaster.", next = "END" },
       },
     },

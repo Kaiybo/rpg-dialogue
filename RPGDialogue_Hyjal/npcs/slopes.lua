@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Watch your step, for most of what grows green on this slope wants to bite you, and what doesn't still remembers the Legion's rain." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again. The weeds have grown since you left, but then, they always do." },
+    { id = "g_back", when = { metBefore = true }, text = "Back on the slope, are you? Look at my gloves, already torn again; the thorns have been busy since you left, and so have I." },
     { id = "g_done", when = { questDone = TODO_QUEST("Celastrus the Bitter") }, text = "There's the one who cut down Celastrus. The eastern hollow is greening already; go and look, when you've the time." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the slope has grown back over half the paths you knew, so mind your boots." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since you were last on this slope, and not the way the thorns do, which is a relief, because strong things that stay healthy are rare up here." },
@@ -35,6 +35,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2scar = {
+      lines = { { id = "w2s_default", text = "More times than I can count, and once badly. A bramble on the north path wrapped my arm to the elbow, and the sap burned green for a week; Zet'gan's camp packed it with some troll poultice that smelled worse than the wound did, and it worked." } },
+      choices = {
+        { text = "How do you cut them without getting caught?", next = "w2scar2" },
+        { text = "I'd have let it burn and kept cutting.", next = "w2scar2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2scar2 = {
+      lines = {
+        { id = "w2s2_herb", when = { profession = "Herbalism" }, text = "You pick herbs, so you'll know the trick already: watch the stems, not the leaves. A poisoned bramble goes dark at the joint just before it moves, and that's your one breath to step back and cut low at the root." },
+        { id = "w2s2_default", text = "Watch the stems, not the leaves. A poisoned bramble darkens at the joint the breath before it lashes, and if you step back then and cut low at the root, it has nothing left to swing with." },
+      },
+      choices = { { text = "I'll watch the joints. Thank you.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_dd_feathers", when = { questDone = TODO_QUEST("Feathers in Flight") },
@@ -57,6 +72,9 @@ P:NPC {
         { text = "I'd like to see what grows back once they're cleared.", next = "regrow" },
         { text = "Why not just burn it all?", next = "xburn", when = { class = { "MAGE", "WARLOCK" } } },
         { text = "Can the Light cleanse the ground?", next = "xlight", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "How long have you been clearing this slope?", next = "years" },
+        { text = "What does Zet'gan's camp think of your work?", next = "zetgan" },
+        { text = "Have the thorns ever caught you?", next = "w2scar" },
         { text = "Good luck with the weeding.", next = "END" },
       },
     },
@@ -125,6 +143,33 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    years = {
+      lines = { { id = "yr_default", text = "Longer than I like to count, and longer than any of the thorns I've cut down. When I started, you couldn't see the ground for brambles from here to the ridge, and now there are three clean hollows where the deer graze. Three, in all that time." } },
+      choices = {
+        { text = "Three is better than none.", next = "years2" },
+        { text = "Does it ever feel hopeless?", next = "years2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    years2 = {
+      lines = { { id = "yr2_default", text = "On the bad days, it does, and on those days I go and stand in the first hollow I cleared, where the saplings are taller than I am now. A forest doesn't heal in one lifetime, but it heals, and I'd sooner be the one who started it than the one who waited." } },
+      choices = { { text = "That's a good reason. Something else.", next = "BACK" } },
+    },
+    zetgan = {
+      lines = { { id = "zg_default", text = "They think I'm mad, but useful. The trolls came up the mountain on some errand of their own and got stuck, and now they defend the slope as hard as anyone. Zet'gan sends his scouts to tell me where the thorns are thickest, and I tell him where the owls nest." } },
+      choices = {
+        { text = "An odd alliance, a druid's helper and a troll camp.", next = "zetgan2" },
+        { text = "Do you trust them?", next = "zetgan2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    zetgan2 = {
+      lines = { { id = "zg2_default", text = "I trust that they want off this mountain alive, and so do I, and the thorns want neither of us to manage it. That's enough to share a fire over. The mountain doesn't care what banner we fly, so for once we don't have to either." } },
+      choices = {
+        { text = "I'm a druid. I'll help where the Circle can't reach.", next = "BACK", reply = "Then bring a sharp knife as well as a kind heart. Up here, you'll need both.", when = { class = "DRUID" } },
+        { text = "Something else, Thylaen.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -167,6 +212,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2home = {
+      lines = {
+        { id = "w2h_troll", when = { race = "Troll" }, text = "Same as you be dreamin' of, cousin. Sit on da sand at Sen'jin wit' a line in da water an' a hot fish on a stick, an' listen ta Vol'jin's drums carry over from da Echo Isles all night long." },
+        { id = "w2h_default", text = "Sit on da warm sand at Sen'jin, mon, wit' a line in da water an' no snow anywhere in sight. Maybe I be fletchin' still, but only for fish spears, an' only when I feel like it." },
+      },
+      choices = {
+        { text = "Do you think you'll truly make it back?", next = "w2home2" },
+        { text = "I'd go with you. This cold is miserable.", next = "w2home2" },
+        { text = "Something else, Zet'gan.", next = "BACK" },
+      },
+    },
+    w2home2 = {
+      lines = { { id = "w2h2_default", text = "I tell da camp we will, every night, an' I say it loud so I be believin' it too. A troll can live a long time on a good joke an' a warm promise, mon, an' up here dat be most of what we got left." } },
+      choices = { { text = "Then I'll help keep that promise.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_dd_xarkul", when = { questDone = TODO_QUEST("Yashiro's Windwalk") },
@@ -182,12 +242,15 @@ P:NPC {
         { id = "h_forsaken", when = { race = "Scourge" },
           text = "A Forsaken, eh? Da dead walkin' to da west ain't so friendly as you, so don't go wanderin' dat way alone." },
       },
-      again = { { id = "h_again", text = "Somethin' else, mon? Talk while I fletch." } },
+      again = { { id = "h_again", text = "Somethin' else, mon? Talk while I fletch, an' don't mind if I stick ya wit' a feather." } },
       choices = {
         { text = "You'd have left this place long ago if you could.", next = "leave" },
         { text = "What do you need for the arrows?", next = "owls" },
         { text = "What's attacking the camp?", next = "threat" },
         { text = "How fare the Darkspear here?", next = "xtroll", when = { race = "Troll" } },
+        { text = "Who are your fletchers, mon?", next = "fletch" },
+        { text = "What brought the Darkspear up this mountain?", next = "came" },
+        { text = "What will you do when you finally get home?", next = "w2home" },
         { text = "Stay strong, Zet'gan.", next = "END" },
       },
     },
@@ -243,6 +306,33 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    fletch = {
+      lines = { { id = "fl_default", text = "Two old trolls who can't swing an axe no more, mon, an' a young one who talks too much. Dey sit by da fire all day wit' feathers an' glue an' sing da old island songs while dey work, an' da arrows come out straighter for it, or so dey tell me." } },
+      choices = {
+        { text = "Do the songs really help?", next = "fletch2" },
+        { text = "Old warriors still serving. That's a good camp.", next = "fletch2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fletch2 = {
+      lines = { { id = "fl2_default", text = "Who knows, mon? But da young ones learn da songs while dey learn da arrows, an' dat way nothin' gets lost up here in da cold. A camp dat forgets its songs be just a bunch o' tired trolls wit' sticks." } },
+      choices = { { text = "Then keep singing. Something else.", next = "BACK" } },
+    },
+    came = {
+      lines = { { id = "cm_default", text = "Orders, mon, an' bad luck. We was sent ta watch da demons on da mountain an' report back, an' den da demons decided ta watch us back. Every time we try ta go, da mountain find a new way ta keep us, like it be lonely." } },
+      choices = {
+        { text = "Who sent you?", next = "came2" },
+        { text = "The mountain doesn't seem to want anyone to leave.", next = "came2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    came2 = {
+      lines = { { id = "cm2_default", text = "Somebody important, an' somebody far away, which be da same thing to a troll in da snow. Thylaen say da mountain be hurtin' an' don't want ta be left alone wit' its hurt. Maybe she right, mon. Maybe dat be why we keep comin' back." } },
+      choices = {
+        { text = "I'm a shaman. The spirits here are restless.", next = "BACK", reply = "Den ask 'em ta let us go, cousin, an' ask nice. I be tired o' dis view.", when = { class = "SHAMAN" } },
+        { text = "Something else, Zet'gan.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -278,6 +368,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2stone = {
+      lines = {
+        { id = "w2st_mage", when = { class = "MAGE" }, text = "Listening stones, though a magister of Dalaran would call them unremarkable rocks. I took each one from a different scar on this mountain, and if you lay your palm on them in turn, you will feel that each hums at its own pitch, rather like a badly tuned choir." },
+        { id = "w2st_default", text = "Listening stones, as I call them. I took each one from a different scar on this mountain, and every one of them hums at its own pitch when you lay a palm on it, rather like a badly tuned choir." },
+      },
+      choices = {
+        { text = "Which one hums the loudest?", next = "w2stone2" },
+        { text = "They look like ordinary rocks to me.", next = "w2stone2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2stone2 = {
+      lines = { { id = "w2st2_default", text = "The grey one at the end, which I chipped from near the roots below Nordrassil. It does not hum so much as grieve, if a stone can do such a thing, and I confess I keep it at arm's length when I sleep." } },
+      choices = { { text = "Perhaps it remembers the battle.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     xorigin = {
       narr = "He polishes a small crystal on his sleeve while he speaks.",
       lines = { { id = "xorigin_default", text = "Quel'Thalas, in my youth, and later wherever my curiosity led. My people study the arcane above all. I found the elements more honest; they never pretend to be anything but what they are." } },
@@ -320,7 +425,7 @@ P:NPC {
 
     hello = {
       lines = { { id = "h_default", text = "I am Franzahl, called the Earthcaller by those who are generous, and I study the elements of this world, both the known and the less known. Hyjal is a remarkable place to listen to them." } },
-      again = { { id = "h_again", text = "What else would you know? I'm always pleased to be distracted." } },
+      again = { { id = "h_again", text = "Yes? Go on, ask. I've lost my place in these notes three times already this morning, so one more interruption will hardly matter." } },
       choices = {
         { text = "Where did you study before coming here?", next = "xorigin" },
         { text = "Which element interests you most?", next = "xfavorite" },
@@ -329,6 +434,7 @@ P:NPC {
 
         { text = "What do the elements tell you here?", next = "elements" },
         { text = "Do you work alone?", next = "alone" },
+        { text = "What are these stones you guard so closely?", next = "w2stone" },
         { text = "Good luck with your studies.", next = "END" },
       },
     },

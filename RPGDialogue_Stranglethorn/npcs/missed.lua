@@ -25,6 +25,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_fish = {
+      lines = { { id = "w8_fish_a", text = "Fish? Pal, I count fish, I buy fish and I sell fish, and the one thing I don't do is stand in the water waitin' for one. The boss says an apprentice ought to know the rod, so I own one, and it's in the back with the price tag still on it." } },
+      choices = {
+        { text = "You might be good at it.", next = "w8_fish2" },
+        { text = "Smart. The money's in the buying.", next = "w8_fish2" },
+        { text = "Something else, Jang.", next = "BACK" },
+      },
+    },
+    w8_fish2 = {
+      lines = { { id = "w8_fish2_a", text = "Maybe, and maybe one Sunday I'll enter the contest and win it, and then who buys the losers' fish? Nobody, sweetheart, and that's a whole week's margin gone, so the rod stays in the back." } },
+      choices = {
+        { text = "Spoken like a true goblin.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     gt_price = {
       lines = { { id = "gt_price_l", text = "Fair coin for five, and no haggling on contest day, because I've got a line of anglers behind you. Bring 'em fresh, though, since the boss can smell a two-day fish from the docks." } },
       choices = { { text = "Something else.", next = "BACK" } },
@@ -37,7 +53,7 @@ P:NPC {
       lines = { { id = "h_default", key = true, text = "Jang, Fishmaster's apprentice. The boss does the shoutin' and hands out the glory, and I buy up every tastyfish that didn't win, which is where the actual margin is." } },
       again = {
         { id = "h_again", text = "What else? I've got a tally runnin', so make it worth the lost count." },
-        { id = "h_again2", text = "Go on, I can count and listen." },
+        { id = "h_again2", text = "Go on, then. I can tally the master's catch and hear you out at the same time, and I'll not lose count." },
       },
       choices = {
         { text = "Why buy the losers' fish?", next = "buy" },
@@ -46,6 +62,7 @@ P:NPC {
         { text = "Who cheats worst on contest day?", next = "cheats" },
         { text = "I've hauled a few tastyfish myself. What do you pay?", next = "gt_price", when = { profession = "Fishing" } },
         { text = "Do goblins ever win the contest?", next = "gt_goblin", when = { race = "Goblin" } },
+        { text = "Do you ever fish yourself, Jang?", next = "w8_fish" },
         { text = "Keep counting, Jang.", next = "END" },
       },
     },
@@ -111,6 +128,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_hear = {
+      lines = { { id = "w8_hear_a", text = "De same way as you, {class}, by sitting still in de wild until de wild forgot I was dere and started talking. On Zuldazar, de young ones are sent into de jungle for a moon wit' nothing, and some come back hearing, and some come back hungry." } },
+      choices = {
+        { text = "And some don't come back.", next = "w8_hear2" },
+        { text = "That sounds like a hard way to learn.", next = "w8_hear2" },
+        { text = "Something else, Maywiki.", next = "BACK" },
+      },
+    },
+    w8_hear2 = {
+      lines = { { id = "w8_hear2_a", text = "And some do not, yes, and de spirits keep dem, which is not de worst fate. Maywiki came back hearing and a little hungry both, and she has never once regretted it, though she still cannot look at a mango." } },
+      choices = {
+        { text = "I'll keep my mangoes away from you.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, when = { ["not"] = { class = { "DRUID", "SHAMAN" } } }, text = "I be Maywiki of Zuldazar. I listen to de spirits of dis jungle for my people, and I deal wit' those outsiders who can hear dem too, so you may ask, but my trade is not for you." },
@@ -127,6 +160,7 @@ P:NPC {
         { text = "Tell me of Zuldazar.", next = "zuldazar" },
         { text = "The elements here are troubled.", next = "elements", when = { class = "SHAMAN" } },
         { text = "The wild things here are afraid.", next = "beasts", when = { class = "DRUID" } },
+        { text = "How did you come to hear the spirits, Maywiki?", next = "w8_hear" },
         { text = "Spirits keep you, Maywiki.", next = "END" },
       },
     },

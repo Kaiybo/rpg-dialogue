@@ -40,7 +40,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else? I've customers, and an orc's time is worth steel." }, { id = "h_again2", text = "Go on, then." } },
       choices = {
-        { text = "A good weapon honors its wielder.", next = "BACK", reply = "It does. You understand.", fx = { align = { honor = 1 } } },
+        { text = "A good weapon honors its wielder.", next = "BACK", reply = "It does, and a poor wielder shames a good weapon. Hold it like you mean it.", fx = { align = { honor = 1 } } },
         { text = "Any weapon kills.", next = "BACK", reply = "Then use a rock.", fx = { align = { honor = -1 } } },
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "Where do your weapons come from?", next = "source" },
@@ -196,7 +196,7 @@ P:NPC {
         { id = "h_again3", text = "Take your time. The leather isn't going anywhere, and neither am I." },
       },
       choices = {
-        { text = "Leather suits the Barrens better than plate.", next = "BACK", reply = "It does. You understand.", fx = { align = { order = 1 } } },
+        { text = "Leather suits the Barrens better than plate.", next = "BACK", reply = "In this heat? Aye. A grunt in plate cooks before the centaur ever reach him.", fx = { align = { order = 1 } } },
         { text = "Plate beats leather every time.", next = "BACK", reply = "Then sweat in plate.", fx = { align = { order = -1 } } },
         { text = "Let me see your armor.", next = "BUSINESS" },
         { text = "What beasts does your leather come from?", next = "beasts" },
@@ -340,7 +340,23 @@ P:NPC {
         { text = "Why are you staring at my hem?", next = "hem" },
         { text = "Show me the good thread under the counter.", next = "good_thread", when = { profession = "Tailoring" } },
         { text = "How do I keep a robe clean out here?", next = "robe", when = { class = { "MAGE", "PRIEST", "WARLOCK" } } },
+        { text = "Kil'hala says orcs dress like they lost a fight with a tent.", next = "w5_kilhala" },
         { text = "Good day.", next = "END" },
+      },
+    },
+    w5_kilhala = {
+      lines = { { id = "w5_kilhala_l", text = "He would say that, the old pin-cushion. Half his students buy their thread from me, and then he tells them my dye runs. It doesn't run. It only fades, and in this sun everything fades." } },
+      choices = {
+        { text = "Do you agree with him about orcs, though?", next = "w5_kilhala2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_kilhala2 = {
+      lines = { { id = "w5_kilhala2_l", text = "Grudgingly. A grunt will wear the same tunic until it walks off his back on its own. But they dress for the road, and the road out here is mostly dust and centaur arrows, so maybe the grunts have the right of it and Kil'hala and I are the fools." } },
+      choices = {
+        { text = "Clothes ought to show pride, even out here.", next = "BACK", reply = "Say that to Kil'hala and he'll give you a discount. Say it to me and I'll sell you a brush.", fx = { align = { honor = 1 } } },
+        { text = "Out here, a tunic only needs to keep the sun off.", next = "BACK", reply = "Spoken like a grunt. I'll still charge you for the thread when it tears.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     why = {
@@ -470,7 +486,24 @@ P:NPC {
         { text = "You fuss over everyone, don't you?", next = "fuss" },
         { text = "I don't really need to eat any more.", next = "undead", when = { race = "Scourge" } },
         { text = "I cook too. Any advice for a fellow cook?", next = "cook", when = { profession = "Cooking" } },
+        { text = "Who gets the first loaf when the bread comes out?", next = "w5_first" },
         { text = "Earthmother keep you.", next = "END" },
+      },
+    },
+    w5_first = {
+      lines = { { id = "w5_first_l", text = "The tower watch, little one, every morning. The grunts up on Thork's towers have been staring at the Kolkar all night, and nobody should face the sunrise on an empty stomach. Travellers get the second batch, and they grumble about it." } },
+      choices = {
+        { text = "Does Thork pay for the watch's bread?", next = "w5_first2" },
+        { text = "Grunts won't share bread with a dead stranger. Will you?", next = "BACK", when = { race = "Scourge" }, reply = "Of course I will. You may not need it, but you can carry it to someone who does." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_first2 = {
+      lines = { { id = "w5_first2_l", text = "The Horde pays in grain when the caravans come through, and in thanks when they don't. Most weeks it's thanks. I've learned to make good bread out of thanks, but it doesn't rise as well." } },
+      choices = {
+        { text = "The watch keeps us all alive. Feed them first.", next = "BACK", reply = "That's what I tell the travellers, and they eat their grumbling with the second batch.", fx = { align = { order = 1 } } },
+        { text = "A paying traveller should eat before a soldier.", next = "BACK", reply = "Then the soldier falls asleep on the tower, and the paying traveller wakes up with a centaur in his bedroll.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     grain = {
@@ -587,7 +620,23 @@ P:NPC {
         { text = "Do you know Sikwa, at the Crossroads stable?", next = "sikwa" },
         { text = "What happens if I never come back for my pet?", next = "unclaimed", when = { class = "HUNTER" } },
         { text = "Goblins and kodo. I never thought I'd see it.", next = "kodo", when = { race = "Tauren" } },
+        { text = "The Kolkar must look at your pens and see dinner.", next = "w5_raid" },
         { text = "Later.", next = "END" },
+      },
+    },
+    w5_raid = {
+      lines = { { id = "w5_raid_l", text = "Dinner, mounts, ransom, you name it, pal. They hit the pens twice last season, and the second time they got a raptor that belonged to a very large orc who has not stopped mentioning it." } },
+      choices = {
+        { text = "How do you keep them off now?", next = "w5_raid2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_raid2 = {
+      lines = { { id = "w5_raid2_l", text = "Lanterns, a bell, and a cousin of mine who sleeps in the hay with a blunderbuss. When the bell goes, I've got a choice: open the gates so the beasts can run, or bar the gates and hope the walls hold. Neither one's covered by the boarding fee." } },
+      choices = {
+        { text = "Open the gates. A beast deserves a chance to run.", next = "BACK", reply = "Sure, and then I spend a week chasing kodo across the Barrens. Sentiment's expensive.", fx = { align = { light = 1 } } },
+        { text = "Bar the gates. You were paid to keep them penned.", next = "BACK", reply = "That's what the contract says, and that's what I do. Doesn't mean I sleep well.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     why = {
@@ -725,7 +774,23 @@ P:NPC {
         { text = "What about the goblin selling blades on the road?", next = "lizzarik" },
         { text = "Goblins drive harder bargains than orcs.", next = "goblin", when = { race = "Goblin" } },
         { text = "I'd rather fight you than haggle with you.", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "What do travellers forget to pack most often?", next = "w5_forgot" },
         { text = "Not today.", next = "END" },
+      },
+    },
+    w5_forgot = {
+      lines = { { id = "w5_forgot_l", text = "Water skins, first and always. Then bandages, then a second pair of boots. The Barrens eats boots, {class}. I've sold the same pair of boots to a man three times because he kept losing them to the Stagnant Oasis." } },
+      choices = {
+        { text = "Do you ever give it away to the desperate?", next = "w5_forgot2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_forgot2 = {
+      lines = { { id = "w5_forgot2_l", text = "Once a week someone staggers in with a cracked tongue and no coin, and I have to decide. Give it away and every beggar in the Barrens hears of it. Charge them, and I may be the last face they see." } },
+      choices = {
+        { text = "A dying traveller gets water free. No haggle.", next = "BACK", reply = "Ha. You'd be broke inside a month, and you'd be the most loved trader in the Barrens.", fx = { align = { light = 1 } } },
+        { text = "Charity at a trading post is just bad business.", next = "BACK", reply = "It is. I tell myself that every time, and then I hand over the water anyway.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     sergra = {
@@ -846,7 +911,7 @@ P:NPC {
         { id = "h_again3", text = "Still here? Good, standin' near the cart is free, for now." },
       },
       choices = {
-        { text = "A good weapon is worth the price.", next = "BACK", reply = "It is, friend! You get it.", fx = { align = { honor = 1 } } },
+        { text = "A good weapon is worth the price.", next = "BACK", reply = "Ha! Words to warm a peddler's heart, friend. Coin's even warmer.", fx = { align = { honor = 1 } } },
         { text = "Your weapons are overpriced junk.", next = "BACK", reply = "Jorb, show this one the road.", fx = { align = { honor = -1 } } },
         { text = "Show me what you've got.", next = "BUSINESS" },
         { text = "Who are your two friends?", next = "guards" },
@@ -854,7 +919,23 @@ P:NPC {
         { text = "Why not sell at the Crossroads like everyone else?", next = "rivals" },
         { text = "What's stopping me from just taking a blade?", next = "rogue", when = { class = "ROGUE" } },
         { text = "Who do you work for, the Cartel or yourself?", next = "cartel", when = { race = "Goblin" } },
+        { text = "Where do all these blades come from, Lizzarik?", next = "w5_source" },
         { text = "Not interested.", next = "END" },
+      },
+    },
+    w5_source = {
+      lines = { { id = "w5_source_l", text = "Here and there, chum. Some from the smiths in Ratchet, some from a fellow in Orgrimmar who owes me, and some, well, the Barrens is full of battlefields, and battlefields are full of blades nobody's using any more." } },
+      choices = {
+        { text = "You're selling dead men's swords?", next = "w5_source2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_source2 = {
+      lines = { { id = "w5_source2_l", text = "I'm selling good steel at a fair markup, pal. The fellow who owned it isn't complaining, and his widow, if he had one, isn't walking out to Northwatch to pick it up. Somebody's gotta keep the iron moving." } },
+      choices = {
+        { text = "The dead's steel should go back to their kin.", next = "BACK", reply = "And who pays for the trip, you? Didn't think so. Still, I'll keep it in mind.", fx = { align = { honor = 1 } } },
+        { text = "The dead don't need swords. Fair enough.", next = "BACK", reply = "Now you're thinking like a businessman. My boys like you already.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     guards = {

@@ -210,3 +210,58 @@ P:Thread {
     },
   },
 }
+
+-- The great hunt (neutral, ~30-45). Nesingwary's camp in northern Stranglethorn: Ajeck's
+-- tigers, Erlgadin's panthers, Nesingwary's raptors and King Bangalash, Barnil and the torn
+-- book. The beats follow the camp's own quests and invent no events; the only thing that
+-- changes is what the hunters say about the jungle once the great cat is dead.
+P:Thread {
+  id = "nesingwary_hunt",
+  theme = "Four hunters keep a camp in the jungle, and each of them is hunting something besides the cats.",
+  title = "The camp in the jungle",
+  story = {   -- the journal's Stories page, by state
+    stirring = { first = "Hemet Nesingwary keeps a hunting camp in northern Stranglethorn, with Ajeck after the tigers and Sir Erlgadin after the panthers. Barnil keeps the kit and the book, and every one of them seems to be hunting something more than cats.",
+      third = "{name} found Hemet Nesingwary's hunting camp in northern Stranglethorn, and the hunters who kept it." },
+    unfolding = { first = "The tiger and panther pelts are piling up at the camp, and Sir Erlgadin says the panthers are more honest than the House of Nobles. Ajeck talks of nothing but Sin'Dall, and Barnil wants the scattered pages of the master's book brought home.",
+      third = "{name} helped the hunters of Nesingwary's camp, and heard what each of them was really after." },
+    resolved = { first = "King Bangalash is dead, and Nesingwary has his trophy. The camp drank to it, and then the master looked out at the jungle and said there's always another king in there, and I couldn't tell whether he meant it as a boast or a warning.",
+      third = "{name} brought down King Bangalash for Hemet Nesingwary, and the camp drank to it." },
+  },
+  npcs = { "nesingwary", "ajeck", "erlgadin", "barnil" },
+  states = { "dormant", "stirring", "unfolding", "resolved" },
+  endings = {
+    resolved = "King Bangalash is dead, and Nesingwary has his trophy, though he says the jungle always crowns another.",
+  },
+  pacing = { minConversations = 2, minSeconds = 900 },
+  reflection = {
+    first = "Four hunters and one camp, and not one of them has told me the same reason for being out here.",
+    third = "{name} had heard four hunters give four different reasons for living in Stranglethorn.",
+  },
+  beats = {
+    {
+      id = "b1_erlgadin", npc = "erlgadin",
+      when = { minLevel = 28, thread = { id = "nesingwary_hunt", notBeat = "b1_erlgadin" } },
+      text = "I gave up a seat in the House of Nobles to sleep in a tent and shoot panthers, {class}, and I'd do it again tomorrow. A panther wants your throat and says so plainly, which is more honesty than I ever met across a council table in Stormwind.",
+      fx = { thread = { id = "nesingwary_hunt", beat = "b1_erlgadin", state = "stirring" } },
+    },
+    {
+      id = "b2_ajeck", npc = "ajeck",
+      when = { questDone = TODO_QUEST("Tiger Mastery"), thread = { id = "nesingwary_hunt", notBeat = "b2_ajeck" } },
+      text = "You've seen the tigers now, so you'll understand when I say Sin'Dall is a different animal altogether. My father hunted the big cats his whole life and never took one like her, and I mean to finish what he started before the jungle finishes me.",
+      fx = { thread = { id = "nesingwary_hunt", beat = "b2_ajeck", state = "unfolding" } },
+    },
+    {
+      id = "b3_barnil", npc = "barnil",
+      when = { any = { { thread = { id = "nesingwary_hunt", beat = "b1_erlgadin" } }, { thread = { id = "nesingwary_hunt", beat = "b2_ajeck" } } },
+               ["not"] = { thread = { id = "nesingwary_hunt", beat = "b3_barnil" } } },
+      text = "Sir Erlgadin's hidin' from his family, an' young Ajeck's chasin' his father's ghost, an' the master's chasin' a book that some fool tore tae pieces across half the jungle. Me, I just keep the stew hot an' the rifles oiled, an' I'm the only one in this camp that sleeps sound.",
+      fx = { thread = { id = "nesingwary_hunt", beat = "b3_barnil", state = "unfolding" } },
+    },
+    {
+      id = "b4_nesingwary", npc = "nesingwary",
+      when = { questDone = TODO_QUEST("Big Game Hunter"), thread = { id = "nesingwary_hunt", notBeat = "b4_nesingwary" } },
+      text = "Bangalash is dead, and I've his hide for the wall, and the camp's been drinking since dusk. But I'll tell you what I didn't tell them, {class}: there's always another cat in that jungle that thinks itself king, and one day I'll be too old to answer it.",
+      fx = { thread = { id = "nesingwary_hunt", beat = "b4_nesingwary", state = "resolved" } },
+    },
+  },
+}

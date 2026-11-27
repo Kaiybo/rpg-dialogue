@@ -21,9 +21,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_hiram = {
+      lines = {
+        { id = "w3_hiram_1", text = "The man with the goats at the top of the lane, who brought me milk every morning and complained about my fences every evening. He fled to Southshore with the goats when the plague came, and I'm told he's still there, still complaining." },
+      },
+      choices = {
+        { text = "Would he recognise you?", next = "w3_recognise" },
+        { text = "He sounds a good neighbour.", next = "BACK", reply = "The best and the worst. I'd give a great deal to hear him complain about my fences once more." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_recognise = {
+      lines = {
+        { id = "w3_recognise_1", text = "He'd recognise the fence, I think, sooner than me. I've half a mind to send him a message, through one of you travellers, to say it's still standing. He'd hate that, and it would make his whole week." },
+      },
+      choices = {
+        { text = "I'll tell him, if I pass. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Delia Verana. This was my house, and that was my garden, and now it's a Deathguard billet, but they let me sit on my own steps." } },
-      again = { { id = "h_again", text = "Something else? I've all day." } },
+      again = { { id = "h_again", text = "Something else? I've all day, and these steps aren't going anywhere." } },
       choices = {
         { text = "Do you remember your neighbours?", next = "xneigh" },
         { text = "What do you think of the Deathguard here?", next = "xguard" },
@@ -34,6 +52,7 @@ P:NPC {
         { text = "Do you sleep in the house still?", next = "ysleep" },
         { text = "What do you miss most?", next = "ymiss" },
         { text = "Did you have children?", next = "ykids" },
+        { text = "Who was Old Hiram?", next = "w3_hiram" },
         { text = "I'll leave you to your steps.", next = "END" },
       },
     },
@@ -151,9 +170,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_heavy = {
+      lines = {
+        { id = "w3_heavy_1", text = "A sealed barrel from the Undercity, up the road on my back, that sloshed every step and knocked twice from the inside. I asked Lydon what was in it, and he said \"patience,\" and I've decided that's the name of something horrible." },
+      },
+      choices = {
+        { text = "Did it keep knocking?", next = "w3_knock" },
+        { text = "You should have dropped it.", next = "BACK", reply = "And spilled it on myself on the road? No, thank you. I carried it, and I set it down very gently, and I washed my hands for an hour." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_knock = {
+      lines = {
+        { id = "w3_knock_1", text = "All the way to the cellar, and then it stopped, the moment it was in the dark. That was worse, somehow. I don't go into that cellar now unless I'm made to, and I go out again faster than I went in." },
+      },
+      choices = {
+        { text = "I'd do the same. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Vinna Wayne. I fetch and carry for the apothecaries, which is not glamorous, but somebody has to keep Lydon's cauldrons full." } },
-      again = { { id = "h_again", text = "Quickly now, this bucket's heavy." } },
+      again = { { id = "h_again", text = "Quickly now, this bucket's heavy, and it's the third this hour." } },
       choices = {
         { text = "Who is Apothecary Lydon?", next = "xlydon" },
         { text = "Who were you, before?", next = "xbefore" },
@@ -164,6 +201,7 @@ P:NPC {
         { text = "What does Lydon brew, really?", next = "ybrew" },
         { text = "Is it tiring, even dead?", next = "ytired" },
         { text = "Did you go to the church, in life?", next = "ychurch" },
+        { text = "What's the heaviest thing Lydon's had you carry?", next = "w3_heavy" },
         { text = "Carry on.", next = "END" },
       },
     },
@@ -275,6 +313,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_spare = {
+      lines = {
+        { id = "w3_spare_1", text = "The old woman at the end of the orchard who leaves a bowl of milk out every evening for the barn cats. She's no soldier and no spy, and she sings while she does it, and I've written her down in every report as \"no threat,\" which is truer than most of what I write." },
+      },
+      choices = {
+        { text = "Does Darthalia read those reports?", next = "w3_read" },
+        { text = "A deathstalker with a soft spot.", next = "BACK", reply = "Not soft. Accurate. An old woman with a bowl of milk is no threat to anything but the mice." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_read = {
+      lines = {
+        { id = "w3_read_1", text = "Every word, and she's never once asked me why I mention the milk. I think she knows exactly what I'm doing, and I think she's decided to let me, which is as close to mercy as the Executor comes." },
+      },
+      choices = {
+        { text = "Then the woman has two guardians. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Deathstalker Lesh, a scout for High Executor Darthalia. I watch Hillsbrad Fields and report on every cart and soldier that moves through them." } },
       again = { { id = "h_again", text = "Quietly. What else?" } },
@@ -285,6 +341,7 @@ P:NPC {
         { text = { normal = "What have you seen in the fields?", polite = "What have you observed in the fields, Deathstalker?", blunt = "What's down there?" }, next = "fields" },
         { text = "You've been here a long time.", next = "long" },
         { text = "Is it time to strike?", next = "strike", when = { questActive = TODO_QUEST("Time To Strike") } },
+        { text = "Is there one farmer below you'd spare?", next = "w3_spare" },
         { text = "I'll leave you to watch.", next = "END" },
       },
     },
@@ -375,9 +432,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_wicker = {
+      lines = {
+        { id = "w3_wicker_1", text = "Once, from a ridge in Tirisfal, on a scouting run I'd rather not explain to the Magistrate. The whole sky went orange, and the Forsaken stood round it singing, and I'll admit, soldier, it didn't look like a mockery from where I lay." },
+      },
+      choices = {
+        { text = "What did it look like?", next = "w3_look" },
+        { text = "That's a dangerous admission for a sergeant.", next = "BACK", reply = "It is, and that's why you'll keep it to yourself, along with my opinion of the mud." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_look = {
+      lines = {
+        { id = "w3_look_1", text = "Like a harvest bonfire in Hillsbrad when I was a boy, only with the wrong people round it, or the right people with the wrong faces. I still send recruits to douse it, mind, because orders are orders, but I don't enjoy the sending." },
+      },
+      choices = {
+        { text = "Orders are orders. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Sergeant Hartman, of the Southshore garrison. Every Hallow's End the undead raise a great burning figure outside their city, and every year I send someone to spoil it." } },
-      again = { { id = "h_again", text = "Anything else, soldier?" }, { id = "h_again2", text = "Go on, then." } },
+      again = { { id = "h_again", text = "Anything else you need, soldier, or are you just admiring my mud?" }, { id = "h_again2", text = "Go on, then." } },
       choices = {
         { text = { normal = "What are the Forsaken celebrating?", polite = "What is it the Forsaken celebrate, Sergeant?", blunt = "What do the Forsaken celebrate?" }, next = "celebrate" },
         { text = "How do I spoil it?", next = "spoil" },
@@ -388,6 +463,7 @@ P:NPC {
         { text = "Do you hate the Forsaken?", next = "yhate" },
         { text = "What would you do if Tarren Mill fell?", next = "yfall" },
         { text = "I'm Forsaken. What will you do?", next = "yforsaken", when = { race = "Scourge" } },
+        { text = "Have you ever seen the Wicker Man burn?", next = "w3_wicker" },
         { text = "I'll think on it.", next = "END" },
       },
     },
@@ -490,6 +566,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_grave = {
+      lines = {
+        { id = "w3_grave_1", text = "Old Jory's, the fisherman's, by the east wall, because he asked me to carve a herring on the stone and I've never been able to stop admiring it. It's the only grave in the yard that makes the children laugh, and I think he'd like that." },
+      },
+      choices = {
+        { text = "Did you know Jory well?", next = "w3_jory" },
+        { text = "A herring on a headstone. That's lovely.", next = "BACK", reply = "It is, isn't it? I've half a mind to ask for one myself, only I can't decide what fish I'd be." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_jory = {
+      lines = {
+        { id = "w3_jory_1", text = "Everyone knew Jory, {class}. He'd stand on the dock and tell any stranger the same story about a shark off Lordamere, and the shark got bigger every year. I check his grave every morning, first of all of them, because if anyone here is going to get up and walk, it'll be Jory, to tell it again." },
+      },
+      choices = {
+        { text = "Then I hope he rests easy. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Smithers, caretaker of this yard. I dig the graves and keep them tidy, and these days I keep an eye on them too." } },
       again = { { id = "h_again", text = "Anything else? I've a grave half dug." } },
@@ -503,6 +597,7 @@ P:NPC {
         { text = "Did you know many of the folk buried here?", next = "yknew" },
         { text = "Who will dig your grave, Smithers?", next = "ymine" },
         { text = "Do the Forsaken ever come to the yard?", next = "yforsaken" },
+        { text = "Is there one grave here you tend more than the rest?", next = "w3_grave" },
         { text = "Rest easy, caretaker.", next = "END" },
       },
     },
@@ -620,9 +715,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_best = {
+      lines = {
+        { id = "w3_best_1", text = "A wedding, the summer before the plague, between the brewer's daughter and a fisherman nobody thought would ever settle. I cried it from the dock to the church and back, three times, and the whole town came out to cheer, and I lost my voice for a week." },
+      },
+      choices = {
+        { text = "What became of them?", next = "w3_couple" },
+        { text = "I'd like to hear you cry good news again.", next = "BACK", reply = "So would I, {class}, so would I. Bring me some, and I'll shout it till the windows rattle." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_couple = {
+      lines = {
+        { id = "w3_couple_1", text = "They're still here, both of them, with two children and a boat called the Long Odds. He fishes and she brews, and every time I cry a warning, she brings me a mug afterwards to soothe my throat." },
+      },
+      choices = {
+        { text = "Then Southshore's still got something to cheer. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I ran all the way down from the hills, and I saw them, cloaked figures moving through the trees toward town. They must be after Magistrate Maltory again, and I've got to warn the guards!" } },
-      again = { { id = "h_again", text = "Quickly, {class}, there's no time!" } },
+      again = { { id = "h_again", text = "Quickly, {class}, there's no time, and my voice is going!" } },
       choices = {
         { text = "Calm down. Who are you, exactly?", next = "xwho" },
         { text = "Why does anyone want Maltory dead?", next = "xmaltory" },
@@ -633,6 +746,7 @@ P:NPC {
         { text = "Is your job ever easy?", next = "yeasy" },
         { text = "What does Maltory think of you?", next = "ymalt" },
         { text = "I could help you be heard.", next = "ymage", when = { class = "MAGE" } },
+        { text = "What's the best news you ever cried?", next = "w3_best" },
         { text = "I'll guard the town.", next = "END" },
       },
     },
@@ -880,6 +994,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_stew = {
+      lines = {
+        { id = "w3_stew_1", text = "Frostwolf stew, sweetheart, the house special: wolf-rider jerky, mountain onions, and a ram I bought off a Stormpike deserter at a very attractive price. Don't tell the orcs where the ram came from, because they think it's a trophy and they pay extra for trophies." },
+      },
+      choices = {
+        { text = "You're selling the orcs a dwarven ram?", next = "w3_ram" },
+        { text = "That's a profitable little secret.", next = "BACK", reply = "Profit's the only kind of secret worth keepin', friend. The rest just weighs ya down in the snow." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_ram = {
+      lines = {
+        { id = "w3_ram_1", text = "Listen, listen, a ram don't care which army it's eaten by, and neither do I. Mirvyna's buyin' Frostwolf mutton for her pies on the other side, I'd bet my last copper on it, and between us we're feedin' the whole war on each other's dinners." },
+      },
+      choices = {
+        { text = "That's almost a peace treaty. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Dillord Copperpinch, Smokywood Pastures, mountain branch. Soldiers come out of that valley half frozen and starving, and a goblin with a stove is a goblin with a customer base." } },
       again = { { id = "h_again", text = "Anything else, buddy? My fingers are freezin' here." } },
@@ -896,6 +1028,7 @@ P:NPC {
         { text = "Ever been caught between the armies?", next = "ybetween" },
         { text = "Do you feed the wounded for free?", next = "yfree" },
         { text = "How do the Frostwolves treat you?", next = "yhorde" },
+        { text = "What's in tonight's stew, pal?", next = "w3_stew" },
         { text = "Stay warm.", next = "END" },
       },
     },
@@ -1002,9 +1135,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_pies = {
+      lines = {
+        { id = "w3_pies_1", text = "That's the Jinglepocket secret recipe, sweetheart, and it's worth more than this whole stall. I'll tell you this much for free: there's mutton, there's pepper, and there's somethin' from the Frostwolf side of the valley that the dwarves would riot over if they knew." },
+      },
+      choices = {
+        { text = "Frostwolf mutton, I'd wager.", next = "w3_mutton" },
+        { text = "I'll take one, secret and all.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_mutton = {
+      lines = {
+        { id = "w3_mutton_1", text = "Whoa, whoa, keep your voice down, pal! A dwarf hears that and I'm out of business by suppertime. Dillord buys my leftover crust for his stew, if ya must know, so the whole valley's eatin' the same pie in the end." },
+      },
+      choices = {
+        { text = "Your secret's safe. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Mirvyna Jinglepocket, Smokywood Pastures, valley concession. The Stormpike dwarves eat like starved bears, and I've the only stove on this side of the mountain." } },
-      again = { { id = "h_again", text = "Anything else? Bell's gettin' cold." } },
+      again = { { id = "h_again", text = "Anything else? Bell's gettin' cold, and so are the pies." } },
       choices = {
         { text = "The Stormpikes deserve honest pies for honest coin.", next = "BACK", reply = "Honest pies, aye, and honest prices, give or take the mountain surcharge. A girl's got overhead.", fx = { align = { honor = 1 } } }, -- dp_stance
         { text = "Water the ale. The Stormpikes are too cold to taste it.", next = "BACK", reply = "Ha! You've never met a thirsty dwarf, sweetheart. They'd know, and they'd take the stall apart.", fx = { align = { honor = -1 } } }, -- dp_stance
@@ -1018,6 +1169,7 @@ P:NPC {
         { text = "What do you think of Dillord?", next = "ydill" },
         { text = "Has the war ever reached your stall?", next = "yreach" },
         { text = "Which army eats the most?", next = "ydwarf" },
+        { text = "What goes in these famous pies?", next = "w3_pies" },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -1131,9 +1283,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_wolves = {
+      lines = {
+        { id = "w3_wolves_1", text = "White as the snow and twice as cold-tempered, and every one raised from a pup by the rider who'll go to war on it. Mine is Ice-tooth, older than some of the warriors at this gate, and he still knows the passes better than any scout." },
+      },
+      choices = {
+        { text = "How does a Frostwolf earn a wolf?", next = "w3_earn" },
+        { text = "I'd like to see Ice-tooth run.", next = "BACK", reply = "Then fight beside us in the valley, and you will see him run, and you will see what runs before him." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_earn = {
+      lines = {
+        { id = "w3_earn_1", text = "By being chosen. A young orc sits with the pups through a winter, and in spring one of them comes to him and will not leave. Thrall himself was chosen so, by a white wolf called Snowsong, and no one in this clan questioned his right to lead after that." },
+      },
+      choices = {
+        { text = "A worthy custom. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Voggah Deathgrip of the Frostwolf clan. Drek'Thar sent me to stand at the gate and gather those willing to fight for our home." } },
-      again = { { id = "h_again", text = "What else, warrior?" }, { id = "h_again2", text = "Speak plainly." } },
+      again = { { id = "h_again", text = "What else, warrior? The gate does not keep itself." }, { id = "h_again2", text = "Speak plainly." } },
       choices = {
         { text = { normal = "Why do the Frostwolves need help?", polite = "How may I help the Frostwolves, elder?", blunt = "What's the trouble?" }, next = "help" },
         { text = "Tell me about Drek'Thar.", next = "drekthar" },
@@ -1143,6 +1313,7 @@ P:NPC {
         { text = "How long have you served the clan?", next = "ylong" },
         { text = "What do the Frostwolves need most?", next = "yneed" },
         { text = "Do you remember Durotan?", next = "ydurotan" },
+        { text = "Tell me about the Frostwolves' wolves.", next = "w3_wolves" },
         { text = "I'll return when I'm ready.", next = "END" },
       },
     },
@@ -1242,9 +1413,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_empty = {
+      lines = {
+        { id = "w3_empty_1", text = "I count ravens. There are thirty-one that roost on the manor's eaves, and when the count changes, someone has disturbed them, and that someone is usually on this road. You disturbed four." },
+      },
+      choices = {
+        { text = "Four ravens told you I was coming?", next = "w3_ravens" },
+        { text = "That's an odd sort of watchman.", next = "BACK", reply = "It's an old one. The house is named for them, and they've never once let me down." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_ravens = {
+      lines = {
+        { id = "w3_ravens_1", text = "They tell me more than that. Four means you walked boldly and stopped once; a Syndicate scout disturbs a dozen and then runs. If none of them rise at all, I draw my blade, because only a very good rogue disturbs nothing." },
+      },
+      choices = {
+        { text = "I'll walk boldly, then. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I guard the road to the manor. Lord Ravenholdt receives only those he chooses, and I decide whether he's chosen you." } },
-      again = { { id = "h_again", text = "Speak quickly." } },
+      again = { { id = "h_again", text = "Speak quickly; the ravens are restless." } },
       choices = {
         { text = "A guild without rules is just a band of cutthroats.", next = "BACK", reply = "Exactly. Ravenholdt endures because its rules are kept, every one of them, in silence.", fx = { align = { order = 1 } } }, -- dp_stance
         { text = "A true rogue answers to no guild, only to his own blade.", next = "BACK", reply = "Then you'll find the road down from Ravenholdt shorter than you think. Mind your step.", fx = { align = { order = -1 } } }, -- dp_stance
@@ -1256,6 +1445,7 @@ P:NPC {
         { text = "How long have you served the manor?", next = "ylong" },
         { text = "Do you ever regret your work?", next = "yregret" },
         { text = "What does Ravenholdt want with rogues?", next = "ywant" },
+        { text = "What do you do on the road when no one comes?", next = "w3_empty" },
         { text = "I'll turn back.", next = "END" },
       },
     },
@@ -1500,9 +1690,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_scars = {
+      lines = {
+        { id = "w3_scars_1", text = "A rifle ball in the shoulder, still in there, that aches when the weather turns, and a burn across my back from a dwarf's black powder. The dwarves fight with fire and iron, and they never stop until you've broken the iron or put out the fire." },
+      },
+      choices = {
+        { text = "Why keep the ball in your shoulder?", next = "w3_ball" },
+        { text = "The dwarves are worthy enemies.", next = "BACK", reply = "They are, and I'll say so to their faces, between blows. An enemy who never runs deserves to be fought properly." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_ball = {
+      lines = {
+        { id = "w3_ball_1", text = "Because the shaman said taking it out would do more harm, and because it reminds me. The dwarf who fired it is buried at Iceblood, and I put him there, and every time the shoulder aches I remember that he was a fine shot." },
+      },
+      choices = {
+        { text = "A warrior's memory. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I've fought the Stormpike since they first came into the valley. My blade has seen more dwarves than my mother has seen grandchildren." } },
-      again = { { id = "h_again", text = "Something else, warrior?" } },
+      again = { { id = "h_again", text = "Something else, warrior? Say it before the wind takes it." } },
       choices = {
         { text = "A Frostwolf fights the Stormpike face to face.", next = "BACK", reply = "Lok'tar! That is how our clan has always fought, and how we will win this valley.", fx = { align = { honor = 1 } } }, -- dp_stance
         { text = "Ambush the Stormpike in the passes. Victory is what matters.", next = "BACK", reply = "Victory matters, but a victory without honour shames the clan. Drek'Thar would not approve.", fx = { align = { honor = -1 } } }, -- dp_stance
@@ -1515,6 +1723,7 @@ P:NPC {
         { text = "Will you ever lay down your blade?", next = "ylay" },
         { text = "Who taught you to fight?", next = "ytaught" },
         { text = "What do you think of the dwarves, truly?", next = "ydwarves" },
+        { text = "What scars have the dwarves given you?", next = "w3_scars" },
         { text = "Lok'tar.", next = "END" },
       },
     },
@@ -1751,9 +1960,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_dwarves = {
+      lines = {
+        { id = "w3_dwarves_1", text = "They call me \"Beanpole,\" to my face, and they mean it kindly, I think. I'm half a head taller than the tallest of them and twice as cold, and they've decided that makes me a sort of mascot, which I've chosen to take as a promotion." },
+      },
+      choices = {
+        { text = "Do they follow your orders?", next = "w3_orders" },
+        { text = "Beanpole suits you.", next = "BACK", reply = "Thank you, I think. Don't let Vanndar hear you say it, though, or I'll be Beanpole in the official dispatches." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_orders = {
+      lines = {
+        { id = "w3_orders_1", text = "To the letter, once they've argued about every word of them over an ale. A dwarf will die where you post him, soldier, but he'll tell you exactly why you were wrong to post him there while he does it." },
+      },
+      choices = {
+        { text = "That sounds like loyalty. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Captain Armando Ossex, Stormpike Guard. I hold this cave so the Horde doesn't come through it, and so our reinforcements can." } },
-      again = { { id = "h_again", text = "Something else, soldier?" } },
+      again = { { id = "h_again", text = "Something else, soldier? Keep your back to the cave mouth while you ask." } },
       choices = {
         { text = "A soldier keeps faith with his captain, whatever the cost.", next = "BACK", reply = "Good. That's what wins valleys and saves lives. Remember it when the Frostwolves charge.", fx = { align = { honor = 1 } } }, -- dp_stance
         { text = "I serve Vanndar until a better offer comes along.", next = "BACK", reply = "Then don't let him hear you say it. The Stormpike don't take kindly to sellswords.", fx = { align = { honor = -1 } } }, -- dp_stance
@@ -1762,6 +1989,7 @@ P:NPC {
         { text = "I'm Horde, Captain. I'm only passing.", next = "xhorde", when = { faction = "Horde" } },
         { text = "What's happening in the valley?", next = "valley" },
         { text = "Why is a human with the Stormpike?", next = "human" },
+        { text = "What do the dwarves make of a human captain?", next = "w3_dwarves" },
         { text = "Carry on, Captain.", next = "END" },
       },
     },
@@ -1854,9 +2082,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_miners = {
+      lines = {
+        { id = "w3_miners_1", text = "The Hobbs brothers, from Hillsbrad Fields, who can swing a pick in the dark and argue about it at the same time. They've been at Azurelode since before the plague, and they've sworn they'll be the last two out if the Forsaken come again." },
+      },
+      choices = {
+        { text = "Do they mean it?", next = "w3_mean" },
+        { text = "Every mine needs a pair like that.", next = "BACK", reply = "It does, and every foreman needs to keep them from fighting each other. I spend half my day at it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_mean = {
+      lines = {
+        { id = "w3_mean_1", text = "They meant it last spring, when the Mill's raiders came down the ridge, and they held the shaft door with pick handles until the militia arrived. Southshore gave them a commendation, and they used it to wedge a cart wheel." },
+      },
+      choices = {
+        { text = "Practical men. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I run the crews at Azurelode. Copper and tin, mostly, and the odd vein of something better when the Light smiles." } },
-      again = { { id = "h_again", text = "Make it quick; the lads slack off when I'm not looking." } },
+      again = { { id = "h_again", text = "Make it quick; the lads slack off when I'm not looking, and the Hobbs boys more than most." } },
       choices = {
         { text = "What do the miners say about all this?", next = "xmen" },
         { text = "The Forsaken took Tarren Mill. Why stay?", next = "xstay" },
@@ -1866,6 +2112,7 @@ P:NPC {
         { text = "What's the best ore you've pulled from Azurelode?", next = "yore" },
         { text = "What keeps you awake at night?", next = "ynight" },
         { text = "Do you trust the Southshore militia?", next = "ytrust" },
+        { text = "Who are your best miners?", next = "w3_miners" },
         { text = "I'll leave you to it.", next = "END" },
       },
     },

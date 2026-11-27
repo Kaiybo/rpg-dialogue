@@ -41,6 +41,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    mi_grow = {
+      lines = { { id = "mi_grow_l", text = "A wolf rider, like Kildar's riders, and I'm going to have the biggest wolf in Orgrimmar and he'll be called Bonecruncher. Mogra says she's going to be the warlord, but there can only be one, so I told her she can be my second." } },
+      choices = {
+        { text = "The Horde has room for more than one warlord.", next = "mi_grow2" },
+        { text = "Bonecruncher is a fine name.", next = "mi_grow2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mi_grow2 = {
+      lines = { { id = "mi_grow2_l", text = "That's what Mogra said, and then she hit me with a stick, so maybe she's right. Father says I have to learn a trade first anyway, and I said riding is a trade, and he said not the way I do it." } },
+      choices = {
+        { text = "Your father has a point.", next = "mi_grow3" },
+        { text = "Something else, Migi.", next = "BACK" },
+      },
+    },
+    mi_grow3 = {
+      lines = { { id = "mi_grow3_l", text = "He always has a point, that's what's annoying. But Borstan said he wanted to be a hunter and ended up cooking, and he's happy, so maybe it doesn't matter what you start as." } },
+      choices = {
+        { text = "That's wise of you to notice.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mi_rock = {
+      lines = { { id = "mi_rock_l", text = "It is a throne! It's the war chief's throne, and the war chief has to sit on it and give orders, and nobody else can sit there, not even if they're tired. Thra found it behind the hold and we all carried it, even Puk." } },
+      choices = {
+        { text = "Does the real Warchief have a throne like that?", next = "mi_rock2" },
+        { text = "That sounds like hard work.", next = "mi_rock2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mi_rock2 = {
+      lines = { { id = "mi_rock2_l", text = "The real Warchief has a big chair in Grommash Hold, I saw it once through the door, but the guards made me go away. Our rock is better, I think, because we carried it ourselves and he probably didn't." } },
+      choices = {
+        { text = "I think you're right.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mi_shaman = {
+      lines = { { id = "mi_shaman_l", text = "A real shaman? Puk would go mad, he always wants to be the shaman and nobody lets him heal properly. Can you make lightning come out of your hands, or is that only in stories?" } },
+      choices = {
+        { text = "It's real, but I'll not show you here.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
@@ -65,6 +109,9 @@ P:NPC {
         { text = "Who are your friends?", next = "friends" },
         { text = "Your father worries about you, you know.", next = "father" },
         { text = "Here's your lunch from Borstan.", next = "BUSINESS", when = { questActive = TODO_QUEST("Favorite Food") } },
+        { text = "What do you want to be when you grow up?", next = "mi_grow" },
+        { text = "That flat rock looks like a fine throne.", next = "mi_rock" },
+        { text = "I'm a shaman. Puk might like to meet a real one.", next = "mi_shaman", when = { class = "SHAMAN" } },
         { text = "Good luck with the war, Migi.", next = "END" },
       },
     },
@@ -330,6 +377,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2game = {
+      lines = { { id = "w2gm_default", text = "A leaf and a song. I put the leaf on the wound and sing the song my grandmother hums when she's cooking, and then they're better, except Migi, who always says he needs a second leaf." } },
+      choices = {
+        { text = "Does Migi really need the second leaf?", next = "w2game2" },
+        { text = "That sounds like real healing to me.", next = "w2game2" },
+        { text = "Something else, Puk.", next = "BACK" },
+      },
+    },
+    w2game2 = {
+      lines = {
+        { id = "w2gm2_shaman", when = { class = "SHAMAN" }, text = "No, he just likes the song. Is that how it is when you heal people for real? Do some of them only pretend to be hurt so you'll sing to them?" },
+        { id = "w2gm2_default", text = "No, he just likes the song, I think. I don't mind, because a shaman shouldn't be stingy with leaves. There are lots of leaves." },
+      },
+      choices = { { text = "Keep singing, Puk.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       hub = true,
       lines = {
@@ -352,6 +414,7 @@ P:NPC {
         { text = "Have you ever watched a real healer work?", next = "healers" },
         { text = "Do you want to see a real totem, Puk?", next = "totem", when = { class = "SHAMAN" } },
         { text = "Could you heal someone like me?", next = "undead", when = { race = "Scourge" } },
+        { text = "What do you heal them with, in the game?", next = "w2game" },
         { text = "Take care of them, healer.", next = "END" },
       },
     },

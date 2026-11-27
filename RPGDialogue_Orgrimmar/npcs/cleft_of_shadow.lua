@@ -33,6 +33,52 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2rav = {
+      lines = {
+        { id = "w2r_rogue", when = { class = "ROGUE" }, text = "You've heard the whispers, then, which means you've been listening in the right taverns. Ravenholdt Manor sits in the hills of Alterac, and its lord takes in rogues of any banner, so long as they hate the Syndicate as much as he does." },
+        { id = "w2r_default", text = "Dealings is a strong word for it. There's a manor in the hills of Alterac where rogues of every banner go to drink together and hunt the Syndicate, and nobody there asks whether you came in by Orgrimmar or by Stormwind." },
+      },
+      choices = {
+        { text = "And you let your rogues go there?", next = "w2rav2" },
+        { text = "Rogues who answer to no banner sound dangerous.", next = "w2rav2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2rav2 = {
+      lines = { { id = "w2r2_default", text = "I let them go, and I listen when they come back, because a human rogue in his cups will tell a troll things he'd never tell his own king. Ravenholdt thinks it's using us, friend, and I'm content to let it think so for as long as the gossip keeps flowing." } },
+      choices = { { text = "Clever. I'll keep that in mind.", next = "BACK" }, { text = "Something else, Shenthul.", next = "BACK" } },
+    },
+    sh_hand = {
+      lines = { { id = "sh_hand_l", text = "They do, and they're the best two I've ever had. Ormok teaches the knife and Gest teaches the waiting, and between them they make a rogue I can send anywhere without worrying what comes back." } },
+      choices = {
+        { text = "And what do you teach, then?", next = "sh_hand2" },
+        { text = "You trust them more than you let on.", next = "sh_hand2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sh_hand2 = {
+      lines = { { id = "sh_hand2_l", text = "I teach the part nobody likes, which is deciding who the knife is for. The Shattered Hand is a clan again, of a sort, and a clan that kills without reason stops being useful to the Warchief very quickly." } },
+      choices = {
+        { text = "A blade should only fall where the Horde needs it.", next = "BACK", reply = "That's the lesson, and few learn it in under a year. Stay on that road and you'll go far in the Hand.", fx = { align = { order = 1 } } },
+        { text = "A good rogue chooses their own marks.", next = "BACK", reply = "A good rogue does, and a dead rogue did the same. Choose your own marks somewhere far from my hall, friend.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sh_neeru = {
+      lines = { { id = "sh_neeru_l", text = "He does, doesn't he, warming his hands at that fire with his old Burning Blade friends coming to visit. The Warchief lets him sit there because a cultist who talks to us is worth more than a dead one." } },
+      choices = {
+        { text = "You think he's playing both sides?", next = "sh_neeru2" },
+        { text = "I'd have thrown him out of the city.", next = "sh_neeru2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sh_neeru2 = {
+      lines = { { id = "sh_neeru2_l", text = "I think everyone in the Cleft is playing at least two sides, and Neeru knows I'm watching him. If his friends from the Searing Blade ever come up out of Ragefire, he'll be the first to tell me, because he knows he'll be the first I come for." } },
+      choices = {
+        { text = "Then I'll watch him too.", next = "BACK", fx = { learn = { "burning_blade" } } },
+        { text = "Something else, Shenthul.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Shenthul, and I train those who work in the shadows for the Horde. Not every war is fought with banners and war drums, and the Warchief knows that better than the grunts who shout Lok'tar in his name." },
@@ -49,6 +95,9 @@ P:NPC {
         { text = "I'd guess the Warchief doesn't trust your kind.", next = "trust" },
         { text = "I'm ready for my next lesson.", next = "BUSINESS", when = { class = "ROGUE" } },
         { text = "What would you have of a Forsaken rogue?", next = "forsaken", when = { race = "Scourge", class = "ROGUE" } },
+        { text = "Ormok and Gest answer to you, I hear.", next = "sh_hand" },
+        { text = "Neeru Fireblade sits very comfortably down here.", next = "sh_neeru" },
+        { text = "Have you dealings with the rogues of Ravenholdt?", next = "w2rav" },
         { text = "Farewell, Shenthul.", next = "END" },
       },
     },
@@ -696,7 +745,7 @@ P:NPC {
         { id = "h_warlock", when = { class = "WARLOCK" }, text = "Hagrus, and before you ask, no, I don't sell soul shards. I don't keep them under the counter either, and I never have, so you can stop looking at it." },
       },
       again = {
-        { id = "h_again", text = "What else? I've got stock to count." },
+        { id = "h_again", text = "Well, what else? These powders and candles won't tally themselves, and I've already lost my count twice today." },
         { id = "h_again2", text = "Still here? Then ask, and be quick about it, because my powder doesn't count itself." },
       },
       choices = {

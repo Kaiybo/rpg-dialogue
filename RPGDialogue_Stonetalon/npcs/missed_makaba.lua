@@ -45,7 +45,23 @@ P:NPC {
         { text = "Kaya is safe, Makaba. How is she?", next = "home", when = { questDone = TODO_QUEST("Kaya's Alive") } },
         { text = "Let me help you answer them.", next = "BUSINESS" },
         { text = "You shouldn't stay here alone.", next = "alone" },
+        { text = "What will you rebuild first, if you rebuild?", next = "w5_rebuild" },
         { text = "Walk with the Earth Mother, Makaba.", next = "END" },
+      },
+    },
+    w5_rebuild = {
+      lines = { { id = "w5_rebuild_l", text = "The drying racks. Kaya used to hang the hides with me in the mornings, and she sang to them. If I build the racks first, then when she comes home there will be something here that is as it was, and she can sing again." } },
+      choices = {
+        { text = "And if the Grimtotem come back?", next = "w5_rebuild2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_rebuild2 = {
+      lines = { { id = "w5_rebuild2_l", text = "Then they will find me by the racks, and I will not run this time. I ran the first night, to look for her, and when I came back the camp was ash. A tauren who has nothing left to lose is a difficult thing to burn twice." } },
+      choices = {
+        { text = "Rebuild. The land is yours, and they won't take it again.", next = "BACK", reply = "Thank you. It helps to hear someone say it as if it were simple.", fx = { align = { honor = 1 } } },
+        { text = "Leave this place. Your life matters more than racks.", next = "BACK", reply = "Perhaps it does. But the racks are where Kaya will look for me first.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     attack = {

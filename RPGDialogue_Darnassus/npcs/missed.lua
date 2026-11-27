@@ -29,7 +29,7 @@ P:NPC {
       lines = { { id = "h_default", text = "I am Silva'las, the newest of the four who keep this house. Every lot that crosses my counter has come from somewhere I have never stood, and I confess that is half of why I took the post." } },
       again = { { id = "h_again_x", text = "Ask on, friend. I have not yet run out of questions for you." },
         { id = "h_again", text = "What else would you tell me, or ask?" },
-        { id = "h_again2", text = "Please, go on." },
+        { id = "h_again2", text = "Please, go on. I collect every word from outlanders." },
       },
       choices = {
         { text = "A fair auction serves everyone.", next = "BACK", reply = "It does. Every bid is honest here.", fx = { align = { honor = 1 } } },
@@ -41,6 +41,7 @@ P:NPC {
         { text = "Some say outlanders' goods have no place here.", next = "x_st" },
         { text = "I've sold things here from Ironforge.", next = "x_dw", when = { race = "Dwarf" } },
         { text = "Gnomeregan sends very little these days.", next = "x_gn", when = { race = "Gnome" } },
+        { text = "Do the other auctioneers tease you for your questions?", next = "w_tease" },
         { text = "Until next time.", next = "END" },
       },
     },
@@ -115,6 +116,25 @@ P:NPC {
         { text = "We are tired. Something else.", next = "BACK" },
       },
     },
+    w_tease = {
+      lines = {
+        { id = "w_tease_default", text = "Cazarez does, because he asks just as many and resents the competition. Golothas has started writing my questions in the margin of his ledger, and I am not certain whether that is a compliment or a warning." },
+      },
+      choices = {
+        { text = "What would you ask me, then?", next = "w_tease2" },
+        { text = "Golothas sounds like he's fond of you.", next = "w_tease2" },
+      },
+    },
+    w_tease2 = {
+      lines = {
+        { id = "w_tease2_default", text = "Where you were last, and what the air smelled of, and whether anybody there had heard of Darnassus. Most people answer the first two and laugh at the third, and I have learned that the laugh tells me more than the answer does." },
+        { id = "w_tease2_w1", when = { race = "Human" }, text = "And from you I should like to know whether Stormwind really smells of the sea in the market, as a sailor once told me, or whether he was teasing too." },
+      },
+      choices = {
+        { text = "Darnassus is better known than you think.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Silva'las.", next = "BACK" },
+      },
+    },
   },
   topics = {
     teldrassil = { { id = "tp_tel", text = "I have hardly left the great tree, so I am the wrong one to ask what it lacks. To me it holds the whole world, one lot at a time." } },
@@ -150,11 +170,11 @@ P:NPC {
     hello = {
       lines = { { id = "h_default", text = "I am Cyridan, and leather is my trade. Melea sells mail down the terrace for those who wish to be heard coming, and Vinasia sells cloth for those who do not expect to be struck, and I serve everybody in between." } },
       again = { { id = "h_again_x", text = "Speak softly, and ask what you like." },
-        { id = "h_again", text = "What else would you know?" },
+        { id = "h_again", text = "Ask on, while I work this edge down. Leather listens better when it is handled." },
         { id = "h_again2", text = "Yes? Speak, and I will hear it." },
       },
       choices = {
-        { text = "Leather should let you move silently.", next = "BACK", reply = "It should. You understand.", fx = { align = { order = 1 } } },
+        { text = "Leather should let you move silently.", next = "BACK", reply = "It must, or it is only hide with a buckle on it. A hunter heard is a hunter gone hungry.", fx = { align = { order = 1 } } },
         { text = "Silence doesn't matter. Strength does.", next = "BACK", reply = "Then you will be heard, and found.", fx = { align = { order = -1 } } },
         { text = "Let me see your leathers.", next = "BUSINESS" },
         { text = "Why does quiet matter so much to you?", next = "quiet" },
@@ -163,6 +183,7 @@ P:NPC {
         { text = "Rogues should never be trusted with silence.", next = "x_st" },
         { text = "I'd like boots that don't creak.", next = "x_lw", when = { profession = "Leatherworking" } },
         { text = "Druids wear leather too.", next = "x_dr", when = { class = "DRUID" } },
+        { text = "How do you test whether a piece is quiet enough?", next = "w_test" },
         { text = "Go quietly, Cyridan.", next = "END" },
       },
     },
@@ -234,6 +255,25 @@ P:NPC {
       },
       choices = {
         { text = "I'll remember that when I change. Something else.", next = "BACK" },
+      },
+    },
+    w_test = {
+      lines = {
+        { id = "w_test_default", text = "I walk across the floor of the old storeroom in it, in the dark, while Kyrai's cat sleeps by the door. If the cat wakes, the piece goes back to the bench, and she has woken for nearly a third of everything I have ever made." },
+      },
+      choices = {
+        { text = "A cat as your judge?", next = "w_test2" },
+        { text = "That's a hard standard.", next = "w_test2" },
+      },
+    },
+    w_test2 = {
+      lines = {
+        { id = "w_test2_default", text = "A better judge than any of my customers, who all believe they are quieter than they are. The cat has no reason to flatter me, and she has never once been bribed, though I confess I have tried." },
+        { id = "w_test2_w1", when = { class = "ROGUE" }, text = "You walk softly yourself, I can hear that, or rather I cannot. Would you like to try the cat? Most rogues come back from it humbled." },
+      },
+      choices = {
+        { text = "I'll take my chances with the cat.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Something else, Cyridan.", next = "BACK" },
       },
     },
   },

@@ -40,7 +40,25 @@ P:NPC {
         { text = "Who do you like best in town?", next = "ylike" },
         { text = "Do the Horde and Alliance get along here?", next = "yboth" },
         { text = "Got any gossip for a fellow goblin?", next = "ygob", when = { race = "Goblin" } },
+        { text = "That coat's far too fine for this weather.", next = "w9_coat" },
         { text = "Keep warm, Gogo.", next = "END" },
+      },
+    },
+
+    w9_coat = {
+      lines = { { id = "w9_coat_d", text = "Isn't it gorgeous? A gift from a generous friend, hon, a trader from Booty Bay who thought it would make me fall in love with him. It didn't, but it made me fall in love with the coat, so everybody won a little." } },
+      choices = {
+        { text = "He must have been disappointed.", next = "w9_coat2" },
+        { text = "You took a gift and broke his heart?", next = "w9_coat2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_coat2 = {
+      lines = { { id = "w9_coat2_d", text = "He was for a week, and then he met a lovely lady fishmonger in Ratchet, so I like to think I did him a favour. In Everlook, sweetheart, nobody keeps a broken heart for long, because it's too cold to carry anything you don't need." } },
+      choices = {
+        { text = "Very practical of you.", next = "BACK", reply = "That's me, hon, warm and practical. Mostly warm." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     news = {
@@ -133,7 +151,7 @@ P:NPC {
     hello = {
       lines = { { id = "h_default", text = "Jack Sterling. I came to Everlook on a goblin's promise that there was money to be made up here, and there is, only it all seems to be made by goblins." } },
       again = {
-        { id = "h_again", text = "What else is on your mind?" },
+        { id = "h_again", text = "What else? Pull your chair in closer, friend, the draught comes right under that door." },
         { id = "h_again2", text = "Go on, the fire's not going anywhere and neither am I." },
       },
       choices = {
@@ -144,7 +162,25 @@ P:NPC {
         { text = "Do you have family back home?", next = "yfam" },
         { text = "What do you do with your days?", next = "ydays" },
         { text = "A fellow human so far north. Where are you from?", next = "yfrom", when = { race = "Human" } },
+        { text = "What do the bruisers play at cards?", next = "w9_cards" },
         { text = "Stay warm, Jack.", next = "END" },
+      },
+    },
+
+    w9_cards = {
+      lines = { { id = "w9_cards_d", text = "A goblin game called Seven Crowns, which has rules that change depending on who's winning, and who's winning is always a goblin. I lose a few silver every night, and I tell myself it's the price of company, which it is." } },
+      choices = {
+        { text = "Do they cheat?", next = "w9_cards2" },
+        { text = "Why keep playing?", next = "w9_cards2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_cards2 = {
+      lines = { { id = "w9_cards2_d", text = "Openly, and they call it \"house rules,\" which I've come to admire. Every so often they let me win a hand, so I'll keep coming back, and I know exactly what they're doing, and I come back anyway, because Lakeshire never had company this good." } },
+      choices = {
+        { text = "At least you know the game.", next = "BACK", reply = "Aye, and that's half the fun of losing it." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     money = {
@@ -236,7 +272,7 @@ P:NPC {
     hello = {
       lines = { { id = "h_default", text = "I am Chal Fairwind, of the Wintersaber Trainers. Rivern Frostwind keeps the Rock, where the sabers are raised, and I keep this side of the hills, where the wild ones come down to hunt." } },
       again = {
-        { id = "h_again", text = "What more would you know?" },
+        { id = "h_again", text = "What more? Speak low, and the saber on the ridge may let us finish." },
         { id = "h_again2", text = "Ask softly, and I will answer." },
       },
       choices = {
@@ -247,7 +283,25 @@ P:NPC {
         { text = "Have you lost a saber to the wild?", next = "ylost" },
         { text = "What do you think of Everlook's goblins?", next = "ygob" },
         { text = "A daughter of Teldrassil, so far from home?", next = "yhome", when = { race = "NightElf" } },
+        { text = "How do you tell one saber from another?", next = "w9_tell" },
         { text = "Elune watch your camp.", next = "END" },
+      },
+    },
+
+    w9_tell = {
+      lines = { { id = "w9_tell_d", text = "By the rings on the tail, mostly, for no two frostsabers carry the same, and by the way they walk. An old female puts her feet where the snow is hardest, while a young male bounds as if the whole world were there to admire him." } },
+      choices = {
+        { text = "Do you name them?", next = "w9_tell2" },
+        { text = "Young males sound like young soldiers.", next = "w9_tell2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_tell2 = {
+      lines = { { id = "w9_tell2_d", text = "Rivern names the ones raised at the Rock, and I keep a different list, of the wild ones, written in my own hand. They do not need names, but I do, for it is easier to grieve a cat when you know what to call her." } },
+      choices = {
+        { text = "That's a gentle way to keep watch.", next = "BACK", reply = "It is the only way I know. Elune made them; I only count them." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     watch = {
@@ -348,7 +402,7 @@ P:NPC {
     hello = {
       lines = { { id = "h_default", text = "I am Sar Browneye, of Thunder Bluff. I came north to see the great white cats that the night elves ride, because a hunter should know every beast the Earth Mother made, even the ones she hid in the snow." } },
       again = {
-        { id = "h_again", text = "What else would you hear?" },
+        { id = "h_again", text = "What else would you hear, little one? The fire has stories enough for us both." },
         { id = "h_again2", text = "Speak. The fire is patient, and so am I." },
       },
       choices = {
@@ -359,7 +413,25 @@ P:NPC {
         { text = "Have you hunted a frostsaber?", next = "yhunt" },
         { text = "What do you think of the night elves?", next = "yelves" },
         { text = "A tauren hunter should see this. Show me.", next = "yshow", when = { class = "HUNTER" } },
+        { text = "What do the Wintersaber trainers think of you?", next = "w9_train" },
         { text = "Walk with the Earth Mother.", next = "END" },
+      },
+    },
+
+    w9_train = {
+      lines = { { id = "w9_train_d", text = "Chal Fairwind thinks I am harmless, which is true, and Rivern Frostwind thinks I am a spy, which is not. A tauren who watches the sabers so closely must be planning something, he says, and I tell him I plan only to sit very still." } },
+      choices = {
+        { text = "Why does he think you're a spy?", next = "w9_train2" },
+        { text = "Chal seems more sensible.", next = "w9_train2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_train2 = {
+      lines = { { id = "w9_train2_d", text = "Because I travel with a Forsaken, little one, and because the kaldorei have learned not to trust the Horde's curiosity. I do not blame him, for the plains taught me that a herd must be wary of every stranger, even the gentle ones." } },
+      choices = {
+        { text = "I hope he learns to trust you.", next = "BACK", reply = "Perhaps in a few winters. Tauren are patient, and so are the snows." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     sabers = {
@@ -462,7 +534,25 @@ P:NPC {
         { text = "Do you remember your life before?", next = "ybefore" },
         { text = "Is it lonely, being Forsaken?", next = "ylonely" },
         { text = "I'm Forsaken too. How do you bear it?", next = "ybear", when = { race = "Scourge" } },
+        { text = "What do you write in your reports?", next = "w9_report" },
         { text = "I'll leave you to the snow.", next = "END" },
+      },
+    },
+
+    w9_report = {
+      lines = { { id = "w9_report_d", text = "Numbers, mostly: how many Sentinels at Starfall, how many sabers at the Rock, how often the patrols pass. Then a line or two about the weather, because whoever reads them in the Undercity has not felt weather in years and seems to enjoy it." } },
+      choices = {
+        { text = "Is that spying?", next = "w9_report2" },
+        { text = "Who reads them?", next = "w9_report2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_report2 = {
+      lines = { { id = "w9_report2_d", text = "It's counting, and the Dark Lady likes to know what's counted. I have no idea who reads them, and I prefer it that way, since in the Undercity the less you know about your superiors, the longer you remain unpleasantly intact." } },
+      choices = {
+        { text = "Sound advice for the living too.", next = "BACK", reply = "It's the only advice the dead give freely." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     sent = {
@@ -564,7 +654,28 @@ P:NPC {
         { text = "Do the demons above trouble you?", next = "ydemons" },
         { text = "Would you leave if you could?", next = "yleave" },
         { text = "A warlock could use an imp like you.", next = "ylock", when = { class = "WARLOCK" } },
+        { text = "Who's the big fellow at the door?", next = "w9_door" },
         { text = "I'll be going.", next = "END" },
+      },
+    },
+
+    w9_door = {
+      lines = {
+        { id = "w9_door_d", text = "Him? He's a doorman, more or less, the Legion's idea of security, which means he's very large and very dim and he hits anything that isn't on fire. I told him you were a delivery, and he believed me, which tells you everything about the Legion's standards." },
+        { id = "w9_door_v1", when = { class = "WARLOCK" }, text = "You'd know his kind, warlock: very large, very dim and very fond of hitting things that aren't on fire. I told him you were a delivery, and he believed me, which says more about the Legion's hiring than I'd like." },
+      },
+      choices = {
+        { text = "You lied to a demon for me?", next = "w9_door2" },
+        { text = "Why does a guard let you keep shop?", next = "w9_door2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_door2 = {
+      lines = { { id = "w9_door2_d", text = "Lying to demons is the only sport down here, and I'm the champion. He lets me stay because I keep the gorge stocked with things the Legion's servants need, and because I'm too small to be worth the effort of stepping on." } },
+      choices = {
+        { text = "Small and clever, then.", next = "BACK", reply = "Finally, someone who appreciates my finer qualities!" },
+        { text = "Something else.", next = "BACK" },
       },
     },
     why = {

@@ -274,7 +274,28 @@ P:NPC {
         { text = "Do you want a treat?", next = "ytreat" },
         { text = "Are you hungry?", next = "yhungry" },
         { text = "I'm a hunter. You're no beast.", next = "yhunter", when = { class = "HUNTER" } },
+        { text = "You smell like a blacksmith's forge, boy.", next = "w9_smell" },
         { text = "Leave the dog alone.", next = "END" },
+      },
+    },
+
+    w9_smell = {
+      lines = {
+        { id = "w9_smell_d", text = "Precious sneezes, very politely, and a thin curl of smoke drifts out of one nostril before he can stop it. He looks at the smoke, then at you, and wags his tail a little harder, as if a wagging tail could explain anything." },
+        { id = "w9_smell_v1", when = { class = "WARLOCK" }, text = "Precious sneezes, and a curl of smoke slips out of his nose. He sees you notice it and goes perfectly still, then wags, slowly and deliberately, the way a servant smiles at a guest who has seen too much." },
+      },
+      choices = {
+        { text = "Do that again.", next = "w9_smell2" },
+        { text = "Good dogs don't smoke.", next = "w9_smell2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_smell2 = {
+      lines = { { id = "w9_smell2_d", text = "He trots to the edge of the steaming pool and lies down with his nose over the water, and the water hisses where his breath touches it. When you look back, Simone is watching you both, and Precious has rolled over for a belly rub as if nothing at all had happened." } },
+      choices = {
+        { text = "Who's a good... thing.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
       },
     },
     good = {

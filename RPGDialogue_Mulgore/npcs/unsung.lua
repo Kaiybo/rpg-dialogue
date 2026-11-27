@@ -1070,9 +1070,38 @@ P:NPC {
         { text = "Why would a druid need your weapons, Mahnott?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I'd guess you won't sell weapons to someone like me.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Will you sell a hammer to a paladin, Mahnott?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Harant says you two argue about everything.", next = "w7_harant" },
         { text = "Not today.", next = "END" },
       },
-      again = { { id = "h_again", text = "Anything else, or are you ready to buy something heavy?" } },
+      again = { { id = "h_again", text = "Anything else, or are you ready to buy something heavy? I've a two-handed maul in the back that's been waiting for the right shoulders." } },
+    },
+    w7_harant = {
+      lines = {
+        { id = "w7_harant_l1", text = "Ha! Everything is a small word for it. He says a brave should carry a shield before a weapon, and I say a brave with a big enough weapon doesn't need a shield, and we have been saying it since we were calves." },
+      },
+      choices = {
+        { text = "Who's right?", next = "w7_harant2" },
+        { text = "You both are.", next = "w7_harant3" },
+        { text = "Something else, Mahnott.", next = "BACK" },
+      },
+    },
+    w7_harant2 = {
+      lines = {
+        { id = "w7_harant2_l1", text = "Neither of us, and both of us know it, and neither of us will say it first. Every brave in Bloodhoof buys from both of us, which tells you the answer, and we pretend not to notice." },
+        { id = "w7_harant2_l2", when = { class = "WARRIOR" }, text = "You're a warrior, so you'll know the true answer: you buy both. Harant's shield and my axe, and you come home. But don't tell Harant I said so; I'd never hear the end of it." },
+      },
+      choices = {
+        { text = "I won't tell him.", next = "BACK", reply = "Good. Now buy something heavy." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_harant3 = {
+      lines = {
+        { id = "w7_harant3_l1", text = "Don't say that where he can hear it. He'll think he won." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
     },
     materials = {
       lines = { { id = "m_default", text = "The wood comes from the trees near the lakes, the ones the Venture Company hasn't cut down yet, and the iron is traded down from Thunder Bluff. The goblins would sell me iron too, but only after they have stolen the hills to make it." } },

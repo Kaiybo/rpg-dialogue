@@ -27,13 +27,31 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_own = {
+      lines = {
+        { id = "w3_own_1", text = "Gerard says a great deal when he's pleased with himself, which is always. I'll admit I've thought about it, and I'll admit Leona hasn't spoken to me for a day each time I've said so aloud." },
+      },
+      choices = {
+        { text = "Why would you want one?", next = "w3_why" },
+        { text = "Leona's right to be angry.", next = "BACK", reply = "Leona is right about most things, which is very tiresome, and I'd not tell her so for all the gold in the bank." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_why = {
+      lines = {
+        { id = "w3_why_1", text = "Because I spent one life doing as a husband said and another doing as the Lich King said, and I should like, just once, to be the one giving the orders. I know what that makes me, {class}, and I've decided I can live with it, or whatever this is." },
+      },
+      choices = {
+        { text = "That's an honest answer, at least. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
         { id = "h_default", key = true, text = "Joanna Whitehall. Leona and I were only saying that a living servant is a strange thing to keep in a city of the dead, though I'll grant that Theresa carries a parcel faster than any of us." },
       },
       again = {
-        { id = "h_again", text = "Was there more? Leona will only start again without me." },
+        { id = "h_again", text = "Was there more? Leona will only start again without me, and she'll win." },
         { id = "h_again2", text = "Go on, then, and I'll answer what I can." },
       },
       choices = {
@@ -41,6 +59,7 @@ P:NPC {
         { text = "You don't sound troubled by it.", next = "troubled" },
         { text = "Who were you, before the plague?", next = "before" },
         { text = "Does the War Quarter suit a soldier's widow?", next = "jw_quarter" },
+        { text = "Gerard says you'd like a Theresa of your own.", next = "w3_own" },
         { text = "I'll leave you to your talk.", next = "END" },
       },
     },
@@ -127,6 +146,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_free = {
+      lines = {
+        { id = "w3_free_1", text = "All at once, on a road in Tirisfal, when the voice in my head simply stopped speaking. I'd been walking toward Brill with a hundred others, and I stopped in the mud and heard birds, and I stood there until the Dark Lady's people found me, perhaps three days later." },
+      },
+      choices = {
+        { text = "What was the first thing you did?", next = "w3_first" },
+        { text = "Three days is a long time to stand still.", next = "BACK", reply = "It felt like a moment. I think I was afraid that if I moved, the voice would notice and start again." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_first = {
+      lines = {
+        { id = "w3_first_1", text = "I said my own name aloud, to see if it was still mine, and it was. I think that's why I watch Theresa: I'm waiting for the day she stops on the bridge and says hers, and I want someone to be there when she does." },
+      },
+      choices = {
+        { text = "I hope you're there, Leona. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
@@ -134,13 +171,14 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Ask me something else, before she comes round again and I lose my thread." },
-        { id = "h_again2", text = "Yes? I'm listening, mostly." },
+        { id = "h_again2", text = "Yes? I'm listening, mostly, and watching the bridge." },
       },
       choices = {
         { text = "You mean your time in the Scourge.", next = "scourge" },
         { text = "What do Joanna and Gerard say?", next = "others" },
         { text = "What does a priest do to a mind like hers?", next = "priest", when = { class = "PRIEST" } },
         { text = "Have you ever spoken to Theresa yourself?", next = "lt_spoke" },
+        { text = "How did you come back to yourself, after the Scourge?", next = "w3_free" },
         { text = "Good day, Leona.", next = "END" },
       },
     },
@@ -222,13 +260,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_boxes = {
+      lines = {
+        { id = "w3_boxes_1", text = "Cheap tin and cheaper locks, friend, made in their hundreds for merchants who can't afford a proper strongbox. Half the rogues in this quarter learned their trade on them, and the other half learned it on the merchants." },
+        { id = "w3_boxes_2", when = { class = "ROGUE" }, text = "Practice, nothing more, and you'll have opened a hundred by now. The trick isn't the lock, it's the spring they put behind it in Booty Bay, which bites the careless finger and keeps the box's secrets for good." },
+      },
+      choices = {
+        { text = "Could you still open one yourself?", next = "w3_still" },
+        { text = "Is anything good ever inside?", next = "BACK", reply = "Now and then a ring or a gem, but mostly linen and copper and a dead man's hopes. Still, it's the hope that sells them." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_still = {
+      lines = {
+        { id = "w3_still_1", text = "My fingers have gone stiff, so I'd need longer than I'd like and more light than this city has. I sit and turn a pin in my hand some evenings just to remember the feel of it, and it remembers me better than I remember it." },
+      },
+      choices = {
+        { text = "The hands keep their trade. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
         { id = "h_default", key = true, text = "Lucian Fenner. I used to open things for a living in Capital City, and since nobody down here locks anything worth having, I mostly stand and remember how it was done." },
       },
       again = {
-        { id = "h_again", text = "Anything further? I've a wall to lean on." },
+        { id = "h_again", text = "Anything further? I've a wall to lean on, and it's a comfortable wall." },
         { id = "h_again2", text = "Ask away, quietly if you can." },
       },
       choices = {
@@ -236,6 +293,7 @@ P:NPC {
         { text = "What goes on in this quarter?", next = "quarter" },
         { text = "Any advice for someone learning locks?", next = "advice", when = { class = "ROGUE" } },
         { text = "Did you ever get caught, back in Capital City?", next = "lf_caught" },
+        { text = "What do you make of the lockboxes adventurers find?", next = "w3_boxes" },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -319,20 +377,39 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_andrew = {
+      lines = {
+        { id = "w3_andrew_1", text = "Does he! Well, he's been saying it since the first bout of the season, love, and he's lost as much coin to me as I have to him, so he can say it till his jaw falls off. He backs Edward because Edward is sensible, and that's all you need to know about Andrew." },
+      },
+      choices = {
+        { text = "And who do you back?", next = "w3_back" },
+        { text = "You two should settle it with a duel.", next = "BACK", reply = "Ha! In that pit? Malach would charge admission, and we'd both lose, and Chloe would tell us how." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_back = {
+      lines = {
+        { id = "w3_back_1", text = "Tyler, always, because he grins when he's hit and I like a man who grins. In the tavern I always served the grinners first, and they always tipped best, and it hasn't failed me yet." },
+      },
+      choices = {
+        { text = "A tavern-keeper's rule. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
         { id = "h_default", key = true, text = "Marla Fowler! Brother Malach calls something up, Edward and Tyler knock it down, and the rest of us tell them how they should have done it. It's the best entertainment in the Undercity, and it's free." },
       },
       again = {
-        { id = "h_again", text = "What else? Be quick, they're about to start again." },
-        { id = "h_again2", text = "Go on, I can listen and shout at the same time." },
+        { id = "h_again", text = "Hurry, hurry, love, Malach's muttering again and I'll not miss the bit where it bites somebody!" },
+        { id = "h_again2", text = "Go on, I can listen and shout at the same time, I've had years of practice." },
       },
       choices = {
         { text = "What are they fighting down there?", next = "fight" },
         { text = "Are you related to Baltus Fowler?", next = "baltus" },
         { text = "Who else is in the crowd?", next = "crowd" },
         { text = "Who were you before you came to the fights?", next = "mf_before" },
+        { text = "Andrew Hartwell says you're always wrong.", next = "w3_andrew" },
         { text = "Enjoy the bout.", next = "END" },
       },
     },
@@ -416,6 +493,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_weather = {
+      lines = {
+        { id = "w3_weather_1", text = "I do, and he thinks I'm daft, since I can't feel cold any more. But my knees still ache before rain, or I imagine they do, and I'd sooner trust an imagined ache than nothing at all." },
+      },
+      choices = {
+        { text = "Do you ever go up to see it?", next = "w3_up" },
+        { text = "An imagined ache is still a kind of memory.", next = "BACK", reply = "That's what I tell Edrick, though he says a memory shouldn't give a person bad knees." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_up = {
+      lines = {
+        { id = "w3_up_1", text = "Once a month, to the ruined courtyard, to stand in the rain until I'm soaked and Edrick fetches me down. The Deathguard on the stair think I'm mad, and they let me pass anyway, which is kind of them in its way." },
+      },
+      choices = {
+        { text = "Kind enough. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
@@ -423,13 +518,14 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else, then? Keep up, we're nearly at the bridge." },
-        { id = "h_again2", text = "Go on, I can talk and walk." },
+        { id = "h_again2", text = "Go on, I can talk and walk, though Edrick's a step ahead again." },
       },
       choices = {
         { text = "Why do you walk the ring all day?", next = "why" },
         { text = "What have you heard lately?", next = "heard" },
         { text = "I'm lost. Which way to the quarters?", next = "lost" },
         { text = "Do your feet remember any other city?", next = "ma_other" },
+        { text = "Edrick says you complain about the weather above.", next = "w3_weather" },
         { text = "I'll let you walk on.", next = "END" },
       },
     },

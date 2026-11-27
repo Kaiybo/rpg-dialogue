@@ -515,6 +515,7 @@ P:NPC {
         { text = "Do you need help gathering herbs, Shylamiir?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could someone who knows the Lamb's cellar be useful to an herbalist?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What plant do you want from Dalaran, Shylamiir?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance", any = { { questActive = TODO_QUEST("A Green Sample") }, { questDone = TODO_QUEST("A Green Sample") }, { heardLine = "shylamiir.h_sample" } } } },
+        { text = "What kills the plants in this Park?", next = "e3_rootrot" },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -543,6 +544,25 @@ P:NPC {
       choices = {
         { text = "That's sad, and true.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    e3_rootrot = {
+      lines = {
+        { id = "e3_rootrot_l0", text = "Feet, mostly, and the canal damp, which rots the roots of anything that came from drier ground. The rest is done by human gardeners who prune as if every bush owed them money, and I have spent the better part of a decade undoing their work at night." },
+      },
+      choices = {
+        { text = "Do the gardeners know?", next = "e3_rootrot2" },
+        { text = "The humans mean well enough.", next = "BACK" },
+      },
+    },
+    e3_rootrot2 = {
+      lines = {
+        { id = "e3_rootrot2_l0", text = "They suspect, which is enough. One of them leaves his shears by the gate as a sort of truce, and I leave him a sprig of silverleaf in return, and the roses have done better this year than in any I can remember." },
+        { id = "e3_rootrot2_l1", when = { race = "NightElf" }, text = "They suspect, and they are too polite to ask one of the kaldorei why their hedges grow back crooked. You would do the same in my place, I think, for these humans plant as if a garden were a wall." },
+      },
+      choices = {
+        { text = "A gardener's truce. Something else.", next = "BACK" },
+        { text = "You might simply talk to them.", next = "BACK" },
       },
     },
   },

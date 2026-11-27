@@ -30,6 +30,52 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2bug = {
+      lines = {
+        { id = "w2b_troll", when = { race = "Troll" }, text = "Only a dead one, cousin, and that was plenty. Fizzledowser shipped me a leg from Tanaris packed in salt, longer than my arm, and I swear by every loa on the Echo Isles that it twitched when I first lifted the lid." },
+        { id = "w2b_default", text = "Only a dead one, and that was plenty for me. Fizzledowser shipped me a leg from Tanaris packed in salt, longer than my arm, and I swear it twitched when I first lifted the lid." },
+      },
+      choices = {
+        { text = "What did you learn from it?", next = "w2bug2" },
+        { text = "A twitching leg sounds like your imagination.", next = "w2bug2" },
+        { text = "Something else, Zil.", next = "BACK" },
+      },
+    },
+    w2bug2 = {
+      lines = { { id = "w2b2_default", text = "That the shell is harder than bronze and lighter than wood, and that the joints are built for digging, not for walking. Nothing grows a leg like that unless it means to spend its whole life tunnelling under someone else's feet." } },
+      choices = { { text = "That is an unpleasant thought.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
+    zz_nerog = {
+      lines = { { id = "zz_nerog_l", text = "Nerog minds, but I buy more ink than anyone else in Orgrimmar, so he minds quietly. He keeps threatenin' to file me with the old scrolls if I sit still too long, and some days I think he means it." } },
+      choices = {
+        { text = "Does Nerog believe your warnings?", next = "zz_nerog2" },
+        { text = "You do sit very still when you read.", next = "zz_nerog2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    zz_nerog2 = {
+      lines = { { id = "zz_nerog2_l", text = "He believes the reports are real, and he thinks they're somebody else's problem, which is what most of Orgrimmar thinks. I've stopped arguin' with him and started makin' him copies, so at least the warnings are kept somewhere safe." } },
+      choices = {
+        { text = "Copies are a good idea.", next = "BACK" },
+        { text = "Something else, Zil.", next = "BACK" },
+      },
+    },
+    zz_isles = {
+      lines = { { id = "zz_isles_l", text = "I left before Zalazane took them, which I count as luck and not wisdom. My elders thought a troll who wanted to read was a troll who didn't want to hunt, and they weren't entirely wrong." } },
+      choices = {
+        { text = "Do you regret it?", next = "zz_isles2" },
+        { text = "Reading has its own kind of hunting.", next = "zz_isles2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    zz_isles2 = {
+      lines = { { id = "zz_isles2_l", text = "Some days, when the reports are bad and nobody listens. But a hunter tracks what he can see, and a scholar tracks what's comin', and I'd rather see the silithid comin' than hear about them when they're at the gates." } },
+      choices = {
+        { text = "The Horde should heed you before it's too late.", next = "BACK", reply = "That's what I keep sayin', friend. Tell the Warchief's officers you heard it from a troll with ink on his fingers.", fx = { align = { order = -1 } } },
+        { text = "The Horde has enemies enough close to home.", next = "BACK", reply = "It does, and that's the trouble. The enemy you can see always gets the axes first.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "silithid" } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Zilzibin Drumlore, scholar, though my friends call me Zil, and I have spent a long time studying the creatures that don't belong to any ordinary part of Azeroth. Lately one kind of creature takes up all my time, and it frightens me more than any Alliance army." },
@@ -48,6 +94,9 @@ P:NPC {
         { text = "Why won't the Horde listen to you?", next = "council" },
         { text = "What is this place, the Mighty Pen?", next = "pen" },
         { text = "The Circle has seen them in Silithus.", next = "circle", when = { class = "DRUID" } },
+        { text = "Nerog doesn't seem to mind you taking up his shop.", next = "zz_nerog" },
+        { text = "You left the Echo Isles to study?", next = "zz_isles" },
+        { text = "Have you ever seen a silithid with your own eyes?", next = "w2bug" },
         { text = "Good luck with your studies, Zil.", next = "END" },
       },
     },
@@ -132,6 +181,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2hammer = {
+      lines = { { id = "w2h_default", text = "This hammer came through the Dark Portal on the back of Orokk's grandfather, wrapped in a wolfskin, because he would not leave it on Draenor. When the humans put Orokk in the camps, Orokk buried it under the floor of his pen and slept on top of it for nine winters." } },
+      choices = {
+        { text = "The guards never found it?", next = "w2hammer2" },
+        { text = "Nine winters sleeping on iron. That is stubborn.", next = "w2hammer2" },
+        { text = "Something else, Orokk.", next = "BACK" },
+      },
+    },
+    w2hammer2 = {
+      lines = {
+        { id = "w2h2_smith", when = { profession = "Blacksmithing" }, text = "Never, because Orokk mended their locks so well that they stopped looking at Orokk at all. You are a smith, so you understand: a good tool is a piece of the family, and you do not give family to a jailer." },
+        { id = "w2h2_default", text = "Never, because Orokk mended their locks so well that they stopped looking at Orokk at all. A good hammer is family, and Omosh do not give family to jailers." },
+      },
+      choices = { { text = "Your grandfather would be proud of you.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Orokk Omosh, last of the Omosh, and this hammer has passed through twenty pairs of Omosh hands. Mountains of iron our family has shaped, and it stops with Orokk, because Orokk has no kin left and no children to teach." },
@@ -150,6 +214,7 @@ P:NPC {
         { text = "What is the Omosh Dance of Joy?", next = "dance", when = { questDone = TODO_QUEST("Joys of Omosh") } },
         { text = "Who else works the forges here?", next = "neighbours" },
         { text = "I'm no smith. Could I learn?", next = "learn", when = { class = "WARRIOR" } },
+        { text = "Tell Orokk the story of his hammer.", next = "w2hammer" },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -235,6 +300,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2feed = {
+      lines = {
+        { id = "w2f_tauren", when = { race = "Tauren" }, text = "Same as at home, plainstrider scraps and a little milk, only here I have to beg for the scraps. The cooks at the inn give me bones if I sweep for them, and the puppies think I'm the greatest hunter in Durotar." },
+        { id = "w2f_default", text = "Meat scraps, mostly, and a little milk when I can get it. The cooks at the inn give me bones if I sweep for them, and the puppies think I'm the greatest hunter in all of Durotar." },
+      },
+      choices = {
+        { text = "Does Little Thunder share with the others?", next = "w2feed2" },
+        { text = "Sweeping for bones. You work hard for them.", next = "w2feed2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2feed2 = {
+      lines = { { id = "w2f2_default", text = "No! She steals from everybody and then hides it in my bedroll, so I wake up on a pile of bones. My uncle says that means she'll be a good hunter, and I said she'd better be, because she smells terrible." } },
+      choices = { { text = "She sounds like a fine little wolf.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I walk up and down the Drag and through the Valley of Honor all day, because the warriors there are the ones who pretend they don't want a puppy and then buy two. This one's the runt, but she's the bravest, and she bit a grunt yesterday." },
@@ -252,6 +332,7 @@ P:NPC {
         { text = "How should I care for a wolf pup?", next = "care", when = { class = "HUNTER" } },
         { text = "Orcs ride wolves, you know. Big ones.", next = "frostwolf", when = { race = "Orc" } },
         { text = "Let me see the puppies.", next = "BUSINESS" },
+        { text = "What do you feed all these puppies?", next = "w2feed" },
         { text = "Good luck finding them homes.", next = "END" },
       },
     },

@@ -53,10 +53,27 @@ P:NPC {
         { text = "Why throwing knives?", next = "knives" },
         { text = "What's the trouble below?", next = "trouble" },
         { text = "Let me see your supplies.", next = "BUSINESS" },
+        { text = "Hippogryphs carry everything up here?", next = "hippo" },
+        { text = "Keeper Albagorm. What's he like?", next = "keeper" },
+        { text = "What's the strangest thing the hippogryphs ever carried up?", next = "w5_strange" },
         { text = "Elune keep you, Chylina.", next = "END" },
       },
     },
 
+    w5_strange = {
+      lines = { { id = "w5_strange_l", text = "A barrel of Thunderbrew lager, sent from Ironforge by some well-meaning dwarf who'd heard the Peak was short of supplies. The hippogryph that carried it refused to fly for a week afterward. I think it was offended." } },
+      choices = {
+        { text = "What did you do with the lager?", next = "w5_strange2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_strange2 = {
+      lines = { { id = "w5_strange2_l", text = "Gave it to Gaxim, who drank half and used the rest as fuel for something that exploded. I'm told it was a test. The Keeper did not ask what was tested, and neither did I. Some things on this mountain are better left unwritten." } },
+      choices = {
+        { text = "Lager as fuel. That sounds like Gaxim.", next = "BACK", reply = "Doesn't it? He's the only one up here who's happier when something blows up." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     buyers = {
       lines = {
         { id = "bu_default", text = "The druids, who forget everything, and the Sentinels, who forget nothing, and travellers from Ashenvale who didn't know how high the Peak was. Gaxim's camp down by the Crag sends for bread now and then, though I suspect it goes into his machines." },
@@ -117,6 +134,33 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    hippo = {
+      lines = { { id = "hg_default", text = "Everything that can't climb, from flour to arrowheads, and they complain about every sack. The flight master at the Peak flies them in from Astranaar, and on windy days half the bread arrives as crumbs. I sell the crumbs to the druids, who never notice." } },
+      choices = {
+        { text = "Does the wind ever ground them?", next = "hippo2" },
+        { text = "Crumbs to the druids. That's shameless.", next = "hippo2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hippo2 = {
+      lines = { { id = "hg2_default", text = "Often, in spring, and then the Peak eats what's in the storeroom and the Sentinels go hunting. Shameless, perhaps, but a druid who's been in the Dream three days doesn't care whether his bread is whole. I give them extra honey to make up for it." } },
+      choices = { { text = "Extra honey. Fair enough. Something else.", next = "BACK" } },
+    },
+    keeper = {
+      lines = { { id = "kp_default", text = "Old, and kind, and much harder to move than the mountain he keeps. Keeper Albagorm is an ancient, and he speaks slowly, and the druids hang on every word. I asked him once what he thought of the goblins, and he answered me three days later." } },
+      choices = {
+        { text = "What did he say?", next = "keeper2" },
+        { text = "An ancient has all the time in the world.", next = "keeper2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    keeper2 = {
+      lines = { { id = "kp2_default", text = "He said that goblins are like a fire in summer grass, quick and loud, and gone long before the roots notice. Then he asked me for water. I think he's right about the roots, but I'm not a root, and I'd like them gone sooner." } },
+      choices = {
+        { text = "I'm a druid. I'll speak with the Keeper myself.", next = "BACK", reply = "Then bring water, and clear your afternoon. Maybe your week.", when = { class = "DRUID" } },
+        { text = "Something else, Chylina.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -172,10 +216,28 @@ P:NPC {
         { text = "Does cloth really stop a blade?", next = "blade" },
         { text = "Why sell up here?", next = "why" },
         { text = "Let me see your armour.", next = "BUSINESS" },
+        { text = "Who buys your cloth, besides the priestesses?", next = "buyers" },
+        { text = "Darnassus sends cloth this far?", next = "darnassus" },
+        { text = "What's the hardest piece you've ever sewn?", next = "w5_hardest" },
         { text = "Farewell, Illyanie.", next = "END" },
       },
     },
 
+    w5_hardest = {
+      lines = { { id = "w5_hardest_l", text = "A priestess's robe with a ward stitched into the hem, in moonthread so fine it was nearly invisible. Every stitch had to be placed under moonlight, so I sewed only at night for a month. My eyes have never been quite the same." } },
+      choices = {
+        { text = "Was it worth it?", next = "w5_hardest2" },
+        { text = "I sew too. Moonthread is nearly impossible to work.", next = "BACK", when = { profession = "Tailoring" }, reply = "It is. Work it at night, in silence, and do not curse when it breaks. It hears you." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_hardest2 = {
+      lines = { { id = "w5_hardest2_l", text = "She wore it into the Charred Vale and came back unhurt, with burns on every tree around her. I like to think the ward held. She thinks it was Elune. We are probably both right, and I am still squinting." } },
+      choices = {
+        { text = "A ward and a goddess. Good protection.", next = "BACK", reply = "The best. Though I would like my eyes back." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     made = {
       lines = {
         { id = "ma_default", text = "The padded pieces, with the double stitching down the sides, because I quilt the layers with mountain wool. The thin ones come from Darnassus, and they're pretty, but they'd tear on the first harpy talon." },
@@ -226,6 +288,40 @@ P:NPC {
       choices = {
         { text = "A sensible trade.", next = "BACK", fx = { trait = { practical = 1 } } },
         { text = "Farewell, Illyanie.", next = "END" },
+      },
+    },
+    buyers = {
+      lines = { { id = "by_default", text = "Gaxim's lot, down at the Crag, which surprised me. He's a gnome mage with more pockets than sense, and he wears through a robe every fortnight from crawling into goblin machines. I've stopped selling him the pretty ones." } },
+      choices = {
+        { text = "What does he do in the goblin machines?", next = "buyers2" },
+        { text = "A mage crawling into shredders. That's bravery of a kind.", next = "buyers2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    buyers2 = {
+      lines = { { id = "by2_default", text = "Takes them apart, so he says, to learn how to stop them. Mostly he comes back singed and delighted. Kaela Shadowspear keeps him in check, and buys his robes for him when he forgets, which is more often than not." } },
+      choices = {
+        { text = "Then Kaela must be a patient woman.", next = "buyers3" },
+        { text = "Something else, Illyanie.", next = "BACK" },
+      },
+    },
+    buyers3 = {
+      lines = { { id = "by3_default", text = "Kaela is a Sentinel, which means she's patient until the moment she isn't. I sold her a cloak once and she asked for the hem taken up so it wouldn't catch on a glaive. That's the most practical thing anyone has ever said to me on this mountain." } },
+      choices = { { text = "Practical Sentinels. Something else.", next = "BACK" } },
+    },
+    darnassus = {
+      lines = { { id = "dn_default", text = "It does, by way of Auberdine and Astranaar, and it costs three times what it did in Darnassus by the time it gets here. The weavers there make it fine and thin, for a city under Teldrassil's leaves, not for a mountain where the wind takes your skin off." } },
+      choices = {
+        { text = "Then why buy it at all?", next = "darnassus2" },
+        { text = "Fine and thin has its place, surely.", next = "darnassus2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    darnassus2 = {
+      lines = { { id = "dn2_default", text = "Because the priestesses like to look like priestesses, and I like to be paid. I line it with my mountain wool, and then it's pretty and useful both, which is the only kind of thing I want my name on." } },
+      choices = {
+        { text = "I'm a priest. Pretty and useful suits me.", next = "BACK", reply = "Then you'll be my favourite customer today. Let me see your hems.", when = { class = "PRIEST" } },
+        { text = "Something else, then.", next = "BACK" },
       },
     },
   },
@@ -466,7 +562,23 @@ P:NPC {
         { text = "Have you seen the Charred Vale?", next = "yvale" },
         { text = "Do you ever lose hope?", next = "yhope2" },
         { text = "A fellow druid. What can I do?", next = "ydruid", when = { class = "DRUID" } },
+        { text = "Which plant on the peak worries you most?", next = "w5_worry" },
         { text = "Elune keep you, botanist.", next = "END" },
+      },
+    },
+    w5_worry = {
+      lines = { { id = "w5_worry_l", text = "The mountain silversage, growing in the clefts above the Talon Den. It used to cover the whole of the northern face. Now I count the plants each spring, and every spring there are fewer. Something in the air from the logging camps is reaching even this high." } },
+      choices = {
+        { text = "Can anything be done to save it?", next = "w5_worry2" },
+        { text = "I gather herbs. I'll leave the silversage where it grows.", next = "BACK", when = { profession = "Herbalism" }, reply = "Thank you. Take only what you need, and from the lower slopes if you can. The peak cannot spare it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_worry2 = {
+      lines = { { id = "w5_worry2_l", text = "I collect seeds each autumn and keep them in the Den, wrapped in moss. If the mountain loses them, someday they can be planted again. It is not saving. It is remembering, which is what I said I was here for." } },
+      choices = {
+        { text = "Remembering is a kind of saving.", next = "BACK", reply = "Perhaps. I hope the mountain thinks so too." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     goblins = {
@@ -562,14 +674,32 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "I care for the creatures driven up from the valleys by fire and felling. They come to the peak hurt and starving, and the Circle does what it can for them." } },
-      again = { { id = "h_again", text = "Is there something more, traveller?" } },
+      again = { { id = "h_again", text = "Is there something more, traveller? Speak gently, the fawn is sleeping." } },
       choices = {
         { text = "What hurts them, down below?", next = "below" },
         { text = "You look like you haven't slept.", next = "tired" },
         { text = "What creatures do you tend?", next = "xcreatures" },
         { text = "Who taught you healing?", next = "xteach" },
         { text = "A fellow druid offers aid.", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Do you work with the Keeper here?", next = "keeper" },
+        { text = "That hawk with smoke in its lungs. Will it fly again?", next = "hawk" },
+        { text = "Do any of the creatures you heal ever go back down?", next = "w5_back" },
         { text = "I'll leave you to your work.", next = "END" },
+      },
+    },
+    w5_back = {
+      lines = { { id = "w5_back_l", text = "Some. A deer that came to us with a gash on its flank went down to the lake last moon, and I watched it go until it was out of sight. Most do not. There is nothing below for them to go back to." } },
+      choices = {
+        { text = "Does that grieve you?", next = "w5_back2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_back2 = {
+      lines = { { id = "w5_back2_l", text = "It does. I heal them so they can live, and then they live here, crowded on the peak, because their homes are stumps. Each one I mend is one more mouth up here. The Keeper says that is still a life saved. I believe him, most days." } },
+      choices = {
+        { text = "A life saved is always worth it, crowded or not.", next = "BACK", reply = "Thank you. I needed someone to say it aloud today.", fx = { align = { light = 1 } } },
+        { text = "Some should be let go. The peak can't feed them all.", next = "BACK", reply = "You may be right. But I cannot be the one who lets them go.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     below = {
@@ -625,6 +755,33 @@ P:NPC {
         { text = "I'll help where I can.", next = "BACK", reply = "Elune bless you, friend.", fx = { affinity = 1 } },
       },
     },
+    keeper = {
+      lines = { { id = "kr_default", text = "I serve beneath him, as all of us at the Peak do. Keeper Albagorm watches over the mountain as a whole, and I watch over the small things that fall through the cracks of his watching. He says both are needed, and I hope he means it." } },
+      choices = {
+        { text = "Does he tell you what to do?", next = "keeper2" },
+        { text = "Small things matter as much as mountains.", next = "keeper2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    keeper2 = {
+      lines = { { id = "kr2_default", text = "Rarely. He asks me, now and then, which creatures came up the slope that day, and I tell him, and he listens to the whole list. When I mention a creature I couldn't save, he is quiet for a long time. That is all the counsel I need." } },
+      choices = { { text = "That's good counsel. Something else.", next = "BACK" } },
+    },
+    hawk = {
+      lines = { { id = "hk_default", text = "I think so, given time. I've kept her in a cool place out of the wind, and I give her water with crushed silverleaf in it, which a druid in Moonglade taught me eases the breath. She tried her wings this morning and fell, and then she tried again." } },
+      choices = {
+        { text = "Then she has courage.", next = "hawk2" },
+        { text = "Silverleaf in water? I'd not have known.", next = "hawk2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hawk2 = {
+      lines = { { id = "hk2_default", text = "Every creature here has courage, or it would not have climbed out of the fire. When she flies, I will take her to the edge of the Peak and let her go over the vale, so she can see that it is growing back. I think she would want to know." } },
+      choices = {
+        { text = "I'm a hunter. My companion would understand that.", next = "BACK", reply = "Then you know already what I mean. Look after it, as it looks after you.", when = { class = "HUNTER" } },
+        { text = "I hope she flies soon. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     venture_company = { { id = "tp_xventure_company", text = "The Venture Company burns and cuts and never looks back. I see what they leave behind." } },
@@ -663,7 +820,22 @@ P:NPC {
         { text = "I'm a night elf. Do you remember us?", next = "xelf", when = { race = "NightElf" } },
         { text = "What do you do when the goblins come near?", next = "ygob" },
         { text = "Do you have sisters?", next = "ysisters" },
+        { text = "What do you do when a mortal cuts one of your trees?", next = "w5_cut" },
         { text = "I'll go gently through your woods.", next = "END" },
+      },
+    },
+    w5_cut = {
+      lines = { { id = "w5_cut_l", text = "I go to the stump and sing to it, the old song, so the roots know they have not been forgotten. Some stumps send up new shoots, after. Most do not. The goblins cut low, so that nothing can grow back." } },
+      choices = {
+        { text = "And to the mortal who cut it?", next = "w5_cut2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_cut2 = {
+      lines = { { id = "w5_cut2_l", text = "If he is still near, he hears a different song, and he does not cut again. I am a daughter of Cenarius, mortal. I was not made only to grieve. But my father taught me to sing to the stump first, and to the axe-man second." } },
+      choices = {
+        { text = "Sing to the stump first. I'll remember that.", next = "BACK", reply = "Good. Few remember the trees at all. Go gently through my woods." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     threat = {

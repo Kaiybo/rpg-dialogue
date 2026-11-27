@@ -37,6 +37,52 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    lad_watch1 = {
+      lines = {
+        { id = "lad_watch1_1", text = "Watcher Keefer, though she'd never say so, and Watcher Hartin, who prays for my father by name when he thinks I can't hear. The young ones keep their distance, which I understand, because the name frightens them more than I do." },
+      },
+      choices = {
+        { text = "That must be lonely.", next = "lad_watch2" },
+        { text = "Keefer seems the sort to stand by people.", next = "lad_watch2" },
+        { text = "Something else, Sarah.", next = "BACK" },
+      },
+    },
+    lad_watch2 = {
+      lines = {
+        { id = "lad_watch2_1", text = "It was, at first, but the Watch is a family whether you want it or not, and Keefer made sure I knew it. She sat with me through my first night on the gate and never said a word, which was exactly what I needed." },
+      },
+      choices = {
+        { text = "Then you're in good company.", next = "BACK" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    lad_hill1 = {
+      lines = {
+        { id = "lad_hill1_1", text = "Never, not since I was a girl. The house still stands past the Raven Hill road, and people say his ghost walks between it and the graveyard, and I'd rather remember him at our table than see what's walking there." },
+      },
+      choices = {
+        { text = "Is it true, about the ghost?", next = "lad_hill2" },
+        { text = "I've walked that road. Something walks it.", next = "lad_hill2", when = { minLevel = 28 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lad_hill2 = {
+      lines = {
+        { id = "lad_hill2_1", text = "Commander Ebonlocke has heard enough reports to believe it, and she's never once told me she doesn't. She's kept me off the Raven Hill road since my first week, and I've never asked her why." },
+      },
+      choices = {
+        { text = "She's protecting you.", next = "lad_hill3" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    lad_hill3 = {
+      lines = {
+        { id = "lad_hill3_1", text = "I know she is, and I let her, because I'm not sure I'd come back from it if I saw him. Some things are better left to strangers, {class}, which I suppose is what you are." },
+      },
+      choices = {
+        { text = "I'll remember that. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Watcher Ladimore. Sarah, if you'd rather, though most people here don't use it, because of the name my father left me." },
@@ -61,6 +107,8 @@ P:NPC {
         { text = "Keeping the Watch must be hard work.", next = "duty" },
         { text = "He spoke your name at the grave.", next = "grave", when = { questDone = TODO_QUEST("A Daughter's Love") } },
         { text = "Can I help?", next = "BUSINESS" },
+        { text = "Who else in the Watch looks out for you?", next = "lad_watch1" },
+        { text = "Do you ever go up to the old house on the hill?", next = "lad_hill1" },
         { text = "Stay safe, Sarah.", next = "END" },
       },
     },

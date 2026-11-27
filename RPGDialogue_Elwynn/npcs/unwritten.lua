@@ -42,6 +42,7 @@ P:NPC {
         { text = "What did you do before you married?", next = "yyoung" },
         { text = "What keeps you up at night?", next = "ynight" },
         { text = "I fought in Westfall against the Defias.", next = "ywestfall", when = { minLevel = 15 } },
+        { text = "You're mending the fence against wolves?", next = "e3_fence" },
         { text = "Good day to you, Rob.", next = "END" },
       },
     },
@@ -107,6 +108,24 @@ P:NPC {
       lines = { { id = "yw_default", text = "Did you, now? Then you've seen what's become of the farms there, and the men in red masks. If you meet a big fellow called Harlan with a scar through his eyebrow, he was my mate on the stone crew. Tell him Rob says come home." } },
       choices = { { text = "If I see him, I'll tell him. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    e3_fence = {
+      lines = {
+        { id = "e3_fence_l0", text = "Against wolves and against Bradford, who climbs it to look for the Defias he's sure are hiding in the woods. I've put in new posts of Eastvale pine, which the loggers sold me cheap because they were crooked." },
+      },
+      choices = {
+        { text = "Crooked posts don't make a strong fence.", next = "e3_fence2" },
+        { text = "Bradford's a bold one.", next = "BACK" },
+      },
+    },
+    e3_fence2 = {
+      lines = {
+        { id = "e3_fence2_l0", text = "They don't, but they make a cheap one, and the wolves don't measure. If the posts hold till spring, I'll buy straight ones with whatever the hens bring in, and if they don't, I'll have learned something for my money." },
+      },
+      choices = {
+        { text = "Fair enough. Something else, Rob.", next = "BACK" },
+        { text = "Spend the coin now, Rob.", next = "BACK" },
+      },
+    },
   },
   topics = {
     defias = { { id = "yt_defias", text = "Some of the Defias were good men once. I hauled stone beside them, and I'll not hear them all called vermin." } },
@@ -151,6 +170,7 @@ P:NPC {
         { text = "How did you meet Rob?", next = "ymet" },
         { text = "What troubles you most these days?", next = "ytrouble" },
         { text = "I'm a healer, if you ever need one.", next = "yhealer", when = { class = { "PRIEST", "PALADIN", "DRUID", "SHAMAN" } } },
+        { text = "How many eggs do the hens give you?", next = "e3_hens" },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -209,6 +229,24 @@ P:NPC {
       },
       choices = { { text = "I'll stop by when I pass. Something else.", next = "BACK" } },
     },
+    e3_hens = {
+      lines = {
+        { id = "e3_hens_l0", text = "Eleven hens and nine eggs on a good morning, because two of them are too old to lay and too dear to me to eat. Bradford's named them all after the knights in his storybook, so I've a Lothar who hasn't laid in a year and a Turalyon who never stops." },
+      },
+      choices = {
+        { text = "Old Lothar has earned her rest, perhaps.", next = "e3_hens2" },
+        { text = "That's a fine flock for a small farm.", next = "BACK" },
+      },
+    },
+    e3_hens2 = {
+      lines = {
+        { id = "e3_hens2_l0", text = "That's exactly what I tell Rob, and Rob says a hen that won't lay is a hen for the pot. Lothar knows it, I think, because she follows me about the yard like a dog and never once goes near Rob." },
+      },
+      choices = {
+        { text = "Clever bird. Something else.", next = "BACK" },
+        { text = "Rob has a point.", next = "BACK" },
+      },
+    },
   },
   topics = {
     stonefield = { { id = "yt_stone", text = "Ma Stonefield outsells me every market day, but she gave me my first jar of preserves, so I can't hold it against her." } },
@@ -255,6 +293,7 @@ P:NPC {
         { text = "Who's the bravest person you know?", next = "ybrave" },
         { text = "What scares you, Ashley?", next = "yscare" },
         { text = "Want to see the Light, little knight?", next = "ylight", when = { class = "PALADIN" } },
+        { text = "Show me how you guard with that wooden sword.", next = "e3_sword" },
         { text = "Keep up the guard, Ashley.", next = "END" },
       },
     },
@@ -313,6 +352,24 @@ P:NPC {
       lines = { { id = "yw_default", text = "Warm like bread out of the oven? That's what I thought it would be. I'm going to be a paladin now, instead of a knight, and Mother will have to sew a whole different tabard." } },
       choices = { { text = "She'll manage. Something else.", next = "BACK" } },
     },
+    e3_sword = {
+      lines = {
+        { id = "e3_sword_l0", text = "You stand with your feet apart like this, so you don't fall over, and you hold it up high, and you shout \"Halt\" in a big voice. Father showed me, and he says the shouting's most important, because a kobold that's surprised can't think." },
+      },
+      choices = {
+        { text = "Your father's right. Surprise is half a fight.", next = "e3_sword2" },
+        { text = "That's a fine stance, little knight.", next = "BACK" },
+      },
+    },
+    e3_sword2 = {
+      lines = {
+        { id = "e3_sword2_l0", text = "He is, and he says the other half is running away if it's too big, but I'm not going to tell Bradford that part. Bradford would run away from a hen." },
+      },
+      choices = {
+        { text = "Keep the guard, Ashley. Something else.", next = "BACK" },
+        { text = "Running away is wise sometimes.", next = "BACK" },
+      },
+    },
   },
   topics = {
     bradford = { { id = "yt_brad", text = "Bradford is my little brother. He digs for worms, and he says they're his soldiers, which is silly." } },
@@ -360,6 +417,7 @@ P:NPC {
         { text = "What's the best fruit you grow?", next = "ybest" },
         { text = "Does the farm have trouble with gnolls?", next = "ygnolls" },
         { text = "I know a thing or two about cooking.", next = "ycook", when = { profession = "Cooking" } },
+        { text = "Where do you take the fruit cart to sell?", next = "e3_cart" },
         { text = "Good day, Homer.", next = "END" },
       },
     },
@@ -415,6 +473,24 @@ P:NPC {
       },
       choices = { { text = "Sound advice. Something else.", next = "BACK" } },
     },
+    e3_cart = {
+      lines = {
+        { id = "e3_cart_l0", text = "To the Goldshire square on market days, and to the road by the Lion's Pride when the market's slow, which it mostly is now. Ma makes me take the long way round so I don't pass the Maclure gate, and it costs me half an hour each way." },
+      },
+      choices = {
+        { text = "Has anyone ever taken the short way?", next = "e3_cart2" },
+        { text = "Half an hour for a feud. That's dedication.", next = "BACK" },
+      },
+    },
+    e3_cart2 = {
+      lines = {
+        { id = "e3_cart2_l0", text = "Tommy Joe does, every single time, and comes home with straw in his hair, and Ma pretends not to see. I reckon that's how this feud ends, with a wedding nobody wants and everybody comes to." },
+      },
+      choices = {
+        { text = "I hope I'm invited. Something else.", next = "BACK" },
+        { text = "The feud will outlast the wedding.", next = "BACK" },
+      },
+    },
   },
   topics = {
     hogger = { { id = "yt_hogger", text = "Hogger's the big gnoll in the southwest woods. He's taken more from Stonefield than the taxman, and that's saying something." } },
@@ -460,6 +536,7 @@ P:NPC {
         { text = "How did a troll join the Faire?", next = "yjoin" },
         { text = "Has your machine ever hurt anyone?", next = "yhurt" },
         { text = "Are you Darkspear, cousin?", next = "ydark", when = { race = "Troll" } },
+        { text = "Who is Silas, then?", next = "e3_silas" },
         { text = "Farewell, Rinling.", next = "END" },
       },
     },
@@ -522,6 +599,24 @@ P:NPC {
       lines = { { id = "yf_default", text = "A little village on de Stranglethorn coast dat don't have a name worth sayin', mon. De goblins of Booty Bay be de first to sell me tools, so Rinling always say he was raised by trolls and schooled by goblins." } },
       choices = { { text = "That shows. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    e3_silas = {
+      lines = {
+        { id = "e3_silas_l0", text = "Silas Darkmoon, de master of de Faire, mon, with de top hat and de voice dat carries over de whole crowd. He pay Rinling in tickets and in patience, and Rinling be needin' plenty of both after de last explosion." },
+      },
+      choices = {
+        { text = "Does Silas ever lose patience?", next = "e3_silas2" },
+        { text = "Tickets for pay seems a poor bargain.", next = "BACK" },
+      },
+    },
+    e3_silas2 = {
+      lines = {
+        { id = "e3_silas2_l0", text = "Only once, when de machine blew de feathers off his hat, and he stand very still and say, \"Rinling, my friend, de hat was a gift.\" Den he laugh so hard he sit down, and Rinling make him a new feather from copper wire." },
+      },
+      choices = {
+        { text = "A copper feather. Fitting. Something else.", next = "BACK" },
+        { text = "He's a patient man, Silas.", next = "BACK" },
+      },
+    },
   },
   topics = {
     silas = { { id = "yt_silas", text = "Silas Darkmoon be de boss of de Faire, mon. He laugh loud and pay fair, and Rinling like both." } },
@@ -571,6 +666,7 @@ P:NPC {
         { text = "Why did you leave Mulgore?", next = "yleave" },
         { text = "Who taught you to cook?", next = "ytaught" },
         { text = "Earth Mother's blessing, brother.", next = "ycousin", when = { race = "Tauren" } },
+        { text = "You grill frogs for the crowd?", next = "e3_frogs" },
         { text = "May your fire burn steady.", next = "END" },
       },
     },
@@ -628,6 +724,24 @@ P:NPC {
       },
       choices = { { text = "The herds are well. Something else.", next = "BACK", reply = "Good. Then the Earth Mother smiles, and so do I." } },
     },
+    e3_frogs = {
+      lines = {
+        { id = "e3_frogs_l0", text = "The Faire's children catch them by the pond and bring them to me for a ticket, and I grill them with wild sage until the skin crackles. The human children are frightened of them at first, and then they eat six, and then they are frightened of nothing." },
+      },
+      choices = {
+        { text = "Is that a dish from Mulgore?", next = "e3_frogs2" },
+        { text = "Frogs are an acquired taste.", next = "BACK" },
+      },
+    },
+    e3_frogs2 = {
+      lines = {
+        { id = "e3_frogs2_l0", text = "No, little one, in Mulgore we grill the plainstrider and the kodo calf, and frogs are for herons. But the Earth Mother puts what she will under the grill, and I have learned to love what each land offers." },
+      },
+      choices = {
+        { text = "A wise way to cook. Something else.", next = "BACK" },
+        { text = "I'd rather have the kodo.", next = "BACK" },
+      },
+    },
   },
   topics = {
     mulgore = { { id = "yt_mulgore", text = "The grass of Mulgore is gold at sunset, and the kodo graze to the horizon. I see it when I close my eyes." } },
@@ -674,6 +788,7 @@ P:NPC {
         { text = "I work leather myself. Can I help?", next = "lw", when = { profession = "Leatherworking" } },
         { text = "What do you remember of Lordaeron's fall?", next = "yfall" },
         { text = "Do you ever wish you could forget?", next = "ywish" },
+        { text = "What's the oldest entry in your ledger?", next = "e3_ledger" },
         { text = "Enjoy the Faire, Chronos.", next = "END" },
       },
     },
@@ -729,6 +844,24 @@ P:NPC {
         { text = "Be free. You owe the dead nothing.", next = "BACK", reply = "A cold comfort, but comfort nonetheless. I'll think on it.", fx = { align = { light = -1 } } },
       },
     },
+    e3_ledger = {
+      lines = {
+        { id = "e3_ledger_l0", text = "A pair of boots, resoled for a juggler in the Faire's first season with me, priced at four coppers and still unpaid. He fell from his stilts in Mulgore and broke his neck, and I keep the debt open because closing it would mean he'd been forgotten." },
+      },
+      choices = {
+        { text = "That's almost sentimental, for a Forsaken.", next = "e3_ledger2" },
+        { text = "Four coppers is a small debt.", next = "BACK" },
+      },
+    },
+    e3_ledger2 = {
+      lines = {
+        { id = "e3_ledger2_l0", text = "Almost, yes, and I'll thank you not to spread it about the Faire. The dead are supposed to be past such things, and I prefer to be thought efficient rather than fond." },
+      },
+      choices = {
+        { text = "Your secret is kept. Something else.", next = "BACK" },
+        { text = "Efficient suits you better.", next = "BACK" },
+      },
+    },
   },
   topics = {
     lordaeron = { { id = "yt_lord", text = "I counted grain in Lordaeron's granaries for twelve years. I remember every sack, and which ones killed us." } },
@@ -770,6 +903,7 @@ P:NPC {
         { text = "What exactly hums in here?", next = "xhum" },
         { text = "I'm a mage too. May I see the library?", next = "BACK", when = { class = "MAGE" }, reply = "Oh, I'd love to say yes! But the archmage keeps the good books upstairs, and the stairs are warded. Perhaps if you ask him nicely?" },
         { text = "Did you come here straight from Gnomeregan?", next = "yflight" },
+        { text = "What happens if the wards go hungry?", next = "e3_wards" },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -833,6 +967,24 @@ P:NPC {
       },
       choices = { { text = "I hope she's well. Something else.", next = "BACK" } },
     },
+    e3_wards = {
+      lines = {
+        { id = "e3_wards_l0", text = "They turn the doorknobs cold, then they make the stairs creak in a minor key, and once, when I fell asleep over a book, they turned every candle in the tower blue and wouldn't stop until I'd fed them twice. The archmage didn't notice, but I did." },
+      },
+      choices = {
+        { text = "Couldn't you build a machine to feed them?", next = "e3_wards2" },
+        { text = "Blue candles sound rather pretty.", next = "BACK" },
+      },
+    },
+    e3_wards2 = {
+      lines = {
+        { id = "e3_wards2_l0", text = "I tried! A little clockwork hopper that dropped a pinch of dust every hour, and it worked perfectly for nine days, until the wards decided they preferred being fed by hand and ate the hopper. I'm keeping notes for a paper." },
+      },
+      choices = {
+        { text = "Publish it. Something else.", next = "BACK" },
+        { text = "Wards eating machines. Alarming.", next = "BACK" },
+      },
+    },
   },
   topics = {
     tower = { { id = "yt_tower", text = "The Tower of Azora has a hundred and nine steps, and I've dropped something on every one of them." } },
@@ -875,6 +1027,7 @@ P:NPC {
         { text = "Do you know Marshal Dughan?", next = "xdughan" },
         { text = "I'm a paladin. Need help keeping the peace?", next = "BACK", when = { class = "PALADIN" }, reply = "Always glad of a paladin on the road. The Light makes the wolves think twice, and the Defias three times." },
         { text = "Do you have family in Elwynn?", next = "yfamily" },
+        { text = "Is that spear the army's issue?", next = "e3_spear" },
         { text = "Carry on, soldier.", next = "END" },
       },
     },
@@ -937,6 +1090,24 @@ P:NPC {
         { id = "yfa_night", when = { timeOfDay = "night" }, text = "A wife and boy in the city. On nights like this, when the wolves are loud, I'm glad they're behind the walls and not out here with me." },
       },
       choices = { { text = "May you see them soon. Something else.", next = "BACK" } },
+    },
+    e3_spear = {
+      lines = {
+        { id = "e3_spear_l0", text = "Royal armoury, ash shaft, iron head, and as dull as the day they handed it to me until I bought a whetstone in Goldshire with my own pay. The quartermaster at Westbrook, Hicks, sharpens his own garrison's blades, and I'd swap posts with them just for that." },
+      },
+      choices = {
+        { text = "Why doesn't the armoury sharpen them?", next = "e3_spear2" },
+        { text = "A dull spear's worse than none.", next = "BACK" },
+      },
+    },
+    e3_spear2 = {
+      lines = {
+        { id = "e3_spear2_l0", text = "Too many spears and too few smiths, and the good smiths are all on the Redridge orders. So every guard in Elwynn learns to sharpen his own, which is a skill the army never meant to teach us." },
+      },
+      choices = {
+        { text = "You've made the best of it. Something else.", next = "BACK" },
+        { text = "The army should do better.", next = "BACK" },
+      },
     },
   },
   topics = {

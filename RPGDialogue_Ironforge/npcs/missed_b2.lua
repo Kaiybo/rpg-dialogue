@@ -28,19 +28,37 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_out = {
+      lines = {
+        { id = "w2_out_l0", text = "Once, in my grandfather's time, when the mountain shook an' the deep channels cracked. The fire sank low for three days, an' the whole city held its breath. The smiths worked the channels wi' their bare hands till it rose again." },
+      },
+      choices = {
+        { text = "What would happen if it did go out?", next = "w2_out_what" },
+        { text = "The Forge outlasts every keeper.", next = "BACK" },
+      },
+    },
+    w2_out_what = {
+      lines = {
+        { id = "w2_out_what_l0", text = "Some say the mountain would go cold, an' the city wi' it. Others say it's only a fire. I've stood at its rim sixty years, an' I'll tell ye plain: I dinnae want tae find out which is true." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Myolor Sunderfury, keeper o' the Great Forge. I see that the channels run clear an' the heat holds even, an' I see that those who work the ring are worthy o' it, which is the harder half o' the task." },
       },
       again = {
         { id = "h_again", text = "What else would ye ask? The fire's patient, an' so am I." },
-        { id = "h_again2", text = "Speak, then." },
+        { id = "h_again2", text = "Speak, then, but dinnae lean over the rim." },
       },
       choices = {
         { text = "What does a keeper of the Forge do?", next = "keeper" },
         { text = "You must hear everything said on this ring.", next = "hear" },
         { text = "Where does the fire come from?", next = "fire" },
         { text = "I want to master my craft.", next = "master", when = { profession = "Blacksmithing" } },
+        { text = "Has the Forge ever nearly gone out?", next = "w2_out" },
         { text = "I'll leave you to the fire.", next = "END" },
       },
     },
@@ -119,13 +137,31 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_blow = {
+      narr = "He thumps the plate on his chest, and there is a faint, straight scar across it.",
+      lines = {
+        { id = "w2_blow_l0", text = "That's from a drunk Mountaineer wi' an axe who said Craghelm plate was overpriced. He swung, it held, an' he bought two. I've kept the mark tae show doubters." },
+      },
+      choices = {
+        { text = "Did you charge him full price?", next = "w2_blow_price" },
+        { text = "Some advertisement.", next = "BACK" },
+      },
+    },
+    w2_blow_price = {
+      lines = {
+        { id = "w2_blow_price_l0", text = "Double, for the trouble, an' he paid it gladly when he sobered. He's a sergeant now, an' every recruit in his company wears Craghelm. Best customer I ever had came out o' the worst afternoon." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Olthran Craghelm, an' the plate's mine, while Dolkin sees tae the chain. Our name's been over this door since the orcs first came through the Portal, an' there are dwarves alive today because o' what we sold their fathers." },
       },
       again = {
-        { id = "h_again", text = "What else can I do for ye?" },
-        { id = "h_again2", text = "Aye, go on." },
+        { id = "h_again", text = "What else? Knock on this breastplate if ye doubt me; it's Craghelm steel all the way through." },
+        { id = "h_again2", text = "Aye, go on, an' if ye doubt my plate, I'll let ye try it." },
         { id = "h_again_x0", when = { class = { "WARRIOR", "PALADIN" } }, text = "Back again! Show me the dents, {class}, an' I'll tell ye what they mean." },
       },
       choices = {
@@ -138,6 +174,7 @@ P:NPC {
         { text = "Who's Dolkin?", next = "dolkin" },
         { text = "What gorget would you recommend?", next = "gorget", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Do you make plate for gnomes?", next = "BACK", when = { race = "Gnome" }, reply = "I've made a few pieces, an' they were the hardest work I've ever done. Everything's half the size an' twice as fiddly." },
+        { text = "Has your own breastplate ever stopped a blow?", next = "w2_blow" },
         { text = "Good day, Olthran.", next = "END" },
       },
     },
@@ -218,6 +255,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_miss = {
+      narr = "The knife stops turning for a moment.",
+      lines = {
+        { id = "w2_miss_l0", text = "Once, when it mattered. In Gnomeregan, on the day it fell, at a trogg that was dragging off someone I knew. I hit the wall beside its head. I've thrown ten thousand knives since, and I don't miss anymore." },
+      },
+      choices = {
+        { text = "Did your friend get away?", next = "w2_miss_friend" },
+        { text = "Everyone misses sometimes.", next = "BACK" },
+      },
+    },
+    w2_miss_friend = {
+      lines = {
+        { id = "w2_miss_friend_l0", text = "No. That's why I practise. You'll forgive me if I don't talk about it further, and if I go back to counting spins." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Prynne, and I don't sell anything, so you needn't look for a counter. I come here because the blades are good and nobody in the Forlorn Cavern asks what a gnome wants with so many of them." },
@@ -235,6 +290,7 @@ P:NPC {
         { text = "What's Stoneblade's like?", next = "shop" },
         { text = "Who runs the rogues in this city?", next = "rogues", when = { class = "ROGUE" } },
         { text = "Did we ever cross paths in Gnomeregan?", next = "BACK", when = { race = "Gnome" }, reply = "If we had, you'd remember, and I wouldn't. That's how I liked it then, and how I like it now." },
+        { text = "Have you ever missed a throw?", next = "w2_miss" },
         { text = "I'll get out of your light.", next = "END" },
       },
     },
@@ -320,12 +376,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_eat = {
+      lines = {
+        { id = "w2_eat_l0", text = "Fish, mostly, an' anythin' that wriggles. He's taken a likin' tae Gremlock's spiced sausage, which I'm sure isnae good for him. I give him one on his name day, an' he dances." },
+      },
+      choices = {
+        { text = "Murlocs dance?", next = "w2_eat_dance" },
+        { text = "You'll spoil him.", next = "BACK" },
+      },
+    },
+    w2_eat_dance = {
+      narr = "Murky gurgles hopefully at the word \"sausage\".",
+      lines = {
+        { id = "w2_eat_dance_l0", text = "This one does. Round an' round, flappin' his wee arms an' singin' that awful song. Garel says it's a war cry. I say it's joy, an' I've known Murky longer." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Ransin Donner, an' this is Murky. I keep small beasts, the odder the better, an' I'll tell ye there's nae odder nor better creature under this mountain than a baby murloc who's taken a likin' tae ye." },
       },
       again = {
-        { id = "h_again", text = "What else? Murky's listenin' too, mind." },
+        { id = "h_again", text = "What else? Murky's listenin' too, mind, an' he gurgles at the questions he likes." },
         { id = "h_again2", text = "Go on, we've all day." },
         { id = "h_again_x0", when = { class = "HUNTER" }, text = "Back again, {class}? Has yer beast asked after Murky?" },
       },
@@ -336,6 +410,7 @@ P:NPC {
         { text = "Where did Murky's egg come from?", next = "egg" },
         { text = "What other beasts do you keep?", next = "others" },
         { text = "My pet would like to meet Murky.", next = "pet", when = { class = "HUNTER" } },
+        { text = "What does Murky eat?", next = "w2_eat" },
         { text = "Goodbye, Ransin. Goodbye, Murky.", next = "END" },
       },
     },
@@ -418,6 +493,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_why = {
+      lines = {
+        { id = "w2_why_l0", text = "The troggs took my seam at Gol'Bolar, an' I was too old tae start fresh in another quarry. Groum said, \"Come an' work the bellows, Da,\" an' I did, an' one day I picked up his hammer while he wasnae lookin'." },
+      },
+      choices = {
+        { text = "And he let you keep it?", next = "w2_why_keep" },
+        { text = "A brave thing to start over so late.", next = "BACK" },
+      },
+    },
+    w2_why_keep = {
+      lines = {
+        { id = "w2_why_keep_l0", text = "He made me a hammer of my own, the next week, sized for an old miner's grip. It's the first thing he ever made for me, an' I've no' put it down since. A son teachin' his father; it's backward, but it's good." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Rotgath Stonebeard, apprentice blacksmith, an' aye, ye heard me right. My son Groum is a proper smith on this very ring, an' I'm learnin' the trade thirty years after he did, which he finds funnier than I do." },
@@ -434,6 +526,7 @@ P:NPC {
         { text = "What does Bengus Deepforge think of you?", next = "bengus" },
         { text = "Hold the tongs closer to the jaw.", next = "BACK", when = { profession = "Blacksmithing" }, reply = "Like this? Aye, that's better, the iron's no' slippin'. Thank ye, an' dinnae tell Groum ye had tae show me.", fx = { affinity = 1 } },
         { text = "What's the best seam you ever worked?", next = "best", when = { profession = "Mining" } },
+        { text = "What made you put down the pick for the hammer?", next = "w2_why" },
         { text = "Good luck with the nails.", next = "END" },
       },
     },

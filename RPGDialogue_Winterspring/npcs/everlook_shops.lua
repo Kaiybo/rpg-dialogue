@@ -52,7 +52,25 @@ P:NPC {
         { text = "Who banks in Everlook, anyway?", next = "clients" },
         { text = "Why would a goblin bank at the end of the world?", next = "why" },
         { text = "Any work going for a quick pair of hands?", next = "rogue", when = { class = "ROGUE" } },
+        { text = "What happens to vaults nobody claims?", next = "w9_vault" },
         { text = "Goodbye, Izzy.", next = "END" },
+      },
+    },
+
+    w9_vault = {
+      lines = { { id = "w9_vault_d", text = "Ah, the quiet question, pal. Adventurers go out to Frostwhisper Gorge with a full vault and a confident smile, and some of them don't come back, and their stuff just sits here, gathering interest and dust in equal measure." } },
+      choices = {
+        { text = "And the bank keeps it?", next = "w9_vault2" },
+        { text = "That's grim.", next = "w9_vault2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_vault2 = {
+      lines = { { id = "w9_vault2_d", text = "The bank holds it, chum, which is very different from keeping it, legally speaking. After a year and a day, the Cartel sends a fella to \"assess the estate,\" and after that, well, I don't ask, and you'd be wise not to either." } },
+      choices = {
+        { text = "I'll make sure I come back.", next = "BACK", reply = "Please do, pal. I like you better than the estate paperwork." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     safe = {
@@ -167,7 +185,25 @@ P:NPC {
         { text = "Why does everyone call you Lunny?", next = "lunny" },
         { text = "What's so special about thorium?", next = "thorium" },
         { text = "I've mined plenty. What's the trick in this cold?", next = "cold", when = { profession = "Mining" } },
+        { text = "Have you been out to the mines yourself?", next = "w9_mine" },
         { text = "Goodbye, Lunny.", next = "END" },
+      },
+    },
+
+    w9_mine = {
+      lines = { { id = "w9_mine_d", text = "Once, sweetheart, my first week here, because I figured a mining supplier ought to know what she's selling. I got halfway up Frostwhisper Gorge with a brand new pick before a yeti stood up out of the snow and asked me, very rudely, to leave." } },
+      choices = {
+        { text = "What did you do?", next = "w9_mine2" },
+        { text = "Yetis don't talk.", next = "w9_mine2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_mine2 = {
+      lines = { { id = "w9_mine2_d", text = "It roared, which is yeti for \"leave,\" and I ran, which is goblin for \"yes, sir.\" I left the pick up there, and some days I think about the poor thing frozen in the snow, and other days I think about the twelve gold I paid for it." } },
+      choices = {
+        { text = "I'll fetch it if I find it.", next = "BACK", reply = "You're a sweetheart. Bring it back and I'll name a pick after ya!" },
+        { text = "Something else.", next = "BACK" },
       },
     },
     veins = {
@@ -278,7 +314,25 @@ P:NPC {
         { text = "Why build it here, in Everlook?", next = "where" },
         { text = "The gnomes build transporters too, don't they?", next = "gnomes" },
         { text = "A mage can open a portal without exploding anyone.", next = "mage", when = { class = "MAGE" } },
+        { text = "Who pays for all these experiments?", next = "w9_pay" },
         { text = "I'll stand somewhere else, thanks.", next = "END" },
+      },
+    },
+
+    w9_pay = {
+      lines = { { id = "w9_pay_d", text = "Investors, pal! Well, investor, singular, and that's me, and also Xizzer down the road, who doesn't know he's an investor yet, on account of I keep buying fuses on credit. When the imploder pays off, everybody gets a cut, and when it doesn't, nobody can prove anything." } },
+      choices = {
+        { text = "Xizzer seems to know exactly what's going on.", next = "w9_pay2" },
+        { text = "That sounds like fraud.", next = "w9_pay2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_pay2 = {
+      lines = { { id = "w9_pay2_d", text = "Sure he does, and he keeps selling anyway, 'cause Xizzer's a gambler at heart and I'm the best bet in Everlook. Fraud is when you don't mean to pay, buddy, and I fully mean to pay, just as soon as the universe stops arguing with me." } },
+      choices = {
+        { text = "Good luck with the universe.", next = "BACK", reply = "Thanks, pal! It's a stubborn client, but I'm wearin' it down." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     imploder = {

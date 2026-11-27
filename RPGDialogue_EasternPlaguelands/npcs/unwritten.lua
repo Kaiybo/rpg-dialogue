@@ -26,6 +26,38 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+
+    as_watch = {
+      lines = { { id = "asw_1", text = "Field Marshal Chambers draws it up, and Lord Tyrosus signs it, and nobody argues with either of them. Four hours on the wall and eight off, and the worst shift is the one before dawn, when the dead push hardest." } },
+      choices = {
+        { text = "Why do they push hardest before dawn?", next = "as_watch2" },
+        { text = "Eight hours off sounds generous, for a war.", next = "as_watch2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    as_watch2 = {
+      lines = { { id = "asw2_1", text = "Nobody knows for certain, though Brother Leonid says the Light is weakest just before it returns, and the dead can feel it. As for the eight hours, most of us spend half of them praying in the chapel, so it's not as restful as it sounds." } },
+      choices = {
+        { text = "I'll speak with Brother Leonid, then.", next = "BACK" },
+        { text = "Pray for me while you're at it.", next = "BACK", reply = "I already do, friend, for everyone who walks out that gate.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    as_wood = {
+      lines = { { id = "aswd_1", text = "Quiet is the worst thing it can be, traveller. When the Plaguewood is loud, the Scourge is fighting something, and when it's quiet, the Scourge is waiting, and I'd rather hear screaming than that." } },
+      choices = {
+        { text = "What lies in the Plaguewood?", next = "as_wood2" },
+        { text = "I'm a priest. I could bless the edge of the ground.", next = "BACK", when = { class = "PRIEST" }, reply = "The brothers do it every evening, but another voice never hurts. Walk the line with them at dusk, if you've the strength." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    as_wood2 = {
+      lines = { { id = "aswd2_1", text = "Terrordale, and the old farms gone to rot, and the road north to Stratholme's gates where the plaguebats roost. Georgia's bats won't fly over it, and Khaelyn's gryphons only do it high and fast." } },
+      choices = {
+        { text = "If the bats won't fly it, I'll walk carefully.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I keep watch over Light's Hope Chapel, where the Scourge can't tread, though they test it every night. Stratholme lies to the north and the Plaguewood to the west, and both are full of things that never sleep." } },
       again = { { id = "h_again", text = "What else? I'm on watch." } },
@@ -38,7 +70,27 @@ P:NPC {
         { text = "Why can't the Scourge tread here?", next = "ground" },
         { text = "Horde and Alliance both stand here?", next = "both" },
         { text = "What comes at night?", next = "night" },
+        { text = "Who keeps the watch rota on these walls?", next = "as_watch" },
+        { text = "The Plaguewood looks quiet from up here.", next = "as_wood" },
+        { text = "What do you do when your watch ends?", next = "w9_off" },
         { text = "Light keep you.", next = "END" },
+      },
+    },
+
+    w9_off = {
+      lines = { { id = "w9_off_d", text = "Pray, first, in the chapel, and then I take my old mason's tools to whatever the ghouls clawed at in the night. The wall on the north side has been patched by my hands more times than I can count, and I know every stone in it by now." } },
+      choices = {
+        { text = "You still work stone, then?", next = "w9_off2" },
+        { text = "When do you sleep?", next = "w9_off2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_off2 = {
+      lines = { { id = "w9_off2_d", text = "I do, and it's the best part of my day, because a wall I build is a wall the Scourge has to tear down. Sleep comes when it comes, traveller, and out here a mason with a trowel is worth as much as a knight with a sword." } },
+      choices = {
+        { text = "Every stone matters.", next = "BACK", reply = "It does. Tell that to the knights, if you see them." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     ground = {
@@ -122,9 +174,41 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+
+    fc_darrow = {
+      lines = { { id = "fcd_1", text = "The Scourge came for it in the first winter of the plague, and Joseph Redpath held the town with farmers and a handful of guards until he fell. Then he rose again, fighting for the other side, and that's the part nobody at Light's Hope forgets." } },
+      choices = {
+        { text = "Does anyone still go to Darrowshire?", next = "fc_darrow2" },
+        { text = "A hero raised against his own people. That's cruel.", next = "fc_darrow2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fc_darrow2 = {
+      lines = { { id = "fcd2_1", text = "His brother Carlin does; you'll find him here at the chapel, and he'll ask you to help him lay it to rest. The ghosts there still fight that battle every night, and I'd not refuse him if I were you." } },
+      choices = {
+        { text = "I'll find Carlin Redpath.", next = "BACK", reply = "Good. Some battles are won by remembering them properly." },
+        { text = "Ghosts fighting a lost battle. That's this whole land.", next = "BACK", reply = "It is, and I'd like to be the one who finally ends it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fc_troops = {
+      lines = { { id = "fct_1", text = "They are, and I'll thank you not to say so where they can hear. I've men posted at the old towers, Crown Guard and Eastwall and Northpass, and none of them has slept a full night since the snows." } },
+      choices = {
+        { text = "Why hold the towers at all?", next = "fc_troops2" },
+        { text = "I'm a warrior. Put me on the line, Marshal.", next = "BACK", when = { class = "WARRIOR" }, reply = "Gladly, but not on a tower. Go out and thin the dead around Corin's Crossing, and my tower men will sleep easier for it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fc_troops2 = {
+      lines = { { id = "fct2_1", text = "Because a tower sees an army coming a day before it arrives, and a day is the difference between a defended chapel and a burned one. The Scourge never moves without being seen from one of them, and that's the only advantage we have." } },
+      choices = {
+        { text = "Then the towers are worth every tired soldier.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Field Marshal Chambers, and I coordinate the Argent Dawn's forces here in the east, which is a grand way of saying I send good people out to die against the Scourge. The Scourge has more soldiers than we ever will, so every one of ours must count." } },
-      again = { { id = "h_again", text = "What else? Be quick." } },
+      again = { { id = "h_again", text = "What else? Out with it; the maps won't redraw themselves while we talk." } },
       choices = {
         { text = "A commander owes his soldiers the truth, however grim.", next = "BACK", reply = "He does, and I've given it to them every morning since Darrowshire fell.", fx = { align = { honor = 1 } } }, -- dp_stance
         { text = "Lie to the troops. Hope wins more battles than truth.", next = "BACK", reply = "False hope gets soldiers killed. I'll give them truth and let them find their own courage.", fx = { align = { honor = -1 } } }, -- dp_stance
@@ -134,7 +218,28 @@ P:NPC {
         { text = "How goes the war against the Scourge?", next = "war" },
         { text = "What's the Dawn's greatest threat?", next = "threat" },
         { text = "Sending people to die must weigh on you.", next = "weight" },
+        { text = "You spoke of Darrowshire. What happened there?", next = "fc_darrow" },
+        { text = "Your soldiers look worn thin, Marshal.", next = "fc_troops" },
+        { text = "Who gives you your orders?", next = "w9_orders" },
         { text = "I'll get to work.", next = "END" },
+      },
+    },
+
+    w9_orders = {
+      lines = { { id = "w9_orders_d", text = "Lord Maxwell Tyrosus, here at the chapel, and the Dawn's council above him, though most days the Scourge gives my orders more plainly than either. I draw the plans, Lord Tyrosus approves them, and the dead decide what's left of them by morning." } },
+      choices = {
+        { text = "Do you and Tyrosus agree?", next = "w9_orders2" },
+        { text = "Councils don't fight wars.", next = "w9_orders2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_orders2 = {
+      lines = { { id = "w9_orders2_d", text = "More often than not, which is rare for a field marshal and a lord. He wants the chapel held at all costs, and I want soldiers sent out to take back ground, and between us we've kept Light's Hope standing, so perhaps the argument is the plan." } },
+      choices = {
+        { text = "Holding the chapel comes first.", next = "BACK", fx = { align = { order = 1 } }, reply = "That's Lord Tyrosus's view, and it's served us well. Most days." },
+        { text = "You have to take ground, or you lose.", next = "BACK", fx = { align = { order = -1 } }, reply = "My view exactly. Don't tell his lordship I agreed with you." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     war = {
@@ -222,7 +327,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "I am Rayne of the Cenarion Circle, and I have come to aid the Argent Dawn against the Scourge. The plague is a poison not just to the living but to the land itself, and the Circle cannot stand by while it spreads." } },
-      again = { { id = "h_again", text = "What else would you ask, traveller?" } },
+      again = { { id = "h_again", text = "What else? Ask, and I will listen as the earth listens, slowly and with care." } },
       choices = {
         { text = "We should heal this land honestly, however long it takes.", next = "BACK", reply = "Patience is the oldest of the druid's tools. The land will thank you, though not soon.", fx = { align = { honor = 1 } } }, -- dp_stance
         { text = "Tell the Circle the land is healing, even if it isn't.", next = "BACK", reply = "Comforting lies let a wound fester unseen. I will tell them the truth, however hard.", fx = { align = { honor = -1 } } }, -- dp_stance
@@ -233,7 +338,28 @@ P:NPC {
         { text = "Can the land here be healed?", next = "heal" },
         { text = "What does the Circle care about human lands?", next = "why" },
         { text = "What lies in the sky over Plaguewood?", next = "naxx" },
+        { text = "Does anything grow here at all?", next = "w9_grow" },
         { text = "Elune guide you.", next = "END" },
+      },
+    },
+
+    w9_grow = {
+      lines = {
+        { id = "w9_grow_d", text = "Plaguebloom, mostly, a twisted flower that drinks the sickness and grows fat on it. I study it as a healer studies a wound, for if a plant can live in this soil, perhaps it can teach us how to draw the plague out." },
+        { id = "w9_grow_v1", when = { profession = "Herbalism" }, text = "Plaguebloom, which you'll have gathered, I expect, and wondered at. It drinks the sickness and grows fat on it, and I study it as a healer studies a wound, for a plant that lives in this soil may teach us how to cleanse it." },
+      },
+      choices = {
+        { text = "What have you learned from it?", next = "w9_grow2" },
+        { text = "Doesn't it spread the plague?", next = "w9_grow2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_grow2 = {
+      lines = { { id = "w9_grow2_d", text = "That its roots hold the poison close, and do not let it seep further, which may be its own kind of mercy. I have planted ashenvale seedlings beside it near the chapel, and two of the twelve still live, which is more hope than this land has given me in a year." } },
+      choices = {
+        { text = "Two is a beginning.", next = "BACK", reply = "It is, and a beginning is all a druid ever asks for." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     heal = {
@@ -327,6 +453,44 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+
+    cw_angela = {
+      lines = { { id = "cwa_1", text = "Aye, she's our archmage, an' a rare one for a human, because she'll listen tae a smith. She studies the thing hangin' over the Plaguewood an' I study what we'll wear when we go up tae meet it." } },
+      choices = {
+        { text = "What does she want from a smith?", next = "cw_angela2" },
+        { text = "A mage and a smith. Odd partners.", next = "cw_angela2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cw_angela2 = {
+      lines = { { id = "cwa2_1", text = "She tells me what the cold in there does tae flesh, an' I work out how tae stop it gettin' through the plate. Odd partners, aye, but the Brotherhood's built on odd partners, an' we've no' come tae blows yet." } },
+      choices = {
+        { text = "May your work keep us warm in there.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cw_fire = {
+      lines = { { id = "cwf_1", text = "Ye've a good eye. That's the Light in the coals, {g:lad|lass}, for the priests bless the fuel as well as the bricks. It burns clean an' hot an' it never smokes, an' a ghoul willnae come within a stone's throw o' it." } },
+      choices = {
+        { text = "Do the priests mind blessing coal?", next = "cw_fire2" },
+        { text = "I'm a smith. How do you temper against frost?", next = "cw_temper", when = { profession = "Blacksmithing" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cw_fire2 = {
+      lines = { { id = "cwf2_1", text = "Brother Leonid grumbled the first time, said he'd no' been ordained tae pray over a coal scuttle. Then he saw what the armor did at Stratholme, an' now he comes by every mornin' wi'out bein' asked." } },
+      choices = {
+        { text = "Even a priest can be won over by good steel.", next = "BACK", reply = "Good steel an' good results, {g:lad|lass}. Nothin' converts a man faster." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cw_temper = {
+      lines = { { id = "cwt_1", text = "Slowly, in blessed water instead o' oil, an' wi' a frozen rune worked intae the lining so the cold has somewhere else tae go. Quench it fast an' the plate cracks the first time a lich breathes on it, an' I've the broken pieces tae prove it." } },
+      choices = {
+        { text = "Slow quench, blessed water. I'll remember.", next = "BACK", reply = "See ye do. A smith's patience is worth more than his hammer.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I'm Wilhelm, smith o' the Brotherhood o' the Light, an' I forge armor for those brave enough tae face the Scourge. Bring me the right materials from the dead lands, an' I'll make ye armor no ghoul can tear." } },
       again = { { id = "h_again", text = "What else, {g:lad|lass}? The forge is hot." } },
@@ -337,6 +501,8 @@ P:NPC {
         { text = "What is the Brotherhood of the Light?", next = "brotherhood" },
         { text = "What makes your armor special?", next = "armor" },
         { text = "Does blessing armor really help?", next = "bless" },
+        { text = "Does Archmage Dosantos work with you?", next = "cw_angela" },
+        { text = "That forge burns without a wisp of smoke.", next = "cw_fire" },
         { text = "Show me your work.", next = "END" },
       },
     },
@@ -452,7 +618,25 @@ P:NPC {
         { text = "Is there anything a mage could learn from it?", next = "frostfire", when = { class = "MAGE" } },
         { text = "Where did you study, Archmage?", next = "ylife" },
         { text = "What do you fear most about the citadel?", next = "yfear" },
+        { text = "Your notes are covered in sketches.", next = "w9_notes" },
         { text = "Good day, Archmage.", next = "END" },
+      },
+    },
+
+    w9_notes = {
+      lines = { { id = "w9_notes_d", text = "Runes, from the underside of the citadel, drawn through a spyglass on clear nights. Most of them are Nerubian, older than the Scourge's use of the place, and some of them are Kel'Thuzad's own work, written over the top like a man scribbling in someone else's book." } },
+      choices = {
+        { text = "Can you read them?", next = "w9_notes2" },
+        { text = "What do Kel'Thuzad's runes say?", next = "w9_notes2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_notes2 = {
+      lines = { { id = "w9_notes2_d", text = "Some, enough to know they are wards and bindings, and that the binding runes are newer than the wards. He is holding something in that citadel that does not want to be held, and I would very much like to know what before it gets free." } },
+      choices = {
+        { text = "I'll bring you what I find.", next = "BACK", reply = "Do. Every scrap of it, however small." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     naxx = {
@@ -536,7 +720,29 @@ P:NPC {
         { text = "Is there armor for a paladin of the Brotherhood?", next = "redemption", when = { class = "PALADIN" } },
         { text = "This chapel has held when everything around it fell.", next = "chapel" },
         { text = "My family came from Lordaeron, Commander.", next = "lordaeron", when = { race = "Human" } },
+        { text = "What does the Brotherhood ask of its knights?", next = "w9_vow" },
         { text = "Farewell, Commander.", next = "END" },
+      },
+    },
+
+    w9_vow = {
+      lines = {
+        { id = "w9_vow_d", text = "That they go into the citadel when ordered, and come out when they can, and say nothing of what they saw to anyone outside the Brotherhood. It is not the oath of the old Silver Hand, which promised the Light would carry us, and I think it is more honest for that." },
+        { id = "w9_vow_v1", when = { class = "PALADIN" }, text = "You will have sworn the Silver Hand's oath, I expect, as I did. Ours is plainer: go in when ordered, come out when you can, and speak of it to no one outside the Brotherhood, because what is in that citadel spreads by being spoken of." },
+      },
+      choices = {
+        { text = "Silence seems a heavy vow.", next = "w9_vow2" },
+        { text = "Why not trust the Light to carry you?", next = "w9_vow2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_vow2 = {
+      lines = { { id = "w9_vow2_d", text = "Because I watched the Light fail to carry Mograine's son, and Stratholme, and half my brothers, and I still believe in it, but I no longer ask it to do my work for me. A knight who swears to silence has at least sworn something he can keep." } },
+      choices = {
+        { text = "Faith should be absolute.", next = "BACK", fx = { align = { light = 1 } }, reply = "Perhaps once. I keep mine now with my eyes open." },
+        { text = "You're right. Trust the blade, not promises.", next = "BACK", fx = { align = { light = -1 } }, reply = "Not quite. Trust both, but carry the blade yourself." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     echoes = {
@@ -737,7 +943,25 @@ P:NPC {
         { text = "Who were you in life?", next = "ylife" },
         { text = "What do you remember of this land?", next = "yland" },
         { text = "Do you fear the Scourge?", next = "yfear" },
+        { text = "What do you see in the blight that I don't?", next = "w9_see" },
         { text = "Farewell, Elder.", next = "END" },
+      },
+    },
+
+    w9_see = {
+      lines = { { id = "w9_see_d", text = "The roots, child, deep beneath the grey, where the old forests of this land still sleep. The plague has eaten the trees and the grass, but it has not yet reached the oldest roots, and when I stand here I can feel them waiting for the rain." } },
+      choices = {
+        { text = "Will they wake again?", next = "w9_see2" },
+        { text = "How long will they wait?", next = "w9_see2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_see2 = {
+      lines = { { id = "w9_see2_d", text = "Roots are patient, child, more patient even than elders, and they have waited out fire and flood before this. If the living drive the Scourge back, the forests will come again, though none of us who stand here now may live to see them." } },
+      choices = {
+        { text = "Then we'll fight for them.", next = "BACK", reply = "That is the finest gift you could bring an elder, child." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     here = {
@@ -840,7 +1064,25 @@ P:NPC {
         { text = "Where did you fight before this?", next = "ylife" },
         { text = "What do you think of the Argent Dawn?", next = "ydawn" },
         { text = "Do you trust the Forsaken?", next = "yforsaken" },
+        { text = "You don't seem to enjoy waiting.", next = "w9_wait" },
         { text = "I'll go.", next = "END" },
+      },
+    },
+
+    w9_wait = {
+      lines = { { id = "w9_wait_d", text = "I am a warrior made into a messenger, and a warrior who waits is a blade left to rust. The Warchief sent me to speak for the Horde, so I speak, but every day I stand in this chapel the towers are held by someone else's banner." } },
+      choices = {
+        { text = "Why not go and take one yourself?", next = "w9_wait2" },
+        { text = "Talking is also a kind of battle.", next = "w9_wait2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_wait2 = {
+      lines = { { id = "w9_wait2_d", text = "Because an emissary who leaves his post to fight is an orc who does not trust his warriors, and I trust them. So I wait, and I send others, and when they come back with Scourge blood on them, I am proud, and I am also jealous." } },
+      choices = {
+        { text = "Your warriors will make you proud.", next = "BACK", reply = "They already do. Go, and be one of them." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     towers = {
@@ -936,7 +1178,7 @@ P:NPC {
         { id = "h_default", text = "Whitebeard, emissary for the Alliance. Me orders are simple: get our banners up on the old towers before the Horde does." },
         { id = "yh_dwarf", when = { race = "Dwarf" }, text = "A son of Khaz Modan! Good. Ye'll know what a tower's worth, then. Stone holds, and so do dwarves." },
       },
-      again = { { id = "h_again", text = "Aye? What else, then?" } },
+      again = { { id = "h_again", text = "Aye? What else, then? Out with it, before Gormok wanders over to listen." } },
       choices = {
         { text = "Why do the towers matter?", next = "why" },
         { text = "What can I do?", next = "task", when = { faction = "Alliance" } },
@@ -944,7 +1186,25 @@ P:NPC {
         { text = "Where did you serve before?", next = "ylife" },
         { text = "What would you do with the towers?", next = "ytowers" },
         { text = "Do you ever drink with Gormok?", next = "ydrink" },
+        { text = "Who sends you your orders?", next = "w9_orders" },
         { text = "Goodbye, Emissary.", next = "END" },
+      },
+    },
+
+    w9_orders = {
+      lines = { { id = "w9_orders_d", text = "Ironforge, by way of Stormwind, by way of a goblin courier who reads every letter and pretends he doesnae. The king's people want the towers, an' Highlord Bolvar's people want 'em taken without startin' a war wi' the Horde inside the chapel." } },
+      choices = {
+        { text = "Can both be done?", next = "w9_orders2" },
+        { text = "Sounds like politics.", next = "w9_orders2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_orders2 = {
+      lines = { { id = "w9_orders2_d", text = "Aye, if ye're careful an' the Scourge cooperates, which it never does. Out on the towers, it's a race, an' in here, it's a truce, an' I spend my days makin' sure nobody confuses the two." } },
+      choices = {
+        { text = "You do it well.", next = "BACK", reply = "I do it loudly, which out here is near enough the same." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     why = {
@@ -1043,7 +1303,25 @@ P:NPC {
         { text = "Who were you, before the cage?", next = "ylife" },
         { text = "Do you have family?", next = "yfamily" },
         { text = "Why refuse them? You'll die.", next = "yrefuse" },
+        { text = "Were there others caged with you?", next = "w9_others" },
         { text = "Rest easy, craftsman.", next = "END" },
+      },
+    },
+
+    w9_others = {
+      lines = { { id = "w9_others_d", text = "Three, when they brought me in: a tanner from Andorhal, a girl who wove cloth for the Dawn, and an old dwarf smith who never stopped cursing. One by one they agreed to work, and one by one the guards took them deeper, and none of them came back." } },
+      choices = {
+        { text = "They agreed to work for the Scourge?", next = "w9_others2" },
+        { text = "I'm sorry.", next = "w9_others2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_others2 = {
+      lines = { { id = "w9_others2_d", text = "I don't blame them, and you mustn't either, because pain asks a question that most of us can only answer one way. The dwarf held out longest, and the last thing he said to me was to put everything I knew in the book, so that's what I did." } },
+      choices = {
+        { text = "Your book will save lives.", next = "BACK", reply = "Then the dwarf's curses were worth it. Take it, and go." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     free = {
@@ -1137,7 +1415,7 @@ P:NPC {
         { id = "h_default", text = "Stonebruiser, packmaster for the Brotherhood. Every blade, potion and bandage this chapel uses against the citadel comes through my hands." },
         { id = "yh_dwarf", when = { race = "Dwarf" }, text = "A fellow dwarf! Good, good, ye'll know how to count a crate properly. The humans here count like they're scared of numbers." },
       },
-      again = { { id = "h_again", text = "What is it now?" } },
+      again = { { id = "h_again", text = "What is it now? Speak while I count, an' don't jostle the crates." } },
       choices = {
         { text = "What's a craftsman's writ?", next = "writ" },
         { text = "What does the Brotherhood need most?", next = "need" },
@@ -1146,7 +1424,25 @@ P:NPC {
         { text = "Where are you from?", next = "yhome" },
         { text = "What's the most important supply?", next = "ysupply" },
         { text = "Does anyone ever cheat the writs?", next = "ycheat" },
+        { text = "Who carries all these crates up to the chapel?", next = "w9_carry" },
         { text = "I'll leave ye to it.", next = "END" },
+      },
+    },
+
+    w9_carry = {
+      lines = { { id = "w9_carry_d", text = "Mules, mostly, an' a few drivers brave enough or daft enough tae walk the road from Chillwind past Corin's Crossing. We lost two carts this month tae ghouls, an' the drivers lost their nerve, an' I lost a crate of thorium I'd already counted, which hurt the most." } },
+      choices = {
+        { text = "What happened to the drivers?", next = "w9_carry2" },
+        { text = "The thorium hurt more than the carts?", next = "w9_carry2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_carry2 = {
+      lines = { { id = "w9_carry2_d", text = "They lived, the both of 'em, which is why I can afford tae grieve the thorium. Now the Dawn sends an escort wi' every cart, an' the escort wants feedin', which is more crates, which needs more carts, an' so it goes round." } },
+      choices = {
+        { text = "That's the war in a nutshell.", next = "BACK", reply = "Aye, an' I count the nutshells too." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     writ = {
@@ -1243,7 +1539,25 @@ P:NPC {
         { text = "Where are you from?", next = "yhome" },
         { text = "Do you ever lose patients?", next = "ylose" },
         { text = "What's the oddest cure you know?", next = "ycure" },
+        { text = "You look like you haven't slept in days.", next = "w9_sleep" },
         { text = "I'm well, thanks.", next = "END" },
+      },
+    },
+
+    w9_sleep = {
+      lines = { { id = "w9_sleep_d", text = "Three, if ye're countin', an' I'd rather ye didnae. There's always another lad off the Plaguewood road wi' a ghoul bite goin' green, an' ye cannae sleep through that, not if ye've a conscience." } },
+      choices = {
+        { text = "Who looks after you?", next = "w9_sleep2" },
+        { text = "You'll be no use to anyone exhausted.", next = "w9_sleep2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_sleep2 = {
+      lines = { { id = "w9_sleep2_d", text = "Miranda, believe it or not, who brings me a cup o' stout from the stores an' stands over me till I drink it, an' then writes it down as \"medical supplies.\" It's the only rest I get, an' I'd fight a ghoul barehanded for it." } },
+      choices = {
+        { text = "Drink up, then.", next = "BACK", reply = "I will. Light knows I've earned it, an' so's she." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     sick = {
@@ -1358,7 +1672,7 @@ P:NPC {
         { id = "h_default", text = "Got hit by an abomination near the Plaguewood. Medics say I'll live, but I'm not sure I believe them." },
         { id = "yh_dwarf", when = { race = "Dwarf" }, text = "A dwarf. One of the medics, are ye? No? Pity. I could use some of that dwarven stout they keep for themselves." },
       },
-      again = { { id = "h_again", text = "Still here. What is it?" } },
+      again = { { id = "h_again", text = "Still lying here, aye. What is it, friend? I've nowhere else to be." } },
       choices = {
         { text = "Where are you from?", next = "xfrom" },
         { text = "Will you go back out?", next = "xback" },
@@ -1367,7 +1681,25 @@ P:NPC {
         { text = "Can I get you anything?", next = "help" },
         { text = "Who did you fight beside?", next = "ycomrades" },
         { text = "What do you think about when you rest?", next = "ythink" },
+        { text = "The medics say there's stout for the wounded.", next = "w9_stout" },
         { text = "Rest well.", next = "END" },
+      },
+    },
+
+    w9_stout = {
+      lines = { { id = "w9_stout_d", text = "Do they? Then they've been keeping it from me, the dwarves. I've smelled it on the cot beside me twice, and both times the medic said it was a \"tincture,\" and both times the fellow sang for an hour after." } },
+      choices = {
+        { text = "I could ask on your behalf.", next = "w9_stout2" },
+        { text = "Maybe you need to be worse off.", next = "w9_stout2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_stout2 = {
+      lines = { { id = "w9_stout2_d", text = "Ha! Don't make me laugh, my ribs won't stand it. Tell the quartermaster I'm in dire need of a tincture, and if she asks what's wrong, say it's my spirits, which is true enough." } },
+      choices = {
+        { text = "I'll see what I can do.", next = "BACK", reply = "Bless you. I'll sing for you, if it comes." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     story = {
@@ -1497,7 +1829,25 @@ P:NPC {
         { text = "What was the stable like?", next = "ystable" },
         { text = "Do you blame anyone for what happened?", next = "yblame" },
         { text = "Is there pain, now?", next = "ypain" },
+        { text = "What should be said over Darrowshire?", next = "w9_words" },
         { text = "Rest easy, friend.", next = "END" },
+      },
+    },
+
+    w9_words = {
+      lines = { { id = "w9_words_d", text = "That we were small, and we were ordinary, and we held the square until the last of the carts got away. Nobody sings about towns like ours, stranger, but somebody should know that we didn't run." } },
+      choices = {
+        { text = "I'll make sure it's remembered.", next = "w9_words2" },
+        { text = "Courage doesn't need a song.", next = "w9_words2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_words2 = {
+      lines = { { id = "w9_words2_d", text = "Thank you. Tell it to the Dawn, or to Carlin Redpath at the chapel, if he's still there, because he'll remember the names. I've forgotten most of them myself now, and I'd hate for them to go with me." } },
+      choices = {
+        { text = "They won't be forgotten.", next = "BACK", reply = "Then I can go easier. Thank you, stranger." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     battle = {
@@ -1617,7 +1967,25 @@ P:NPC {
         { text = "Who were you, before?", next = "ylife" },
         { text = "Why are you angry?", next = "yangry" },
         { text = "Do you remember Joseph Redpath?", next = "yredpath" },
+        { text = "What happened to the cider press?", next = "w9_press" },
         { text = "Leave me be, spirit.", next = "END" },
+      },
+    },
+
+    w9_press = {
+      lines = { { id = "w9_press_d", text = "Smashed, the first night, when an abomination came through the orchard wall and took the press house with it. Forty barrels I'd made that autumn, every one sealed, and the cider ran down the hill into the square and the ghouls walked through it." } },
+      choices = {
+        { text = "Did any barrels survive?", next = "w9_press2" },
+        { text = "Forty barrels is a lot of work.", next = "w9_press2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_press2 = {
+      lines = { { id = "w9_press2_d", text = "One, I think, on the last cart south, if the cart made it. I'd give the rest of my death to know whether somebody in Southshore drank it and thought it was good, because then I'd have made one thing that outlived me." } },
+      choices = {
+        { text = "I'll ask in Southshore.", next = "BACK", reply = "Ask for Ellie, too. Ask everyone. Somebody has to know." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     rest = {

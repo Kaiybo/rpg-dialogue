@@ -46,7 +46,7 @@ P:NPC {
         { id = "h_dd_burial", tags = { "news" }, when = { questDone = TODO_QUEST("A Sacred Burial") }, text = "Lorekeeper Raintotem sent word that you stood over the honored dead at Red Rocks while the quilboar came to dig. The ancestors saw it, young one, and so did the Earth Mother, and so did I." },
       },
       again = {
-        { id = "h_again", text = "What else would you know, young one?" },
+        { id = "h_again", text = "What else would you know, young one? Ask plainly. An old seer has no patience left for questions dressed up as compliments." },
         { id = "h_again2", text = "Ask. The mesa has time, as the Earth Mother does." },
       },
       choices = {
@@ -56,7 +56,36 @@ P:NPC {
         { text = "I walk the druid's path, Seer.", next = "druid", when = { class = "DRUID" } },
         { text = "I'm not tauren. Will the Rites still count?", next = "outsider", when = { ["not"] = { race = "Tauren" } } },
         { text = "I'm ready for my task.", next = "BUSINESS" },
+        { text = "You've seen quilboar ruin land before?", next = "w7_ruin" },
         { text = "Earth Mother guide you, Seer.", next = "END" },
+      },
+    },
+    w7_ruin = {
+      lines = {
+        { id = "w7_ruin_l1", text = "In the Barrens, long ago, when the Razormane came up out of the thornlands. They tore out the grass by the roots and planted their brambles, and in three seasons a whole valley where my family had grazed was bare red earth and thorns." },
+      },
+      choices = {
+        { text = "Did the land ever recover?", next = "w7_ruin2" },
+        { text = "The quilboar only did what beasts do.", next = "w7_ruin3" },
+        { text = "Something else, Seer.", next = "BACK" },
+      },
+    },
+    w7_ruin2 = {
+      lines = {
+        { id = "w7_ruin2_l1", text = "Some of it. The grass came back at the edges, slowly, the way a wound heals from the outside in. But the middle of that valley is still thorns, and I will not live to see it green again. That is why I will not let it happen here." },
+        { id = "w7_ruin2_l2", when = { class = "DRUID" }, text = "Some of it, at the edges. You walk the druid's path; you know how slowly the earth forgives. That is why I set the young against Brambleblade: the Bristleback must not root here, or Red Cloud Mesa will grow thorns for a hundred years." },
+      },
+      choices = {
+        { text = "I'll stop them.", next = "BACK", reply = "Good. Go, and be thorough about it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_ruin3 = {
+      lines = {
+        { id = "w7_ruin3_l1", text = "Beasts do not plant thorns on purpose. The quilboar do. That is the difference, and it is everything." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     rite = {

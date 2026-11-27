@@ -1817,7 +1817,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage at my forge! You'll want a blade you'll never swing, I suppose, but I'll teach you to forge one anyway." },
         { id = "h_cl_brd", tags = { "news" }, when = { cleared = "Blackrock Depths", faction = "Horde" }, text = "You've been through the Dark Iron halls under Blackrock and walked out again. I'd give a good deal to see what's on their anvils, because no smith alive works iron the way they do." },
       },
-      again = { { id = "h_again", text = "What else? Speak up over the hammer." } },
+      again = { { id = "h_again", text = "What else? Shout it, because I've had a hammer ringing in my ear since before you were whelped." } },
       choices = {
         { text = "Should a priest carry a weapon at all, Saru?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "The fire spirits must help you at the forge.", next = "xhsham", when = { class = "SHAMAN" } },

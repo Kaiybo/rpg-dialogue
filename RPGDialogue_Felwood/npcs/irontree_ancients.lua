@@ -246,6 +246,9 @@ P:NPC {
         { text = "You and Vartrus seem different.", next = "brothers" },
         { text = "What do you remember of Hyjal?", next = "hyjal" },
         { text = "My people still remember the Ancients, Hastat.", next = "kal", when = { race = "NightElf" } },
+        { text = "What does an Ancient see in Felwood now?", next = "sees" },
+        { text = "Do the Deadwood furbolgs ever come near you?", next = "deadwood" },
+        { text = "How do you pass the time, as a spirit?", next = "w_time" },
         { text = "I'll let you rest, Ancient.", next = "END" },
       },
     },
@@ -288,6 +291,52 @@ P:NPC {
       choices = {
         { text = "I'll bow too, then, and teach the young to.", next = "BACK", reply = "Do not teach them to bow. Teach them why, and they will find their own way of showing it.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Our people must look forward, not only back.", next = "BACK", reply = "True, small one, so long as you remember that the road behind you is how you got here.", fx = { align = { order = -1 } } },
+      },
+    },
+    sees = {
+      lines = { { id = "se_default", text = "Hm. Rot, small one, rot that does not belong to any season. The trees here used to drop their leaves and grow them again, hm, like breathing. Now they hold their dead leaves all year, and nothing new comes, and the streams run the colour of an old bruise." } },
+      choices = {
+        { text = "Can nothing be done for them?", next = "sees2" },
+        { text = "The druids at the Emerald Sanctuary are trying.", next = "sees2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sees2 = {
+      lines = { { id = "se2_default", text = "Hm, hm. The young druids at the sanctuary plant and cleanse and plant again, and they think in years. I think in centuries, and so I know they will not see the end of it. But a seed planted by someone who will not see the tree is the best kind of seed." } },
+      choices = { { text = "That's a hopeful thought. Something else.", next = "BACK" } },
+    },
+    deadwood = {
+      lines = { { id = "dw_default", text = "Hm. They come, and they look at me, and they go away again, for I am very large and very old and they are only mad, not foolish. Once they were the friends of the Ancients. Now they do not remember that, and I remember it for them, which is a sad thing to carry." } },
+      choices = {
+        { text = "Do you blame them?", next = "deadwood2" },
+        { text = "The Timbermaw to the north kept their minds.", next = "deadwood2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    deadwood2 = {
+      lines = { { id = "dw2_default", text = "Hm, no. They drank from the water as the trees did, and the water was poisoned, and they went the way the water took them. The Timbermaw dug deep and drank from deeper springs, hm, and so they kept themselves. It was luck as much as wisdom, I think, though the Timbermaw would not like to hear it." } },
+      choices = {
+        { text = "I'm a hunter. I'll mind the Deadwood on the paths.", next = "BACK", reply = "Hm. Good. Shoot them cleanly if you must, small one. They have suffered enough without suffering slowly.", when = { class = "HUNTER" } },
+        { text = "Something else, Hastat.", next = "BACK" },
+      },
+    },
+    w_time = {
+      lines = {
+        { id = "w_time_default", text = "Hm. I count the arrows the young hunters loose at the Deadwood, small one, and I note which fletchings fly true. Most of them do not. Hm, hm. I have opinions about goose feathers that nobody living wishes to hear." },
+      },
+      choices = {
+        { text = "I'd like to hear them.", next = "w_time2" },
+        { text = "Goose feathers?", next = "w_time2" },
+      },
+    },
+    w_time2 = {
+      lines = {
+        { id = "w_time2_default", text = "Hm! Then you are rarer than a clean stream in this wood. Grey goose for the long shot, and never white, for white feathers are soft and remember the wet. The kaldorei knew this once, and now they buy their arrows from Auberdine and forget." },
+        { id = "w_time2_w1", when = { class = "HUNTER" }, text = "Hm. You are a hunter. Bring me one of your arrows, small one, and I shall tell you everything wrong with it. You will hate it, and you will shoot better." },
+      },
+      choices = {
+        { text = "Grey goose, never white.", next = "BACK", fx = { trait = { patient = 1 } } },
+        { text = "Something else, Ancient.", next = "BACK" },
       },
     },
   },
@@ -343,6 +392,7 @@ P:NPC {
         { text = "Does it matter that I'm not kaldorei?", next = "outsider", when = { class = "HUNTER", ["not"] = { race = "NightElf" } } },
         { text = "My people remember those who fell at Hyjal.", next = "hyjal_kin", when = { race = "NightElf" } },
         { text = "The Circle in Moonglade would want word of you.", next = "druid_kin", when = { class = "DRUID" } },
+        { text = "What did you do before Hyjal?", next = "w_before" },
         { text = "I'll leave you to your silence.", next = "END" },
       },
     },
@@ -395,6 +445,25 @@ P:NPC {
     outsider = {
       lines = { { id = "o_d", text = "Hrm. The Legion did not ask whom it burned at Hyjal, so we do not ask whom we arm against it." } },
       choices = { { text = "That's a generous answer.", next = "BACK", reply = "It is a true one. Generous is Hastat's work.", fx = { affinity = 1 } } },
+    },
+    w_before = {
+      lines = {
+        { id = "w_before_default", text = "Hrm. Stood. Listened. Bound strings for the archers of the old forest, and sheltered their children in my roots when storms came. I stood in the same place for four thousand years, small one, and it was not dull." },
+      },
+      choices = {
+        { text = "What did you hear in all that time?", next = "w_before2" },
+        { text = "Four thousand years in one place.", next = "w_before2" },
+      },
+    },
+    w_before2 = {
+      lines = {
+        { id = "w_before2_default", text = "Hrm. Every song the kaldorei sang to the moon, and every quarrel they had beneath my branches. I remember a girl who carved her name in my bark and was scolded for it. She stood with the Sentinels at Hyjal. Her name is still in my bark. Hrm." },
+        { id = "w_before2_w1", when = { race = "NightElf" }, text = "Hrm. Perhaps she was your grandmother's grandmother, small one. If you come close, you may read it. Do not carve your own." },
+      },
+      choices = {
+        { text = "I won't carve mine.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Ancient.", next = "BACK" },
+      },
     },
   },
 

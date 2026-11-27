@@ -42,6 +42,7 @@ P:NPC {
         { text = "What should I know before I go?", next = "x_adv" },
         { text = "I'm kaldorei, and I'll defend Ashenvale.", next = "x_ne", when = { race = "NightElf" } },
         { text = "What use is a hunter in the gulch?", next = "x_hu", when = { class = "HUNTER" } },
+        { text = "How do you choose who goes to the gulch?", next = "w_choose" },
         { text = "Farewell, Aethalas.", next = "END" },
       },
     },
@@ -117,6 +118,25 @@ P:NPC {
         { text = "I'll do that. Something else.", next = "BACK" },
       },
     },
+    w_choose = {
+      lines = {
+        { id = "w_choose_default", text = "I watch how they listen. The ones who ask how many orcs there are I send to train longer, and the ones who ask where the healers stand I send to Silverwing Grove with a letter in my own hand." },
+      },
+      choices = {
+        { text = "Why the healers?", next = "w_choose2" },
+        { text = "That's a strange test.", next = "w_choose2" },
+      },
+    },
+    w_choose2 = {
+      lines = {
+        { id = "w_choose2_default", text = "Because the gulch is not won by the bravest, but by those who keep the others standing. A flag runner who knows where her priestess is will run further than one who only knows where the enemy is." },
+        { id = "w_choose2_w1", when = { class = "PRIEST" }, text = "You are a healer, so you will be asked for more than you can give in there. Give it anyway, and let the Sentinels guard your back." },
+      },
+      choices = {
+        { text = "I'll remember where the healers stand.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Something else, Aethalas.", next = "BACK" },
+      },
+    },
   },
   topics = {
     warsong = { { id = "tp_ws", text = "The Warsong cut our trees and call it lumber. We call it murder, and we answer it in the gulch." } },
@@ -153,7 +173,7 @@ P:NPC {
       },
       choices = {
         { text = "The Stormpike Guard fights for Ironforge.", next = "BACK", reply = "Aye, we do! Join us!", fx = { align = { order = 1 } } },
-        { text = "Alterac Valley isn't worth fighting for.", next = "BACK", reply = "It is to us.", fx = { align = { order = -1 } } },
+        { text = "Alterac Valley isn't worth fighting for.", next = "BACK", reply = "It is to us, and to every dwarf buried in that snow.", fx = { align = { order = -1 } } },
         { text = "Why are the Stormpike fighting the Frostwolves?", next = "why" },
         { text = "You don't look happy among the trees.", next = "trees" },
         { text = "Send me to Alterac Valley.", next = "BUSINESS" },
@@ -161,6 +181,7 @@ P:NPC {
         { text = "I'm a Stormpike dwarf myself.", next = "x_dw", when = { race = "Dwarf" } },
         { text = "Gnomes stand with the Stormpike too.", next = "x_gn", when = { race = "Gnome" } },
         { text = "What's the worst of the Frostwolves?", next = "x_fw" },
+        { text = "What do ye drink up here, then?", next = "w_ale" },
         { text = "Farewell, Brogun.", next = "END" },
       },
     },
@@ -237,6 +258,25 @@ P:NPC {
         { text = "Grudging respect. Something else.", next = "BACK" },
       },
     },
+    w_ale = {
+      lines = {
+        { id = "w_ale_default", text = "Moonberry wine, mostly, and it tastes like a flower's been crushed in a cup and told to apologise. I've a wee cask of Thunderbrew stashed under the inn stairs, and if ye tell the innkeeper I'll deny it till my beard's white." },
+      },
+      choices = {
+        { text = "Your beard's already going white.", next = "w_ale2" },
+        { text = "Where'd you get a cask of Thunderbrew?", next = "w_ale2" },
+      },
+    },
+    w_ale2 = {
+      lines = {
+        { id = "w_ale2_default", text = "Cheek! But aye, fair enough. A gnome off the Menethil boat sold it me at a robber's price, and I paid it gladly, for a dwarf without his ale is like a ram without its horns. I've rationed it to a mug a week, and I'm counting." },
+        { id = "w_ale2_w1", when = { race = "Dwarf" }, text = "Ye'll know the feeling, {g:lad|lass}. Come by after the evening watch, and I might share a finger of it with a fellow mountain dwarf, if ye bring news from Ironforge." },
+      },
+      choices = {
+        { text = "A mug a week is real discipline.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else, Brogun.", next = "BACK" },
+      },
+    },
   },
   topics = {
     magni = { { id = "tp_mag", text = "King Magni's a good king, and he lets Vanndar fight his own war. That's the best kind o' king." } },
@@ -267,13 +307,13 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I'm Keras Wolfheart of the League of Arathor. We're fighting the Forsaken's Defilers for Arathi Basin, the farms, the mines and the mill that once fed all of Stromgarde." },
       },
-      again = { { id = "h_again_x", text = "Go on, I'm listening." },
-        { id = "h_again", text = "Anything else, friend?" },
+      again = { { id = "h_again_x", text = "Go on, then. The trail will wait a little longer for me." },
+        { id = "h_again", text = "Something else, hunter? My cat grows restless when I talk too long." },
         { id = "h_again2", text = "Go ahead. I've time for one more question." },
       },
       choices = {
         { text = "The League fights for Arathor's honor.", next = "BACK", reply = "We do! Join us!", fx = { align = { honor = 1 } } },
-        { text = "Arathi Basin isn't worth the blood.", next = "BACK", reply = "It is to us.", fx = { align = { honor = -1 } } },
+        { text = "Arathi Basin isn't worth the blood.", next = "BACK", reply = "It is to us. Those are our fathers' fields.", fx = { align = { honor = -1 } } },
         { text = "Who are the Defilers?", next = "defilers" },
         { text = "Why recruit in Darnassus, so far from Arathi?", next = "far" },
         { text = "Send me to Arathi Basin.", next = "BUSINESS" },
@@ -281,6 +321,7 @@ P:NPC {
         { text = "You've a long way from home.", next = "x_home" },
         { text = "I'm from Stormwind. Why should I care?", next = "x_hm", when = { race = "Human" } },
         { text = "Ironforge remembers Stromgarde.", next = "x_ne", when = { race = "Dwarf" } },
+        { text = "What did you do before the League?", next = "w_before" },
         { text = "Farewell, Keras.", next = "END" },
       },
     },
@@ -350,6 +391,26 @@ P:NPC {
         { text = "Perhaps it is. Something else.", next = "BACK" },
       },
     },
+    w_before = {
+      lines = {
+        { id = "w_before_default", text = "I farmed barley outside Refuge Pointe, and my father before me, back when it was only a crossroads and not a fortress. When the Syndicate burned our fields and the Forsaken came behind them, I traded the scythe for a sword and haven't put it down since." },
+      },
+      choices = {
+        { text = "Do you mean to go back to farming?", next = "w_before2" },
+        { text = "That's a hard road from a farm.", next = "w_before2" },
+      },
+    },
+    w_before2 = {
+      lines = {
+        { id = "w_before2_default", text = "If there's a field left to go back to, aye, and that's the whole reason I'm here. The basin's farms are the best soil in Arathi, and the League means to hand them back to the folk who worked them. I'd like my hands in dirt again before I die." },
+        { id = "w_before2_w1", when = { race = "Human" }, text = "You're from the Eastern Kingdoms too, so you'll know what it is to see the old farms empty. Come and help us fill them again." },
+      },
+      choices = {
+        { text = "Land should go back to its people.", next = "BACK", fx = { align = { honor = 1 } }, reply = "That's the whole of what we fight for, friend. Say it to the next one who doubts us." },
+        { text = "Soldiers shouldn't dream of farms.", next = "BACK", fx = { align = { honor = -1 } }, reply = "Then you've never stood in a burnt field. Every soldier dreams of something." },
+        { text = "Something else, Keras.", next = "BACK" },
+      },
+    },
   },
   topics = {
     forsaken = { { id = "tp_fs", text = "The Forsaken were our neighbours once. Now they're the Defilers, and they mean to keep the basin." } },
@@ -386,7 +447,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, then, while I'm standing still." },
       },
       choices = {
-        { text = "The paths keep the city safe.", next = "BACK", reply = "They do. You understand.", fx = { align = { order = 1 } } },
+        { text = "The paths keep the city safe.", next = "BACK", reply = "They do, and only because someone walks them every night. Paths left unwatched soon belong to someone else.", fx = { align = { order = 1 } } },
         { text = "Paths are just suggestions.", next = "BACK", reply = "Not in Darnassus.", fx = { align = { order = -1 } } },
         { text = "What do you see on your rounds?", next = "rounds" },
         { text = "Darnassus seems too peaceful to need guarding.", next = "peace" },
@@ -394,6 +455,7 @@ P:NPC {
         { text = "You've seen many strangers here lately.", next = "x_str" },
         { text = "I'm a druid of the Enclave.", next = "x_dr", when = { class = "DRUID" } },
         { text = "I'm new to Darnassus.", next = "x_new", when = { race = "Human" } },
+        { text = "What's the most common thing you find on the paths?", next = "w_find" },
         { text = "Farewell, huntress.", next = "END" },
       },
     },
@@ -466,6 +528,25 @@ P:NPC {
       },
       choices = {
         { text = "I'll remember. Something else.", next = "BACK" },
+      },
+    },
+    w_find = {
+      lines = {
+        { id = "w_find_default", text = "Lost things, every morning. A glove, a letter, a child's carved wooden saber, and once a whole bag of moonberries that had been left on a bench and very nearly eaten by an owl from Shylenai's stall." },
+      },
+      choices = {
+        { text = "What do you do with them?", next = "w_find2" },
+        { text = "You must have quite a collection.", next = "w_find2" },
+      },
+    },
+    w_find2 = {
+      lines = {
+        { id = "w_find2_default", text = "I take them to Ellandrieth at the terrace, who knows everyone's business and finds the owner within a day, most of the time. The ones she cannot place go to the Temple, and the priestesses give them where they are needed." },
+        { id = "w_find2_w1", when = { race = "Gnome" }, text = "Your people lose more than anyone, if I may say it kindly. A gnome left a whole small machine on the Temple steps last month, and it was still ticking." },
+      },
+      choices = {
+        { text = "A city with honest finders is a good city.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, huntress.", next = "BACK" },
       },
     },
   },
@@ -547,6 +628,7 @@ P:NPC {
         { text = "Do you have family in Darnassus?", next = "yfamily" },
         { text = "What do the priestesses think of this war?", next = "BACK", when = { race = "NightElf" }, reply = "They support it, mostly. High Priestess Tyrande remembers the War of the Shifting Sands, and she would not see it fought again unprepared." },
         { text = "What will you do when the war is over?", next = "yafter" },
+        { text = "How do you keep count of so much?", next = "w_count" },
         { text = "Farewell, sergeant.", next = "END" },
       },
     },
@@ -583,6 +665,24 @@ P:NPC {
     druid = {
       lines = { { id = "dr_default", text = "The Circle itself asked for this, druid. If the qiraji come out of their hive, there will be no land left to heal." } },
       choices = { { text = "Then I'll give what I can.", next = "BACK" } },
+    },
+    w_count = {
+      lines = {
+        { id = "w_count_default", text = "A ledger for each kind, and a stone tally for each ledger, and I check one against the other at every dawn. The dwarves in Ironforge laugh at the stones, but they have never lost a stone in a fire, and I have known them lose a ledger." },
+      },
+      choices = {
+        { text = "Has the count ever come up short?", next = "w_count2" },
+        { text = "Stones and ledgers both. Thorough.", next = "w_count2" },
+      },
+    },
+    w_count2 = {
+      lines = {
+        { id = "w_count2_default", text = "Once, by forty bandages, and I found them three days later under a novice who had been sleeping on the crate. She thought it was a bench. I gave her a cot and moved the crate, and wrote both down." },
+      },
+      choices = {
+        { text = "A good sergeant knows where everything is.", next = "BACK", fx = { trait = { practical = 1 } } },
+        { text = "Something else, sergeant.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -660,7 +760,7 @@ P:NPC {
         { id = "h_bfd_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Blackfathom Villainy"), days = 3 } }, text = "Kelris is dead, then, and the Twilight's Hammer in Blackfathom Deeps has lost its voice. The Dawn thanks you, {name}." },
       },
       again = {
-        { id = "h_again", text = "What else would you know?" },
+        { id = "h_again", text = "Is there more you would ask before the dawn watch begins?" },
         { id = "h_again2", text = "Ask, friend. Vigilance starts with questions." },
       },
       choices = {
@@ -672,6 +772,7 @@ P:NPC {
         { text = "What do you think of Kalimdor?", next = "ykalimdor" },
         { text = "The Light is with you, Dawnwatcher.", next = "BACK", when = { class = { "PRIEST", "PALADIN" } }, reply = "And with you, friend. It's good to hear those words in this city. The kaldorei are kind, but they pray to the moon." },
         { text = "What's the hardest thing about Darnassus?", next = "yhardest" },
+        { text = "How do the priestesses treat you?", next = "w_priest" },
         { text = "Farewell, Dawnwatcher.", next = "END" },
       },
     },
@@ -701,6 +802,26 @@ P:NPC {
     light = {
       lines = { { id = "li_default", text = "Perhaps not, and I'd never preach it here. But Elune's priestesses and my own share an enemy, and that is enough to stand together." } },
       choices = { { text = "That I can accept.", next = "BACK" } },
+    },
+    w_priest = {
+      lines = {
+        { id = "w_priest_default", text = "With great courtesy and very little warmth, at first. Then one of them came to me after a service and asked about the Light, not to argue but because she wanted to understand, and now we take tea in the Temple Gardens once a week." },
+      },
+      choices = {
+        { text = "What does she ask about?", next = "w_priest2" },
+        { text = "Courtesy is a start.", next = "w_priest2" },
+      },
+    },
+    w_priest2 = {
+      lines = {
+        { id = "w_priest2_default", text = "Whether the Light ever answers, and how it feels when it does. I told her it feels like being remembered by someone you thought had forgotten you, and she was quiet for a long while and said that Elune feels much the same." },
+        { id = "w_priest2_w1", when = { class = "PRIEST" }, text = "You walk this path too, so perhaps you know what I mean. The Light and the moon may not be one thing, but I have stopped thinking they are strangers." },
+      },
+      choices = {
+        { text = "Faith speaks the same in any tongue.", next = "BACK", fx = { align = { light = 1 } }, reply = "That's what I've begun to believe, friend, and I believed it least of anyone when I arrived." },
+        { text = "Their goddess isn't your Light.", next = "BACK", fx = { align = { light = -1 } }, reply = "Perhaps not. But I'll keep drinking her tea, all the same." },
+        { text = "Something else, Dawnwatcher.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -770,6 +891,7 @@ P:NPC {
         { text = "I fight with the blade too, Elder.", next = "kin", when = { class = "WARRIOR" } },
         { text = "Do you remember Azshara?", next = "yazshara" },
         { text = "What would you say to the young Sentinels?", next = "yyoung" },
+        { text = "What do you see, when you look at Darnassus now?", next = "w_see" },
         { text = "Rest well, Elder.", next = "END" },
       },
     },
@@ -808,6 +930,25 @@ P:NPC {
     kin = {
       lines = { { id = "k_default", text = "Then fight as a Sentinel does: swift, silent, and only when you must. A blade drawn in anger is a blade drawn too soon." } },
       choices = { { text = "I'll remember that. Something else.", next = "BACK" } },
+    },
+    w_see = {
+      lines = {
+        { id = "w_see_default", text = "A city where there should be a forest, and a forest that has learned to be a city, which I would not have believed possible when I was alive. The Sentinels stand their posts as we did, and their glaives are better made, and their faces are just as young." },
+      },
+      choices = {
+        { text = "Does it trouble you?", next = "w_see2" },
+        { text = "The Sentinels honour you still.", next = "w_see2" },
+      },
+    },
+    w_see2 = {
+      lines = {
+        { id = "w_see2_default", text = "It troubles me that they still have to stand there. I hoped, when I fell, that the watch might one day be ended. Instead it has been handed down, daughter to daughter, for ten thousand years, and I am proud of them and sorry for them in the same breath." },
+        { id = "w_see2_w1", when = { race = "NightElf" }, text = "You are kaldorei, so it was handed to you as well, in some measure. Carry it lightly when you can, {class}; there will be days when you cannot." },
+      },
+      choices = {
+        { text = "The watch is worth keeping.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "Rest easy, Elder.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -849,6 +990,7 @@ P:NPC {
         { text = "Tell me about Omen.", next = "x_omen" },
         { text = "I'm tauren too, far from Mulgore.", next = "x_ta", when = { race = "Tauren" } },
         { text = "Which elders should a kaldorei seek?", next = "x_ne", when = { race = "NightElf" } },
+        { text = "What will you do when the festival ends?", next = "w_after" },
         { text = "Moonlight on your path, harbinger.", next = "END" },
       },
     },
@@ -935,6 +1077,25 @@ P:NPC {
         { text = "I'll find them. Something else.", next = "BACK" },
       },
     },
+    w_after = {
+      lines = {
+        { id = "w_after_default", text = "Walk home to Thunder Bluff the long way, through the Stonetalon Mountains, and listen to the wind for a few weeks before anyone asks me to speak again. A harbinger uses up a great many words in a season." },
+      },
+      choices = {
+        { text = "Is the walk safe, alone?", next = "w_after2" },
+        { text = "That sounds like a peaceful road.", next = "w_after2" },
+      },
+    },
+    w_after2 = {
+      lines = {
+        { id = "w_after2_default", text = "Safe enough for a tauren who walks slowly and carries a staff. The Venture Company are loud in Stonetalon these days, and their machines frighten the deer, but they do not trouble an old herald. I think they are afraid I might try to convert them." },
+        { id = "w_after2_w1", when = { race = "Tauren" }, text = "You know that road, then, and the smell of the high passes after rain. May the Earth Mother keep you on it as she keeps me." },
+      },
+      choices = {
+        { text = "Walk with the Earth Mother.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, harbinger.", next = "BACK" },
+      },
+    },
   },
   topics = {
     cenarion_circle = { { id = "tp_cc", text = "The Cenarion Circle keeps Moonglade, and they open its gates for the festival. Tauren and kaldorei sit there together, as they should." } },
@@ -980,6 +1141,7 @@ P:NPC {
         { text = "Do you remember Cenarius?", next = "x_cen" },
         { text = "I am a druid. What should I learn?", next = "x_dr", when = { class = "DRUID" } },
         { text = "Teach a kaldorei some old story.", next = "x_ne", when = { race = "NightElf" } },
+        { text = "Is there a story you've forgotten?", next = "w_forget" },
         { text = "Thank you, Ancient.", next = "END" },
       },
     },
@@ -1045,6 +1207,25 @@ P:NPC {
         { text = "I'll try. Something else.", next = "BACK" },
       },
     },
+    w_forget = {
+      lines = {
+        { id = "w_forget_default", text = "Hroom. Hmmm. Yes, little one, one. A song the kaldorei sang at the first planting of every grove, and I remember only that it began with the word for rain. The singers are gone, and the words fell from me like leaves." },
+      },
+      choices = {
+        { text = "Could anyone still know it?", next = "w_forget2" },
+        { text = "Even an ancient forgets.", next = "w_forget2" },
+      },
+    },
+    w_forget2 = {
+      lines = {
+        { id = "w_forget2_default", text = "Hmmm. Perhaps the oldest priestesses, or the druids who slept long in the Dream. I have asked, slowly, for many years. If you ever hear an old song that begins with rain, little one, come and sing it to me, even badly." },
+        { id = "w_forget2_w1", when = { class = "DRUID" }, text = "Hroom. You walk in the Dream, little druid. Listen there for it. Things that are lost here sometimes wait there." },
+      },
+      choices = {
+        { text = "I'll listen for the rain song.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Ancient.", next = "BACK" },
+      },
+    },
   },
   topics = {
     cenarius = { { id = "tp_cen", text = "Hroom. Cenarius was a friend. The orcs killed him. The forest remembers both of those things." } },
@@ -1078,14 +1259,15 @@ P:NPC {
       },
       again = { { id = "h_again_x", text = "Ask your question, traveller." }, { id = "h_again", text = "Anything more? I am on watch, but I can spare a moment." } },
       choices = {
-        { text = "The Sentinels keep Darnassus safe.", next = "BACK", reply = "We do. Thank you.", fx = { align = { order = 1 } } },
-        { text = "Darnassus is safe enough without guards.", next = "BACK", reply = "It is not.", fx = { align = { order = -1 } } },
+        { text = "The Sentinels keep Darnassus safe.", next = "BACK", reply = "We do, every hour of every night. It is kind of you to notice.", fx = { align = { order = 1 } } },
+        { text = "Darnassus is safe enough without guards.", next = "BACK", reply = "It is not. It is safe because we stand here.", fx = { align = { order = -1 } } },
         { text = "Who leads the kaldorei?", next = "leaders" },
         { text = "Why are the Sentinels all women?", next = "women" },
         { text = "How does one become a Sentinel?", next = "x_bec" },
         { text = "Where is the Cenarion Enclave?", next = "x_enc" },
         { text = "I'm kaldorei. Should I join?", next = "x_ne", when = { race = "NightElf" } },
         { text = "I'm a stranger here. What should I avoid?", next = "x_out", when = { faction = "Alliance" } },
+        { text = "What's the hardest part of guarding a peaceful city?", next = "w_peace" },
         { text = "Farewell, Sentinel.", next = "END" },
       },
     },
@@ -1151,6 +1333,26 @@ P:NPC {
         { text = "I'll remember. Something else.", next = "BACK" },
       },
     },
+    w_peace = {
+      lines = {
+        { id = "w_peace_default", text = "Staying sharp when nothing happens for a hundred nights in a row. The ones who grow careless are the ones who believe the peace is a gift, and not something they make each night by standing here." },
+      },
+      choices = {
+        { text = "How do you stay sharp?", next = "w_peace2" },
+        { text = "That's a grim way to see peace.", next = "w_peace2" },
+      },
+    },
+    w_peace2 = {
+      lines = {
+        { id = "w_peace2_default", text = "I count the faces that pass and look for the one who does not belong. Most nights there is none. On the night there is one, I want to see it before it sees me, and that is the only thing I need from the other hundred nights." },
+        { id = "w_peace2_w1", when = { class = "ROGUE" }, text = "You would be that one face, perhaps, on the wrong night. I say it without offence; I simply notice how you stand." },
+      },
+      choices = {
+        { text = "Vigilance is its own reward.", next = "BACK", fx = { align = { order = 1 } }, reply = "It is, though it is a quiet one. Most rewards in this city are." },
+        { text = "Sometimes peace really is a gift.", next = "BACK", fx = { align = { order = -1 } }, reply = "Perhaps, from Elune. From the rest of the world, I prefer to stay awake." },
+        { text = "Something else, Sentinel.", next = "BACK" },
+      },
+    },
   },
   topics = {
     sentinels = { { id = "tp_sen", text = "We guard Darnassus, Ashenvale and the High Priestess. We guard them quietly, but we guard them all." } },
@@ -1192,6 +1394,7 @@ P:NPC {
         { text = "What happens at the festival?", next = "x_fest" },
         { text = "I'm a druid. Should I go?", next = "x_dr", when = { class = "DRUID" } },
         { text = "Do tauren come to the festival?", next = "x_ta", when = { faction = "Alliance" } },
+        { text = "Who gave you that moonlight lantern?", next = "w_lantern" },
         { text = "I'll go to Moonglade.", next = "END" },
       },
     },
@@ -1257,6 +1460,25 @@ P:NPC {
         { text = "I'm glad. Something else.", next = "BACK" },
       },
     },
+    w_lantern = {
+      lines = {
+        { id = "w_lantern_default", text = "Keeper Remulos himself, my first year as an emissary, and he lit it with a word I could not hear. It has not gone out once since, not in rain, not in wind, not even when I dropped it in the lake at Nighthaven." },
+      },
+      choices = {
+        { text = "You dropped it in the lake?", next = "w_lantern2" },
+        { text = "Remulos must trust you.", next = "w_lantern2" },
+      },
+    },
+    w_lantern2 = {
+      lines = {
+        { id = "w_lantern2_default", text = "I did, and it lay on the bottom glowing like a fallen star until a tauren druid swam down for it. He laughed so hard he nearly drowned, and now every year at the festival he asks if I have brought my lake lantern, and I always have." },
+        { id = "w_lantern2_w1", when = { class = "DRUID" }, text = "You are of the Circle, so you may meet him in Nighthaven, a big Runetotem with braids. Tell him the lantern says hello." },
+      },
+      choices = {
+        { text = "I'll pass that on.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else, emissary.", next = "BACK" },
+      },
+    },
   },
   topics = {
     cenarion_circle = { { id = "tp_cc", text = "The Circle keeps the festival, and the festival keeps us all a little kinder." } },
@@ -1289,8 +1511,8 @@ P:NPC {
       },
       again = { { id = "h_again_x", text = "Back for more? I've plenty of rockets left." }, { id = "h_again", text = "See anything you like? The rockets are very popular this year." } },
       choices = {
-        { text = "Fireworks light the sky for everyone.", next = "BACK", reply = "They do! You understand.", fx = { align = { light = 1 } } },
-        { text = "Fireworks are dangerous.", next = "BACK", reply = "Then don't light them.", fx = { align = { light = -1 } } },
+        { text = "Fireworks light the sky for everyone.", next = "BACK", reply = "They do! Elder or child, everyone looks up when the rockets go.", fx = { align = { light = 1 } } },
+        { text = "Fireworks are dangerous.", next = "BACK", reply = "Only if you light them facing the wrong way. Point them at the moon, please, not at the moonwell.", fx = { align = { light = -1 } } },
         { text = "Let me see your wares.", next = "BUSINESS" },
         { text = "Why fireworks, of all things?", next = "why" },
         { text = "What are the little red envelopes for?", next = "envelopes" },
@@ -1298,6 +1520,7 @@ P:NPC {
         { text = "Isn't fire forbidden in Darnassus?", next = "x_fire" },
         { text = "Got anything a gnome would love?", next = "x_gn", when = { race = "Gnome" } },
         { text = "Fireworks? I'm an engineer.", next = "x_en", when = { profession = "Engineering" } },
+        { text = "What do the Darnassians buy from you?", next = "w_buy" },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -1370,6 +1593,25 @@ P:NPC {
         { text = "No promises. Something else.", next = "BACK" },
       },
     },
+    w_buy = {
+      lines = {
+        { id = "w_buy_default", text = "Lanterns, mostly, and they look at the rockets the way a cat looks at a bath. A priestess bought one cluster rocket last year, very solemnly, and told me it was for a lesson on humility, and she would not tell me who was going to be humbled." },
+      },
+      choices = {
+        { text = "Did you ever find out?", next = "w_buy2" },
+        { text = "Lanterns are a safer choice.", next = "w_buy2" },
+      },
+    },
+    w_buy2 = {
+      lines = {
+        { id = "w_buy2_default", text = "A novice told me later that she set it off over the lake for her students, and when they had finished gasping she said that was how small they were next to the stars. It's the best use anyone's ever found for my stock, if you ask me." },
+        { id = "w_buy2_w1", when = { race = "Gnome" }, text = "Your folk would have taken it apart first, I know. I sold one to a gnome in Moonglade, and he came back with three rockets made out of it." },
+      },
+      choices = {
+        { text = "A lesson with a bang.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     darkmoon_faire = { { id = "tp_dmf", text = "The Darkmoon Faire's got better fireworks than me, I'll admit, but they don't do the Lunar Festival, do they?" } },
@@ -1430,6 +1672,7 @@ P:NPC {
         { text = "Do you like night elves?", next = "x_ne", when = { race = "NightElf" } },
         { text = "Do you like Darnassus?", next = "ydarn" },
         { text = "What will you do when the forest is safe?", next = "ysafe" },
+        { text = "What's the most surprising thing you've seen?", next = "w_surprise" },
         { text = "Come on, little friend.", next = "END" },
       },
     },
@@ -1493,6 +1736,25 @@ P:NPC {
       },
       choices = {
         { text = "That's kind. Something else.", next = "BACK" },
+      },
+    },
+    w_surprise = {
+      lines = {
+        { id = "w_surprise_default", text = "Hroom! A squirrel. It ran up my leg and sat on my head, and I did not know what to do, so I stood very still for the whole afternoon. The druid said it was making a nest. Hmmm. I am a little proud." },
+      },
+      choices = {
+        { text = "Is the squirrel still there?", next = "w_surprise2" },
+        { text = "You make a fine tree to nest in.", next = "w_surprise2" },
+      },
+    },
+    w_surprise2 = {
+      lines = {
+        { id = "w_surprise2_default", text = "Hroom, no, it moved to a proper tree, which hurt my feelings a little. But it comes back sometimes, and sits on my shoulder, and tells me things very quickly that I do not understand. I think we are friends. Hmmm. I think that is what friends are." },
+        { id = "w_surprise2_w1", when = { class = "HUNTER" }, text = "Hmmm! You have a friend that follows you too. Does it talk to you very quickly as well, or only slowly, like me?" },
+      },
+      choices = {
+        { text = "That's exactly what friends are.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Come on, little friend.", next = "BACK" },
       },
     },
   },

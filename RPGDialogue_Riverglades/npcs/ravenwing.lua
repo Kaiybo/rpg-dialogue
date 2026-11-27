@@ -32,6 +32,38 @@ P:NPC {
 
   start = "hello",
   nodes = {
+
+    rv_ashe = {
+      lines = { { id = "rva_1", text = "Bone charms, mostly, and twists of copper wire, and little discs carved with a hammer over a broken circle. Ashe says the carving means nothing in itself, but the cultists won't give them up without a fight, and that interests me more than what they are." } },
+      choices = {
+        { text = "Why would they fight for a worthless charm?", next = "rv_ashe2" },
+        { text = "I'm a mage. I could look at those trinkets.", next = "BACK", when = { class = "MAGE" }, reply = "Then take it up with Ashe; she guards them more jealously than I guard the prisoners. Tell her I sent you, and watch her face when you do." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rv_ashe2 = {
+      lines = { { id = "rva2_1", text = "Because they believe the voice can find them through it, and a man who loses his charm thinks he's been abandoned. Take one away and the prisoner either weeps or talks, and I've learned to wait and see which." } },
+      choices = {
+        { text = "So the charm is your best tool.", next = "BACK", reply = "One of them. Silence is still the best, but the charm helps it along." },
+        { text = "Something else.", next = "BACK", fx = { learn = { "twilights_hammer" } } },
+      },
+    },
+    rv_you = {
+      lines = { { id = "rvy_1", text = "I question everyone as if they were one of my prisoners, because one day one of them will be. It's nothing personal, and you'd be surprised how many people are relieved to be asked properly." } },
+      choices = {
+        { text = "Then ask me something properly.", next = "rv_you2" },
+        { text = "Does anyone at Farholde escape your questions?", next = "rv_you2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rv_you2 = {
+      lines = { { id = "rvy2_1", text = "Very well. Where did you sleep last night, and who saw you there? The Knight Commander answers that question for me every week, and so does Sergeant Riftan, though he complains about it." } },
+      choices = {
+        { text = "In Farholde's barracks. Ask Riftan, he snores.", next = "BACK", reply = "He does, and you're the third person to tell me so. I'll put that down in your favour.", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "That's my own business, Interrogator.", next = "BACK", reply = "Of course it is. Everything is someone's business, and in time most of it becomes mine." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Interrogator Ravenwing. When the scouts bring back a cultist alive, or a satchel of their papers, it comes to me, and I find out what it knows." },
@@ -53,7 +85,27 @@ P:NPC {
         { text = "How do you make them talk?", next = "methods" },
         { text = "Why the questions? I'm on your side.", next = "trust" },
         { text = "These whispers. I've heard the like before.", next = "whisper", when = { class = { "PRIEST", "WARLOCK" } } },
+        { text = "What does Ashe Amberhall make of the cultists' trinkets?", next = "rv_ashe" },
+        { text = "You question me as if I were one of your prisoners.", next = "rv_you" },
+        { text = "What happens to the prisoners afterward?", next = "w9_after" },
         { text = "I'll leave you to your work.", next = "END" },
+      },
+    },
+
+    w9_after = {
+      lines = { { id = "w9_after_d", text = "That's for the Commander to decide, and he decides slowly, which I respect. Most go into the cells under the keep until a ship can take them south, and a few are turned loose with a story we want the Hammer to hear." } },
+      choices = {
+        { text = "You let some of them go?", next = "w9_after2" },
+        { text = "Do any of them repent?", next = "w9_after2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_after2 = {
+      lines = { { id = "w9_after2_d", text = "A few, on purpose, with the wrong maps in their pockets. If the Hammer believes them, their raiders hit an empty field, and if they don't, they kill their own messenger, and either way I've learned something about how they think." } },
+      choices = {
+        { text = "Clever, if a little cruel.", next = "BACK", reply = "Clever is cruel, done carefully. I try to be careful." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

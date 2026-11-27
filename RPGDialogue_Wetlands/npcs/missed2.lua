@@ -25,6 +25,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_hid = {
+      lines = { { id = "w8_hid_a", text = "Gimlok, because he's so small he can fit behind the flour sacks in his dad's shop, but he always sneezes. And the cat at the Deepwater Tavern, which hides in the rafters and drops on people, and I'm going to learn how it does that." } },
+      choices = {
+        { text = "Please don't drop on people from the rafters.", next = "w8_hid2" },
+        { text = "A cat's a good teacher for hiding.", next = "w8_hid2" },
+        { text = "Something else, Jesse.", next = "BACK" },
+      },
+    },
+    w8_hid2 = {
+      lines = { { id = "w8_hid2_a", text = "Only on Regina, and only a little, because she squeals and it's funny. Don't tell Mum I said rafters, though, because then she'll start looking up as well as everywhere else, and I'll have nowhere left." } },
+      choices = {
+        { text = "Your secret's safe with me.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", text = "I'm Jesse, and my dad's the tanner, and I've got the best hiding spot in the whole harbor. It's up the wind tower, and Regina can't find me there because she's too scared to climb it." } },
       again = {
@@ -38,6 +54,7 @@ P:NPC {
         { text = "What's the best thing you've seen from up there?", next = "ybest" },
         { text = "Do you and Regina ever get along?", next = "yregina" },
         { text = "What do you think of the dwarves here?", next = "ydwarves" },
+        { text = "Who else in the harbor is good at hiding?", next = "w8_hid" },
         { text = "Good luck hiding, Jesse.", next = "END" },
       },
     },
@@ -128,11 +145,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_frd = {
+      lines = { { id = "w8_frd_a", text = "Brother Glorin at the chapel, because he lets me help light the candles and he never says I'm too little. He says even a small light counts for a great deal in a dark place, and I think he means me." } },
+      choices = {
+        { text = "He's right. You do count for a lot.", next = "w8_frd2" },
+        { text = "A priest is an odd best friend for a girl.", next = "w8_frd2" },
+        { text = "Something else, Regina.", next = "BACK" },
+      },
+    },
+    w8_frd2 = {
+      lines = { { id = "w8_frd2_a", text = "It's not odd, it's sensible, and that's what I am. Jesse's friends are all boys who climb things, and mine are people who know where the bandages are, so we both have the right sort, really." } },
+      choices = {
+        { text = "That does sound sensible.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", text = "I'm Regina Halloran, and I'm playing hide and seek with Jesse, except he cheats. Mum said not to climb the wind tower any more, and he climbs it every single time." } },
       again = {
         { id = "h_again", text = "Yes? I'm still looking for him." },
-        { id = "h_again2", text = "What else?" },
+        { id = "h_again2", text = "What else? Quickly, or Jesse will have moved again." },
       },
       choices = {
         { text = "Are you going to tell your mother?", next = "tell" },
@@ -141,6 +174,7 @@ P:NPC {
         { text = "What do you want to be when you're grown?", next = "ygrown" },
         { text = "Do you ever break the rules?", next = "ybreak" },
         { text = "What's it like being the tanner's daughter?", next = "ytanner" },
+        { text = "Who's your best friend in Menethil?", next = "w8_frd" },
         { text = "I hope you find him, Regina.", next = "END" },
       },
     },
@@ -233,6 +267,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_hv = {
+      lines = { { id = "w8_hv_a", text = "A cannon, off a ship that ran aground below the keep, and it took me, two dwarves and a very unhappy mule a whole afternoon. The dwarves argued about the angle the entire time, and the mule and I just got on with it." } },
+      choices = {
+        { text = "Where did the cannon end up?", next = "w8_hv2" },
+        { text = "Sounds like the mule did most of the work.", next = "w8_hv2" },
+        { text = "A dwarf's angle is always the right one.", next = "w8_hv2", when = { race = "Dwarf" } },
+        { text = "Something else, Thomas.", next = "BACK" },
+      },
+    },
+    w8_hv2 = {
+      lines = {
+        { id = "w8_hv2_a", text = "On the keep wall, pointing at the bay, and it's never once been fired, because nobody's sure it won't blow up. Captain Stoutfist calls it a deterrent, and I call it the heaviest thing I ever carried for nothing." },
+        { id = "w8_hv2_dw", when = { race = "Dwarf" }, text = "That's what they said too, both of them, about two different angles! It's on the keep wall now and it's never been fired, so we'll never know which of them was right, and that suits me fine." },
+      },
+      choices = {
+        { text = "A deterrent's still useful.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", text = "Thomas Booker, and I'm the fellow who does the lifting around here. If it's heavy and it needs to be somewhere else, the keep sends for me, and then complains about how long it took." } },
       again = {
@@ -246,6 +300,7 @@ P:NPC {
         { text = "How did you end up in Menethil?", next = "yhow" },
         { text = "Who's Murphy West?", next = "ymurphy" },
         { text = "What happens if the wall gives?", next = "ywall" },
+        { text = "What's the heaviest thing you've ever shifted?", next = "w8_hv" },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -338,11 +393,31 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_mine = {
+      lines = { { id = "w8_mine_a", text = "The quiet o' the deep seams, an' the smell o' stone that's never seen daylight, an' a pick that does what ye ask of it. Here it's fog an' orcs an' rain down the back o' the neck, an' a rifle that wants cleanin' every hour." } },
+      choices = {
+        { text = "Will you go back to the mines one day?", next = "w8_mine2" },
+        { text = "Guarding the pass matters more than ore.", next = "w8_mine2" },
+        { text = "I mine too. The copper in Loch Modan is good.", next = "w8_mine2", when = { profession = "Mining" } },
+        { text = "Something else, Thar.", next = "BACK" },
+      },
+    },
+    w8_mine2 = {
+      lines = {
+        { id = "w8_mine2_a", text = "When the Dragonmaw are gone from these hills, aye, an' no' a day before. A dwarf can dig anywhere, but there's only one road tae Loch Modan, an' somebody has tae stand in it." },
+        { id = "w8_mine2_mn", when = { profession = "Mining" }, text = "Good, an' better the deeper ye go, though the troggs have the deepest seams now, curse them. Swing a pick for me when ye're there, {g:lad|lass}, an' I'll stand here an' keep the road open for ye." },
+      },
+      choices = {
+        { text = "I'll swing one for you.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", text = "Mountaineer Thar, o' the Ironforge guard. This pass is the only road between the Wetlands an' Loch Modan, an' I'm here tae see it stays a dwarven road." } },
       again = {
         { id = "h_again", text = "Aye? Be quick, I'm on watch." },
-        { id = "h_again2", text = "What else, then?" },
+        { id = "h_again2", text = "What else, then? Out wi' it before the fog comes down again." },
       },
       choices = {
         { text = "Every traveller in the pass should be checked, without exception.", next = "BACK", reply = "Aye, for the Dragonmaw would like nothin' better than a gate where naebody looks.", fx = { align = { order = 1 } } }, -- dp_stance
@@ -353,6 +428,7 @@ P:NPC {
         { text = "How long have you held this post?", next = "ylong" },
         { text = "What's the worst you've faced here?", next = "yworst" },
         { text = "What do you think of Menethil?", next = "ymen" },
+        { text = "What do you miss about mining in Loch Modan?", next = "w8_mine" },
         { text = "Keep your watch, mountaineer.", next = "END" },
       },
     },
@@ -445,6 +521,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_nrv = {
+      lines = { { id = "w8_nrv_a", text = "I count the Dark Irons I can see on the wall, every hour, an' I write the number on a stone. When it goes down, I'm glad, an' when it goes up, I clean my rifle, an' either way my hands have somethin' tae do." } },
+      choices = {
+        { text = "What's the count today?", next = "w8_nrv2" },
+        { text = "That's no way to live.", next = "w8_nrv2" },
+        { text = "Something else, Roggo.", next = "BACK" },
+      },
+    },
+    w8_nrv2 = {
+      lines = { { id = "w8_nrv2_a", text = "Fourteen on the wall at dawn, an' eleven now, so somebody's been busy or they've gone tae their supper. It's nae way tae live, ye're right, but it's how a rifleman lives till Longbraid says we go back in." } },
+      choices = {
+        { text = "May the count keep falling.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     gt_rifle = {
       lines = { { id = "gt_rifle_l", text = "A Bronzebeard long-barrel, an' she's older than some o' the lads I served wi'. Keep yer powder dry in this swamp, hunter, for damp powder's killed more dwarves than any Dark Iron." } },
       choices = { { text = "Something else.", next = "BACK" } },
@@ -460,7 +552,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else, {class}? Keep yer voice low." },
-        { id = "h_again2", text = "Aye, go on." },
+        { id = "h_again2", text = "Aye, go on, but keep below the line o' the rocks while ye talk." },
       },
       choices = {
         { text = "What happened at the Thandol Span?", next = "span" },
@@ -469,6 +561,7 @@ P:NPC {
         { text = "You speak of a fire spirit.", next = "spirit" },
         { text = "I'm a hunter too. What rifle do you carry?", next = "gt_rifle", when = { class = "HUNTER" } },
         { text = "Did any of my kin from the mountain fall here?", next = "gt_kin", when = { race = "Dwarf" } },
+        { text = "How do you keep your nerve out here?", next = "w8_nrv" },
         { text = "Shoot straight, Roggo.", next = "END" },
       },
     },
@@ -541,10 +634,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_slp = {
+      lines = { { id = "w8_slp_a", text = "Under the wagon, with one hand on the wheel, so if anybody tries to take it, I'll know. I've slept that way from Dun Algaz to Menethil and back a dozen times, and nobody's managed it yet, though a gnoll licked my boot once." } },
+      choices = {
+        { text = "A gnoll licked your boot?", next = "w8_slp2" },
+        { text = "You'd be safer at the inn.", next = "w8_slp2" },
+        { text = "Something else, Terl.", next = "BACK" },
+      },
+    },
+    w8_slp2 = {
+      lines = { { id = "w8_slp2_a", text = "It did, and then it wandered off, and I think it was looking for food and decided I wasn't any. The inn costs money and I'd have to leave the wagon in the yard, where anybody could look at it, so no thank you." } },
+      choices = {
+        { text = "Nobody wants your wagon, Terl.", next = "BACK", reply = "You keep saying that, and I keep not believing you, and that's how I've still got it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", text = "Terl Arakor. I travel the Wetlands with my wagon, picking up this and that, and I see a good deal more than the folk who stay behind Menethil's walls. If you want to know what's out there, I'm your man." } },
       again = {
-        { id = "h_again", text = "What else do you want to hear about?" },
+        { id = "h_again", text = "What else do you want to hear about? I've seen most of this marsh from the wagon seat." },
         { id = "h_again2", text = "Go on, but mind the wagon." },
       },
       choices = {
@@ -552,7 +661,55 @@ P:NPC {
         { text = "What are the orcs up to?", next = "orcs" },
         { text = "Any strange beasts in the marsh?", next = "beasts" },
         { text = "Nobody wants your wagon, Terl.", next = "wagon" },
+        { text = "What do you trade from the wagon?", next = "ta_trade" },
+        { text = "Where's the most dangerous place you've taken it?", next = "ta_danger" },
+        { text = "Where do you sleep when you're on the road?", next = "w8_slp" },
         { text = "Safe travels.", next = "END" },
+      },
+    },
+    ta_trade = {
+      lines = {
+        { id = "ta_trade_1", text = "Whatever folk will part with and whatever other folk will pay for, which is the whole of trade, if you think about it. Crocolisk skins to the harbor, salt fish to the dig, and now and then a curiosity that nobody can name." },
+      },
+      choices = {
+        { text = "What sort of curiosity?", next = "ta_curio" },
+        { text = "You sound like a goblin.", next = "BACK", reply = "I'll take that as a compliment, for they're rich." },
+      },
+    },
+    ta_curio = {
+      lines = {
+        { id = "ta_curio_1", text = "A carved stone from Ironbeard's Tomb, a gnoll's necklace of murloc fins, and once a scale from Grim Batol as big as a shield. I sold that last one to a scholar from the Explorers' League, and he went white when he saw it." },
+      },
+      choices = {
+        { text = "A scale from Grim Batol? That's worrying.", next = "ta_scale" },
+        { text = "I'd pay for the gnoll's necklace.", next = "BACK" },
+      },
+    },
+    ta_scale = {
+      lines = {
+        { id = "ta_scale_1", text = "That's what the scholar said, and he wouldn't tell me why. I'd not go near that mountain for all the gold in Ironforge, for the dwarves say it's cursed, and the things that fly over it at dusk are no birds I know." },
+      },
+      choices = {
+        { text = "I'll stay well clear of Grim Batol.", next = "BACK", fx = { learn = { "grim_batol" } } },
+        { text = "Something else, Terl.", next = "BACK" },
+      },
+    },
+    ta_danger = {
+      lines = {
+        { id = "ta_danger_1", text = "The road up to Dun Modr, before the Dark Irons took it, and I'd not go now if you paid me. After that, the old road to the Algaz Gate, for the Dragonmaw watch it from the ridges and they don't care whose wagon it is." },
+      },
+      choices = {
+        { text = "You've had trouble with the Dragonmaw?", next = "ta_orcs2" },
+        { text = "I'm Horde. The Dragonmaw aren't my kin.", next = "ta_orcs2", when = { faction = "Horde" } },
+      },
+    },
+    ta_orcs2 = {
+      lines = {
+        { id = "ta_orcs2_1", text = "They took a wheel off the wagon once, just to show they could, and laughed while I walked to Menethil for another. I've learned to go by night and keep quiet, and I've not lost a wheel since." },
+      },
+      choices = {
+        { text = "By night and quiet. Wise.", next = "BACK" },
+        { text = "I'll take back that wheel for you.", next = "BACK", fx = { affinity = 1 } },
       },
     },
     whelgar = {
@@ -636,7 +793,54 @@ P:NPC {
         { text = "What will you do in Darkshore?", next = "yplan" },
         { text = "Did anything here surprise you?", next = "ysurprise" },
         { text = "What do you make of the dwarves?", next = "ydwarves" },
+        { text = "What will you tell the Sentinels when you return?", next = "sd_report" },
+        { text = "Have you met the other kaldorei in the harbor?", next = "sd_kin" },
         { text = "Safe crossing, Sylessa.", next = "END" },
+      },
+    },
+    sd_report = {
+      lines = {
+        { id = "sd_report_1", text = "That the humans are fewer than the stories say and stronger than they look. Their kingdoms are scarred by the war, but they rebuild their walls with a stubbornness I have only seen in the oldest trees." },
+      },
+      choices = {
+        { text = "Will the Sentinels believe you?", next = "sd_believe" },
+        { text = "Humans are stubborn, it's true.", next = "sd_believe", when = { race = "Human" }, reply = "You say it as if it were a fault, but I meant it kindly." },
+      },
+    },
+    sd_believe = {
+      lines = {
+        { id = "sd_believe_1", text = "Some will, and some will say I have been too long among them. The Sentinels guard Ashenvale against the orcs, and it is hard for them to think kindly of any people they did not grow beside." },
+      },
+      choices = {
+        { text = "Ashenvale is troubled by the orcs?", next = "sd_ash" },
+        { text = "Distrust is slow to fade.", next = "BACK" },
+      },
+    },
+    sd_ash = {
+      lines = {
+        { id = "sd_ash_1", text = "The Warsong clan cuts the forest's edge for their war machines, and the Sentinels bleed to stop them. That is the trouble I return to, and I would bring home a little hope from these lands if I can find any." },
+      },
+      choices = {
+        { text = "I hope you find some here.", next = "BACK", fx = { affinity = 1 } },
+        { text = "The orcs must be stopped. Something else.", next = "BACK" },
+      },
+    },
+    sd_kin = {
+      lines = {
+        { id = "sd_kin_1", text = "Telurinon and Dewin, yes, and they have made their homes here more fully than I could. Dewin speaks of the marsh as if it were Ashenvale, and Telurinon has grown patient with the dwarves, which is a gift I lack." },
+      },
+      choices = {
+        { text = "You don't care for the dwarves?", next = "sd_dwarves2" },
+        { text = "I'm a dwarf. We're not so bad.", next = "sd_dwarves2", when = { race = "Dwarf" } },
+      },
+    },
+    sd_dwarves2 = {
+      lines = {
+        { id = "sd_dwarves2_1", text = "I care for them well enough, but they are loud and quick and they cut stone with no apology. Still, one of them carried my pack up from the dock without a word and would not take a coin for it, so I am learning." },
+      },
+      choices = {
+        { text = "That sounds like a dwarf.", next = "BACK" },
+        { text = "Learning is the first step. Something else.", next = "BACK" },
       },
     },
     humans = {

@@ -750,6 +750,7 @@ P:NPC {
         { text = "My kin in Darnassus would not sit so easily.", next = "xnelf", when = { race = "NightElf" } },
         { text = "In Thunder Bluff they still speak warily of elves.", next = "xtauren", when = { race = "Tauren" } },
         { text = "I'm no druid. Am I truly welcome here?", next = "xother", when = { race = { "Human", "Dwarf", "Gnome", "Orc", "Troll", "Scourge" } } },
+        { text = "Has anyone ever started a fight at your table?", next = "w_fight" },
         { text = "Peace on your house, Dargon.", next = "END" },
       },
     },
@@ -830,6 +831,26 @@ P:NPC {
       },
       choices = {
         { text = "Sheathed and quiet. Easily done. Something else.", next = "BACK" },
+      },
+    },
+    w_fight = {
+      lines = {
+        { id = "w_fight_default", text = "Once, a dwarf and an orc over the last loaf, and they both stood up at the same moment, and I simply took the loaf and cut it in half and set the halves in front of them. Neither of them could think what to do next, so they sat down and ate." },
+      },
+      choices = {
+        { text = "That simple?", next = "w_fight2" },
+        { text = "Clever.", next = "w_fight2" },
+      },
+    },
+    w_fight2 = {
+      lines = {
+        { id = "w_fight2_default", text = "Mostly that simple. People rarely fight over bread; they fight over who was disrespected. If you take the bread out of it, the rest often falls away. The orc came back the next year and asked for the dwarf, by name. They had been writing to each other." },
+        { id = "w_fight2_w1", when = { race = "Dwarf" }, text = "One of your people, yes. If you are going to Ironforge, ask for a dwarf who eats with orcs. I believe he is quite famous now." },
+      },
+      choices = {
+        { text = "Bread can make peace.", next = "BACK", fx = { align = { order = 1 } }, reply = "Bread and a quiet host. I like to think the Keeper helps a little." },
+        { text = "They should have settled it outside.", next = "BACK", fx = { align = { order = -1 } }, reply = "Then they would have been carried out, and not written letters." },
+        { text = "Something else, Dargon.", next = "BACK" },
       },
     },
   },

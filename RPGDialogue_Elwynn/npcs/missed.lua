@@ -39,6 +39,7 @@ P:NPC {
         { text = "Who taught you to march like that?", next = "ytaught" },
         { text = "Do the six of you ever quarrel?", next = "yquarrel" },
         { text = "I served in the real guard once.", next = "yguard", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "How many steps is it from Goldshire to Stormwind?", next = "e3_steps" },
         { text = "March on, guardsman.", next = "END" },
       },
     },
@@ -94,6 +95,24 @@ P:NPC {
       lines = { { id = "yg_default", text = "Did you really? Then you can tell me if I'm doing it properly. I keep my eyes front and my shoulders back, and I never scratch my nose, even when it itches dreadfully, which is nearly always." } },
       choices = { { text = "You'd pass inspection. Something else.", next = "BACK", reply = "I'm going to remember you said that forever.", fx = { affinity = 1 } } },
     },
+    e3_steps = {
+      lines = {
+        { id = "e3_steps_l0", text = "Eleven thousand and forty, if you go by the road and don't stop at the bridge, but I've only done it right twice. Jose always makes us stop for a beetle, and then I have to start the count again from wherever we are, which makes it wrong." },
+      },
+      choices = {
+        { text = "Why not count from where you stopped?", next = "e3_steps2" },
+        { text = "Eleven thousand is a great many steps.", next = "BACK" },
+      },
+    },
+    e3_steps2 = {
+      lines = {
+        { id = "e3_steps2_l0", text = "Because then it's two counts, and two counts aren't one walk, they're two walks, and that's not what I'm measuring. Cameron says I'm too fussy for a guard, but the real guards count their paces on patrol, I've watched them." },
+      },
+      choices = {
+        { text = "You're right; they do. Something else.", next = "BACK" },
+        { text = "You might be a little fussy, Aaron.", next = "BACK" },
+      },
+    },
   },
   topics = {
     dughan = { { id = "yt_dughan", text = "Marshal Dughan is the most important man in Goldshire, and he never slouches, not even when he sits down." } },
@@ -137,6 +156,7 @@ P:NPC {
         { text = "What does a king worry about?", next = "yworry" },
         { text = "What laws has the king made?", next = "ylaws" },
         { text = "I'm a noble of Stormwind, you know.", next = "ynoble", when = { race = "Human" } },
+        { text = "Does the king have a crown?", next = "e3_crown" },
         { text = "By your leave, Majesty.", next = "END" },
       },
     },
@@ -192,6 +212,24 @@ P:NPC {
       lines = { { id = "yn_default", text = "Are you really? Then you must bow, because nobles bow to kings, but I'll bow back, because you're taller. That seems fair, and fair is the most important thing a king can be, Mother says." } },
       choices = { { text = "Your Majesty. Something else.", next = "BACK", reply = "Thank you, my lord. You may go about your business.", fx = { affinity = 1 } } },
     },
+    e3_crown = {
+      lines = {
+        { id = "e3_crown_l0", text = "A crown of oak leaves that Lisa makes for me every morning, and it falls apart by supper, so it's a new crown every day. Dana says a real king has a gold one, but a gold one wouldn't smell nice like this one does." },
+      },
+      choices = {
+        { text = "Kings with gold crowns have heavy heads.", next = "e3_crown2" },
+        { text = "It suits you, Your Majesty.", next = "BACK" },
+      },
+    },
+    e3_crown2 = {
+      lines = {
+        { id = "e3_crown2_l0", text = "That's very wise, and I'm going to say it to Dana exactly like that. Then I'll have said something wise, and she'll have to admit I'm a proper king." },
+      },
+      choices = {
+        { text = "She might at that. Something else.", next = "BACK" },
+        { text = "Or she'll want the leaf crown too.", next = "BACK" },
+      },
+    },
   },
   topics = {
     anduin = { { id = "yt_anduin", text = "King Anduin is only a boy, like me. I think we'd get on, if he ever came to Goldshire." } },
@@ -235,6 +273,7 @@ P:NPC {
         { text = "What's the scariest thing you've seen?", next = "yscary" },
         { text = "What will you be when you grow up?", next = "ygrow" },
         { text = "I'm an elf of Teldrassil, little lookout.", next = "yelf", when = { race = "NightElf" } },
+        { text = "Tell me about the nine gryphons you counted.", next = "e3_gryphons" },
         { text = "Keep watching, Dana.", next = "END" },
       },
     },
@@ -290,6 +329,24 @@ P:NPC {
       lines = { { id = "ye_default", text = "From the giant tree over the sea? I've heard your Sentinels can see in the dark, so you'd be a much better lookout than me, but please don't tell Cameron, because he'll make you join the game." } },
       choices = { { text = "Your secret is safe. Something else.", next = "BACK" } },
     },
+    e3_gryphons = {
+      lines = {
+        { id = "e3_gryphons_l0", text = "They come in over the walls from the east, mostly, and they land at the top of the big tower in the Dwarven District. One of them had a rider with a red beard who waved at me, and I waved back, and Cameron didn't see because he was being king." },
+      },
+      choices = {
+        { text = "That was probably a Wildhammer from the Hinterlands.", next = "e3_gryphons2" },
+        { text = "Nine in one day is a fine count.", next = "BACK" },
+      },
+    },
+    e3_gryphons2 = {
+      lines = {
+        { id = "e3_gryphons2_l0", text = "A Wildhammer! Mother told me about them, they've got tattoos and they live up in the mountains with the gryphons. I'm going to tell Lisa I was waved at by a Wildhammer, and she'll tell everybody on the road." },
+      },
+      choices = {
+        { text = "I expect she will. Something else.", next = "BACK" },
+        { text = "It might have been an Ironforge dwarf.", next = "BACK" },
+      },
+    },
   },
   topics = {
     hogger = { { id = "yt_hogger", text = "Hogger lives past the Stonefield farm. I've never seen him, but I've seen where the gnolls dragged things." } },
@@ -333,6 +390,7 @@ P:NPC {
         { text = "Who are your mother and father?", next = "yfamily" },
         { text = "What would you rather do than walk?", next = "yrather" },
         { text = "Want some food, lad? I'm a cook.", next = "ycook", when = { profession = "Cooking" } },
+        { text = "Are your shoes the trouble, John?", next = "e3_shoes" },
         { text = "Keep your chin up, John.", next = "END" },
       },
     },
@@ -385,6 +443,24 @@ P:NPC {
       lines = { { id = "yc_default", text = "Do you mean it? I'd ever so like something, but Aaron says guards don't eat on the march. Could you leave it by the big house door, and I'll find it later? Nobody makes a rule about doors." } },
       choices = { { text = "I'll think on it. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    e3_shoes = {
+      lines = {
+        { id = "e3_shoes_l0", text = "They used to be my cousin's, and before that they were somebody else's, so they're the shape of two other people's feet and not mine. Mother says I'll grow into them, but I think they'll wear out before I do." },
+      },
+      choices = {
+        { text = "Stuff the toes with straw; it helps.", next = "e3_shoes2" },
+        { text = "Shoes from a cousin are still shoes.", next = "BACK" },
+      },
+    },
+    e3_shoes2 = {
+      lines = {
+        { id = "e3_shoes2_l0", text = "Straw? I'll try that tonight, and if it works I'll tell Aaron, so he can make a rule that everybody has to. Then it'll be John's Rule, and it'll be a nice one this time." },
+      },
+      choices = {
+        { text = "A better rule. Something else.", next = "BACK" },
+        { text = "Don't tell Aaron. He'll count the straws.", next = "BACK" },
+      },
+    },
   },
   topics = {
     hogger = { { id = "yt_hogger", text = "I don't want to meet Hogger, ever, and I've told Dana that if she goes looking for him, she's going without me." } },
@@ -429,6 +505,7 @@ P:NPC {
         { text = "What's the rarest thing you've ever found?", next = "yrare" },
         { text = "Do your parents mind the collection?", next = "yparents" },
         { text = "I'm a gnome. We collect things too.", next = "ygnome", when = { race = "Gnome" } },
+        { text = "Show me the green and purple beetle.", next = "e3_beetle" },
         { text = "Mind the beetles, Jose.", next = "END" },
       },
     },
@@ -481,6 +558,24 @@ P:NPC {
       lines = { { id = "ygn_default", text = "Do you? What sort of things? Cogs and springs and little bits of brass? If you've got a spare cog I'd trade you my striped stone for it, and that's a very good trade, because the stripe goes all the way round." } },
       choices = { { text = "A generous offer. Something else.", next = "BACK" } },
     },
+    e3_beetle = {
+      lines = {
+        { id = "e3_beetle_l0", text = "Here, look, but gently, because he's asleep, I think, or he's thinking. When you turn him to the light he goes blue, and then green again, and nobody else has ever found one like him in the whole of Goldshire." },
+      },
+      choices = {
+        { text = "You should let him go before he gets hungry.", next = "e3_beetle2" },
+        { text = "He's a handsome beetle, Jose.", next = "BACK" },
+      },
+    },
+    e3_beetle2 = {
+      lines = {
+        { id = "e3_beetle2_l0", text = "Oh. I didn't think about him being hungry. I'll put him back by the bridge where I found him, then, and I'll visit him tomorrow, if he'll stay there." },
+      },
+      choices = {
+        { text = "That's kind. Something else.", next = "BACK" },
+        { text = "Beetles rarely stay put.", next = "BACK" },
+      },
+    },
   },
   topics = {
     hogger = { { id = "yt_hogger", text = "If somebody killed Hogger, I'd like one of his teeth for the box. Just a small one, I'm not greedy." } },
@@ -527,6 +622,7 @@ P:NPC {
         { text = "What's the biggest secret you know?", next = "ysecret" },
         { text = "Who looks after you all?", next = "ywho" },
         { text = "I came over the sea from Darnassus.", next = "ydarn", when = { race = "NightElf" } },
+        { text = "What's Guard Thomas like?", next = "e3_thomas" },
         { text = "Goodbye, Lisa.", next = "END" },
       },
     },
@@ -579,6 +675,24 @@ P:NPC {
       lines = { { id = "yd_default", text = "Across the whole sea! Is it true your trees are so big you live inside them? Dana wants to go and see, but I want to go and say hello to everybody, because I bet nobody there has heard of Goldshire." } },
       choices = { { text = "Some have, now. Something else.", next = "BACK" } },
     },
+    e3_thomas = {
+      lines = {
+        { id = "e3_thomas_l0", text = "He's ever so tall and he's got a moustache like a broom, and he guards the bridge in the east where the river goes under. He lets us cross if we give him the password, and the password's \"Lisa says hello\", which I made up." },
+      },
+      choices = {
+        { text = "Has he ever told you anything about the road?", next = "e3_thomas2" },
+        { text = "That's a fine password.", next = "BACK" },
+      },
+    },
+    e3_thomas2 = {
+      lines = {
+        { id = "e3_thomas2_l0", text = "He told me there are more gnolls in the woods than last year, and that I should keep the others on the road, and not go near the Jasperlode. I told Cameron, and Cameron made it a royal law." },
+      },
+      choices = {
+        { text = "A good law. Something else.", next = "BACK" },
+        { text = "Listen to Guard Thomas, Lisa.", next = "BACK" },
+      },
+    },
   },
   topics = {
     stormwind = { { id = "yt_sw", text = "The gate guards at Stormwind always ask for our report, and I always give it properly." } },
@@ -622,6 +736,7 @@ P:NPC {
         { text = "What do you want to be when you're grown?", next = "ygrown" },
         { text = "Have you ever seen a real Defias?", next = "ydefias" },
         { text = "I'm a dwarf, lad, and quite real.", next = "ydwarf", when = { race = "Dwarf" } },
+        { text = "Have you ever seen the big library in Stormwind?", next = "e3_library" },
         { text = "Stay out of the smith's way.", next = "END" },
       },
     },
@@ -674,6 +789,24 @@ P:NPC {
       lines = { { id = "ydw_default", text = "You are, aren't you? Bo said dwarves can drink a whole barrel of ale and still walk straight, and I said that was rubbish. Don't tell me if it's true, though, because I'll never hear the end of it." } },
       choices = { { text = "My lips are sealed. Something else.", next = "BACK" } },
     },
+    e3_library = {
+      lines = {
+        { id = "e3_library_l0", text = "Only through the doors, once, when Mother took me to the Keep on business. There were more books than I could count, and a man in a long coat who looked at me as if I might steal one, so I put my hands behind my back." },
+      },
+      choices = {
+        { text = "That would be Donyal Tovald, I'd guess.", next = "e3_library2" },
+        { text = "Libraries are like that with children.", next = "BACK" },
+      },
+    },
+    e3_library2 = {
+      lines = {
+        { id = "e3_library2_l0", text = "Is that his name? I'm going to write to him and ask if he needs a helper, because I'd be good at telling which books are true. Mother says he'll want somebody older, but I'll be older soon." },
+      },
+      choices = {
+        { text = "Write to him. Something else.", next = "BACK" },
+        { text = "Grow a little first, Joshua.", next = "BACK" },
+      },
+    },
   },
   topics = {
     argus = { { id = "yt_argus", text = "Smith Argus pretends he doesn't see us behind the forge, but he leaves the side door open in winter so we're warm." } },
@@ -717,6 +850,7 @@ P:NPC {
         { text = "Have you ever run farther than the pond?", next = "yfar" },
         { text = "What are you afraid of?", next = "yafraid" },
         { text = "I'm a rogue. I know about running.", next = "yrogue", when = { class = "ROGUE" } },
+        { text = "You said the gnolls took the Maclure sheep.", next = "e3_sheep" },
         { text = "Run along, Mark.", next = "END" },
       },
     },
@@ -772,6 +906,24 @@ P:NPC {
       },
       choices = { { text = "I'll remember that. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    e3_sheep = {
+      lines = {
+        { id = "e3_sheep_l0", text = "Three of them, from the far field, in the night, and they left the fence knocked flat and the gate wide open. I ran over in the morning because I heard the shouting, and old Maclure was standing in the field with his hat in his hands." },
+      },
+      choices = {
+        { text = "Did anyone go after the gnolls?", next = "e3_sheep2" },
+        { text = "That's a sad sight, Mark.", next = "BACK" },
+      },
+    },
+    e3_sheep2 = {
+      lines = {
+        { id = "e3_sheep2_l0", text = "A guard from Goldshire, and two of the Maclure boys with pitchforks, but they came back without the sheep. I asked if I could go next time, because I'm fastest, and everybody said no very loudly." },
+      },
+      choices = {
+        { text = "They were right. Something else.", next = "BACK" },
+        { text = "Be fast for other reasons, Mark.", next = "BACK" },
+      },
+    },
   },
   topics = {
     argus = { { id = "yt_argus", text = "Argus shouts the loudest of anyone in Goldshire, but he's never actually caught me." } },
@@ -815,6 +967,7 @@ P:NPC {
         { text = "Why do you think the treasure is here?", next = "ywhy" },
         { text = "Where are your parents, Markus?", next = "yparents" },
         { text = "I'm a miner. Want a tip?", next = "ytip", when = { profession = "Mining" } },
+        { text = "Why are you digging with a spoon?", next = "e3_spoon" },
         { text = "Good digging, Markus.", next = "END" },
       },
     },
@@ -870,6 +1023,24 @@ P:NPC {
       },
       choices = { { text = "Dig near the old fence posts. Something else.", next = "BACK", reply = "Fence posts! Of course! Why didn't I think of that?" } },
     },
+    e3_spoon = {
+      lines = {
+        { id = "e3_spoon_l0", text = "Because Clara won't let me have the spade, after the time I dug up the onions by mistake. A spoon's slower, but it's careful, and treasure needs careful digging so you don't scratch the gold." },
+      },
+      choices = {
+        { text = "A trowel would be better than a spoon.", next = "e3_spoon2" },
+        { text = "Careful digging is wise.", next = "BACK" },
+      },
+    },
+    e3_spoon2 = {
+      lines = {
+        { id = "e3_spoon2_l0", text = "A trowel! I'll ask Clara for one, and I'll promise to dig only in the corner where the cabbages already gave up. If I find the silver, I'll give her the first piece and say it was the trowel's idea." },
+      },
+      choices = {
+        { text = "That's fair dealing. Something else.", next = "BACK" },
+        { text = "Clara might still say no.", next = "BACK" },
+      },
+    },
   },
   topics = {
     clara = { { id = "yt_clara", text = "Clara pretends to be cross about the cabbages, but she saves me the burnt ends of the bread, which are the best bits." } },
@@ -916,6 +1087,7 @@ P:NPC {
         { text = "Who were you before you came here?", next = "ybefore" },
         { text = "Does anything about the valley worry you?", next = "yworry" },
         { text = "I'm not from Elwynn at all.", next = "yfar", when = { race = { "Dwarf", "Gnome", "NightElf" } } },
+        { text = "Do the recruits write to you, after they leave?", next = "e3_letters" },
         { text = "Thank you for the welcome.", next = "END" },
       },
     },
@@ -970,6 +1142,24 @@ P:NPC {
         { id = "yf_elf", when = { race = "NightElf" }, text = "So I see, and you're very welcome. You're the first of your people I've greeted at the abbey, and I hope you'll forgive me if I stare at Elwynn's oaks a little differently now." },
       },
       choices = { { text = "Thank you, Merissa. Something else.", next = "BACK" } },
+    },
+    e3_letters = {
+      lines = {
+        { id = "e3_letters_l0", text = "A few, and I keep every letter in a box under my cot at the abbey. One lad wrote from Lakeshire to say he'd been made a corporal, and another wrote from Sentinel Hill, very short, only to say his boots were still dry." },
+      },
+      choices = {
+        { text = "Do you write back?", next = "e3_letters2" },
+        { text = "Dry boots. That's a good report.", next = "BACK" },
+      },
+    },
+    e3_letters2 = {
+      lines = {
+        { id = "e3_letters2_l0", text = "Always, and I tell them what's new in the valley, which is mostly kobolds and weather. A recruit far from home wants to hear that the place he left is still there, even if the news is dull." },
+      },
+      choices = {
+        { text = "That's a kindness. Something else.", next = "BACK" },
+        { text = "They should write home instead.", next = "BACK" },
+      },
     },
   },
   topics = {

@@ -49,7 +49,27 @@ P:NPC {
         { text = "I'd guess a few cultist blades come through here.", next = "cult" },
         { text = "Any advice for a fellow smith?", next = "smith", when = { profession = "Blacksmithing" } },
         { text = "Fix my gear, Vargus.", next = "BUSINESS" },
+        { text = "Your father was a hunter, you said?", next = "father" },
+        { text = "The stone giants. What do they break?", next = "giants" },
+        { text = "Does the Brigade ever bring you their armor?", next = "w9_brig" },
         { text = "Thank you, Vargus.", next = "END" },
+      },
+    },
+
+    w9_brig = {
+      lines = { { id = "w9_brig_d", text = "Rarely. The dwarves have their own smiths outside Hive'Zora, and they would sooner wear a dent home than let a tauren put a hammer to Ironforge steel. Once, though, a rifleman came in with his breastplate split down the middle and no smith left alive in his camp." } },
+      choices = {
+        { text = "Did you fix it?", next = "w9_brig2" },
+        { text = "Dwarves are proud about their steel.", next = "w9_brig2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_brig2 = {
+      lines = { { id = "w9_brig2_d", text = "I did, and I did it the Ironforge way, with the rivets where their smiths put them, though I think my way is better. He looked at the seam a long while, said it would do, and came back the next week with his friend's helm, which from a dwarf is the warmest praise there is." } },
+      choices = {
+        { text = "A craftsman's respect crosses any line.", next = "BACK", reply = "It does. The anvil has no banner, friend, only the work." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     sand = {
@@ -86,6 +106,33 @@ P:NPC {
     smith = {
       lines = { { id = "sm_default", text = "Quench in oil, not water, out here; the water's too precious and the steel cools too fast in this heat anyway. And keep your hammer out of the sand, or you'll be filing grit off your work for a week." } },
       choices = { { text = "Good advice.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    father = {
+      lines = { { id = "fa_default", text = "He was, of the Mulgore plains, and he could read a kill the way an elder reads the stars. He used to say the spear only tells you what you did, but the wound tells you what the beast was doing. I bring that to the anvil, and it has served me well." } },
+      choices = {
+        { text = "What does a broken strap tell you?", next = "father2" },
+        { text = "So a smith is a kind of hunter.", next = "father2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    father2 = {
+      lines = { { id = "fa2_default", text = "Whether the wearer was running or standing, and from what. A strap snapped at the back means a soldier who turned too late. A strap snapped at the front means one who stood, and those I mend with extra care, because they will stand again." } },
+      choices = { { text = "Extra care for those who stand. Something else.", next = "BACK" } },
+    },
+    giants = {
+      lines = { { id = "gt_default", text = "Everything, all at once. A giant's fist doesn't dent armor, it folds it, and I've had soldiers carried in with their breastplates bent around them like a kodo's hide around a frame. Usually I have to cut the plate off before the druids can get at the wounds." } },
+      choices = {
+        { text = "Where do the giants come from?", next = "giants2" },
+        { text = "Then it's better not to be hit at all.", next = "giants2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    giants2 = {
+      lines = { { id = "gt2_default", text = "From the rocks to the south and west, and the druids say something has stirred them, the same thing that stirs the hives. I don't know about that. I know that a giant who walks out of a cliff has no business walking, and that the earth is unhappy when it does." } },
+      choices = {
+        { text = "I'm a warrior. I'll take the blows so others don't.", next = "BACK", reply = "Then come back to me after, and I'll unfold you. That's a promise from one stubborn soul to another.", when = { class = "WARRIOR" } },
+        { text = "Something else, Vargus.", next = "BACK" },
+      },
     },
   },
 

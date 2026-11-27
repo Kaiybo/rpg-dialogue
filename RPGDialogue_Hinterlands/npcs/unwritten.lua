@@ -27,10 +27,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_horn = {
+      lines = {
+        { id = "w2_horn_l", text = "A wildkin's horn, taken in the hills west o' the Peak by my grandfather. He blew it at the Battle o' Grim Batol, or so he said, an' I've blown it at Witherbark scouts, which is a smaller sort o' glory." },
+      },
+      choices = {
+        { text = "Did your grandfather fight at Grim Batol?", next = "w2_horn2" },
+        { text = "Two of six is a fine count.", next = "BACK" },
+      },
+    },
+    w2_horn2 = {
+      lines = {
+        { id = "w2_horn2_l", text = "Aye, against the Red Dragonflight an' the orcs that rode them. He came home wi' a burn down his arm an' a story he never told the same way twice. I believe the burn, an' I keep the horn." },
+      },
+      choices = {
+        { text = "Two of six is a fine count.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I keep watch on the road tae Aerie Peak for Falstad an' the clan. The Witherbark an' Vilebranch trolls creep up through the forest, an' a good sentry spots them before they spot him." } },
       again = {
-        { id = "h_again", text = "Aye, what else?" },
+        { id = "h_again", text = "Aye, what else? Talk quick, the treeline's gone quiet, an' quiet means trolls." },
         { id = "xh_again2", text = "Still here? Then keep yer eyes on the treeline while we talk." },
       },
       choices = {
@@ -43,7 +60,46 @@ P:NPC {
         { text = "What's the worst troll tribe out here?", next = "xworst" },
         { text = "Have you ever ridden a gryphon into battle?", next = "xgryphon" },
         { text = "I'm a hunter. Gryphons must be fine beasts.", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "What do you do when you spot trolls?", next = "ws_spot" },
+        { text = "What's life like at Aerie Peak?", next = "ws_life" },
+        { text = "What's that horn at your belt carved from?", next = "w2_horn" },
         { text = "I'll pass on.", next = "END" },
+      },
+    },
+    ws_spot = {
+      lines = {
+        { id = "ws_spot_1", text = "Blow the horn, an' the gryphon riders come down like thunder. If they're too slow, I hold the road wi' my stormhammer till they arrive, an' I've done that more times than I care tae count." },
+      },
+      choices = {
+        { text = "Have you ever held the road alone?", next = "ws_alone" },
+        { text = "I'd stand with you.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    ws_alone = {
+      lines = {
+        { id = "ws_alone_1", text = "Once, against six Witherbark, for the horn was frozen an' the riders couldnae hear me. I took two o' them before Gryphon Master Talonaxe came down out o' the clouds, an' he's never let me forget that I was outnumbered." },
+      },
+      choices = {
+        { text = "Two of six is a fine count.", next = "BACK" },
+        { text = "Talonaxe sounds like a good friend.", next = "BACK" },
+      },
+    },
+    ws_life = {
+      lines = {
+        { id = "ws_life_1", text = "Loud, an' windy, an' full o' ale. Innkeeper Thulfram keeps the hearth, Fraggar Thundermantle keeps the trolls in check, an' Falstad keeps everyone else in line, which is the hardest job o' the lot." },
+      },
+      choices = {
+        { text = "Who's Fraggar Thundermantle?", next = "ws_fraggar" },
+        { text = "I'm a dwarf. I'd like to see the Peak.", next = "ws_fraggar", when = { race = "Dwarf" } },
+      },
+    },
+    ws_fraggar = {
+      lines = {
+        { id = "ws_fraggar_1", text = "A warrior o' the clan, an' the one who sends folk tae thin the trolls. He'll pay ye in coin or in respect, an' a Wildhammer's respect is worth more than a bag o' gold." },
+      },
+      choices = {
+        { text = "Then I'll find Fraggar.", next = "BACK" },
+        { text = "Something else, then.", next = "BACK" },
       },
     },
     trolls = {
@@ -111,10 +167,45 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_wait = {
+      lines = {
+        { id = "w2_wait_l", text = "Internal chronometer reports eleven days, four hours and some minutes. Bzzt. During this period I have catalogued forty-one beetles, two passing gryphons and one troll who attempted to eat me." },
+      },
+      choices = {
+        { text = "A troll tried to eat you?", next = "w2_wait2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_wait2 = {
+      lines = {
+        { id = "w2_wait2_l", text = "Affirmative. The troll obtained a mouthful of copper plating and departed at speed, making sounds my databanks classify as regret. Note: my chicken form is a defensive feature. Oglethorpe is very clever." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_home = {
+      lines = {
+        { id = "w2_home_l", text = "Upload flight data to Oglethorpe, receive maintenance, and be placed on the workbench beside OOX-17/TN and OOX-22/FE. Bzzt. Morale circuits indicate a desire to be reunited with my siblings." },
+      },
+      choices = {
+        { text = "Robots have siblings?", next = "w2_home2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_home2 = {
+      lines = {
+        { id = "w2_home2_l", text = "All homing robots were assembled on the same bench, by the same gnome, from the same crate of copper. Logically, we are siblings. Emotionally, I am told I am the favourite, though Oglethorpe says that to all of us." },
+        { id = "w2_home2_l1", when = { race = "Gnome" }, text = "All homing robots were assembled on the same bench from the same crate of copper. Logically we are siblings. A gnome will appreciate this reasoning. Oglethorpe says I am his favourite, though he says it to all of us." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "This is Homing Robot OOX-09, Hinterlands model, property of Oglethorpe Obnoticus of Booty Bay. My flight systems have failed, my homing beacon is compromised, and local troll activity is very, very high." } },
       again = {
-        { id = "h_again", text = "Bzzt. Additional query accepted." },
+        { id = "h_again", text = "Bzzt. Additional query accepted. Please speak slowly; my audio receptor contains a beetle." },
         { id = "xh_again2", text = "Beep. Proximity of friendly entity is improving morale circuits." },
       },
       choices = {
@@ -126,6 +217,8 @@ P:NPC {
         { text = "Why does Oglethorpe build homing robots?", next = "xwhy" },
         { text = "I'm a gnome. Let me check your wiring.", next = "xgnome", when = { race = "Gnome" } },
         { text = "I'm an engineer. Your gyros look loose.", next = "xeng", when = { profession = "Engineering" } },
+        { text = "How long have you been sitting here?", next = "w2_wait" },
+        { text = "What will you do once you get home?", next = "w2_home" },
         { text = "Hang on, little robot.", next = "END" },
       },
     },
@@ -198,10 +291,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_drum = {
+      lines = {
+        { id = "w2_drum_l", text = "Turtle shell from de shore below, mon, an' de skin of a wolf from de hills. My grandmother's drum be stone an' bone, from Jintha'Alor, but I leave it behind when we come to de sea." },
+      },
+      choices = {
+        { text = "Why leave it behind?", next = "w2_drum2" },
+        { text = "Ha. Something else.", next = "BACK" },
+      },
+    },
+    w2_drum2 = {
+      lines = {
+        { id = "w2_drum2_l", text = "'Cause it beat for de Vilebranch too long, an' it learn their rhythm. A drum remember what it play, mon. Dis one only know de sea an' de Revantusk, an' dat be how I want it." },
+      },
+      choices = {
+        { text = "Ha. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I be a drummer of da Revantusk. Da drum keep da village's heart beatin', and it remind da Vilebranch we still be here." } },
       again = {
-        { id = "h_again", text = "Still here, mon. Still drummin'." },
+        { id = "h_again", text = "Still here, mon. Da drum keep goin' an' so do I, so talk wit' da rhythm." },
         { id = "xh_again2", text = "Da drum don't stop, mon, but I can talk while it go." },
       },
       choices = {
@@ -214,6 +324,7 @@ P:NPC {
         { text = "I'm a shaman. The drum calls the spirits.", next = "xshaman", when = { class = "SHAMAN" } },
         { text = "Who taught you to drum?", next = "y_taught" },
         { text = "Does the drum ever go silent?", next = "y_silent" },
+        { text = "What is your drum made from?", next = "w2_drum" },
         { text = "Keep drumming.", next = "END" },
       },
     },

@@ -31,6 +31,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2watch = {
+      lines = {
+        { id = "w2w_lock", when = { class = "WARLOCK" }, text = "Your sort, if I'm honest, though not you in particular. Every warlock in the Cleft walks past me sooner or later, and I keep note of the ones who go down toward Ragefire with nothing in their hands and come back up with ash on their boots." },
+        { id = "w2w_default", text = "Faces, mostly. Everyone who goes down toward Ragefire passes this way, and I keep note of the ones who go with nothing in their hands and come back with ash on their boots and a new friend from the Burning Blade." },
+      },
+      choices = {
+        { text = "Have you caught anyone yet?", next = "w2watch2" },
+        { text = "That sounds like guard work, not yours.", next = "w2watch2" },
+        { text = "Something else, Drok.", next = "BACK" },
+      },
+    },
+    w2watch2 = {
+      lines = { { id = "w2w2_default", text = "Two, this season, and neither of them knows it yet. I pass their names to Shenthul and keep walking, because an orc who's seen pacing every day is an orc nobody bothers to wonder about." } },
+      choices = { { text = "Your grandfather would be proud.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Craven Drok, and before you ask, the name is the clan's old joke about my grandfather, and I've stopped arguing with it. Our Warchief is a wiser orc than most of his grunts give him credit for, and there are people in this city working quietly to prove it." },
@@ -49,6 +64,7 @@ P:NPC {
         { text = "Why do they call you Craven?", next = "name" },
         { text = "What goes on down here in the Cleft?", next = "cleft" },
         { text = "Do you miss the old Horde, Drok?", next = "oldhorde", when = { race = "Orc" } },
+        { text = "Who are you watching for on this ramp?", next = "w2watch" },
         { text = "I'll leave you to your walking.", next = "END" },
       },
     },
@@ -143,6 +159,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2locks = {
+      lines = {
+        { id = "w2l_lock", when = { class = "WARLOCK" }, text = "You would know better than I what they say about me over their braziers. Zevrost thinks I'm a fool who studies the locks on a door he's already walked through, and I suspect he's half right." },
+        { id = "w2l_default", text = "Not in the least, and I return the favour. Zevrost and his kind think I'm a fool who studies the locks on a door they've already walked through, and I think they've forgotten that some doors were locked for good reasons." },
+      },
+      choices = {
+        { text = "Then why work so close to them?", next = "w2locks2" },
+        { text = "Some doors should stay shut.", next = "w2locks2" },
+        { text = "Something else, Keldran.", next = "BACK" },
+      },
+    },
+    w2locks2 = {
+      lines = { { id = "w2l2_default", text = "Because a ward-maker should live beside the fire he means to contain. If a warlock of the Cleft ever reaches further than the Warchief allows, I would like to be the first to notice, and the last to be surprised by it." } },
+      choices = { { text = "A sensible place to stand, then.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Keldran, a student of magic and of other mystical arts that have nothing to do with demons, whatever the rumours say. My work is quieter than most, and it serves the Warchief in ways he may not need to hear about." },
@@ -161,6 +192,7 @@ P:NPC {
         { text = "Does the Warchief know about this?", next = "thrall" },
         { text = "What sort of magic do you study?", next = "magic" },
         { text = "I hear a Forsaken warlock works for you. Who is Maurin?", next = "maurin", when = { race = "Scourge" } },
+        { text = "Do the warlocks of the Cleft trust you?", next = "w2locks" },
         { text = "I'll take my leave, Keldran.", next = "END" },
       },
     },
@@ -249,6 +281,52 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2finger = {
+      lines = {
+        { id = "w2f_orc", when = { race = "Orc" }, text = "Look, then, since you're orc enough to ask. Two fingers on the left, gone at the knuckle before I was grown, and I'd cut a third tomorrow if it meant the clan stood as it did before the camps." },
+        { id = "w2f_default", text = "Look for yourself. Two fingers on the left, gone at the knuckle before I was full grown, the way every Shattered Hand warrior gave them, and I've never once missed them on a blade." },
+      },
+      choices = {
+        { text = "Would the Hand ask that of me?", next = "w2finger2" },
+        { text = "That seems a high price for a name.", next = "w2finger2" },
+        { text = "Something else, Therzok.", next = "BACK" },
+      },
+    },
+    w2finger2 = {
+      lines = { { id = "w2f2_default", text = "Not anymore, more's the pity. Shenthul says a rogue needs every finger for the locks and the poisons, and he's right, but an oath you don't bleed for is an oath you'll forget the first time it gets inconvenient." } },
+      choices = { { text = "I'll keep my oaths without the knife.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
+    tz_shenthul = {
+      lines = { { id = "tz_shenthul_l", text = "Shenthul leads, and I follow, as the Hand always has. But Shenthul answers to the Warchief, and I answer to the Hand, and on most days those are the same thing." } },
+      choices = {
+        { text = "And on the other days?", next = "tz_shenthul2" },
+        { text = "That's a careful answer.", next = "tz_shenthul2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tz_shenthul2 = {
+      lines = { { id = "tz_shenthul2_l", text = "On the other days I do what Shenthul tells me and keep my opinions for the training floor. A clan that cut off its own fingers for its oaths doesn't break them over a difference of temper, recruit." } },
+      choices = {
+        { text = "Good. The Hand should obey its leader.", next = "BACK" },
+        { text = "Something else, Therzok.", next = "BACK" },
+      },
+    },
+    tz_pirates = {
+      lines = { { id = "tz_pirates_l", text = "They don't worry me, they disgust me. The Southsea Freebooters sell whatever they steal to whoever pays, and they've bought more Horde secrets from traitors like Tazan than I care to count." } },
+      choices = {
+        { text = "Why not clear them out of the coast?", next = "tz_pirates2" },
+        { text = "Pirates are only another kind of merchant.", next = "tz_pirates2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tz_pirates2 = {
+      lines = { { id = "tz_pirates2_l", text = "Because the goblins of Ratchet trade with them, and the Warchief wants the goblins happy, so the Horde looks the other way. The Hand doesn't look away, it only waits until no one is watching." } },
+      choices = {
+        { text = "The Horde should root out every traitor, whatever it costs.", next = "BACK", reply = "Now you sound like one of us. Keep that fire, and the Hand will find a use for it.", fx = { align = { order = -1 } } },
+        { text = "The Warchief's peace with Ratchet matters more.", next = "BACK", reply = "Spoken like a diplomat. The Warchief would approve, and I'll pretend I didn't hear it.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "ratchet" } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Therzok of the Shattered Hand. We work from the shadows of Orgrimmar so the Horde can remember what it was, before the Warchief taught it to be careful." },
@@ -268,6 +346,9 @@ P:NPC {
         { text = "Who is Tazan, and why must he die?", next = "tazan" },
         { text = "You speak against the Warchief?", next = "thrall" },
         { text = "Kaplak sent me. What does the Hand want of me?", next = "kaplak", when = { class = "ROGUE" } },
+        { text = "The Hand keeps its own counsel even from Shenthul?", next = "tz_shenthul" },
+        { text = "Ratchet's pirates seem to worry you.", next = "tz_pirates" },
+        { text = "Did you cut your own finger for the Hand?", next = "w2finger" },
         { text = "Leave the shadows to you, then.", next = "END" },
       },
     },
@@ -358,6 +439,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2perch = {
+      lines = { { id = "w2p_default", text = "Everything worth seein', mon. Me can watch the Drag fill up of a mornin', count who go into the Cleft and how long they stay, and when the wind be right, me can hear the zeppelin masters cursin' each other from the towers outside the gate." } },
+      choices = {
+        { text = "And who's been worth watching lately?", next = "w2perch2" },
+        { text = "I'd go mad sitting still that long.", next = "w2perch2" },
+        { text = "Something else, Jes'rimon.", next = "BACK" },
+      },
+    },
+    w2perch2 = {
+      lines = {
+        { id = "w2p2_rogue", when = { class = "ROGUE" }, text = "You, mon, ever since you start climbin' my stairs, and you climb them better than most. Beyond that, a goblin from the Drag been payin' visits to the Cleft at strange hours, and the Hand be curious who he sell to." },
+        { id = "w2p2_default", text = "A goblin from the Drag been payin' visits to the Cleft at very strange hours, mon. Jes'rimon don't know yet who he be sellin' to, but by the next new moon, Jes'rimon will." },
+      },
+      choices = { { text = "I'll keep an eye out for him.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     fl = {
       lines = { { id = "fl_default", text = "Everyone get a welcome, mon, but not everyone get the good one, and you be gettin' the good one. A fence learn to know a rare piece the moment it come up the stairs, and me not seen one this fine since Jediga send that tablet." } },
       choices = {
@@ -401,6 +497,7 @@ P:NPC {
         { text = "Who buys weapons made of raptor claw?", next = "claws" },
         { text = "Tell me about Jediga.", next = "jediga" },
         { text = "Do you greet everyone this sweetly, Jes'rimon?", next = "fl", when = { flirt = true, ["not"] = { npcFlagBefore = "jr_fl_rebuff" } } },
+        { text = "What can you see from up on this perch?", next = "w2perch" },
         { text = "I'll leave you to your perch.", next = "END" },
       },
     },

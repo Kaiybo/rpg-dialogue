@@ -266,7 +266,28 @@ P:NPC {
         { text = "You speak as if you carry your ancestors' guilt.", next = "guilt" },
         { text = "Our peoples were one, once.", next = "kin", when = { race = "NightElf" } },
         { text = "I'll pray with you.", next = "pray", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "What are these sacred writings you keep?", next = "w9_books" },
         { text = "I'll leave you to your vigil.", next = "END" },
+      },
+    },
+
+    w9_books = {
+      lines = {
+        { id = "w9_books_d", text = "Three volumes, salvaged from the lodge library when the others turned it into a fortress, copied by priests of Quel'Thalas from texts older still. They speak of the Highborne and of what they made, and they are the only reason I knew your crystal for what it was." },
+        { id = "w9_books_v1", when = { class = "PRIEST" }, text = "You would understand their worth, priest. Three volumes, copied by the priests of Quel'Thalas from texts older than our kingdom, and they are the only reason I knew your crystal for what it was." },
+      },
+      choices = {
+        { text = "Why keep them out here?", next = "w9_books2" },
+        { text = "Do the others at the lodge read them?", next = "w9_books2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_books2 = {
+      lines = { { id = "w9_books2_d", text = "Because the lodge has no use for scripture now, only arrows, and I would not see these pages used to start a fire on a cold night. Someone must remember what our ancestors wrote, {class}, even if no one asks to hear it." } },
+      choices = {
+        { text = "Then I'm glad you keep them.", next = "BACK", reply = "Thank you. It is a small thing, but it is mine to keep." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     crystal = {

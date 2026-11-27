@@ -2381,6 +2381,9 @@ P:NPC {
         { text = "How is your lesson different from the Bear's?", next = "bear" },
         { text = "The cat is a hunter. Isn't that cruel, for a druid?", next = "cruel", when = { class = "DRUID" } },
         { text = "(Lie in the grass and watch the spirit.)", next = "watch" },
+        { text = "What do you hunt, here in the glade?", next = "hunt" },
+        { text = "(Ask about the moon on the lake.)", next = "moon" },
+        { text = "(Ask what the cat dreams of.)", next = "w_dream" },
         { text = "(Leave the great cat to its waiting.)", next = "END" },
       },
     },
@@ -2429,6 +2432,52 @@ P:NPC {
       choices = {
         { text = "(Laugh, and sit up.)", next = "BACK", fx = { affinity = 2 } },
         { text = "(Rise and go.)", next = "END" },
+      },
+    },
+    hunt = {
+      lines = { { id = "ht_default", text = "Nothing at all, little one, for the Keeper would be very cross, and his wardens are no fun when they are cross. I hunt shadows on the water and moths at dusk and the attention of druids, which is the hardest prey of all, for they are always looking at their books." } },
+      choices = {
+        { text = "Do you ever catch them?", next = "hunt2" },
+        { text = "So you hunt for the joy of it.", next = "hunt2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hunt2 = {
+      lines = { { id = "ht2_default", text = "The spirit's tail flicks once. The druids? Always, little claw. I wait until they are certain I am asleep, and then I yawn, and they drop their books, and that is the whole of my joy. The Keeper says I am a bad influence, and he says it fondly." } },
+      choices = { { text = "A very bad influence. Something else.", next = "BACK" } },
+    },
+    moon = {
+      lines = { { id = "mn_default", text = "The great cat turns its head toward Lake Elune'ara, where the moon lies white on the water. The night elves say she watches over them, little one, and the cat says she watches over everything that hunts in the dark, which is almost everything, if you wait long enough." } },
+      choices = {
+        { text = "Does she watch over you too?", next = "moon2" },
+        { text = "(Watch the moon on the water in silence.)", next = "moon2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    moon2 = {
+      lines = { { id = "mn2_default", text = "She does, and she does not mind when I chase her reflection, which is more than I can say for the bear. You see, little claw, the moon is the best hunter of all. She never moves, and every night the whole world comes to her." } },
+      choices = {
+        { text = "I'm a night elf. Elune watches us from that same lake.", next = "BACK", reply = "Then you know her better than I do, little one, and I am a little jealous. Go and sit by her a while.", when = { race = "NightElf" } },
+        { text = "Something else, great cat.", next = "BACK" },
+      },
+    },
+    w_dream = {
+      lines = {
+        { id = "w_dream_default", text = "The spirit stretches, long and slow, until its claws catch the moonlight. It dreams of the first hunt, little claw, before there were kaldorei or tauren to learn from it, when the whole world was grass and shadow and every leap was new." },
+      },
+      choices = {
+        { text = "(Ask whether it misses that world.)", next = "w_dream2" },
+        { text = "(Lie still and listen.)", next = "w_dream2" },
+      },
+    },
+    w_dream2 = {
+      lines = {
+        { id = "w_dream2_default", text = "The cat's ears flatten, then rise. Miss it? A cat does not miss, little one; a cat waits. The world will be grass and shadow again one day, long after all of you, and I will leap through it as though no time had passed at all." },
+        { id = "w_dream2_w1", when = { class = "DRUID" }, text = "It looks at you with sudden, piercing interest. You will leap through it too, if you learn well enough to stop counting time. That is the last lesson, and nobody learns it quickly." },
+      },
+      choices = {
+        { text = "(Bow your head to the cat.)", next = "BACK", fx = { trait = { patient = 1 } } },
+        { text = "(Rise from the grass.)", next = "BACK" },
       },
     },
   },

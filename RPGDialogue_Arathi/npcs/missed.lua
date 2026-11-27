@@ -31,6 +31,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_stock = {
+      lines = {
+        { id = "w2_stock_l", text = "The humans left pigs, a few goats and a great many rats, and each serves the work in its way. The pigs are closest to the living in their organs. The rats are closest to the living in their opinions." },
+      },
+      choices = {
+        { text = "You test your solutions on the pigs?", next = "w2_stock2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_stock2 = {
+      lines = {
+        { id = "w2_stock2_l", text = "On the pigs, and the results go to Tarren Mill in a sealed case. I will not say more, for Apothecary Lydon has asked me to be discreet, and discretion is the only virtue the Society still pays for." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_help = {
+      lines = {
+        { id = "w2_help_l", text = "Two deathguards who stand at the gate and do not speak, and a courier who speaks too much. I asked for an assistant with steady hands, and they sent me a ghoul. It eats the samples." },
+      },
+      choices = {
+        { text = "Why not ask again?", next = "w2_help2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_help2 = {
+      lines = {
+        { id = "w2_help2_l", text = "Because the Society reads every request, and the ones who ask for too much are remembered. I would rather work alone on a quiet farm than be remembered in the Undercity. You may draw your own conclusions." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     ybefore = {
       lines = {
         { id = "yarapothecaryjorell1", text = "A physician in Stratholme, with a practice on the market square and a wife who disliked the smell of my hands. I treated fevers, broken bones and the vanity of lords. The grain killed my patients first, and then me." },
@@ -71,7 +105,7 @@ P:NPC {
       lines = { { id = "h_default", text = "I am Apothecary Jorell, of the Royal Apothecary Society. The farm supplies what my work requires, which is quiet, livestock, and a great distance from anyone who would ask questions." } },
       again = {
         { id = "h_again", text = "Yes? My solutions are cooling while you think." },
-        { id = "h_again2", text = "Ask, and be brief about it." },
+        { id = "h_again2", text = "Ask, and keep it short. The vials are cooling, and so, I am told, is my temper." },
       },
       choices = {
         { text = "What are you working on?", next = "work" },
@@ -80,6 +114,8 @@ P:NPC {
         { text = "What were you, before the plague?", next = "ybefore" },
         { text = "Do you trust the humans at Refuge Pointe to stay away?", next = "yrefuge" },
         { text = "Will the plague truly spare us?", next = "BACK", when = { race = "Scourge" }, reply = "That is the intent, and the Dark Lady's command. Intent and outcome are not always on speaking terms, so I test, and test again." },
+        { text = "What do you make of the livestock here?", next = "w2_stock" },
+        { text = "Does the Society send you help?", next = "w2_help" },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -136,6 +172,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_prayer = {
+      lines = {
+        { id = "w2_prayer_l", text = "The old prayers of Arathor, the ones the priests said over Thoradin himself. They ask the Light to keep the dead and the land both, for the men of Stromgarde never thought of one without the other." },
+      },
+      choices = {
+        { text = "Does the Light answer down here?", next = "w2_prayer2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_prayer2 = {
+      lines = {
+        { id = "w2_prayer2_l", text = "The candles have never gone out while I watched, though the wind finds its way through every crack in this city. I do not call that proof. I call it company, and I am grateful for it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_blade = {
+      lines = {
+        { id = "w2_blade_l", text = "Thoras carried it in every war of his life, and he asked to be buried with it. His son Galen thought the city needed it more than the dead did, and they quarrelled over the grave." },
+      },
+      choices = {
+        { text = "Who won the quarrel?", next = "w2_blade2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_blade2 = {
+      lines = {
+        { id = "w2_blade2_l", text = "The dead, for once. The priests sealed it in with him, and Galen left for Refuge Pointe without it. I think he regrets it on the bad nights, and I think his father would have told him he was right to leave it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     ykeep = {
       lines = {
         { id = "yarcaretakeralaric1", text = "My father kept it before me, and his father before him. Our family has tended the dead of House Trollbane for six generations. I was meant to be a scribe, but the Second War took my brothers, and so the keys came to me." },
@@ -176,7 +246,7 @@ P:NPC {
     hello = {
       lines = { { id = "h_default", text = "I am Alaric, caretaker of this crypt. Nevlin, Weston and I keep the tomb of Thoras Trollbane, and the blade Trol'kalar that lies with him, and we shall keep them while one of us draws breath." } },
       again = {
-        { id = "h_again", text = "What more would you know? Speak softly." },
+        { id = "h_again", text = "What more would you know? Speak softly; the stone carries every word to him." },
         { id = "h_again2", text = "Ask, {class}, and then leave him his peace." },
       },
       choices = {
@@ -187,6 +257,8 @@ P:NPC {
         { text = "What would you have of Prince Galen?", next = "ygalen" },
         { text = "I'll pay my respects to the king.", next = "BACK", when = { race = "Human" }, reply = "Kneel there, by the steps, and say his name. Thoras Trollbane. He would have been glad to hear it from one of his own people." },
         { text = "Tell me of Stromgarde's history.", next = "yhistory" },
+        { text = "What prayers do you say over the king?", next = "w2_prayer" },
+        { text = "How did Trol'kalar come to lie here?", next = "w2_blade" },
         { text = "I'll leave him his peace.", next = "END" },
       },
     },
@@ -243,6 +315,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_nights = {
+      lines = {
+        { id = "w2_nights_l", text = "Count the steps. There are forty-one from the crypt door to the street, and I know every one in the dark. If a stranger's on the stair, I'll hear him put his foot on the wrong stone." },
+      },
+      choices = {
+        { text = "The wrong stone?", next = "w2_nights2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_nights2 = {
+      lines = {
+        { id = "w2_nights2_l", text = "The twelfth one rocks, and it's been rocking since I was a pikeman. Alaric wants it mended and I won't let him. It's the best guard in this crypt, and it doesn't need to sleep." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_missing = {
+      lines = {
+        { id = "w2_missing_l", text = "Go after it. I'd not stop to tell Alaric, and I'd not stop at the city walls, either. A blade like that only goes one of three places: the Syndicate, the trolls or a fence in Booty Bay." },
+      },
+      choices = {
+        { text = "And if it went to the trolls?", next = "w2_missing2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_missing2 = {
+      lines = {
+        { id = "w2_missing2_l", text = "Then I'd die in the hills, and gladly, and Weston would have to do the watching. That's the only thing that frightens me about it, if I'm honest, because the boy trusts everyone." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     ywatch = {
       lines = {
         { id = "ybarcaretakernevlin1", text = "The night the keep fell. We heard the screaming through the stone, and Alaric wanted to go up and help. I held the door shut against him, because the king's tomb was our charge. I still hear it some nights." },
@@ -284,7 +390,7 @@ P:NPC {
     hello = {
       lines = { { id = "h_default", text = "Nevlin, caretaker. Alaric does the reverence and Weston does the sweeping, and I do the watching, because there's a sword in that tomb that every thief in Arathi would like to sell." } },
       again = {
-        { id = "h_again", text = "Well? What else?" },
+        { id = "h_again", text = "Well? What else? Out with it, and keep your hands where I can see them." },
         { id = "h_again2", text = "Ask it, and keep your hands still." },
       },
       choices = {
@@ -295,6 +401,8 @@ P:NPC {
         { text = "Have the Syndicate ever tried the crypt?", next = "ytried" },
         { text = "I'm no thief. Not here.", next = "BACK", when = { class = "ROGUE" }, reply = "Not here, you say. That's the most honest thing a rogue's ever said to me. Stay honest, and stay out." },
         { text = "What's the worst watch you've stood?", next = "ywatch" },
+        { text = "What do you do on the long nights?", next = "w2_nights" },
+        { text = "What would you do if Trol'kalar went missing?", next = "w2_missing" },
         { text = "I'll go, and take nothing.", next = "END" },
       },
     },
@@ -351,6 +459,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_carve = {
+      lines = {
+        { id = "w2_carve_l", text = "Lord Thoras at the Battle of Grim Batol, on the left, and with King Terenas at the founding of the Alliance on the right. Alaric says the masons worked a full year, and you can see it in the beards." },
+      },
+      choices = {
+        { text = "Who carved the small figure at the bottom?", next = "w2_carve2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_carve2 = {
+      lines = {
+        { id = "w2_carve2_l", text = "Oh, you noticed it! That's the king's hound, Gryff. Alaric says the masons put him in as a joke, and Nevlin says it's disrespectful, but I think Lord Thoras would have wanted his dog beside him." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     yfav = {
       lines = {
         { id = "ybarcaretakerweston1", text = "Lighting the lamps at dusk. The whole crypt goes gold, and the carvings on the walls seem to move. Alaric says the old kings are watching. I like to think they're pleased." },
@@ -400,7 +525,7 @@ P:NPC {
     hello = {
       lines = { { id = "h_default", text = "I'm Weston, the junior caretaker, which means I trim the wicks and sweep the dust while Alaric prays and Nevlin glowers. It's an honour to tend Lord Trollbane, and I mean that, though the days are long." } },
       again = {
-        { id = "h_again", text = "Is there anything else? I don't mind talking." },
+        { id = "h_again", text = "Is there anything else? I don't mind talking, truly. The candles don't say much back." },
         { id = "h_again2", text = "Please, go on." },
       },
       choices = {
@@ -412,6 +537,7 @@ P:NPC {
         { text = "I'll say a word over him.", next = "BACK", when = { class = "PRIEST" }, reply = "Thank you. Thank you. I'll light the big candle, the one we save for feast days. He deserves it." },
         { text = "Is the crypt haunted?", next = "yghosts" },
         { text = "What's your favourite part of the job?", next = "yfav" },
+        { text = "What are the carvings on the tomb?", next = "w2_carve" },
         { text = "Keep the candles lit, Weston.", next = "END" },
       },
     },
@@ -467,6 +593,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_haul = {
+      lines = {
+        { id = "w2_haul_l", text = "A barrel of wet flour, a cannonball, and a lady's shoe. The first mate says the shoe could be worth somethin' to the right collector, and I say the right collector's got one foot and terrible taste." },
+      },
+      choices = {
+        { text = "Nothing valuable at all?", next = "w2_haul2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_haul2 = {
+      lines = {
+        { id = "w2_haul2_l", text = "Oh, it's down there, pal. Chests on the Pirate's Pride, cannon on the old Lady Sinker. Trouble is the naga sleep on the good stuff, and I ain't wakin' 'em for a deckhand's cut." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_naga = {
+      lines = {
+        { id = "w2_naga_l", text = "Scales, teeth and attitude. They come up the beach at dusk, take a look at us, and slide back into the water like they're decidin' who to eat first. I sleep in the boat now." },
+      },
+      choices = {
+        { text = "Have they attacked the camp?", next = "w2_naga2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_naga2 = {
+      lines = {
+        { id = "w2_naga2_l", text = "Twice, and they took a deckhand both times. Nobody I liked much, but still. The captain says the naga are guardin' somethin' down there, and for once I think O'Breen ain't makin' it up." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     yreef = {
       lines = {
         { id = "ybardeckhandmoishe1", text = "Pretty, from the shore. Blue water, coral, wrecks everywhere. Then the naga come up out of it, and the pretty stops real quick. I seen a deckhand dragged under by his ankle. Never came up." },
@@ -506,7 +666,7 @@ P:NPC {
     hello = {
       lines = { { id = "h_default", text = "Deckhand Moishe, Blackwater Raiders. I signed on for a quick salvage run and a share of the take, and what I got was a reef, two sunk ships and a beach fulla naga, so you could say the contract ain't workin' out." } },
       again = {
-        { id = "h_again", text = "What else? Clock's runnin', friend." },
+        { id = "h_again", text = "What else? Clock's runnin', friend, and the delay's costin' me a silver a day I ain't got." },
         { id = "h_again2", text = "Go on, I'm scrubbin' and listenin'." },
       },
       choices = {
@@ -517,6 +677,8 @@ P:NPC {
         { text = "What would you do with your share?", next = "ydo" },
         { text = "Fellow goblin. Need a better contract?", next = "BACK", when = { race = "Goblin" }, reply = "Contract? Pal, I'd sign anything that pays in coin and not promises. Write it up and I'll look it over." },
         { text = "What's the Drowned Reef like?", next = "yreef" },
+        { text = "What've you salvaged so far?", next = "w2_haul" },
+        { text = "What are the naga like up close?", next = "w2_naga" },
         { text = "Back to work, Moishe.", next = "END" },
       },
     },
@@ -573,6 +735,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_price = {
+      lines = {
+        { id = "w2_price_l", text = "For the soldiers, at cost, and sometimes less. For anyone passing through with good boots and a full purse, at what the road cost my runner to bring it. I don't think that's unfair." },
+      },
+      choices = {
+        { text = "Has anyone argued?", next = "w2_price2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_price2 = {
+      lines = {
+        { id = "w2_price2_l", text = "A Syndicate spy dressed as a pilgrim, once. He argued so hard about the cost of a bandage that I knew no pilgrim had ever paid for one. The guards took him away, and I gave them the bandage for free." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     ybuy = {
       lines = {
         { id = "ybardenebwalker1", text = "Bandages, then healing potions, then anything that'll get them drunk. I don't sell the last, but I know who does, and I send them there. A soldier on the wall needs something to look forward to." },
@@ -614,7 +793,7 @@ P:NPC {
     hello = {
       lines = { { id = "h_default", text = "Deneb Walker. I sell what keeps a soldier on his feet, which is to say potions, scrolls and books on how to sew a man shut. In a city under siege from the inside, those are the only trades left worth following." } },
       again = {
-        { id = "h_again", text = "Anything else, while you're here?" },
+        { id = "h_again", text = "Anything else, while you're here? Mind the shelves, they're held up with a broken pike." },
         { id = "h_again2", text = "Go on. I've no queue, as you can see." },
       },
       choices = {
@@ -625,6 +804,7 @@ P:NPC {
         { text = "What did you do before the war?", next = "ybefore" },
         { text = "I could help heal your soldiers.", next = "BACK", when = { class = { "PRIEST", "PALADIN" } }, reply = "Then go up to the wall and ask for the sergeant. He'll put you to work before you've put your bag down." },
         { text = "What do the soldiers buy most?", next = "ybuy" },
+        { text = "How do you price things in a siege?", next = "w2_price" },
         { text = "Show me what you have.", next = "END" },
       },
     },
@@ -681,6 +861,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_horses = {
+      lines = {
+        { id = "w2_horses_l", text = "Short rides, often, and grain from the Dabyrie barn when Kenata will sell it. A destrier that stands in a stable goes soft, and a destrier that rides the Highlands every day goes lame. We try for the middle." },
+      },
+      choices = {
+        { text = "How many horses have you lost?", next = "w2_horses2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_horses2 = {
+      lines = {
+        { id = "w2_horses2_l", text = "Seven this year, to arrows, to the road and to the cold. I said a prayer over each, as Uther taught us, and I am not ashamed of it. They served Stromgarde as well as any man in my company." },
+        { id = "w2_horses2_l1", when = { class = "PALADIN" }, text = "Seven this year. I said a prayer over each, as Uther taught us, and I expect you'd have done the same, {class}. They served Stromgarde as faithfully as any knight in my company." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     yhand = {
       lines = {
         { id = "yarlieutenantvalorcall1", text = "I was squire to Lord Trollbane's champion, and when Uther came to Stromgarde to seek knights for his new Order, I was chosen. I trained in Lordaeron's capital, and came home a paladin. That was a long time ago." },
@@ -724,7 +922,46 @@ P:NPC {
         { text = "How did you come to the Silver Hand?", next = "yhand" },
         { text = "What do you think of Hammerfall?", next = "yhammerfall" },
         { text = "Ride with me, then, a little way.", next = "BACK", when = { class = "PALADIN" }, reply = "Gladly. It's been long since I rode beside a brother of the Order. The Light shines a little brighter on the road today." },
+        { text = "What do the Dabyrie farmers make of your patrol?", next = "lv_farm" },
+        { text = "Does Stromgarde still have a king?", next = "lv_king" },
+        { text = "How do you keep the horses fit on this road?", next = "w2_horses" },
         { text = "Ride safely, Lieutenant.", next = "END" },
+      },
+    },
+    lv_farm = {
+      lines = {
+        { id = "lv_farm_1", text = "They wave, and they bring water for the horses, and some of them weep when we pass, which I find harder than any battle. The Dabyries have held their farm through two wars and the Syndicate, and they will not leave it for a third." },
+      },
+      choices = {
+        { text = "Then your patrol is what keeps them there.", next = "lv_keep" },
+        { text = "Weeping farmers are a sign of hard times.", next = "BACK" },
+      },
+    },
+    lv_keep = {
+      lines = {
+        { id = "lv_keep_1", text = "I hope so, for there is little else I can offer them. Each time we ride out I count the fences still standing, and each time there are fewer, but the Dabyries rebuild them, and so I keep riding." },
+      },
+      choices = {
+        { text = "That's the Light at work, I think.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Fences and lances. Something else.", next = "BACK" },
+      },
+    },
+    lv_king = {
+      lines = {
+        { id = "lv_king_1", text = "Lord Trollbane is gone, and Prince Galen holds what he can of the keep against the Syndicate and the ogres. I serve Stromgarde, and I serve the Light, and I will leave the question of crowns to those with time for it." },
+      },
+      choices = {
+        { text = "You don't sound fond of Galen.", next = "lv_galen" },
+        { text = "I'm a paladin. The Light needs no crown.", next = "lv_galen", when = { class = "PALADIN" } },
+      },
+    },
+    lv_galen = {
+      lines = {
+        { id = "lv_galen_1", text = "I am fond of Stromgarde, and Galen is its prince, and that will have to be enough. The keep is half in ruins and half in Syndicate hands, so whoever holds it holds a great deal of trouble." },
+      },
+      choices = {
+        { text = "A prince of ruins. That's a heavy crown.", next = "BACK" },
+        { text = "Something else, Lieutenant.", next = "BACK" },
       },
     },
     threat = {

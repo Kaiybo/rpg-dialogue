@@ -31,6 +31,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_lost = {
+      lines = {
+        { id = "w2_lost_l0", text = "A loch trout the size o' a pony, twenty years past, just off the point by the island. I had her on the line half the night, an' at dawn she simply swam away wi' my hook, my line an' most o' my pride." },
+      },
+      choices = {
+        { text = "Twenty years? Is she still out there?", next = "w2_lost_still" },
+        { text = "Every fisher has a story like that.", next = "BACK" },
+      },
+    },
+    w2_lost_still = {
+      lines = {
+        { id = "w2_lost_still_l0", text = "Khara says she'd be long dead. I say I've seen a fin out by the island on still mornings that nothin' else in the loch could be. One day she'll bite again, an' I'll be ready." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -40,7 +57,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Keep yer voice down, mind." },
-        { id = "h_again2", text = "Go on, then, quiet-like. The fish have ears, whatever the scholars say." },
+        { id = "h_again2", text = "Go on, then, quiet-like. The fish have ears, whatever the scholars in Ironforge say, an' I've caught more fish than they have." },
       },
       choices = {
         { text = "A fisher should throw the small ones back, by rights.", next = "BACK", reply = "Aye, an' that's why there's still fish in this loch for yer grandbairns tae catch.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -49,7 +66,65 @@ P:NPC {
         { text = "What's in the loch?", next = "loch" },
         { text = "What's the secret to fishing?", next = "secret" },
         { text = "Tell me about Khara.", next = "khara" },
+        { text = "What's the best bait in the loch?", next = "wd_bait" },
+        { text = "Why does Khara run the shop and you don't?", next = "wd_shop" },
+        { text = "What's the biggest fish you've ever lost?", next = "w2_lost" },
         { text = "Good day, Warg.", next = "END" },
+      },
+    },
+    wd_bait = {
+      lines = {
+        { id = "wd_bait_1", text = "Worms from the mud by the dam, an' I'll no' say more than that. The trout in the loch are fussy beasts, an' they'll turn their noses up at anythin' that's no' wriggled its last within the hour." },
+      },
+      choices = {
+        { text = "Fresh worms for fussy trout. Got it.", next = "wd_trout" },
+        { text = "I fish. What else works?", next = "wd_trout", when = { profession = "Fishing" } },
+        { text = "Worms from the dam. I'll dig some.", next = "BACK" },
+      },
+    },
+    wd_trout = {
+      lines = {
+        { id = "wd_trout_1", text = "Cheese, if ye can believe it, a wee pellet o' it, for the fish here have been eatin' scraps off the dam for years. Hinderweir's workers throw their lunch crusts in the water, an' the trout have learned tae wait for them." },
+      },
+      choices = {
+        { text = "Cheese-fed trout. That's a new one.", next = "wd_cheese" },
+        { text = "I'll try cheese, then.", next = "BACK" },
+      },
+    },
+    wd_cheese = {
+      lines = {
+        { id = "wd_cheese_1", text = "Aye, an' they're the fattest trout in Khaz Modan because of it. Dinnae tell Khara I told ye, for she'd sell cheese at the counter an' charge ye double for the privilege." },
+      },
+      choices = {
+        { text = "Your secret's safe with me.", next = "BACK", fx = { affinity = 1 } },
+        { text = "She'd be right to charge for it. Something else.", next = "BACK" },
+      },
+    },
+    wd_shop = {
+      lines = {
+        { id = "wd_shop_1", text = "Because I'd give the stock away, she says, an' she's no' wrong. I'd rather sit on the dock wi' a line than count coin, an' Khara would rather count coin than sit anywhere, so it works out." },
+      },
+      choices = {
+        { text = "She seems to like counting.", next = "wd_khara" },
+        { text = "Fishing beats counting any day.", next = "wd_khara", reply = "Ye've the right idea, friend." },
+      },
+    },
+    wd_khara = {
+      lines = {
+        { id = "wd_khara_1", text = "She loves it, an' she's good at it, an' she's kept us both in boots for years. I bring the fish an' the stories, an' she turns them intae silver, an' that's the Deepwater family business." },
+      },
+      choices = {
+        { text = "A good partnership.", next = "wd_partner" },
+        { text = "Something else, Warg.", next = "BACK" },
+      },
+    },
+    wd_partner = {
+      lines = {
+        { id = "wd_partner_1", text = "The best, though she'd no' admit it either. Ask her about the time I fell in the loch wi' a whole crate o' hooks, an' she'll tell ye it was the worst day o' her life, an' then she'll laugh." },
+      },
+      choices = {
+        { text = "I'll ask her about it.", next = "BACK" },
+        { text = "I'll leave that story alone. Something else.", next = "BACK" },
       },
     },
     loch = {
@@ -134,6 +209,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_bank = {
+      lines = {
+        { id = "w2_bank_l0", text = "Nobody worth havin' tae supper, if ye ask Warg, but there's the farmhands at the Ironband dig road, an' old travellers campin' by the water. Most nights it's just us an' the frogs." },
+      },
+      choices = {
+        { text = "Do you ever wish you lived in Thelsamar?", next = "w2_bank_town" },
+        { text = "Peace and frogs sounds pleasant.", next = "BACK" },
+      },
+    },
+    w2_bank_town = {
+      lines = {
+        { id = "w2_bank_town_l0", text = "Every market day. Then I walk intae town an' hear the noise, an' Vidra's shoutin' in the inn kitchen, an' I'm glad tae come back tae the frogs. They dinnae ask me for credit." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -155,7 +247,55 @@ P:NPC {
         { text = "What sells best?", next = "sells" },
         { text = "Warg says you banned him from the counter.", next = "warg", when = { heardLine = "lm_warg.kh2_default" } },
         { text = "What's a busy day for you?", next = "chores" },
+        { text = "What do the townsfolk buy from you?", next = "kd_buy" },
+        { text = "Do you fish yourself?", next = "kd_fish" },
+        { text = "Who else lives along the western bank?", next = "w2_bank" },
         { text = "Good day, Khara.", next = "END" },
+      },
+    },
+    kd_buy = {
+      lines = {
+        { id = "kd_buy_1", text = "Hooks, line, bait an' a great deal o' advice they didnae ask for. The mountaineers fish off the dam on their days off, an' the Farstriders come down for the big trout, an' every one o' them thinks he kens better than me." },
+      },
+      choices = {
+        { text = "Do they?", next = "kd_better" },
+        { text = "Advice is free, I hope.", next = "BACK", reply = "Advice is free, but listenin' tae it costs ye." },
+      },
+    },
+    kd_better = {
+      lines = {
+        { id = "kd_better_1", text = "Never, though Warg sometimes does, an' I'd no' tell him that for all the trout in the loch. He's a terrible shopkeeper an' the best fisher in the valley, an' it's a crime that the two dinnae go together." },
+      },
+      choices = {
+        { text = "You're proud of your brother.", next = "kd_proud" },
+        { text = "A shopkeeper and a fisher. Something else.", next = "BACK" },
+      },
+    },
+    kd_proud = {
+      lines = {
+        { id = "kd_proud_1", text = "I am, an' if ye tell him, I'll deny it. Our da fished this loch before us, an' Warg's the only one who ever matched him, so I keep the counter an' let him keep the dock." },
+      },
+      choices = {
+        { text = "I won't tell him.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Family keeps the shop going. Something else.", next = "BACK" },
+      },
+    },
+    kd_fish = {
+      lines = {
+        { id = "kd_fish_1", text = "When I've the time, which is never, so I fish on the day after the market, an' I catch more than Warg on those days, which he blames on luck. The trick is patience, an' I've got that for fish if no' for people." },
+      },
+      choices = {
+        { text = "Patience for fish and not people. Fair.", next = "kd_people" },
+        { text = "I'm a fisher. Where should I cast?", next = "kd_people", when = { profession = "Fishing" } },
+      },
+    },
+    kd_people = {
+      lines = {
+        { id = "kd_people_1", text = "The north shore by the Farstrider Lodge, in the mornin', when the mist's still on the water an' the trout are hungry. Dinnae cast near the dam, mind, for the workers throw scraps an' the fish are lazy there." },
+      },
+      choices = {
+        { text = "The north shore in the morning. Thanks.", next = "BACK" },
+        { text = "Lazy fish by the dam. Something else.", next = "BACK" },
       },
     },
     clip = {

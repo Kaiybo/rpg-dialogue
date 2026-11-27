@@ -433,6 +433,7 @@ P:NPC {
         { text = "Why are you here and not with her?", next = "post" },
         { text = "I've seen orcs in Ashenvale. They'll never leave.", next = "xorcs", when = { faction = "Alliance", minLevel = 18 } },
         { text = "Cultists in Darkshore, now. The Legion's servants never truly left.", next = "kal_cult", when = { race = "NightElf" } },
+        { text = "What do you hear from the travellers you send south?", next = "w_hear" },
         { text = "I'm on my way.", next = "END" },
       },
     },
@@ -499,6 +500,25 @@ P:NPC {
       lines = { { id = "kcu_d", text = "No, they never did, they only changed their faces. Balthule watches the Dark Strand at the Tower of Althalaxx on the road north, and every time he reports, there are more of them, mortals who want what the Highborne wanted and think they are cleverer than the Highborne were." } },
       choices = {
         { text = "Then they'll end the way the Highborne did.", next = "BACK", reply = "Yes, but they will take a forest with them if we let them. Talk to Balthule.", fx = { learn = { "highborne" } } },
+        { text = "Something else, Sentinel.", next = "BACK" },
+      },
+    },
+    w_hear = {
+      lines = {
+        { id = "w_hear_default", text = "Less than I would like. They go down the road with my letter and some of them come back with Raene's answer, and some of them write from Astranaar to say they stayed, and some I never hear of again." },
+      },
+      choices = {
+        { text = "Do you keep count of them?", next = "w_hear2" },
+        { text = "That must weigh on you.", next = "w_hear2" },
+      },
+    },
+    w_hear2 = {
+      lines = {
+        { id = "w_hear2_default", text = "I keep their names in a little book, the ones who would tell me, and I strike nothing out until I am certain. There are many names in it with no mark beside them, and I prefer it so. A Sentinel learns to live with not knowing." },
+        { id = "w_hear2_w1", when = { race = "Human" }, text = "Your people came here from across the sea to fight for a forest that was never yours. I write your names a little more carefully, for that." },
+      },
+      choices = {
+        { text = "Hope is better than a crossed-out name.", next = "BACK", fx = { trait = { kind = 1 } } },
         { text = "Something else, Sentinel.", next = "BACK" },
       },
     },
@@ -586,6 +606,7 @@ P:NPC {
         { text = "That elf at the end of the pier never moves.", next = "cerellean" },
         { text = "I've sailed worse seas than this one.", next = "xsailor", when = { race = { "Human", "Dwarf" } } },
         { text = "I've only ever known the tree. What's across the water?", next = "xnelf", when = { race = "NightElf" } },
+        { text = "What's the worst crossing you've seen?", next = "w_worst" },
         { text = "Thank you, that's all.", next = "END" },
       },
     },
@@ -620,6 +641,25 @@ P:NPC {
       choices = {
         { text = "A wise choice.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_worst = {
+      lines = {
+        { id = "w_worst_default", text = "The night the Bravery came in with her mainsail in rags and half her crew below decks, sick from something they had pulled out of the water off the Cliffspring. The captain said they had seen eyes in the waves, and nobody laughed at him." },
+      },
+      choices = {
+        { text = "Eyes in the waves?", next = "w_worst2" },
+        { text = "Did the crew recover?", next = "w_worst2" },
+      },
+    },
+    w_worst2 = {
+      lines = {
+        { id = "w_worst2_default", text = "Naga, the Sentinels said, or something worse that the naga follow. The crew mended, mostly, and two of them never sailed again. I put an extra lamp at the end of the long pier after that, and I trim it myself every evening." },
+        { id = "w_worst2_w1", when = { race = "Human" }, text = "Your people crew that ship. If you know any of them, tell them old Thamarian keeps the lamp lit for them every night." },
+      },
+      choices = {
+        { text = "A lamp is a small kindness.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Thamarian.", next = "BACK" },
       },
     },
   },

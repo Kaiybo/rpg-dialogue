@@ -35,6 +35,57 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_frg = {
+      lines = { { id = "w8_frg_a", text = "The forges, aye, for there's no fire on this world hotter than the one under Shadowforge City. The Emperor, no, and the things that walk out of the Firelord's hall, never in this life." } },
+      choices = {
+        { text = "Could the Brotherhood build its own forge?", next = "w8_frg2" },
+        { text = "A forge is only as good as its master.", next = "w8_frg2" },
+        { text = "I'm a blacksmith. What makes Dark Iron fire different?", next = "w8_frg2", when = { profession = "Blacksmithing" } },
+        { text = "Something else, Lokhtos.", next = "BACK" },
+      },
+    },
+    w8_frg2 = {
+      lines = {
+        { id = "w8_frg2_a", text = "We have one, up in the Searing Gorge, an' it burns well enough for most work. But the dark iron wants the deep fire, an' so we come down here tae trade, an' every Brother who does it knows he might no' climb back up." },
+        { id = "w8_frg2_bs", when = { profession = "Blacksmithing" }, text = "It's fed from below, from the Firelord's own vein, an' it doesnae cool like a coal fire does. Bring me cores from his hall an' I'll show ye what a Brotherhood smith can do wi' that heat, if ye've the stomach tae learn it." },
+      },
+      choices = {
+        { text = "I'll bring you what I find.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+
+    lk_bar = {
+      lines = { { id = "lkb_1", text = "Strange is the kindest word for it. Ye've Private Rocknot, who'd drink the barrels dry if Plugger let him, a goblin called Ribbly hidin' from his own family, and the Emperor's guards, who come in for the thunderbrew an' leave wi' no memory o' the evening." } },
+      choices = {
+        { text = "Why is Ribbly hiding from his family?", next = "lk_bar2" },
+        { text = "Drunk guards make poor watchmen. Clever of you.", next = "lk_bar2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lk_bar2 = {
+      lines = { { id = "lkb2_1", text = "Ask him yerself, if ye want an earful; it's a goblin matter, which means money an' a grudge. What matters tae me is the noise, because nobody hears a bargain bein' struck in a room where Rocknot's singin'." } },
+      choices = {
+        { text = "Then here's to Rocknot's singing.", next = "BACK", reply = "Aye, though ye'll no' say that once ye've heard it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lk_start = {
+      lines = { { id = "lks_1", text = "Bring me the residue the Emperor's own folk leave behind, the black grit that clings tae every Dark Iron who works the forges here. Gather enough of it an' I'll put yer name in the ledger, an' that's the first step on a long stair." } },
+      choices = {
+        { text = "Why does a bit of grit prove anything?", next = "lk_start2" },
+        { text = "My clan won't forget what your Emperor did.", next = "lk_start2", when = { race = "Dwarf" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lk_start2 = {
+      lines = { { id = "lks2_1", text = "Because ye only get it by fightin' the Emperor's folk, an' that's a thing nobody does by accident. As for grudges, Bronzebeard, the Brotherhood remembers the War o' the Three Hammers as well as ye do; we only want the next three hundred years tae go better." } },
+      choices = {
+        { text = "Then the grit's a good place to start.", next = "BACK", reply = "It is. Mind ye bring it in a sack, not yer pockets; it stains." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Lokhtos Darkbargainer, of the Thorium Brotherhood. We're the Dark Irons who'd sooner work the forge than kneel to Thaurissan's ghost or the fire lord he woke." },
@@ -50,6 +101,9 @@ P:NPC {
         { text = "What does the Brotherhood want with fiery cores?", next = "cores" },
         { text = "Tell me about the plans you sell.", next = "plans", when = { profession = { "Blacksmithing" } } },
         { text = "What do you have for trade?", next = "BUSINESS" },
+        { text = "The Guzzler has a strange crowd for a hideout.", next = "lk_bar" },
+        { text = "How does an outsider start with the Brotherhood?", next = "lk_start" },
+        { text = "Do you ever miss working the Emperor's forges?", next = "w8_frg" },
         { text = "I'll leave you to your bargains.", next = "END" },
       },
     },
@@ -134,6 +188,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_if = {
+      lines = { { id = "w8_if_a", text = "The sound o' the Great Forge, mostly, the hammers goin' all day an' all night like the mountain's own heartbeat. An' the Stonefire Tavern, an' a lass who served me ale there an' never once let me pay the full price." } },
+      choices = {
+        { text = "She's probably still there.", next = "w8_if2" },
+        { text = "The forge still rings, Kharan.", next = "w8_if2" },
+        { text = "I drank at the Stonefire last month.", next = "w8_if2", when = { race = "Dwarf" } },
+        { text = "Something else, Kharan.", next = "BACK" },
+      },
+    },
+    w8_if2 = {
+      lines = {
+        { id = "w8_if2_a", text = "If she is, tell her Kharan owes her the difference, an' he'll pay it in person one day. A dwarf can sit in a cell a long time on the thought o' one good mug, {g:lad|lass}, an' I've been sittin' on mine for a long while." },
+        { id = "w8_if2_dw", when = { race = "Dwarf" }, text = "Did ye now? Then ye've drunk my share an' I'll forgive ye for it, if ye get me back there tae drink yours. Tell me the forge still sounds the same, an' I'll believe ye." },
+      },
+      choices = {
+        { text = "You'll drink there again.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Kharan Mighthammer, sent by King Magni himself to find his daughter. I found her, aye, and the Dark Irons found me, and I've been rotting here ever since." },
@@ -141,7 +215,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Ask what ye like. I've nothing but time down here." },
-        { id = "h_again2", text = "What else, friend?" },
+        { id = "h_again2", text = "What else, friend? The rats in here have heard all my stories, so ask away." },
       },
       choices = {
         { text = "What happened to Princess Moira?", next = "moira" },
@@ -150,6 +224,7 @@ P:NPC {
         { text = "Ironforge still asks after you, Kharan.", next = "ironforge", when = { race = "Dwarf" } },
         { text = "Why would a Bronzebeard talk to the Horde?", next = "horde", when = { faction = "Horde" } },
         { text = "What do you need from me?", next = "BUSINESS" },
+        { text = "What do you remember of Ironforge, sitting here?", next = "w8_if" },
         { text = "Stay strong. I'll be back.", next = "END" },
       },
     },
@@ -248,6 +323,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_str = {
+      lines = { { id = "w8_str_a", text = "Drill, every morning, in a cell three paces wide, and a prayer every night for the men I brought into these mountains. A soldier's body follows his habits, and I'll not give the Dark Irons the satisfaction of watching me go soft." } },
+      choices = {
+        { text = "Do the others in the cells drill with you?", next = "w8_str2" },
+        { text = "That's real discipline, Marshal.", next = "w8_str2" },
+        { text = "I'm a warrior. Stormwind trains its soldiers well.", next = "w8_str2", when = { class = "WARRIOR" } },
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
+    w8_str2 = {
+      lines = {
+        { id = "w8_str2_a", text = "Tobias does, when I shout at him through the wall, and the orc Gor'shak keeps time by roaring, which I've come to find almost companionable. We are strange allies in this place, and I mean to bring every one of them out with me." },
+        { id = "w8_str2_war", when = { class = "WARRIOR" }, text = "It does, and it shows on you. Stand beside me when that door opens, soldier, and we'll show the Dark Irons what a Stormwind shield wall looks like, even if it's only two shields wide." },
+      },
+      choices = {
+        { text = "We'll bring them all out.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Marshal Windsor, of Stormwind. I came into these mountains to learn what the Dark Irons and the Blackrock orcs were planning together, and I learned more than they could let me carry home." },
@@ -263,6 +358,7 @@ P:NPC {
         { text = "Morgan's Vigil sent word you were lost.", next = "vigil", when = { faction = "Alliance" } },
         { text = "A paladin of the Light at your service, Marshal.", next = "paladin", when = { class = "PALADIN" } },
         { text = "Let's get you out of here.", next = "BUSINESS" },
+        { text = "How have you kept your strength in here?", next = "w8_str" },
         { text = "Hold on a little longer.", next = "END" },
       },
     },
@@ -355,6 +451,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_sct = {
+      lines = { { id = "w8_sct_a", text = "They died at the gate, with their axes in Dark Iron throats, as orcs should. I carry their names in my head, and every night I say them so the guards will hear, and so I will not forget." } },
+      choices = {
+        { text = "Tell me their names.", next = "w8_sct2" },
+        { text = "They died with honour.", next = "w8_sct2" },
+        { text = "Something else, commander.", next = "BACK" },
+      },
+    },
+    w8_sct2 = {
+      lines = { { id = "w8_sct2_a", text = "Druk, Gashna and young Torvek, who had seen only nineteen winters and fought like he had seen fifty. When I am free, I will carve their names on the stones at Orgrimmar's gate, and the warchief will know what they gave." } },
+      choices = {
+        { text = "Lok'tar. Their names will be carved.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Gor'shak, commander in the warchief's service. Thrall sent me to learn what the Dark Irons plan in this mountain, and they have given me a cell instead of answers." },
@@ -370,6 +482,7 @@ P:NPC {
         { text = "For the Horde, commander. I'll get you out.", next = "horde", when = { faction = "Horde" } },
         { text = "An Alliance soldier freeing a Horde commander. Strange times.", next = "alliance", when = { faction = "Alliance" } },
         { text = "What do you need?", next = "BUSINESS" },
+        { text = "What became of the scouts who came with you?", next = "w8_sct" },
         { text = "Be patient, commander.", next = "END" },
       },
     },
@@ -459,6 +572,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_prd = {
+      lines = { { id = "w8_prd_a", text = "The great gate, which no army has broken, and the Black Anvil, which no hammer but the Emperor's chosen has struck. I put my whole craft into stone and iron, mortal, and the stone and iron have outlived my good name." } },
+      choices = {
+        { text = "Your name still lives in this city.", next = "w8_prd2" },
+        { text = "Pride is what doomed this place.", next = "w8_prd2" },
+        { text = "Something else, spirit.", next = "BACK" },
+      },
+    },
+    w8_prd2 = {
+      lines = { { id = "w8_prd2_a", text = "It lives as a ghost lives, half in shadow and half in regret. Pride doomed this place, yes, and some of the pride was mine, so finish my work, and let what I built be remembered for one good thing at least." } },
+      choices = {
+        { text = "I'll finish your work.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Franclorn Forgewright, who carved Shadowforge City for Thaurissan the Emperor. My bones lie in this statue's shadow, and my spirit lingers because the work was never finished." },
@@ -475,6 +604,7 @@ P:NPC {
         { text = "I'm a Bronzebeard. We've not forgotten the War of the Three Hammers.", next = "bronzebeard", when = { race = "Dwarf" } },
         { text = "Can't a priest's prayers let you rest?", next = "priest", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "What would you have me do?", next = "BUSINESS" },
+        { text = "Which of your works are you proudest of?", next = "w8_prd" },
         { text = "Rest easy, spirit.", next = "END" },
       },
     },
@@ -569,6 +699,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_reg = {
+      lines = { { id = "w8_reg_a", text = "Off-duty guards with sore heads, a few Brotherhood smiths who think nobody knows who they are, and Hurley Blackbreath when he can get in, which Plugger tries very hard to prevent. Hurley's the one who keeps stealing the thunderbrew recipe, sweetling, and Plugger keeps stealing it back." } },
+      choices = {
+        { text = "Why does the recipe matter so much?", next = "w8_reg2" },
+        { text = "Sounds like a lively crowd.", next = "w8_reg2" },
+        { text = "Something else, Nagmara.", next = "BACK" },
+      },
+    },
+    w8_reg2 = {
+      lines = { { id = "w8_reg2_a", text = "Because it's the best ale under the mountain, love, and a Dark Iron who can't have good ale is a Dark Iron who starts thinking about his life. Plugger keeps the city drunk and docile, and the Emperor pays him for it, and nobody says so out loud." } },
+      choices = {
+        { text = "I'll keep my voice down about it.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Nagmara, and I keep the Grim Guzzler's guests happy, one way or another. Most nights it's easy work, but there's one guard by the taps who won't so much as look at me." },
@@ -583,6 +729,7 @@ P:NPC {
         { text = "What do you need from me?", next = "potion" },
         { text = "A Dark Iron flirting with a Bronzebeard. Now I've seen everything.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "How did you end up in the Guzzler?", next = "yhow" },
+        { text = "Who are the regulars in the Guzzler?", next = "w8_reg" },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -681,6 +828,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_gry = {
+      lines = { { id = "w8_gry_a", text = "Thunderclaw, an' she's the best flier at Aerie Peak, whatever Falstad says about his own. She took a Dark Iron bolt for me on the slopes, an' I dinnae ken if she lived, for they dragged me off before I could see." } },
+      choices = {
+        { text = "A gryphon is hard to kill.", next = "w8_gry2" },
+        { text = "I'm sorry, Dughal.", next = "w8_gry2" },
+        { text = "Something else, Dughal.", next = "BACK" },
+      },
+    },
+    w8_gry2 = {
+      lines = { { id = "w8_gry2_a", text = "Aye, she is, an' she's stubborn, an' if she lived she'll have flown home tae the roost an' be sulkin' there yet. That's what I tell myself in the dark, {g:lad|lass}, an' it's kept me from goin' mad." } },
+      choices = {
+        { text = "Then let's get you home to her.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Dughal Stormwing, of the Wildhammer clan of Aerie Peak. The Dark Irons dragged me down here after a skirmish in the Hinterlands' south, and I've not seen the sky since." },
@@ -698,6 +861,7 @@ P:NPC {
         { text = "Are there other Wildhammers down here?", next = "xother" },
         { text = "I've flown a gryphon from Aerie Peak myself.", next = "xflown", when = { race = "Dwarf" } },
         { text = "What will you do when you're free?", next = "yfree" },
+        { text = "What's your gryphon's name?", next = "w8_gry" },
         { text = "Go. Find your way out.", next = "END" },
       },
     },
@@ -791,6 +955,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_food = {
+      lines = { { id = "w8_food_a", text = "One of Molly's honey cakes, if she'll still make me one, and a whole roast chicken from the inn at Lakeshire, and then probably I'll be sick, because my stomach's forgotten anything that isn't gruel." } },
+      choices = {
+        { text = "Molly sounds worth coming home for.", next = "w8_food2" },
+        { text = "Start with bread, Tobias.", next = "w8_food2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w8_food2 = {
+      lines = { { id = "w8_food2_a", text = "She is, and I've told her so in my head every night for months, and someday I'll say it out loud. Bread first, you're right, then honey cakes, then I'll ask her, if my nerve holds better than the rest of me." } },
+      choices = {
+        { text = "I'm sure it will.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", key = true, text = "Tobias Seecher. I rode with Marshal Windsor's company when we came to look into this mountain, and the Dark Irons took the lot of us in one bad night." } },
       again = {
@@ -805,6 +985,7 @@ P:NPC {
         { text = "What will you do once you're out?", next = "xafter" },
         { text = "I'm from Stormwind. I'll carry word back.", next = "xstormwind", when = { race = "Human" } },
         { text = "Do you have family waiting for you?", next = "yfamily" },
+        { text = "What's the first thing you'll eat when you're free?", next = "w8_food" },
         { text = "Get moving.", next = "END" },
       },
     },
@@ -883,6 +1064,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_ring = {
+      lines = { { id = "w8_ring_a", text = "I kept every one on a cord round my neck, until the Dark Irons took them off me and melted them down for the gold. Forty-one rings, and they made one ugly ingot, and some jailer's wife wears it now as a bangle." } },
+      choices = {
+        { text = "That's fitting, in a way.", next = "w8_ring2" },
+        { text = "Forty-one people dead for a cord of rings.", next = "w8_ring2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w8_ring2 = {
+      lines = { { id = "w8_ring2_a", text = "Fitting or not, it's the first time I've been robbed, and I find I don't care for it. Forty-one, aye, and every one paid for by someone of their own blood, so don't look at me as if I was the worst thing in those families." } },
+      choices = {
+        { text = "I'll leave you to your conscience.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", key = true, text = "They call me Crest Killer, and I earned the name with more noble houses than ye can count. The Dark Irons lock up their worst in these halls, so ye can guess how proud I am to be here." } },
       again = {
@@ -897,6 +1094,7 @@ P:NPC {
         { text = "What do you think of the Dark Irons?", next = "xdark" },
         { text = "I know a few nobles I'd pay you to visit.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "You're a disgrace to dwarvenkind.", next = "xdwarf", when = { race = "Dwarf" } },
+        { text = "What became of the rings you took?", next = "w8_ring" },
         { text = "I'll leave your door shut.", next = "END" },
       },
     },
@@ -974,6 +1172,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_time = {
+      lines = { { id = "w8_time_a", text = "Ograbisi counts the bars, and there are nine, and then he counts them again in case one ran away. Then he sleeps, and then he dreams of goat, and then he wakes up and there is only gruel." } },
+      choices = {
+        { text = "Do you ever talk to Jaz?", next = "w8_time2" },
+        { text = "Nine bars. That's a lot of counting.", next = "w8_time2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w8_time2 = {
+      lines = { { id = "w8_time2_a", text = "Jaz talks to Ograbisi, and Ograbisi says yes so Jaz stops. Jaz is a good orc for a cellmate because he is too small to eat and too loud to sleep near, so Ograbisi has to stay awake and be clever." } },
+      choices = {
+        { text = "Stay clever, Ograbisi.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", key = true, text = "Ograbisi was a strong one in the mountain, and the dwarfs needed six chains to bring him in here. Now he sits with the orc and the orc talks too much." } },
       again = {
@@ -988,6 +1202,7 @@ P:NPC {
         { text = "What would you do if you got out?", next = "xout" },
         { text = "I'm an orc. I could speak to Jaz for you.", next = "xorc", when = { race = "Orc" } },
         { text = "What did ogres eat, back in the mountains?", next = "yfood" },
+        { text = "How do you pass the time in this cell?", next = "w8_time" },
         { text = "Enjoy your gruel.", next = "END" },
       },
     },
@@ -1074,6 +1289,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_win = {
+      lines = { { id = "w8_win_a", text = "Uther the Lightbringer, with his hammer raised and the sun behind him, and the light through it used to fall on the altar like water. The plague came through the village before the harvest, and the window was the only thing left standing when we burned the rest." } },
+      choices = {
+        { text = "You burned your own village?", next = "w8_win2" },
+        { text = "Uther would grieve at what the Crusade has become.", next = "w8_win2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w8_win2 = {
+      lines = { { id = "w8_win2_a", text = "What was left of it, with my own torch, and I said the rites over every house as it went. You may say what you like about Uther and the Crusade, stranger, but you did not stand in that orchard, and I did." } },
+      choices = {
+        { text = "I'm sorry for your village.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", key = true, text = "I am Shill Dinger, a soldier of the Scarlet Crusade. I came south hunting the taint of the Scourge, and these heathen dwarves threw me in chains for my trouble." } },
       again = {
@@ -1088,6 +1319,7 @@ P:NPC {
         { text = "What did you see in the fires below?", next = "xfire" },
         { text = "I'm a paladin. Your Crusade shames the Light.", next = "xpaladin", when = { class = "PALADIN" } },
         { text = "Where were you from, before the Crusade?", next = "yfrom" },
+        { text = "What did your chapel's blue window show?", next = "w8_win" },
         { text = "Pray on, then.", next = "END" },
       },
     },

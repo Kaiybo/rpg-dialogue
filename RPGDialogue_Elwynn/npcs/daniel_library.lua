@@ -36,6 +36,40 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d6_oldest = {
+      lines = { { id = "d6_oldest_a", text = "A book of hymns from before the First War, with the binding half burned, because someone carried it out of the old Stormwind when the orcs came. Brother Paxton won't let anyone open it but himself, and he only opens it on holy days." } },
+      choices = {
+        { text = "Who carried it out of the fire?", next = "d6_oldest2" },
+        { text = "A book that survived a war deserves that care.", next = "d6_oldest2" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    d6_oldest2 = {
+      lines = { { id = "d6_oldest2_a", text = "Nobody knows, and that's the best part. There's a name written inside the cover, just one word, and Brother Paxton says it's a novice who died on the road, and I like to think it was someone who just walked out of the fire holding it and kept going." } },
+      choices = {
+        { text = "That's a good thing to believe.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Daniel.", next = "BACK" },
+      },
+    },
+    d6_life = {
+      lines = { { id = "d6_life_a", text = "Bells, mostly, for prayers and meals and lessons, so you always know what you're late for. Marshal McBride runs the recruits in the yard, Brother Sammuel teaches the paladins, and I run between all of them with messages nobody else wants to carry." } },
+      choices = {
+        { text = "Do the priests here teach you as well?", next = "d6_life2", when = { class = "PRIEST" } },
+        { text = "Do you ever want to be a recruit yourself?", next = "d6_life2" },
+        { text = "It sounds like a busy little world.", next = "d6_life2" },
+      },
+    },
+    d6_life2 = {
+      lines = {
+        { id = "d6_life2_a", text = "I tried, once, for a week, and Marshal McBride sent me back to the library with a note that just said 'not this one.' I didn't mind, honestly, because a sword is heavy and a book is not, and I'm better at knowing where things are than hitting them." },
+        { id = "d6_life2_priest", when = { class = "PRIEST" }, text = "Sometimes, when Priestess Anetta has a spare hour, she lets me sit in on the prayers. I don't think I'll ever take the robes, though, because I'd spend every service wondering whether the hymnals were shelved right." },
+      },
+      choices = {
+        { text = "Knowing where things are is a gift too.", next = "BACK" },
+        { text = "Ask you something else, then.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Daniel, Brother Paxton's assistant here in the library. I'm meant to be counting what's on the shelves, and I am, mostly, between other things." },
@@ -56,6 +90,9 @@ P:NPC {
         { text = "What are the other things you do, Daniel?", next = "trades" },
         { text = "Who should I see about my trade?", next = "trainer", when = { maxLevel = 15 } },
         { text = "Any work for me?", next = "BUSINESS" },
+        { text = "What's the oldest book in the Abbey?", next = "d6_oldest" },
+        { text = "What's life like at Northshire Abbey?", next = "d6_life" },
+        { text = "Your father was a cobbler?", next = "e3_father" },
         { text = "I'll let you get back to counting.", next = "END" },
       },
     },
@@ -114,6 +151,24 @@ P:NPC {
       lines = { { id = "tr_default", text = "Well, Goldshire's the place to start, just south of here, and there's more in Stormwind for proper training. Tell me what you fancy and I'll point you the right way." },
       },
       choices = { { text = "Thank you, Daniel.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    e3_father = {
+      lines = {
+        { id = "e3_father_l0", text = "In Goldshire, just off the square, and he could make a boot that would outlast the man wearing it. He wanted me to take the shop, but I liked the letters on the leather better than the leather, so he sent me to the Abbey to learn reading instead." },
+      },
+      choices = {
+        { text = "Does he mind that you didn't follow him?", next = "e3_father2" },
+        { text = "You'd have made a poor cobbler, I think.", next = "BACK" },
+      },
+    },
+    e3_father2 = {
+      lines = {
+        { id = "e3_father2_l0", text = "He says not, and he sends me a pair of boots every winter with a note tucked in the toe asking if I've read anything good. I always write back with a list, and I always put a cobbler in one of the stories, just for him." },
+      },
+      choices = {
+        { text = "That's lovely, Daniel. Something else.", next = "BACK" },
+        { text = "You should visit him more.", next = "BACK" },
+      },
     },
   },
 

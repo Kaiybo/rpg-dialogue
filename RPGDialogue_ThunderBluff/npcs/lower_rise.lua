@@ -414,7 +414,54 @@ P:NPC {
         { text = "Why harpy feathers, of all things?", next = "feathers" },
         { text = "Ruul tested me at Bloodhoof Village.", next = "tested", when = { questDone = TODO_QUEST("Dangers of the Windfury") } },
         { text = "I'll get your feathers.", next = "BUSINESS" },
+        { text = "Your workshop smells of cedar and feathers.", next = "workshop" },
+        { text = "Do the Windfury ever come near the bluff?", next = "windfury" },
+        { text = "Has Ruul ever worn something you made without complaining?", next = "w5_ruul" },
         { text = "Farewell, Eyahn.", next = "END" },
+      },
+    },
+    w5_ruul = {
+      lines = { { id = "w5_ruul_l", text = "Never. Not once, since we were calves. I made him a feathered cloak for his first hunt, and he said it rustled. I made him a pair of bracers, and he said they pinched. He wore both until they fell apart, and he still complains about them." } },
+      choices = {
+        { text = "He wore them until they fell apart?", next = "w5_ruul2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_ruul2 = {
+      lines = { { id = "w5_ruul2_l", text = "He did. That is how my brother says thank you. He will grumble about this headdress the whole way to the High Chieftain, and then he will stand before Cairne with his chin up and his feathers straight, and I will be prouder than he will ever know." } },
+      choices = {
+        { text = "Then he'll stand tall because of you.", next = "BACK", reply = "He will. Do not tell him I said so. He would complain about that too." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    workshop = {
+      lines = { { id = "workshop_d", text = "Cedar for the ceremonies of the dead, and feathers for the ceremonies of the living. I keep them on opposite sides of the room, for my grandmother said they should never mix, and I have never had the courage to find out why." } },
+      choices = {
+        { text = "Perhaps it's just tradition.", next = "workshop_trad" },
+        { text = "Your grandmother sounds wise.", next = "BACK", reply = "She was. I still hear her every time I reach for the wrong shelf." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    workshop_trad = {
+      lines = { { id = "workshop_trad_d", text = "Perhaps, but tradition is how our people remember what they have forgotten the reasons for. I keep the cedar on the left and the feathers on the right, and nobody has died of it yet." } },
+      choices = {
+        { text = "That's a good enough reason.", next = "BACK" },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    windfury = {
+      lines = { { id = "windfury_d", text = "They come close enough to frighten the herders, but never to the bluff itself, for the braves on the lifts would shoot them out of the sky. They nest in the cliffs north and northwest of here, and the young go out to face them when Ruul sends them." } },
+      choices = {
+        { text = "Ruul sends many young ones.", next = "windfury_ruul" },
+        { text = "The harpies are a good test.", next = "BACK", reply = "They are. Ruul says they teach patience, and Ruul is usually right." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    windfury_ruul = {
+      lines = { { id = "windfury_ruul_d", text = "He does, and most of them come back. The ones who do not, I prepare for the ceremony of the dead, and that is the hardest part of my work, for they are always so young." } },
+      choices = {
+        { text = "That's a heavy burden.", next = "BACK", reply = "It is, but someone must carry it. I am glad it is me, and not a stranger." },
+        { text = "Let me ask about something else.", next = "BACK" },
       },
     },
     ruul = {
@@ -520,7 +567,23 @@ P:NPC {
         { text = "I've thinned the Razorfen, Auld. Is it enough?", next = "dd_razorfen", when = { killed = { name = "Razorfen", min = 40 } } },
         { text = "The spirits must speak of your tribe still.", next = "spirits", when = { class = "SHAMAN" } },
         { text = "Our people don't forget their dead, elder.", next = "dead", when = { race = "Tauren" } },
+        { text = "What did the Stonespire lands look like, before?", next = "w5_lands" },
         { text = "Earth Mother keep you, Auld.", next = "END" },
+      },
+    },
+    w5_lands = {
+      lines = { { id = "w5_lands_l", text = "Thorn and red stone, with springs hidden in the gullies, and spires of rock so tall our people named themselves for them. We buried our dead beneath the spires, so that they could look out over the land forever. Now the quilboar's brambles grow over the graves." } },
+      choices = {
+        { text = "Do you ever go back to see them?", next = "w5_lands2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_lands2 = {
+      lines = { { id = "w5_lands2_l", text = "Once, after the Razorfen took it. I stood on a ridge and looked down and could not see a single spire for the thorns. I came back up the lift and I have not gone again. An old bull can carry only so much. I carry the memory, and I let you young ones carry the axes." } },
+      choices = {
+        { text = "Then we'll carry the axes, and clear the thorns.", next = "BACK", reply = "Good. Come back and tell me when you can see a spire again.", fx = { align = { honor = 1 } } },
+        { text = "Let the past go, elder. The living need you here.", next = "BACK", reply = "The living have plenty of elders. The Stonespire dead have only me.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     dd_razorfen = {
@@ -654,7 +717,54 @@ P:NPC {
         { text = "Do tauren still hunt kodo?", next = "kodo" },
         { text = "I'm a druid. Should skinning trouble me?", next = "druid", when = { class = "DRUID" } },
         { text = "Have you work for me?", next = "BUSINESS" },
+        { text = "Who buys the leather you gather?", next = "buyers" },
+        { text = "Your mate must be very patient.", next = "mate" },
+        { text = "What do you tell your mate about the smell?", next = "w5_smell" },
         { text = "Farewell, Veren.", next = "END" },
+      },
+    },
+    w5_smell = {
+      lines = { { id = "w5_smell_l", text = "The truth. That I spent the day with my hands in a kodo hide and a tub of tanning bark. She says she knew that from the far side of the rise. Then she makes me wash in the river before I come in, and I do it, because she is right." } },
+      choices = {
+        { text = "She sounds very patient.", next = "w5_smell2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_smell2 = {
+      lines = { { id = "w5_smell2_l", text = "She is. She also wears the best leather on the Lower Rise, and everyone knows who made it. I think that is our bargain. I bring home the smell, and she gets the finest boots on the bluff. Neither of us mentions it. That is how you know a bargain is good." } },
+      choices = {
+        { text = "A bargain nobody mentions is the best kind.", next = "BACK", reply = "Exactly. You have been married, or you have paid attention to those who are." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    buyers = {
+      lines = { { id = "buyers_d", text = "Una's tent on the middle rise takes most of it, and Ahanu on the lower rise takes what Una doesn't want. The rest goes to the young ones who are learning, so they have something to spoil that isn't worth much." } },
+      choices = {
+        { text = "Una must be particular.", next = "buyers_una" },
+        { text = "The young need something to practise on.", next = "BACK", reply = "They do, and every hide they spoil is one they'll never spoil again." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    buyers_una = {
+      lines = { { id = "buyers_una_d", text = "She is, and she's right to be. She can tell a hide that was taken badly from across the tent, and she sends those back to me with a look that would curdle milk." } },
+      choices = {
+        { text = "Then you take care with every hide.", next = "BACK", reply = "I do now. Una taught me that, the hard way." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    mate = {
+      lines = { { id = "mate_d", text = "She is, though she wouldn't call it patience. She calls it a long-suffering nose, and she makes me wash in the stream below the bluff before I'm allowed into the lodge." } },
+      choices = {
+        { text = "That seems fair.", next = "mate_fair" },
+        { text = "Leather smells honest, at least.", next = "BACK", reply = "That's what I tell her! She says honest and pleasant aren't the same thing." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mate_fair = {
+      lines = { { id = "mate_fair_d", text = "It is, and I don't complain, not where she can hear. She knew what she was getting when we were joined, and she took me anyway, which I think is the bravest thing anyone on this bluff has ever done." } },
+      choices = {
+        { text = "She sounds remarkable.", next = "BACK" },
+        { text = "Let me ask about something else.", next = "BACK" },
       },
     },
     leather = {

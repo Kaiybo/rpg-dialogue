@@ -1012,7 +1012,7 @@ P:NPC {
         { id = "hp_low", when = { maxLevel = 9 }, text = "Ye're at the start o' it, so I'll no' fill yer head wi' the end. Learn the Aspect o' the Monkey an' yer Serpent Sting first, an' then go tae Grif Wildheart when ye've ten seasons on ye." },
         { id = "hp_high", when = { minLevel = 40 }, text = "Ye're well down the road already, an' there's mail on yer back tae prove it. Ask what ye like, an' I'll tell ye what I know o' the stretch ahead." },
       },
-      again = { { id = "hp_again", text = "What else about the road?" }, { id = "hp_again2", text = "Go on, I've time for a hunter." } },
+      again = { { id = "hp_again", text = "What else, then? The beasts on that road would tell ye more than I can, if ye knew how tae listen." }, { id = "hp_again2", text = "Go on, I've time for a hunter." } },
       choices = {
         { text = "Which aspect should I keep up most?", next = "hp_aspect" },
         { text = "How do I keep my beast from leaving me?", next = "hp_loyal", when = { minLevel = 10 } },

@@ -250,6 +250,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_off = {
+      lines = { { id = "w8_off_a", text = "Mend the Bulwark's straps, sharpen what needs sharpening, and sit on the hall steps watching the sky for skycutters coming in late. I'm told that counts as a hobby, though it feels a lot like worrying." } },
+      choices = {
+        { text = "Who are you waiting for?", next = "w8_off2" },
+        { text = "You never really stop working.", next = "w8_off2" },
+        { text = "Something else, Seena.", next = "BACK" },
+      },
+    },
+    w8_off2 = {
+      lines = { { id = "w8_off2_a", text = "My students who went below the clouds, every one, and I count them off the skycutter when they come home on leave. Most of them come back taller and louder, and a few don't come back, and I keep their names on the inside of my shield." } },
+      choices = {
+        { text = "They were lucky to have you.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_dd_lorthuna", tags = { "news" }, when = { questDone = TODO_QUEST("Confront Lorthuna") },
@@ -272,6 +288,7 @@ P:NPC {
         { text = "I guarded the pylons on Anvilas while they failed.", next = "xpylon", when = { origin = "skyborne_anvilas_pylon_guard" } },
         { text = "I trained for the Empyrean Blades.", next = "xblade", when = { origin = "skyborne_empyrean_recruit" } },
         { text = "How do your warriors fight compared to mine?", next = "xoutsider", when = { class = "WARRIOR", ["not"] = { race = "Skyborne" } } },
+        { text = "What do you do when you're not training recruits?", next = "w8_off" },
         { text = "Farewell, Seena.", next = "END" },
       },
     },
@@ -419,6 +436,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_miss = {
+      lines = { { id = "w8_miss_a", text = "A little one that used to sweep the hall steps every morning, round and round, humming to itself. It stopped one winter and never started again, and nobody had the heart to move it, so it's still in the corner under the stairs." } },
+      choices = {
+        { text = "Could you wake it?", next = "w8_miss2" },
+        { text = "It's only a machine, surely.", next = "w8_miss2" },
+        { text = "I'm a shaman. There may still be wind in it.", next = "w8_miss2", when = { class = "SHAMAN" } },
+        { text = "Something else, Riaani.", next = "BACK" },
+      },
+    },
+    w8_miss2 = {
+      lines = {
+        { id = "w8_miss2_a", text = "I've tried, three times, and once it hummed for a moment and then went quiet again, which was worse than nothing. It isn't only a machine, whatever the High Order says; there was a little wind in it, and that's what's missing." },
+        { id = "w8_miss2_sham", when = { class = "SHAMAN" }, text = "Do you think so? Then come and sit with it one evening, and listen, because if there's a breath left in it, you'll hear it before I would. I'd give a great deal to see it sweep those steps again." },
+      },
+      choices = {
+        { text = "Don't give up on it.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Forgive me, I'm in the middle of something. I'm Riaani, of the Windshapers, and I look after the wind constructs, or what's left of them, because the spirits gave them to us and somebody has to keep them running now the spirits aren't here to do it." },
@@ -439,6 +476,7 @@ P:NPC {
         { text = "There's an old construct wandering Windfield Orchard.", next = "orchard" },
         { text = "How do you build anything without gears?", next = "xeng", when = { profession = { "Engineering" } } },
         { text = "I'm High Order. Can I help with the construct?", next = "xho", when = { race = "Skyborne", faction = "Alliance" } },
+        { text = "Which construct do you miss most?", next = "w8_miss" },
         { text = "Winds guide you, Riaani.", next = "END" },
       },
     },
@@ -583,6 +621,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_met = {
+      lines = { { id = "w8_met_a", text = "She fell out of one of my apple trees, if you can believe it, stealing stormapples for her mother's pie, and landed right on top of me. I asked her to pay for the apples, and she said she'd pay me back with a pie, and she's been paying ever since." } },
+      choices = {
+        { text = "That's a sweet story.", next = "w8_met2" },
+        { text = "So she was a thief first.", next = "w8_met2" },
+        { text = "Something else, Alvarion.", next = "BACK" },
+      },
+    },
+    w8_met2 = {
+      lines = { { id = "w8_met2_a", text = "The best thief in the lowlands, and she'll tell you so herself. When Melasa lets me stand, I'm going home to eat one of those pies, and I'm not sharing it with any bandit or any construct." } },
+      choices = {
+        { text = "I hope that's soon.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Alvarion Windfield, of Windfield Orchard, though you'd not know it to look at me. Aamelia and I keep the orchard down in the lowlands, or we did, until some of the island's newer residents decided they'd rather take our harvest than grow their own." },
@@ -594,7 +648,7 @@ P:NPC {
           text = "Thank you for coming all this way with word from Aamelia. Knowing she's safe has done more for me than any bandage." },
       },
       again = {
-        { id = "h_again", text = "What else? I've nowhere to be, as you can see." },
+        { id = "h_again", text = "What else? The orchard can spare me a few minutes, and Aamelia won't miss me for longer than that." },
         { id = "h_again2", text = "Go on, talk to me. It beats counting the ceiling beams." },
       },
       choices = {
@@ -603,6 +657,7 @@ P:NPC {
         { text = "What's this I hear about a construct in your fields?", next = "construct" },
         { text = "How is Aamelia?", next = "aamelia" },
         { text = "I could pray over your wounds.", next = "xpriest", when = { class = "PRIEST" } },
+        { text = "How did you and Aamelia meet?", next = "w8_met" },
         { text = "Rest well, Alvarion.", next = "END" },
       },
     },
@@ -748,6 +803,70 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_hard = {
+      lines = { { id = "w8_hard_a", text = "The refugees who come in with wounds that are weeks old, because there was nobody on their fallen isle to look at them. I can clean a cut and set a bone, but I can't make up for the time they spent walking." } },
+      choices = {
+        { text = "You do what you can.", next = "w8_hard2" },
+        { text = "Couldn't the Windshapers help?", next = "w8_hard2" },
+        { text = "I'm a priest. Let me help with the refugees.", next = "w8_hard2", when = { class = "PRIEST" } },
+        { text = "Something else, Melasa.", next = "BACK" },
+      },
+    },
+    w8_hard2 = {
+      lines = {
+        { id = "w8_hard2_a", text = "I do, and I teach anyone who'll sit still for an hour, so the next time someone falls on a road, there's a friend beside them who knows what to do. That's the whole of my work, really, making more of me." },
+        { id = "w8_hard2_pr", when = { class = "PRIEST" }, text = "Please do, and don't mind if they flinch, because the only priests they ever knew wore grey. Start with the children by the hearth, and then come and teach me how you do it, because I'd love to know." },
+      },
+      choices = {
+        { text = "Make more of you, then.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    mel_alv1 = {
+      lines = {
+        { id = "mel_alv1_1", text = "He is, because he won't stay in bed, and an orchard man with a wound in his side has no business up a ladder. Aamelia ties him to the bedpost with a sheet when she goes to market, I'm told, and I don't ask whether that's a joke." },
+      },
+      choices = {
+        { text = "Will he mend?", next = "mel_alv2" },
+        { text = "Something else, Melasa.", next = "BACK" },
+      },
+    },
+    mel_alv2 = {
+      lines = {
+        { id = "mel_alv2_1", text = "He will, if he'll let it, and he's let it a little more since the bandits were dealt with. Anger tears at stitches as surely as a ladder does, and he was carrying a great deal of it." },
+      },
+      choices = {
+        { text = "Then rest is the medicine.", next = "mel_alv3" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    mel_alv3 = {
+      lines = {
+        { id = "mel_alv3_1", text = "Rest, and someone else picking his apples for a season, which is the part he can't bear. If you're in Windfield Orchard, tell him Melasa says the trees will wait, and watch his face when you do." },
+      },
+      choices = {
+        { text = "I'll tell him. Something else.", next = "BACK" },
+      },
+    },
+    mel_lin1 = {
+      lines = {
+        { id = "mel_lin1_1", text = "Othesia Evengale sells me her offcuts, and every refugee who comes in off the fallen places gives me whatever cloth they've carried. I wash it and boil it and cut it into strips, and it all ends up wrapped round somebody's arm." },
+      },
+      choices = {
+        { text = "Refugees give it freely?", next = "mel_lin2" },
+        { text = "I've cloth to spare for your bandages.", next = "mel_lin2", when = { profession = "Tailoring" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mel_lin2 = {
+      lines = {
+        { id = "mel_lin2_1", text = "More freely than you'd think, because they've seen what happens when there isn't any. A woman from Ban'aethal gave me her wedding shawl last month, and I've kept it folded in the drawer and not had the heart to cut it." },
+      },
+      choices = {
+        { text = "Keep it there. Something else.", next = "BACK" },
+      },
+    },
     -- Deeds pass: the player keeps dying.
     dd_deaths = {
       lines = { { id = "dd_default", text = "And I'm glad of it, but don't lean on it. Every time you come back you're a little more careless, and careless people are the ones who end up on my table with a wound the spirits can't reach in time. Learn to bind your own, and you'll need them less." } },
@@ -777,6 +896,9 @@ P:NPC {
         { text = "How do your people heal, without priests?", next = "healing" },
         { text = "What should I always carry?", next = "kit" },
         { text = "I've bandaged a few people myself.", next = "xfa", when = { profession = { "First Aid" } } },
+        { text = "Alvarion Windfield seems to be your hardest case.", next = "mel_alv1" },
+        { text = "Where do you get your linen?", next = "mel_lin1" },
+        { text = "What's the hardest thing about being a medic here?", next = "w8_hard" },
         { text = "Farewell, Melasa.", next = "END" },
       },
     },
@@ -1270,11 +1392,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_stu = {
+      lines = { { id = "w8_stu_a", text = "A girl from Thendal who comes in every other day and trains with Seena and then sneaks off to watch Eltheen, because she can't decide what kind of fighter she wants to be. She'll be better than both of them, if she doesn't decide too soon." } },
+      choices = {
+        { text = "Have you told her that?", next = "w8_stu2" },
+        { text = "Indecision gets fighters killed.", next = "w8_stu2" },
+        { text = "Something else, Belarysa.", next = "BACK" },
+      },
+    },
+    w8_stu2 = {
+      lines = { { id = "w8_stu2_a", text = "No, and I won't, because a student who knows she's promising stops listening. I'll tell her when she comes back from the mainland one day, a veteran, and she can laugh at an old Peacekeeper who watched her from the gallery." } },
+      choices = {
+        { text = "She'll be glad to hear it.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Belarysa Moonveil. From up here you can see every trainer in the hall and every student who thinks they aren't being watched, and I find it more instructive than any lesson." },
       },
-      again = { { id = "h_again", text = "Anything else? I'm not going anywhere." } },
+      again = { { id = "h_again", text = "Anything else? I'll be on this bench watching the doors whether you ask or not." } },
       choices = {
         { text = "What have you seen from up here?", next = "seen" },
         { text = "Why not train down there yourself?", next = "why" },
@@ -1283,6 +1421,7 @@ P:NPC {
         { text = "And what do students get up to when unwatched?", next = "gossip" },
         { text = "Were you watching my bout down there?", next = "xwatch", when = { class = { "WARRIOR", "ROGUE", "HUNTER" } } },
         { text = "Do many from below the clouds come through here?", next = "xout", when = { ["not"] = { race = "Skyborne" } } },
+        { text = "Who's the most promising student you've watched?", next = "w8_stu" },
         { text = "I'll leave you to your watching.", next = "END" },
       },
     },

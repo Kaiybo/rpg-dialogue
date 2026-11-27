@@ -510,7 +510,23 @@ P:NPC {
         { text = "Should a hunter learn the spear, Ansekhwa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why learn weapons, Ansekhwa, when other things fight for me?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Is a paladin's promise heavier, Ansekhwa?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "What's the hardest thing to teach a student about weapons?", next = "w5_hardest" },
         { text = "Farewell, Ansekhwa.", next = "END" },
+      },
+    },
+    w5_hardest = {
+      lines = { { id = "w5_hardest_l", text = "When not to draw one. A young brave who has learned three weapons wants to use all three. I teach them to stand in the ring with the blade sheathed and the enemy close, and to wait. Most cannot bear it. They draw." } },
+      choices = {
+        { text = "And the ones who can bear it?", next = "w5_hardest2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_hardest2 = {
+      lines = { { id = "w5_hardest2_l", text = "Those I trust. A weapon drawn too soon starts the fight it was meant to prevent. The herd is protected by those who know the moment to strike, and that moment is later than most believe. Cairne waited his whole life for some of his. That is why he still has them." } },
+      choices = {
+        { text = "Patience protects the herd better than speed.", next = "BACK", reply = "Yes. You would make a good student, if you can hold to that in the ring.", fx = { align = { order = 1 } } },
+        { text = "Strike first, and the fight is over before it starts.", next = "BACK", reply = "Sometimes. And sometimes you have struck a friend in the dark. I have seen both.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     prefer = {

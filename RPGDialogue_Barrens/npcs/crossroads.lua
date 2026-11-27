@@ -1782,10 +1782,25 @@ P:NPC {
         { text = "The tauren pray over every beast they butcher, Zargh.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'd guess a mage's coin spends as well as anyone's here.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do you mind serving a paladin, Zargh?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "What's the hardest meat to sell at the Crossroads?", next = "w5_meat" },
         { text = "Not hungry.", next = "END" },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a zhevra on the block that won't cut itself, and the flies are getting there first." },
+      },
+    },
+    w5_meat = {
+      lines = { { id = "w5_meat_l", text = "Zhevra. Lean, stringy, and every grunt in the place has eaten nothing else on patrol, so they won't touch it in town. What they all want is plainstrider, and the plainstrider all moved south when the Kolkar started burning the grass." } },
+      choices = {
+        { text = "So what do you do with the zhevra?", next = "w5_meat2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_meat2 = {
+      lines = { { id = "w5_meat2_l", text = "Grind it, spice it, stuff it in a skin and call it sausage. Sells twice as fast. Nobody asks what's in a sausage at the Crossroads, and if they do, I tell 'em it's an old Orgrimmar recipe, which is true if you count me as old Orgrimmar." } },
+      choices = {
+        { text = "Sausage it is. Nobody needs to know.", next = "BACK", reply = "Now you're thinkin' like a butcher. Here, try one. Don't ask." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     hunter = {

@@ -179,6 +179,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_lost = {
+      lines = { { id = "w8_lost_a", text = "I'd go after it straight away, even if it was raining, and I'd call its proper name, because the Baron won't come for just 'bunny'. It happened once with Count Ash Bunnington, and we found him in the bakery eating Cody's flour." } },
+      choices = {
+        { text = "Was Cody cross?", next = "w8_lost2" },
+        { text = "The Count has good taste.", next = "w8_lost2" },
+        { text = "Something else, Dallas.", next = "BACK" },
+      },
+    },
+    w8_lost2 = {
+      lines = { { id = "w8_lost2_a", text = "Cody laughed and said the Count could be his apprentice, but Paige said no rabbits in the bread, ever. Now I count them every night before bed, all four, and then I count them again in case I got it wrong." } },
+      choices = {
+        { text = "That's good rabbit-keeping.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Dallas, and I look after the rabbits. That's Baron Von Bunwick asleep on the Duchess, and the Countess is under the bed, and Count Ash Bunnington is wherever he isn't supposed to be." },
@@ -192,6 +208,7 @@ P:NPC {
         { text = "The kitchen cats must want them badly.", next = "cats" },
         { text = "I'm a hunter. Rabbits don't worry me.", next = "xhunter", when = { class = "HUNTER" } },
         { text = "I could take a rabbit's shape, you know.", next = "xdruid", when = { class = "DRUID" } },
+        { text = "What would you do if a rabbit got out into the street?", next = "w8_lost" },
         { text = "Take good care of them, Dallas.", next = "END" },
       },
     },
@@ -292,6 +309,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_scary = {
+      lines = { { id = "w8_scary_a", text = "The one about the city that went up into the sky and came back down again, all at once, with everybody still inside! Brock says it really happened, here, before we were born, but I think he's only trying to scare Korben." } },
+      choices = {
+        { text = "It really did happen, Josie.", next = "w8_scary2" },
+        { text = "Brock's probably teasing.", next = "w8_scary2" },
+        { text = "Something else, Josie.", next = "BACK" },
+      },
+    },
+    w8_scary2 = {
+      lines = { { id = "w8_scary2_a", text = "Really? Then I'm going to change the ending so it lands very softly, like a feather, and nobody spills their soup. Don't tell Korben it's true, though, or he'll start counting the clouds as well as the boards." } },
+      choices = {
+        { text = "I won't tell him.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Josie, and I tell the stories at bedtime, because Brock's are boring and they're all about Brock. Tonight's is about the island in the sky, and the ship that sails there, and a girl who stows away on it, who is me." },
@@ -308,6 +341,7 @@ P:NPC {
         { text = "Who's the lady at the landing?", next = "laurain" },
         { text = "Do the others like your stories?", next = "others" },
         { text = "I could build you a flying machine.", next = "xgnome", when = { race = "Gnome" } },
+        { text = "What's the scariest story you know?", next = "w8_scary" },
         { text = "Sweet dreams, Josie.", next = "END" },
       },
     },
@@ -416,6 +450,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_watch = {
+      lines = { { id = "w8_watch_a", text = "Luna, mostly, and sometimes Nyx the cat, who sits on the stairs and stares at the door like she's waiting for somebody she doesn't like. Paige says I should sleep, but I sleep better after I've listened to the whole house go quiet." } },
+      choices = {
+        { text = "That's a good watch crew.", next = "w8_watch2" },
+        { text = "Paige is right. You need sleep.", next = "w8_watch2" },
+        { text = "Something else, Korben.", next = "BACK" },
+      },
+    },
+    w8_watch2 = {
+      lines = { { id = "w8_watch2_a", text = "I know, I know, everybody says that. But if the lamps go blue again, somebody has to be awake to tell Paige, and Luna can't talk, and Nyx wouldn't bother." } },
+      choices = {
+        { text = "Then you're the one who matters most.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Forty-two, forty-three... oh, hello, I'm Korben, and I'm counting the boards. There are three that creak, so if anything ever sneaks in at night, I'll hear it, and I'll know exactly where it is." },
@@ -429,6 +479,7 @@ P:NPC {
         { text = "You'd make a good guard one day.", next = "grow" },
         { text = "Want to learn how a soldier keeps watch?", next = "xguard", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "I could cross this floor without a creak.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Who else keeps watch with you at night?", next = "w8_watch" },
         { text = "Keep counting, Korben.", next = "END" },
       },
     },
@@ -544,6 +595,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_eat = {
+      lines = { { id = "w8_eat_a", text = "Everything, but she's only allowed the scraps from Paige's sagefish and the bones from the soup, and sometimes a crust from Cody if she sits nicely. Once she ate a whole loaf off the windowsill, and Cody said she was a proper wolf after all." } },
+      choices = {
+        { text = "Sounds like she's well fed.", next = "w8_eat2" },
+        { text = "A wolf needs real meat, Liam.", next = "w8_eat2" },
+        { text = "A hunter feeds a beast what it would hunt.", next = "w8_eat2", when = { class = "HUNTER" } },
+        { text = "Something else, Liam.", next = "BACK" },
+      },
+    },
+    w8_eat2 = {
+      lines = {
+        { id = "w8_eat2_a", text = "Paige says that too, and she gives her the fish heads, which smell awful, and Luna loves them more than me, I think. I'm going to save my pocket money and buy her a whole rabbit, a dead one from the butcher, not one of ours." },
+        { id = "w8_eat2_hu", when = { class = "HUNTER" }, text = "Like what, like a deer? Luna would be so happy if she had a deer, but I don't think Paige would let me keep one in the kitchen. Maybe you could bring her a little bit, next time, if you hunt something." },
+      },
+      choices = {
+        { text = "Not one of the Baron's family, then.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Liam, and this is Luna, and she's a wolf, a real one, not a dog, even though she acts like a dog. She's my best friend, and Paige says she's allowed to stay as long as she doesn't eat the rabbits." },
@@ -559,6 +630,7 @@ P:NPC {
         { text = "She's growing. She won't be a pup much longer.", next = "wild" },
         { text = "I can run as a wolf myself.", next = "xshape", when = { class = { "SHAMAN", "DRUID" } } },
         { text = "Back home, orcs ride wolves into battle.", next = "xorc", when = { race = "Orc" } },
+        { text = "What does Luna like to eat?", next = "w8_eat" },
         { text = "Look after her, Liam.", next = "END" },
       },
     },
@@ -655,6 +727,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_frd = {
+      lines = { { id = "w8_frd_a", text = "Josie, because she put me in a story the first night, and I was a princess who could talk to rabbits. And the Countess, but she's a rabbit, so I don't know if she counts." } },
+      choices = {
+        { text = "The Countess counts.", next = "w8_frd2" },
+        { text = "Josie sounds kind.", next = "w8_frd2" },
+        { text = "Something else, Lilly.", next = "BACK" },
+      },
+    },
+    w8_frd2 = {
+      lines = { { id = "w8_frd2_a", text = "Josie says I can be in every story now, as long as I don't tell anybody the endings first. I've never told anybody, not once, and that's how you know I'm a good friend." } },
+      choices = {
+        { text = "You're a very good friend.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Lilly, and I'm the newest, so I don't know where everything is yet. I came all the way from Stormwind in a cart, and it was very cold, and the mountains were bigger than the cathedral." },
@@ -669,6 +757,7 @@ P:NPC {
         { text = "Do you still feel sad sometimes?", next = "cry" },
         { text = "Those tunnels under the mountains? That's my home.", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "I've rung those cathedral bells myself, Lilly.", next = "xpriest", when = { class = { "PRIEST", "PALADIN" }, faction = "Alliance" } },
+        { text = "Who's your best friend here?", next = "w8_frd" },
         { text = "Goodbye, Lilly.", next = "END" },
       },
     },
@@ -760,6 +849,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_buy = {
+      lines = { { id = "w8_buy_a", text = "The apprentices from the Citadel, who eat like sparrows all day and then come in starving after their lessons, and the masons, who eat like bears. An archmage buys a cherry pie every week and pretends it's for her students, and I pretend to believe her." } },
+      choices = {
+        { text = "Which archmage?", next = "w8_buy2" },
+        { text = "Everyone needs a cherry pie now and then.", next = "w8_buy2" },
+        { text = "Something else, Cody.", next = "BACK" },
+      },
+    },
+    w8_buy2 = {
+      lines = { { id = "w8_buy2_a", text = "A baker never tells, friend, or there'd be no pies sold at all to anyone important. I'll only say she has a very stern face and a very sweet tooth, and the children know exactly who she is." } },
+      choices = {
+        { text = "Your secret's safe.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Cody, baker to the orphanage and anyone else with an appetite. I bake for the children first, and whatever's left I sell, and the coin buys the next sack of flour, so you might say you're feeding a small army." },
@@ -776,6 +881,7 @@ P:NPC {
         { text = "Mulgore Spice Bread? That's my people's recipe.", next = "xtauren", when = { race = "Tauren" } },
         { text = "Any tips, from one cook to another?", next = "xcook", when = { profession = "Cooking" } },
         { text = "Let me see your bread.", next = "BUSINESS" },
+        { text = "Who buys the most bread from you?", next = "w8_buy" },
         { text = "Good day, Cody.", next = "END" },
       },
     },
@@ -874,6 +980,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_stove = {
+      lines = { { id = "w8_stove_a", text = "Barley soup with sagefish and whatever greens the market had left this morning, which wasn't much. It'll feed twelve and taste like it feeds twenty, if I've done it right, and Cody's bread will do the rest." } },
+      choices = {
+        { text = "That smells wonderful.", next = "w8_stove2" },
+        { text = "Twelve on one pot? That's thin soup.", next = "w8_stove2" },
+        { text = "I cook. What's the trick to stretching a pot?", next = "w8_stove2", when = { profession = "Cooking" } },
+        { text = "Something else, Paige.", next = "BACK" },
+      },
+    },
+    w8_stove2 = {
+      lines = {
+        { id = "w8_stove2_a", text = "It's thin and it's honest, and nobody leaves my table hungry, which is all a cook can promise. In Stromgarde we fed a garrison on less, and the soldiers still sang about it." },
+        { id = "w8_stove2_cook", when = { profession = "Cooking" }, text = "Bones first, for an hour, and then the barley, and then the fish at the very end so it doesn't fall apart. A pot stretched slowly tastes richer than a pot stretched in a hurry, and the children always know the difference." },
+      },
+      choices = {
+        { text = "I'll remember that.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Paige, and this is my kitchen, so mind the cats and the children, in that order. I sell good supplies, tested and honest, at a fair price that stays put, and if you want to haggle, go and find a goblin." },
@@ -890,6 +1016,7 @@ P:NPC {
         { text = "A Stromgarde woman, serving the Horde?", next = "xhorde", when = { faction = "Horde" } },
         { text = "Any advice, one cook to another?", next = "xcook", when = { profession = "Cooking" } },
         { text = "Let me see your supplies.", next = "BUSINESS" },
+        { text = "What's on the stove today?", next = "w8_stove" },
         { text = "Good day, Paige.", next = "END" },
       },
     },

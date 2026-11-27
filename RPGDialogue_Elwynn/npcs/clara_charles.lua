@@ -34,6 +34,48 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d6_market3 = {
+      lines = { { id = "d6_market3_a", text = "Cabbages, which Markus digs up looking for treasure, and pumpkins in the autumn, which he wants to live inside. The apple trees were my mother's, and they're the only thing on the farm that's never once failed me, so I don't let the boy climb them." } },
+      choices = {
+        { text = "Your mother planted well.", next = "BACK" },
+        { text = "Let's talk about something else, Clara.", next = "BACK" },
+      },
+    },
+    d6_market = {
+      lines = { { id = "d6_market_a", text = "On my back, dear, in two baskets, and Markus carries the small one and eats from it when he thinks I'm not looking. The guards at the gate know me now and wave me through, and the stall-keepers in the Trade District pay fair for good fruit." } },
+      choices = {
+        { text = "That's a long walk with two baskets.", next = "d6_market2" },
+        { text = "Do you ever have trouble on the road?", next = "d6_market2" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    d6_market2 = {
+      lines = { { id = "d6_market2_a", text = "It's long, but the road's busy enough that nobody bothers us in daylight. I set off before the sun and I'm home before it's gone, and Markus sleeps the whole way back on the cart of a farmer who lets him ride for an apple." } },
+      choices = {
+        { text = "Markus has the right idea.", next = "BACK", fx = { affinity = 1 } },
+        { text = "What else grows on the farm?", next = "d6_market3" },
+        { text = "Something else, Clara.", next = "BACK" },
+      },
+    },
+    d6_westfall = {
+      lines = { { id = "d6_westfall_a", text = "Some of them, I'd wager. A good many Westfall folk came through here when their farms failed, hungry and angry, and most went on to the city to find work, but some went into the hedges instead and came out wearing red." } },
+      choices = {
+        { text = "I could slip up on them at the well.", next = "d6_westfall2", when = { class = "ROGUE" } },
+        { text = "You sound almost sorry for them.", next = "d6_westfall2" },
+        { text = "Hunger doesn't excuse banditry.", next = "d6_westfall2" },
+      },
+    },
+    d6_westfall2 = {
+      lines = {
+        { id = "d6_westfall2_a", text = "I gave bread at this door to a boy from Westfall, two winters ago, and last month I saw his face over a red mask by the well. I don't excuse it, dear, but I know he was hungry once, and I wish someone had given him more than a loaf." },
+        { id = "d6_westfall2_rogue", when = { class = "ROGUE" }, text = "I don't doubt you could, dear, by the way you stand, but not near the house, please. If there's to be blood, let it be down the road where Markus can't see, and let it be quick, because I'll have to walk past that spot every day." },
+      },
+      choices = {
+        { text = "I'll keep it far from the house.", next = "BACK", fx = { learn = { "defias" } } },
+        { text = "Let's leave that, Clara.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Clara Charles. This is our farm, such as it is, and that's Markus out in the garden, digging for treasure in my cabbages." },
@@ -51,6 +93,9 @@ P:NPC {
         { text = "Tell me about Markus.", next = "markus" },
         { text = "Those apples look too fine for the table.", next = "apples" },
         { text = "I've been watching the men by your well.", next = "ambush", when = { class = { "ROGUE", "HUNTER" } } },
+        { text = "How do you get the apples to the city?", next = "d6_market" },
+        { text = "Are the men by the well from Westfall?", next = "d6_westfall" },
+        { text = "Is there a Mister Charles about the farm?", next = "e3_husband" },
         { text = "Good day, Clara.", next = "END" },
       },
     },
@@ -96,6 +141,24 @@ P:NPC {
       choices = {
         { text = "I'll wait until the boy is inside.", next = "BACK", fx = { affinity = 2, trait = { cautious = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    e3_husband = {
+      lines = {
+        { id = "e3_husband_l0", text = "There was, dear, until the fever came through Goldshire three winters back and took him and half the farmhands along this road. I kept the farm because it was his and because Markus was born in that room, and I'll not be shifted off it by two men in masks at my well." },
+      },
+      choices = {
+        { text = "That's brave, alone out here.", next = "e3_husband2" },
+        { text = "I'm sorry for your loss, Clara.", next = "BACK" },
+      },
+    },
+    e3_husband2 = {
+      lines = {
+        { id = "e3_husband2_l0", text = "It's not bravery, it's apples, and the apples don't care who's watching from the bushes. The farm down the road sends a boy round on market days, and his mother sends a pie whether I've asked or not." },
+      },
+      choices = {
+        { text = "Good neighbours count. Something else.", next = "BACK" },
+        { text = "Still, the guards should do more.", next = "BACK" },
       },
     },
   },

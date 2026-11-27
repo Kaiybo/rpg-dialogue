@@ -452,7 +452,83 @@ P:NPC {
         { text = "Skyriver. Is that a real name?", next = "name" },
         { text = "Is it dangerous to fly here?", next = "danger" },
         { text = "I need a flight.", next = "BUSINESS" },
+        { text = "Who keeps Nijel's Point standing?", next = "npoint" },
+        { text = "You must see the demon fires from the air.", next = "fires" },
+        { text = "Do the birds remember the forests of Ashenvale?", next = "hippo_home", when = { race = "NightElf" } },
+        { text = "How do you train a hippogryph to carry strangers?", next = "w7_train" },
         { text = "Farewell, Baritanas.", next = "END" },
+      },
+    },
+    w7_train = {
+      lines = {
+        { id = "w7_train_l1", text = "Patiently, and with a lot of fish. A young bird has to learn that a stranger on its back is a guest and not an attack, and that takes a season of short flights with me riding behind, whispering nonsense into its feathers." },
+      },
+      choices = {
+        { text = "What sort of nonsense?", next = "w7_train2" },
+        { text = "I'd rather a bird that didn't trust strangers.", next = "w7_train3" },
+        { text = "Something else, Baritanas.", next = "BACK" },
+      },
+    },
+    w7_train2 = {
+      lines = {
+        { id = "w7_train2_l1", text = "Names of stars, mostly, and the roads below, and sometimes a song I learned as a girl in Auberdine. The words don't matter; what matters is that my voice is the same every time, so the bird knows the sky is the same every time too." },
+        { id = "w7_train2_l2", when = { race = "NightElf" }, text = "Old star-names, the ones our grandmothers taught us under the boughs of Ashenvale. You know them, so if a bird ever balks under you, say Elune's names softly in its ear, and it will remember me." },
+      },
+      choices = {
+        { text = "I'll remember that.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_train3 = {
+      lines = {
+        { id = "w7_train3_l1", text = "Then you'd walk to Feathermoon, friend, and it's a long, dry walk with centaur on it. A bird that trusts its rider gets you home; a bird that doesn't throws you off over Mannoroc." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    npoint = {
+      lines = { { id = "npoint_d", text = "Corporal Melkins keeps the watch, and Talendria pays the bounties on centaur, which keeps the Kolkar wary of our walls. We're a handful of soldiers and a few of my people at the end of a long road, and the birds are the only thing that makes us feel less alone." } },
+      choices = {
+        { text = "A small post for a large country.", next = "npoint_small" },
+        { text = "Why hold this place at all?", next = "npoint_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    npoint_small = {
+      lines = { { id = "npoint_small_d", text = "Smaller every season, if I'm honest, though the soldiers would argue with me. The centaur ride past, the Horde holds the coast at Shadowprey, and every bird I send north to Stonetalon carries a letter asking for more hands than anyone has to spare." } },
+      choices = {
+        { text = "Then I'll lend mine while I'm here.", next = "BACK", reply = "Then Melkins will be glad of you, and so will I." },
+        { text = "Let us talk of other things.", next = "BACK" },
+      },
+    },
+    npoint_why = {
+      lines = { { id = "npoint_why_d", text = "Because without it there would be nothing for the Alliance between Stonetalon and Feralas but grey dust and centaur. A traveller who reaches Nijel's Point knows there is a bed, a wall and a bird to carry them out, and that is worth holding." } },
+      choices = {
+        { text = "Fair enough. Something else.", next = "BACK" },
+        { text = "A bed and a bird is all most of us want.", next = "BACK", reply = "You'd be surprised how many say so on their way in, and how few on their way out." },
+      },
+    },
+    fires = {
+      lines = { { id = "fires_d", text = "I do, and the birds hate it. Over Mannoroc Coven the air tastes of brimstone, and on clear nights the Burning Blade's fires glow green out at Thunder Axe Fortress, so I keep the flights well away from both." } },
+      choices = {
+        { text = "Has anyone tried to stop them?", next = "fires_stop" },
+        { text = "I'd rather see Desolace from the ground.", next = "BACK", reply = "Then you're braver than me, {class}, or you haven't been up there yet." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fires_stop = {
+      lines = { { id = "fires_stop_d", text = "Vahlarriel Demonslayer has, and a few of the braver soldiers with her, though none of them speaks much of what they found. If you mean to go yourself, come to me after, and I'll fly you somewhere green to wash the smell out." } },
+      choices = {
+        { text = "I'll hold you to that.", next = "BACK" },
+        { text = "Another question, then.", next = "BACK" },
+      },
+    },
+    hippo_home = {
+      lines = { { id = "hippo_home_d", text = "They remember, though they were hatched far from there. A hippogryph flying south over Desolace calls for trees that aren't there, and I think that is the saddest sound I know." } },
+      choices = {
+        { text = "Then Feathermoon must comfort them.", next = "BACK", reply = "It does. They fly faster on the southern route, and I don't need to ask why." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

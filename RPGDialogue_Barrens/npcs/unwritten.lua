@@ -30,7 +30,7 @@ P:NPC {
         { id = "h_q", when = { questActive = TODO_QUEST("Wenikee Boltbucket") }, text = "Sputtervalve sent you after me? Then he wants his report, and he can have it, as soon as somebody helps me get it." },
       },
       again = {
-        { id = "h_again", text = "What else? Talk quietly." },
+        { id = "h_again", text = "What else? Talk quietly, and keep your head below the rock." },
         { id = "h_again2", text = "Anything more, or are you just enjoying the scenery?" },
       },
       choices = {
@@ -41,7 +41,23 @@ P:NPC {
         { text = "How long have you been scouting the camp?", next = "ylong" },
         { text = "What's the worst you've seen there?", next = "yworst" },
         { text = "Fellow goblin. Do you ever miss Kezan?", next = "ykezan", when = { race = "Goblin" } },
+        { text = "Do you know anyone working inside the Venture camp?", next = "w5_inside" },
         { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+    w5_inside = {
+      lines = { { id = "w5_inside_l", text = "A cousin, if you must know. Grezzik. He signed on with the Company for the steady pay and the hat, and now he drives a shredder through the trees I'm being paid to watch him cut down. We wave sometimes. Very small waves." } },
+      choices = {
+        { text = "Will you warn him if Ratchet moves against them?", next = "w5_inside2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_inside2 = {
+      lines = { { id = "w5_inside2_l", text = "That's the trouble, isn't it? Sputtervalve pays me, so Sputtervalve gets the report. But Grezzik taught me to pick a lock when I was six. If I see trouble coming his way, I don't know which hand I'll write the warning with." } },
+      choices = {
+        { text = "Family comes before any contract. Warn him.", next = "BACK", reply = "That's what my mother would say. My mother never had to work for Sputtervalve.", fx = { align = { honor = 1 } } },
+        { text = "Business is business. Keep the job.", next = "BACK", reply = "Spoken like a true goblin. I hate that you're probably right.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     venture = {
@@ -425,7 +441,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else, mon? The road be quiet for now." } },
       choices = {
-        { text = "Watching the road keeps the Crossroads safe.", next = "BACK", reply = "It do, mon. You understand.", fx = { align = { order = 1 } } },
+        { text = "Watching the road keeps the Crossroads safe.", next = "BACK", reply = "It do, mon. An' a sharp axe keep it safer still.", fx = { align = { order = 1 } } },
         { text = "The road's safe enough.", next = "BACK", reply = "Not with de centaur about.", fx = { align = { order = -1 } } },
         { text = "What comes over the hill?", next = "threats" },
         { text = "How did you learn to throw like that?", next = "axes" },
@@ -433,7 +449,23 @@ P:NPC {
         { text = "What do you think of the orcs here?", next = "xorcs" },
         { text = "Have you killed many raiders?", next = "xraiders" },
         { text = "Tell me about Zalazane.", next = "xzala", when = { race = "Troll" } },
+        { text = "What do you do on the quiet nights, mon?", next = "w5_quiet" },
         { text = "Stay sharp.", next = "END" },
+      },
+    },
+    w5_quiet = {
+      lines = { { id = "w5_quiet_l", text = "Carve little fetishes outta wood, mon, an' sell dem to de grunts for luck. Dey don't believe in de loa, but dey buy two each. Some nights I throw axes at a post wit' de orcs, an' I win, an' dey stop buyin' fetishes for a week." } },
+      choices = {
+        { text = "Do you ever let them win?", next = "w5_quiet2" },
+        { text = "Show me how to throw like a Darkspear.", next = "BACK", when = { race = "Troll" }, reply = "Feet like dis, wrist loose, an' let de axe decide. Don't tell de orcs I teach you." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_quiet2 = {
+      lines = { { id = "w5_quiet2_l", text = "Never, mon. A grunt who thinks he be good wit' an axe gets careless on de wall. Better he lose to a skinny troll every night an' stay sharp. Dat be my gift to de Crossroads, an' dey don't even know it." } },
+      choices = {
+        { text = "Losing to you keeps them sharp. That's a fine gift.", next = "BACK", reply = "Ya, mon. Somebody gotta be generous around here." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     threats = {
@@ -675,7 +707,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Something else, or shall we talk hemlines?" } },
       choices = {
-        { text = "Style matters, even on the road.", next = "BACK", reply = "It does! You have taste.", fx = { align = { honor = 1 } } },
+        { text = "Style matters, even on the road.", next = "BACK", reply = "Exactly! The dust is no excuse. You, darling, have an eye.", fx = { align = { honor = 1 } } },
         { text = "Style is pointless in the Barrens.", next = "BACK", reply = "Then look terrible.", fx = { align = { honor = -1 } } },
         { text = "Why sell robes in the middle of the Barrens?", next = "why" },
         { text = "Your neighbour sells leather.", next = "pizz" },
@@ -816,7 +848,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else? I'm not getting any younger." } },
       choices = {
-        { text = "Sturdy leather lasts.", next = "BACK", reply = "It does. You understand.", fx = { align = { order = 1 } } },
+        { text = "Sturdy leather lasts.", next = "BACK", reply = "Lasts longer than you, if you cut it right. That's the whole trick.", fx = { align = { order = 1 } } },
         { text = "Cheap leather falls apart.", next = "BACK", reply = "Not mine. Buy or don't.", fx = { align = { order = -1 } } },
         { text = "Where do your hides come from?", next = "hides" },
         { text = "Is this camp safe?", next = "safe" },
@@ -1101,7 +1133,23 @@ P:NPC {
         { text = "What do you think of Warsong Lumber Camp?", next = "ycamp" },
         { text = "Is the war with the elves winnable?", next = "ywin" },
         { text = "I'm a night elf. Does that trouble you?", next = "yelf", when = { race = "NightElf" } },
+        { text = "What do your grunts do when the Sentinels are quiet?", next = "w5_quiet" },
         { text = "I'll leave you to your watch.", next = "END" },
+      },
+    },
+    w5_quiet = {
+      lines = { { id = "w5_quiet_l", text = "Drill, cut timber, and wait. Waiting is the worst of it. A grunt with nothing to fight starts fighting his own, so I keep them busy hauling logs from Warsong down to the rampart walls." } },
+      choices = {
+        { text = "I thought the lumber was meant for Orgrimmar.", next = "w5_quiet2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_quiet2 = {
+      lines = { { id = "w5_quiet2_l", text = "It is. Most of it. Every tenth log stays here and goes into my walls, and Orgrimmar's tally comes up short by that much. I have not been asked about it. If I am asked, I will answer." } },
+      choices = {
+        { text = "The Warchief's orders come first, every log of them.", next = "BACK", reply = "Then you can come hold this gate when the Sentinels break it, and tell them about the orders.", fx = { align = { order = 1 } } },
+        { text = "A captain should hold his own walls first. Good.", next = "BACK", reply = "Glad someone sees it. Keep it to yourself on the way through Orgrimmar.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     silverwing = {
@@ -1222,7 +1270,23 @@ P:NPC {
         { text = "What do you want from me?", next = "ywant" },
         { text = "Do you remember the land before the sea?", next = "yolder" },
         { text = "Are all the waters of Kalimdor like you?", next = "yothers" },
+        { text = "Does the water remember those who drowned in it?", next = "w5_drowned" },
         { text = "Return to the deep.", next = "END" },
+      },
+    },
+    w5_drowned = {
+      lines = { { id = "w5_drowned_l", text = "The sea forgets nothing, small one. Every sailor taken off this coast is a weight in me, a song carried down to the dark where no light reaches. I do not mourn them as you would. I hold them." } },
+      choices = {
+        { text = "Is that a comfort, or a curse?", next = "w5_drowned2" },
+        { text = "I have no breath to lose. Would the sea hold me?", next = "BACK", when = { race = "Scourge" }, reply = "The sea holds what sinks. You would sink. Whether you would be a comfort to it, I cannot say." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_drowned2 = {
+      lines = { { id = "w5_drowned2_l", text = "Neither. It is only what water is. Your kind give your dead to the earth, or to fire. The sea takes its own without asking, and gives back shells and wreckage and salt. If that seems cruel, it is because you look at the tide and see yourselves." } },
+      choices = {
+        { text = "Then I'll look at the tide and try to see the sea.", next = "BACK", reply = "That is wiser than most. The waters of this coast will be calmer for it." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     sick = {
@@ -1348,7 +1412,23 @@ P:NPC {
         { text = "How did you learn to mend wounds?", next = "xlearn" },
         { text = "What's in the suspicious bottles?", next = "xbottles" },
         { text = "A priest could heal them for free.", next = "xpriest", when = { class = "PRIEST" } },
+        { text = "Who was the worst patient you ever mended?", next = "w5_worst" },
         { text = "I'm fine, thanks.", next = "END" },
+      },
+    },
+    w5_worst = {
+      lines = { { id = "w5_worst_l", text = "A Southsea first mate with a cutlass through his thigh. He bit me twice, called me nine names I won't repeat, and tried to pay me in a map to buried treasure. The map was a drawing of my own crate." } },
+      choices = {
+        { text = "Did you finish mending him?", next = "w5_worst2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_worst2 = {
+      lines = { { id = "w5_worst2_l", text = "Of course I did. Then I charged him triple and kept his boots as a fee. Bleeding is bleeding, whoever's doing it. But I'll admit there was a moment, with the needle, when I thought about sewing his mouth shut instead." } },
+      choices = {
+        { text = "Mend anyone who comes to you. Even pirates.", next = "BACK", reply = "That's the trade. A mender who picks her patients is just a gossip with bandages.", fx = { align = { light = 1 } } },
+        { text = "Some patients should be left to bleed.", next = "BACK", reply = "You'd make a terrible mender and a very popular one. Most of the dock agrees with you.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     patients = {
@@ -1451,7 +1531,7 @@ P:NPC {
       again = { { id = "h_again", text = "Anything else? Don't stand too close to the crate." } },
       choices = {
         { text = "Fireworks bring joy to everyone.", next = "BACK", reply = "They do! You get it, friend.", fx = { align = { light = 1 } } },
-        { text = "Fireworks are dangerous and wasteful.", next = "BACK", reply = "Then don't light them.", fx = { align = { light = -1 } } },
+        { text = "Fireworks are dangerous and wasteful.", next = "BACK", reply = "Then don't light 'em, pal. More sparks for me.", fx = { align = { light = -1 } } },
         { text = "Isn't selling fireworks inside an inn dangerous?", next = "danger" },
         { text = "What festivals do you sell for?", next = "festivals" },
         { text = "What's your best firework?", next = "xbest" },
@@ -1600,7 +1680,23 @@ P:NPC {
         { text = "Does the apparatus ever break down?", next = "ybreak" },
         { text = "Query: is this machine happy?", next = "yhappy" },
         { text = "Gnome-built? Let me see the gears.", next = "ygnome", when = { race = "Gnome" } },
+        { text = "Can I get a refund?", next = "w5_refund" },
         { text = "Make a selection.", next = "END" },
+      },
+    },
+    w5_refund = {
+      lines = { { id = "w5_refund_l", text = "Refunds are not supported by this apparatus. Your coin has been converted into customer satisfaction. Please enjoy your customer satisfaction." } },
+      choices = {
+        { text = "What if the item is broken?", next = "w5_refund2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_refund2 = {
+      lines = { { id = "w5_refund2_l", text = "All items dispensed by this apparatus are in perfect working order at the moment of dispensing. Subsequent breakage is the responsibility of the customer, the customer's employer, and the laws of physics. Please direct complaints to Wrenix the Wretched, who is not available." } },
+      choices = {
+        { text = "Wrenix built a machine to refuse refunds. That's clever.", next = "BACK", reply = "Thank you, valued customer. The apparatus has recorded your compliment. Compliments are also non-refundable." },
+        { text = "I'll pick the lock on your coin box, then.", next = "BACK", when = { class = "ROGUE" }, reply = "Tampering detected. The apparatus remembers your face. The apparatus has no eyes, but it remembers." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     approve = {
@@ -1713,7 +1809,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Sit a while, young one. The festival brings many feet to an old bull's door, and I am glad of every one." },
-    { id = "g_festival", when = { holiday = "lunar" }, text = "The Lunar Festival has come round again, and the ancestors are near tonight. I am glad you came to honor them." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The Lunar Festival has come round, and the mountains I am named for seem closer tonight. Sit, young one, and honor the old ones with me." },
     { id = "g_back", when = { metBefore = true }, text = "You return, and the moon has not even turned yet. Sit, sit." },
   },
   start = "hello",
@@ -1725,7 +1821,7 @@ P:NPC {
         { id = "h_tauren", when = { race = "Tauren" }, text = "A child of the herds comes to the old bull. The Earth Mother smiles on this, and so do I." },
       },
       again = {
-        { id = "h_again", text = "What else would you ask of an old bull?" },
+        { id = "h_again", text = "Ask on. An old bull has more stories than hooves, and nowhere better to put them." },
         { id = "h_again2", text = "The night is long, young one. Ask what you like." },
       },
       choices = {
@@ -1737,7 +1833,22 @@ P:NPC {
         { text = "What do you fear, Elder?", next = "yfear" },
         { text = "What do you think of the orcs?", next = "yorcs", when = { race = "Orc" } },
         { text = "What are the coins of the ancients?", next = "ycoin" },
+        { text = "What should a young one bring, to honour an elder?", next = "w5_bring" },
         { text = "I should go. Walk with the Earth Mother.", next = "END" },
+      },
+    },
+    w5_bring = {
+      lines = { { id = "w5_bring_l", text = "Most bring coins of the ancients, or a little food, or a song. All of those are welcome. But what an old bull wants most, young one, is to be asked a question he has not been asked before, and to see you listen to the answer." } },
+      choices = {
+        { text = "Then what has no one asked you yet?", next = "w5_bring2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_bring2 = {
+      lines = { { id = "w5_bring2_l", text = "Ha! No one has asked me what I was wrong about. I was wrong about many things. I thought the centaur would never leave Mulgore, and I thought no orc would ever sit at a tauren fire. Both of those I was glad to be wrong about." } },
+      choices = {
+        { text = "I'd like to be wrong like that, someday.", next = "BACK", reply = "Then keep your eyes open and your mouth humble, and the world will oblige you." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     festival = {
@@ -1827,7 +1938,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Elune watches us tonight, friend, and so I watch her back. Come and stand in her light." },
-    { id = "g_festival", when = { holiday = "lunar" }, text = "The new moon of the year is upon us, and the Lunar Festival with it. Few walk this far to honor an elder, and I will not forget it." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "Elune's first moon of the year rises, and the festival with it. You walked a long road to honor an old Kaldorei, and I am grateful." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, the moon brings you back to me. That is a good sign." },
   },
   start = "hello",
@@ -1850,7 +1961,22 @@ P:NPC {
         { text = "Do you grieve for anyone?", next = "ygrief" },
         { text = "Are the night elves and tauren friends?", next = "yfriends" },
         { text = "What did your grandmother sing?", next = "ysong" },
+        { text = "What did you think of the Barrens, when you first saw them?", next = "w5_first" },
         { text = "Farewell, Elder.", next = "END" },
+      },
+    },
+    w5_first = {
+      lines = { { id = "w5_first_l", text = "I thought Elune had turned her face away from this place, it was so dry and so bright. Then night came, and I saw more stars than I had ever seen through the boughs of Ashenvale. There are no trees here to hide her." } },
+      choices = {
+        { text = "Do you prefer it to the forest, then?", next = "w5_first2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_first2 = {
+      lines = { { id = "w5_first2_l", text = "Prefer? No. My heart lives under leaves. But I have learned that the goddess is not only in the green places. The tauren who leave grain at my feet would tell you the same of their Mu'sha, and I no longer think we are speaking of different moons." } },
+      choices = {
+        { text = "Then the moon belongs to everyone who looks up.", next = "BACK", reply = "That is a kind thought, and a dangerous one in some temples. Keep it close." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     moon = {
@@ -1940,7 +2066,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "The wind told me someone was coming, though it did not say who. Welcome, traveller." },
-    { id = "g_festival", when = { holiday = "lunar" }, text = "The festival lights burn in Moonglade, and I have come back once more to be remembered. Stay a while, and let us honor the old ways together." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "Smell that sea wind, little one? It blows Moonglade's festival lights all the way here. Stay, and remember the old ones with me." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and the wind still at your back. Good, good." },
   },
   start = "hello",
@@ -1953,7 +2079,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "The wind is still blowing, so ask away." },
-        { id = "h_again2", text = "What else, traveller?" },
+        { id = "h_again2", text = "What else, little one? The wind and I have time." },
       },
       choices = {
         { text = "What do the winds tell you?", next = "winds" },
@@ -1964,7 +2090,22 @@ P:NPC {
         { text = "What does the wind say about the war?", next = "ywar" },
         { text = "Is it hard, being old?", next = "yold" },
         { text = "Shall we honour the ancestors together?", next = "ytauren", when = { race = "Tauren" } },
+        { text = "Why stand here by the Ratchet road, Elder?", next = "w5_road" },
         { text = "Farewell, Elder.", next = "END" },
+      },
+    },
+    w5_road = {
+      lines = { { id = "w5_road_l", text = "The sea wind, little one. It comes up from the coast smelling of salt and tar and gossip, and an old woman can hear a great deal in it. Also, the goblins coming off the boats are very generous with sweets, once they learn I am an elder." } },
+      choices = {
+        { text = "The goblins give you sweets?", next = "w5_road2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_road2 = {
+      lines = { { id = "w5_road2_l", text = "They think it brings luck, honouring an elder in the festival season. Perhaps it does. I tell them their grandmothers are proud of them, and they go away happy, and I have a pocket full of caramels. The ancestors are not fussy about who remembers them." } },
+      choices = {
+        { text = "That's a fair trade for a blessing.", next = "BACK", reply = "Ha! You sound like a goblin. I will take that as a compliment, and so would they." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     winds = {
@@ -2361,7 +2502,7 @@ P:NPC {
         { id = "h_default", text = "We're diggin' for the Bael'dun works, under the old keep. The foreman says there's somethin' worth findin' down there, and I say he'd better be right, for my back's near broken." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "A fellow mountain-born, out here in the dust! Pull up a rock, {g:lad|lass}, and tell me how Ironforge fares." },
       },
-      again = { { id = "h_again", text = "Aye? Somethin' else?" } },
+      again = { { id = "h_again", text = "Aye? Somethin' else? Be quick, the foreman's countin' shovels." } },
       choices = {
         { text = "Diggin' is honest work.", next = "BACK", reply = "Aye, it is.", fx = { align = { honor = 1 } } },
         { text = "Diggin' is a waste of time.", next = "BACK", reply = "Then dinnae dig.", fx = { align = { honor = -1 } } },
@@ -2370,7 +2511,23 @@ P:NPC {
         { text = "How long have you been digging out here?", next = "xlong" },
         { text = "What's the worst thing you've dug up?", next = "xworst" },
         { text = "You're a long way from the mountain, cousin.", next = "xcousin", when = { race = "Dwarf" } },
+        { text = "What do the diggers do when the shift ends?", next = "w5_shift" },
         { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+    w5_shift = {
+      lines = { { id = "w5_shift_l", text = "Crawl to Malgin's bar, mostly, and sit there till the dust settles out of our beards. Malgin pours, we grumble, and the guard on the wall shouts at us to keep the noise down, as if we were the ones settin' off powder all day." } },
+      choices = {
+        { text = "Does the ale help with the back?", next = "w5_shift2" },
+        { text = "Drink one for me, cousin. I miss a proper Ironforge stout.", next = "BACK", when = { race = "Dwarf" }, reply = "Malgin's is close enough to make ye weep, and far enough to make ye weep harder." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_shift2 = {
+      lines = { { id = "w5_shift2_l", text = "Not a bit, but it helps with the foreman. Two pints and he sounds wise. Four and he sounds like he knows what's under the keep. I'll be honest wi' ye, I've stopped askin' him. I just dig where the string tells me." } },
+      choices = {
+        { text = "A dig needs someone who just digs.", next = "BACK", reply = "Aye, and that someone's me. I'd trade it for a sit-down, mind." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     dig = {
@@ -2930,7 +3087,23 @@ P:NPC {
         { text = "Who be your chief, then?", next = "ychief" },
         { text = "What do you eat out here?", next = "yfood" },
         { text = "Do you believe in the loa out here?", next = "yloa" },
+        { text = "Who's the best shot at Far Watch, besides you?", next = "w5_best" },
         { text = "Stay sharp. I'm moving on.", next = "END" },
+      },
+    },
+    w5_best = {
+      lines = { { id = "w5_best_l", text = "Besides me, mon? Dere be a tauren hunter come through last moon wit' a boomstick from Thunder Bluff. Loud t'ing. He hit a buzzard from de top of de tower, an' I been practisin' every mornin' since." } },
+      choices = {
+        { text = "Could an axe beat a gun?", next = "w5_best2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_best2 = {
+      lines = { { id = "w5_best2_l", text = "Over a short throw, ya, every time. An axe don't need powder, don't jam, an' don't wake de whole camp when you be throwin' it at a sneakin' scout. But de gun, it reach farther, an' I don't like losin' to anyt'ing dat smells of goblin." } },
+      choices = {
+        { text = "An axe never runs out of powder.", next = "BACK", reply = "Dat be what I tell myself, mon. Every mornin', while I be practisin'." },
+        { text = "I carry a gun myself. It's a good friend.", next = "BACK", when = { class = "HUNTER" }, reply = "Ya, ya, a good friend dat shout in your ear. You keep it. I keep de axe." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     north = {
@@ -3064,7 +3237,22 @@ P:NPC {
         { text = "Is anyone still left who knew him?", next = "yknew" },
         { text = "Do you feel the war out here?", next = "ywar" },
         { text = "I am a shaman. May I honour this place?", next = "yhonour", when = { class = "SHAMAN" } },
+        { text = "Do travellers leave offerings at the shrine?", next = "w5_gifts" },
         { text = "I'll leave you in peace.", next = "END" },
+      },
+    },
+    w5_gifts = {
+      lines = { { id = "w5_gifts_l", text = "Some do. A strip of cloth, a handful of grain, once a broken blade laid across the stone. Most pass by and do not see me. Those who stop leave something, even if it is only their silence for a moment." } },
+      choices = {
+        { text = "Do the offerings reach him?", next = "w5_gifts2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_gifts2 = {
+      lines = { { id = "w5_gifts2_l", text = "I do not know. I only know that the shrine feels warmer for an evening after, and the wind goes quiet around it. Perhaps that is him. Perhaps it is only me, glad not to be forgotten." } },
+      choices = {
+        { text = "Then I'll leave my silence here, for a moment.", next = "BACK", reply = "Thank you. That is the best gift of all. Stand as long as you like." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     warrior = {
@@ -3333,7 +3521,23 @@ P:NPC {
         { text = "Where are your parents, Erk?", next = "xparents" },
         { text = "Have you ever met the Warchief?", next = "xthrall" },
         { text = "I'm an orc too. What's your clan?", next = "xclan", when = { race = "Orc" } },
+        { text = "Can Fang do any tricks?", next = "w5_tricks" },
         { text = "Take care of yourself, Erk.", next = "END" },
+      },
+    },
+    w5_tricks = {
+      lines = { { id = "w5_tricks_l", text = "He can sit! Mostly. And he can find a fish I dropped in the grass, even if it was yesterday. Guard Kurall says he'll make a fine wolf for a grunt one day, if he stops eating my boots." } },
+      choices = {
+        { text = "Have you tried teaching him to fetch?", next = "w5_tricks2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_tricks2 = {
+      lines = { { id = "w5_tricks2_l", text = "I tried, but he brings back the stick and then he eats it. Then he looks at me like I'm the one who did something wrong. I think he'll be a good wolf anyway. He growls at the Kolkar smell, and he never growls at the guards." } },
+      choices = {
+        { text = "Put a fish on the stick. He'll learn.", next = "BACK", when = { class = "HUNTER" }, reply = "That's a good idea! He'll still eat it, but he'll eat it closer to me." },
+        { text = "He sounds like a fine wolf already.", next = "BACK", reply = "He is! Did you hear that, Fang? A real adventurer said so." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     fang = {
@@ -3431,7 +3635,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "The Barrens are wide and the Horde is spread thin across them. Quilboar to the south, centaur on every side, and Alliance scouts pushing in from Theramore. What do you need?" } },
-      again = { { id = "h_again", text = "Anything else? Make it quick." } },
+      again = { { id = "h_again", text = "Something else? Out with it. I can't watch the grass and talk all day." } },
       choices = {
         { text = "The Horde must guard the Barrens.", next = "BACK", reply = "It must. We are spread thin.", fx = { align = { order = 1 } } },
         { text = "The Barrens can't be guarded. Too big.", next = "BACK", reply = "We do our best. Keep moving.", fx = { align = { order = -1 } } },
@@ -3443,7 +3647,22 @@ P:NPC {
         { text = "What's the hardest part of your post?", next = "yhard" },
         { text = "Do you have family?", next = "yfam" },
         { text = "Does the guard trust tauren?", next = "ytauren", when = { race = "Tauren" } },
+        { text = "What's the best thing about this post?", next = "w5_best" },
         { text = "Lok'tar. Stay sharp.", next = "END" },
+      },
+    },
+    w5_best = {
+      lines = { { id = "w5_best_l", text = "The sunsets, if you want the truth, and I'll deny I said it. The whole sky goes red over the grass, and for about an hour the centaur and the quilboar all seem to stop and look at it too." } },
+      choices = {
+        { text = "Is that when it's safest?", next = "w5_best2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_best2 = {
+      lines = { { id = "w5_best2_l", text = "No. It's when it's most dangerous, because that's when the new grunts stop and look at it. The Razormane learned long ago that a guard watching the sky isn't watching the grass. So I watch the grass, and I let the sky go red behind me." } },
+      choices = {
+        { text = "Then watch the grass, and I'll look at the sky for you.", next = "BACK", reply = "Good. Tell me if it's a nice one. I'll be busy." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     road = {

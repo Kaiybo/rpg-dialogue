@@ -35,6 +35,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_odd = {
+      lines = { { id = "w8_odd_a", text = "A crate of eggs, from Valanaar, that hatched on the landing! Little blue birds, a whole flock of them, and they flew straight up into the scaffolding and they've been nesting on the Citadel ever since." } },
+      choices = {
+        { text = "Do the archmagi mind?", next = "w8_odd2" },
+        { text = "That's lovely, actually.", next = "w8_odd2" },
+        { text = "Something else, Arcanist.", next = "BACK" },
+      },
+    },
+    w8_odd2 = {
+      lines = { { id = "w8_odd2_a", text = "Archmage Modera says they're a delightful addition to the city, and everyone else says they sing at dawn, very loudly, right outside the windows. I filled in a form about it, which I'm told is still being read." } },
+      choices = {
+        { text = "I hope the form goes well.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -66,6 +82,7 @@ P:NPC {
         { text = "Can I ride that ship home to Valanaar?", next = "xhome", when = { race = "Skyborne" } },
         { text = "Mostly harmless? Is it really that bad?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does a Horde visitor frighten you, Arcanist?", next = "xhorde", when = { faction = "Horde" } },
+        { text = "What's the strangest thing to come off the skycutter?", next = "w8_odd" },
         { text = "Thank you, Arcanist.", next = "END" },
       },
     },
@@ -215,6 +232,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_who = {
+      lines = { { id = "w8_who_a", text = "The young ones from the High Order, going to Stormwind to see the markets and coming back with their purses empty and their eyes full. And Belanaa, every week, to buy cloth, because she says Stormwind wool is the only thing that keeps out these mountains' cold." } },
+      choices = {
+        { text = "Do any of them stay in Stormwind?", next = "w8_who2" },
+        { text = "Stormwind must seem huge to them.", next = "w8_who2" },
+        { text = "I'm Skyborne too. What's the trick to Stormwind?", next = "w8_who2", when = { race = "Skyborne" } },
+        { text = "Something else, Denaaris.", next = "BACK" },
+      },
+    },
+    w8_who2 = {
+      lines = {
+        { id = "w8_who2_a", text = "One did, a girl who fell in love with the canals and now apprentices with a boatwright. Her mother writes to me to ask how she is, as if I could see her from here, and I write back that the winds are kind, which I hope is true." },
+        { id = "w8_who2_sky", when = { race = "Skyborne" }, text = "Keep your feet on the cobbles, {g:kinsman|kinswoman}, and your purse in your hand, and don't look up at the walls too long or the humans will think you're lost. Everyone does it once, and I did it twice." },
+      },
+      choices = {
+        { text = "Winds be with her.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -238,6 +275,7 @@ P:NPC {
         { text = "Do you miss Zephras?", next = "xmiss", when = { race = "Skyborne" } },
         { text = "I'm from Stormwind, as it happens.", next = "xhuman", when = { race = "Human" } },
         { text = "Evengale expects us to bring something useful home, Denaaris.", next = "xorig_enclave", when = { origin = "skyborne_sky_enclave_student" } },
+        { text = "Who comes through the portal most often?", next = "w8_who" },
         { text = "Winds be with you.", next = "END" },
       },
     },
@@ -527,6 +565,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_grow = {
+      lines = { { id = "w8_grow_a", text = "Peacebloom from Teldrassil, mageroyal from Elwynn, and a little silverleaf my Skyborne students brought down from Zephras, which has never once grown in the same direction twice. The Kirin Tor's ley lines pull everything slightly sideways, and the plants are learning to live with it." } },
+      choices = {
+        { text = "Does it harm them?", next = "w8_grow2" },
+        { text = "Sideways plants. That's Dalaran for you.", next = "w8_grow2" },
+        { text = "I'm an herbalist. Can I see the silverleaf?", next = "w8_grow2", when = { profession = "Herbalism" } },
+        { text = "Something else, Alfina.", next = "BACK" },
+      },
+    },
+    w8_grow2 = {
+      lines = {
+        { id = "w8_grow2_a", text = "Not yet, but I watch them the way a Sentinel watches a tree line. If the city ever draws too hard on the land, my seedlings will tell me first, and I'll tell the Kirin Tor whether they want to hear it or not." },
+        { id = "w8_grow2_herb", when = { profession = "Herbalism" }, text = "Look, but don't pick, because I've only three and they sulk when they're handled. See how the leaves curl toward the Citadel? Every plant in this city leans the same way, and I don't like what it tells me." },
+      },
+      choices = {
+        { text = "Keep watching them.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     d_roots = {
       big = true,
       lines = { { id = "dr_alr_default", text = "By keeping something growing within reach, which is why my seedlings are everywhere and the Kirin Tor's apprentices keep tripping over them. A druid who goes a week without soil under their hands starts thinking like a mage, all patterns and no seasons, and I've caught myself at it more than once." } },
@@ -577,6 +635,7 @@ P:NPC {
         { text = "The Circle taught me, Alfina, though I listen for the wind, not Elune.", next = "xorig_circle", when = { origin = "skyborne_circle_student" } },
         { text = "How does a druid stay rooted in a city of mages?", next = "d_roots", when = { class = "DRUID" } },
         { text = "Moonglade felt like home. Dalaran doesn't.", next = "d_moon", when = { class = "DRUID", minLevel = 10 } },
+        { text = "What are you growing in the Enclave?", next = "w8_grow" },
         { text = "Elune keep you.", next = "END" },
       },
     },
@@ -682,6 +741,20 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_app = {
+      lines = { { id = "w8_app_a", text = "*The robed apprentice climbs the stairs again with a fresh cup of tea, sets it carefully beside the stack, and waits. Toby looks at the tea, looks at the apprentice, and does not move a whisker.*" } },
+      choices = {
+        { text = "Wait to see who gives in first.", next = "w8_app2" },
+        { text = "Leave them to their standoff.", next = "BACK" },
+      },
+    },
+    w8_app2 = {
+      lines = { { id = "w8_app2_a", text = "*After a long silence the apprentice slides a single sheet from the very bottom of the stack, bows slightly to the cat, and retreats. Toby closes his eyes, the victor of a battle fought every afternoon.*" } },
+      choices = {
+        { text = "Well played, Toby.", next = "BACK" },
+      },
+    },
+
     xcheese = {
       lines = { { id = "xcheese_default", text = "*Toby sniffs the cheese with grave suspicion, then eats it in one bite, never once leaving the papers.*" } },
       choices = {
@@ -724,6 +797,7 @@ P:NPC {
 
         { text = "I think somebody needs those papers, Toby.", next = "BACK", reply = "*Toby lies down on them more firmly, which settles the matter.*" },
         { text = "Pet his smooth grey head.", next = "BACK", reply = "*He pushes up into your hand with a small, rusty purr, still keeping one eye on the door.*" },
+        { text = "Watch what he does when the apprentice comes back.", next = "w8_app" },
         { text = "Carry on, then. The papers are in good hands.", next = "END", reply = "*Toby gives you a slow blink, the nearest thing to a salute a cat will give.*" },
       },
     },
@@ -787,6 +861,20 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_shoot = {
+      lines = { { id = "w8_shoot_a", text = "*A streak of light runs across the dark above the Enclave. Tycho's tail snaps straight up, his whiskers spread, and he makes a tiny chattering sound at the sky, the way cats do at birds they cannot reach.*" } },
+      choices = {
+        { text = "Chatter back at him.", next = "w8_shoot2" },
+        { text = "Let him keep watching.", next = "BACK" },
+      },
+    },
+    w8_shoot2 = {
+      lines = { { id = "w8_shoot2_a", text = "*Tycho turns his head and stares at you with clear disapproval, as if you have spoiled a delicate measurement. Then he settles again, eyes on the sky, and leaves a little room on the sill for you.*" } },
+      choices = {
+        { text = "Take the spot he left you.", next = "BACK" },
+      },
+    },
+
     xstar = {
       lines = { { id = "xstar_default", text = "*Tycho follows your finger, then looks back at you as if to say he found that star hours ago and has already named it.*" } },
       choices = { { text = "Something else.", next = "BACK" } },
@@ -829,6 +917,7 @@ P:NPC {
 
         { text = "What are you looking at up there?", next = "BACK", reply = "*You follow his gaze upward and see only clouds, though Tycho's ears are pricked as if something up there were moving.*" },
         { text = "Stroke his back while he watches.", next = "BACK", reply = "*He arches into your hand without once taking his eyes off the sky.*" },
+        { text = "Follow his tail when a shooting star crosses the sky.", next = "w8_shoot" },
         { text = "Don't fall out of the window, now.", next = "END", reply = "*Tycho shifts his weight back an inch, purely to humour you.*" },
       },
     },

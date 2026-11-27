@@ -54,6 +54,7 @@ P:NPC {
         { text = "Do the druids really care what they wear?", next = "druids" },
         { text = "Do my robes survive when I change shape?", next = "shift", when = { class = "DRUID" } },
         { text = "What's the trouble with horns and hoods?", next = "horns", when = { race = "Tauren" } },
+        { text = "What's the most difficult robe you've ever made?", next = "w_hard" },
         { text = "Goodbye, Geenia.", next = "END" },
       },
     },
@@ -127,6 +128,25 @@ P:NPC {
     horns = {
       lines = { { id = "ho_default", text = "Every tauren's horns curve differently, and a hood that fits one splits on the next, so I've started cutting slits and hoping. The Bluff tailors would laugh at me, I'm sure, but none of them have to dress a Runetotem and a Bloodhoof on the same afternoon." } },
       choices = { { text = "Slits work for me. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    w_hard = {
+      lines = {
+        { id = "w_hard_default", text = "A ceremonial robe for a tauren archdruid, dear, with a hood for horns as wide as my outstretched arms. I made the pattern three times, and on the fourth try he came in and simply knelt so I could measure him properly. I nearly cried." },
+      },
+      choices = {
+        { text = "He knelt for you?", next = "w_hard2" },
+        { text = "Horns that wide?", next = "w_hard2" },
+      },
+    },
+    w_hard2 = {
+      lines = {
+        { id = "w_hard2_default", text = "He did, very gravely, as if it were nothing at all. He said that a tailor should be able to see the whole of what she is dressing. I have never forgotten it, and now I ask every tauren to sit down for the hood, and they all do, and they all look a little surprised." },
+        { id = "w_hard2_w1", when = { race = "Tauren" }, text = "Would you sit for me a moment, dear? Just to see. I promise I won't make you buy anything." },
+      },
+      choices = {
+        { text = "A wise archdruid.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Geenia.", next = "BACK" },
+      },
     },
   },
 

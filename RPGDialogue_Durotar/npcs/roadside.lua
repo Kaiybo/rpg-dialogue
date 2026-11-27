@@ -459,6 +459,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2teacher = {
+      lines = { { id = "w2tc_default", text = "An old orc shaman who came down to Sen'jin when the Warchief first landed, mon, and sat on the beach for a whole season listening to the sea. He said the water here spoke in a troll accent, and he wanted to learn it." } },
+      choices = {
+        { text = "Did he learn it?", next = "w2teacher2" },
+        { text = "Water doesn't have an accent.", next = "w2teacher2" },
+        { text = "Something else, Swart.", next = "BACK" },
+      },
+    },
+    w2teacher2 = {
+      lines = {
+        { id = "w2tc2_shaman", when = { class = "SHAMAN" }, text = "He learned it, and he taught me his own, and between us we found they were the same tongue spoken slow and fast. You'll find it too, mon: every element sounds a little like the people who live beside it." },
+        { id = "w2tc2_default", text = "He learned it, and he taught me his own, and between us we found they were the same tongue spoken slow and fast. Every element sounds a little like the people who live beside it, mon." },
+      },
+      choices = { { text = "A good thing to know.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "The elements trust no one at first, mon; trust be earned. When the orcs lost them, it was demons who came, and when they were caged, it was the Light that kept the doors shut. I'd like to believe the Light can mean something else in your hands." } },
@@ -566,6 +581,7 @@ P:NPC {
         { text = "A shaman can never trust someone like me, I'd guess.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do the spirits watch rogues, Swart?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do the elements trust a Forsaken paladin, Swart?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Who taught you to hear the elements?", next = "w2teacher" },
         { text = "Farewell, Swart.", next = "END" },
       },
       again = { { id = "h_again", text = "Something more? The elements be patient, mon, and so be I." } },

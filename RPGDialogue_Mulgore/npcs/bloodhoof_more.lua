@@ -58,7 +58,36 @@ P:NPC {
         { text = "What was it like, hunting in your youth?", next = "youth" },
         { text = "I brought you Ghost Howl's hide.", next = "cloak", when = { questDone = TODO_QUEST("The Demon Scarred Cloak") } },
         { text = "Who else should I know in Bloodhoof?", next = "village" },
+        { text = "Where did you get that bow of yours?", next = "w7_bow" },
         { text = "Rest well, elder.", next = "END" },
+      },
+    },
+    w7_bow = {
+      lines = {
+        { id = "w7_bow_l1", text = "I made it myself, young one, the winter before I first hunted Ghost Howl, from horn and ash and the sinew of a plainstrider I had chased for three days. It has been restrung more times than I can count, but the wood is the same." },
+      },
+      choices = {
+        { text = "Could I hold it?", next = "w7_bow2" },
+        { text = "It must be very old.", next = "w7_bow3" },
+        { text = "Something else, Skorn.", next = "BACK" },
+      },
+    },
+    w7_bow2 = {
+      lines = {
+        { id = "w7_bow2_l1", text = "Gently, and with both hands. Feel how it wants to pull to the left? That is the plainstrider in it; he always ran left, and the sinew remembers. I learned to aim a little right, and I have never missed since." },
+        { id = "w7_bow2_l2", when = { class = "HUNTER" }, text = "Gently. You'll feel the pull to the left; that is the plainstrider in the sinew. Every bow has a temper, young hunter. Learn yours, and you'll never curse it." },
+      },
+      choices = {
+        { text = "It's a fine bow.", next = "BACK", reply = "It has outlived three of my best friends. It will outlive me." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_bow3 = {
+      lines = {
+        { id = "w7_bow3_l1", text = "As old as my hunting, which is to say very. Old things that are cared for last longer than new things that are not." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -196,7 +225,36 @@ P:NPC {
         { text = "You must know everyone who passes through.", next = "folk" },
         { text = "I stitch leather myself, Varg.", next = "trade", when = { profession = "Leatherworking" } },
         { text = "I need leather that keeps quiet.", next = "quiet", when = { class = { "HUNTER", "DRUID", "ROGUE" } } },
+        { text = "What's the hardest customer you've ever had?", next = "w7_customer" },
         { text = "Good day, Varg.", next = "END" },
+      },
+    },
+    w7_customer = {
+      lines = {
+        { id = "w7_customer_l1", text = "A Forsaken from the Undercity who wanted leather that did not smell of the beast, because he said it reminded him he was dead. I tanned it with sage and sweetgrass for a whole month, and he sniffed it and said it smelled of life, and took it anyway." },
+      },
+      choices = {
+        { text = "Did he like it?", next = "w7_customer2" },
+        { text = "That's an odd request.", next = "w7_customer3" },
+        { text = "Something else, Varg.", next = "BACK" },
+      },
+    },
+    w7_customer2 = {
+      lines = {
+        { id = "w7_customer2_l1", text = "He came back a year later and bought three more pieces, and told me nobody had ever cared what he smelled before. I still do not know if he meant it as thanks, but I took it that way." },
+        { id = "w7_customer2_l2", when = { race = "Scourge" }, text = "He came back for more, and said nobody had cared what he smelled in a long time. If you'd like the same, friend, I can tan it with sage again; I keep a little aside for your people now." },
+      },
+      choices = {
+        { text = "Thank you.", next = "BACK", reply = "Think nothing of it. Every customer deserves to feel welcome." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_customer3 = {
+      lines = {
+        { id = "w7_customer3_l1", text = "Odd, yes. But a merchant who only sells the ordinary only meets ordinary people, and I would rather meet everyone." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -335,7 +393,76 @@ P:NPC {
         { text = "Why here, among the tauren?", next = "why" },
         { text = "Who is Ur'kyo?", next = "urkyo" },
         { text = "Who is the Forsaken head priestess?", next = "xforsaken", when = { race = "Scourge", class = "PRIEST" } },
+        { text = "What's Mulgore like to a troll?", next = "mulgore" },
+        { text = "What do young Darkspear priests learn first?", next = "priests" },
+        { text = "Maybe they be hidin' from their lessons, mon.", next = "hiding", when = { race = "Troll" } },
+        { text = "What do you do while you wait for the priests?", next = "w7_wait" },
         { text = "I hope you find them.", next = "END" },
+      },
+    },
+    w7_wait = {
+      lines = {
+        { id = "w7_wait_l1", text = "I carve little loa masks out of bark, mon, and give dem to the tauren calves, who think dey be the funniest things in de world. De elders frown, but de calves love dem, and de masks keep de bad dreams away, my grandmother said." },
+      },
+      choices = {
+        { text = "Do they keep bad dreams away?", next = "w7_wait2" },
+        { text = "The tauren elders may not like it.", next = "w7_wait3" },
+        { text = "Something else, Var'jun.", next = "BACK" },
+      },
+    },
+    w7_wait2 = {
+      lines = {
+        { id = "w7_wait2_l1", text = "De calves say yes, mon, and de calves would know. One little one came to me and said she slept all night without dreaming of quilboar, and dat be worth more dan any blessing I could give." },
+        { id = "w7_wait2_l2", when = { race = "Troll" }, text = "De calves say so, mon, and you know how de old charms work: dey work if you believe. Come and help me carve one; I show you de old pattern from de Echo Isles, de one with de wide eyes." },
+      },
+      choices = {
+        { text = "I'd like that.", next = "BACK", reply = "Den sit, mon, and bring your knife." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_wait3 = {
+      lines = {
+        { id = "w7_wait3_l1", text = "Dey frown, mon, but dey don't stop me. A gift be a gift, whichever loa it come from." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mulgore = {
+      lines = { { id = "mulgore_d", text = "Too much grass and not enough sea, mon. I wake up every mornin' and listen for the waves, and all I hear be kodo chewin', which be a fine sound but not the right one." } },
+      choices = {
+        { text = "You miss the Echo Isles.", next = "mulgore_echo" },
+        { text = "Kodo chewing is a peaceful sound.", next = "BACK", reply = "Peaceful, ya, and that be the trouble. A troll don't know what to do with peaceful." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mulgore_echo = {
+      lines = { { id = "mulgore_echo_d", text = "Every day, mon, though the Isles not be ours right now. Zalazane holds them with his madness, and Vol'jin keep us at Sen'jin Village on the coast until the day we take them back, and I be there for it, you can count on that." } },
+      choices = {
+        { text = "I hope that day comes soon.", next = "BACK", reply = "It will, mon. The loa promise it, and they don't lie, not about that." },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    priests = {
+      lines = { { id = "priests_d", text = "To listen to the loa before they speak to 'em, mon, and that be the hardest lesson for the young. They want the magic right away, but Ur'kyo say a priest who don't listen first only ever hears himself." } },
+      choices = {
+        { text = "Ur'kyo sounds like a strict teacher.", next = "priests_urkyo" },
+        { text = "Listening first. Good advice for anyone.", next = "BACK", reply = "Ya, mon, and the young ones never take it. Maybe you be different." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    priests_urkyo = {
+      lines = { { id = "priests_urkyo_d", text = "Strict, ya, but fair, and he laugh more than you think. He say the loa got a sense of humour, and a priest who can't take a joke from the spirits won't last long in the old ways." } },
+      choices = {
+        { text = "Then I'd like to meet him.", next = "BACK", reply = "Go to the Valley of Spirits in Orgrimmar, mon. He be glad of anyone who wants to learn." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    hiding = {
+      lines = { { id = "hiding_d", text = "Ha! You know dem, mon, you know dem well. Last time I found one, he was hidin' in a tauren's tent eatin' bread and pretendin' he got lost, and I bring him back to Ur'kyo by the ear." } },
+      choices = {
+        { text = "Young trolls are all the same.", next = "BACK", reply = "Ya, mon, and old trolls be the ones who remember it." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -447,7 +574,36 @@ P:NPC {
         { text = "My family has always ridden kodo.", next = "tauren_family", when = { race = "Tauren" } },
         { text = "Could a kodo be a hunter's companion?", next = "hunter_kodo", when = { class = "HUNTER" } },
         { text = "Would a kodo carry one of the dead?", next = "fk", when = { race = "Scourge" } },
+        { text = "What do you sing to the herds?", next = "w7_sing" },
         { text = "Farewell, Kar.", next = "END" },
+      },
+    },
+    w7_sing = {
+      lines = {
+        { id = "w7_sing_l1", text = "The storm songs, the ones my grandfather sang when the thunder rolled over the plains and the herds wanted to run. A low, steady song, the same three notes over and over, until the kodo forget they are frightened." },
+      },
+      choices = {
+        { text = "Will you sing it?", next = "w7_sing2" },
+        { text = "Kodo don't need songs.", next = "w7_sing3" },
+        { text = "Something else, Kar.", next = "BACK" },
+      },
+    },
+    w7_sing2 = {
+      lines = {
+        { id = "w7_sing2_l1", text = "Not here, friend, the calves are sleeping and I would wake them for nothing. But listen at dusk, when a storm comes in over Thunder Bluff, and you will hear me out on the plain, and you will see the herd lie down." },
+        { id = "w7_sing2_l2", when = { race = "Tauren" }, text = "Not now. But you know the song already, I think; your grandmother sang it to you as a calf, when the storms came. Sing it to your own mount when it is frightened, and watch it settle." },
+      },
+      choices = {
+        { text = "I'll listen at dusk.", next = "BACK", reply = "Do. It is the best sound on the plains." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_sing3 = {
+      lines = {
+        { id = "w7_sing3_l1", text = "Then you have never seen a herd run from thunder. Everything needs a song, friend, when the sky is angry." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -579,7 +735,36 @@ P:NPC {
         { text = "How should I care for my companion on the road?", next = "care", when = { class = "HUNTER" } },
         { text = "My raptor is a picky eater.", next = "troll_raptor", when = { race = "Troll" } },
         { text = "I could talk to them in their own shape.", next = "druid", when = { class = "DRUID" } },
+        { text = "What do you do with the beasts whose hunters never return?", next = "w7_kept" },
         { text = "Goodbye, Seikwa.", next = "END" },
+      },
+    },
+    w7_kept = {
+      lines = {
+        { id = "w7_kept_l1", text = "I keep them, for a season at least, in case the hunter is only late. Then I find them a new home with a hunter who needs a companion, and I tell the new hunter the old one's name, so the beast is not forgotten." },
+      },
+      choices = {
+        { text = "Do the beasts take to new hunters?", next = "w7_kept2" },
+        { text = "That's a lot of trouble.", next = "w7_kept3" },
+        { text = "Something else, Seikwa.", next = "BACK" },
+      },
+    },
+    w7_kept2 = {
+      lines = {
+        { id = "w7_kept2_l1", text = "Some do, quickly, and some take a long time, and one old wolf never did. He stayed with me until he died, lying by the stable door every night, waiting. I buried him by the lake, where he liked to watch the water." },
+        { id = "w7_kept2_l2", when = { class = "HUNTER" }, text = "Some quickly, some slowly. You know how loyal a companion is. If anything should ever happen to you, I would keep yours safe and find it a good home, and tell them your name. I promise you that." },
+      },
+      choices = {
+        { text = "That's kind of you.", next = "BACK", reply = "It is only what they deserve, the dear things." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_kept3 = {
+      lines = {
+        { id = "w7_kept3_l1", text = "It is. But they gave their hunters everything, and someone should give them something back." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
 

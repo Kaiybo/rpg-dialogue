@@ -41,6 +41,7 @@ P:NPC {
         { text = "What's the crew like to work with?", next = "crew" },
         { text = "Where did you learn to lay stone?", next = "ylearn" },
         { text = "Does anything about the work worry you?", next = "yworry" },
+        { text = "Where did you get that plumb line?", next = "e3_plumb" },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -92,6 +93,24 @@ P:NPC {
       lines = { { id = "ywo_default", text = "The third pier. The Foreman wants it raised before the rains, and the footing's not had the time it needs to settle. If it shifts, the whole span shifts with it. I've told him, and he says we haven't the luxury of time with orcs in the hills." } },
       choices = { { text = "I hope it holds. Something else.", next = "BACK" } },
     },
+    e3_plumb = {
+      lines = {
+        { id = "e3_plumb_l0", text = "From the master who taught me on the Stormwind walls, the day I finished my first course true. It's a lead bob on a waxed cord, nothing special to look at, but he said a man who owns his own plumb can never blame the line for a crooked wall." },
+      },
+      choices = {
+        { text = "Is your old master still in Stormwind?", next = "e3_plumb2" },
+        { text = "It's served you well, by the look of the bridge.", next = "BACK" },
+      },
+    },
+    e3_plumb2 = {
+      lines = {
+        { id = "e3_plumb2_l0", text = "He died the winter before the guild broke, which I've sometimes thought was a mercy. He'd not have gone west with the others, and he'd not have stayed quiet either, and I don't know which would have finished him first." },
+      },
+      choices = {
+        { text = "He'd be proud of this bridge. Something else.", next = "BACK" },
+        { text = "Some men are spared the worst.", next = "BACK" },
+      },
+    },
   },
   topics = {
     oslow = { { id = "yt_oslow", text = "Foreman Oslow shouts and works harder than any of us. I'd lay stone for him anywhere." } },
@@ -126,6 +145,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_learn = {
+      lines = { { id = "d6_learn_a", text = "On the lakeshore, shooting at bottles Kimberly set on the dock posts, and she'd make me fetch every arrow that went in the water. I learned to hit the bottle fast, because the lake's cold in spring." } },
+      choices = {
+        { text = "I'm a hunter. What's your longest shot?", next = "d6_learn2", when = { class = "HUNTER" } },
+        { text = "Does the watch train its own archers?", next = "d6_learn2" },
+        { text = "Cold water's a good teacher.", next = "d6_learn2" },
+      },
+    },
+    d6_learn2 = {
+      lines = {
+        { id = "d6_learn2_a", text = "Not enough of them, and that's the trouble. Most of the watch are farmers with swords, and I've put a bow in the hands of six this season, and four of them can hit a gnoll now, which is four more than before." },
+        { id = "d6_learn2_hunter", when = { class = "HUNTER" }, text = "Two hundred paces, from the west wall to a gnoll on the far ridge, with the wind behind me. It's the only shot I've ever boasted about, so I'll thank you to remember it and not ask me to repeat it." },
+      },
+      choices = {
+        { text = "Four more archers is no small thing.", next = "BACK" },
+        { text = "Something else, guard.", next = "BACK" },
+      },
+    },
+    d6_marris = {
+      lines = { { id = "d6_marris_a", text = "He's hard, and he's fair, and his curfew keeps children off the streets at night, whatever the grumblers say. He lost a whole company up at Stonewatch, and he hasn't stopped trying to get them back." } },
+      choices = {
+        { text = "Bravo Company, you mean?", next = "d6_marris2" },
+        { text = "Hard men make for safe towns.", next = "d6_marris2" },
+        { text = "Let's leave the Marshal be.", next = "BACK" },
+      },
+    },
+    d6_marris2 = {
+      lines = { { id = "d6_marris2_a", text = "Bravo Company, aye, Keeshan's lot, lost behind the Blackrock lines. Marris goes up the tower every night and looks toward Stonewatch, and the watch pretend not to see him, because we all know what he's looking for." } },
+      choices = {
+        { text = "Then someone should go and find them.", next = "BACK", fx = { learn = { "blackrock" } } },
+        { text = "Something else, Hiett.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", text = "Guard Hiett, Lakeshire watch. I keep this post by day and a place on the wall when the horn goes, and of the two I'd choose the wall." } },
       again = {
@@ -141,6 +194,9 @@ P:NPC {
         { text = "Where do the gnolls hide from arrows?", next = "shoot", when = { class = "HUNTER" } },
         { text = "Have you lost friends on the wall?", next = "ylost" },
         { text = "What would Lakeshire need to win?", next = "ywin" },
+        { text = "Where did you learn to shoot?", next = "d6_learn" },
+        { text = "What do you make of Marshal Marris?", next = "d6_marris" },
+        { text = "What's the west wall like on a bad night?", next = "e3_wall" },
         { text = "As you were, guard.", next = "END" },
       },
     },
@@ -180,6 +236,25 @@ P:NPC {
       choices = {
         { text = "Wait for Stormwind's soldiers. Hold the wall.", next = "BACK", reply = "That's the Marshal's answer. Sensible, and slow.", fx = { align = { order = 1 } } },
         { text = "Go now. Waiting is how towns burn.", next = "BACK", reply = "Finally, someone with sense. Find me when you're ready.", fx = { align = { order = -1 } } },
+      },
+    },
+    e3_wall = {
+      lines = {
+        { id = "e3_wall_l0", text = "Wet, mostly, since it leaks at the joint by the third post and nobody's had the stone to mend it. The gnolls come up the gully below it in the dark, and you shoot at the sound of them, and in the morning you go down and count what you hit." },
+      },
+      choices = {
+        { text = "How do you aim at a sound?", next = "e3_wall2" },
+        { text = "That's grim work, Hiett.", next = "BACK" },
+      },
+    },
+    e3_wall2 = {
+      lines = {
+        { id = "e3_wall2_l0", text = "You learn where the gully bends, and you loose at the bend when the stones start rattling. Kimberly says it's a waste of arrows, and then she counts the gnoll paws in the morning and goes quiet." },
+        { id = "e3_wall2_l1", when = { class = "HUNTER" }, text = "You'll know already, I'd guess: learn the ground by day and loose at the bend when the stones rattle. Kimberly calls it wasted arrows until she counts the paws at dawn." },
+      },
+      choices = {
+        { text = "Then it works. Something else.", next = "BACK" },
+        { text = "Fix the leak first.", next = "BACK" },
       },
     },
   },
@@ -241,6 +316,7 @@ P:NPC {
         { text = "Don't you work the Crossroads too?", next = "both" },
         { text = "Lakeshire could use your gold more than you.", next = "lakeshire" },
         { text = "I'm from Stormwind. Do you pay the king's taxes?", next = "taxes", when = { race = "Human" } },
+        { text = "Tell me about your two Bruisers.", next = "e3_bruisers" },
         { text = "Not today.", next = "END" },
       },
     },
@@ -295,11 +371,29 @@ P:NPC {
       lines = { { id = "ta_default", text = "Taxes? I'm Booty Bay licensed, pal, and the Cartel's got an understanding with your king's tax men. The understanding is that I don't understand them, and they don't understand me, and everybody stays friendly." } },
       choices = { { text = "Very convenient. Something else.", next = "BACK" } },
     },
+    e3_bruisers = {
+      lines = {
+        { id = "e3_bruisers_l0", text = "Gorgo and Little Pete, pal, both on the Cartel payroll and both worth every copper, which is a lot of coppers. Gorgo's the big one, and Little Pete's the bigger one, and neither of 'em has said more than six words in a row since I hired 'em." },
+      },
+      choices = {
+        { text = "Who pays them, you or the Cartel?", next = "e3_bruisers2" },
+        { text = "Six words is plenty for a bruiser.", next = "BACK" },
+      },
+    },
+    e3_bruisers2 = {
+      lines = {
+        { id = "e3_bruisers2_l0", text = "Me, out of my cut, and the Cartel takes a cut of my cut for the privilege of lendin' 'em, which is what you call a vertical margin. I'm workin' on a deal where they pay me for the fresh air, but so far Gorgo just looks at me." },
+      },
+      choices = {
+        { text = "Good luck with that. Something else.", next = "BACK" },
+        { text = "Pay them properly, Quickcoin.", next = "BACK" },
+      },
+    },
   },
   topics = {
     redridge = { { id = "tp_redridge", text = "Gnolls, fish, and folks who need a market. My kind of trouble, pal." } },
-    steamwheedle = { { id = "tp_sw", text = "Neutral, bonded and very well guarded. That's the Cartel, pal." } },
-    _none = { { id = "tp_none", text = "Don't know, don't care, unless there's a percentage in it." } },
+    steamwheedle = { { id = "tp_sw", text = "The Cartel? Sells to everybody, owes nobody, and charges a fee for the privilege, pal. Best family a goblin ever had." } },
+    _none = { { id = "tp_none", text = "Never heard of it, pal, and if it ain't up for auction, I ain't gonna start now." } },
   },
 }
 
@@ -322,7 +416,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Steamwheedle Courier, contracted to the Azeroth Commerce Authority, which means I carry their mail and anybody else's who pays. Your letter gets to any mailbox in the kingdom, and the gnolls only got one bag off me this month, which is a personal record." },
       },
       again = {
-        { id = "h_again", text = "Anything else? This bag's not gettin' any lighter." },
+        { id = "h_again", text = "Anything else? Quick, pal, this bag's heavy and the gnolls can smell parcels." },
       },
       choices = {
         { text = "The gnolls steal the mail?", next = "gnolls" },
@@ -332,6 +426,7 @@ P:NPC {
         { text = "Do soldiers write home much from here?", next = "letters" },
         { text = "Ever delivered to Darkshire?", next = "darkshire" },
         { text = "Who's the strangest customer you've had?", next = "ystrange" },
+        { text = "What's in the bag today?", next = "e3_bag" },
         { text = "Never mind.", next = "END" },
       },
     },
@@ -386,6 +481,24 @@ P:NPC {
         { id = "yst_horde", when = { faction = "Horde" }, text = "Old fella at Three Corners who writes his dead wife every week and pays full rate. I deliver it to the headstone in Goldshire. You Horde folk think goblins ain't got standards? A paid letter gets delivered." },
       },
       choices = { { text = "That's oddly touching. Something else.", next = "BACK" } },
+    },
+    e3_bag = {
+      lines = {
+        { id = "e3_bag_l0", text = "Letters for Lakeshire, a parcel o' seed for some farm in Elwynn that I'm guardin' with my life this time, and a sealed tube for the Magistrate that I'm not allowed to shake. I shook it anyway, pal, and it rattles, so it's either a map or a very small rocket." },
+      },
+      choices = {
+        { text = "Why aren't you allowed to shake it?", next = "e3_bag2" },
+        { text = "Don't shake it again.", next = "BACK" },
+      },
+    },
+    e3_bag2 = {
+      lines = {
+        { id = "e3_bag2_l0", text = "On account of it's got a wax seal from Stormwind Keep, and the last courier who opened one of those lost his licence and his eyebrows. I just deliver, sweetheart, and whatever's inside is the Magistrate's headache, not mine." },
+      },
+      choices = {
+        { text = "Wise courier. Something else.", next = "BACK" },
+        { text = "You'd make a poor spy.", next = "BACK" },
+      },
     },
   },
   topics = {

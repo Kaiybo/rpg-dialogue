@@ -31,6 +31,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_rest = {
+      lines = { { id = "w8_rest_a", text = "I sleep with my back to the hill and my face to the water, and I wake when the tide turns, every time. Rest is for those who trust the sea, and I have never trusted it." } },
+      choices = {
+        { text = "That sounds exhausting.", next = "w8_rest2" },
+        { text = "Who watches when you sleep?", next = "w8_rest2" },
+        { text = "Something else, Katar.", next = "BACK" },
+      },
+    },
+    w8_rest2 = {
+      lines = { { id = "w8_rest2_a", text = "Tok'Kar, who pretends to stir the stew and watches the waves over the pot. He is a better guard than he lets anyone believe, and I would never tell him so, so you will not either." } },
+      choices = {
+        { text = "Your secret's safe.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -56,6 +72,7 @@ P:NPC {
         { text = "How do the patrols work?", next = "patrol" },
         { text = "The water spirits aren't cruel, Katar.", next = "xshaman", when = { class = "SHAMAN" } },
         { text = "The dead know the sea doesn't care, Katar.", next = "xforsaken", when = { race = "Scourge" } },
+        { text = "Do you ever rest from the patrols?", next = "w8_rest" },
         { text = "I'll go hunting.", next = "END" },
       },
     },

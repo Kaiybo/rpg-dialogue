@@ -58,7 +58,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else, then? The fire will not wait forever." },
-        { id = "h_again2", text = "Speak, and be quick about it." },
+        { id = "h_again2", text = "Speak, but keep it short; whelp hide stiffens if it sits too long." },
       },
       choices = {
         { text = "How did you earn the name Dragoneye?", next = "name" },
@@ -67,7 +67,25 @@ P:NPC {
         { text = "What were the internment camps like?", next = "ycamps" },
         { text = "Have you ever met a grown dragon?", next = "ygrown" },
         { text = "Do you have any family?", next = "yfamily" },
+        { text = "What do you do with the whelp bones?", next = "w9_bones" },
         { text = "Teach me what you know.", next = "END" },
+      },
+    },
+
+    w9_bones = {
+      lines = { { id = "w9_bones_d", text = "The witch doctors buy the skulls, the shamans want the teeth for their charms, and the rest I grind into the fire to keep it hot. Nothing of a dragon goes to waste in my camp, because the dragon would not have wasted me." } },
+      choices = {
+        { text = "What do the shamans use the teeth for?", next = "w9_bones2" },
+        { text = "That seems disrespectful.", next = "w9_bones2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_bones2 = {
+      lines = { { id = "w9_bones2_d", text = "Fire charms, against the black flight's own breath, for a dragon's tooth remembers the heat it was made in. Some call it disrespect, but I think it is the only honour a black whelp will ever get, to be useful to those it was bred to burn." } },
+      choices = {
+        { text = "There's justice in that.", next = "BACK", reply = "There is. The dragons taught us that lesson themselves." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     name = {
@@ -151,7 +169,7 @@ P:NPC {
         { id = "yh_orc", when = { race = "Orc" }, text = "I am Nuzrak, executioner of Kargath. An orc, good. You know the weight of blood, then. Speak plainly, brother, and I will answer the same." },
         { id = "yh_tauren", when = { race = "Tauren" }, text = "I am Nuzrak, executioner of Kargath. A tauren, far from the plains. The Badlands will not be kind to your hooves, but my axe will not trouble you unless you give it cause." },
       },
-      again = { { id = "h_again", text = "What else, {class}?" } },
+      again = { { id = "h_again", text = "What else, {class}? Speak, and choose your words as carefully as I choose my strokes." } },
       choices = {
         { text = "Whom have you executed?", next = "traitors" },
         { text = "What do you know of the Dark Irons below?", next = "darkiron" },
@@ -162,7 +180,25 @@ P:NPC {
         { text = "Do you remember the old Horde?", next = "yold" },
         { text = "Does the work weigh on you?", next = "yweigh" },
         { text = "Lok'tar.", next = "END", when = { faction = "Horde" } },
+        { text = "How do you remember all the names?", next = "w9_names" },
         { text = "I'll be going.", next = "END" },
+      },
+    },
+
+    w9_names = {
+      lines = { { id = "w9_names_d", text = "I cut a mark into the axe's haft for each one, and I say the name aloud as I cut it. The haft has been replaced twice, and I kept the old ones, wrapped in hide, under my bed." } },
+      choices = {
+        { text = "Why keep them?", next = "w9_names2" },
+        { text = "That's a heavy burden.", next = "w9_names2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_names2 = {
+      lines = { { id = "w9_names2_d", text = "Because a traitor is still an orc, and an orc's name should be spoken by someone, even if it is only the one who ended him. When I die, someone else can burn the hafts, and the names will go with the smoke, which is the old way." } },
+      choices = {
+        { text = "That is honourable.", next = "BACK", reply = "It is the only honour my work allows. I keep it close." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     traitors = {

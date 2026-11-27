@@ -1972,6 +1972,7 @@ P:NPC {
         { text = "Would you like to know what it feels like to change shape, Brother?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What would you ask someone who bargains with the dark, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What do you most want to know about the spirits, Brother?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "What are the novices like this year?", next = "e3_novices" },
         { text = "Goodbye, Brother.", next = "END" },
       },
     },
@@ -1982,6 +1983,24 @@ P:NPC {
     hardest = {
       lines = { { id = "h2_default", text = "Rest, because young priests heal until they fall over and call it devotion, when it's really vanity. The Light doesn't need you exhausted." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    e3_novices = {
+      lines = {
+        { id = "e3_novices_l0", text = "Earnest, the lot of them, and terribly hungry, which I'm told is the same thing at that age. There's a girl from Westfall who prays harder than anyone I've ever taught, and a boy from the Trade District who asked me on his first day whether the Light could be bottled and sold." },
+      },
+      choices = {
+        { text = "What did you tell the boy?", next = "e3_novices2" },
+        { text = "The girl from Westfall has reason to pray.", next = "BACK" },
+      },
+    },
+    e3_novices2 = {
+      lines = {
+        { id = "e3_novices2_l0", text = "That if it could, the Church would have done it centuries ago and paid for a new roof. He laughed, and then he went very quiet and asked whether it was wrong to want money, and we walked the whole nave three times talking about it." },
+      },
+      choices = {
+        { text = "Is it wrong, do you think? Something else.", next = "BACK" },
+        { text = "You'll make a priest of him yet.", next = "BACK" },
+      },
     },
   },
 

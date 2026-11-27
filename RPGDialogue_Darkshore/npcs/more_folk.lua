@@ -80,8 +80,8 @@ P:NPC {
       },
       again = {
         { id = "h_again3", text = "Ask it. I can talk and fit a strap at the same time." },
-        { id = "h_again", text = "Anything else?" },
-        { id = "h_again2", text = "What else do you need?" },
+        { id = "h_again", text = "Anything else? The shields won't brace themselves." },
+        { id = "h_again2", text = "What more do you need, now? Speak up, the forge is loud." },
       },
       choices = {
         { text = "Show me your wares.", next = "BUSINESS" },
@@ -92,6 +92,7 @@ P:NPC {
         { text = "Do the Sentinels ask your advice?", next = "sentinels" },
         { text = "A shield is my trade. Show me how yours are braced.", next = "xshield", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Our smiths could teach yours a thing or two.", next = "xdwarf", when = { race = "Dwarf" } },
+        { text = "What's the worst damage you've mended?", next = "w_mend" },
         { text = "Good day.", next = "END" },
       },
     },
@@ -120,6 +121,26 @@ P:NPC {
     heavy = {
       lines = { { id = "he_default", text = "Not usually, no, and I hear that from my own people every day. But not everyone who comes through Auberdine is a Sentinel, and the dwarves and humans like their armor thick, so I make it thick." } },
       choices = { { text = "Fair enough. Something else.", next = "BACK" } },
+    },
+    w_mend = {
+      lines = {
+        { id = "w_mend_default", text = "A breastplate from the ruins at Bashal'Aran, caved in from the inside, as if something had squeezed it. The Sentinel inside lived, by Elune's grace and no skill of mine. I hammered it back out and she wears it still, and the dent comes back every winter." },
+      },
+      choices = {
+        { text = "Comes back? How?", next = "w_mend2" },
+        { text = "Something squeezed it?", next = "w_mend2" },
+      },
+    },
+    w_mend2 = {
+      lines = {
+        { id = "w_mend2_default", text = "I don't know, and I don't like not knowing. Delfrum says it's the cold working the metal, and that I'm being an elf about it. Perhaps. But my steel doesn't remember things, and that piece does." },
+        { id = "w_mend2_w1", when = { class = "WARRIOR" }, text = "You'll wear armor into those ruins yourself one day, I expect. When you come out, bring it to me before anything else, and I mean before the inn." },
+      },
+      choices = {
+        { text = "Delfrum's probably right.", next = "BACK", fx = { align = { order = 1 } }, reply = "Probably. I'll keep watching the dent all the same." },
+        { text = "Trust your instincts, Harlon.", next = "BACK", fx = { align = { order = -1 } }, reply = "I do. That's why I sleep badly." },
+        { text = "Something else, Harlon.", next = "BACK" },
+      },
     },
   },
 
@@ -218,6 +239,7 @@ P:NPC {
         { text = "Something's wrong with this coast, isn't it?", next = "coast" },
         { text = "Sugar in everything? That's a slander on Stormwind.", next = "xhuman", when = { race = "Human" } },
         { text = "I've sailed from Menethil myself. It's a hard crossing.", next = "xdwarf", when = { race = { "Dwarf", "Gnome" } } },
+        { text = "Who are you waiting for, really?", next = "w_wait" },
         { text = "Good day.", next = "END" },
       },
     },
@@ -241,6 +263,25 @@ P:NPC {
     sailors = {
       lines = { { id = "sa_default", text = "Menethil, mostly, and the swamps and the trolls around it, and how much they hate the crossing. The dwarves from the boats complain about the weather, the humans complain about the food, and they all buy my bread anyway." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    w_wait = {
+      lines = {
+        { id = "w_wait_default", text = "My husband, dear, though I'll thank you not to tell the whole town. He sailed for Menethil two seasons ago to buy a proper oven from the dwarves, and his letters stopped coming in the spring, and every ship that comes in might be his." },
+      },
+      choices = {
+        { text = "What do the captains say?", next = "w_wait2" },
+        { text = "I'm sorry. I hope he comes home.", next = "w_wait2" },
+      },
+    },
+    w_wait2 = {
+      lines = {
+        { id = "w_wait2_default", text = "That the crossings have been rough and the ships late, and that a letter can be lost a dozen ways. They're kind about it. I bake him a loaf every week, and I give it to whichever sailor looks hungriest, and I tell myself that someone in Menethil is doing the same for him." },
+        { id = "w_wait2_w1", when = { race = "Dwarf" }, text = "You've come from Menethil, perhaps. Did you see a night elf there buying an oven? Tall, grey at the temples, terribly fussy about crusts?" },
+      },
+      choices = {
+        { text = "Someone's feeding him too.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Kyndri.", next = "BACK" },
+      },
     },
   },
 
@@ -330,8 +371,8 @@ P:NPC {
       },
       again = {
         { id = "h_again3", text = "Go on, I love a question. The cheese will keep, and so will I." },
-        { id = "h_again", text = "Anything else, friend?" },
-        { id = "h_again2", text = "What else can I get you?" },
+        { id = "h_again", text = "Anything else, friend? The stew is hot and the night is long in Auberdine." },
+        { id = "h_again2", text = "What else can I bring you? There is still bread from this morning." },
       },
       choices = {
         { text = "Show me your food.", next = "BUSINESS" },
@@ -503,8 +544,8 @@ P:NPC {
       },
       again = {
         { id = "h_again3", text = "Yes? Ask, only do keep your sleeves away from the dye pots while you do." },
-        { id = "h_again", text = "Anything else?" },
-        { id = "h_again2", text = "What else can I show you?" },
+        { id = "h_again", text = "Anything else? There's a fresh bolt of storm blue just in." },
+        { id = "h_again2", text = "What else would you like to look at? Everything here is ready to wear." },
       },
       choices = {
         { text = "Show me your wares.", next = "BUSINESS" },
@@ -515,6 +556,7 @@ P:NPC {
         { text = "The stitching's fine. The thread's a little thin.", next = "xtailor", when = { profession = "Tailoring" } },
         { text = "I serve the Temple. I'd wear Elune's silver gladly.", next = "xpriest", when = { class = "PRIEST" } },
         { text = "I pick herbs. Which flower gives the silver?", next = "xherb", when = { profession = "Herbalism" } },
+        { text = "What's your favourite colour to dye?", next = "w_fav" },
         { text = "Good day.", next = "END" },
       },
     },
@@ -531,6 +573,25 @@ P:NPC {
     claw = {
       lines = { { id = "cl_default", text = "No, and it isn't meant to. Cloth lets a priestess move her hands and a mage keep his mind clear; the claw is meant to stop before it gets to them. That's what the warriors are for." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    w_fav = {
+      lines = {
+        { id = "w_fav_default", text = "The blue that comes from storm-kelp, the one that takes three soakings and smells of the sea for a month. When it's right, it is exactly the colour of Darkshore an hour after sundown, before the stars, and nothing else in the world is quite that colour." },
+      },
+      choices = {
+        { text = "Can you still get the kelp?", next = "w_fav2" },
+        { text = "That's a very particular blue.", next = "w_fav2" },
+      },
+    },
+    w_fav2 = {
+      lines = {
+        { id = "w_fav2_default", text = "Only after a storm, and only by the dock now, because the beaches further out belong to the murlocs. I lost a whole season's blue last year when they took the stretch past the lighthouse. I've a few skeins left, and I'm saving them for someone who'll notice." },
+        { id = "w_fav2_w1", when = { class = "MAGE" }, text = "You'd look well in it, I think; mages always want something dark that isn't black. Let me show you a skein before you go." },
+      },
+      choices = {
+        { text = "I noticed.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Shaldyn.", next = "BACK" },
+      },
     },
   },
 
@@ -621,8 +682,8 @@ P:NPC {
       },
       again = {
         { id = "h_again3", text = "Ask it. I've a hide in the brine and nothing to do but wait on it." },
-        { id = "h_again", text = "Anything else?" },
-        { id = "h_again2", text = "What else?" },
+        { id = "h_again", text = "Anything else? Speak up; I can hear you over the scraping." },
+        { id = "h_again2", text = "What else? I have hides to brine before the tide turns." },
       },
       choices = {
         { text = "Show me what you have.", next = "BUSINESS" },
@@ -632,6 +693,7 @@ P:NPC {
         { text = "Auberdine has changed since the boats came.", next = "town" },
         { text = "I work leather. What's the trick to thistle bear?", next = "xlw", when = { profession = "Leatherworking" } },
         { text = "I hunt these hills. Where are the clean beasts?", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "Who's the best skinner on this coast?", next = "w_best" },
         { text = "Good day.", next = "END" },
       },
     },
@@ -654,6 +716,26 @@ P:NPC {
         { text = "Fair. Quality should be paid for.", next = "BACK", reply = "Exactly. And a skinner who learns that soon earns well.", fx = { align = { honor = 1 } } },
         { text = "A hide's a hide. Pay the same.", next = "BACK", reply = "Then go and sell your murloc-chewed hides elsewhere, friend. I'll be here.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_best = {
+      lines = {
+        { id = "w_best_default", text = "A dwarf, which hurts me to say, named Hollee, who came over with the Ironforge boats and skins like she's opening a letter. She thanks nothing and wastes nothing, and her hides come in so clean I could hang them in the Temple." },
+      },
+      choices = {
+        { text = "She doesn't thank the beasts?", next = "w_best2" },
+        { text = "High praise from you.", next = "w_best2" },
+      },
+    },
+    w_best2 = {
+      lines = {
+        { id = "w_best2_default", text = "Not aloud. I asked her once, and she said she thanks them by not making a mess of it, which is the most kaldorei thing I have ever heard a dwarf say. We get on very well now, though we argue about brine every evening." },
+        { id = "w_best2_w1", when = { race = "Dwarf" }, text = "One of your folk, so you'll know her kind of quiet. Tell her Mavralyn says her last strider was sloppy, and watch her face." },
+      },
+      choices = {
+        { text = "A clean cut is its own thanks.", next = "BACK", fx = { align = { order = 1 } }, reply = "Perhaps. I still say mine aloud, and she still rolls her eyes." },
+        { text = "The beast deserves a word.", next = "BACK", fx = { align = { order = -1 } }, reply = "That's what I tell her. She says I'm talking to leather." },
+        { text = "Something else, Mavralyn.", next = "BACK" },
       },
     },
   },
@@ -903,7 +985,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "Ask, quickly." },
         { id = "h_again2", text = "Speak. I am listening for them, not for you." },
-        { id = "h_again3", text = "What else? Keep your voice down." },
+        { id = "h_again3", text = "What else? Keep your voice down; the furbolgs hear farther than you think." },
       },
       choices = {
         { text = "How did the furbolgs catch a Sentinel?", next = "caught" },
@@ -912,6 +994,7 @@ P:NPC {
         { text = "That last shot was a fine one.", next = "xdone", when = { questDone = TODO_QUEST("One Shot. One Kill.") } },
         { text = "Take half my quiver, Sentinel.", next = "xhunter", when = { class = "HUNTER" } },
         { text = "Sister, why were you sent alone?", next = "xnelf", when = { race = "NightElf" } },
+        { text = "What will you do, if we survive this?", next = "w_after" },
         { text = "Hold fast, Sentinel.", next = "END" },
       },
     },
@@ -985,6 +1068,25 @@ P:NPC {
         { text = "Then I'm glad I took this road. Something else.", next = "BACK", fx = { learn = { "sentinels" } } },
       },
     },
+    w_after = {
+      lines = {
+        { id = "w_after_default", text = "Sleep for a day, then walk to Maestra's Post with whatever word I still remember, and then come back to this ford with three Sentinels and a great many arrows. I will not let them have this crossing." },
+      },
+      choices = {
+        { text = "You'll come back here?", next = "w_after2" },
+        { text = "You should rest longer than a day.", next = "w_after2" },
+      },
+    },
+    w_after2 = {
+      lines = {
+        { id = "w_after2_default", text = "Of course. They waited for me here because they knew it was a good place, and that means they will wait here for the next one. I would rather it was me waiting for them. That is the whole of a Sentinel's art: be where they expect to find a victim, and be something else." },
+        { id = "w_after2_w1", when = { class = "HUNTER" }, text = "You understand that, I think. A hunter who knows the trap is the most dangerous thing in the forest." },
+      },
+      choices = {
+        { text = "Then we'd best survive this.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Hold fast, Sentinel.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -1046,6 +1148,7 @@ P:NPC {
         { text = "What did you tell the Sentinels?", next = "xdone", when = { questDone = TODO_QUEST("Therylune's Escape") } },
         { text = "The earth here is in pain. What lies beneath?", next = "xdruid", when = { class = { "DRUID", "SHAMAN" } } },
         { text = "We'll go out the way I came in. Follow my steps.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Who will you tell first, once you're free?", next = "w_tell" },
         { text = "Be ready. I'll get you out.", next = "END" },
       },
     },
@@ -1119,6 +1222,24 @@ P:NPC {
         { text = "Step where I step. Something else first.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
+    w_tell = {
+      lines = {
+        { id = "w_tell_default", text = "Sentinel Glynda in Auberdine, and then my sister, who told me not to come here and who will be insufferable about it for a century. I have decided to let her, because I was wrong, and because I want very much to see her face." },
+      },
+      choices = {
+        { text = "Your sister warned you?", next = "w_tell2" },
+        { text = "Being wrong isn't so bad, if you live.", next = "w_tell2" },
+      },
+    },
+    w_tell2 = {
+      lines = {
+        { id = "w_tell2_default", text = "She said that watching the Twilight's Hammer from a rock was like watching a fire from inside a haystack. I laughed at her. I shall bring her the list of cultists' names I memorised in here, and then I shall let her say it twice." },
+      },
+      choices = {
+        { text = "She'll be glad you're alive.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Let's go before they notice.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -1183,6 +1304,7 @@ P:NPC {
         { text = "What's it like, teaching night elves?", next = "xdwarf", when = { race = { "Dwarf", "Gnome" } } },
         { text = "My welds crack in the cold. Why?", next = "xsmith", when = { profession = "Blacksmithing" } },
         { text = "Harlon says you've made his armor better.", next = "xnelf", when = { race = "NightElf" } },
+        { text = "What do ye miss most about Ironforge?", next = "w_miss" },
         { text = "Keep the fire hot, Delfrum.", next = "END" },
       },
     },
@@ -1256,6 +1378,25 @@ P:NPC {
         { text = "I'll tell him exactly that. Something else.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    w_miss = {
+      lines = {
+        { id = "w_miss_default", text = "The noise, if ye can believe it. Here it's waves and owls and elves bein' polite, and back home it's the Great Forge roarin' day and night like the mountain's own heartbeat. I sleep badly in the quiet, and I've taken to hammerin' in my sleep, says Harlon." },
+      },
+      choices = {
+        { text = "Will you ever go back?", next = "w_miss2" },
+        { text = "Harlon listens to you sleep?", next = "w_miss2" },
+      },
+    },
+    w_miss2 = {
+      lines = {
+        { id = "w_miss2_default", text = "Some day, aye, when these elves can quench a blade without thankin' it first. That might be a while. Truth be told, I've grown fond o' the place, damp an' all, and I'd miss the lass who sweeps my shop and calls me Master Flint." },
+        { id = "w_miss2_w1", when = { race = "Dwarf" }, text = "Ye'll know the Great Forge, {g:lad|lass}. Next time ye're home, stand by it a minute for me and listen. That's all I ask." },
+      },
+      choices = {
+        { text = "Darkshore's lucky to have you.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Delfrum.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -1306,7 +1447,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Yes? Please, ask. I shall continue pinning." },
-        { id = "h_again2", text = "What else would you know?" },
+        { id = "h_again2", text = "Anything more you wish to know about needle and cloth?" },
         { id = "h_again3", text = "Something further? I am listening." },
       },
       choices = {
@@ -1319,6 +1460,7 @@ P:NPC {
         { text = "Why does my linen pucker at the seam?", next = "xtailor", when = { profession = "Tailoring" } },
         { text = "Shaldyn says you're usually right. It annoys her.", next = "xshaldyn", when = { heardLine = "shaldyn.we2_default" } },
         { text = "Teach me that flame-proof hem.", next = "xmage", when = { class = { "MAGE", "WARLOCK" } } },
+        { text = "Have you ever been satisfied with a garment?", next = "w_satisfied" },
         { text = "Good day, Grondal.", next = "END" },
       },
     },
@@ -1390,6 +1532,26 @@ P:NPC {
       },
       choices = {
         { text = "My own carelessness thanks you. Something else.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+    w_satisfied = {
+      lines = {
+        { id = "w_satisfied_default", text = "Once, a cloak I made for the Sentinel captain of this town, long before the dock, when there were only a few houses here. I finished it at dawn, held it up to the light, and could find nothing wrong with it at all. It was the most frightening moment of my life." },
+      },
+      choices = {
+        { text = "Why frightening?", next = "w_satisfied2" },
+        { text = "What happened to it?", next = "w_satisfied2" },
+      },
+    },
+    w_satisfied2 = {
+      lines = {
+        { id = "w_satisfied2_default", text = "Because a tailor who is satisfied has stopped looking, and I was afraid I would never look again. I unpicked one stitch at the hem, on purpose, and resewed it slightly worse, so that I would always have something to correct. She wore it for four hundred years." },
+        { id = "w_satisfied2_w1", when = { profession = "Tailoring" }, text = "You sew yourself, so you may think me mad. But one day you will finish something perfect, and then you will understand." },
+      },
+      choices = {
+        { text = "That's a strange kind of wisdom.", next = "BACK", fx = { align = { order = -1 } }, reply = "It is, and I would not recommend it to anyone. Except perhaps to Shaldyn." },
+        { text = "Perfect work should be left perfect.", next = "BACK", fx = { align = { order = 1 } }, reply = "Perhaps, for braver tailors than I am." },
+        { text = "Something else, Grondal.", next = "BACK" },
       },
     },
   },
@@ -1468,6 +1630,7 @@ P:NPC {
         { text = "Ironforge is a long way to send for thread.", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "Do you sell honest weight, merchant?", next = "xcraft", when = { profession = { "Tailoring", "Blacksmithing", "Alchemy", "Leatherworking" } } },
         { text = "Do the night elves treat a dwarf trader fairly?", next = "dw_elves" },
+        { text = "How did your family get into trade?", next = "w_family" },
         { text = "Good trading, Gorbold.", next = "END" },
       },
     },
@@ -1548,6 +1711,25 @@ P:NPC {
         { text = "High but honest. Fair enough. Something else.", next = "BACK" },
       },
     },
+    w_family = {
+      lines = {
+        { id = "w_family_default", text = "My great-great-grandmother sold picks to the miners in the Deeprun, back when there was no tram and ye walked it wi' a lantern. She said a dwarf who sells picks never goes hungry, because there's always someone who's broken one, and she was right." },
+      },
+      choices = {
+        { text = "And how did you end up here?", next = "w_family2" },
+        { text = "A good motto for a merchant.", next = "w_family2" },
+      },
+    },
+    w_family2 = {
+      lines = {
+        { id = "w_family2_default", text = "Drew the short straw at the family table, didnae I? Nobody else wanted the elf country, wi' its damp and its trees. I've grown to like it, mind, apart from the sea eatin' my ships, and I'd not tell my cousins that for all the ore in Khaz Modan." },
+        { id = "w_family2_w1", when = { race = "Dwarf" }, text = "Ye'll know a family like mine, {g:lad|lass}, all ledgers and beards and arguin' over the dinner. Mine's no' worse than most." },
+      },
+      choices = {
+        { text = "Your secret's safe with me.", next = "BACK", fx = { trait = { discreet = 1 } } },
+        { text = "Something else, Gorbold.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -1598,7 +1780,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Ask away. Trade's slow till the boat's in." },
-        { id = "h_again2", text = "Go on." },
+        { id = "h_again2", text = "Go on, then. Kurdram's off teachin', so I've time." },
         { id = "h_again3", text = "Somethin' else? I'm only sortin' wedges." },
       },
       choices = {
@@ -1611,6 +1793,7 @@ P:NPC {
         { text = "Where's the tin, exactly?", next = "xminer", when = { profession = "Mining" } },
         { text = "Stone does mind, sometimes. We listen for it.", next = "xnelf", when = { race = "NightElf" } },
         { text = "Any word of the League's dig up the coast?", next = "xdwarf", when = { race = { "Dwarf", "Gnome" } } },
+        { text = "What's Kurdram like as a teacher?", next = "w_kurdram" },
         { text = "Good day, Thelgrum.", next = "END" },
       },
     },
@@ -1682,6 +1865,25 @@ P:NPC {
         { text = "Lost again. That's the League. Something else.", next = "BACK", fx = { learn = { "explorers_league" } } },
       },
     },
+    w_kurdram = {
+      lines = {
+        { id = "w_kurdram_default", text = "Slow, patient and maddenin', and he's got more elf students than dwarf ones now, which he says is because the elves listen. I say it's because the dwarves already know everything, which is half the trouble wi' us." },
+      },
+      choices = {
+        { text = "Do the elves make good miners?", next = "w_kurdram2" },
+        { text = "You sound proud of him.", next = "w_kurdram2" },
+      },
+    },
+    w_kurdram2 = {
+      lines = {
+        { id = "w_kurdram2_default", text = "Better than I'd have bet a silver on. They dinnae rush, they dinnae waste, and they stop when the rock tells them to. Kurdram's best student is an elf lass who can find a vein by listenin', and I've no idea how she does it, but I've stopped arguin'." },
+        { id = "w_kurdram2_w1", when = { race = "NightElf" }, text = "No offence meant, {g:lad|lass}. I'd have said your folk couldnae swing a pick to save themselves, and I've been proven wrong twice a week since." },
+      },
+      choices = {
+        { text = "Everyone has something to learn.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Thelgrum.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -1732,7 +1934,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Is there anything else? I am in no hurry." },
-        { id = "h_again2", text = "Please, ask." },
+        { id = "h_again2", text = "Please, ask. The boat is late again, so I have time." },
         { id = "h_again3", text = "Something more? The boat is not due till evening." },
       },
       choices = {
@@ -1744,7 +1946,46 @@ P:NPC {
         { text = "Do you make your own dyes?", next = "dyes" },
         { text = "Which thread would you use for heavy wool?", next = "xtailor", when = { profession = "Tailoring" } },
         { text = "Is there truly less coming from Darnassus?", next = "xnelf", when = { race = "NightElf" } },
+        { text = "Is Auberdine changing, with so many outlanders?", next = "vd_change" },
+        { text = "What do travelers tear, mostly?", next = "vd_tear" },
+        { text = "What would you do if the boats stopped altogether?", next = "w_stop" },
         { text = "Good day, Valdaron.", next = "END" },
+      },
+    },
+    vd_change = {
+      lines = {
+        { id = "vd_change_1", text = "It is, though slowly, as all things change here. Ten years ago I sold only to kaldorei, and now I sell wool to dwarves and linen to humans, and Gorbold sells my thread with a ribbon on it, which still astonishes me." },
+      },
+      choices = {
+        { text = "Does it trouble the older elves?", next = "vd_older" },
+        { text = "Outlanders bring trade, at least.", next = "BACK", reply = "They do, and they are kind customers, mostly." },
+      },
+    },
+    vd_older = {
+      lines = {
+        { id = "vd_older_1", text = "Some, though they do not say so to outlanders. Thundris Windweaver says the Alliance is a necessity, and Gershala Nightwhisper says it is a gift, and I think they are both right, which I find comforting." },
+      },
+      choices = {
+        { text = "Both right. That's a wise view.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Valdaron.", next = "BACK" },
+      },
+    },
+    vd_tear = {
+      lines = {
+        { id = "vd_tear_1", text = "Cloaks on the brambles near the Bashal'Aran ruins, and sleeves on the furbolgs' claws. The Blackwood furbolgs were friends to us once, and now I mend more tears from their claws than from any thorn." },
+      },
+      choices = {
+        { text = "The Blackwood furbolgs are dangerous now?", next = "vd_furbolg" },
+        { text = "I'm a tailor. I'd mend the sleeves myself.", next = "vd_furbolg", when = { profession = "Tailoring" } },
+      },
+    },
+    vd_furbolg = {
+      lines = {
+        { id = "vd_furbolg_1", text = "Very, and no one knows why, though Thundris Windweaver says something has poisoned their food. It grieves me, for they traded honey with Auberdine for many years, and I miss the honey almost as much as the peace." },
+      },
+      choices = {
+        { text = "I'll ask Thundris about it.", next = "BACK", fx = { learn = { "furbolgs" } } },
+        { text = "Something else, then.", next = "BACK" },
       },
     },
     boats = {
@@ -1809,6 +2050,25 @@ P:NPC {
         { text = "I'll speak for Auberdine when I'm there. Something else.", next = "BACK" },
       },
     },
+    w_stop = {
+      lines = {
+        { id = "w_stop_default", text = "Weave, I suppose, though I have not done it in years. My mother wove linen in Ameth'Aran before it fell, and she taught me, and I gave it up when trade became easier. I have been thinking lately that I should take it up again." },
+      },
+      choices = {
+        { text = "Why now?", next = "w_stop2" },
+        { text = "Ameth'Aran must have been lovely.", next = "w_stop2" },
+      },
+    },
+    w_stop2 = {
+      lines = {
+        { id = "w_stop2_default", text = "Because Auberdine depends on boats that are turning back more often, and a town that cannot clothe itself is only a waiting room. I have bought a small loom from Gorbold, and it is in my back room, and I look at it every evening and do nothing." },
+        { id = "w_stop2_w1", when = { profession = "Tailoring" }, text = "You sew; perhaps you weave as well. If you ever have an evening, come and tell me how to begin again. I have forgotten more than I like." },
+      },
+      choices = {
+        { text = "Start with one row.", next = "BACK", fx = { trait = { practical = 1 } } },
+        { text = "Something else, Valdaron.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -1862,7 +2122,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else would you ask? Softly, the owl is sleeping." },
         { id = "h_again2", text = "Go on. I can listen while I fill the troughs." },
-        { id = "h_again3", text = "Something more?" },
+        { id = "h_again3", text = "Something more? The old saber at the end likes company." },
       },
       choices = {
         { text = "A companion should be treated as kin.", next = "BACK", reply = "That is how I treat them. I am glad you agree.", fx = { align = { light = 1 } } },
@@ -1876,6 +2136,7 @@ P:NPC {
         { text = "Which companions do Sentinel hunters favour?", next = "hnt_sent", when = { class = "HUNTER" } },
         { text = "My companion has been with me since Teldrassil.", next = "hnt_tel", when = { class = "HUNTER", race = "NightElf" } },
         { text = "A Horde hunter would never get a stall here, I suppose.", next = "hnt_horde", when = { class = "HUNTER", minLevel = 15 } },
+        { text = "What's the strangest beast ever left with you?", next = "w_strange" },
         { text = "Thank you, Jaelysia.", next = "END" },
       },
     },
@@ -1961,6 +2222,25 @@ P:NPC {
       choices = {
         { text = "A beast is a beast. I'd feed it too.", next = "BACK", reply = "Then we understand each other, and we will keep it between us.", fx = { align = { honor = 1 } } },
         { text = "Their beasts carry their riders. I'd turn it away.", next = "BACK", reply = "Spoken like a Sentinel. I will not argue it, but I will not change my mind either.", fx = { align = { honor = -1 } } },
+      },
+    },
+    w_strange = {
+      lines = {
+        { id = "w_strange_default", text = "A tortoise, from a gnome hunter who swore it was the fastest tortoise in Dun Morogh. He left it with me for three weeks while he went to Ashenvale, and it ate all my lettuce and bit two sabers on the nose." },
+      },
+      choices = {
+        { text = "Did he come back for it?", next = "w_strange2" },
+        { text = "Brave tortoise.", next = "w_strange2" },
+      },
+    },
+    w_strange2 = {
+      lines = {
+        { id = "w_strange2_default", text = "He did, very sunburnt, and the tortoise walked straight to him across the whole yard without stopping. It took most of an afternoon. The sabers watched the whole thing with great respect, and I have never doubted a gnome's word since." },
+        { id = "w_strange2_w1", when = { race = "Gnome" }, text = "Your people have a way with unlikely companions, I think. Is it true that one of you tamed a mechanical spider? I was told so and did not believe it." },
+      },
+      choices = {
+        { text = "Every beast has its pride.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else, Jaelysia.", next = "BACK" },
       },
     },
   },

@@ -51,6 +51,7 @@ P:NPC {
         { text = "What did the flute do to you?", next = "flute" },
         { text = "Can Felwood be healed?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I carry what burned this place, and I'll still lead you home.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What do you remember of your own fall?", next = "w_fall" },
         { text = "Rest a while, Arei.", next = "END" },
       },
     },
@@ -136,6 +137,25 @@ P:NPC {
       choices = {
         { text = "Thank you, Arei.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_fall = {
+      lines = {
+        { id = "w_fall_default", text = "The heat first, and then the green fire running along my roots like water. I tried to hold my branches up so that the birds could leave, and most of them did. When the fire reached my heart, I stopped feeling the birds at all." },
+      },
+      choices = {
+        { text = "The birds got away?", next = "w_fall2" },
+        { text = "That must have been terrible.", next = "w_fall2" },
+      },
+    },
+    w_fall2 = {
+      lines = {
+        { id = "w_fall2_default", text = "Most of them. Some come back, even now, and sit on what is left of me, and I cannot feel them, but I can see them. They are the only things in this forest that look at me without fear. I would like them to have somewhere better to sit." },
+        { id = "w_fall2_w1", when = { class = "DRUID" }, text = "You have worn a bird's shape, perhaps. Then you will understand why I held my branches up. A tree is only a perch, in the end, and a perch should not burn." },
+      },
+      choices = {
+        { text = "Then let's find them a better place.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Rest a while, Arei.", next = "BACK" },
       },
     },
   },

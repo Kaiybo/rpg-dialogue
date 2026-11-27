@@ -216,12 +216,31 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_first = {
+      lines = {
+        { id = "w3_first_1", text = "Gloves, nine times in ten, before they've so much as asked where they are. The first thing a body notices after the grave is its own hands, and most would rather not keep looking at them." },
+        { id = "w3_first_2", when = { race = "Scourge" }, text = "Gloves, nine times in ten, and you may have done the same, so I'll not make a joke of it. The hands are what you notice first, coming up out of the earth, and most would rather not keep noticing." },
+      },
+      choices = {
+        { text = "And the tenth?", next = "w3_tenth" },
+        { text = "Gloves seem a small comfort.", next = "BACK", reply = "Small comforts are the only sort we stock out here. The large ones are in the Undercity, and they cost more." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_tenth = {
+      lines = {
+        { id = "w3_tenth_1", text = "The tenth asks for a mirror, and I keep one under the counter with a cloth over it. I've never once seen anyone look in it and smile, but I've seen a few stand up straighter afterwards, and that's worth the glass." },
+      },
+      choices = {
+        { text = "That's a kind thing to keep. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Archibald Kava, cloth and leather, for those who woke in the Deathknell graves with nothing but a burial shroud. You've moved on from the shroud, I see, and I've something better if you have the coin." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I've seams to finish." },
+        { id = "h_again", text = "Anything else? I've seams to finish, and these risen keep splitting them." },
       },
       choices = {
         { text = "A tailor should say where his cloth came from, Scarlet or not.", next = "BACK", reply = "I do, and I unpick the red myself. Folk deserve to know they're wearing a dead Crusader's coat.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -234,6 +253,7 @@ P:NPC {
         { text = "What would suit someone like me?", next = "fit" },
         { text = "Have you anything in my size, tailor?", next = "xbig", when = { race = { "Tauren", "Orc", "Troll" } } },
         { text = "I need leather that doesn't creak.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What do the newly risen ask for first?", next = "w3_first" },
         { text = "I'll go.", next = "END" },
       },
     },

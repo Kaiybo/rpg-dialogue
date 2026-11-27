@@ -35,6 +35,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_dng = {
+      lines = { { id = "w8_dng_a", text = "Mikhail, behind the bar, because he hears everything and forgets nothing and pours the drinks that loosen tongues. After him, the quiet dwarf by the fire who's been nursing the same mug for three hours, because nobody drinks that slowly unless they're working." } },
+      choices = {
+        { text = "Who's the dwarf working for?", next = "w8_dng2" },
+        { text = "And where do you rank, Slim?", next = "w8_dng2" },
+        { text = "A rogue would sit by the fire too.", next = "w8_dng2", when = { class = "ROGUE" } },
+        { text = "Something else, Slim.", next = "BACK" },
+      },
+    },
+    w8_dng2 = {
+      lines = {
+        { id = "w8_dng2_a", text = "I've no idea, friend, and that's what makes him dangerous. Me, I'm the least dangerous man in the room, which is a reputation I've worked very hard for and intend to keep." },
+        { id = "w8_dng2_rog", when = { class = "ROGUE" }, text = "Exactly, which is why I sit by the door and you're sitting with me. Between the two of us we've covered both exits, friend, and that's the closest thing to friendship our trade allows." },
+      },
+      choices = {
+        { text = "I'll keep an eye on the dwarf.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -58,6 +78,7 @@ P:NPC {
         { text = "What brings you to Menethil?", next = "menethil" },
         { text = "Why do you sit by the door?", next = "door" },
         { text = "How does a rogue earn a living here?", next = "trade", when = { class = "ROGUE" } },
+        { text = "Who's the most dangerous person in this tavern?", next = "w8_dng" },
         { text = "Enjoy your drink, Slim.", next = "END" },
       },
     },
@@ -187,6 +208,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_wst = {
+      lines = { { id = "w8_wst_a", text = "A guard with a crocolisk's tooth broken off in his calf, still in there, an inch and a half long, and he'd walked from the marsh on it! I extracted it with a pair of pliers I'd adjusted for the angle, and he kept the tooth on a string, which was a much better outcome than he deserved." } },
+      choices = {
+        { text = "Pliers? That sounds painful.", next = "w8_wst2" },
+        { text = "He's lucky you were here.", next = "w8_wst2" },
+        { text = "I'm a gnome too. What did you adjust on the pliers?", next = "w8_wst2", when = { race = "Gnome" } },
+        { text = "Something else, Fremal.", next = "BACK" },
+      },
+    },
+    w8_wst2 = {
+      lines = {
+        { id = "w8_wst2_a", text = "Extremely, but only for four seconds, which I timed, and a bandage done properly takes the rest of the pain away in a day. People think healing is gentle, but sometimes it's just very quick violence followed by very careful linen." },
+        { id = "w8_wst2_gn", when = { race = "Gnome" }, text = "The jaw angle, twelve degrees, and a little ratchet so they wouldn't slip, which nobody here appreciated at all! You'd have appreciated it, I can tell, so come by later and I'll show you the drawings." },
+      },
+      choices = {
+        { text = "Quick violence, careful linen. Noted.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -197,7 +238,7 @@ P:NPC {
           text = "A healer, and you still want bandages? Good, because the Light gets tired and the linen never does." },
       },
       again = {
-        { id = "h_again", text = "What else? Ask quickly, I've a sailor upstairs with a fishhook in his thumb." },
+        { id = "h_again", text = "What else? Ask quickly, I've a sailor upstairs with a fishhook in his thumb and a very precise plan for getting it out." },
       },
       choices = {
         { text = "A healer should tend anyone who's hurt, whoever they are.", next = "BACK", reply = "Exactly so, and I'd bandage a Dark Iron if he stumbled in bleeding, though I'd watch his hands.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -206,7 +247,65 @@ P:NPC {
         { text = "How does a gnome end up in Menethil?", next = "past" },
         { text = "What wounds do you see here?", next = "wounds" },
         { text = "Where can I learn more after you?", next = "further" },
+        { text = "Who are your patients, mostly?", next = "fd_patients" },
+        { text = "You talk about bandages like engineering.", next = "fd_engine" },
+        { text = "What's the worst wound you've ever patched?", next = "w8_wst" },
         { text = "Thanks, Fremal.", next = "END" },
+      },
+    },
+    fd_patients = {
+      lines = {
+        { id = "fd_patients_1", text = "Sailors with fishhooks, guards with gnoll bites, and the odd dwarf who tried to pet a crocolisk, which happens more often than you'd think. Captain Stoutfist sends me the worst of them from the wall, and I've stitched more Dragonmaw arrow wounds this season than in the last three put together." },
+      },
+      choices = {
+        { text = "More arrow wounds? The fighting's getting worse.", next = "fd_worse" },
+        { text = "Who tries to pet a crocolisk?", next = "BACK", reply = "Dwarves, after four ales at Helbrek's, and only once each." },
+      },
+    },
+    fd_worse = {
+      lines = {
+        { id = "fd_worse_1", text = "It is, and you can read it in the wounds, which is a grim sort of science but a reliable one. The arrows used to come from far off and glance, and now they come from close and go deep, so the orcs are getting bolder or the guards are getting fewer." },
+      },
+      choices = {
+        { text = "Or both. What do you need most?", next = "fd_need" },
+        { text = "I'll carry bandages when I go north.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    fd_need = {
+      lines = {
+        { id = "fd_need_1", text = "Linen, and plenty of it, for the damp rots a dressing in half a day and I change them twice as often as I would in Ironforge. If you learn the craft, you'll never want for practice in this harbor, and you'll save a guard or two besides." },
+      },
+      choices = {
+        { text = "Linen and practice. I'll bring both.", next = "BACK" },
+        { text = "I'm a priest, but I'll learn the cloth too.", next = "BACK", when = { class = "PRIEST" }, reply = "Good, for the Light runs out of breath before linen runs out of length." },
+        { text = "That's a sobering thought. Something else.", next = "BACK" },
+      },
+    },
+    fd_engine = {
+      lines = {
+        { id = "fd_engine_1", text = "Because it is engineering, really, just with softer materials and a much less forgiving test subject. Tension, pressure, layering, drainage, and the bandage has to hold for nine hours while the patient insists on walking about on it." },
+      },
+      choices = {
+        { text = "Drainage? I hadn't thought of that.", next = "fd_drain" },
+        { text = "A gnome would see it that way.", next = "BACK", reply = "And a gnome would be right, which is the usual pattern." },
+      },
+    },
+    fd_drain = {
+      lines = {
+        { id = "fd_drain_1", text = "Nobody does, and that's why wounds go bad in the Wetlands, because everything here is wet and the wet gets under the cloth. I wrap in three layers, dry linen, wool, and then oilcloth from Gruham Rumdnul's shop, and my patients keep their fingers at a ninety percent rate." },
+      },
+      choices = {
+        { text = "Ninety percent seems high for a marsh.", next = "fd_rate" },
+        { text = "I'll buy oilcloth from Gruham, then.", next = "BACK" },
+      },
+    },
+    fd_rate = {
+      lines = {
+        { id = "fd_rate_1", text = "It's very high, and I'm rather proud of it, though the other ten percent were mostly the crocolisk dwarves. In Gnomeregan I'd have written a paper about it, but here I just tell Bethaine at the stable, and she tells the horses." },
+      },
+      choices = {
+        { text = "Then let me tell you it's impressive.", next = "BACK", fx = { affinity = 1 } },
+        { text = "The horses must be very well informed. Something else.", next = "BACK" },
       },
     },
     past = {
@@ -271,6 +370,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_tch = {
+      lines = { { id = "w8_tch_a", text = "To kneel and wait before they cut anything, and to look at the plant as if it might look back. The humans find it foolish, and the dwarves find it slow, and the ones who do it anyway become the best gatherers in the harbor." } },
+      choices = {
+        { text = "Why does waiting matter?", next = "w8_tch2" },
+        { text = "It does sound a little foolish.", next = "w8_tch2" },
+        { text = "I've done it the druid's way since I was young.", next = "w8_tch2", when = { class = "DRUID" } },
+        { text = "Something else, Telurinon.", next = "BACK" },
+      },
+    },
+    w8_tch2 = {
+      lines = {
+        { id = "w8_tch2_a", text = "Because in the moment of waiting you see the root, the seed head and the young shoot beside it, and you take the one that can be spared. A hasty hand takes all three and comes back next season to an empty bank." },
+        { id = "w8_tch2_dr", when = { class = "DRUID" }, text = "Then you have little to learn from me, and much to remind my other students of. Come and kneel beside them one morning, druid, and they will believe you sooner than they believe an old elf." },
+      },
+      choices = {
+        { text = "I'll practice the waiting.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -281,7 +400,7 @@ P:NPC {
           text = "A druid of the Circle, here among the reeds. You will know already that a plant cut carelessly does not grow back as it was." },
       },
       again = {
-        { id = "h_again", text = "Is there something more? I have time, as my people always do." },
+        { id = "h_again", text = "Is there something more? The herbs on the racks dry slowly, and I have learned to keep their pace." },
       },
       choices = {
         { text = "An herbalist takes only what the marsh can spare.", next = "BACK", reply = "That is the Kaldorei way, and it is good to hear it in a human harbor.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -289,7 +408,65 @@ P:NPC {
         { text = "Teach me herbalism.", next = "BUSINESS" },
         { text = "Why would a night elf live in Menethil?", next = "why" },
         { text = "What grows in the Wetlands?", next = "herbs" },
+        { text = "Do you work with Dewin Shimmerdawn?", next = "tm_dewin" },
+        { text = "What does the marsh need from those who gather here?", next = "tm_need" },
+        { text = "What do you teach first to a new herbalist?", next = "w8_tch" },
         { text = "Farewell.", next = "END" },
+      },
+    },
+    tm_dewin = {
+      lines = {
+        { id = "tm_dewin_1", text = "We share the harbor and our evenings, and he sells the alchemists what my students gather. Dewin is young, by our reckoning, and he finds this place beautiful, which I did not, at first." },
+      },
+      choices = {
+        { text = "And now you do?", next = "tm_now" },
+        { text = "He told me you're the stricter of the two.", next = "tm_now", reply = "He would say so, and he would be right." },
+      },
+    },
+    tm_now = {
+      lines = {
+        { id = "tm_now_1", text = "Now I find it honest, which is a different thing. The marsh hides nothing, for it floods and rots and blooms in the open, and after the long patience of Ashenvale I have come to find that restful." },
+      },
+      choices = {
+        { text = "What blooms best when it floods?", next = "tm_bloom" },
+        { text = "An honest place. I see what you mean.", next = "BACK" },
+      },
+    },
+    tm_bloom = {
+      lines = {
+        { id = "tm_bloom_1", text = "Mageroyal in the dry patches, and briarthorn along the banks, and further in, toward Thelgen Rock, the grave moss that the dwarves do not like to touch. Take each where it grows thickest and leave the thin patches to recover." },
+      },
+      choices = {
+        { text = "Thickest first, thin patches left. I'll remember.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I've no wish to touch grave moss either.", next = "BACK" },
+      },
+    },
+    tm_need = {
+      lines = {
+        { id = "tm_need_1", text = "Restraint, mostly, and that is a hard thing to ask of people who see only mud. The dwarves dig and the gnolls trample and the murlocs strip the reed beds, and the marsh recovers from all of them, but slowly." },
+      },
+      choices = {
+        { text = "The murlocs strip the reeds?", next = "tm_murlocs" },
+        { text = "I'm a druid. I feel how worn the land is.", next = "tm_murlocs", when = { class = "DRUID" } },
+        { text = "Restraint is easier to ask than give.", next = "BACK" },
+      },
+    },
+    tm_murlocs = {
+      lines = {
+        { id = "tm_murlocs_1", text = "They build their villages from them, along the Bluegill shore, and they have built many more this season than the last. Something drives them inland from the sea, though I cannot say what, and where they settle the reeds do not return for years." },
+      },
+      choices = {
+        { text = "Something drives them? That's ominous.", next = "tm_drive" },
+        { text = "Fewer murlocs would mean more reeds.", next = "BACK" },
+      },
+    },
+    tm_drive = {
+      lines = {
+        { id = "tm_drive_1", text = "Perhaps, or perhaps they have only multiplied, as murlocs will. Harold Riggs the fisherman watches the bay more closely than I do, and he says the fish have moved as well, so I would ask him before I would ask the stars." },
+      },
+      choices = {
+        { text = "I'll ask Harold Riggs about the fish.", next = "BACK" },
+        { text = "Fish and murlocs both moving. Something else.", next = "BACK" },
       },
     },
     why = {
@@ -348,6 +525,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_lost = {
+      lines = { { id = "w8_lost_a", text = "One, an' I'll no' forget it, a hunter's cat that slipped its stall in a storm an' went for the water. We found it by the dock in the mornin', drowned, an' I've had iron latches on every stall since." } },
+      choices = {
+        { text = "That wasn't your fault.", next = "w8_lost2" },
+        { text = "What did the hunter say?", next = "w8_lost2" },
+        { text = "Something else, Bethaine.", next = "BACK" },
+      },
+    },
+    w8_lost2 = {
+      lines = { { id = "w8_lost2_a", text = "He said nothin' at all, which was worse than shoutin', an' then he paid his bill an' left. I've been the hardest stable master in the Wetlands ever since, an' if ye think I'm fierce about mud, that's why." } },
+      choices = {
+        { text = "Your beasts are lucky to have you.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -356,13 +549,71 @@ P:NPC {
           text = "A hunter! Bring yer beast in, an' tell me if it's been near the murlocs, for I'll no' have that smell in my barn." },
       },
       again = {
-        { id = "h_again", text = "What else? Make it quick, the hay's gettin' damp just listenin' tae us." },
+        { id = "h_again", text = "What else? Make it quick, for the hay's gettin' damp just listenin' tae us, an' I'll no' pay for more." },
       },
       choices = {
         { text = "I need to stable a pet.", next = "BUSINESS" },
         { text = "How do you keep anything dry here?", next = "dry" },
         { text = "What troubles the animals here?", next = "trouble" },
+        { text = "What animals do you keep here?", next = "bf_keep" },
+        { text = "You look at owners like suspects.", next = "bf_owners" },
+        { text = "Have you ever lost a beast in your care?", next = "w8_lost" },
         { text = "Good day, Bethaine.", next = "END" },
+      },
+    },
+    bf_keep = {
+      lines = {
+        { id = "bf_keep_1", text = "Rams from Dun Morogh, horses from Stormwind, the odd hunter's cat or boar, an' once a bear that wouldnae stop eatin' the hay. Every one o' them hates the damp, an' every one o' them tells me so in its own language." },
+      },
+      choices = {
+        { text = "Which takes the Wetlands worst?", next = "bf_worst" },
+        { text = "A bear eating hay? That must have been a sight.", next = "BACK", reply = "It was, an' it cost me a week's fodder an' my good temper." },
+      },
+    },
+    bf_worst = {
+      lines = {
+        { id = "bf_worst_1", text = "The rams, without a doubt, for they're mountain beasts an' they get foot rot in a fortnight. I keep them on dry straw an' trim their hooves every third day, an' I curse every dwarf who rode one down from Loch Modan without a thought." },
+      },
+      choices = {
+        { text = "What would you have them ride instead?", next = "bf_ride" },
+        { text = "I ride a ram myself. I'll mind its hooves.", next = "BACK", when = { race = "Dwarf" }, reply = "See that ye do, for it carries ye an' cannae complain." },
+      },
+    },
+    bf_ride = {
+      lines = {
+        { id = "bf_ride_1", text = "Their own two feet, an' let the ram stay home in the hills where it belongs. Unger Statforth sells horses at the stable by the keep, an' a horse at least kens what mud is, though he'll tell ye they're all perfect." },
+      },
+      choices = {
+        { text = "I'll ask Unger about his horses.", next = "BACK" },
+        { text = "Two feet it is, then. Something else.", next = "BACK" },
+      },
+    },
+    bf_owners = {
+      lines = {
+        { id = "bf_owners_1", text = "Because the owner's the one who left the beast wet an' unfed for three days in the marsh, an' then wonders why it's coughin'. I've never met an animal that neglected itself, but I've met a great many owners who did." },
+      },
+      choices = {
+        { text = "That's harsh, but probably fair.", next = "bf_fair" },
+        { text = "I'm a hunter. My pet eats before I do.", next = "bf_fair", when = { class = "HUNTER" } },
+        { text = "I'll take better care, then.", next = "BACK" },
+      },
+    },
+    bf_fair = {
+      lines = {
+        { id = "bf_fair_1", text = "It's fair, for I've seen what the marsh does tae a beast left standin' in it. Feed it, dry it, check its feet, an' it'll carry ye through Dun Modr an' back, which is more than most people would do for ye." },
+      },
+      choices = {
+        { text = "Dry, fed, feet checked. Noted.", next = "bf_last" },
+        { text = "Animals are better company than people, sometimes.", next = "BACK", reply = "Most times, I'd say, an' quieter about it." },
+      },
+    },
+    bf_last = {
+      lines = {
+        { id = "bf_last_1", text = "An' one more thing, keep it away from the water's edge after dark, for the crocolisks take a pony as gladly as a fish. I lost a good horse that way my first season here, an' I've no' forgiven the bay for it." },
+      },
+      choices = {
+        { text = "I'm sorry about your horse.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Away from the water. Something else.", next = "BACK" },
       },
     },
     dry = {
@@ -421,6 +672,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_mrl = {
+      lines = { { id = "w8_mrl_a", text = "Steal it, eat it and once tried to sell it back to me, if you'll believe it, or that's how it looked with all the gurgling. I keep a club by the bait barrel now, and the gulls are more of a menace than the murlocs these days." } },
+      choices = {
+        { text = "A murloc tried to sell you fish?", next = "w8_mrl2" },
+        { text = "Gulls worse than murlocs?", next = "w8_mrl2" },
+        { text = "I fish. Do the murlocs scare off the bass?", next = "w8_mrl2", when = { profession = "Fishing" } },
+        { text = "Something else, Stuart.", next = "BACK" },
+      },
+    },
+    w8_mrl2 = {
+      lines = {
+        { id = "w8_mrl2_a", text = "It held it out and waved it, and I'll swear it looked hopeful, but I wasn't paying a murloc for my own snapper. The gulls just take it and laugh, and you can't hit a gull with a club, I've tried more than I'd like to admit." },
+        { id = "w8_mrl2_fish", when = { profession = "Fishing" }, text = "They scare off everything near the Bluegill shore, which is why the best bass are off this dock at dawn, before they wake. Cast long and quiet, and if you hear gurgling, reel in and walk away." },
+      },
+      choices = {
+        { text = "I'll mind the gulls.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -437,7 +708,64 @@ P:NPC {
         { text = "Show me what you sell.", next = "BUSINESS" },
         { text = "Where's the best fishing?", next = "spots" },
         { text = "What's that wreck in the bay?", next = "wreck" },
+        { text = "Who buys your fish?", next = "sf_buyers" },
+        { text = "Tell me a fishing story.", next = "sf_story" },
+        { text = "Do the murlocs ever steal your catch?", next = "w8_mrl" },
         { text = "So long, Stuart.", next = "END" },
+      },
+    },
+    sf_buyers = {
+      lines = {
+        { id = "sf_buyers_1", text = "Helbrek takes the most, for the Deepwater's stew, and the keep takes the rest in salt barrels for the soldiers. The elven sailors won't touch it, which is a pity, for a Baradin Bay snapper is as good as anything in the sea." },
+      },
+      choices = {
+        { text = "Why won't the elves eat it?", next = "sf_elves" },
+        { text = "I'll try a snapper, then.", next = "BACK", reply = "You'll not regret it, friend, so long as it's fresh." },
+      },
+    },
+    sf_elves = {
+      lines = {
+        { id = "sf_elves_1", text = "Something to do with the way we cook it, I think, for they say we drown it in salt and fat. I've told them the salt keeps it from rotting in this weather, and they look at me like I've said something sad." },
+      },
+      choices = {
+        { text = "Their food must be very different.", next = "sf_diff" },
+        { text = "Night elves are particular about food.", next = "sf_diff", when = { race = "NightElf" }, reply = "Particular is a kind word for it, but you'd know better than me." },
+      },
+    },
+    sf_diff = {
+      lines = {
+        { id = "sf_diff_1", text = "Everything grilled on a leaf with some herb I can't name, from what they tell me. I tried it once, and I'll admit it wasn't bad, though I wouldn't want to eat it every day with the wind off the bay." },
+      },
+      choices = {
+        { text = "Grilled on a leaf. I might try that.", next = "BACK" },
+        { text = "Salt and fat for me. Something else.", next = "BACK" },
+      },
+    },
+    sf_story = {
+      lines = {
+        { id = "sf_story_1", text = "My father once hooked something in the bay so large it towed his boat halfway to the wreck before the line snapped. He swore it had a face like a drowned man, and he never fished past the point again." },
+      },
+      choices = {
+        { text = "Do you believe him?", next = "sf_believe" },
+        { text = "Every fisherman has a story like that.", next = "sf_believe", reply = "They do, but mine's true, and that's the difference." },
+      },
+    },
+    sf_believe = {
+      lines = {
+        { id = "sf_believe_1", text = "I believe he saw something, and I believe the bay is deeper than people think. Harold Riggs says the old fishermen in Lordaeron told the same stories about their own waters, so maybe it's just the sea being the sea." },
+      },
+      choices = {
+        { text = "The sea keeps its secrets.", next = "sf_secret" },
+        { text = "Or maybe there's something down there.", next = "sf_secret" },
+      },
+    },
+    sf_secret = {
+      lines = {
+        { id = "sf_secret_1", text = "It does, and I'd rather not go looking for them. I fish the shallows by the harbor where the snapper are fat and the water's clear, and I come home every night, which is the best kind of fishing story there is." },
+      },
+      choices = {
+        { text = "That's a fine way to live.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll leave the deep water alone. Something else.", next = "BACK" },
       },
     },
     spots = {
@@ -499,6 +827,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_mtn = {
+      lines = { { id = "w8_mtn_a", text = "New straps, every time, for the Wetlands eats leather faster than it eats steel. Thar an' his lads come down from Dun Algaz wi' their buckles hangin' by a thread, an' I tell them off like a grandmother an' they take it like grandsons." } },
+      choices = {
+        { text = "Do they listen to you?", next = "w8_mtn2" },
+        { text = "A strap's a small thing to fuss over.", next = "w8_mtn2" },
+        { text = "I'm a warrior. My straps take a beating too.", next = "w8_mtn2", when = { class = "WARRIOR" } },
+        { text = "Something else, Brahnmar.", next = "BACK" },
+      },
+    },
+    w8_mtn2 = {
+      lines = {
+        { id = "w8_mtn2_a", text = "No' a word, but they come back, so somethin' sticks. A strap's a small thing till yer breastplate falls off in front o' a Dragonmaw axe, an' then it's the only thing in the world." },
+        { id = "w8_mtn2_war", when = { class = "WARRIOR" }, text = "I can see that from here, an' it's a disgrace. Off wi' it an' onto the bench, for I'll no' have a warrior walk out o' my shop wi' a buckle that's held on by hope." },
+      },
+      choices = {
+        { text = "I'll take better care of my straps.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -507,7 +855,7 @@ P:NPC {
           text = "Heavy armour on ye, an' some o' it's been through the wars, I'd say. Off wi' it, let me see the straps." },
       },
       again = {
-        { id = "h_again", text = "What else? I'm oilin' either way, so talk." },
+        { id = "h_again", text = "What else? I'm oilin' this mail either way, so talk while I work." },
       },
       choices = {
         { text = "A smith should tell you plainly when a blade's past saving.", next = "BACK", reply = "Aye, an' I'll tell ye even if it costs me a sale, for rust doesnae lie.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -515,7 +863,65 @@ P:NPC {
         { text = "Let me see your armor.", next = "BUSINESS" },
         { text = "How do you fight the rust?", next = "rust" },
         { text = "Who buys armor here?", next = "buyers" },
+        { text = "Do you work with Brak Durnad?", next = "bm_brak" },
+        { text = "What's the hardest armour to keep in this weather?", next = "bm_hard" },
+        { text = "What do the Mountaineers ask you for most?", next = "w8_mtn" },
         { text = "Good day.", next = "END" },
+      },
+    },
+    bm_brak = {
+      lines = {
+        { id = "bm_brak_1", text = "Aye, he makes the blades an' I make what stops them, an' we share the forge across the lane when one o' us is short o' coal. We're both losin' tae rust, but we're losin' together, which helps." },
+      },
+      choices = {
+        { text = "Losing together sounds very dwarven.", next = "bm_together" },
+        { text = "Two smiths sharing coal. That's friendly.", next = "BACK", reply = "Friendly enough, till he forgets tae pay me back." },
+      },
+    },
+    bm_together = {
+      lines = {
+        { id = "bm_together_1", text = "It is, an' I'll no' apologise for it. Back in Ironforge we'd be rivals, but down here the swamp is the enemy, an' ye make peace wi' anyone who'll fight it alongside ye." },
+      },
+      choices = {
+        { text = "What do the two of you fight it with?", next = "bm_fight" },
+        { text = "I'm a dwarf. I'd stand with you.", next = "bm_fight", when = { race = "Dwarf" } },
+      },
+    },
+    bm_fight = {
+      lines = {
+        { id = "bm_fight_1", text = "Oil from Gruham, wax from Jennabink's cart, an' a recipe for rust paste that I'll take tae my grave. Brak swears by whale fat, an' I swear at him for it, an' we've been arguin' about it for six years now." },
+      },
+      choices = {
+        { text = "Six years of arguing is a friendship.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Your secret's safe. Something else.", next = "BACK" },
+      },
+    },
+    bm_hard = {
+      lines = {
+        { id = "bm_hard_1", text = "Mail, by a long road, for every link is a place for rust tae hide. Plate ye can wipe, an' leather ye can wax, but a mail shirt has ten thousand wee rings, an' the damp gets intae every one." },
+      },
+      choices = {
+        { text = "What do you tell people who wear mail here?", next = "bm_mail" },
+        { text = "I wear mail. What should I do?", next = "bm_mail", when = { class = { "WARRIOR", "PALADIN", "HUNTER", "SHAMAN" } } },
+        { text = "Ten thousand rings. That sounds like misery.", next = "BACK" },
+      },
+    },
+    bm_mail = {
+      lines = {
+        { id = "bm_mail_1", text = "Shake it out every night, roll it in an oiled cloth, an' never, ever put it on wet. The Mountaineers out at Dun Modr dinnae listen, an' they come back tae me wi' shirts that crumble like old bread." },
+      },
+      choices = {
+        { text = "Is it bad at Dun Modr?", next = "bm_dunmodr" },
+        { text = "I'll roll mine every night.", next = "BACK" },
+      },
+    },
+    bm_dunmodr = {
+      lines = {
+        { id = "bm_dunmodr_1", text = "Bad as it gets, for they're livin' in the mud by the Span an' fightin' Dark Irons every day. Longbraid's lads have no time tae oil anythin', so I send them what I can spare an' hope it holds long enough." },
+      },
+      choices = {
+        { text = "That's generous of you.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll take them something on my way. Something else.", next = "BACK" },
       },
     },
     rust = {

@@ -62,10 +62,26 @@ P:NPC {
         { text = "How do you and Kaela get along?", next = "kaela_g" },
         { text = "Show me what you're building.", next = "eng_gx", when = { any = { { profession = "Engineering" }, { race = "Gnome" } } } },
         { text = "What do you need?", next = "BUSINESS" },
+        { text = "What's the biggest explosion you've ever set off here?", next = "w5_boom" },
         { text = "Good luck, Gaxim.", next = "END" },
       },
     },
 
+    w5_boom = {
+      lines = { { id = "w5_boom_l", text = "A cluster of charges under a Venture Company shredder depot, with a forty percent margin for error, which is generous for me. It took out three shredders, a supply tent and about half of my eyebrows. Kaela said it was too much." } },
+      choices = {
+        { text = "Was it too much?", next = "w5_boom2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_boom2 = {
+      lines = { { id = "w5_boom2_l", text = "Statistically? Yes. Philosophically? Also yes. But it worked! The Venture crew pulled back a whole mile, and three acres of saplings got another season to grow. I'll take a little too much if it means the forest gets a little more." } },
+      choices = {
+        { text = "A bit of excess saves the forest. It worked.", next = "BACK", reply = "Exactly! See, I keep telling Kaela, results matter. She just glares at me.", fx = { align = { order = -1 } } },
+        { text = "Kaela's right. Big explosions hurt the forest too.", next = "BACK", reply = "Hm. That's a fair point. I'll recalibrate. Probably. With a slightly smaller margin.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     eaaaes = {
       lines = {
         { id = "ea_default", text = "A society of the finest minds who refuse to choose between the arcane, the alchemical and the mechanical. Most gnomes pick one, which is fine, I suppose, if you like being bored." },
@@ -222,10 +238,27 @@ P:NPC {
         { text = "Why are the treants corrupted?", next = "treants", when = { any = { { questActive = TODO_QUEST("Wounded Ancients") }, { questDone = TODO_QUEST("Enraged Spirits") } } } },
         { text = "I know Thenysil in Astranaar.", next = "thenysil", when = { questDone = TODO_QUEST("On Guard in Stonetalon") } },
         { text = "What do you need?", next = "BUSINESS" },
+        { text = "Sun Rock is close. Do the Sentinels watch the Horde here?", next = "sunrock" },
+        { text = "What does Elune's eye see in this valley?", next = "elune" },
+        { text = "What would you do if you were called back to Ashenvale?", next = "w5_called" },
         { text = "Elune keep you, Kaela.", next = "END" },
       },
     },
 
+    w5_called = {
+      lines = { { id = "w5_called_l", text = "Go, and gladly. Then I'd spend every night in Astranaar wondering what Gaxim had blown up. I've grown used to this valley. I've grown used to him, too, though I'll deny it if you repeat that." } },
+      choices = {
+        { text = "You'd miss Gaxim?", next = "w5_called2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_called2 = {
+      lines = { { id = "w5_called2_l", text = "I'd miss the noise. The forest's been quiet a long time, the bad kind of quiet. Gaxim is the only living thing in this valley louder than the Venture Company's saws. When he's not blowing something up, I start to worry." } },
+      choices = {
+        { text = "Then I hope you're not called back too soon.", next = "BACK", reply = "So do I, though I wouldn't say it to my captain. Elune keep you, {class}." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     vale = {
       lines = {
         { id = "va_default", text = "The goblins came for the trees and found more than they bargained for, and when the Vale fought back, they burned it. The first time I saw it, {class}, I almost wept." },
@@ -293,6 +326,33 @@ P:NPC {
         { text = "I'll tell her.", next = "BACK", fx = { affinity = 2 } },
         { text = "Goodbye, Kaela.", next = "END" },
       },
+    },
+    sunrock = {
+      lines = { { id = "sr_default", text = "We watch them, and they watch us, and so far neither has drawn a bow. Their tauren care for the mountain as we do, and their braves fight the Venture Company harder than any Sentinel. It troubles me to admire an enemy I was sent to watch." } },
+      choices = {
+        { text = "Maybe they aren't enemies here.", next = "sunrock2" },
+        { text = "The orcs still cut Ashenvale's trees.", next = "sunrock2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sunrock2 = {
+      lines = { { id = "sr2_default", text = "In Ashenvale, yes, and I have buried friends there because of it. Here, the goblins are the axe and the Horde only another hand against them. I report what I see to Astranaar and let wiser heads decide what it means, {class}." } },
+      choices = {
+        { text = "I'm a night elf. Our wars don't follow us everywhere.", next = "BACK", reply = "Perhaps not, sister of the forest, though in my experience they follow us further than we'd like.", when = { race = "NightElf" } },
+        { text = "Something else, Kaela.", next = "BACK" },
+      },
+    },
+    elune = {
+      lines = { { id = "el_default", text = "Smoke, mostly, and a forest learning how to breathe through it. On clear nights the moon lights the Charred Vale silver, and you can see where the new shoots have come up through the ash. Those are the nights I can believe the priestesses." } },
+      choices = {
+        { text = "And on the other nights?", next = "elune2" },
+        { text = "The new shoots are a good sign.", next = "elune2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    elune2 = {
+      lines = { { id = "el2_default", text = "On the other nights I sharpen my glaive and listen for goblin shredders. Elune is patient, and I try to be, but she has had ten thousand years to practise. I have only had a few centuries, and they were mostly spent in Ashenvale." } },
+      choices = { { text = "Only a few centuries. Something else.", next = "BACK" } },
     },
   },
 

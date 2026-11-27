@@ -53,7 +53,64 @@ P:NPC {
         { text = "Why turn a lookout into a tavern?", next = "lookout" },
         { text = "What are the Aetherstill Spirits on your shelf?", next = "spirits" },
         { text = "Any news from the road?", next = "road" },
+        { text = "Who keeps the place with you?", next = "af_staff" },
+        { text = "The marsh road must bring odd guests.", next = "af_guests" },
         { text = "Good day, Agriel.", next = "END" },
+      },
+    },
+    af_staff = {
+      lines = {
+        { id = "af_staff_1", text = "My kin, mostly, an' a couple o' lads who came for a drink an' never left. Everyone pulls their weight, the brewin', the cookin' an' the cellar, an' anyone who doesnae gets shown the door an' the long road tae Menethil." },
+      },
+      choices = {
+        { text = "You brew your own, then?", next = "af_brew" },
+        { text = "A tavern run by family is a good tavern.", next = "BACK", reply = "So I've always said, an' the ale agrees." },
+      },
+    },
+    af_brew = {
+      lines = {
+        { id = "af_brew_1", text = "Every drop, in the old storeroom under the tower where it stays cool. The water's from the hill spring, no' the marsh, an' that's the whole secret, though I'll deny I ever told ye." },
+      },
+      choices = {
+        { text = "Spring water. I'll keep your secret.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Is the spring far from here?", next = "af_spring" },
+      },
+    },
+    af_spring = {
+      lines = {
+        { id = "af_spring_1", text = "Up the rise behind the tower, a few minutes' walk, an' it runs clear even in the wet season. The Mountaineers who built this lookout chose the place for it, an' I'd say that's the cleverest thing the kingdom ever did out here." },
+      },
+      choices = {
+        { text = "Clever builders, then. Something else.", next = "BACK" },
+        { text = "I'll drink to the Mountaineers.", next = "BACK" },
+      },
+    },
+    af_guests = {
+      lines = {
+        { id = "af_guests_1", text = "Odd as they come. Dwarves from Dun Modr wi' Dark Iron blood on their boots, explorers from Whelgar's dig wi' raptor scratches, an' now an' then a gnome who wants tae improve my still." },
+      },
+      choices = {
+        { text = "What do you tell the gnomes?", next = "af_gnomes" },
+        { text = "I'm a gnome. Your still could use work.", next = "af_gnomes", when = { race = "Gnome" } },
+        { text = "Raptor scratches? The dig must be dangerous.", next = "BACK", reply = "It's gone tae the raptors, an' the scholars are too stubborn tae leave." },
+      },
+    },
+    af_gnomes = {
+      lines = {
+        { id = "af_gnomes_1", text = "I tell them the still works, an' that it's worked for longer than they've been alive, an' that I'll pour them a cup if they keep their spanners in their pockets. Most o' them take the cup." },
+      },
+      choices = {
+        { text = "And the ones who don't?", next = "af_dont" },
+        { text = "A cup for the spanners. Fair trade.", next = "BACK" },
+      },
+    },
+    af_dont = {
+      lines = {
+        { id = "af_dont_1", text = "They get the road, same as anyone who cannae sit quiet. I've no quarrel wi' gnomes, mind, but this is a tavern an' no' a workshop, an' I'll keep it that way." },
+      },
+      choices = {
+        { text = "A tavern stays a tavern. Understood.", next = "BACK" },
+        { text = "Something else, Agriel.", next = "BACK" },
       },
     },
 
@@ -156,6 +213,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_brew = {
+      lines = { { id = "w8_brew_a", text = "Tonics, mostly, for the sailors' coughs and the dwarves' knees, and one green draught that she swears will grow hair, which I've never seen anyone brave enough to drink. The tall grass down here was meant to make it stronger, which is why I came, and why I'll never listen to a dig crew again." } },
+      choices = {
+        { text = "Was any of it worth the trouble?", next = "w8_brew2" },
+        { text = "I'd drink a hair tonic.", next = "w8_brew2" },
+        { text = "I'm an alchemist. Strange grass makes strange potions.", next = "w8_brew2", when = { profession = "Alchemy" } },
+        { text = "Something else, Ardin.", next = "BACK" },
+      },
+    },
+    w8_brew2 = {
+      lines = {
+        { id = "w8_brew2_a", text = "Three bushels, which are now mostly squashed, and one very good story for the Deepwater Tavern, if I live to tell it. Caitlin will say the grass was worth it and the danger wasn't, and she'll be right, as usual." },
+        { id = "w8_brew2_alc", when = { profession = "Alchemy" }, text = "Exactly what Caitlin said, and then she said it again when I came back with the first sample twitching. Go and talk to her in Menethil, she'd love another alchemist to argue with, and she'll trade you a cutting if you're polite." },
+      },
+      choices = {
+        { text = "Let's get you home first.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       hub = true,
       lines = {
@@ -180,6 +257,7 @@ P:NPC {
         { text = "Be careful. Follow us out, but keep your distance.", next = "careful", when = { questDone = TODO_QUEST("Lost in the Thicket Things") } },
         { text = "Let me tend that ankle.", next = "xheal", when = { class = { "PRIEST", "PALADIN", "SHAMAN", "DRUID" } } },
         { text = "What do you need from me?", next = "BUSINESS" },
+        { text = "What does Caitlin brew with the grass you gather?", next = "w8_brew" },
         { text = "Stay safe, Ardin.", next = "END" },
       },
     },
@@ -327,6 +405,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_wat = {
+      lines = { { id = "w8_wat_a", text = "Eleven days, lying in reeds that would rot a living man's skin off his legs. One of the advantages of my condition, though the leeches are disappointed in me." } },
+      choices = {
+        { text = "What have you seen in eleven days?", next = "w8_wat2" },
+        { text = "You must be very patient.", next = "w8_wat2" },
+        { text = "The Dark Lady chose well. The living couldn't do this.", next = "w8_wat2", when = { race = "Scourge" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w8_wat2 = {
+      lines = {
+        { id = "w8_wat2_a", text = "Orcs carrying crates in and nothing carrying crates out, which means they are building something rather than looting. Patience has nothing to do with it; I simply have no reason to be anywhere else until the Dark Lady says so." },
+        { id = "w8_wat2_und", when = { race = "Scourge" }, text = "She did, and she knew it when she sent us. Eleven days of orcs carrying crates in and nothing coming out, so they are building, not looting, and that is what I will report when you have cleared the way." },
+      },
+      choices = {
+        { text = "Then let's find out what they're building.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       hub = true,
       lines = {
@@ -350,6 +448,7 @@ P:NPC {
         { text = "I serve the Dark Lady as well.", next = "xrecruit", when = { origin = "forsaken_deathstalker_recruit" } },
         { text = "The Dragonmaw are orcs. Thrall would want to know.", next = "xorc", when = { race = "Orc" } },
         { text = "What do you need?", next = "BUSINESS" },
+        { text = "How long have you been watching this dig?", next = "w8_wat" },
         { text = "I'll go.", next = "END" },
       },
     },

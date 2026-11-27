@@ -239,6 +239,25 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_lifted = {
+      lines = {
+        { id = "w3_lifted_1", text = "My own purse, on the first day of the lesson, while I was explaining how nobody would ever manage it. She returned it at the end of the week with an extra copper in it and a note that said \"tuition,\" and I've never been prouder of anyone." },
+        { id = "w3_lifted_2", when = { class = "ROGUE" }, text = "My own purse, by a girl on her first day, while I was telling the class it couldn't be done. She returned it a week later with a copper extra and a note that said \"tuition.\" You'll try it, I expect, so I'll tell you now: I've moved it." },
+      },
+      choices = {
+        { text = "Where is she now?", next = "w3_where" },
+        { text = "She sounds like your best student.", next = "BACK", reply = "The best and the worst, because she learned my one lesson faster than I could teach the rest." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_where = {
+      lines = {
+        { id = "w3_where_1", text = "With the Deathstalkers in Silverpine, the last I heard, doing very quietly whatever Mennet Carkad needs done. She writes now and then, and every letter arrives in my pocket rather than by courier." },
+      },
+      choices = {
+        { text = "She's keeping in practice. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "David Trias. I teach the quiet arts in Deathknell, to the risen who woke up with light fingers and no memory of how they got them. The memory doesn't matter; the fingers do." },
@@ -257,6 +276,7 @@ P:NPC {
         { text = "Who were you, before all this?", next = "before" },
         { text = "Can one of the living learn your arts?", next = "xliving", when = { race = { "Orc", "Troll", "Tauren" } } },
         { text = "I'd rather meet my enemies head on.", next = "xwarrior", when = { class = "WARRIOR" } },
+        { text = "What's the best thing a student ever lifted off you?", next = "w3_lifted" },
         { text = "Farewell.", next = "END" },
       },
     },

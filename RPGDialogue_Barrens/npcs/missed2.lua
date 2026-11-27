@@ -44,7 +44,22 @@ P:NPC {
         { text = "Are you ever scared out here?", next = "yscared" },
         { text = "Will you be a warrior or a guard?", next = "yguard" },
         { text = "Did Taruc tell you about the camps?", next = "yorc", when = { race = "Orc" } },
+        { text = "What's the best bread you've ever carried?", next = "w5_bread" },
         { text = "Run along, Gruk.", next = "END" },
+      },
+    },
+    w5_bread = {
+      lines = { { id = "w5_bread_l", text = "Moorane's bread, from the Crossroads! She gives me the end of the loaf for running it out, and it's still warm when I get to the tower if I go really fast. Guard Taruc says it's better than Orgrimmar bread, but don't tell the Orgrimmar bakers." } },
+      choices = {
+        { text = "Do you ever eat the guard's bread on the way?", next = "w5_bread2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_bread2 = {
+      lines = { { id = "w5_bread2_l", text = "No, {g:sir|ma'am}! Well, once. Only a little bit, off the corner. Guard Taruc counted and found out, and he didn't shout. He just looked at me, and that was worse than shouting, so I never did it again." } },
+      choices = {
+        { text = "A good guard teaches without shouting.", next = "BACK", reply = "He does. I think that's why he's a guard and not a sergeant. Sergeants shout." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     spear = {
@@ -151,7 +166,24 @@ P:NPC {
         { text = "Do you want to be a shaman like your papa?", next = "yshaman" },
         { text = "Is it scary living out here?", next = "yscary" },
         { text = "Who taught you to cook?", next = "yteach" },
+        { text = "Your papa keeps the fire up on the hill, doesn't he?", next = "papa" },
+        { text = "Okla's making a necklace out of rocks, I saw.", next = "okla" },
+        { text = "What does your papa like to eat best?", next = "w5_papa" },
         { text = "Keep the pot from burning, Karu.", next = "END" },
+      },
+    },
+    w5_papa = {
+      lines = { { id = "w5_papa_l", text = "Plainstrider, roasted with salt, but he eats it so slowly it goes cold. He talks to the fire while he chews. Sometimes I put a bit of his supper aside, because I know he'll come down the hill hungry in the middle of the night and not say anything." } },
+      choices = {
+        { text = "Does he know you save it for him?", next = "w5_papa2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_papa2 = {
+      lines = { { id = "w5_papa2_l", text = "He pretends not to. In the morning the bowl is empty and he says, \"The spirits were hungry, Karu.\" Then he winks. I think he knows, and I think the spirits get a little bit too, so it's all right." } },
+      choices = {
+        { text = "You take care of your whole family, Karu.", next = "BACK", reply = "Somebody has to. Trok would burn water, I told you." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     cook = {
@@ -204,6 +236,30 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    papa = {
+      lines = { { id = "pa_default", text = "He does! Young shaman come from all over to see him, and he makes them sit by the fire for ages before he says anything. I bring them water, because they always forget to bring their own, and Papa says that's an important job." } },
+      choices = {
+        { text = "Do the young shaman ever talk to you?", next = "papa2" },
+        { text = "Bringing water to shaman sounds like a real job.", next = "papa2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    papa2 = {
+      lines = { { id = "pa2_default", text = "Some of them do, and one gave me a little stone that's warm when you hold it, and Papa said it was a gift from the fire. I keep it next to the pot, so the food cooks nicely. I don't know if it works, but nothing has burned since." } },
+      choices = { { text = "Then it must work. Something else.", next = "BACK" } },
+    },
+    okla = {
+      lines = { { id = "ok_default", text = "She is, and it's taking forever, because every rock has to be the right rock. She says she'll make one for me too, but she always says that and then gives the good ones away to Gruk for his spear." } },
+      choices = {
+        { text = "Who's Gruk?", next = "okla2" },
+        { text = "Maybe this time she'll keep her promise.", next = "okla2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    okla2 = {
+      lines = { { id = "ok2_default", text = "Gruk lives by the road, and he's making a spear so he can fight the centaur, but he's only little, so I don't think the centaur are worried. I make him eat with us sometimes, because his family's food is terrible." } },
+      choices = { { text = "That's kind of you, Karu. Something else.", next = "BACK" } },
+    },
   },
   topics = {
     plainstrider = { { id = "ytp_plainstrider", text = "Plainstrider is best roasted slow, with the fat dripping. Papa says I'm a better cook than Mama was, but I don't believe him." } },
@@ -252,7 +308,25 @@ P:NPC {
         { text = "Do you ever go far from home?", next = "yfar" },
         { text = "Is Trok nice to you?", next = "ytrok" },
         { text = "Can I give you a rock?", next = "ygift", when = { profession = "Mining" } },
+        { text = "Where do you find the best rocks?", next = "where" },
+        { text = "Karu says you give the good rocks to Gruk.", next = "karu" },
+        { text = "Do you give your rocks names?", next = "w5_names" },
         { text = "Happy hunting, Okla.", next = "END" },
+      },
+    },
+    w5_names = {
+      lines = { { id = "w5_names_l", text = "Only the special ones. This one's Thunder, because it's dark grey and heavy. This one's Little Karu, because it's always bossy and lands on top in the bucket. And this one doesn't have a name yet, because it's new and I don't know what it's like." } },
+      choices = {
+        { text = "How will you know what it's like?", next = "w5_names2" },
+        { text = "That one's a bit of copper, I think.", next = "BACK", when = { profession = "Mining" }, reply = "Copper! Is that a good rock? Then I'll call it Shiny, and it can go in the middle." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_names2 = {
+      lines = { { id = "w5_names2_l", text = "I'll carry it around for a while. Rocks tell you if you hold them long enough. Some get warm, some stay cold, and some get heavier when you're sad. Papa says that's the earth talking. Trok says I'm just strange." } },
+      choices = {
+        { text = "Papa's right. The earth talks to those who listen.", next = "BACK", reply = "I know! I'm going to tell Trok you said so." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     good = {
@@ -303,6 +377,33 @@ P:NPC {
         { text = "Wear it well, Okla.", next = "BACK", reply = "I will! I'll tell everyone a miner gave it to me.", fx = { affinity = 1 } },
       },
     },
+    where = {
+      lines = { { id = "wh_default", text = "By the dry creek, where the water used to be, because the water rubbed them smooth before it went away. And sometimes in the dirt by the road, where the kodo carts kick them up, but Papa doesn't like me going near the road." } },
+      choices = {
+        { text = "Why doesn't he like the road?", next = "where2" },
+        { text = "Water makes the prettiest rocks, I think.", next = "where2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    where2 = {
+      lines = { { id = "wh2_default", text = "Because of the centaur, and because of the big carts, which don't stop for anybody. Once a cart went by and a whole sack of shiny green rocks fell off, and I picked them all up, and Papa made me give them back to the goblin. He gave me one anyway." } },
+      choices = {
+        { text = "I'm a miner. I'll bring you something shiny someday.", next = "BACK", reply = "You will? Promise? I'll leave a space right in the middle for it!", when = { profession = "Mining" } },
+        { text = "That was nice of the goblin. Something else.", next = "BACK" },
+      },
+    },
+    karu = {
+      lines = { { id = "kr_default", text = "That's not true, I only give him the sharp ones, because those are no good for a necklace. Karu gets the round ones, but she always says she's too busy cooking to wear them. I think she likes them, though." } },
+      choices = {
+        { text = "How do you know she likes them?", next = "karu2" },
+        { text = "Then you should make her one anyway.", next = "karu2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    karu2 = {
+      lines = { { id = "kr2_default", text = "Because she keeps them all in a little bag by the pot, and she counts them when she thinks nobody's looking. I'm going to make her a necklace for her naming day, but it's a secret, so you mustn't tell." } },
+      choices = { { text = "I won't tell. Something else.", next = "BACK" } },
+    },
   },
   topics = {
     papa = { { id = "ytp_papa", text = "Papa talks to fire. I talk to rocks. They don't talk back, but they listen." } },
@@ -352,7 +453,24 @@ P:NPC {
         { text = "What would you do if you were a real shaman?", next = "yshaman" },
         { text = "Will you say sorry to the bees?", next = "ysorry" },
         { text = "I'll help you with the bees.", next = "yhelp" },
+        { text = "Okla's been laughing at you this whole time.", next = "okla" },
+        { text = "What do you want to be when you grow up?", next = "grow" },
+        { text = "Where are you actually running to?", next = "w5_where" },
         { text = "Keep running, Trok.", next = "END" },
+      },
+    },
+    w5_where = {
+      lines = { { id = "w5_where_l", text = "Nowhere! Everywhere! I tried the pig pen but the pigs got angry too, and I tried the hill but Papa was talking to the fire and said I was too loud. Now I just go round and round. The bees like round and round, I think." } },
+      choices = {
+        { text = "Try standing very still, near the smoke.", next = "w5_where2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_where2 = {
+      lines = { { id = "w5_where2_l", text = "Near the smoke? Papa's fire? Bees don't like smoke? Why didn't anybody tell me that! I've been running since breakfast! Okla, why didn't you tell me bees don't like smoke?" } },
+      choices = {
+        { text = "I just did. Go stand by the fire.", next = "BACK", reply = "Thank you, thank you! If Papa shouts, I'm telling him it was your idea!" },
+        { text = "Something else.", next = "BACK" },
       },
     },
     nest = {
@@ -404,6 +522,33 @@ P:NPC {
         { text = "I'll try it, Trok.", next = "BACK", reply = "Thank you! I'll save you some plainstrider. Maybe.", fx = { affinity = 1 } },
       },
     },
+    okla = {
+      lines = { { id = "ol_default", text = "She would! She's sitting over there with her rocks and not helping at all, and when I asked her to throw a rock at the nest she said the rocks were too pretty. Rocks aren't pretty, rocks are for throwing." } },
+      choices = {
+        { text = "Throwing rocks at a nest won't help either.", next = "okla2" },
+        { text = "Sisters are like that.", next = "okla2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    okla2 = {
+      lines = { { id = "ol2_default", text = "I know, but it would feel better! Karu says I deserve it, and Okla says I deserve it, and Papa will say I deserve it when he finds out. I'm starting to think I might deserve it a bit." } },
+      choices = { { text = "Just a bit. Something else.", next = "BACK" } },
+    },
+    grow = {
+      lines = { { id = "gw_default", text = "A grunt at the Crossroads, with a big axe and a wolf, so I can fight the centaur and the quilboar and anybody else. Papa wants me to be a shaman like him, but shaman have to sit still for hours, and I can't even sit still for breakfast." } },
+      choices = {
+        { text = "Grunts have to stand still on watch for hours.", next = "grow2" },
+        { text = "Maybe a shaman of the wind, then.", next = "grow2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grow2 = {
+      lines = { { id = "gw2_default", text = "They do? Oh no. Is there anything you can be where you get to run around all day and nobody makes you sit? Ow, ow, another one! I'll think about it later, when there aren't bees." } },
+      choices = {
+        { text = "I'm a warrior. We do plenty of running around.", next = "BACK", reply = "Really? Then I'm going to be a warrior, and you can't stop me! Ow!", when = { class = "WARRIOR" } },
+        { text = "Later, then. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     pigs = { { id = "ytp_pigs", text = "The pigs are hungry. They're always hungry. I'm sorry, pigs." } },
@@ -453,7 +598,23 @@ P:NPC {
         { text = "What do you make of General Twinbraid?", next = "ygeneral" },
         { text = "Would you ever retreat from Bael'dun?", next = "yretreat" },
         { text = "I'll stand on your wall for an hour.", next = "ywall", when = { class = { "WARRIOR", "PALADIN", "HUNTER" } } },
+        { text = "Have you ever spoken with the tauren of these hills?", next = "w5_tauren" },
         { text = "Hold the wall, Captain.", next = "END" },
+      },
+    },
+    w5_tauren = {
+      lines = { { id = "w5_tauren_l", text = "Once. A big fellow, Stonespire by name, walked right up to the gate with his hands open and asked us to stop the blasting. I'll give him this, he had more courage than half the League. The General thanked him and sent him off." } },
+      choices = {
+        { text = "Do you think the General was right?", next = "w5_tauren2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_tauren2 = {
+      lines = { { id = "w5_tauren2_l", text = "I keep the diggers alive, {class}. I don't decide where they dig. But I've stood on this wall and watched that tauren sit on the ridge above us every evening since, just sitting, and I'll tell ye, I'd sleep easier if he'd shout." } },
+      choices = {
+        { text = "The dig should stop. Those hills are their graves.", next = "BACK", reply = "Ye'll not find many on this wall who'd say it, but ye'll find a few who'd not argue.", fx = { align = { light = 1 } } },
+        { text = "Ironforge needs what's under Bael Modan. The dig goes on.", next = "BACK", reply = "Aye, that's the General's view, and it's my orders. I'll hold the wall.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     attack = {
@@ -557,7 +718,22 @@ P:NPC {
         { text = "Do the tauren mind you digging here?", next = "ytauren" },
         { text = "What's the oddest find so far?", next = "yodd" },
         { text = "Who are you sending reports to?", next = "yreport" },
+        { text = "How do you tell one layer of stone from the next?", next = "w5_layers" },
         { text = "Good digging, Flameforge.", next = "END" },
+      },
+    },
+    w5_layers = {
+      lines = { { id = "w5_layers_l", text = "Colour first, then grain, then smell, and then taste, if ye're desperate and nobody's lookin'. Every layer's a different century. The red band at the top is dust from the last dry age. The grey under it, that's older than any dwarf has a name for." } },
+      choices = {
+        { text = "And what's under the grey?", next = "w5_layers2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_layers2 = {
+      lines = { { id = "w5_layers2_l", text = "That's what we're here to find out, isn't it? Under the grey the stone goes smooth, too smooth, like somebody dressed it. Nature doesnae do that. I've written it in my report three times, and three times they've sent back asking if I'm sure." } },
+      choices = {
+        { text = "Then write it a fourth time, and underline it.", next = "BACK", reply = "Ha! I like ye. Aye, I'll underline it twice." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     what = {
@@ -664,7 +840,23 @@ P:NPC {
         { text = "Do you trust the flying machines?", next = "ytrust" },
         { text = "What would you build with unlimited resources?", next = "ydream" },
         { text = "You built siege engines once?", next = "ysiege" },
+        { text = "Where do the supply flights come from?", next = "w5_flights" },
         { text = "Keep her lifting, Heggin.", next = "END" },
+      },
+    },
+    w5_flights = {
+      lines = { { id = "w5_flights_l", text = "Theramore, mostly, when the weather over the marsh allows, and once in a while all the way from Ironforge by way of the Wetlands, if somebody important wants a report. They bring powder, ale and letters, in that order, and never enough bolts." } },
+      choices = {
+        { text = "What happens when a flight doesn't arrive?", next = "w5_flights2" },
+        { text = "A gnome pilot would never forget the bolts.", next = "BACK", when = { race = "Gnome" }, reply = "A gnome pilot would bring the bolts and forget the ale, and then ye'd have a riot." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_flights2 = {
+      lines = { { id = "w5_flights2_l", text = "Then I make bolts out of whatever's lyin' about. Nails, horseshoes, a broken pick, once a spoon. That crane's held together with half the cutlery in Bael'dun. Malgin's still lookin' for his good ladle, and I'm not tellin' him." } },
+      choices = {
+        { text = "Your secret's safe. The ladle's in a good cause.", next = "BACK", reply = "Aye, it's holdin' up four tons of rock. Best job that ladle ever had." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     breaks = {
@@ -769,7 +961,22 @@ P:NPC {
         { text = "Has anyone tried to steal your stock?", next = "ysteal" },
         { text = "Do the guard drink on duty?", next = "yduty" },
         { text = "What happens when the dig is done?", next = "ydig" },
+        { text = "Who's the saddest drinker at your bar?", next = "w5_sad" },
         { text = "Keep them cheerful, Malgin.", next = "END" },
+      },
+    },
+    w5_sad = {
+      lines = { { id = "w5_sad_l", text = "The young rifleman on the east wall. Came out from Ironforge last spring all shiny buttons and big talk, and now he sits at the end of the bar and drinks one ale, slowly, and doesnae say a word. He's seen what the quilboar do to a patrol." } },
+      choices = {
+        { text = "What do you do for him?", next = "w5_sad2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_sad2 = {
+      lines = { { id = "w5_sad2_l", text = "I pour his one ale, and I sit beside him, and I don't make him talk. Morale's not about cheer, {class}. Half the time it's just a lad knowin' that somebody's noticed he's there. The cheer comes later, if it comes at all." } },
+      choices = {
+        { text = "That's the real work of a Morale Officer.", next = "BACK", reply = "Aye, though don't tell the General. He thinks it's mostly the ale." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     morale = {

@@ -50,7 +50,76 @@ P:NPC {
         { text = "Are you with the Venture Company?", next = "venture" },
         { text = "Why live up here alone?", next = "alone" },
         { text = "What's the best thing you've ever built?", next = "best" },
+        { text = "What are you working on right now?", next = "project" },
+        { text = "The tauren must find you strange.", next = "tauren_odd" },
+        { text = "My last target dummy exploded. Normal?", next = "dummy", when = { profession = { name = "Engineering", min = 50 } } },
+        { text = "Do the tauren ever buy your inventions?", next = "w7_buy" },
         { text = "I'll be going.", next = "END" },
+      },
+    },
+    w7_buy = {
+      lines = {
+        { id = "w7_buy_l1", text = "Buy? Pal, the tauren don't buy, they borrow. A fella from Bloodhoof borrowed my automatic kodo brush three weeks ago, and I've had four kodo come up the hill since asking for a turn, and none of their owners have paid a copper." },
+      },
+      choices = {
+        { text = "Kodo came up the hill on their own?", next = "w7_buy2" },
+        { text = "That doesn't sound like business.", next = "w7_buy3" },
+        { text = "Something else, Twizwick.", next = "BACK" },
+      },
+    },
+    w7_buy2 = {
+      lines = {
+        { id = "w7_buy2_l1", text = "Swear on my last sprocket, chum. They follow the smell of the oil, and they line up very politely, and they stand there until I turn it on. I've started charging their owners in hay, which is a currency, kinda." },
+        { id = "w7_buy2_l2", when = { profession = "Engineering" }, text = "On my mother's ledger, pal. You build, so you'll appreciate this: I didn't design it to attract kodo, it just does. I'm callin' it an unexpected market feature and chargin' in hay." },
+      },
+      choices = {
+        { text = "Hay's a fine currency.", next = "BACK", reply = "It is when you've got a kodo-brush business, pal." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_buy3 = {
+      lines = {
+        { id = "w7_buy3_l1", text = "It ain't, but it's good public relations, and that's an investment, friend. The tauren like me now, and nobody's tried to run me off the hill in a month." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    project = {
+      lines = { { id = "project_d", text = "A steam-driven plough, pal, for the tauren farmers down below, so they can turn a field in an hour instead of a day. It's had two test runs, and only one of 'em set the field on fire, which in engineering is what we call progress." } },
+      choices = {
+        { text = "Do the tauren actually want a steam plough?", next = "project_want" },
+        { text = "One fire out of two isn't bad.", next = "BACK", reply = "That's what I said! The farmer was less excited about it, but I'm told he's coming round." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    project_want = {
+      lines = { { id = "project_want_d", text = "They want the field turned faster, and I want to be paid for it, so we're in agreement on the important parts. The elders keep sayin' something about the Earth Mother not likin' noise, but nobody's paid me to make it quieter yet." } },
+      choices = {
+        { text = "Maybe they'll pay for a quiet one.", next = "BACK", reply = "Now you're thinkin' like a goblin! Quiet costs extra, of course." },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    tauren_odd = {
+      lines = { { id = "tauren_odd_d", text = "They do, and I find them strange right back, so we're even. They bring me broken things, buckets and wagon wheels and the odd spear, and they never haggle, which is the strangest thing I ever saw in my life." } },
+      choices = {
+        { text = "They never haggle at all?", next = "tauren_haggle" },
+        { text = "You must charge them too much, then.", next = "BACK", reply = "Listen, I charge 'em fair, and that's more than the Venture boys would. I've got a reputation up here." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tauren_haggle = {
+      lines = { { id = "tauren_haggle_d", text = "Not a copper's worth, pal. They name the price they think is fair and they pay it, and if I ask for more they just look at me with those big sad eyes until I feel like a heel. I've lost more profit to guilt up here than I ever lost to bad luck." } },
+      choices = {
+        { text = "Guilt in a goblin? That's new.", next = "BACK", reply = "Don't tell anybody in Ratchet, or I'll never live it down." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    dummy = {
+      lines = { { id = "dummy_d", text = "Normal? It's practically a rite of passage, friend! The first one I built blew my eyebrows clean off, and the second took the whole shed, so if yours only exploded, you're already ahead of where I was at your age." } },
+      choices = {
+        { text = "That's oddly comforting.", next = "BACK", reply = "That's engineering! Comfort in the face of combustion." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

@@ -71,7 +71,36 @@ P:NPC {
         { text = "What's a Bloodbelly fish?", next = "fish" },
         { text = "Is the water dangerous?", next = "danger" },
         { text = "I'll get your shellfish.", next = "BUSINESS" },
+        { text = "Who gets the shellfish once you have them?", next = "w7_shell" },
         { text = "Farewell, Jinar'Zillen.", next = "END" },
+      },
+    },
+    w7_shell = {
+      lines = {
+        { id = "w7_shell_l1", text = "Sikewa buys dem for her stew, Wulan buys de best ones for herself, and de rest I trade to de Gizelton caravan for things I be too lazy to make. Everybody eats, mon, and I never once got my feet wet." },
+      },
+      choices = {
+        { text = "How did you learn about the bubble fissures?", next = "w7_shell2" },
+        { text = "Somebody should make you check your own traps.", next = "w7_shell3" },
+        { text = "Something else, Jinar'Zillen.", next = "BACK" },
+      },
+    },
+    w7_shell2 = {
+      lines = {
+        { id = "w7_shell2_l1", text = "My father showed me, years back, on a calm mornin'. He said de good fishin' was near de bubbles and I should never tell anybody, and here I be tellin' everybody, mon, because a secret dat earns shellfish be a better secret." },
+        { id = "w7_shell2_l2", when = { race = "Troll" }, text = "A Darkspear fisherman told me, mon, de same way it was told on de Echo Isles: quiet, by a fire, after too much rum. Now you know it too, so don't go tellin' de orcs or dey'll all want traps." },
+      },
+      choices = {
+        { text = "Your secret's safe.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_shell3 = {
+      lines = {
+        { id = "w7_shell3_l1", text = "Dey tried, mon! Lui'Mala threw me off de dock once, and I just floated dere on my back till de tide carried me home. Some trolls be born to work, and some be born to float." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
 

@@ -19,7 +19,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_hi", text = "Ye've come through the North Gate, then. Did ye see any wreckage out there, any sign o' a gyrocopter?" },
-    { id = "g_back", when = { metBefore = true }, text = "Back again. Any news from the hills?" },
+    { id = "g_back", when = { metBefore = true }, text = "Back again. Ye've the look o' someone who's been up in the hills; did ye see anythin' that glinted like a rotor?" },
     { id = "g_lost", when = { questActive = TODO_QUEST("The Lost Pilot") }, text = "Have ye found him yet? I know what ye'll likely find, but I need tae hear it." },
     { id = "g_revenge", when = { questActive = TODO_QUEST("A Pilot's Revenge") }, text = "Mangeclaw's still out there, I can feel it. Bring me its claw, an' I'll sleep again." },
     { id = "g_done", when = { questDone = TODO_QUEST("A Pilot's Revenge") }, text = "The beast's dead, an' my friend can rest. I'll no' forget what ye did, friend." },
@@ -32,6 +32,25 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_fly = {
+      lines = {
+        { id = "w2_fly_l0", text = "A gnome at Steelgrill's Depot owed my da money an' paid him in lessons, an' my da sent me. First time up, I was sick over the side onto a yeti, an' I've loved it ever since." },
+      },
+      choices = {
+        { text = "And now you're stuck on foot at the gate.", next = "w2_fly_ground" },
+        { text = "Flying machines are no place for a sensible dwarf.", next = "BACK", reply = "Aye, ye'll get nae argument from my mother. But the sensible dwarves never see the loch from above.", fx = { align = { order = 1 } } },
+        { text = "The sky belongs to whoever dares climb into it.", next = "BACK", reply = "That's it exactly, an' that's what my friend said every mornin' before he took off.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_fly_ground = {
+      lines = {
+        { id = "w2_fly_ground_l0", text = "Till they send me a new machine, aye. Mine's in pieces at the depot waitin' on a part from Ironforge, an' every day I stand here watchin' the hills where he came down, I'm glad I'm no' flyin' over them yet." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     dw_riders = {
       lines = {
         { id = "dw_riders_default", text = "Like cats an' dogs. The Wildhammers say a flyin' machine is a coffin wi' a propeller, an' we say a gryphon's a coffin wi' feathers an' an opinion. We've both buried friends, so neither of us is entirely wrong." },
@@ -66,6 +85,7 @@ P:NPC {
         { text = "I know how to track a beast.", next = "track", when = { class = "HUNTER" } },
         { text = "Do pilots and gryphon riders get along?", next = "dw_riders" },
         { text = "I'll keep your pilot's name in my prayers, Hammerfoot.", next = "dw_pray", when = { race = "Dwarf" } },
+        { text = "How did you come to fly gyrocopters?", next = "w2_fly" },
         { text = "Farewell, Hammerfoot.", next = "END" },
       },
     },
@@ -310,6 +330,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_fail = {
+      narr = "He stops smiling, which on Deek looks almost like pain.",
+      lines = {
+        { id = "w2_fail_l0", text = "The loch would empty down the valley in an afternoon and take Thelsamar's lower houses with it, and the farms, and probably the road to Ironforge. That's why I check the sluices every morning, even the ones nobody else thinks matter." },
+      },
+      choices = {
+        { text = "Does anyone else check them?", next = "w2_fail_who" },
+        { text = "I'd sleep badly in your place.", next = "BACK" },
+      },
+    },
+    w2_fail_who = {
+      lines = {
+        { id = "w2_fail_who_l0", text = "The wall guards walk the top, and Hinderweir's people do the stonework, but the gears are mine. I'd trust the stone for a thousand years; it's the gears I worry about, because I know exactly how clever I was when I made them." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Deek Fizzlebizz, engineering trainer, and I've the best view in Loch Modan. The dwarves built this dam, but the gnomes helped with the clever bits, and I keep them working." },
@@ -328,6 +366,7 @@ P:NPC {
         { text = "Who works the dam with you?", next = "crew" },
         { text = "You keep looking over the edge.", next = "edge" },
         { text = "How do the sluice gears work?", next = "gears", when = { any = { { profession = "Engineering" }, { race = "Gnome" } } } },
+        { text = "What would happen if the dam ever failed?", next = "w2_fail" },
         { text = "Goodbye, Deek.", next = "END" },
       },
     },
@@ -422,6 +461,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_buy = {
+      lines = {
+        { id = "w2_buy_l0", text = "The Algaz lads, by a mile, for they've nae oven an' Rockgar's cookin' would put a trogg off his supper. I leave them the burnt ends free, an' they pretend tae complain about it." },
+      },
+      choices = {
+        { text = "Free bread for soldiers is a fine thing.", next = "BACK", fx = { affinity = 1 } },
+        { text = "What about the dig? Do you go out there?", next = "w2_buy_dig" },
+      },
+    },
+    w2_buy_dig = {
+      lines = {
+        { id = "w2_buy_dig_l0", text = "Once, an' never again. I took a basket out tae Ironband's, an' the troggs had the basket an' I had the run o' my life back tae the road. Now I leave the dig's loaves wi' Jern in Thelsamar, an' he sends them on wi' the powder." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Greishan Ironstove, travellin' merchant. I bake in Thelsamar an' walk the roads sellin' tae the mountaineers an' travellers, for they get hungry out here an' there's no inn for miles." },
@@ -429,7 +485,7 @@ P:NPC {
       again = {
         { id = "h_again3", text = "Walk wi' me if ye've more tae ask, for the loaves get nae fresher standin' still." },
         { id = "h_again", text = "What else? I've a long road ahead." },
-        { id = "h_again2", text = "Go on, I've a minute." },
+        { id = "h_again2", text = "Go on, I've a minute, though the loaves are coolin' in the basket." },
       },
       choices = {
         { text = "Day-old bread should be sold as day-old, not fresh.", next = "BACK", reply = "Aye, an' it is, every loaf. A baker's word ought tae be as good as his crust.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -440,6 +496,7 @@ P:NPC {
         { text = "Where does the bread come from?", next = "bakery" },
         { text = "You must know every mountaineer by name.", next = "posts" },
         { text = "I bake a little myself.", next = "cook", when = { profession = "Cooking" } },
+        { text = "Who buys the most bread on your round?", next = "w2_buy" },
         { text = "Farewell, Greishan.", next = "END" },
       },
     },
@@ -534,6 +591,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_winter = {
+      lines = {
+        { id = "w2_winter_l0", text = "Wool next tae the skin, oilcloth over it, an' twice the lamp oil ye think ye'll need, for the dark comes early an' the fog comes off the water like a wall. An' a second pair o' boots, dry, in a sealed pack." },
+      },
+      choices = {
+        { text = "A second pair of boots seems excessive.", next = "w2_winter_boots" },
+        { text = "I'll take that advice gladly.", next = "BACK" },
+      },
+    },
+    w2_winter_boots = {
+      lines = {
+        { id = "w2_winter_boots_l0", text = "That's what Daryl said last winter, an' he came back in January wi' his toes the colour o' a gnome's beard. I sold him the boots at full price, an' I'd do it again." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Xandar Goodbeard, general supplies. The hunters here think only o' powder an' shot, so I'm the one who remembers they need tae eat, sleep dry an' find their way home." },
@@ -553,7 +627,47 @@ P:NPC {
         { text = "That is a remarkable beard.", next = "beard" },
         { text = "What should I pack for the loch's far shore?", next = "pack", when = { class = "HUNTER" } },
         { text = "What's the oddest thing a hunter has asked you for?", next = "odd" },
+        { text = "What's Marek Ironheart like to work for?", next = "xg_marek" },
+        { text = "The bears around the loch seem restless.", next = "xg_bears" },
+        { text = "What would you pack for a winter on the loch?", next = "w2_winter" },
         { text = "Good day, Xandar.", next = "END" },
+      },
+    },
+    xg_marek = {
+      lines = {
+        { id = "xg_marek_1", text = "Fair, an' gruff, an' he's never once asked me how the ledger's doin', which suits us both. Marek runs the Lodge like a hunt, wi' everyone off doin' their part an' no one standin' about, so I keep the shelves full an' he keeps the hunters fed on work." },
+      },
+      choices = {
+        { text = "What work does he send hunters on?", next = "xg_work" },
+        { text = "A gruff master who leaves you be. Ideal.", next = "BACK", reply = "Aye, it is, an' I'd no' trade him for a softer one." },
+      },
+    },
+    xg_work = {
+      lines = {
+        { id = "xg_work_1", text = "Bears an' boars, mostly, an' the odd elusive beast the lads like tae boast about over the fire. Marek wants the valley's game thinned so the farms by Thelsamar can keep their stock, an' he pays in coin an' in respect, which hunters value about equal." },
+      },
+      choices = {
+        { text = "Coin and respect. I'll ask him for work.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Thinning the game for the farmers. Something else.", next = "BACK" },
+      },
+    },
+    xg_bears = {
+      lines = {
+        { id = "xg_bears_1", text = "They are, an' the hunters say it's the troggs pushin' them down out o' the hills, so they come lookin' for an easier meal. I've had a black bear on the porch twice this month, an' the second time it took a sack o' oats wi' it." },
+      },
+      choices = {
+        { text = "A bear stole your oats?", next = "xg_oats" },
+        { text = "I'm a hunter. I'll deal with your bear.", next = "xg_oats", when = { class = "HUNTER" } },
+        { text = "Troggs pushing bears. That's a chain of trouble.", next = "BACK" },
+      },
+    },
+    xg_oats = {
+      lines = {
+        { id = "xg_oats_1", text = "Bold as ye like, an' Irene shot at it off the back porch an' missed, which she'll deny tae her last breath. I'd ask ye no' tae mention it, for she's still sore about it." },
+      },
+      choices = {
+        { text = "I'll keep Irene's secret.", next = "BACK" },
+        { text = "Even Sureshot misses sometimes. Something else.", next = "BACK" },
       },
     },
     forget = {
@@ -634,6 +748,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_damp = {
+      lines = {
+        { id = "w2_damp_l0", text = "It troubles everythin'. Powder cakes, locks rust, an' a stock left by the window swells till the barrel sits crooked in it. I keep every gun on the rack oiled each night, an' I'll oil yours too, if ye bring it in before it's ruined." },
+      },
+      choices = {
+        { text = "Bows must fare worse, surely.", next = "w2_damp_bows" },
+        { text = "I'll bring it by.", next = "BACK" },
+      },
+    },
+    w2_damp_bows = {
+      lines = {
+        { id = "w2_damp_bows_l0", text = "Ye'd think so, but Cliff waxes his strings like a priest at prayer, an' his bows come through the winter better than half my rifles. I'll deny I said that if ye repeat it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Irene Sureshot, gunsmith tae the Farstriders. Every rifle on that rack has put ten balls through a plank at eighty paces before I'd hang it there, an' I did the shootin' myself." },
@@ -641,7 +772,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Be quick, I've a barrel coolin'." },
-        { id = "h_again2", text = "Go on, ask. I'll tell ye straight." },
+        { id = "h_again2", text = "Go on, ask. I'll tell ye straight, same as I'd tell ye a barrel's bent." },
         { id = "h_again3", text = "Aye? Speak up over the porch, somebody's testin' a fowler." },
       },
       choices = {
@@ -653,7 +784,47 @@ P:NPC {
         { text = "Did you earn the name Sureshot?", next = "name" },
         { text = "Look over my rifle for me.", next = "mine", when = { class = "HUNTER" } },
         { text = "What's the best shot you ever saw?", next = "best" },
+        { text = "Who taught you to make rifles?", next = "is_taught" },
+        { text = "What do the Farstriders hunt with your guns?", next = "is_hunt" },
+        { text = "Does the damp off the loch trouble your rifles?", next = "w2_damp" },
         { text = "Good day, Irene.", next = "END" },
+      },
+    },
+    is_taught = {
+      lines = {
+        { id = "is_taught_1", text = "My father, in a workshop off the Great Forge, an' he taught me tae shoot before he'd let me file a sight. He said a gunsmith who cannae shoot is like a brewer who doesnae drink, an' I've found that tae be true." },
+      },
+      choices = {
+        { text = "Is your father still in Ironforge?", next = "is_father" },
+        { text = "A brewer who doesn't drink. That's a fine line.", next = "BACK", reply = "It's his line, an' he'd be pleased ye liked it." },
+      },
+    },
+    is_father = {
+      lines = {
+        { id = "is_father_1", text = "Aye, still at the bench, though his eyes are no' what they were. He sends me barrels by the Thelsamar carts an' I send him back my targets, so he can see I'm still holdin' tight on the trigger." },
+      },
+      choices = {
+        { text = "That's a good way to stay close.", next = "BACK", fx = { affinity = 1 } },
+        { text = "A craft passed down. Something else.", next = "BACK" },
+      },
+    },
+    is_hunt = {
+      lines = {
+        { id = "is_hunt_1", text = "Bears, boars an' the big mountain buzzards, an' anythin' that comes out o' Stonesplinter Valley wi' a trogg on its back. A rifle drops a beast at a distance where a bow just annoys it, whatever Cliff might tell ye." },
+      },
+      choices = {
+        { text = "Cliff would say the bow is quieter.", next = "is_quiet" },
+        { text = "I'm a hunter. I've seen both work.", next = "is_quiet", when = { class = "HUNTER" } },
+        { text = "Troggs riding beasts?", next = "BACK", reply = "No' quite, but they'd try, if they were clever enough." },
+      },
+    },
+    is_quiet = {
+      lines = {
+        { id = "is_quiet_1", text = "Quieter, aye, an' slower, an' more polite, which is Cliff all over. A rifle tells the whole valley ye're there, an' I say that's no bad thing when the valley's full o' troggs." },
+      },
+      choices = {
+        { text = "Loud has its uses.", next = "BACK" },
+        { text = "Something else, Irene.", next = "BACK" },
       },
     },
     true_shot = {
@@ -732,6 +903,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_finest = {
+      lines = {
+        { id = "w2_finest_l0", text = "A yew longbow for a ranger passing through on the way north, years ago. I spent a whole winter on it, and he paid me in silver and a story, and I've never been sure which was worth more." },
+      },
+      choices = {
+        { text = "What was the story?", next = "w2_finest_story" },
+        { text = "A whole winter on one bow is too long.", next = "BACK" },
+      },
+    },
+    w2_finest_story = {
+      lines = {
+        { id = "w2_finest_story_l0", text = "He'd been in Quel'Thalas during the war, and he said the elves there laughed at human bows, until one of ours put an arrow through a troll at a range their own archers wouldn't try. I suspect he improved it in the telling, but I liked it anyway." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Cliff Hadin, bowyer. I came up from Stormwind's country years ago to learn how the Farstriders season their wood, and I never quite got round to leaving." },
@@ -751,7 +939,47 @@ P:NPC {
         { text = "What brought a human to this lodge?", next = "came" },
         { text = "What draw weight would suit me?", next = "draw", when = { class = "HUNTER" } },
         { text = "What do you think of arrows, as a craft?", next = "arrows" },
+        { text = "How do the Farstriders season their wood?", next = "ch_season" },
+        { text = "Do you miss the south?", next = "ch_south" },
+        { text = "What's the finest bow you ever made?", next = "w2_finest" },
         { text = "Good day, Cliff.", next = "END" },
+      },
+    },
+    ch_season = {
+      lines = {
+        { id = "ch_season_1", text = "Slowly, which is what I came to learn, and what I've had the most trouble teaching anyone else. They cut the staves in winter when the sap is down and leave them in the lodge rafters over the fire for two full years, and the smoke does the rest." },
+      },
+      choices = {
+        { text = "Two years? That's a long wait for a bow.", next = "ch_wait" },
+        { text = "Smoke-cured wood. That's clever.", next = "BACK", reply = "It's old, and I think the old ways are the clever ones." },
+      },
+    },
+    ch_wait = {
+      lines = {
+        { id = "ch_wait_1", text = "It is, and the dwarves think I'm mad to bother when a rifle needs no waiting at all. But a bow made that way will outlast its archer, and I've two in the rafters now that I'll finish when I'm old." },
+      },
+      choices = {
+        { text = "Patience is its own craft.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Cliff.", next = "BACK" },
+      },
+    },
+    ch_south = {
+      lines = {
+        { id = "ch_south_1", text = "Some days, when the snow comes early, I think of the fields round Goldshire and the smell of the bakery. But Stormwind's full of bowyers, and up here I'm the only one, and that's a kind of home in its own right." },
+      },
+      choices = {
+        { text = "The only bowyer among riflemen.", next = "ch_only" },
+        { text = "I'm from Elwynn too. Goldshire's still there.", next = "ch_only", when = { race = "Human" } },
+        { text = "Home is where you're needed.", next = "BACK" },
+      },
+    },
+    ch_only = {
+      lines = {
+        { id = "ch_only_1", text = "The only one, and I've made a peace with it. Daryl the Youngling comes by now and then to try a bow, and he's the closest I've had to a student, though he keeps asking when I'll teach him to shoot a rifle." },
+      },
+      choices = {
+        { text = "Daryl might come round to the bow.", next = "BACK" },
+        { text = "Even your students want rifles. Something else.", next = "BACK" },
       },
     },
     rifles = {
@@ -832,6 +1060,25 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_self = {
+      lines = {
+        { id = "w2_self_l0", text = "Gloves, mostly. I've made myself the same pair eleven times, trying to get the thumb right, and I haven't managed it yet. Leatherwork's like that: the one thing you make for nobody is the one you can't finish." },
+      },
+      choices = {
+        { text = "Show me the latest pair.", next = "w2_self_show" },
+        { text = "Perfection's a waste of good leather.", next = "BACK" },
+      },
+    },
+    w2_self_show = {
+      narr = "She pulls a pair of soft brown gloves from under the counter and turns the left one over.",
+      lines = {
+        { id = "w2_self_show_l0", text = "There. See how the thumb pulls when you close your fist? Nobody else would notice, but I do, every time I pick up the awl." },
+      },
+      choices = {
+        { text = "They look perfect to me.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Kat Sampson. The hunters bring me hides, I turn them into something that'll stop a tusk, and then I sell it back to the same hunters. It's a tidy arrangement for everyone except the boars." },
@@ -851,7 +1098,47 @@ P:NPC {
         { text = "The hunters keep you supplied, then.", next = "hunters" },
         { text = "I skin my own kills. What will you buy?", next = "skin", when = { profession = { "Skinning", "Leatherworking" } } },
         { text = "How long does a jerkin take you?", next = "jerkin" },
+        { text = "What's the strangest hide anyone's brought you?", next = "ks_strange" },
+        { text = "Do the hunters treat you as one of them?", next = "ks_treat" },
+        { text = "What do you make for yourself, when there's no order?", next = "w2_self" },
         { text = "Good day, Kat.", next = "END" },
+      },
+    },
+    ks_strange = {
+      lines = {
+        { id = "ks_strange_1", text = "A trogg's, which I refused, and then a buzzard's, which I didn't know what to do with. The trogg hide was a dare from one of the younger dwarves, and Marek made him bury it before it made the whole lodge smell." },
+      },
+      choices = {
+        { text = "Why refuse the trogg hide?", next = "ks_trogg" },
+        { text = "A dare gone very wrong.", next = "BACK", reply = "And a smell that lasted a week." },
+      },
+    },
+    ks_trogg = {
+      lines = {
+        { id = "ks_trogg_1", text = "Because a trogg isn't a beast, whatever the dwarves say, and I'll not wear what used to walk on two feet. They come up out of the earth by Stonesplinter, and the mountaineers fight them every week, but I'll have no part of their skins." },
+      },
+      choices = {
+        { text = "That's a fair line to draw.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Troggs aren't beasts. I agree.", next = "BACK" },
+      },
+    },
+    ks_treat = {
+      lines = {
+        { id = "ks_treat_1", text = "Mostly, though I'm the only one here who can't grow a beard, and they won't let me forget it. I came up from the farms near Thelsamar to learn tanning, and I stayed because nobody at the lodge ever tells me how a hide should be cut." },
+      },
+      choices = {
+        { text = "They trust your judgment, then.", next = "ks_trust" },
+        { text = "I'm a leatherworker. I'd trust it too.", next = "ks_trust", when = { profession = "Leatherworking" } },
+        { text = "No beard and no orders. A good trade.", next = "BACK" },
+      },
+    },
+    ks_trust = {
+      lines = {
+        { id = "ks_trust_1", text = "They do, and they trust me with their boots, which is about the highest honour a dwarf can give. Marek Ironheart wore a pair of mine to Ironforge last year and came back telling everyone a human made them." },
+      },
+      choices = {
+        { text = "That's high praise.", next = "BACK" },
+        { text = "Something else, Kat.", next = "BACK" },
       },
     },
     hides = {
@@ -951,7 +1238,54 @@ P:NPC {
         { text = "What do you think of my robes?", next = "robes", when = { class = { "MAGE", "PRIEST", "WARLOCK" } } },
         { text = "What's the worst you've had to mend?", next = "worst" },
         { text = "Who else trades at the Lodge?", next = "traders" },
+        { text = "What do the mountaineers wear under their mail?", next = "ac_mountain" },
+        { text = "Where does your cloth come from?", next = "ac_cloth" },
         { text = "Good day, Aldren.", next = "END" },
+      },
+    },
+    ac_mountain = {
+      lines = {
+        { id = "ac_mountain_1", text = "Wool padding, an' they'd wear it till it rotted if I didnae make them buy new. Mail on bare skin will rub a dwarf raw in a day, an' the mountaineers at Thelsamar walk their patrols in the same shirt for a month." },
+      },
+      choices = {
+        { text = "Do they listen to you?", next = "ac_listen" },
+        { text = "I'll keep my padding fresh, then.", next = "BACK", reply = "See that ye do, for yer skin'll thank ye." },
+      },
+    },
+    ac_listen = {
+      lines = {
+        { id = "ac_listen_1", text = "Only after the rash, which is how most dwarves learn. Captain Rugelfuss on his hill is the worst, for he says he's too busy fightin' troggs tae worry about his shirt." },
+      },
+      choices = {
+        { text = "Does the dam need watching too?", next = "ac_dam" },
+        { text = "A busy captain still needs a clean shirt.", next = "BACK" },
+      },
+    },
+    ac_dam = {
+      lines = {
+        { id = "ac_dam_1", text = "Aye, for Chief Engineer Hinderweir swears he's seen Dark Irons skulkin' round the Stonewrought at night. If the dam goes, half the valley goes wi' it, so I'll forgive the guards there their shirts as well." },
+      },
+      choices = {
+        { text = "I'll look in on Hinderweir.", next = "BACK", fx = { learn = { "stonewrought_dam" } } },
+        { text = "Something else, Aldren.", next = "BACK" },
+      },
+    },
+    ac_cloth = {
+      lines = {
+        { id = "ac_cloth_1", text = "Linen from the Thelsamar weavers, wool from the rams in Dun Morogh, an' silk now an' then from a trader passin' through tae Menethil. Silk's no good for a hunter, mind, but it's good for a dwarf who wants tae look respectable in Ironforge." },
+      },
+      choices = {
+        { text = "Do many hunters care about looking respectable?", next = "ac_respect" },
+        { text = "I'm a tailor. Linen or wool, for these hills?", next = "ac_respect", when = { profession = "Tailoring" } },
+      },
+    },
+    ac_respect = {
+      lines = {
+        { id = "ac_respect_1", text = "More than they'll admit, when there's a wedding or a feast. The rest o' the year they want warm an' dry, an' for that it's wool, every time, for it stays warm even when it's wet through." },
+      },
+      choices = {
+        { text = "Warm when wet. That's the secret.", next = "BACK" },
+        { text = "Something else, then.", next = "BACK" },
       },
     },
     hunters = {
@@ -1028,6 +1362,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_dent = {
+      lines = {
+        { id = "w2_dent_l0", text = "Low on the left side, right above the hip. That's a trogg club swung by somethin' short that cannae reach higher, an' I've beaten out more o' those this summer than in the five before put together." },
+      },
+      choices = {
+        { text = "So the troggs are getting bolder.", next = "w2_dent_bold" },
+        { text = "Then make the armour thicker there.", next = "BACK" },
+      },
+    },
+    w2_dent_bold = {
+      lines = {
+        { id = "w2_dent_bold_l0", text = "Bolder, or more o' them, or both. I told the mountaineers' sergeant, an' he said he'd look intae it, which is what a sergeant says when he means he's too busy. I'm puttin' an extra plate on every hip regardless." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Gothor Brumn, armorer. I've put mail on near every mountaineer in Loch Modan, an' I can tell ye which o' them have grown since by the links I've had tae add." },
@@ -1035,7 +1386,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? I've rings tae rivet." },
-        { id = "h_again2", text = "Go on, I'm listenin'." },
+        { id = "h_again2", text = "Go on. An' while ye talk, let me see that dent in yer shield." },
         { id = "h_again3", text = "Aye? Ask, an' dinnae lean on the shields." },
       },
       choices = {
@@ -1047,7 +1398,47 @@ P:NPC {
         { text = "Who else works metal in Thelsamar?", next = "smiths" },
         { text = "Check my armour's fit for me.", next = "fit", when = { class = { "WARRIOR", "PALADIN", "HUNTER" } } },
         { text = "Mail or plate, for these hills?", next = "mail" },
+        { text = "Who's the hardest mountaineer to fit?", next = "gb_hard" },
+        { text = "What's your shield work like?", next = "gb_shield" },
+        { text = "Which dent have you seen most often this season?", next = "w2_dent" },
         { text = "Good day, Gothor.", next = "END" },
+      },
+    },
+    gb_hard = {
+      lines = {
+        { id = "gb_hard_1", text = "Mountaineer Cobbleflint, for he's broad as a door an' insists his mail is still the size it was ten years ago. I've added two rows o' links tae his hauberk an' told him it shrank in the rain, which keeps the peace." },
+      },
+      choices = {
+        { text = "You're a kind armorer.", next = "gb_kind" },
+        { text = "He'll find out one day.", next = "BACK", reply = "Maybe, but no' from me." },
+      },
+    },
+    gb_kind = {
+      lines = {
+        { id = "gb_kind_1", text = "Kind is cheaper than an argument wi' a mountaineer. Cobbleflint is the best fighter in Thelsamar, an' if he wants tae believe his waist is what it was, I'll let him, so long as the mail fits." },
+      },
+      choices = {
+        { text = "A fitting truth for a fighting man.", next = "BACK" },
+        { text = "Something else, Gothor.", next = "BACK" },
+      },
+    },
+    gb_shield = {
+      lines = {
+        { id = "gb_shield_1", text = "Heavy oak, iron rim, an' a boss ye could use as a hammer if ye'd a mind tae. The troggs in Stonesplinter Valley fight wi' clubs an' teeth, so a good shield here is worth more than a good sword." },
+      },
+      choices = {
+        { text = "Clubs and teeth? Troggs fight like beasts.", next = "gb_troggs2" },
+        { text = "I fight with shield and hammer myself.", next = "gb_troggs2", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "A boss for a hammer. I like that.", next = "BACK" },
+      },
+    },
+    gb_troggs2 = {
+      lines = {
+        { id = "gb_troggs2_1", text = "They do, an' they come in a rush, so ye want somethin' tae put between ye an' the rush. Mountaineer Kadrell will tell ye the same, an' he's lost more shields tae trogg teeth than anyone in the valley." },
+      },
+      choices = {
+        { text = "I'll ask Kadrell about the troggs.", next = "BACK", fx = { learn = { "troggs" } } },
+        { text = "Something else, then.", next = "BACK" },
       },
     },
     mountaineers = {
@@ -1126,6 +1517,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_drop = {
+      lines = {
+        { id = "w2_drop_l0", text = "Three, that I know of, an' one o' them was me. Ye can see it on a clear day, if ye lean over the rail by the second sluice, sittin' on a rock at the bottom an' rustin' in peace." },
+      },
+      choices = {
+        { text = "You could dive for it.", next = "w2_drop_dive" },
+        { text = "A fine monument to your craft.", next = "BACK" },
+      },
+    },
+    w2_drop_dive = {
+      lines = {
+        { id = "w2_drop_dive_l0", text = "In that water? It's cold enough tae stop a dwarf's heart, an' there's things in the deep end o' the loch the fishers dinnae like tae talk about. Let it lie; I'll make another." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Nillen Andemar, macecrafter. I make them in Thelsamar an' sell them up here on the dam, for the guards on this wall want somethin' that'll no' turn on a trogg's skull the way an edge does." },
@@ -1133,7 +1541,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Mind the edge o' the walkway while ye think." },
-        { id = "h_again2", text = "Go on, ask. I've the whole afternoon an' a fine view." },
+        { id = "h_again2", text = "Go on, ask. I've the whole afternoon, a fine view, an' a hammer in my hand." },
         { id = "h_again3", text = "Aye? Speak up over the water." },
       },
       choices = {
@@ -1145,7 +1553,46 @@ P:NPC {
         { text = "What makes a good mace?", next = "craft" },
         { text = "Fit me for a hammer.", next = "fit", when = { class = { "PALADIN", "WARRIOR", "PRIEST" } } },
         { text = "What do the wall guards buy?", next = "guards" },
+        { text = "How do you get maces up to the dam?", next = "na_haul" },
+        { text = "Does Hinderweir ever buy from you?", next = "na_hinder" },
+        { text = "Has anyone ever dropped a mace off the dam?", next = "w2_drop" },
         { text = "Good day, Nillen.", next = "END" },
+      },
+    },
+    na_haul = {
+      lines = {
+        { id = "na_haul_1", text = "On my own back, mostly, for a cart on the dam road costs more than the maces are worth. I carry six at a time, an' by the time I reach the wall I've the shoulders o' a mountaineer an' the temper o' a trogg." },
+      },
+      choices = {
+        { text = "Six maces? That's a heavy load.", next = "na_load" },
+        { text = "A strong back is a smith's best tool.", next = "BACK", reply = "So my father said, an' then he made me carry the anvil." },
+      },
+    },
+    na_load = {
+      lines = {
+        { id = "na_load_1", text = "It is, an' it's the best test o' a mace ye'll find, for I ken the balance o' every one by the time I've carried it up. If it doesnae sit right on my shoulder, it doesnae sit right in a guard's hand either." },
+      },
+      choices = {
+        { text = "Testing by carrying. Clever.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Nillen.", next = "BACK" },
+      },
+    },
+    na_hinder = {
+      lines = {
+        { id = "na_hinder_1", text = "The Chief Engineer? No, he's no use for maces, for he'd sooner fix a problem than hit it. He's the seventh Hinderweir tae keep the Stonewrought Dam, an' he worries about it like it was a child." },
+      },
+      choices = {
+        { text = "What does he worry about?", next = "na_worry" },
+        { text = "I'm an engineer. I'd like to meet him.", next = "na_worry", when = { profession = "Engineering" } },
+      },
+    },
+    na_worry = {
+      lines = {
+        { id = "na_worry_1", text = "Cracks, leaks, Dark Irons, the weight o' the water, an' whether his great-great-grandfather would approve o' him. Talk tae him yerself, but bring a stool, for he'll talk for an hour." },
+      },
+      choices = {
+        { text = "I'll bring a stool, then.", next = "BACK" },
+        { text = "An engineer's worries. Something else.", next = "BACK" },
       },
     },
     why = {

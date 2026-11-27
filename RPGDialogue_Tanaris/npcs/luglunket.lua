@@ -57,7 +57,25 @@ P:NPC {
         { text = "The water could just be shared, Luglunket.", next = "share", when = { class = { "PRIEST", "PALADIN", "DRUID" } } },
         { text = "What do you need?", next = "BUSINESS" },
         { text = "The Wastewanders know my face now, Luglunket.", next = "dd_wastewander", when = { killed = { name = "Wastewander", min = 40 } } },
+        { text = "Who do you answer to at the Water Company?", next = "w9_boss" },
         { text = "Keep up the good work.", next = "END" },
+      },
+    },
+
+    w9_boss = {
+      lines = { { id = "w9_boss_d", text = "My shift supervisor, pal, who answers to the regional pump manager, who answers to the Company board, who all answer to Baron Noggenfogger when he remembers to ask. It's a beautiful system, and I'm the very bottom of it, which means I'm the part that actually touches the water!" } },
+      choices = {
+        { text = "Does the Baron care much about water?", next = "w9_boss2" },
+        { text = "Being on the bottom doesn't bother you?", next = "w9_boss2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_boss2 = {
+      lines = { { id = "w9_boss2_d", text = "The Baron cares about the receipts, friend, and the receipts care about the water, so in a roundabout way he loves every drop. Me, I'd rather be down here with the spigots than up there with the ledgers, because the spigots say thank you when you oil them, sort of." } },
+      choices = {
+        { text = "That's a good attitude, Luglunket.", next = "BACK", reply = "Huzzah! I'll put that in my quarterly review, if you don't mind." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     dd_wastewander = {

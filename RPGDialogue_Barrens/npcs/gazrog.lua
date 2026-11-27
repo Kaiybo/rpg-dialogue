@@ -53,7 +53,25 @@ P:NPC {
         { text = "The Crossroads seems to have trouble on every side.", next = "crossroads" },
         { text = "I'm looking for word of Grunt Dogran.", next = "dogran", when = { class = "WARLOCK" } },
         { text = "I've got work in me.", next = "BUSINESS" },
+        { text = "Keeping the tower looks like a lonely post.", next = "tower" },
+        { text = "What's down at the Raptor Grounds?", next = "grounds" },
+        { text = "What if the silver never turns up?", next = "w5_never" },
         { text = "Good luck with the lizards.", next = "END" },
+      },
+    },
+    w5_never = {
+      lines = { { id = "w5_never_l", text = "Then I pay it back myself, out of my own wages, one coin at a time. It'll take me four years. Thork says it wasn't my fault. Thork also hasn't offered to pay it for me, I notice." } },
+      choices = {
+        { text = "Should you have to pay it back at all?", next = "w5_never2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_never2 = {
+      lines = { { id = "w5_never2_l", text = "Raptors took it on my watch. Raptors, of all things. Every grunt at this post knows it, and every grunt looks at me on payday. If I pay it back, maybe they stop looking. If I don't, I'm the orc who lost the silver forever." } },
+      choices = {
+        { text = "A keeper answers for his box, whatever took it. Pay it back.", next = "BACK", reply = "Aye. That's the hard road, and the only one where I can look them in the eye.", fx = { align = { honor = 1 } } },
+        { text = "The Horde should cover it. You aren't to blame for raptors.", next = "BACK", reply = "Tell that to Thork, and loudly, because he hasn't heard it from me yet.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     raptors = {
@@ -100,6 +118,33 @@ P:NPC {
     dogran = {
       lines = { { id = "d_default", text = "Dogran was a good grunt, and the Bristleback took him near Agama'gor. Logmar at Camp Taurajo was with him, so start there, and bring him home if there's anything left to bring." } },
       choices = { { text = "I'll find him.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    tower = {
+      lines = { { id = "tw_default", text = "It is, and I like it that way. From the top I can see the dust of a centaur raid an hour before it reaches the gate, and the strongbox sits under my bunk so nobody gets to it without stepping on me. Nobody but a raptor, it seems." } },
+      choices = {
+        { text = "You sleep on the guards' pay?", next = "tower2" },
+        { text = "A raptor got past you. That must sting.", next = "tower2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tower2 = {
+      lines = { { id = "tw2_default", text = "I did, and I was awake that night, which makes it worse. The thing came up the outside of the tower like a lizard up a wall and went out the window before I'd got my axe. Thork says I did nothing wrong, and I don't believe him." } },
+      choices = { { text = "Thork's probably right. Something else.", next = "BACK" } },
+    },
+    grounds = {
+      lines = { { id = "gr3_default", text = "Nests and bones and more raptors than any sane hunter would count, south of Ratchet along the coast. Sunscale, Takk's kin, the big ones with the bright hides. The goblins won't go near it, and the goblins will go near anything for coin." } },
+      choices = {
+        { text = "Takk? Who's that?", next = "grounds2" },
+        { text = "Raptors with a lair full of silver. I'd go.", next = "grounds2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grounds2 = {
+      lines = { { id = "gr4_default", text = "Takk the Leaper, a raptor so big the hunters at Taurajo have a price on him. If he's the one teaching the others to steal, he's smarter than half my grunts. Go carefully, {class}, and if you see him, don't let him get above you." } },
+      choices = {
+        { text = "I'm a hunter. A raptor that clever might be worth taming.", next = "BACK", reply = "Then you're madder than I am, and you can keep him out of my tower.", when = { class = "HUNTER" } },
+        { text = "Something else, Gazrog.", next = "BACK" },
+      },
     },
   },
 

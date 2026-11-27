@@ -622,6 +622,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2watch = {
+      lines = { { id = "w2wt_default", text = "Since the Den was built, and the Blade moved in a month after, as if they'd been waiting for neighbours. I sleep in the day, in pieces, and I've learned the cultists' habits better than I know my own." } },
+      choices = {
+        { text = "What have you learned about them?", next = "w2watch2" },
+        { text = "Sleeping in pieces sounds dreadful.", next = "w2watch2" },
+        { text = "Something else, Zureetha.", next = "BACK" },
+      },
+    },
+    w2watch2 = {
+      lines = { { id = "w2wt2_default", text = "That they're afraid, mostly. They change the guard too often, they light too many fires, and they argue in loud voices about who will be favoured when the old power returns. Frightened orcs are dangerous, but they make mistakes, and I count every one." } },
+      choices = { { text = "Then their mistakes are yours.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Every power is dangerous if you let it own you. The Burning Blade let the fel own them; the Silver Hand let the Light make them jailers. Don't let it own you, and point it at the caves to the north." } },
@@ -725,6 +737,7 @@ P:NPC {
         { text = "What waits in the Burning Blade caves, Zureetha?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What have you missed in the caves, Zureetha?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Some say the Light is dangerous, Zureetha.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "How long have you watched these caves?", next = "w2watch" },
         { text = "I'll go north.", next = "END" },
       },
       again = {
@@ -1229,6 +1242,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2wreck = {
+      lines = { { id = "w2wk_default", text = "A practice axe with a scorpid still stuck to the head, alive, and the recruit holding it at arm's length asking whether I did repairs. I charged him for the axe and the scorpid both, and I sold the scorpid to Kagil for the plates." } },
+      choices = {
+        { text = "That's ruthless.", next = "w2wreck2" },
+        { text = "Fair, all things considered.", next = "w2wreck2" },
+        { text = "Something else, Kzan.", next = "BACK" },
+      },
+    },
+    w2wreck2 = {
+      lines = { { id = "w2wk2_default", text = "It's business, and it's the only way they learn to pull the blade out of what they hit. That recruit's in the Barrens now, and I hear he cleans his axe every single night, so the lesson took." } },
+      choices = { { text = "An expensive lesson.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "I arm anyone with coin. Plenty of recruits have dropped weapons in the scrub, and I suspect you'll drop yours too. The old grunts won't like seeing a paladin's hammer in the Valley, but they don't buy from me, so I don't care." } },
@@ -1327,10 +1352,11 @@ P:NPC {
         { text = "What does a hunter need from you, Kzan?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'd guess you don't sell freely to my sort.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Would you arm a Forsaken paladin, Kzan?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "What's the worst state a training weapon has come back in?", next = "w2wreck" },
         { text = "Back to the scrub, then.", next = "END" },
       },
       again = {
-        { id = "h_again", text = "Anything else, recruit, or are you here to spend some coin on a decent edge?" },
+        { id = "h_again", text = "Anything else, grunt? Every word you spend here is a copper you haven't spent on that blunt blade of yours." },
       },
     },
     warrior = {

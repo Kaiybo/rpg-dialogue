@@ -25,11 +25,28 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_post = {
+      lines = {
+        { id = "w2_post_l0", text = "Ye ask for it, or ye anger someone who decides for ye. I asked, for my father held this gate in the Second War, an' I wanted tae stand where he stood when the orcs came down the tunnel." },
+      },
+      choices = {
+        { text = "Did they come through, back then?", next = "w2_post_war" },
+        { text = "Following a father's steps is a fine reason.", next = "BACK" },
+      },
+    },
+    w2_post_war = {
+      lines = {
+        { id = "w2_post_war_l0", text = "Nae, an' that's the whole point o' the gate. The Horde took Grim Batol an' the Wetlands beyond it, an' they never once came through Algaz while a Hammerfall stood here. I mean tae keep it that way." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Mountaineer Hammerfall, gate watch. Naebody goes north through Dun Algaz wi'out me seein' their face first, so that somebody can say who they were if they dinnae come back.", fx = { learn = { "dragonmaw" } } } },
       again = {
         { id = "h_again", text = "What else? The gate's no' goin' tae watch itself." },
-        { id = "h_again2", text = "Speak." },
+        { id = "h_again2", text = "Speak up, an' quick; there's a cart comin' through the tunnel." },
       },
       choices = {
         { text = "Every traveller through the gate should be named and counted.", next = "BACK", reply = "Aye, so that somebody can say who they were if they dinnae come back.", fx = { align = { order = 1 } } }, -- dp_stance
@@ -40,6 +57,7 @@ P:NPC {
         { text = "Do many fail to come back?", next = "fail" },
         { text = "Hammerfall. Like the place in Arathi?", next = "name" },
         { text = "I'm bound for the Wetlands.", next = "bound" },
+        { text = "How does a dwarf end up posted at Algaz?", next = "w2_post" },
         { text = "Carry on, Mountaineer.", next = "END" },
       },
     },
@@ -139,11 +157,28 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_hard = {
+      lines = {
+        { id = "w2_hard_l0", text = "Across the tunnel mouth at dusk, at a Dragonmaw scout holdin' a knife at a carter's neck. Ninety paces, bad light, an' the carter twitchin'. I took the scout through the shoulder, an' the carter fainted." },
+      },
+      choices = {
+        { text = "You could have hit the carter.", next = "w2_hard_risk" },
+        { text = "A clean shot, by any measure.", next = "BACK" },
+      },
+    },
+    w2_hard_risk = {
+      lines = {
+        { id = "w2_hard_risk_l0", text = "Aye, I could have. I've thought on it every night since, an' I've decided I'd take the shot again. A miss would have killed him; no' shootin' at all would have killed him slower." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Mountaineer Luxst. The others guard the gate, an' I guard the ground in front of it, out as far as a ball will carry true." } },
       again = {
         { id = "h_again", text = "Aye? I'm listenin', though I'll no' look round." },
-        { id = "h_again2", text = "Go on." },
+        { id = "h_again2", text = "Go on, then. I can listen an' watch the road both." },
       },
       choices = {
         { text = "A marksman should fire only on his captain's word.", next = "BACK", reply = "Aye, for a shot fired wrong cannae be called back, an' that's the whole of it.", fx = { align = { order = 1 } } }, -- dp_stance
@@ -154,6 +189,7 @@ P:NPC {
         { text = "How far does a ball carry true?", next = "far" },
         { text = "What do you shoot at, out here?", next = "shoot" },
         { text = "I'd call that pine two hundred and ten paces.", next = "pine", when = { class = "HUNTER" } },
+        { text = "What's the hardest shot you've had to make here?", next = "w2_hard" },
         { text = "Good shooting, Mountaineer.", next = "END" },
       },
     },
@@ -253,11 +289,28 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_stores = {
+      lines = {
+        { id = "w2_stores_l0", text = "Two crates o' shot last month, an' a barrel o' salt pork the month before, an' nae Dragonmaw ever got past the gate tae take them. Either my sums are wrong, an' they're never wrong, or somebody's hungry an' quiet about it." },
+      },
+      choices = {
+        { text = "Who would you suspect?", next = "w2_stores_who" },
+        { text = "Every garrison loses a crate or two.", next = "BACK" },
+      },
+    },
+    w2_stores_who = {
+      lines = {
+        { id = "w2_stores_who_l0", text = "I've a guess, an' I'll keep it tae myself till I can prove it. It's no' the sort o' thing ye say about a mountaineer at a station this small, no' unless ye want tae sleep wi' one eye open." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Mountaineer Morran. I stand my watch like the rest, an' I keep the station's count besides, for somebody has tae know what went up that road an' what came back." } },
       again = {
         { id = "h_again", text = "What else? I've a column tae finish." },
-        { id = "h_again2", text = "Aye, go on." },
+        { id = "h_again2", text = "Aye, go on, an' I'll count while ye talk." },
       },
       choices = {
         { text = "Good records keep a station honest and its people safe.", next = "BACK", reply = "Exactly so! Wi'out the tally, we'd no' even know who tae go lookin' for.", fx = { align = { order = 1 } } }, -- dp_stance
@@ -267,6 +320,7 @@ P:NPC {
         { text = "What's Menethil Harbor like?", next = "ymor_menethil" },
         { text = "What goes up the road these days?", next = "goes" },
         { text = "And what comes back?", next = "back" },
+        { text = "What's gone missing from the station's stores?", next = "w2_stores" },
         { text = "Mark me down as passing through.", next = "END" },
       },
     },
@@ -364,11 +418,28 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_news = {
+      lines = {
+        { id = "w2_news_l0", text = "That they're wet, mostly, an' I believe them, for they come out o' the tunnel steamin' like puddin's. After that it's raptors, an' crocolisks, an' the orcs at Grim Batol, an' then they ask where the ale is." },
+      },
+      choices = {
+        { text = "What do they say about Grim Batol?", next = "w2_news_batol" },
+        { text = "I'll be asking where the ale is myself.", next = "BACK" },
+      },
+    },
+    w2_news_batol = {
+      lines = {
+        { id = "w2_news_batol_l0", text = "Nothin' good. The Dragonmaw hold it still, an' some say there's somethin' worse than orcs in the deep halls. I dinnae ask more than that, for it's my job tae make folk feel better, no' worse." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I'm Mountaineer Yuttha. Hammerfall asks folk where they're goin', an' I ask how they are, an' between us we cover the matter." } },
       again = {
         { id = "h_again", text = "What else can I tell ye, friend?" },
-        { id = "h_again2", text = "Aye, go on, I like a chat." },
+        { id = "h_again2", text = "Aye, go on, I like a chat, an' Hammerfall's no' much o' one." },
       },
       choices = {
         { text = "Every guard at Algaz is doing her duty to Ironforge.", next = "BACK", reply = "Aye, an' that's what I tell myself when I'm missin' the warm halls an' my mam's cookin'.", fx = { align = { order = 1 } } }, -- dp_stance
@@ -378,6 +449,7 @@ P:NPC {
         { text = "Will you go back to Thelsamar?", next = "yyut_chair" },
         { text = "Where should I go from here?", next = "where" },
         { text = "You seem happy, for such a grim post.", next = "happy" },
+        { text = "What do travellers from the Wetlands usually tell you?", next = "w2_news" },
         { text = "Thank you for the welcome.", next = "END" },
       },
     },
@@ -473,11 +545,29 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_plan = {
+      lines = {
+        { id = "w2_plan_l0", text = "I've thought on it every night for six years, so I've a plan. Ring the bell, fire once, run tae the powder store, an' hope Luxst has stopped enough o' them that I get there." },
+      },
+      choices = {
+        { text = "And the powder store?", next = "w2_plan_powder" },
+        { text = "That's a sound enough plan.", next = "BACK" },
+      },
+    },
+    w2_plan_powder = {
+      narr = "He lowers his voice, though there is nobody near.",
+      lines = {
+        { id = "w2_plan_powder_l0", text = "Bring the tunnel down on the lot o' them. Rockgar's never said it aloud, but there's a reason the barrels sit where they do, an' every one o' us knows it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Mountaineer Zwarn. I've the cold corner o' the station, where the wind comes straight down from Dun Algaz carryin' the smell o' orc fires, an' it's told me nothin' good yet." } },
       again = {
         { id = "h_again", text = "What else? Ask while there's time." },
-        { id = "h_again2", text = "Go on, it'll pass the hour." },
+        { id = "h_again2", text = "Go on, it'll pass the hour, an' it might be my last, so make it a good question." },
       },
       choices = {
         { text = "Keep to your post and trust the station's orders.", next = "BACK", reply = "I do, an' I'll keep doin' it till the night they come, which is likely tonight.", fx = { align = { order = 1 } } }, -- dp_stance
@@ -487,6 +577,7 @@ P:NPC {
         { text = "What's on Yuttha's tally?", next = "yzwa_tally" },
         { text = "What will be tonight?", next = "tonight" },
         { text = "You've said that before, I'd guess.", next = "before" },
+        { text = "What would you do if the Dragonmaw really came?", next = "w2_plan" },
         { text = "Keep your chin up, Zwarn.", next = "END" },
       },
     },
@@ -582,11 +673,28 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_best = {
+      lines = {
+        { id = "w2_best_l0", text = "A wee bairn born tae the smith's wife at the North Gate, an' her husband up at Algaz on watch. I ran the whole road that day, an' he wept on my shoulder, an' Rockgar let him go home for a week." },
+      },
+      choices = {
+        { text = "And the worst?", next = "w2_best_worst" },
+        { text = "Good news deserves a quick foot.", next = "BACK" },
+      },
+    },
+    w2_best_worst = {
+      lines = {
+        { id = "w2_best_worst_l0", text = "Gnomeregan, when the word came that it had fallen. I'd tae tell a gnome at the station that his whole city was gone, an' he only nodded an' went back tae his work, an' that was worse than if he'd cried." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Mountaineer Ganin. I walk from Algaz Station up tae the North Gate Pass an' back, which makes me the nearest thing tae a town crier these hills have got." } },
       again = {
         { id = "h_again", text = "What else d'ye want tae hear? Or tell, I'm no' fussy." },
-        { id = "h_again2", text = "Aye, go on!" },
+        { id = "h_again2", text = "Aye, go on! Whatever ye tell me, I'll have it at the North Gate by supper." },
       },
       choices = {
         { text = "News should go through the captain before it reaches the gossips.", next = "BACK", reply = "Ach, ye're right, though the Captain's a terrible storyteller an' tells it all wrong.", fx = { align = { order = 1 } } }, -- dp_stance
@@ -597,6 +705,7 @@ P:NPC {
         { text = "What's the news from the station?", next = "station" },
         { text = "And from the North Gate?", next = "gate" },
         { text = "I've come from Ironforge, and it stands.", next = "ironforge", when = { race = { "Dwarf", "Gnome" } } },
+        { text = "What's the best news you ever carried?", next = "w2_best" },
         { text = "Safe walking, Ganin.", next = "END" },
       },
     },
@@ -697,11 +806,28 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_close = {
+      lines = {
+        { id = "w2_close_l0", text = "Last spring, a Dragonmaw axe came out o' the side tunnel an' took the buckle off my belt, an' my breeches with it. I fought the rest o' that skirmish in my smalls, an' I won." },
+      },
+      choices = {
+        { text = "You're making that up.", next = "w2_close_true" },
+        { text = "That's the bravest thing I've ever heard.", next = "BACK" },
+      },
+    },
+    w2_close_true = {
+      lines = {
+        { id = "w2_close_true_l0", text = "Ask Hammerfall; he wrote it in his ledger. He marked me \"returned, partially dressed,\" an' the whole station's called me that since." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Mountaineer Brokk. My patrol ends at the mouth o' Dun Algaz, where I stand a minute so the orcs can see I'm no' afraid o' them, an' then I walk back.", fx = { learn = { "dragonmaw" } } } },
       again = {
         { id = "h_again", text = "What else? Speak up, I've a pass tae walk." },
-        { id = "h_again2", text = "Aye, out wi' it." },
+        { id = "h_again2", text = "Aye, out wi' it, an' if it's a challenge, my answer's aye." },
       },
       choices = {
         { text = "Fight the orcs on your captain's word, not your temper.", next = "BACK", reply = "Aye, aye, I know, though my temper's quicker than the Captain's word most days.", fx = { align = { order = 1 } } }, -- dp_stance
@@ -711,6 +837,7 @@ P:NPC {
         { text = "Who is Gothor?", next = "ybrok_gothor" },
         { text = "You stand there on purpose?", next = "stand" },
         { text = "What are the Dragonmaw doing in Dun Algaz?", next = "orcs" },
+        { text = "What's the closest you've come to dying on this road?", next = "w2_close" },
         { text = "Give them my regards.", next = "END" },
       },
     },
@@ -808,10 +935,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_sound = {
+      lines = {
+        { id = "w2_sound_l0", text = "Singin', once, from somewhere below the main tunnel, where there's nae passage I know of. No' dwarf singin', nor orc. Low an' slow, like stone remembering a song." },
+      },
+      choices = {
+        { text = "Did you go looking for it?", next = "w2_sound_look" },
+        { text = "Probably water in the rock.", next = "BACK" },
+      },
+    },
+    w2_sound_look = {
+      lines = {
+        { id = "w2_sound_look_l0", text = "Nae, an' I'm no' ashamed tae say it. I've walked this tunnel for twenty years by knowin' which sounds tae follow an' which tae walk away from, an' that one I walked away from quick." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Mountaineer Dokkin. I walk the tunnel, an' I listen while I walk, for in here ye'll hear trouble long before a lantern shows it tae ye." } },
       again = {
-        { id = "h_again", text = "What else? Keep it low." },
+        { id = "h_again", text = "What else? Low, mind; the tunnel carries a voice further than ye'd think." },
         { id = "h_again2", text = "Hush a moment. Nae, it's only water. Go on." },
       },
       choices = {
@@ -822,6 +966,7 @@ P:NPC {
         { text = "Tell me about your lantern.", next = "ydok_lantern" },
         { text = "What do you listen for?", next = "listen" },
         { text = "These tunnels are dwarven work.", next = "work" },
+        { text = "What's the strangest sound you've heard in here?", next = "w2_sound" },
         { text = "I'll go quietly.", next = "END" },
       },
     },
@@ -919,6 +1064,25 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_disrespect = {
+      lines = {
+        { id = "w2_disrespect_l0", text = "Some. A gnome tried tae fix a lantern tae a king's knee last year, for the light, he said, an' a human lad carved his name in the plinth. I spoke tae both of them, at some length." },
+      },
+      choices = {
+        { text = "What did you say to the gnome?", next = "w2_disrespect_gnome" },
+        { text = "They deserved worse than talking.", next = "BACK", reply = "Perhaps, but I'm a guard o' kings, no' a king myself. Words are what I'm given tae use.", fx = { align = { order = 1 } } },
+        { text = "A lantern harms no one. Let folk enjoy the place.", next = "BACK", reply = "The kings were lit by the sun for a thousand years before that gnome. They dinnae need his help.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_disrespect_gnome = {
+      lines = {
+        { id = "w2_disrespect_gnome_l0", text = "That the king he was hangin' his lantern on had held these hills against trolls when the gnomes still lived in burrows. He took it down an' bowed, very low, an' I think he meant it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Mountaineer Naarh. Other guards keep a gate or a road, an' I keep the feet o' kings, which I hold tae be the highest post in Loch Modan." } },
       again = {
@@ -933,6 +1097,7 @@ P:NPC {
         { text = "Why did you ask for this post?", next = "ynaa_nine" },
         { text = "Who are the statues?", next = "who" },
         { text = "What do you guard them from?", next = "from" },
+        { text = "Do travellers ever show the statues disrespect?", next = "w2_disrespect" },
         { text = "I'll pay my respects.", next = "END" },
       },
     },
@@ -1031,6 +1196,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_hours = {
+      lines = {
+        { id = "w2_hours_l0", text = "I count the stones in the left king's beard, which is three hundred an' twelve, or three hundred an' fourteen, dependin' on the light. Then I count them again tae be sure, an' then it's lunch." },
+      },
+      choices = {
+        { text = "That sounds dreadful.", next = "w2_hours_lunch" },
+        { text = "Patience is a soldier's best weapon.", next = "BACK" },
+      },
+    },
+    w2_hours_lunch = {
+      lines = {
+        { id = "w2_hours_lunch_l0", text = "It is, an' lunch is worse, for it's whatever Kalmir's shot an' Naarh's cooked, an' Naarh cooks like he's makin' an offerin' tae the stone. Ye've no' lived till ye've eaten boar burnt in reverence." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Mountaineer Tyraw. I was Ironforge garrison till the spring, an' now I guard a valley where the liveliest thing is two statues, an' they dinnae say much." } },
       again = {
@@ -1046,6 +1228,7 @@ P:NPC {
         { text = "What do you miss about Ironforge?", next = "miss" },
         { text = "Is the valley really so dull?", next = "dull" },
         { text = "The Great Forge was burning bright when I left.", next = "forge", when = { race = { "Dwarf", "Gnome" } } },
+        { text = "How do you pass the hours on watch here?", next = "w2_hours" },
         { text = "Bear up, Tyraw.", next = "END" },
       },
     },
@@ -1147,11 +1330,28 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_trogtrack = {
+      lines = {
+        { id = "w2_trogtrack_l0", text = "That they're comin' from the south, no' the dig, an' in bigger bands than last year. Three weeks ago I found a print bigger than any trogg I've seen, an' it wasnae alone." },
+      },
+      choices = {
+        { text = "Bigger? How much bigger?", next = "w2_trogtrack_big" },
+        { text = "Then the captain should hear it.", next = "BACK" },
+      },
+    },
+    w2_trogtrack_big = {
+      lines = {
+        { id = "w2_trogtrack_big_l0", text = "Half again, with a deeper heel, like somethin' carryin' a weight or wearin' one. I sketched it for the Captain an' he pinned it tae his wall, which is where my sketches go tae be forgotten." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Mountaineer Kalmir. I walk the valley floor an' read what's crossed it in the night, an' the Captain decides what tae do about it." } },
       again = {
         { id = "h_again", text = "What else? I'm losin' the light on these." },
-        { id = "h_again2", text = "Go on." },
+        { id = "h_again2", text = "Go on, but keep tae the stones while ye talk; ye're near the prints." },
       },
       choices = {
         { text = "A tracker reports what she finds and lets the captain decide.", next = "BACK", reply = "Aye, that's the right way of it. I read the ground, an' he reads the war.", fx = { align = { order = 1 } } }, -- dp_stance
@@ -1162,6 +1362,7 @@ P:NPC {
         { text = "What crossed it last night?", next = "last" },
         { text = "How do you tell a trogg's track?", next = "track" },
         { text = "Three troggs, one limping, heading west.", next = "read", when = { class = "HUNTER" } },
+        { text = "What do the tracks tell you about the troggs lately?", next = "w2_trogtrack" },
         { text = "Good hunting, Mountaineer.", next = "END" },
       },
     },
@@ -1261,11 +1462,28 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_fast = {
+      lines = {
+        { id = "w2_fast_l0", text = "My grandmother, an' I'm no' jokin'. She ran messages between Ironforge an' Thelsamar in the Second War, an' she says she outran an orc wolf-rider once, though the rider was drunk an' so was the wolf." },
+      },
+      choices = {
+        { text = "Is she still running?", next = "w2_fast_gran" },
+        { text = "Everyone's grandmother outran an orc, it seems.", next = "BACK" },
+      },
+    },
+    w2_fast_gran = {
+      lines = {
+        { id = "w2_fast_gran_l0", text = "She walks tae the inn an' back each day, slower than she likes, an' she times me on my patrol from her window. If I'm late, I hear about it at supper." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Mountaineer Zaren. I've the road from the valley up tae the crossroad, an' I walk it against the sun, tae see if I can be there an' back before the shadow leaves the west tower." } },
       again = {
         { id = "h_again", text = "What else? Quick now!" },
-        { id = "h_again2", text = "Aye, go on, I can spare ye a breath." },
+        { id = "h_again2", text = "Aye, go on, I can spare ye a breath, maybe two if ye're quick." },
       },
       choices = {
         { text = "A patrol should be steady, not a race against the sun.", next = "BACK", reply = "Ach, ye sound like my sergeant, but I'm just as watchful at a run, I promise ye.", fx = { align = { order = 1 } } }, -- dp_stance
@@ -1275,6 +1493,7 @@ P:NPC {
         { text = "What happened with the boulder?", next = "yzar_boulder" },
         { text = "Why race your own patrol?", next = "race" },
         { text = "What's at the crossroad?", next = "cross" },
+        { text = "Who's the fastest dwarf you know?", next = "w2_fast" },
         { text = "Don't let me slow you.", next = "END" },
       },
     },
@@ -1373,6 +1592,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_changed = {
+      lines = {
+        { id = "w2_changed_l0", text = "When I was a lad, there was nae Thelsamar inn worth the name, an' the troggs were a story tae frighten bairns. Now the inn's the best on the loch an' the troggs are real, so the world's given an' taken about even." },
+      },
+      choices = {
+        { text = "Do you think it'll get worse?", next = "w2_changed_worse" },
+        { text = "The world always balances out.", next = "BACK" },
+      },
+    },
+    w2_changed_worse = {
+      narr = "He takes the pipe from his teeth and looks at the stem for a while.",
+      lines = {
+        { id = "w2_changed_worse_l0", text = "Aye, I do, but I'm old an' that's what old dwarves think. The young ones comin' up this road look strong enough tae make me wrong, an' I hope they do." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Mountaineer Veek. I've the road from the valley back tae the South Gate Pass, where the tunnel comes through from Dun Morogh, an' I've had it longer than some o' the stones have been laid." } },
       again = {
@@ -1387,6 +1624,7 @@ P:NPC {
         { text = "Tell me about the South Gate Pass.", next = "yvee_pass" },
         { text = "You must see everyone who comes through.", next = "everyone" },
         { text = "Is there trouble on this stretch?", next = "trouble" },
+        { text = "What's changed on this road since you were young?", next = "w2_changed" },
         { text = "Good day, Mountaineer.", next = "END" },
       },
     },

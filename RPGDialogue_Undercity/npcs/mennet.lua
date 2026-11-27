@@ -35,6 +35,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_eyes = {
+      lines = {
+        { id = "w3_eyes_1", text = "People you'd never look at twice, which is what makes them eyes. A man who walks the quarter all night and nods at you, a bat handler who remembers who flew where, a woman selling bags who chats to everybody, and a few you've never noticed at all." },
+        { id = "w3_eyes_2", when = { class = "ROGUE" }, text = "Oh, you'd like to think you'd have spotted them, wouldn't you? A man who walks the quarter all night, a bat handler with a long memory, a cheerful bag seller, and two you passed without a glance, which I'll count against your training." },
+      },
+      choices = {
+        { text = "Jonathan Chambers spies for you?", next = "w3_chambers" },
+        { text = "I'd rather you didn't watch me.", next = "BACK", reply = "I'd rather a great many things. Everyone in this city is watched, and you're simply watched by someone who likes you." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_chambers = {
+      lines = {
+        { id = "w3_chambers_1", text = "I said a cheerful bag seller, and I named no one, and you'd be wise to do the same. Jonathan, if that's who you mean, simply enjoys talking to people, and I simply enjoy listening to what he enjoyed." },
+      },
+      choices = {
+        { text = "Understood. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Mennet Carkad. I find promising people for Lord Varimathras's Deathstalkers, and I find out whether they're as promising as they look." },
@@ -64,6 +83,7 @@ P:NPC {
         { text = "Who was Fenwick Thatros?", next = "fenwick", when = { questDone = TODO_QUEST("Fenwick Thatros") } },
         { text = "Teach me something, Mennet.", next = "lesson", when = { class = "ROGUE" } },
         { text = "What do you need from me?", next = "BUSINESS" },
+        { text = "Who's been keeping an eye on me, then?", next = "w3_eyes" },
         { text = "I'll be going.", next = "END" },
       },
     },

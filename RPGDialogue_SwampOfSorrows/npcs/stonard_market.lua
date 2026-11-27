@@ -32,6 +32,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_spy = {
+      lines = { { id = "w8_spy_a", text = "I was a clerk in the Stormwind Keep, copying letters for men who couldn't spell, and one of them noticed I remembered everything I copied. A month later I was in a ditch in Duskwood with a notebook, and I've been in one ditch or another ever since." } },
+      choices = {
+        { text = "Do you regret it?", next = "w8_spy2" },
+        { text = "A clerk with a good memory. Dangerous.", next = "w8_spy2" },
+        { text = "I'm a rogue. We've all started in a ditch.", next = "w8_spy2", when = { class = "ROGUE" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w8_spy2 = {
+      lines = {
+        { id = "w8_spy2_a", text = "Every day, friend, and twice on the days they feed me swamp water. But I've seen things no clerk ever saw, and if I live through this, I'll go back to copying letters and be very, very grateful for the dullness." },
+        { id = "w8_spy2_rog", when = { class = "ROGUE" }, text = "Ha, then you know the life, and you know the ditch is the safe part. It's the talking afterwards that gets you chained to a post in an orc town, so mind who you tell what you've seen." },
+      },
+      choices = {
+        { text = "I hope you get your dull life back.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_scourge", when = { race = "Scourge" },
@@ -46,7 +66,7 @@ P:NPC {
           text = "Something happened to me, and the grunts won't say what. My hands shake, my mouth tastes of graves, and every time I reach for what I meant to tell you, it slips away like a fish." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I'm not going anywhere, as you can see." },
+        { id = "h_again", text = "Anything else? These chains don't reach past the post, so I'm all ears, friend." },
         { id = "h_again2", text = "Go on, ask. Talking is the only thing they haven't taken from me." },
       },
       choices = {
@@ -56,6 +76,7 @@ P:NPC {
         { text = "Here. Drink up, Marksen.", next = "brew", when = { questReady = TODO_QUEST("Nothing But The Truth") } },
         { text = "Before you drink, there's something you should know.", next = "warn", when = { questReady = TODO_QUEST("Nothing But The Truth") } },
         { text = "What should I tell Stormwind?", next = "word", when = { faction = "Alliance" } },
+        { text = "How did you end up a spy for Stormwind?", next = "w8_spy" },
         { text = "I've heard enough.", next = "END" },
       },
     },

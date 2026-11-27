@@ -36,7 +36,7 @@ P:NPC {
         { id = "h_default", text = "David Langston, and yes, I'm one of those Langstons. Reese keeps the bar, Elly carries the trays, Jenn runs the errands about town, and I make sure nobody drinks alone who doesn't want to." },
       },
       again = {
-        { id = "h_again", text = "What else can I tell you?" },
+        { id = "h_again", text = "Go on, then, while Elly's busy and the mugs are full." },
         { id = "h_again2", text = "Go on, I've nowhere to be but here." },
       },
       choices = {
@@ -46,6 +46,7 @@ P:NPC {
         { text = "What's the hardest thing about the family trade?", next = "x_hard" },
         { text = "Soldiers drink too much and talk too freely.", next = "x_stance" },
         { text = "Do dwarves drink you dry in here?", next = "x_dwarf", when = { race = "Dwarf" } },
+        { text = "You must know every barrel in that cellar by name.", next = "e3_ale" },
         { text = "I'll find a seat, David.", next = "END" },
       },
     },
@@ -111,6 +112,25 @@ P:NPC {
         { text = "That's decent of you. Something else.", next = "BACK" },
       },
     },
+    e3_ale = {
+      lines = {
+        { id = "e3_ale_l0", text = "I know them better than I know some of my cousins, friend. The dark ale comes up from Ironforge on the carts, the pale from a brewer out past Goldshire, and the cheap stuff we don't talk about comes from wherever Reese can get it this week." },
+        { id = "e3_ale_l1", when = { race = "Dwarf" }, text = "You'll want the Ironforge stout, and don't let anyone pour you the Goldshire pale and call it ale. Reese keeps a cask of the proper dark stuff behind the bar for your people, and she'll know if I've told you." },
+      },
+      choices = {
+        { text = "Where does the cheap stuff come from, honestly?", next = "e3_ale2" },
+        { text = "The Goldshire pale sounds good enough for me.", next = "BACK" },
+      },
+    },
+    e3_ale2 = {
+      lines = {
+        { id = "e3_ale2_l0", text = "Honestly? Some weeks it's a fellow from the docks who won't say which ship it fell off. Reese pays fair and asks nothing, and Dashel stands near enough that nobody's tempted to come back and argue the price." },
+      },
+      choices = {
+        { text = "I'll stick to the dark, then. Something else.", next = "BACK" },
+        { text = "Every tavern has its secrets, I suppose.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I was raised between these tables, and I learned my numbers counting mugs. I can't picture living anywhere that doesn't smell of ale and woodsmoke." } },
@@ -132,7 +152,7 @@ P:NPC {
     { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's you! Help me catch William this time, please, because you're faster than me." },
     { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. You didn't help me last time, so don't bother now." },
     { id = "g_default", text = "Did you see a boy run past? He's got my doll, and I'm going to get it back!" },
-    { id = "g_back", when = { metBefore = true }, text = "I still haven't caught him! He's fast, but he has to stop sometime." },
+    { id = "g_back", when = { metBefore = true }, text = "I still haven't caught him! He went round the Cathedral twice, and I'm all puffed out, but I'm not giving up." },
   },
   notice = {
     { id = "n_guardlike", cat = "soldier", when = { class = { "WARRIOR", "PALADIN" } },
@@ -184,6 +204,7 @@ P:NPC {
         { text = "Who are your three big brothers?", next = "ybrothers" },
         { text = "Where do you live?", next = "ylive" },
         { text = "What if William just wants to be friends?", next = "yfriends" },
+        { text = "Which way does William usually run?", next = "e3_route" },
         { text = "Run, Donna, he went that way.", next = "END" },
       },
     },
@@ -221,6 +242,23 @@ P:NPC {
       choices = {
         { text = "Sharing would be the kind thing to do.", next = "BACK", reply = "Maybe, if he says sorry first, and properly.", fx = { align = { light = 1 } } },
         { text = "She's yours. Don't let anyone take what's yours.", next = "BACK", reply = "That's right, and I'm going to get her back right now!", fx = { align = { light = -1 } } },
+      },
+    },
+    e3_route = {
+      lines = {
+        { id = "e3_route_l0", text = "Down past the fountain in the Trade District, then round behind the Gilded Rose, because he thinks I don't know about the alley there. I do know, I just can't fit through the fence as quick as he can." },
+      },
+      choices = {
+        { text = "So go round the other way and wait for him.", next = "e3_route2" },
+        { text = "Maybe the guards could cut him off.", next = "BACK" },
+      },
+    },
+    e3_route2 = {
+      lines = {
+        { id = "e3_route2_l0", text = "Oh! Then he'd come out of the alley and I'd be standing right there, and he'd get such a fright he'd drop Betsy. That's the cleverest thing anyone's said all day, and I've asked a lot of people." },
+      },
+      choices = {
+        { text = "Go on, then, before he changes his route.", next = "BACK" },
       },
     },
   },
@@ -261,7 +299,7 @@ P:NPC {
         { id = "h_default", text = "I am Field Marshal Stonebridge. The General holds the gate and I watch the north, where the Blackrock orcs sit on their mountain and send raiders down into Redridge." },
       },
       again = {
-        { id = "h_again", text = "Is there more? Be brief." },
+        { id = "h_again", text = "If there's more, {class}, put it plainly; the next rider is due within the hour." },
         { id = "h_again2", text = "Go on." },
       },
       choices = {
@@ -273,6 +311,7 @@ P:NPC {
         { text = "What happened at Stonewatch Keep?", next = "x_keep" },
         { text = "The nobles should fund the army before their own houses.", next = "x_stance" },
         { text = "Paladin of the Silver Hand, Marshal. Use me where you need me.", next = "x_pal", when = { class = "PALADIN" } },
+        { text = "Who carries your dispatches down from Redridge?", next = "e3_riders" },
         { text = "I'll take no more of your time, Marshal.", next = "END" },
       },
     },
@@ -339,6 +378,24 @@ P:NPC {
       },
       choices = {
         { text = "I'll go. Something else.", next = "BACK" },
+      },
+    },
+    e3_riders = {
+      lines = {
+        { id = "e3_riders_l0", text = "Couriers from the Lakeshire garrison, riding through Elwynn by the Eastvale road, and fewer of them every month. Two have gone missing near the Three Corners this season, and I would very much like to know whether it was gnolls or something worse." },
+      },
+      choices = {
+        { text = "Gnolls don't take dispatches. Someone wanted to read them.", next = "e3_riders2" },
+        { text = "I'll keep my eyes open on that road.", next = "BACK" },
+      },
+    },
+    e3_riders2 = {
+      lines = {
+        { id = "e3_riders2_l0", text = "That is the thought that keeps me at this post past midnight, {class}. Orcs don't read our cipher, but the Defias have a fondness for knowing where the army is, and they have friends inside these walls." },
+      },
+      choices = {
+        { text = "Then the cipher needs changing, Marshal.", next = "BACK" },
+        { text = "Understood. I'll say nothing of it.", next = "BACK" },
       },
     },
   },
@@ -419,6 +476,7 @@ P:NPC {
         { text = "What's your mum like?", next = "ymum" },
         { text = "What do you want to be when you're big?", next = "ybig" },
         { text = "I could tell you about the Mage Quarter.", next = "BACK", when = { class = "MAGE" }, reply = "Really? Is there a door that goes nowhere? Paige says there isn't, but I heard one." },
+        { text = "How many corners have you walked past today, Gil?", next = "e3_count" },
         { text = "Not far now, Gil.", next = "END" },
       },
     },
@@ -456,6 +514,23 @@ P:NPC {
       choices = {
         { text = "Grown-ups say that to help. It's not a fib.", next = "BACK", reply = "Oh. Then I'll stop asking, nearly.", fx = { align = { honor = -1 } } },
         { text = "A fib's a fib, even from a grown-up.", next = "BACK", reply = "I knew it! Mum, the {class} says you fibbed!", fx = { align = { honor = 1 } } },
+      },
+    },
+    e3_count = {
+      lines = {
+        { id = "e3_count_l0", text = "Forty-one, because I've been counting, and Paige says it's only twenty but she started late. There was a corner by the canal with a man fishing, and he didn't catch anything the whole time we walked past." },
+      },
+      choices = {
+        { text = "A fisherman who catches nothing is a very patient man.", next = "e3_count2" },
+        { text = "Forty-one is a lot of corners.", next = "BACK" },
+      },
+    },
+    e3_count2 = {
+      lines = {
+        { id = "e3_count2_l0", text = "I don't know his name, but he had a hat with a hook in it, and he said the fish in the canal are all too clever to bite. Mum said he's been saying that for years, so I think the fish must be winning." },
+      },
+      choices = {
+        { text = "They usually are. Keep walking, Gil.", next = "BACK" },
       },
     },
   },
@@ -506,6 +581,7 @@ P:NPC {
         { text = "What would you name the spell?", next = "x_name" },
         { text = "Some magic shouldn't be invented at all.", next = "x_stance" },
         { text = "I'm a mage. Want some advice from outside the Sanctum?", next = "x_mage", when = { class = "MAGE" } },
+        { text = "Have you looked for this spell in the Sanctum's library?", next = "e3_library" },
         { text = "Good luck with it, Janey.", next = "END" },
       },
     },
@@ -574,6 +650,25 @@ P:NPC {
       },
       choices = {
         { text = "Start with frost. Ice is water you can hold. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    e3_library = {
+      lines = {
+        { id = "e3_library_l0", text = "Twice, but the books on water are all on the top shelf, which is why Lisan wanted the taller spell in the first place. What I did find was a very old treatise from Dalaran about breathing in fog, and it was mostly diagrams of frogs." },
+        { id = "e3_library_l1", when = { class = "MAGE" }, text = "You'd know the place better than us, I expect, being properly trained. Is there a section on water we haven't been told about, or is it all frogs?" },
+      },
+      choices = {
+        { text = "Frogs breathe through their skin. Perhaps that's the point.", next = "e3_library2" },
+        { text = "The magi keep the good books under lock, I'd guess.", next = "BACK" },
+      },
+    },
+    e3_library2 = {
+      lines = {
+        { id = "e3_library2_l0", text = "Oh! Through the skin, so it isn't about the lungs at all. Suzanne is going to be insufferable, because she said almost exactly that last week and I told her it was silly." },
+      },
+      choices = {
+        { text = "Tell her she was right. Something else.", next = "BACK" },
+        { text = "Then don't tell her where you heard it.", next = "BACK" },
       },
     },
   },

@@ -2096,7 +2096,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "Anything else? I've barrels to count." },
         { id = "h_again2", text = "Go on, ask. I like talking shop." },
-        { id = "h_again3", text = "What else can I tell you?" },
+        { id = "h_again3", text = "What else? Ask about powder, friend; my brother can tell you all you like about bows." },
       },
       choices = {
         { text = "A bowyer should sell each bow at a price that honours the craft.", next = "BACK", reply = "Frederick and I agree on that much, at least, and we agree on very little.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -2555,7 +2555,7 @@ P:NPC {
         { id = "h_paladin", when = { class = "PALADIN" }, text = "One of the Cathedral's knights, are you? Your lot always want them blessed, and I always tell you the Light doesn't care what the shield's made of, only who's behind it." },
       },
       again = {
-        { id = "h_again", text = "Anything else, friend?" },
+        { id = "h_again", text = "Anything else, friend? Hand me that buckler while you ask, and I'll tell you if it's lying." },
         { id = "h_again2", text = "Go on. I'll keep rapping on these while you think." },
         { id = "h_again3", text = "What else, then?" },
       },
@@ -2782,7 +2782,7 @@ P:NPC {
         { id = "h_mage", when = { class = "MAGE" }, text = "A mage! I sell a few things for your trade as well as for festivals, though I'll warn you now that Archmage Malin's students have already bought all the good candles." },
       },
       again = {
-        { id = "h_again", text = "What else can I show you?" },
+        { id = "h_again", text = "What else can I show you? I've a rocket here that whistles in three notes, if you've a minute." },
         { id = "h_again2", text = "Anything more? I love to talk shop." },
         { id = "h_again3", text = "Go on, I'm listening, and nothing's lit." },
       },
@@ -3027,7 +3027,7 @@ P:NPC {
         { id = "h_masq", tags = { "news" }, when = { questDone = MASQUERADE, ["not"] = { questDone = ONY_VICTORY } }, text = "Lady Prestor, a dragon, in our own Keep, and she very nearly had the Highlord fooled. If you've any part in hunting her down, soldier, you'll have every blade in this valley behind you." },
       },
       again = {
-        { id = "h_again", text = "Anything else, soldier?" },
+        { id = "h_again", text = "Anything else, soldier? Speak up, and keep one eye on that gate while you do." },
         { id = "h_again2", text = "Go on. The gate's not going anywhere." },
         { id = "h_again3", text = "Speak up. I've had a lot of cannon fire in my ears." },
       },

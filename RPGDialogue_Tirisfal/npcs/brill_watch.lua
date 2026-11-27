@@ -370,6 +370,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_food = {
+      lines = {
+        { id = "w3_food_1", text = "Bread and water, twice a day, carried down by a Deathguard who never looks at me. I eat it, though I've wondered whether that's how they're poisoning me, and I've decided I'd rather die of their bread than starve and save them the trouble." },
+      },
+      choices = {
+        { text = "That's a soldier's reasoning.", next = "w3_soldier" },
+        { text = "They need you alive for the tests.", next = "BACK", reply = "I know it, and I hate that I'm grateful for the bread anyway. The Light forgive me, I am grateful." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_soldier = {
+      lines = {
+        { id = "w3_soldier_1", text = "My sergeant taught me that at the tower: eat what's given, sleep when you can, and pray in between. I wonder whether he'd know me now, sitting in a cellar, praying with my mouth full." },
+      },
+      choices = {
+        { text = "He'd know you kept faith. Something else.", next = "BACK" },
+      },
+    },
     shaking = {
       lines = { { id = "sh_default", text = "It is cold down here, that is all. I held the line at the tower for two winters and I never once ran, and I will not have a corpse tell me I am afraid." } },
       choices = {
@@ -417,7 +435,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What more do you want? I've nothing left to take." },
-        { id = "h_again2", text = "Ask, then. I've nowhere to go." },
+        { id = "h_again2", text = "Ask, then. I've nowhere to go, and nobody else will speak to me." },
         { id = "h_again3", text = "Speak, if you must. It passes the time between their visits." },
       },
       choices = {
@@ -427,6 +445,7 @@ P:NPC {
         { text = "You're shaking, soldier.", next = "shaking" },
         { text = "Tell me about the Crusade you serve.", next = "crusade" },
         { text = "The Light answers me as well as it answers you.", next = "light", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "Do they feed you, down here?", next = "w3_food" },
         { text = "Leave him.", next = "END" },
       },
     },

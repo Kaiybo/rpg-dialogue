@@ -586,7 +586,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anythin' else, love? There's a queue behind ye." },
-        { id = "h_again2", text = "Go on, I'm listenin'." },
+        { id = "h_again2", text = "Go on, love, an' have ye eaten today? Ye look peaky tae me." },
       },
       choices = {
         { text = "Let me see your wares.", next = "BUSINESS" },

@@ -72,6 +72,7 @@ P:NPC {
         { text = "I'm a mage. Ask me what's true.", next = "x_mage", when = { class = "MAGE" } },
         { text = "Who's Roman?", next = "yroman" },
         { text = "What does your family do?", next = "yfamily" },
+        { text = "What do you use for bait?", next = "e3_bait" },
         { text = "Good fishing, Brandon.", next = "END" },
       },
     },
@@ -119,6 +120,25 @@ P:NPC {
         { text = "Some can, and stranger things besides. Something else.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    e3_bait = {
+      lines = {
+        { id = "e3_bait_l0", text = "Bread crusts, mostly, because Mum gives me the ends of the loaf, and worms when Roman digs them out of the Park. Justin says the best bait is cheese from Trias's shop, but none of us has ever had enough money to find out." },
+      },
+      choices = {
+        { text = "Fish don't care for cheese, Brandon.", next = "e3_bait2" },
+        { text = "Worms from the Park sound like the best of them.", next = "BACK" },
+      },
+    },
+    e3_bait2 = {
+      lines = {
+        { id = "e3_bait2_l0", text = "That's what I said! Justin says canal fish are different because they're city fish, and city fish have fancy tastes. I think he just wants us to buy cheese so he can eat it." },
+        { id = "e3_bait2_l1", when = { profession = "Fishing" }, text = "That's what I said, and you'd know, because you've got a real rod and everything. Justin says canal fish are city fish and have fancy tastes, but I think he just wants us to buy cheese so he can eat it." },
+      },
+      choices = {
+        { text = "You're probably right about Justin. Something else.", next = "BACK" },
+        { text = "City fish, fancy tastes. Maybe he has a point.", next = "BACK" },
+      },
+    },
   },
   topics = {
     justin = { { id = "ybrandoncanals5", text = "He tells stories. Some of them are even true, he says." } },
@@ -152,6 +172,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_catch = {
+      lines = { { id = "d6_catch_a", text = "Fish, mostly little ones, and a boot, and once Brandon caught a whole sword, except it was only the handle part. Roman says the fish taste like the canal, and my mum says not to eat them at all, so we throw them back and pretend we're giving them a second chance." } },
+      choices = {
+        { text = "A sword handle? Whose was it?", next = "d6_catch2" },
+        { text = "Your mum's right about the canal fish.", next = "d6_catch2" },
+        { text = "Tell me something else.", next = "BACK" },
+      },
+    },
+    d6_catch2 = {
+      lines = { { id = "d6_catch2_a", text = "A knight's, probably, who dropped it fighting a crocolisk, or maybe a Defias who threw it away so the guards wouldn't catch him. My cousin says it's just rust, but my cousin also said there aren't crocolisks, so I don't think he knows everything after all." } },
+      choices = {
+        { text = "Keep it safe. It might be important.", next = "BACK", fx = { affinity = 1 } },
+        { text = "What else do you know?", next = "BACK" },
+      },
+    },
+    d6_scary = {
+      lines = { { id = "d6_scary_a", text = "The cellar under the Slaughtered Lamb, in the Mage Quarter, because there are warlocks down there who talk to demons, and my cousin says you can smell the brimstone from the street. Roman dared me to go in once and I would have, except my shoe came untied." } },
+      choices = {
+        { text = "I'm a warlock, actually.", next = "d6_scary2", when = { class = "WARLOCK" } },
+        { text = "Your shoe came untied. Of course it did.", next = "d6_scary2" },
+        { text = "Wise to keep out of there.", next = "d6_scary2" },
+      },
+    },
+    d6_scary2 = {
+      lines = {
+        { id = "d6_scary2_a", text = "It did, honestly, and by the time I tied it a guard was looking at us. Next time I'll go in, or at least I'll go as far as the stairs and look down, and then I'll tell everybody I saw an imp, which I probably will." },
+        { id = "d6_scary2_wl", when = { class = "WARLOCK" }, text = "You are not! Are you? Have you got an imp, is it here, can it hear me, and does it really eat candles like my cousin says? Don't tell Roman I asked, he'll say I was scared, and I'm not, I'm only standing a bit further back now." },
+      },
+      choices = {
+        { text = "Stay on the right side of that door, Justin.", next = "BACK" },
+        { text = "Any other stories?", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "I'm Justin, and I know everything about Stormwind, because my cousin's in the guard and he tells me. Did you know there are crocolisks in this canal, right under where we're sitting?" },
@@ -167,6 +221,9 @@ P:NPC {
         { text = "What does your cousin in the guard really do?", next = "x_cousin" },
         { text = "A good story's worth more than a true one.", next = "x_stance" },
         { text = "I'm a guard's friend. Tell me a real secret.", next = "x_rogue", when = { class = "ROGUE" } },
+        { text = "What do you actually catch in the canals?", next = "d6_catch" },
+        { text = "What's the scariest place in Stormwind?", next = "d6_scary" },
+        { text = "Has your cousin ever actually caught a Defias?", next = "e3_cousin2" },
         { text = "Keep fishing, Justin.", next = "END" },
       },
     },
@@ -214,6 +271,24 @@ P:NPC {
         { text = "I'll forget I heard it. Something else.", next = "BACK" },
       },
     },
+    e3_cousin2 = {
+      lines = {
+        { id = "e3_cousin2_l0", text = "Loads of times, well, once for certain, a man with red cloth in his boot who tried to walk through the gate looking innocent. My cousin said nobody walks that innocently unless they've done something, and he was right, because the man ran." },
+      },
+      choices = {
+        { text = "Your cousin sounds like a sharp guard.", next = "e3_cousin3" },
+        { text = "Plenty of folk carry red cloth.", next = "BACK" },
+      },
+    },
+    e3_cousin3 = {
+      lines = {
+        { id = "e3_cousin3_l0", text = "He is, and he says I can join when I'm big enough to hold a halberd without falling over. I practise with a broom on the canal wall, but Brandon says I look like a heron with a mop." },
+      },
+      choices = {
+        { text = "Keep practising, Justin. Something else.", next = "BACK" },
+        { text = "Herons are fine hunters, you know.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I live by the canals, and my cousin's in the guard, so I hear about everything first. I'm going to be in the guard too, and then I'll know even more." } },
@@ -258,6 +333,7 @@ P:NPC {
         { text = "Why are folk buying sturdy clothes, do you think?", next = "x_why" },
         { text = "What does Rema think of the Defias trouble?", next = "x_rema" },
         { text = "Your wife's stitching is said to be fine work.", next = "x_tailor", when = { profession = "Tailoring" } },
+        { text = "How do the shop's books look this season?", next = "e3_books" },
         { text = "Good day, Corbett.", next = "END" },
       },
     },
@@ -323,6 +399,24 @@ P:NPC {
         { text = "I may well. Something else.", next = "BACK" },
       },
     },
+    e3_books = {
+      lines = {
+        { id = "e3_books_l0", text = "Healthy, friend, healthier than I'd like if I'm honest, since a shop sells linings when people expect knives in the dark. The tax clerk came by last week and doubled what we owe, and I paid it smiling and then went straight to Trias for a bleu to steady myself." },
+      },
+      choices = {
+        { text = "Doubled? On what grounds?", next = "e3_books2" },
+        { text = "Good business is still good business, Corbett.", next = "BACK" },
+      },
+    },
+    e3_books2 = {
+      lines = {
+        { id = "e3_books2_l0", text = "On the grounds that the crown needs walls rebuilt and soldiers paid, which I can't argue with, though I notice the nobles' tailors on the Keep road paid no more than last year. Rema says I shouldn't say that aloud, and here I am saying it." },
+      },
+      choices = {
+        { text = "I'll keep it between us. Something else.", next = "BACK" },
+        { text = "The nobles always pay the least.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I married a tailor and I've carried her parcels ever since, and I've never regretted a step of it. We've had the shop by the bridge since the canals were dug anew." } },
@@ -370,6 +464,7 @@ P:NPC {
         { text = "How long have you been walking these lawns?", next = "x_long" },
         { text = "Stretching the truth is harmless if it fills a tavern.", next = "x_stance" },
         { text = "Do mages drink at the Recluse?", next = "x_mage", when = { class = "MAGE" } },
+        { text = "Does any other tavern compete with the Recluse?", next = "e3_rival" },
         { text = "Perhaps later, Erich.", next = "END" },
       },
     },
@@ -433,6 +528,25 @@ P:NPC {
       },
       choices = {
         { text = "I'll add something to the jar. Something else.", next = "BACK" },
+      },
+    },
+    e3_rival = {
+      lines = {
+        { id = "e3_rival_l0", text = "The Slaughtered Lamb, friend, though I'd hardly call what they pour a drink, and the folk who go down its stairs don't come for the ale. The Gilded Rose has the travellers and the Pig and Whistle has the soldiers, but the Recluse has the only cook worth a song." },
+        { id = "e3_rival_l1", when = { class = "WARLOCK" }, text = "The Slaughtered Lamb, and I can see by your robes you've been down its stairs, so I'll not insult the place to your face. Come up to the Recluse once in a while all the same, for Angus Stern cooks a supper that'd warm even a warlock's heart." },
+      },
+      choices = {
+        { text = "You've never been inside the Slaughtered Lamb, have you?", next = "e3_rival2" },
+        { text = "The Pig and Whistle has the better company.", next = "BACK" },
+      },
+    },
+    e3_rival2 = {
+      lines = {
+        { id = "e3_rival2_l0", text = "Once, and I came straight out again, because the barman looked at me as though I were a customer he'd been warned about. I shout twice as loud when I pass its door now, out of spite, and I'm sure it does them no harm at all." },
+      },
+      choices = {
+        { text = "Spite is a fine reason to shout. Something else.", next = "BACK" },
+        { text = "Best stay clear of that door, Erich.", next = "BACK" },
       },
     },
   },

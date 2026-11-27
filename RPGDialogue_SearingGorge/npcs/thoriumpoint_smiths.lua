@@ -48,7 +48,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? I've metal coolin', so be quick about it." },
-        { id = "h_again2", text = "Speak up, the bellows are loud." },
+        { id = "h_again2", text = "Out with it, an' loud, for the bellows drown a soft voice an' I'll not stop pumpin' them for ye." },
       },
       choices = {
         { text = "What do you forge up here?", next = "thorium" },

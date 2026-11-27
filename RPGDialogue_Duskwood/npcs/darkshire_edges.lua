@@ -223,6 +223,7 @@ P:NPC {
         { text = "Why can't the Watch handle them?", next = "manpower" },
         { text = "What's it like, holding this camp?", next = "camp" },
         { text = "What do you think of the commander?", next = "althea" },
+        { text = "How do you keep the camp's fire lit?", next = "e3_fire" },
         { text = "Stay safe, Dodds.", next = "END" },
       },
     },
@@ -281,6 +282,24 @@ P:NPC {
     althea = {
       lines = { { id = "al_default", text = "Commander Ebonlocke's the best soldier in Duskwood, and harder on herself than on any of us. Her father's the mayor, and they don't agree on much, so we try to stay out of the way when they're in the same room." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "night_watch" } } } },
+    },
+    e3_fire = {
+      lines = {
+        { id = "e3_fire_l0", text = "Dry wood from the deadfall, hauled up in the daylight, and a man on the fire every hour of the night whose only job is to keep it bright. The spiders hate the light, and the worgen at least respect it, so a fire is worth two men on the line." },
+      },
+      choices = {
+        { text = "Who keeps the fire tonight?", next = "e3_fire2" },
+        { text = "Two men's worth of fire. Wise.", next = "BACK" },
+      },
+    },
+    e3_fire2 = {
+      lines = {
+        { id = "e3_fire2_l0", text = "A lad named Pell, sixteen and new, who talks to the flames so he doesn't fall asleep. I've heard him tell it all about his mother's kitchen in Darkshire, and I've not had the heart to stop him, because the fire's never burned better." },
+      },
+      choices = {
+        { text = "Good lad. Something else.", next = "BACK" },
+        { text = "He should keep quiet on watch.", next = "BACK" },
+      },
     },
   },
 

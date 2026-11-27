@@ -33,6 +33,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_watch = {
+      lines = {
+        { id = "w2_watch_l", text = "Dark Irons, mostly, an' anythin' else comin' up from the south. Longbraid keeps us on the Wetlands side o' the Span tae guard the road, an' I was meant tae guard this end of it, which went about as well as ye'd think." },
+      },
+      choices = {
+        { text = "Did the Dark Irons come through here?", next = "w2_watch2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_watch2 = {
+      lines = {
+        { id = "w2_watch2_l", text = "They must have, mustn't they, for somebody packed the Span wi' powder. Longbraid says they were after the road tae Stromgarde an' Ironforge both, an' that if I'd been awake I'd be dead, so there's a mercy in it." },
+        { id = "w2_watch2_l1", when = { race = "Dwarf" }, text = "They must have, cousin, for no honest dwarf would treat a bridge like that. Longbraid says if I'd been awake I'd be dead, an' I'd thank ye no' tae tell him I've taken comfort from it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -47,7 +65,7 @@ P:NPC {
           text = "Oh, ye're Horde. Well, I've no axe handy an' nowhere tae run, so we'd best be friendly, hadn't we?" },
       },
       again = {
-        { id = "h_again", text = "What else? I've nowhere tae be, as ye can see." },
+        { id = "h_again", text = "What else? I've nowhere tae be, as ye can see, an' a jug that's gettin' lighter by the hour." },
         { id = "h_again2", text = "Go on, then. Talkin's better than lookin' down." },
       },
       choices = {
@@ -57,6 +75,7 @@ P:NPC {
         { text = "Who's Brewmeister Bilger to you?", next = "bilger" },
         { text = "How do I get back down?", next = "down" },
         { text = "Share that jug with a fellow dwarf?", next = "kin", when = { race = "Dwarf" } },
+        { text = "What does Longbraid have you lot watching for out here?", next = "w2_watch" },
         { text = "Take care up here, Foggy.", next = "END" },
       },
     },

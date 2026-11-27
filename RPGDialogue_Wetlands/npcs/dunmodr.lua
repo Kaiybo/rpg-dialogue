@@ -275,6 +275,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_rune = {
+      lines = { { id = "w8_rune_a", text = "*The chains are etched with Dark Iron runes, and where your eyes follow them the elemental's fire shrinks away, as though the marks themselves are cold against it.*" } },
+      choices = {
+        { text = "Touch one of the runes.", next = "w8_rune2" },
+        { text = "I know these sigils. Dark Iron binding-craft.", next = "w8_rune2", when = { class = "MAGE" } },
+        { text = "Step back from the chains.", next = "BACK" },
+      },
+    },
+    w8_rune2 = {
+      lines = {
+        { id = "w8_rune2_a", text = "*The iron is bitterly cold under your fingers despite the blaze beside it. The elemental flares, and for a moment the rune dulls, as if your touch has loosened something.*" },
+        { id = "w8_rune2_mage", when = { class = "MAGE" }, text = "*Your eyes trace the binding script, and the elemental watches you do it, its flames held very still. Where you read, the runes dim a little, and the fire leans hungrily toward the weakness you have found.*" },
+      },
+      choices = {
+        { text = "Soon you'll be free.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "*The fire within it roars and hisses in a voice like a bellows, with no words in it, only want.*" },
@@ -289,6 +307,7 @@ P:NPC {
         { text = "I'm a mage. Your fire is pure and wild.", next = "xmage", when = { class = "MAGE" } },
         { text = "Were you a forge fire before this?", next = "yforge" },
         { text = "Do you remember the Firelands?", next = "yhome" },
+        { text = "Look at the runes carved into its chains.", next = "w8_rune" },
         { text = "Stay close and follow me. We're leaving.", next = "END", reply = "*The elemental drifts after you, scorching the grass with every step it takes toward the marsh.*" },
       },
     },

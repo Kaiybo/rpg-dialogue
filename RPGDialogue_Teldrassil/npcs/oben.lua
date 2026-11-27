@@ -57,6 +57,7 @@ P:NPC {
         { text = "You really want me to kill your body?", next = "body", when = { any = { { questActive = TODO_QUEST("Druid of the Claw") }, { questDone = TODO_QUEST("The Sleeping Druid") } } } },
         { text = "Could this happen to me?", next = "druid_o", when = { class = "DRUID" } },
         { text = "What do you need from me?", next = "BUSINESS" },
+        { text = "What will you see, when you finally rest?", next = "w_rest" },
         { text = "Rest easy, Oben.", next = "END" },
       },
     },
@@ -156,6 +157,25 @@ P:NPC {
       choices = {
         { text = "I'll remember that.", next = "BACK", fx = { trait = { cautious = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_rest = {
+      lines = {
+        { id = "w_rest_default", text = "The Dream, I hope, and my brothers waiting at the edge of it. I have watched them from this window so long that I know every one of their faces as they sleep, and I would like to see them wake to greet me." },
+      },
+      choices = {
+        { text = "Do you fear it?", next = "w_rest2" },
+        { text = "They'll be glad to see you.", next = "w_rest2" },
+      },
+    },
+    w_rest2 = {
+      lines = {
+        { id = "w_rest2_default", text = "A little, and I will not lie to you about it. A druid of the claw is meant to know the wild without fear, and here I am, frightened of the gentlest thing in the world. But I am more frightened of staying, and so I am ready." },
+        { id = "w_rest2_w1", when = { class = "DRUID" }, text = "You are of the Circle, so promise me something. When you sleep in the Dream, sleep where no furbolg shaman can find you, and tell the others to do the same." },
+      },
+      choices = {
+        { text = "Courage can live beside fear.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Oben.", next = "BACK" },
       },
     },
   },

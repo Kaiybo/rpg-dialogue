@@ -57,7 +57,25 @@ P:NPC {
         { text = "What was Darrowshire like, before?", next = "town" },
         { text = "Who were your disciples?", next = "disciples" },
         { text = "I've spoken with Carlin Redpath at the Chapel.", next = "carlin", when = { heardLine = "carlin.h_default" } },
+        { text = "What's written in your libram?", next = "w9_libram" },
         { text = "Light keep you, Davil.", next = "END" },
+      },
+    },
+
+    w9_libram = {
+      lines = { { id = "w9_libram_d", text = "Every prayer I learned in the Silver Hand's chapter house, in my own clumsy hand, and the names of every soul I failed to save, written in the margins. I meant it as a record of my faith, and it turned into a record of my failures, which I think is what faith is for." } },
+      choices = {
+        { text = "Why write down your failures?", next = "w9_libram2" },
+        { text = "Your failures weren't your fault.", next = "w9_libram2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_libram2 = {
+      lines = { { id = "w9_libram2_d", text = "So I'd pray for them by name, friend, every night, and not let them blur into \"the dead.\" Whoever finds that book will find a lot of names, and I hope they say a few of them aloud, because I can't anymore." } },
+      choices = {
+        { text = "I'll read them aloud for you.", next = "BACK", reply = "Then you're a better friend than I've earned. Light keep you." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

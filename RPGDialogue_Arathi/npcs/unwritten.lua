@@ -21,6 +21,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_maps = {
+      lines = {
+        { id = "w2_maps_l", text = "That we hold one hill and a farm or two, and everyone else holds the rest. The Syndicate have Stromgarde and Northfold, the ogres have Boulder'gor, the trolls have the eastern hills, and the Forsaken have Go'Shek and Hammerfall's goodwill." },
+      },
+      choices = {
+        { text = "Which of them would you strike first?", next = "w2_maps2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_maps2 = {
+      lines = {
+        { id = "w2_maps2_l", text = "The Syndicate, every time. The ogres and trolls are a plague on the land, but the Syndicate sit in our own keep, wearing our own lords' names. Take Stromgarde back and the rest of the Highlands will remember who it belongs to." },
+        { id = "w2_maps2_l1", when = { faction = "Alliance", class = "PALADIN" }, text = "The Syndicate, every time, and I'd take a paladin at the head of that column gladly. They sit in our own keep wearing our own lords' names, and Stromgarde won't be whole until they're out of it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     yoff = {
       lines = {
         { id = "ybarcommanderamaren1", text = "Sleep, when I can. Write letters to Stormwind that nobody answers. And sometimes I walk up to the ridge and look at the keep, and remember when it had banners on every tower." },
@@ -52,7 +70,7 @@ P:NPC {
     },
     hello = {
       lines = { { id = "h_default", text = "Commander Amaren, of the Stromic army. Refuge Pointe is the last hill in Arathi that still flies Stromgarde's banner without question, and I mean to keep it that way." } },
-      again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Go on, but be quick about it." } },
+      again = { { id = "h_again", text = "What else? The map won't change while I stand here talking, more's the pity." }, { id = "h_again2", text = "Go on, but be quick about it." } },
       choices = {
         { text = "Who are Quae and Kinelory?", next = "quae" },
         { text = "Who threatens Refuge Pointe?", next = "threats" },
@@ -60,6 +78,7 @@ P:NPC {
         { text = "Stromgarde's people deserve better than this.", next = "stromgarde", when = { race = "Human" } },
         { text = "How long have you held Refuge Pointe?", next = "ylong" },
         { text = "What do you do when you're not commanding?", next = "yoff" },
+        { text = "What do your maps tell you about the Highlands?", next = "w2_maps" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -128,9 +147,45 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_stock = {
+      lines = {
+        { id = "w2_stock_l", text = "Wind riders from Orgrimmar, when Urda can spare one, and a goblin cart up from Tarren Mill when she can't. The cart costs more and gets robbed more, but it doesn't bite me when I load it." },
+      },
+      choices = {
+        { text = "Robbed by whom?", next = "w2_stock2" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    w2_stock2 = {
+      lines = {
+        { id = "w2_stock2_l", text = "Whoever's on the road that week, pal. Syndicate, Stromgarde, trolls. I had a whole crate of sausages taken by an ogre once, and he didn't even look hungry. Some folks just want to watch a goblin suffer." },
+      },
+      choices = {
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    w2_orcs = {
+      lines = {
+        { id = "w2_orcs_l", text = "Better than you'd think, buddy. An orc'll shout at you over the price, then pay it, then come back tomorrow and do it again. It's honest shouting. I've been robbed by much politer people." },
+      },
+      choices = {
+        { text = "Do they ever not pay?", next = "w2_orcs2" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    w2_orcs2 = {
+      lines = {
+        { id = "w2_orcs2_l", text = "One grunt tried to pay me in ogre teeth once. Drum Fel heard about it and made him pay twice, in coin, and the grunt's been my best customer ever since. Respect's a funny thing with orcs." },
+      },
+      choices = {
+        { text = "Good. A commander should keep his grunts honest.", next = "BACK", reply = "That's what I said! Rules are good for business, as long as somebody else enforces 'em.", fx = { align = { order = 1 } } },
+        { text = "You should've taken the teeth and kept the grunt sweet.", next = "BACK", reply = "Sweet doesn't pay the wind riders, pal. Teeth are teeth, and coin is coin.", fx = { align = { order = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Kosco Copperpinch, Smokywood Pastures, Hammerfall branch, which is a very small branch with very big customers. Orcs eat more than any race I've ever sold to, which is great for business and terrible for my inventory." } },
-      again = { { id = "h_again", text = "What else, buddy?" }, { id = "h_again2", text = "Go on, the meter's not runnin'." } },
+      again = { { id = "h_again", text = "What else, buddy? Quick, before the next grunt starts shoutin' about the price of jerky." }, { id = "h_again2", text = "Go on, the meter's not runnin'." } },
       choices = {
         { text = "A good trader sells to both sides at the same fair price.", next = "BACK", reply = "Smart, pal! Neutral and fair, that's how a Smokywood branch stays alive.", fx = { align = { honor = 1 } } }, -- dp_stance
         { text = "Charge the orcs double. They eat too much to notice.", next = "BACK", reply = "They notice everything, pal, especially when it's their gold, and they've got big axes.", fx = { align = { honor = -1 } } }, -- dp_stance
@@ -139,6 +194,8 @@ P:NPC {
         { text = "A goblin feeding Hammerfall. Does Orgrimmar know?", next = "xorg", when = { faction = "Horde" } },
         { text = "Why sell in Hammerfall?", next = "why" },
         { text = "What's Smokywood Pastures doing here?", next = "company" },
+        { text = "Where do you get your stock out here?", next = "w2_stock" },
+        { text = "How do you get on with the orcs?", next = "w2_orcs" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -232,9 +289,43 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_rebuild = {
+      lines = {
+        { id = "w2_rebuild_l", text = "Fast and cheap, with a bucket of water under the counter. Last time the Captain's men helped me nail the planks up, and I paid 'em in ale, which they say is the only sensible thing I've ever done." },
+      },
+      choices = {
+        { text = "Did the company help?", next = "w2_rebuild2" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    w2_rebuild2 = {
+      lines = {
+        { id = "w2_rebuild2_l", text = "The company sent me a letter. It said they were very sorry for my loss, and they'd be taking the cost of the stall out of my wages. That's Smokywood Pastures for you, friend: festive on the outside." },
+      },
+      choices = {
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    w2_drink = {
+      lines = {
+        { id = "w2_drink_l", text = "Ale when they've been paid, water when they haven't, and Drovnar's terrible home brew when they've lost a bet. I don't sell that last one, but I'm thinking about it, 'cause they keep coming back for it." },
+      },
+      choices = {
+        { text = "Why would anyone keep drinking it?", next = "w2_drink2" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    w2_drink2 = {
+      lines = {
+        { id = "w2_drink2_l", text = "Same reason they stay up here, friend. It's awful, it's cold, and it belongs to 'em. Humans are funny like that. Give a goblin a bad drink and he'll sell it to somebody else." },
+      },
+      choices = {
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Targot Jinglepocket, Smokywood Pastures, Refuge Pointe branch, which has been burned down twice this year. The soldiers here pay on time, though, which is more than I can say for the ogres." } },
-      again = { { id = "h_again", text = "What else, friend?" }, { id = "h_again2", text = "Talk fast, I gotta restock before the next raid." } },
+      again = { { id = "h_again", text = "What else, friend? I've got a stall that's still standing, and I'd like to sell from it while it is." }, { id = "h_again2", text = "Talk fast, I gotta restock before the next raid." } },
       choices = {
         { text = "A trader in a war zone should keep prices fair.", next = "BACK", reply = "Sure, pal, fair prices keep the soldiers paying on time, and that's worth more than a quick profit.", fx = { align = { honor = 1 } } }, -- dp_stance
         { text = "Raise prices after every raid. They need the supplies.", next = "BACK", reply = "That's a short-term play, pal, and short-term plays get ya burned down a third time.", fx = { align = { honor = -1 } } }, -- dp_stance
@@ -243,6 +334,8 @@ P:NPC {
         { text = "What about the ogres?", next = "xogres" },
         { text = "Are you related to Wulmort Jinglepocket?", next = "wulmort" },
         { text = "You've been burned down twice?", next = "burned" },
+        { text = "How do you rebuild after a fire?", next = "w2_rebuild" },
+        { text = "What do the soldiers drink most?", next = "w2_drink" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -335,9 +428,43 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_watch = {
+      lines = {
+        { id = "w2_watch_l", text = "Riders on the western road, from Refuge Pointe. Torches on the eastern hills, which are the Witherbark. And dust from the south, which is ogres, or worse, Stromgarde marching with ogres behind it." },
+      },
+      choices = {
+        { text = "Has that ever happened?", next = "w2_watch2" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    w2_watch2 = {
+      lines = {
+        { id = "w2_watch2_l", text = "Not yet. But the humans hate the ogres and the ogres hate the humans, and both hate us. A guard who thinks his enemies will never make peace with each other is a guard who sleeps on the wall." },
+      },
+      choices = {
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    w2_drum = {
+      lines = {
+        { id = "w2_drum_l", text = "From the front, and loudly. He was a grunt in the camps like the rest of us, and he has not forgotten it. When he walks the wall at night, he knows every guard by name." },
+      },
+      choices = {
+        { text = "Does he know yours?", next = "w2_drum2" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    w2_drum2 = {
+      lines = {
+        { id = "w2_drum2_l", text = "He does, and my father's, who died at this gate the night we broke the camps open. That is why Drum put me here. He says a guard should stand where his blood has already stood." },
+      },
+      choices = {
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I guard Hammerfall, where Orgrim Doomhammer once held the human prisons and the orcs broke free. We hold this place now, and no human will take it from us again." } },
-      again = { { id = "h_again", text = "Speak." }, { id = "h_again2", text = "What else?" } },
+      again = { { id = "h_again", text = "Speak." }, { id = "h_again2", text = "What else? Ask it, then let me watch the hills." } },
       choices = {
         { text = "Hammerfall stands because every orc keeps to his orders.", next = "BACK", reply = "Yes. Discipline broke the human camps, and discipline holds them now.", fx = { align = { order = 1 } } }, -- dp_stance
         { text = "An orc should follow his own blood, not any chieftain's orders.", next = "BACK", reply = "Then you know nothing of the Horde, and nothing of the camps that bred that kind of thinking.", fx = { align = { order = -1 } } }, -- dp_stance
@@ -347,6 +474,8 @@ P:NPC {
         { text = "I'm an orc too. Tell me of Doomhammer.", next = "xdoom", when = { race = "Orc" } },
         { text = "What happened here?", next = "history" },
         { text = "Who threatens Hammerfall?", next = "threats" },
+        { text = "What do you watch for from the gate?", next = "w2_watch" },
+        { text = "How does Drum Fel command?", next = "w2_drum" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -438,6 +567,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_night = {
+      lines = {
+        { id = "w2_night_l", text = "Cold, and loud with things that aren't there. Every owl sounds like a troll and every fox sounds like a Syndicate scout. I've learned to listen for the silence, because that's when something real is moving." },
+      },
+      choices = {
+        { text = "Have you ever been wrong?", next = "w2_night2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_night2 = {
+      lines = {
+        { id = "w2_night2_l", text = "Once I woke the whole camp for a goat. Captain Nials didn't say a word, only had me feed the goat for a month. It's still up here, by the well. My daughter would love it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     ydaughter = {
       lines = {
         { id = "ybarrefugepointedefender1", text = "Elsie. She's nine now, and she wants to be a knight like Valorcall. I tell her knights get blisters and sleep in tents, and she says she doesn't mind. She'll be better than all of us." },
@@ -460,7 +606,7 @@ P:NPC {
     },
     hello = {
       lines = { { id = "h_default", text = "I guard Refuge Pointe for Stromgarde, and for the people who still call this land home. There aren't many of us left, but we hold the hill." } },
-      again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Ask away, friend." } },
+      again = { { id = "h_again", text = "What else? I'm here until the next watch, so I've nowhere to run to." }, { id = "h_again2", text = "Ask away, friend." } },
       choices = {
         { text = "How long have you served Stromgarde?", next = "xserve" },
         { text = "What are the orcs at Hammerfall like?", next = "xorcs" },
@@ -469,6 +615,7 @@ P:NPC {
         { text = "Is Stromgarde lost?", next = "stromgarde" },
         { text = "What keeps you going?", next = "ygoing" },
         { text = "What's your daughter's name?", next = "ydaughter" },
+        { text = "What's a night watch like on the hill?", next = "w2_night" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -553,6 +700,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_hides = {
+      lines = {
+        { id = "w2_hides_l", text = "Raptor, for fire, because the beasts of the Highlands burn hot in the blood. Highland strider for wind. For earth, I go to the ogres' country and take the hides of the boars that dig there, though the ogres do not like it." },
+      },
+      choices = {
+        { text = "And water?", next = "w2_hides2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_hides2 = {
+      lines = {
+        { id = "w2_hides2_l", text = "Water is the hardest, for the land here is dry and bloody. I take the hides of the crocolisks at Faldir's Cove, on the coast, and I thank the water spirits each time. They have not yet refused me." },
+        { id = "w2_hides2_l1", when = { race = "Tauren" }, text = "Water is the hardest here, as you would guess, for this land is not the Gold Road. I take crocolisk hides from Faldir's Cove and I thank the water spirits each time, as my mother taught us both." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     yorcs = {
       lines = {
         { id = "ybarbrumnwinterhoof1", text = "Some come for armour, and some come to sit by the fire and say nothing. An old grunt who wore chains in that camp sits with me most evenings. He does not speak of it, and I do not ask." },
@@ -584,7 +749,7 @@ P:NPC {
     },
     hello = {
       lines = { { id = "h_default", text = "I am Brumn Winterhoof, of the Winterhoof tribe. I teach leatherworkers to bind the elements, fire and earth and wind and water, into the hides they shape." } },
-      again = { { id = "h_again", text = "What else, friend?" }, { id = "h_again2", text = "Speak, I am listening." } },
+      again = { { id = "h_again", text = "What else, friend?" }, { id = "h_again2", text = "Speak, friend. The hides are drying and the wind is slow, so I have time for your words." } },
       choices = {
         { text = "What is elemental leatherworking?", next = "elemental" },
         { text = "Why camp so far from Hammerfall?", next = "camp" },
@@ -592,6 +757,7 @@ P:NPC {
         { text = "I'm a leatherworker. Can you teach me?", next = "teach", when = { profession = "Leatherworking" } },
         { text = "Where is the Winterhoof tribe?", next = "ytribe" },
         { text = "Do the orcs of Hammerfall visit you?", next = "yorcs" },
+        { text = "What hides do you use for your work?", next = "w2_hides" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -663,6 +829,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_dagger = {
+      lines = {
+        { id = "w2_dagger_l", text = "Off a Syndicate thug who came round last autumn asking for protection money. Mother paid him in turnips and I paid him back in the barn. He left the dagger, and the turnips, in a hurry." },
+      },
+      choices = {
+        { text = "You fought him off alone?", next = "w2_dagger2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_dagger2 = {
+      lines = {
+        { id = "w2_dagger2_l", text = "Alone is a strong word. Marcel was standing behind me with a shovel, looking like he might use it, which is the scariest thing about Marcel. I'll never tell him that, so don't you either." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     yleave2 = {
       lines = {
         { id = "ybarfardeldabyrie1", text = "Go to Stormwind and see the Cathedral, and maybe the sea. I've never seen the sea, believe it or not. Marcel says it's just a big lake. I say a big lake is still a big lake, and worth seeing." },
@@ -703,6 +886,7 @@ P:NPC {
         { text = "Folk say your family has sticky fingers.", next = "thieves" },
         { text = "What's the best thing about the farm?", next = "ybest" },
         { text = "What would you do if you could leave?", next = "yleave2" },
+        { text = "Where did you get that dagger in your boot?", next = "w2_dagger" },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -783,6 +967,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_horse = {
+      lines = {
+        { id = "w2_horse_l", text = "Syndicate came down the road two summers back and took her out of the barn while we slept. Bess, her name was. Pulled the plough for nine years and never once kicked a man who didn't deserve it." },
+      },
+      choices = {
+        { text = "Have you seen her since?", next = "w2_horse2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_horse2 = {
+      lines = {
+        { id = "w2_horse2_l", text = "Once, under a rider on the road to Stromgarde, with a Syndicate saddle on her. I'd know her gait anywhere. I'd have gone after her if Mother hadn't held my collar, and I'm still not sure she was right." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     yfather = {
       lines = {
         { id = "ybarmarceldabyrie1", text = "He'd say we've kept it, and that's enough. He'd be ashamed we haven't stood up to the Syndicate. He'd be proud of Fardel, though he'd never say it. He'd be proud of Mother. He was always proud of Mother." },
@@ -814,7 +1015,7 @@ P:NPC {
     },
     hello = {
       lines = { { id = "h_default", text = "I'm Marcel, the elder brother, though Fardel would tell you otherwise. Mother runs the farm, I run the fields, and Fardel runs his mouth." } },
-      again = { { id = "h_again", text = "What else? I've fences to mend." } },
+      again = { { id = "h_again", text = "What else? Speak up, I've fences to mend, and the posts won't set themselves." } },
       choices = {
         { text = "Your brother says you're the lump.", next = "xlump" },
         { text = "What do you grow out here?", next = "xgrow" },
@@ -823,6 +1024,7 @@ P:NPC {
         { text = "Tell me about your mother.", next = "mother" },
         { text = "What would you do if Fardel left?", next = "yfardel" },
         { text = "What would your father say about the farm now?", next = "yfather" },
+        { text = "How did you lose the horse?", next = "w2_horse" },
         { text = "I'll leave you to your fences.", next = "END" },
       },
     },
@@ -902,6 +1104,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_pay = {
+      lines = {
+        { id = "w2_pay_l", text = "Two silver a week, a bed in the hayloft, and as much stew as I can eat. That's better than most soldiers at Refuge Pointe get, and the stew's better too. I've written my mother to tell her I'm getting fat." },
+      },
+      choices = {
+        { text = "Are you?", next = "w2_pay2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_pay2 = {
+      lines = {
+        { id = "w2_pay2_l", text = "A bit, around the middle. The armour doesn't close any more. Fardel says it's the stew, and Marcel says it's the standing around, and Kenata says I'm to stop complaining and keep watching the hill." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     ykenata = {
       lines = {
         { id = "ybardabyriemilitia1", text = "Strict, fair and terrifying. She pays on time, feeds us well and shouts if we slack. Once she caught me asleep on watch and made me muck out the pigs for a week. I never slept on watch again." },
@@ -935,7 +1154,7 @@ P:NPC {
     },
     hello = {
       lines = { { id = "h_default", text = "I guard the farm for the Dabyries, which mostly means standing here and hoping nothing comes over the hill. The pay's poor, but Kenata feeds us well." } },
-      again = { { id = "h_again", text = "Something else? I'm meant to be watching." } },
+      again = { { id = "h_again", text = "Something else? Talk quietly, I'm meant to be watching, and Kenata can hear through barn walls." } },
       choices = {
         { text = "Have you ever had to fight?", next = "xfight" },
         { text = "Who hired you?", next = "xhired" },
@@ -944,6 +1163,7 @@ P:NPC {
         { text = "Were you a soldier before?", next = "before" },
         { text = "What will you do after this job?", next = "yafter" },
         { text = "What's Kenata like to work for?", next = "ykenata" },
+        { text = "How much does Kenata pay you, really?", next = "w2_pay" },
         { text = "I'll let you keep watch.", next = "END" },
       },
     },
@@ -1026,6 +1246,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_kit = {
+      lines = {
+        { id = "w2_kit_l", text = "Oil for the torch, a flint and a spare, and a skin of water that isn't for drinking. A burning troll runs, and if he runs into the dry grass you've set fire to the Highlands and killed nobody." },
+      },
+      choices = {
+        { text = "Has that happened?", next = "w2_kit2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_kit2 = {
+      lines = {
+        { id = "w2_kit2_l", text = "Once, the year I started. Burned half a hillside west of the ruins, and the troll walked out of the smoke laughing. My captain made me carry water for a season. I've never forgotten the skin since." },
+        { id = "w2_kit2_l1", when = { class = "MAGE" }, text = "Once, and it was a mage's fireball, not my torch, so don't look at me like that. Burned half a hillside and the troll walked out laughing. Since then the water skin goes everywhere." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     yworst = {
       lines = {
         { id = "ybarstromgardetrollhunter1", text = "A Witherbark shadow hunter who came at us in the lower keep, with a mask of bone and a voice like the wind. Three of us went down before I put a torch to him. He was laughing as he burned." },
@@ -1059,7 +1297,7 @@ P:NPC {
     },
     hello = {
       lines = { { id = "h_default", text = "We hunt the trolls in Stromgarde's ruins, so that one day the keep might be whole again. It's slow work, and the Syndicate doesn't make it easier." } },
-      again = { { id = "h_again", text = "What else? Make it quick." } },
+      again = { { id = "h_again", text = "What else? Quick, now. The trolls don't nap long, and I want to be back before they wake." } },
       choices = {
         { text = "How many trolls are in the ruins?", next = "xmany" },
         { text = "Who leads you?", next = "xlead" },
@@ -1068,6 +1306,7 @@ P:NPC {
         { text = "Can Stromgarde be retaken?", next = "retake" },
         { text = "How long have you hunted trolls?", next = "ylong" },
         { text = "What's the worst troll you've faced?", next = "yworst" },
+        { text = "What does a troll hunter carry, besides a torch?", next = "w2_kit" },
         { text = "Good hunting.", next = "END" },
       },
     },
@@ -1150,6 +1389,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_dabyrie = {
+      lines = {
+        { id = "w2_dabyrie_l", text = "Now an' then, at harvest, when Kenata wants a hand an' I want her salt. She's a hard woman, but fair, an' she pays in coin, which is more than Refuge Pointe does. Her lads are a pair, though." },
+      },
+      choices = {
+        { text = "What do you make of her sons?", next = "w2_dabyrie2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_dabyrie2 = {
+      lines = {
+        { id = "w2_dabyrie2_l", text = "Marcel's the plough an' Fardel's the scythe, an' neither's happy unless the other's being useless. They'll be fine, the both o' them, once their mother lets them run somethin' on their own." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     yhard = {
       lines = {
         { id = "ybardwarvenfarmer1", text = "The trolls, an' the crows, an' the rain that comes sideways off the hills. But the worst is the Syndicate, who ride by an' take a cut o' the harvest. I've a rifle by the door for the next one." },
@@ -1181,7 +1437,7 @@ P:NPC {
     },
     hello = {
       lines = { { id = "h_default", text = "I farm, {g:lad|lass}, plain and simple. Ironforge cannae eat stone, so some of us come out where the soil's soft and grow what the mountain cannae." } },
-      again = { { id = "h_again", text = "Somethin' else? The cabbages willnae mind." } },
+      again = { { id = "h_again", text = "Somethin' else? The cabbages willnae mind, an' they're better listeners than most folk I know." } },
       choices = {
         { text = "Do you miss Ironforge?", next = "xmiss" },
         { text = "What do you grow here?", next = "xgrow" },
@@ -1190,6 +1446,7 @@ P:NPC {
         { text = "A dwarf farmer? That's unusual.", next = "unusual" },
         { text = "Are you a Bronzebeard?", next = "yclan" },
         { text = "What's the hardest part of farming here?", next = "yhard" },
+        { text = "Do you ever talk to the Dabyries?", next = "w2_dabyrie" },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -1270,6 +1527,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_ridge = {
+      lines = {
+        { id = "w2_ridge_l", text = "Short. We were three grunts taking crates down to Hammerfall, and the bolt took me before I saw the crossbow. The other two dragged me behind a rock and held the road until the wind rider came." },
+      },
+      choices = {
+        { text = "Did the other two make it?", next = "w2_ridge2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_ridge2 = {
+      lines = {
+        { id = "w2_ridge2_l", text = "One did. The other is under a cairn by the road, and I've promised to put his axe on it when I can walk. He had a woman in Razor Hill, so I'll take her his tusk charm, too." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     yhealed = {
       lines = {
         { id = "ybarainjuredsoldier1", text = "Go back to the ridge, and find that crossbowman, and put him in the ground. Then I'll drink, and then I'll go home to Durotar and see my mother, who still thinks I'm a cook." },
@@ -1316,6 +1590,7 @@ P:NPC {
         { text = "Where are you from?", next = "yfrom" },
         { text = "Lok'tar, brother. You'll fight again.", next = "BACK", when = { race = "Orc" }, reply = "Lok'tar. I will, if the doctor stops talking long enough to finish." },
         { text = "What will you do when you're healed?", next = "yhealed" },
+        { text = "What was the fight on the ridge like?", next = "w2_ridge" },
         { text = "Hold on, soldier.", next = "END" },
       },
     },

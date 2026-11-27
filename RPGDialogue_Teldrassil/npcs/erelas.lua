@@ -65,6 +65,7 @@ P:NPC {
         { text = "Can I hold one of the chicks?", next = "chick" },
         { text = "How does a moonkin form compare?", next = "druid_e", when = { class = "DRUID" } },
         { text = "Have you any work for me?", next = "BUSINESS" },
+        { text = "How do the hippogryphs learn to fly?", next = "w_fly" },
         { text = "Goodbye, Erelas.", next = "END" },
       },
     },
@@ -156,6 +157,25 @@ P:NPC {
       choices = {
         { text = "Perhaps both come from the same place.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_fly = {
+      lines = {
+        { id = "w_fly_default", text = "Badly, at first, and with a great deal of complaining. I take them to the lowest bough by the nests and let them fall onto a pile of moss, over and over, until one morning they stop falling and simply go. It never happens when I'm watching." },
+      },
+      choices = {
+        { text = "Never when you're watching?", next = "w_fly2" },
+        { text = "Moss for a landing. Kind.", next = "w_fly2" },
+      },
+    },
+    w_fly2 = {
+      lines = {
+        { id = "w_fly2_default", text = "Never, not once in all these years. I turn to fetch water, and when I look back there's a chick circling over the glade, shrieking as if she invented flying. I've decided they do it on purpose, so they can surprise me." },
+        { id = "w_fly2_w1", when = { class = "DRUID" }, text = "You'll have flown in a bird's shape, or you will. Do you remember the first time? I'd love to know if it felt like falling or like waking." },
+      },
+      choices = {
+        { text = "They want to surprise you.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else, Erelas.", next = "BACK" },
       },
     },
   },

@@ -34,6 +34,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_hope = {
+      lines = {
+        { id = "w2_hope_l0", text = "Proof, friend, written in stone. Stormpike's lot reckon these hills hold workings older than Ironforge itself, carvings no dwarf alive can read, an' every pick that hits one sends a letter my way." },
+      },
+      choices = {
+        { text = "Older than Ironforge? Who made them?", next = "w2_hope_who" },
+        { text = "Does any of it get sold off?", next = "w2_hope_rob" },
+        { text = "It's grave-robbing with better manners.", next = "BACK", reply = "Now that's unkind, an' I'll write it down so I can be cross about it later. We dig for the knowin', no' for the gold.", fx = { align = { honor = -1 } } },
+        { text = "Knowing where we came from is worth the digging.", next = "BACK", reply = "Spoken like a proper League hand. I'll tell Stormpike ye said it.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_hope_who = {
+      lines = {
+        { id = "w2_hope_who_l0", text = "That's the question that keeps half the League up at night. There's a theory goin' round Ironforge that the first dwarves were cut from the stone by somethin' greater, an' I'll no' say I believe it, but I'll no' say I don't." },
+      },
+      choices = {
+        { text = "Spoken like a dwarf who'd love to be proved right.", next = "BACK", when = { race = "Dwarf" } },
+        { text = "A strange thing to believe.", next = "BACK" },
+      },
+    },
+    w2_hope_rob = {
+      lines = {
+        { id = "w2_hope_rob_l0", text = "Ironband pays for every stone in coin an' copies every carving in ink, an' what's sold is sold tae museums, no' tae goblins. Mostly. I've a column for the exceptions, an' I dinnae like how long it's gettin'." },
+      },
+      choices = {
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -63,7 +92,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? I've a letter tae Ironforge half written, but it'll keep." },
-        { id = "h_again2", text = "Go on, ask. Questions are cheaper than blastpowder." },
+        { id = "h_again2", text = "Go on, ask. Questions are cheaper than blastpowder, an' they dinnae go missin' off carts." },
         { id = "h_again3", text = "Anythin' more, friend? Mind the inkpot, for I've knocked it over twice today an' half my map's gone blue." },
       },
       choices = {
@@ -73,6 +102,7 @@ P:NPC {
         { text = "I've heard about Saean.", next = "saean", when = { questDone = TODO_QUEST("Protecting the Shipment") } },
         { text = "I dig for the League too, Jern.", next = "league_kin", when = { origin = "dwarf_explorers_league" } },
         { text = "Who'd steal powder from a cart?", next = "rogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What does the League hope to find in this valley?", next = "w2_hope" },
         { text = "Good day, Jern.", next = "END" },
       },
     },

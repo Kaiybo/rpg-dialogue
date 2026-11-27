@@ -66,7 +66,28 @@ P:NPC {
         { text = "Where were you when the Scourge came?", next = "yabroad" },
         { text = "What will you do if the gate never opens?", next = "ynever" },
         { text = "Who do you hope is still inside?", next = "yhope" },
+        { text = "How do you pass the days here?", next = "w9_days" },
         { text = "I hope it opens for you.", next = "END" },
+      },
+    },
+
+    w9_days = {
+      lines = {
+        { id = "w9_days_d", text = "I write letters to my mother, which I cannot send, and I read them aloud to the gate, which cannot answer. On fine days I practise the cantrips I learned as a boy, the little lights and the warming charms, so that I will not forget how home feels." },
+        { id = "w9_days_v1", when = { class = "MAGE" }, text = "Much as you might, I expect: I practise the small magics of my childhood, the little lights and the warming charms, so I do not forget how home feels. The rest of the time I write to my mother, though there is no one to carry the letters." },
+      },
+      choices = {
+        { text = "How many letters have you written?", next = "w9_days2" },
+        { text = "That sounds lonely.", next = "w9_days2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_days2 = {
+      lines = { { id = "w9_days2_d", text = "Two hundred and eleven, folded in the trunk, and in every one I tell her the gate will open soon. I have stopped believing that myself, but I will not tell her so, for a son should give his mother hope even when he has none to spare." } },
+      choices = {
+        { text = "Keep writing.", next = "BACK", reply = "I will. It is the only conversation the gate allows." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     gate = {

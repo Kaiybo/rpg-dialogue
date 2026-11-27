@@ -28,6 +28,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_treat = {
+      lines = {
+        { id = "w2_treat_l0", text = "With more kindness than I expected and less understanding than I hoped. The smiths bring me ale I do not drink, and the children ask whether I can turn into a bear, and nobody asks what the Circle has seen in the south." },
+      },
+      choices = {
+        { text = "Can you turn into a bear?", next = "w2_treat_bear" },
+        { text = "Dwarves listen better when they're shown, not told.", next = "BACK" },
+      },
+    },
+    w2_treat_bear = {
+      narr = "Her mouth moves in what might be the beginning of a smile.",
+      lines = {
+        { id = "w2_treat_bear_l0", text = "Not here, among the anvils. The mountain would not care for it, and neither would the guards. I tell the children that a bear is a promise the forest keeps, and they seem content with that." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     ej_druid = {
       lines = { { id = "ejd_default", text = "Then you know Nighthaven, and you know how slow the Circle's councils are to move. In Silithus they cannot afford to be slow, and a druid who can fight would be worth ten who can only listen." } },
       choices = { { text = "Then I'll go south. Something else.", next = "BACK" } },
@@ -45,8 +63,8 @@ P:NPC {
         { id = "h_default", text = "I am Jademoon, and I speak in Ironforge for the Cenarion Circle. We are druids, night elf and tauren together, and we tend the land where it is wounded, which of late means the desert of Silithus." },
       },
       again = {
-        { id = "h_again", text = "What more would you know?" },
-        { id = "h_again2", text = "Ask it, {class}. I have learned patience from older things than this mountain." },
+        { id = "h_again", text = "Ask what you will. The Circle sent me here to answer, as much as to listen." },
+        { id = "h_again2", text = "Ask it, {class}. I have learned patience from older things than this mountain, though the hammers test it." },
       },
       choices = {
         { text = "What is happening in Silithus?", next = "silithus" },
@@ -56,6 +74,7 @@ P:NPC {
         { text = "Why bring this to the dwarves?", next = "dwarves" },
         { text = "I have walked the paths of Moonglade.", next = "ej_druid", when = { class = "DRUID" } },
         { text = "I've never trusted the Circle's tauren.", next = "ej_elf", when = { race = "NightElf" } },
+        { text = "How do the dwarves treat you here?", next = "w2_treat" },
         { text = "Elune light your path, Emissary.", next = "END" },
       },
     },

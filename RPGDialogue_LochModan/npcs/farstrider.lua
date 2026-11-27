@@ -317,6 +317,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_say = {
+      lines = {
+        { id = "w2_say_l0", text = "Oh, they're all terribly jealous. Marek calls me \"the boy\" when he thinks I can't hear, and Vyrin once told me to stand downwind of the boars so they'd smell me coming and run." },
+      },
+      choices = {
+        { text = "That sounds more like teasing than jealousy, Daryl.", next = "w2_say_tease" },
+        { text = "Pay them no mind. You'll outshoot the lot someday.", next = "BACK", fx = { affinity = 1 }, reply = "Someday? Well. Yes. I suppose someday is a perfectly respectable time to outshoot people." },
+      },
+    },
+    w2_say_tease = {
+      narr = "His ears go a little pink under the scar.",
+      lines = {
+        { id = "w2_say_tease_l0", text = "Perhaps a little teasing. My father said the Farstriders would make a man of me or send me home in a sack, and I'd sooner they laughed at me than buried me, if I'm honest about it." },
+      },
+      choices = {
+        { text = "You're honest more often than you let on.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -334,7 +353,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? I've a bowstring to wax, and it won't wax itself." },
-        { id = "h_again2", text = "Go on, then. I've a moment for an admirer." },
+        { id = "h_again2", text = "Go on, then. Daryl the Bold always has a moment for an admirer, or even a rival." },
       },
       choices = {
         { text = "Set me a challenge, then.", next = "challenge" },
@@ -345,6 +364,7 @@ P:NPC {
         { text = "Two hunters, one lodge. Let's compare notes.", next = "hunter", when = { class = "HUNTER" } },
         { text = "My beast could take Mangeclaw alone, Daryl.", next = "dy_beast", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "Why don't you keep a beast of your own?", next = "dy_nobeast", when = { class = "HUNTER" } },
+        { text = "What do the other hunters say about you, really?", next = "w2_say" },
         { text = "Good luck with the boasting, Daryl.", next = "END" },
       },
     },

@@ -27,7 +27,7 @@ P:NPC {
     hello = {
       lines = { { id = "h_default", text = "I am Saern Priderunner. My family carried word between the tribes on foot in the days before we had a city, and though the Bluff has made that work lighter, I have not forgotten how to run." } },
       again = { { id = "h_again_x", text = "Ask, friend. I still have breath." },
-        { id = "h_again", text = "What else would you ask?" },
+        { id = "h_again", text = "Ask, then. I have run farther for less." },
         { id = "h_again2", text = "Speak, and I will hear you." },
       },
       choices = {
@@ -38,7 +38,23 @@ P:NPC {
         { text = "The tribes should never have settled in one place.", next = "x_st" },
         { text = "I'm a druid. I can run as a cheetah.", next = "x_dr", when = { class = "DRUID" } },
         { text = "I'm tauren, and I'd like to run the paths.", next = "x_ta", when = { race = "Tauren" } },
+        { text = "Does anyone still carry word on foot, now there are wind riders?", next = "w5_foot" },
         { text = "Walk with the Earth Mother.", next = "END" },
+      },
+    },
+    w5_foot = {
+      lines = { { id = "w5_foot_l", text = "A few. The wind riders are fast, but they cannot land in every hollow, and an old chieftain in the hills does not trust a message that fell out of the sky. When word must be carried to the Winterhoof camps or the Bloodhoof elders, they still ask for a runner." } },
+      choices = {
+        { text = "Will the running die out, do you think?", next = "w5_foot2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_foot2 = {
+      lines = { { id = "w5_foot2_l", text = "It may. The young ones want wings. My nephew asked me last spring why he should learn to run the paths when he could fly over them. I told him a wind rider can be shot from the sky, and a runner in the long grass cannot. He was not convinced." } },
+      choices = {
+        { text = "Keep the old paths alive. The Horde may need them.", next = "BACK", reply = "Yes. One day the sky will be closed to us, and someone will need to know the way on foot.", fx = { align = { honor = 1 } } },
+        { text = "The wind riders are better. Let the running go.", next = "BACK", reply = "Perhaps you are right. But I will run the paths until my knees refuse me, all the same.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     ran = {

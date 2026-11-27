@@ -14,7 +14,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, warrior. You stand like you belong in the Valley. Good." },
-    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Into the Valley of Honor, are you? Then stand like you mean it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You again. Feet apart, chin down, and don't make me tell you twice, because I won't be gentle the second time." },
     { id = "g_hi", text = "Into the Valley of Honor, are you? Then stand like you mean it." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and I'll wager your arms have gone soft. Pick up a blade and show me I'm wrong." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "When you first came to my yard you were all elbows, and now look at you. Somebody's been knocking you around out there, and it's done you good." },
@@ -337,7 +337,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Mind the beasts, friend, but they like you. Most of them, anyway." },
-    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind the beasts. Most of them bite, and the rest are thinking about it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Keep your hands where the beasts can see them. They've not forgotten you, and neither have I." },
     { id = "g_hi", text = "Mind the beasts. Most of them bite, and the rest are thinking about it." },
     { id = "g_hunter", when = { class = "HUNTER", pet = { type = "Beast" } }, text = "Bring {pet} in where I can see it. I'll judge the beast first and you after, the same as always." },
     { id = "g_nopet", when = { class = "HUNTER", minLevel = 12, ["not"] = { pet = { type = "Beast" } } }, text = "A hunter walking in alone. Either your beast is with the stable master or you've lost it, and I'd like to know which before we talk." },

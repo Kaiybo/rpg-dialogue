@@ -385,8 +385,8 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, but Nafien smells the dead on you. Nafien has heard your kind fight the dead, so he wonders how one of the dead came to fight them." },
       },
       again = {
-        { id = "h_again1", text = "What else?" },
-        { id = "h_again2", text = "Speak, then." },
+        { id = "h_again1", text = "What else? Nafien watches the gate while he listens." },
+        { id = "h_again2", text = "Speak, then. Nafien is listening." },
       },
       choices = {
         { text = "What did the Deadwood do to their totems?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -570,7 +570,7 @@ P:NPC {
       },
       again = {
         { id = "h_again1", text = "Niby is waiting, and Niby is very busy." },
-        { id = "h_again2", text = "Yes, yes, what else?" },
+        { id = "h_again2", text = "Yes, yes, what else? Niby is very busy being almighty." },
       },
       choices = {
         { text = "Do the elements still have any power here, Niby?", next = "xhsham", when = { class = "SHAMAN" } },

@@ -87,6 +87,7 @@ P:NPC {
         { text = "I've fought orcs before, and they bleed like anyone.", next = "veteran", when = { minLevel = 20 } },
         { text = "I'll take the bounty.", next = "BUSINESS" },
         { text = "Do you ever think about anything but the Blackrock, Howe?", next = "flirt", when = { flirt = true, ["not"] = { npcFlag = "guard_howe_flirt_no" } } },
+        { text = "What happened at the old farmstead?", next = "e3_farmstead" },
         { text = "Stay vigilant, Howe.", next = "END" },
       },
     },
@@ -156,6 +157,24 @@ P:NPC {
       lines = { { id = "v_default", text = "They do, and that's the only comfort I've found in this. You'll know, then, that they don't stop coming until someone stops them." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    e3_farmstead = {
+      lines = {
+        { id = "e3_farmstead_l0", text = "We were six on patrol up past Render's Valley, and we stopped at the old farmstead to water the horses because the well there was sweet. Blackrock outriders came over the hill at dusk, and only four of us rode back to Lakeshire, and Tom wasn't one of them." },
+      },
+      choices = {
+        { text = "Was Tom a close friend?", next = "e3_farmstead2" },
+        { text = "Four of six is a hard count.", next = "BACK" },
+      },
+    },
+    e3_farmstead2 = {
+      lines = {
+        { id = "e3_farmstead2_l0", text = "We joined the watch on the same day, in the same borrowed boots, and he was always the better rider. I go up to that well once a season and draw a bucket and pour it out on the ground for him, and I don't care who sees." },
+      },
+      choices = {
+        { text = "That's a fitting thing. Something else.", next = "BACK" },
+        { text = "Grief makes poor sentries, Howe.", next = "BACK" },
+      },
     },
   },
 

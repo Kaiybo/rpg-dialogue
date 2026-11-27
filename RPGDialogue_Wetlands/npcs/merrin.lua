@@ -33,6 +33,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_rdg = {
+      lines = { { id = "w8_rdg_a", text = "Ormer an' Prospector Whelgar, a few diggers wi' raptor bites, an' a lad wi' a red beard who's braver than he's wise. We keep a fire low behind the rocks an' a lookout on the slope, an' we take turns sleepin' when the raptors let us." } },
+      choices = {
+        { text = "How do you keep the diggers' spirits up?", next = "w8_rdg2" },
+        { text = "You should all go back to Menethil.", next = "w8_rdg2" },
+        { text = "Something else, Merrin.", next = "BACK" },
+      },
+    },
+    w8_rdg2 = {
+      lines = { { id = "w8_rdg2_a", text = "I read them Tarrel's letters aloud, the soppy bits too, an' they laugh at him till their bellies ache. He'd be mortified, the poor man, but it's done more for this camp than any ale could." } },
+      choices = {
+        { text = "Don't tell Tarrel I know.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -58,6 +74,7 @@ P:NPC {
         { text = "Who held the raptors off?", next = "ormer" },
         { text = "Tarrel misses you.", next = "tarrel", when = { heardLine = "tarrel.h_default" } },
         { text = "I can tend that raptor bite.", next = "heal", when = { class = { "PRIEST", "PALADIN", "DRUID" } } },
+        { text = "Who else is up here on the ridge with you?", next = "w8_rdg" },
         { text = "Stay safe, Merrin.", next = "END" },
       },
     },

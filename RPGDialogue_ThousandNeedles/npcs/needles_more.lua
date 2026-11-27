@@ -53,7 +53,36 @@ P:NPC {
         { text = "Let's do business.", next = "BUSINESS" },
         { text = "I build a few gadgets of my own.", next = "eng", when = { profession = "Engineering" } },
         { text = "A gnome can't get a straight answer out here.", next = "gnome", when = { race = "Gnome" } },
+        { text = "What do you charge for a job like that?", next = "w7_rates" },
         { text = "See you around, Zamek.", next = "END" },
+      },
+    },
+    w7_rates = {
+      lines = {
+        { id = "w7_rates_l1", text = "Depends on the job, pal, the risk, the noise and who's gonna be mad at me after. A small distraction's a few silver, a loud one's a gold, and anything that makes Kronkrider blow his whistle comes with a surcharge for my nerves." },
+      },
+      choices = {
+        { text = "What's the most you ever charged?", next = "w7_rates2" },
+        { text = "You'd sell your own mother for a silver.", next = "w7_rates3" },
+        { text = "Something else, Zamek.", next = "BACK" },
+      },
+    },
+    w7_rates2 = {
+      lines = {
+        { id = "w7_rates2_l1", text = "Twelve gold, chum, for convincin' a whole gnome pit crew their car was leakin' fuel ten minutes before a heat. They spent the whole race lookin' for a leak that wasn't there, and the goblin who paid me won by a length and still complains about the price." },
+        { id = "w7_rates2_l2", when = { race = "Gnome" }, text = "Twelve gold, and you ain't gonna like this one, friend: I told a gnome crew their car was leakin' fuel before a heat. Don't look at me like that, I've since done a job for the gnomes that cost the goblins twice as much, so it all evens out." },
+      },
+      choices = {
+        { text = "Fair's fair, I suppose.", next = "BACK", reply = "Fair's a strong word, pal. Balanced, let's say." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_rates3 = {
+      lines = {
+        { id = "w7_rates3_l1", text = "For a silver? Pal, I'd want at least two, and she'd want a cut. Ma Zamek taught me everything I know, includin' never takin' the first offer." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -179,7 +208,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Jandia, and I keep the trade goods of Freewind Post. Everything up here comes up the lifts from the canyon floor, and I make sure we never run out of what matters." },
         { id = "h_screech", when = { questActive = TODO_QUEST("Stop the Screeching") }, text = "That screeching from the cliffs keeps the whole post awake at night. If you can quiet it, we'll all sleep better." },
       },
-      again = { { id = "h_again", text = "What else do you need?" } },
+      again = { { id = "h_again", text = "What else do you need? Speak up over the wind; it carries half of every word straight off the mesa." } },
       choices = {
         { text = "Show me your goods.", next = "BUSINESS" },
         { text = "What troubles the post?", next = "trouble" },
@@ -189,7 +218,36 @@ P:NPC {
         { text = "Where does your thread come from?", next = "thread", when = { profession = { "Tailoring", "Leatherworking" } } },
         { text = "Is Freewind a good home?", next = "tauren_home", when = { race = "Tauren" } },
         { text = "I could stand guard over your crates tonight.", next = "guard", when = { class = { "WARRIOR", "HUNTER" } } },
+        { text = "Do you ever go down to the canyon floor yourself?", next = "w7_down" },
         { text = "Farewell, Jandia.", next = "END" },
+      },
+    },
+    w7_down = {
+      lines = {
+        { id = "w7_down_l1", text = "Once a season, when the caravan from the Crossroads comes to the foot of the Great Lift and someone has to count the crates before they are hauled up. I go with two braves, and I count fast, and I do not look at the gullies where the Galak watch." },
+      },
+      choices = {
+        { text = "Has anything ever gone wrong down there?", next = "w7_down2" },
+        { text = "You should send someone else to count.", next = "w7_down3" },
+        { text = "Something else, Jandia.", next = "BACK" },
+      },
+    },
+    w7_down2 = {
+      lines = {
+        { id = "w7_down2_l1", text = "Last spring a crate of salt went missing between the wagon and the lift, and we found it a day later, broken open, with centaur tracks all round it. The Galak do not even need salt; they took it because we did." },
+        { id = "w7_down2_l2", when = { class = { "HUNTER", "DRUID" } }, text = "Last spring we lost a crate of salt, and the tracks round it were Galak hooves and something else, lighter, that the braves could not name. You would know the difference, I think, if you went down and looked before the wind takes the marks." },
+      },
+      choices = {
+        { text = "That sounds like spite.", next = "BACK", reply = "It is. Spite is the one thing the canyon never runs short of." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_down3 = {
+      lines = {
+        { id = "w7_down3_l1", text = "Then who would I blame when the count was wrong? No, if the post goes hungry because a crate was miscounted, I want it to be my mistake, and nobody else's." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     trouble = {
@@ -298,7 +356,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Turhaw, butcher of Freewind, and the only orc on this rock who cooks. The tauren eat well enough, but they boil everything, and a man needs something with char on it now and then." },
       },
-      again = { { id = "h_again", text = "Hungry for more? Talk, then, while I cut." } },
+      again = { { id = "h_again", text = "Hungry for more? Talk, then, while I cut, and stand clear of the cleaver; it doesn't care who it's talking to." } },
       choices = {
         { text = "What have you got?", next = "BUSINESS" },
         { text = "What about the kodo?", next = "kodo" },
@@ -307,7 +365,36 @@ P:NPC {
         { text = "Lok'tar, brother. You've gone soft among the tauren.", next = "orc_soft", when = { race = "Orc" } },
         { text = "Thank you for honouring the kodo.", next = "tauren_thanks", when = { race = "Tauren" } },
         { text = "Do you need meat brought up?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "Where does an orc learn to cook like this?", next = "w7_learn" },
         { text = "Farewell, Turhaw.", next = "END" },
+      },
+    },
+    w7_learn = {
+      lines = {
+        { id = "w7_learn_l1", text = "In the internment camps, if you can believe it. The guards fed us slop, and an old grunt named Gorkash showed a few of us how to roast a stolen rat so it tasted like something, and I have never forgotten what a little char does for a hungry man's spirit." },
+        { id = "w7_learn_l2", when = { race = "Orc" }, text = "Where many of us learned the things we're proudest of: the camps. You'll remember the slop, brother, and maybe you knew someone like old Gorkash, who could make a stolen rat taste like a feast and kept a whole barracks alive on it." },
+      },
+      choices = {
+        { text = "That's a hard place to learn a trade.", next = "w7_learn2" },
+        { text = "And now you cook for tauren.", next = "w7_learn3" },
+        { text = "Something else, Turhaw.", next = "BACK" },
+      },
+    },
+    w7_learn2 = {
+      lines = {
+        { id = "w7_learn2_l1", text = "Hard places teach the lessons that stick. Gorkash died the winter before Thrall broke the camps open, and I cook every plainstrider leg the way he showed me, so some part of him got out too." },
+      },
+      choices = {
+        { text = "He'd be proud of you.", next = "BACK", reply = "He'd tell me I'm burning it. That's how I'd know he was proud." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_learn3 = {
+      lines = {
+        { id = "w7_learn3_l1", text = "And they eat it, which is more than the camp guards ever did. A tauren's thanks is quiet, but when Abeqwa comes back for a second plate without a word, I know I've done right by him." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     kodo = {

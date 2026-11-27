@@ -42,7 +42,7 @@ P:NPC {
     hello = {
       lines = { { id = "h_default", text = "I am Celes Earthborne, of the Cenarion Circle. My study is the soil of this glade and what sleeps in it, which is slow work, and I am told I have grown slow in the doing of it." } },
       again = {
-        { id = "h_again", text = "What else would you ask?" },
+        { id = "h_again", text = "What else would you ask of the earth and its keepers?" },
         { id = "h_again2", text = "Speak, and I will listen as I listen to the ground." },
       },
       choices = {
@@ -52,6 +52,9 @@ P:NPC {
         { text = "What can the soil teach a druid that a trainer can't?", next = "d_soil", when = { class = "DRUID" } },
         { text = "How long have you served the Circle?", next = "ylong" },
         { text = "Does anything trouble the glade?", next = "ytrouble" },
+        { text = "Tell me of Keeper Remulos.", next = "remulos" },
+        { text = "What do you plant here, in Nighthaven?", next = "plant" },
+        { text = "What is the oldest seed you have found?", next = "w_seed" },
         { text = "Elune be with you.", next = "END" },
       },
     },
@@ -87,6 +90,53 @@ P:NPC {
       choices = {
         { text = "Burn the break. Protect what still lives.", next = "BACK", reply = "Swift and sure. It may come to that, I fear.", fx = { align = { light = -1 } } },
         { text = "Heal it, however long it takes.", next = "BACK", reply = "Then we are of a mind, and the soil will thank you.", fx = { align = { light = 1 } } },
+      },
+    },
+    remulos = {
+      lines = { { id = "rm_default", text = "He is the son of Cenarius, {class}, and the guardian of this glade, and he has been both for longer than most of the Circle can remember. He seldom raises his voice. When he does, the whole glade goes still, and I have heard it only twice." } },
+      choices = {
+        { text = "What made him raise it?", next = "remulos2" },
+        { text = "A son of Cenarius. That's no small thing to stand beside.", next = "remulos2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    remulos2 = {
+      lines = { { id = "rm2_default", text = "Once for a druid who wished to bring a weapon into the glade, and once for news from the Dream that he would not share with us. He bore the second alone, and still does, I think. Rabine Saturna may know more, but she will not say either." } },
+      choices = { { text = "Then I won't press. Something else.", next = "BACK" } },
+    },
+    plant = {
+      lines = { { id = "pl_default", text = "Only what the glade wishes to grow, which is mostly moss and silence. I tend the barrow dens' slopes, so that the roots hold the soil above the druids who sleep there, and I plant a little moonbloom by the lake each spring, because the Riverbends asked me to." } },
+      choices = {
+        { text = "Druids sleep in the barrows?", next = "plant2" },
+        { text = "Tauren asked a kaldorei for flowers?", next = "plant2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    plant2 = {
+      lines = { { id = "pl2_default", text = "They do, in the Stormrage Barrow Dens, walking the Dream while their bodies rest, and the soil must be kept sound above them. As for the Riverbends, Moren says the flowers remind him of Mulgore in spring. I am glad to grow them, though I have never seen Mulgore." } },
+      choices = {
+        { text = "I'm a druid. I'll tread softly over the barrows.", next = "BACK", reply = "Then you understand already what most visitors never do. Elune keep you.", when = { class = "DRUID" } },
+        { text = "Something else, Celes.", next = "BACK" },
+      },
+    },
+    w_seed = {
+      lines = {
+        { id = "w_seed_default", text = "A seed of the old forest, {class}, from before the Well broke, lying a span below the moss at the edge of the lake. It is still alive. I can feel it, faintly, the way one feels a sleeper breathe in the next room. I have not dared to wake it." },
+      },
+      choices = {
+        { text = "Why not wake it?", next = "w_seed2" },
+        { text = "Alive after ten thousand years?", next = "w_seed2" },
+      },
+    },
+    w_seed2 = {
+      lines = {
+        { id = "w_seed2_default", text = "Because it remembers a world that is gone, and I do not know what it would grow into here. Keeper Remulos says it will wake when it is ready, and not before, and that I should be patient. I have been patient for four hundred years. I can be patient a while longer." },
+        { id = "w_seed2_w1", when = { class = "DRUID" }, text = "You may feel it yourself, if you sit by the lake at dawn and do not try. Most young druids try too hard, and the seed goes quiet when they do." },
+      },
+      choices = {
+        { text = "Let it wake in its own time.", next = "BACK", fx = { align = { order = 1 } }, reply = "So I tell myself each morning, and each morning I believe it a little more." },
+        { text = "Some things should be woken.", next = "BACK", fx = { align = { order = -1 } }, reply = "Perhaps. You are young, and the young are allowed that opinion." },
+        { text = "Something else, Celes.", next = "BACK" },
       },
     },
   },
@@ -138,7 +188,7 @@ P:NPC {
     hello = {
       lines = { { id = "h_default", text = "I am Moren Riverbend. I came north from Mulgore to learn the old ways of the druids from those who have kept them longest, and I have stayed because there is more to learn here than one life will hold." } },
       again = {
-        { id = "h_again", text = "What else would you hear?" },
+        { id = "h_again", text = "What else would you hear of the river and the glade?" },
         { id = "h_again2", text = "Speak. There is no hurry beside this lake." },
       },
       choices = {
@@ -146,6 +196,9 @@ P:NPC {
         { text = "Do you miss Mulgore?", next = "mulgore" },
         { text = "Mylentha is your kin?", next = "mylentha" },
         { text = "I walk the druid's path too, Moren.", next = "d_kin", when = { class = "DRUID" } },
+        { text = "How do the night elves treat a tauren in Nighthaven?", next = "kaldorei" },
+        { text = "You talk to the lake, Mylentha says.", next = "lake" },
+        { text = "What did you do in Mulgore, before the Circle?", next = "w_before" },
         { text = "Walk with the Earth Mother.", next = "END" },
       },
     },
@@ -167,6 +220,56 @@ P:NPC {
     mylentha = {
       lines = { { id = "my_default", text = "She is of my family and came north with me, and she is the reason our lodge is ever in order. She will tell you that I talk to the lake when I should be gathering firewood, and she is right." } },
       choices = { { text = "Tell me something else.", next = "BACK" } },
+    },
+    kaldorei = {
+      lines = { { id = "kl_default", text = "With courtesy, which is not the same as warmth, though in some it has become warmth with time. The elders of the Circle remember when no tauren had walked this glade at all, and they watch my hooves on their moss very carefully." } },
+      choices = {
+        { text = "Does that trouble you?", next = "kaldorei2" },
+        { text = "Courtesy is a beginning.", next = "kaldorei2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kaldorei2 = {
+      lines = { { id = "kl2_default", text = "It did, the first winter. Then Celes Earthborne came to our fire one evening with a basket of moonbloom seeds and asked whether tauren had flowers like them in Mulgore. We sat until the moon set. Since then, the moss has not seemed to mind my hooves." } },
+      choices = { { text = "That's a good beginning. Something else.", next = "BACK" } },
+    },
+    lake = {
+      lines = { { id = "lk_default", text = "She does say that, and it is true. Lake Elune'ara is the stillest water I have ever known, and when I speak to it, my own voice comes back softer. At home I would speak to the wind on the plains, but here there is no wind, only the lake and the moon in it." } },
+      choices = {
+        { text = "What do you tell it?", next = "lake2" },
+        { text = "A lake that listens. I'd like that.", next = "lake2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lake2 = {
+      lines = { { id = "lk2_default", text = "The names of those I left in Mulgore, so that I do not forget them, and the news of the glade, so that the lake knows a tauren cares for it too. Some of the kaldorei think it foolish. Keeper Remulos stood behind me once while I did it, and said nothing, and then he smiled." } },
+      choices = {
+        { text = "I'm tauren too. I'll say my own names to the lake.", next = "lake3", when = { race = "Tauren" } },
+        { text = "Something else, Moren.", next = "BACK" },
+      },
+    },
+    lake3 = {
+      lines = { { id = "lk3_default", text = "Then go gently down to the shore at moonrise, and say them slowly, as you would to an elder. The lake will keep them for you while you walk, and you will find that you carry less. May An'she and Mu'sha both watch over you." } },
+      choices = { { text = "Thank you, Moren. Something else.", next = "BACK" } },
+    },
+    w_before = {
+      lines = {
+        { id = "w_before_default", text = "I herded kodo for the Bloodhoof, young one, on the plains below the bluff. A kodo teaches slowness better than any elf, and I thought I was patient until I came here and met a night elf who had been watching the same tree for a century." },
+      },
+      choices = {
+        { text = "What was that tree?", next = "w_before2" },
+        { text = "A kodo herder among druids.", next = "w_before2" },
+      },
+    },
+    w_before2 = {
+      lines = {
+        { id = "w_before2_default", text = "A small oak by the lake, which had not grown a single leaf in that time. Celes said it was thinking. I laughed, and she looked at me so gently that I stopped laughing. The next spring, it put out one leaf, and Celes and I sat beside it all day." },
+        { id = "w_before2_w1", when = { race = "Tauren" }, text = "You will have herded or hunted the plains yourself, maybe. Then you will understand why that one leaf felt like a whole season of rain." },
+      },
+      choices = {
+        { text = "One leaf, after a century.", next = "BACK", fx = { trait = { patient = 1 } } },
+        { text = "Something else, Moren.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -202,8 +305,8 @@ P:NPC {
     hello = {
       lines = { { id = "h_default", text = "I am Mylentha Riverbend. My kinsman Moren came to study with the Circle, and I came to see that he did not starve while he did it, and somewhere along the way the glade became my home as well." } },
       again = {
-        { id = "h_again", text = "What else would you ask?" },
-        { id = "h_again2", text = "Speak, I am listening." },
+        { id = "h_again", text = "What else would you ask of a druid's daughter?" },
+        { id = "h_again2", text = "Speak. Nighthaven is quiet, and I have time to listen." },
       },
       choices = {
         { text = "How do the night elves treat you?", next = "elves" },
@@ -212,6 +315,7 @@ P:NPC {
         { text = "Do you miss Mulgore?", next = "ymiss" },
         { text = "Do Horde and Alliance ever quarrel here?", next = "yquarrel" },
         { text = "I'm of the Earth Mother's children too.", next = "ycousin", when = { race = "Tauren" } },
+        { text = "What do you cook for the lodge?", next = "w_cook" },
         { text = "May the eternal sun shine on you.", next = "END" },
       },
     },
@@ -259,6 +363,24 @@ P:NPC {
         { id = "yc_druid", when = { class = "DRUID" }, text = "And a druid besides, like Moren. Sit, and let me feed you, then tell me whether Hamuul still keeps the Elder Rise, and whether the grass grows tall south of Bloodhoof Village." },
       },
       choices = { { text = "The grass grows tall. Something else.", next = "BACK", reply = "Good. Then the Earth Mother is well, and so am I." } },
+    },
+    w_cook = {
+      lines = {
+        { id = "w_cook_default", text = "Plainstrider stew when I can get the meat, which is rarely here, and corn bread from the meal I carry up from Mulgore. The night elves taste it very politely and then ask for more, and Moren eats it standing at the window, looking at the lake." },
+      },
+      choices = {
+        { text = "Do the elves cook for you?", next = "w_cook2" },
+        { text = "Corn bread in Moonglade.", next = "w_cook2" },
+      },
+    },
+    w_cook2 = {
+      lines = {
+        { id = "w_cook2_default", text = "Dargon at the inn does, and he makes a moonberry soup that I have tried to copy six times. Each time he tastes mine and says it is very good, and each time he adds one thing and it is better. I have never seen what he adds. I am beginning to suspect it is patience." },
+      },
+      choices = {
+        { text = "Patience as a spice.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else, Mylentha.", next = "BACK" },
+      },
     },
   },
   topics = {

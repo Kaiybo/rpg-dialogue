@@ -47,7 +47,76 @@ P:NPC {
         { text = "Strongbash says you hear everything.", next = "hear", when = { heardLine = "brave_strongbash.im_default" } },
         { text = "What do you make of the village's troubles?", next = "troubles" },
         { text = "You've chosen a good seat.", next = "seat" },
+        { text = "What's the strangest traveller you've seen here?", next = "strange" },
+        { text = "Innkeeper Kauth keeps a warm fire.", next = "kauth" },
+        { text = "Do many orcs come through Bloodhoof?", next = "orcs_through", when = { race = "Orc" } },
+        { text = "What have you learned from your seat by the fire?", next = "w7_learn" },
         { text = "I'll leave you to the fire.", next = "END" },
+      },
+    },
+    w7_learn = {
+      lines = {
+        { id = "w7_learn_l1", text = "That everyone carries something heavy, and most of them would like to set it down for an evening. An orc who lost his clan, a troll who misses the sea, a young tauren afraid of the road; I listen, and they set it down, and in the morning they pick it up again, a little lighter." },
+      },
+      choices = {
+        { text = "Do you ever tell them anything?", next = "w7_learn2" },
+        { text = "That sounds like a heavy seat.", next = "w7_learn3" },
+        { text = "Something else, Magrin.", next = "BACK" },
+      },
+    },
+    w7_learn2 = {
+      lines = {
+        { id = "w7_learn2_l1", text = "Rarely. People do not want advice by the fire; they want an ear. When someone does ask, I tell them what my mother told me: the grass bends under the herd, and it does not break." },
+        { id = "w7_learn2_l2", when = { race = "Tauren" }, text = "Rarely. But you, I will tell: the grass bends under the herd, and it does not break. You will carry heavy things on the road. Bend, cousin, and do not break." },
+      },
+      choices = {
+        { text = "Good words.", next = "BACK", reply = "My mother's. They have lasted longer than she did." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_learn3 = {
+      lines = {
+        { id = "w7_learn3_l1", text = "It is a seat by a fire. Nothing is heavy by a fire, for long." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    strange = {
+      lines = { { id = "strange_d", text = "A troll who sits by the road and stares into every traveller's face, looking for young priests who have wandered off. Var'jun, his name is, and he has been searching for a good while now without finding a single one." } },
+      choices = {
+        { text = "Has he asked you to help?", next = "strange_help" },
+        { text = "A troll searching faces. That is odd.", next = "BACK", reply = "Less odd than you would think, once you have watched him a while. He is only worried, and worry looks strange from outside." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    strange_help = {
+      lines = { { id = "strange_help_d", text = "He has, and I told him what I tell everyone, that I would watch. I have seen two young trolls pass through in the last moon, and I told him both times, though by then they had already gone on toward Thunder Bluff." } },
+      choices = {
+        { text = "That's kind of you.", next = "BACK", reply = "It costs me nothing but attention, and attention is all I have to give from this seat." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    kauth = {
+      lines = { { id = "kauth_d", text = "He does, and he keeps it burning even when the inn is empty, for he says an empty fire is an invitation and a cold hearth is a warning. I have sat by it for so many seasons that he has stopped asking whether I want anything." } },
+      choices = {
+        { text = "Do you ever leave this seat?", next = "kauth_leave" },
+        { text = "A warm fire and a good seat. What more is there?", next = "BACK", reply = "Company, perhaps, and you have brought me some. I am grateful." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kauth_leave = {
+      lines = { { id = "kauth_leave_d", text = "To walk the village at dawn, and to go up the lift to Thunder Bluff when the elders call the tribes together, though my knees argue with me about it. Otherwise I am here, and the village comes to me, which saves my knees a great deal." } },
+      choices = {
+        { text = "The village comes to you. I like that.", next = "BACK" },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    orcs_through = {
+      lines = { { id = "orcs_through_d", text = "More every season, orc, on their way to the Barrens or back from it. They eat Kauth's stew and say it needs more pepper, and they leave a coin for the fire, which I have always thought was a fine custom." } },
+      choices = {
+        { text = "Orcs know the value of a good fire.", next = "BACK", reply = "They do. It is one of the things that makes the Horde feel like one tribe." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     who = {

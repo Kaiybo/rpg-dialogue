@@ -43,7 +43,22 @@ P:NPC {
         { text = "Does anyone help you train?", next = "ytrain" },
         { text = "What will you do after?", next = "yafter" },
         { text = "An orc should not grieve alone. Let me help.", next = "yhelp", when = { race = "Orc" } },
+        { text = "What did you and your mate do, before the canyon?", next = "w5_before" },
         { text = "Strength and honor, Darn.", next = "END" },
+      },
+    },
+    w5_before = {
+      lines = { { id = "w5_before_l", text = "We scouted. Up from the Barrens, along the ridges, mapping every pass for the Warchief. Kerga could find a path where I saw only rock. She laughed at me for it, every day. I would give everything I own to hear her laugh at me again." } },
+      choices = {
+        { text = "Would she want you waiting here like this?", next = "w5_before2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_before2 = {
+      lines = { { id = "w5_before2_l", text = "No. She would tell me to go home and stop scaring the trolls. But her bones are in that canyon, and I am not leaving it while the spiders keep them. When I am strong enough, I will go in. Then I will go home, and she can laugh at me from the ancestors." } },
+      choices = {
+        { text = "She'd be proud of your patience, I think.", next = "BACK", reply = "Perhaps. She was never patient herself. One of us had to learn." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     spiders = {
@@ -146,7 +161,24 @@ P:NPC {
         { text = "What do you remember of the mountain before?", next = "ybefore" },
         { text = "Should the keepers make war on the goblins?", next = "ywar" },
         { text = "A druid of the Circle greets you, Gatekeeper.", next = "ydruid", when = { class = "DRUID" } },
+        { text = "What do the druids say behind your gate?", next = "w5_druids" },
         { text = "I come in peace, Gatekeeper.", next = "END" },
+      },
+    },
+    w5_druids = {
+      lines = { { id = "w5_druids_l", text = "That the mountain is dying a tree at a time, and that the Venture Company does not hear the words \"slow down\". Some argue for war. Some argue for patience. Keeper Albagorm listens to all of them and says little, which frustrates the young ones." } },
+      choices = {
+        { text = "Which do you argue for?", next = "w5_druids2" },
+        { text = "I am of the Circle. I'll stand with whatever the Keeper decides.", next = "BACK", when = { class = "DRUID" }, reply = "Then you are welcome behind the gate, druid. The Keeper values those who wait for counsel." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_druids2 = {
+      lines = { { id = "w5_druids2_l", text = "I argue for nothing. I keep the gate. But if you asked me in the quiet of the evening, I would tell you that patience is a word for those whose roots are not being cut. The trees on the lower slopes have no time left to wait." } },
+      choices = {
+        { text = "The Circle must strike before the mountain is lost.", next = "BACK", reply = "Speak softly. Some within would agree with you, and some would not forgive you for it.", fx = { align = { order = -1 } } },
+        { text = "The Keeper is wise. Rash war would only burn more.", next = "BACK", reply = "That is the Keeper's answer. I hope it is the true one.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     den = {

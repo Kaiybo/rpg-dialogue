@@ -333,7 +333,7 @@ P:NPC {
         { id = "h_again2", text = "Your question, then, and keep your chin up while you ask it." },
       },
       choices = {
-        { text = "Proper form wins fights.", next = "BACK", reply = "It does. You understand.", fx = { align = { order = 1 } } },
+        { text = "Proper form wins fights.", next = "BACK", reply = "It does. Strength wins a blow, but form wins the fight, and I have seen strong fools fall to it often.", fx = { align = { order = 1 } } },
         { text = "Form doesn't matter. Strength does.", next = "BACK", reply = "Then you'll fall over.", fx = { align = { order = -1 } } },
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "My shield arm still drops when I'm tired.", next = "shield", when = { class = "WARRIOR", minLevel = 10, maxLevel = 39 } },
@@ -556,7 +556,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, I've time while the Terrace is quiet." },
       },
       choices = {
-        { text = "A blade tells you about its wielder.", next = "BACK", reply = "It does! You understand.", fx = { align = { honor = 1 } } },
+        { text = "A blade tells you about its wielder.", next = "BACK", reply = "It does! Show me how someone keeps her blade, and I will tell you how she keeps her word.", fx = { align = { honor = 1 } } },
         { text = "A blade is just steel.", next = "BACK", reply = "Then buy any steel.", fx = { align = { honor = -1 } } },
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "How do I choose the right weapon?", next = "choose" },
@@ -766,7 +766,7 @@ P:NPC {
         { id = "h_again2", text = "Ask away. They're calm this time of day." },
       },
       choices = {
-        { text = "Sabers deserve gentle handling.", next = "BACK", reply = "They do. You understand.", fx = { align = { light = 1 } } },
+        { text = "Sabers deserve gentle handling.", next = "BACK", reply = "They do. A saber remembers a harsh hand for a century, and a kind one for longer.", fx = { align = { light = 1 } } },
         { text = "Sabers are just big cats.", next = "BACK", reply = "They will remember that.", fx = { align = { light = -1 } } },
         { text = "Let me see the sabers.", next = "BUSINESS" },
         { text = "Where do frostsabers come from?", next = "frost" },
@@ -966,6 +966,7 @@ P:NPC {
         { text = "Is a saber harder to ride than a warhorse, Jartsam?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Will your sabers even let me in the saddle?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do your students fall often, Jartsam?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Who's the worst rider you ever taught?", next = "w_worst" },
         { text = "Farewell, Jartsam.", next = "END" },
       },
     },
@@ -994,6 +995,25 @@ P:NPC {
       },
       choices = {
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_worst = {
+      lines = {
+        { id = "w_worst_default", text = "A dwarf, and I say it with great affection. He sat a saber like a sack of ore and talked to her the whole time about rams, and she threw him into the lake on the very first morning." },
+      },
+      choices = {
+        { text = "Did he ever learn?", next = "w_worst2" },
+        { text = "Poor dwarf.", next = "w_worst2" },
+      },
+    },
+    w_worst2 = {
+      lines = {
+        { id = "w_worst2_default", text = "He did, after nine falls and one sulk, and by the end he rode better than half my kaldorei students. He said the trick was to stop thinking of her as a ram and start thinking of her as a very proud cat, which is the best advice anyone has ever given me." },
+        { id = "w_worst2_w1", when = { race = "Dwarf" }, text = "So if you sit my saber and feel like a sack of ore, don't worry, {g:lad|lass}. One of your own has already proved it can be done." },
+      },
+      choices = {
+        { text = "Nine falls and one sulk. Fair.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else, Jartsam.", next = "BACK" },
       },
     },
   },
@@ -1144,7 +1164,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. Charters can wait for a good question." },
       },
       choices = {
-        { text = "A guild should stand for something.", next = "BACK", reply = "It should. You understand.", fx = { align = { order = 1 } } },
+        { text = "A guild should stand for something.", next = "BACK", reply = "It should. A name without a purpose is only a crowd that happens to share a banner.", fx = { align = { order = 1 } } },
         { text = "A guild is just a group of friends.", next = "BACK", reply = "Then call it that.", fx = { align = { order = -1 } } },
         { text = "I'd like to see about a charter.", next = "BUSINESS" },
         { text = "Why do you care what a guild is for?", next = "purpose" },
@@ -1330,8 +1350,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask. I promise to keep it short this time." },
       },
       choices = {
-        { text = "A good tabard shows pride.", next = "BACK", reply = "It does! You understand.", fx = { align = { honor = 1 } } },
-        { text = "Tabards are just cloth.", next = "BACK", reply = "Oh. Well.", fx = { align = { honor = -1 } } },
+        { text = "A good tabard shows pride.", next = "BACK", reply = "It does! Wear your colours where people can see them, and wear them clean.", fx = { align = { honor = 1 } } },
+        { text = "Tabards are just cloth.", next = "BACK", reply = "Oh. Well, I shall try not to take that personally.", fx = { align = { honor = -1 } } },
         { text = "I'd like to design a tabard.", next = "BUSINESS" },
         { text = "What makes a good tabard?", next = "good" },
         { text = "You must have made a few ugly ones.", next = "worst" },
@@ -1343,6 +1363,7 @@ P:NPC {
         { text = "What colors suit a paladin's guild, Shalumon?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why doesn't the Circle wear tabards, Shalumon?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you love designing tabards, Shalumon?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Which tabard are you proudest of?", next = "w_proud" },
         { text = "Farewell, Shalumon.", next = "END" },
       },
     },
@@ -1372,6 +1393,24 @@ P:NPC {
       choices = {
         { text = "It made them happy, and they'll talk about it for weeks.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_proud = {
+      lines = {
+        { id = "w_proud_default", text = "A plain grey one, with a single silver oak leaf, for a small company of healers who go to Ashenvale to tend the wounded of both the Sentinels and the druids. They asked me not to make it beautiful, and that was the hardest commission I ever had." },
+      },
+      choices = {
+        { text = "Why was that so hard?", next = "w_proud2" },
+        { text = "That sounds like a beautiful tabard anyway.", next = "w_proud2" },
+      },
+    },
+    w_proud2 = {
+      lines = {
+        { id = "w_proud2_default", text = "Because everything in me wants to add a border, a thread of colour, something. I unpicked three versions before I understood that the plainness was the point; they wanted to be seen by the wounded, not admired by everyone else." },
+      },
+      choices = {
+        { text = "Sometimes less says more.", next = "BACK", fx = { trait = { patient = 1 } } },
+        { text = "Something else, Shalumon.", next = "BACK" },
       },
     },
   },
@@ -1513,7 +1552,7 @@ P:NPC {
         { id = "h_again2", text = "Ask quickly, before the venison goes." },
       },
       choices = {
-        { text = "Fresh meat is worth the price.", next = "BACK", reply = "It is. You understand.", fx = { align = { honor = 1 } } },
+        { text = "Fresh meat is worth the price.", next = "BACK", reply = "It is, and you can taste the difference. The hunters bring it in at dusk and I have it on the hook by moonrise.", fx = { align = { honor = 1 } } },
         { text = "Old meat is just as good.", next = "BACK", reply = "Then eat old meat.", fx = { align = { honor = -1 } } },
         { text = "Let me see what you have.", next = "BUSINESS" },
         { text = "Do the druids object to your trade?", next = "druids" },
@@ -1711,7 +1750,7 @@ P:NPC {
         { id = "ddd_default", text = "Then let me teach you to count something else, like the seconds between a wound and a bandage. Most deaths I hear about began as a cut that someone meant to see to after the fight, and then the fight went on too long." },
       },
       choices = {
-        { text = "First aid saves lives.", next = "BACK", reply = "It does. You understand.", fx = { align = { light = 1 } } },
+        { text = "First aid saves lives.", next = "BACK", reply = "It does. A bandage tied well in the first minute does more than a priestess an hour later.", fx = { align = { light = 1 } } },
         { text = "First aid is for the weak.", next = "BACK", reply = "Then you'll bleed.", fx = { align = { light = -1 } } },
         { text = "That's fair. Teach me what you can.", next = "BUSINESS" },
         { text = "I'll see to my wounds after the fighting.", next = "BACK", reply = "That's what they all say, and then they come back pale from the spirit healer and say it again. Think on it, please." },
@@ -1928,8 +1967,8 @@ P:NPC {
         { id = "h_again2", text = "Ask on, but keep your sleeves clear of the burner." },
       },
       choices = {
-        { text = "Patient brewing makes strong potions.", next = "BACK", reply = "It does. You understand.", fx = { align = { order = 1 } } },
-        { text = "Fast brewing works just as well.", next = "BACK", reply = "It does not.", fx = { align = { order = -1 } } },
+        { text = "Patient brewing makes strong potions.", next = "BACK", reply = "It does. The cauldron keeps its own time, and the alchemist who argues with it loses.", fx = { align = { order = 1 } } },
+        { text = "Fast brewing works just as well.", next = "BACK", reply = "It does not. A rushed draught is a wasted one.", fx = { align = { order = -1 } } },
         { text = "Train me in alchemy.", next = "BUSINESS" },
         { text = "What should a new alchemist learn first?", next = "first" },
         { text = "Where do the best herbs grow?", next = "herbs" },

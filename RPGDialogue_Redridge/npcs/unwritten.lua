@@ -42,6 +42,7 @@ P:NPC {
         { text = "Has a customer ever saved your life?", next = "ysaved" },
         { text = "What did your father teach you?", next = "yfather" },
         { text = "I'm a hunter. Need any hides?", next = "yhides", when = { class = "HUNTER" } },
+        { text = "How do you dodge the gnolls' rocks up here?", next = "e3_rocks" },
         { text = "Good luck up here, Bernard.", next = "END" },
       },
     },
@@ -93,6 +94,24 @@ P:NPC {
       },
       choices = { { text = "I'll keep it in mind. Something else.", next = "BACK" } },
     },
+    e3_rocks = {
+      lines = {
+        { id = "e3_rocks_l0", text = "You learn the sound, friend, a sort of whistle and then a thump, and you duck at the whistle. I've a dent in my kettle, a dent in my stall and a dent in my head from the first week, and I've not been hit since." },
+      },
+      choices = {
+        { text = "Why not move the stall somewhere safer?", next = "e3_rocks2" },
+        { text = "A dent in the head is a hard lesson.", next = "BACK" },
+      },
+    },
+    e3_rocks2 = {
+      lines = {
+        { id = "e3_rocks2_l0", text = "Because the customers who need me are the ones running up this hill with their jerkins in tatters. A safe stall would be a stall nobody needs, and I'd sooner take my chances with the rocks." },
+      },
+      choices = {
+        { text = "That's brave of you. Something else.", next = "BACK" },
+        { text = "That's foolish, Bernard.", next = "BACK" },
+      },
+    },
   },
   topics = {
     gnolls = { { id = "yt_gnolls", text = "The Redridge gnolls throw rocks at my stall every evening. I've started charging them for the dents, in theory." } },
@@ -121,6 +140,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_solomon = {
+      lines = { { id = "d6_solomon_a", text = "He sits in the town hall and writes letters, lots and lots of letters, to the king, I think, and then he looks out of the window and sighs. Mama says he's trying to get soldiers to come and help, and I asked if I could help, and he gave me a sweet." } },
+      choices = {
+        { text = "Did he ever let you help?", next = "d6_solomon2" },
+        { text = "A sweet is a good wage for helping.", next = "d6_solomon2" },
+        { text = "Tell me something else.", next = "BACK" },
+      },
+    },
+    d6_solomon2 = {
+      lines = { { id = "d6_solomon2_a", text = "I carried a letter to the gryphon lady once, all by myself, and she let me pet the gryphon, and it smelled like feathers and fish. Mister Solomon said I was the best courier in Lakeshire, but I think he says that to everybody." } },
+      choices = {
+        { text = "I think he meant it, Madison.", next = "BACK", fx = { affinity = 1 } },
+        { text = "What else do you know?", next = "BACK" },
+      },
+    },
+    d6_flower = {
+      lines = { { id = "d6_flower_a", text = "Dandelions, because when they're old you can blow on them and make a wish, and I've made a hundred wishes. Erin says that's too many and they'll get used up, but I don't think wishes work like that." } },
+      choices = {
+        { text = "I can turn into a bear, you know.", next = "d6_flower2", when = { class = "DRUID" } },
+        { text = "What do you wish for?", next = "d6_flower2" },
+        { text = "Wishes don't get used up.", next = "d6_flower2" },
+      },
+    },
+    d6_flower2 = {
+      lines = {
+        { id = "d6_flower2_a", text = "That the bridge gets fixed, so Mama's cousin can come and visit, and that the gnolls go away, and a pony. The pony's the one I wish for most, but don't tell Mama, because she says ponies eat too much." },
+        { id = "d6_flower2_druid", when = { class = "DRUID" }, text = "You can not! Can you? Do it, do it now, please, and then I'll wish on a dandelion that you'll stay a bear forever so I can ride you to the docks. No, wait, you'd better not stay a bear, because then you couldn't talk to me." },
+      },
+      choices = {
+        { text = "I hope your wishes come true.", next = "BACK" },
+        { text = "What else would you like to tell me?", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "I'm Madison, and I'm going to the docks to look at the fish, and then I'm going back to the fields to look at the flowers. Mama says I'm not allowed past the bridge because of the gnolls." },
@@ -135,6 +188,9 @@ P:NPC {
         { text = "Do you have any friends to play with?", next = "xfriends" },
         { text = "I'm a gnome. Am I the littlest adventurer?", next = "BACK", when = { race = "Gnome" }, reply = "You're even littler than my cousin Tommy! But you've got a sword, so you're the littlest and bravest adventurer." },
         { text = "Who's your mama?", next = "ymama" },
+        { text = "What does Mister Solomon do all day?", next = "d6_solomon" },
+        { text = "What's your favourite flower?", next = "d6_flower" },
+        { text = "What was the shiny thing you found by the lake?", next = "e3_shiny" },
         { text = "Run along home, now.", next = "END" },
       },
     },
@@ -188,6 +244,24 @@ P:NPC {
       },
       choices = { { text = "I'll look out for him. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    e3_shiny = {
+      lines = {
+        { id = "e3_shiny_l0", text = "A button, a big silver one with a lion on it, half buried in the mud by the dock. Mister Hoggins says it came off a soldier's coat, and I've got it in my pocket, and I polish it every night so the lion stays happy." },
+      },
+      choices = {
+        { text = "Perhaps the soldier would like it back.", next = "e3_shiny2" },
+        { text = "A lion button is a fine treasure.", next = "BACK" },
+      },
+    },
+    e3_shiny2 = {
+      lines = {
+        { id = "e3_shiny2_l0", text = "Do you think so? Then I'll give it to Mister Solomon, because he knows all the soldiers' names. Only I'll polish it one more time first, so the soldier knows somebody looked after it." },
+      },
+      choices = {
+        { text = "That's very kind. Something else.", next = "BACK" },
+        { text = "Keep it, Madison. Finders keepers.", next = "BACK" },
+      },
+    },
   },
   topics = {
     bridge = { { id = "yt_bridge", text = "I'm not allowed past the bridge. Not even one step. I've measured, and it's very close." } },
@@ -234,6 +308,7 @@ P:NPC {
         { text = "What will you be when you grow up?", next = "xgrow" },
         { text = "I'm a dwarf. Can I be a guard too?", next = "BACK", when = { race = "Dwarf" }, reply = "Yes! You can be the guard who's very strong and carries the big hammer. Hannah, we've got a dwarf now!" },
         { text = "Have you ever seen a real gnoll?", next = "yreal" },
+        { text = "Is that stick your captain's sword?", next = "e3_stick" },
         { text = "Off you go and play.", next = "END" },
       },
     },
@@ -297,6 +372,24 @@ P:NPC {
       },
       choices = { { text = "A little. Something else.", next = "BACK" } },
     },
+    e3_stick = {
+      lines = {
+        { id = "e3_stick_l0", text = "It's my sword and it's also my flag, because when I hold it up everybody has to stop. Papa said the real Marshal has a flag, and I asked him to make me one, but he only had a stick, so it's both." },
+      },
+      choices = {
+        { text = "A good captain needs a good flag.", next = "e3_stick2" },
+        { text = "Don't point it at the real guards.", next = "BACK" },
+      },
+    },
+    e3_stick2 = {
+      lines = {
+        { id = "e3_stick2_l0", text = "I'm going to tie Mama's old red ribbon to it, so it looks like the Stormwind banner. Then the real guards will salute me, and Hannah will have to call me Captain all day." },
+      },
+      choices = {
+        { text = "I'll salute you now. Something else.", next = "BACK" },
+        { text = "Hannah may refuse.", next = "BACK" },
+      },
+    },
   },
   topics = {
     hannah = { { id = "yt_hannah", text = "Hannah is my best friend. She's the gnoll because she's good at growling, and she bites, a bit." } },
@@ -331,6 +424,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_erin = {
+      lines = { { id = "d6_erin_a", text = "Very bossy, but a good bossy, like Marshal Marris. She makes us line up and say yes sir, and then she charges at me with a broom, and I have to fall down and say I'm defeated." } },
+      choices = {
+        { text = "I'm a warrior. I'd make you captain.", next = "d6_erin2", when = { class = "WARRIOR" } },
+        { text = "Do you ever win, as the gnoll?", next = "d6_erin2" },
+        { text = "That's a lot of falling down.", next = "d6_erin2" },
+      },
+    },
+    d6_erin2 = {
+      lines = {
+        { id = "d6_erin2_a", text = "Once, when Erin tripped over the broom, and I didn't know what to do, so I just stood there growling. Then her mama called her in, so I don't know if it counts." },
+        { id = "d6_erin2_war", when = { class = "WARRIOR" }, text = "Really? A real warrior said so? Then I'm going to tell Erin, and she'll have to be the gnoll for once, and I'll charge at her with the broom like you would. Do warriors shout something when they charge?" },
+      },
+      choices = {
+        { text = "It counts, Hannah.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Ask me something else.", next = "BACK" },
+      },
+    },
+    d6_carve = {
+      lines = { { id = "d6_carve_a", text = "Fish, mostly, little wooden ones, and he sells them at the inn to people who want to remember the lake. He made me a gnoll once, so I'd know what I was pretending to be, but it came out looking like a dog with a hat." } },
+      choices = {
+        { text = "Do you still have the gnoll?", next = "d6_carve2" },
+        { text = "A dog with a hat sounds friendlier.", next = "d6_carve2" },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    d6_carve2 = {
+      lines = { { id = "d6_carve2_a", text = "It's under my pillow, so the real gnolls know I've got one of their own on my side. Papa says he'll carve me an orc next, but Mama says no, not after what happened on the west wall, so I think it'll be another fish." } },
+      choices = {
+        { text = "Your papa sounds very kind.", next = "BACK" },
+        { text = "What else do you want to tell me?", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", text = "I'm Hannah, and I always play the gnoll because Erin always wants to be the captain, and somebody has to lose. I don't mind, really, because gnolls get to hide in the best places." } },
       again = { { id = "h_again", text = "Do you want to ask me something else? I'm good at answers when Erin isn't listening." } },
@@ -342,6 +469,9 @@ P:NPC {
         { text = "Would you like to be the captain one day?", next = "xcaptain" },
         { text = "I'm a hunter. My pet can teach you a growl.", next = "BACK", when = { class = "HUNTER" }, reply = "Really? Grrr! Was that good? Erin will never find me if I can growl like a real animal!" },
         { text = "What does your family do?", next = "yfamily" },
+        { text = "What's Erin like as a captain?", next = "d6_erin" },
+        { text = "What does your papa carve?", next = "d6_carve" },
+        { text = "Show me your best gnoll growl.", next = "e3_growl" },
         { text = "Good hiding, Hannah.", next = "END" },
       },
     },
@@ -395,6 +525,24 @@ P:NPC {
         { id = "yfa_warrior", when = { class = { "WARRIOR", "PALADIN" } }, text = "Mama bakes for the inn, and Papa was on the watch like you, until he hurt his leg on the west wall. Now he carves fishing floats. He still looks at the hills, though, the way you do." },
       },
       choices = { { text = "He sounds brave. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    e3_growl = {
+      lines = {
+        { id = "e3_growl_l0", text = "Grrrr-hah-hah, like that, with a laugh at the end, because the real ones laugh. I practise it on the inn cat, and she runs away now when she sees me, so I think I'm getting good." },
+      },
+      choices = {
+        { text = "The laugh is the scariest part.", next = "e3_growl2" },
+        { text = "Poor cat.", next = "BACK" },
+      },
+    },
+    e3_growl2 = {
+      lines = {
+        { id = "e3_growl2_l0", text = "I know! That's why I put it in. Erin says it's too scary and I'm not allowed to do the laugh when the little ones are playing, so I save it for the cat." },
+      },
+      choices = {
+        { text = "Wise rule. Something else.", next = "BACK" },
+        { text = "Leave the cat alone, Hannah.", next = "BACK" },
+      },
     },
   },
   topics = {

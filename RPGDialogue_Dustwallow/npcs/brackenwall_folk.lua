@@ -40,7 +40,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Logok keeps the inn for the Stonemaul and for the Horde. Everybody calls Logok \"Little\", and Logok thinks it is very funny, and so far nobody has explained why." },
         { id = "h_dd_spies", tags = { "news" }, when = { questDone = TODO_QUEST("Theramore Spies") }, text = "Nazeer says you find the little Theramore spies on the islands and squash them. Logok is glad, because they watch Logok's inn and never once buy stew." },
       },
-      again = { { id = "h_again", text = "What else does small friend want? More stew?" } },
+      again = { { id = "h_again", text = "What else does small friend want? Logok has more stew, and more bed, and more talk, and Logok will not sit on any of them." } },
       choices = {
         { text = "The Stonemaul and the Horde are stronger together.", next = "BACK", reply = "Yes! Logok says the same. More friends, more stew.", fx = { align = { order = 1 } } },
         { text = "The Stonemaul should go back to their own ways.", next = "BACK", reply = "Logok does not like that talk. Pay first.", fx = { align = { order = -1 } } },
@@ -49,7 +49,37 @@ P:NPC {
         { text = "What's in the stew?", next = "stew" },
         { text = "How do the Stonemaul feel about the Horde?", next = "horde" },
         { text = "The Theramore spies were watching your inn, Logok?", next = "dd_spies", when = { questDone = TODO_QUEST("Theramore Spies") } },
+        { text = "Who comes to your inn the most?", next = "guests" },
+        { text = "What was the old village like, before the dragons?", next = "village" },
+        { text = "What's the hardest thing about keeping an inn?", next = "w7_hard" },
         { text = "Farewell, Logok.", next = "END" },
+      },
+    },
+    w7_hard = {
+      lines = {
+        { id = "w7_hard_l1", text = "The beds, small friend. Ogres are big and beds are small, and every week Logok mends a bed that somebody sat on too hard, and sometimes the somebody is Logok." },
+      },
+      choices = {
+        { text = "Who mends the beds?", next = "w7_hard2" },
+        { text = "Make bigger beds.", next = "w7_hard3" },
+        { text = "Something else, Logok.", next = "BACK" },
+      },
+    },
+    w7_hard2 = {
+      lines = {
+        { id = "w7_hard2_l1", text = "Logok mends them, with rope and a big stick and a lot of sighing. Krak made Logok a bed out of iron once, and it was very strong, and very cold, and nobody would sleep on it, so now it is a table." },
+      },
+      choices = {
+        { text = "That's a good story.", next = "BACK", reply = "Logok has many stories, and many broken beds." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_hard3 = {
+      lines = {
+        { id = "w7_hard3_l1", text = "Bigger beds! Logok did not think of this. Logok will think about it tonight, on Logok's bed, which is too small." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     dd_spies = {
@@ -99,6 +129,33 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    guests = {
+      lines = { { id = "gu_default", text = "Ogres, every night, because ogres are always hungry, and orcs from the Horde who come to watch the Theramore humans. And the wyvern master, who eats very slowly and says Logok's stew is the best thing in the whole swamp, which Logok knows already." } },
+      choices = {
+        { text = "Do the ogres and orcs ever fight in here?", next = "guests2" },
+        { text = "Every inn needs a guest who praises the stew.", next = "guests2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    guests2 = {
+      lines = { { id = "gu2_default", text = "Sometimes, but Logok sits on whoever starts it, and then they stop. Overlord Mok'Morokk says the inn is a place for eating, not smashing, and the overlord is very big, so everybody listens. Then they eat more stew, because sitting makes them hungry." } },
+      choices = { { text = "Logok the peacekeeper. Something else.", next = "BACK" } },
+    },
+    village = {
+      lines = { { id = "vg_default", text = "Bigger, and drier, and full of Stonemaul, with a big fire in the middle where Logok's mother cooked. Then the black dragons came down from their cave and burned it, and the Stonemaul had to leave, and now Logok cooks here in the bog." } },
+      choices = {
+        { text = "Does anyone go back there?", next = "village2" },
+        { text = "The black dragons have a lot to answer for.", next = "village2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    village2 = {
+      lines = { { id = "vg2_default", text = "The overlord sends ogres to fight the dragons sometimes, and they come back burned, and Logok gives them extra stew. Logok wants to go back one day and light the big fire again. Then Logok will be Little Logok in the old village, and maybe Logok will understand the joke." } },
+      choices = {
+        { text = "I'll fight the dragons for the Stonemaul.", next = "BACK", reply = "Small friend is brave! Logok will save you the biggest bowl when you come back.", when = { faction = "Horde" } },
+        { text = "I hope you light it again. Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -137,7 +194,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Shardi. I keep the riders at Brackenwall, and I keep them flying, which in this fog takes more nerve than most warriors ever need." },
         { id = "h_dd_drown", when = { deathCause = "drowning" }, text = "You've drowned in the marsh, I'd bet, because you've still got that bog water in your ears. The riders fly over it for a reason, so let them, and save your lungs for shouting." },
       },
-      again = { { id = "h_again", text = "Anything else? The fog's getting thicker." } },
+      again = { { id = "h_again", text = "Anything else? Ask quick; the fog's rolling in off the Wyrmbog, and once it's here I'll be out with the riders." } },
       choices = {
         { text = "Flying in this fog takes real nerve.", next = "BACK", reply = "It does. Most riders won't do it.", fx = { align = { honor = 1 } } },
         { text = "Fog's nothing. The riders are just soft.", next = "BACK", reply = "Then fly yourself and find out.", fx = { align = { honor = -1 } } },
@@ -149,7 +206,36 @@ P:NPC {
         { text = "Lok'tar, Shardi. Who taught you to handle riders?", next = "orc", when = { race = "Orc" } },
         { text = "How do your riders take to beasts like mine?", next = "hunter", when = { class = "HUNTER" } },
         { text = "Do the riders mind carrying a tauren?", next = "tauren", when = { race = "Tauren" } },
+        { text = "Have you ever lost a rider in the fog?", next = "w7_lost" },
         { text = "Farewell, Shardi.", next = "END" },
+      },
+    },
+    w7_lost = {
+      lines = {
+        { id = "w7_lost_l1", text = "One, last winter, an old male called Thunderhide who went out with a courier for the Crossroads and never landed. We found the courier two days later, alive, in a tree near the Barrens road; the rider we never found." },
+      },
+      choices = {
+        { text = "What do you think happened?", next = "w7_lost2" },
+        { text = "Riders are replaceable.", next = "w7_lost3" },
+        { text = "Something else, Shardi.", next = "BACK" },
+      },
+    },
+    w7_lost2 = {
+      lines = {
+        { id = "w7_lost2_l1", text = "I think he set the courier down safe and went looking for the way home, and the fog took him. He was too old to be flying, and I knew it, and I sent him anyway because he was the steadiest I had." },
+        { id = "w7_lost2_l2", when = { class = "HUNTER" }, text = "I think he got the courier down safe and lost his way home. You know beasts; a good one will see its rider safe before itself. I keep his saddle on the wall, in case." },
+      },
+      choices = {
+        { text = "He was brave.", next = "BACK", reply = "He was. Braver than me, that day." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_lost3 = {
+      lines = {
+        { id = "w7_lost3_l1", text = "You don't fly them, then. Every rider I lose, I remember. That's the price of the job." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     marsh = {

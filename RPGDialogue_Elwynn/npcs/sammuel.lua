@@ -144,7 +144,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I sense no curse on you, only the spirits you walk with. The Light chose me, and something chose you, I think." },
       },
       again = {
-        { id = "h_again", text = "What else is on your mind?" },
+        { id = "h_again", text = "What else weighs on you? Speak it, and we'll see whether the Light has an answer." },
         { id = "h_again2", text = "Go on; the practice swords can wait a while." },
       },
       choices = {

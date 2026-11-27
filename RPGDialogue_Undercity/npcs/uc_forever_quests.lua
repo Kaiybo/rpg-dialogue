@@ -40,6 +40,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_accept = {
+      lines = {
+        { id = "d2_accept_1", text = "Some tolerate it and most avoid it. The apothecaries call us relics, and Father Lankester's priests think we're hiding behind the Light to keep from facing what we are, and the Dark Lady permits it, which is all the acceptance I require." },
+      },
+      choices = {
+        { text = "Why does she permit it?", next = "d2_accept2" },
+        { text = "Being tolerated isn't so bad.", next = "d2_accept2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_accept2 = {
+      lines = {
+        { id = "d2_accept2_1", text = "Because a Forsaken who can mend a wound with the Light is worth ten who cannot, and she is practical before she is anything else. I don't flatter myself that she approves of the Light, only that she approves of soldiers who don't fall down." },
+      },
+      choices = {
+        { text = "That's honest of you.", next = "BACK" },
+        { text = "Ask you something else, Garen.", next = "BACK" },
+      },
+    },
+    d2_students = {
+      lines = {
+        { id = "d2_students_1", text = "Eleven, this season, and three of them will stay. The rest find that the pain is more than they can bear, or that the faith they remember was only habit, and they go to the priests or the warlocks instead." },
+      },
+      choices = {
+        { text = "And the three who stay?", next = "d2_students2" },
+        { text = "Eleven is more than I'd expect.", next = "d2_students2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_students2 = {
+      lines = {
+        { id = "d2_students2_1", text = "I'll send them west to Danitha Morr at Bandarion Keep, where they'll learn to fight beside the Deathguard. The Light needs to be used against something, and in Tirisfal there's never a shortage of things to use it on." },
+      },
+      choices = {
+        { text = "The Scarlets, you mean.", next = "BACK", reply = "The Scarlets, and the Scourge, and sometimes our own despair. The Light doesn't much mind which." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_priest = {
+      lines = {
+        { id = "d2_priest_1", text = "It does, because your priests take the Light and turn it inward, toward shadow and the mind, and mine take it outward, into a hammer and a shield. We're two hands of the same body, I suppose, and neither one is cleaner than the other." },
+      },
+      choices = {
+        { text = "A generous view.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
@@ -58,6 +105,9 @@ P:NPC {
         { text = "Who leads the Forsaken paladins?", next = "keep" },
         { text = "I'd like to train in the ways of the Light.", next = "BUSINESS", when = { class = "PALADIN" } },
         { text = "I served the Scarlet Crusade, once.", next = "xscarlet", when = { origin = "forsaken_scarlet_turned" } },
+        { text = "Do the other Forsaken accept what you teach?", next = "d2_accept" },
+        { text = "How many students do you have?", next = "d2_students" },
+        { text = "The Light answers our priests differently.", next = "d2_priest", when = { class = "PRIEST" } },
         { text = "Light keep you, Garen.", next = "END" },
       },
     },
@@ -623,6 +673,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_boom = {
+      lines = {
+        { id = "w3_boom_1", text = "Barrels, mon, good goblin powder from Ratchet, and a long fuse if you be smart and a short one if you be my cousin. We roll dem down the beach at the Theramore camp and run back up de hill laughing, and nobody on de islands sleeps easy after." },
+      },
+      choices = {
+        { text = "What happened to your cousin?", next = "w3_cousin" },
+        { text = "Sounds like a fine way to fight.", next = "BACK", reply = "It be de best way, mon, because you don't even need to see de enemy, you only need to hear him swear." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_cousin = {
+      lines = {
+        { id = "w3_cousin_1", text = "He still got one eyebrow and all ten fingers, which be more than de barrel had. He calls himself Boomsecond now, out of respect for de family, and he wants to go back to de islands as soon as de ringing in his ears stops." },
+      },
+      choices = {
+        { text = "Give him my regards. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
@@ -630,8 +698,8 @@ P:NPC {
         { id = "h_forsaken", when = { race = "Scourge" }, text = "The dead come to fight for troll islands, eh? I like that, mon, because you don't get tired and you don't get seasick, and you scare the Theramore boys something awful." },
       },
       again = {
-        { id = "h_again", text = "What else you want to know, mon?" },
-        { id = "h_again2", text = "Ask quick, the next boat be leaving soon." },
+        { id = "h_again", text = "Ha! Ask on, Rugbul got all day for questions, so long as dey end with somethin' going boom." },
+        { id = "h_again2", text = "Ask quick, mon, de next boat be leavin' soon and Rugbul don't swim." },
       },
       choices = {
         { text = "What happens on the Darkspear Islands?", next = "islands" },
@@ -639,6 +707,7 @@ P:NPC {
         { text = "Why wear a Warsong tabard?", next = "tabard" },
         { text = "Why recruit in the Undercity?", next = "undercity" },
         { text = "Send me to the islands.", next = "BUSINESS", when = { minLevel = 30 } },
+        { text = "How does a raider make things go boom, Rugbul?", next = "w3_boom" },
         { text = "Not today, Rugbul.", next = "END" },
       },
     },

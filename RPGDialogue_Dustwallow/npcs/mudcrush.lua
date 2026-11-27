@@ -52,7 +52,36 @@ P:NPC {
         { text = "Want some bread instead? I can make it from nothing.", next = "mage", when = { class = "MAGE" } },
         { text = "I could cook those heads for you.", next = "cook", when = { profession = "Cooking" } },
         { text = "What do you need?", next = "BUSINESS" },
+        { text = "What's the best thing Mud ever ate?", next = "w7_best" },
         { text = "Goodbye, Mudcrush.", next = "END" },
+      },
+    },
+    w7_best = {
+      lines = {
+        { id = "w7_best_l1", text = "A whole boar, roasted by a troll who was passing on the road. The troll said Mud could have one leg, and Mud ate the whole thing, and the troll was very sad, and Mud was very happy." },
+      },
+      choices = {
+        { text = "What did the troll do?", next = "w7_best2" },
+        { text = "That wasn't fair to the troll.", next = "w7_best3" },
+        { text = "Something else, Mudcrush.", next = "BACK" },
+      },
+    },
+    w7_best2 = {
+      lines = {
+        { id = "w7_best2_l1", text = "The troll laughed, after a while, and said Mud was the hungriest thing he ever met, and he would bring another boar next time. He never came back, but Mud waits for him, sometimes, on this road." },
+        { id = "w7_best2_l2", when = { race = "Troll" }, text = "The troll laughed! Maybe the troll was you? No, the troll had smaller tusks. If you see a troll with a roasted boar, tell him Mud is still waiting, and Mud is still hungry." },
+      },
+      choices = {
+        { text = "I'll tell him.", next = "BACK", reply = "Tell him Mud will share this time, a little." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_best3 = {
+      lines = {
+        { id = "w7_best3_l1", text = "Not fair, maybe. But very tasty. Mud thinks tasty is better than fair, most days." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     eat = {

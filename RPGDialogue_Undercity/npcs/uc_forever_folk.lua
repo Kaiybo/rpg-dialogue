@@ -486,13 +486,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_soul = {
+      lines = {
+        { id = "w3_soul_1", text = "They need a pouch for their soul shards, lined twice and stitched tight, because a shard rolling loose at the bottom of a satchel unsettles everything else in there. I sell the pattern to tailors and make them swear not to sew it with cheap thread, since a shard can cut through cheap thread in a week." },
+        { id = "w3_soul_2", when = { class = "WARLOCK" }, text = "You'll want a soul pouch, lined twice and stitched tight, since I can see a shard clinking against your flask from here. Find a tailor who'll use good thread, or the shard will cut its way out by the end of the month." },
+      },
+      choices = {
+        { text = "What does a loose shard do?", next = "w3_loose" },
+        { text = "I sew these myself.", next = "BACK", when = { profession = "Tailoring" }, reply = "Then use the doubled silk, not the linen, and don't skimp at the corners. That's where they always break." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_loose = {
+      lines = {
+        { id = "w3_loose_1", text = "It whispers, or so the warlocks tell me, and it whispers to whatever is near it. One of Luther Pickman's students kept his loose with his rations, and he swore the bread tasted of sorrow for a month afterwards." },
+      },
+      choices = {
+        { text = "I'll keep my bread elsewhere. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
         { id = "h_default", key = true, text = "Angela Ward. I sell patterns, not finished bags, because a bag you've sewn yourself is a bag you'll know how to mend. Every mage and apothecary in this quarter needs somewhere to keep their bits, and I tell them how to make it." },
       },
       again = {
-        { id = "h_again", text = "Something more? I've patterns to sort." },
+        { id = "h_again", text = "Something more? I've patterns to sort, and Victor's humming through the wall again." },
         { id = "h_again2", text = "Yes? Ask, and then buy something, if you would." },
       },
       choices = {
@@ -505,6 +524,7 @@ P:NPC {
         { text = "Who did you sew for in the capital?", next = "capital" },
         { text = "Any advice for a fellow tailor?", next = "tailor", when = { profession = "Tailoring" } },
         { text = "I keep my reagents loose in my robes.", next = "caster", when = { class = { "MAGE", "WARLOCK", "PRIEST" } } },
+        { text = "Do warlocks need a special sort of bag?", next = "w3_soul" },
         { text = "Good day.", next = "END" },
       },
     },
@@ -763,13 +783,31 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_zeglo = {
+      lines = {
+        { id = "w3_zeglo_1", text = "He is impatient, resentful and far too eager, which describes nearly every warlock who ever amounted to anything, and most who were eaten. Whether he's the first sort or the second depends entirely on whether he learns to wait, and I doubt he will." },
+      },
+      choices = {
+        { text = "You could teach him patience.", next = "w3_teach" },
+        { text = "He keeps a list of those who wrong him.", next = "BACK", reply = "I know; I'm on it. I'm told I'm near the top, which I take as evidence of good judgement on his part." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_teach = {
+      lines = {
+        { id = "w3_teach_1", text = "I could, and he would hate me for it, and he would learn. Perhaps I will, one day, when he has drawn his thousandth circle and finally stopped admiring it." },
+      },
+      choices = {
+        { text = "He'd be lucky to have you. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
         { id = "h_default", key = true, text = "Rakkamar. That is the name I chose, and it is the only one you need, whatever my colleague tells you. I study what the mages are too squeamish to study, and I keep my own counsel about it." },
       },
       again = {
-        { id = "h_again", text = "Is there more?" },
+        { id = "h_again", text = "Is there more? Then say it, and briefly." },
         { id = "h_again2", text = "Go on. I'm listening, against my better judgement." },
         { id = "h_again3", text = "You are persistent. That is not a compliment, though it is not quite a complaint." },
       },
@@ -780,6 +818,7 @@ P:NPC {
         { text = "Whose books are you reading?", next = "books" },
         { text = "You and Faith watch this corner together.", next = "corner" },
         { text = "I already hold a demon's leash. It pulls back.", next = "leash", when = { class = "WARLOCK" } },
+        { text = "What do you make of Zeglo Kruptorr?", next = "w3_zeglo" },
         { text = "I'll leave you to your brooding.", next = "END" },
       },
     },
@@ -901,6 +940,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_seal = {
+      lines = {
+        { id = "w3_seal_1", text = "I stop where I am and stand still, and I don't look at the paper, and I send the nearest Deathguard for an apothecary to collect it. It happened once, in a rainstorm that came down the stairs from the ruins, and I stood by the bank for an hour without moving my eyes." },
+      },
+      choices = {
+        { text = "And nobody blamed you?", next = "w3_blame" },
+        { text = "An hour without looking? I couldn't.", next = "BACK", reply = "Then you'd not keep this post a week. The not looking is the whole of the job; the walking is the easy part." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_blame = {
+      lines = {
+        { id = "w3_blame_1", text = "They thanked me, and gave me a new satchel with a better flap, and the apothecary who came took the papers and never said a word. I've wondered since what would have happened if I had read them, and I've decided I'd rather keep wondering." },
+      },
+      choices = {
+        { text = "Wise of you. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
@@ -918,6 +975,7 @@ P:NPC {
         { text = "You walk this route as if it's worn in.", next = "route" },
         { text = "The Royal Quarter must be a hard place to wait.", next = "royal" },
         { text = "I've work in the Apothecarium myself.", next = "alch", when = { profession = { "Alchemy", "Herbalism" } } },
+        { text = "What happens if a seal breaks on the way?", next = "w3_seal" },
         { text = "I won't keep you.", next = "END" },
       },
     },
@@ -1033,13 +1091,31 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_stain = {
+      lines = {
+        { id = "w3_stain_1", text = "Abomination bile, from a paladin's white tabard, after he'd been rather too close to one at the Bulwark. It is green, it is sticky, and it holds a grudge, and it took me nine days, a pound of salt and a remedy from Apothecary Zinge that I'm not to repeat." },
+      },
+      choices = {
+        { text = "Did it come out in the end?", next = "w3_out" },
+        { text = "Most would have burned the tabard.", next = "BACK", reply = "Most would, and most would have been wrong. A tabard is a soldier's dignity, and dignity is worth nine days." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_out = {
+      lines = {
+        { id = "w3_out_1", text = "Very nearly, {class}. There is a faint shadow at the hem, the shape of a hand, which only I can see, and I've told the paladin it's a trick of the light. He believes me, as an officer ought to believe his valet." },
+      },
+      choices = {
+        { text = "Your secret's safe. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
         { id = "h_default", key = true, text = "Chadsworth, at your service, though strictly speaking I'm at the service of the officers of the War Quarter. I was valet to a house of some standing in the capital, and I find that a man can lose his pulse without losing his standards." },
       },
       again = {
-        { id = "h_again", text = "Was there something further?" },
+        { id = "h_again", text = "Will there be anything further, {class}? The officers can spare me for a moment more." },
         { id = "h_again2", text = "Yes? I'm listening, though I'll keep polishing, if you don't mind." },
         { id = "h_again3", text = "By all means. The buckles will wait, though they oughtn't to wait long." },
       },
@@ -1051,6 +1127,7 @@ P:NPC {
         { text = "You've views on everyone in this quarter.", next = "quarter" },
         { text = "My boots could stand your attention.", next = "boots", when = { durability = { max = 0.6 } } },
         { text = "My family kept a man like you.", next = "house2", when = { origin = "human_minor_noble" } },
+        { text = "What's the worst stain you've ever lifted?", next = "w3_stain" },
         { text = "Carry on, Chadsworth.", next = "END" },
       },
     },
@@ -1168,13 +1245,31 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_felhound = {
+      lines = {
+        { id = "w3_felhound_1", text = "Hungry, mostly, for anything with a spell on it, and he follows me round the hall because I'm the one who brings him scraps of enchanted parchment. The masters say he's dangerous and I say he's the only thing in this city that's glad to see me." },
+      },
+      choices = {
+        { text = "Does he have a name?", next = "w3_name" },
+        { text = "A felhound's affection isn't affection.", next = "BACK", reply = "I know that. But it looks like affection from the outside, and I'll take what I'm given, since nobody gives me much." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_name = {
+      lines = {
+        { id = "w3_name_1", text = "The masters say a demon mustn't be named, so officially he's \"the felhound.\" I call him Carendin when nobody's listening, because it makes me laugh, and I'd thank you not to repeat that to Carendin Halgar." },
+      },
+      choices = {
+        { text = "I won't. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
         { id = "h_default", key = true, text = "Zeglo Kruptorr, acolyte of the dark arts, which in practice means I feed the trainers' imps and redraw the circles they scorch. One day I'll have a pact of my own, and then we'll see who's scrubbing chalk." },
       },
       again = {
-        { id = "h_again", text = "What else? The imps need feeding at the bell." },
+        { id = "h_again", text = "What else? The imps need feeding at the bell, and they bite if I'm late." },
         { id = "h_again2", text = "Go on, I've a minute before something catches fire." },
         { id = "h_again3", text = "Well? Ask it before the felhound wakes up, because he's my job too." },
       },
@@ -1186,6 +1281,7 @@ P:NPC {
         { text = "Those circles look carefully drawn.", next = "circles" },
         { text = "You keep a list of people, I hear.", next = "list" },
         { text = "I made my first pact young. I'm still paying for it.", next = "cost", when = { class = "WARLOCK" } },
+        { text = "What's the felhound like, the one you look after?", next = "w3_felhound" },
         { text = "I'll mind the chalk. Goodbye.", next = "END" },
       },
     },
@@ -1438,9 +1534,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_stop = {
+      lines = {
+        { id = "w3_stop_1", text = "I tried it once, for a whole day, sitting on the bench by the reagent stall. By evening I could feel the earth over me again, every handful of it, and a warlock's imp had to tread on my foot before I'd get up." },
+      },
+      choices = {
+        { text = "The imp did you a kindness, then.", next = "w3_imp" },
+        { text = "Have you told anyone about it?", next = "BACK", reply = "Who would I tell, the apothecaries? They'd want to bury me again to see whether it happens twice." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_imp = {
+      lines = {
+        { id = "w3_imp_1", text = "It did, though it meant nothing of the sort, and it giggled about it for an hour. I give it a wide berth now, and it grins at me every time I pass, as if we share a secret, which I suppose we do." },
+      },
+      choices = {
+        { text = "Keep walking, Deelio. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", key = true, text = "I walk the Magic Quarter, round and round, because standing still down here makes me feel like I'm back in the ground. The mages don't mind, and the warlocks are too busy with their imps to notice." } },
-      again = { { id = "h_again", text = "More? Keep up, then." } },
+      again = { { id = "h_again", text = "More? Keep up, then, we're coming to the warlocks' corner." } },
       choices = {
         { text = "Why not leave the Undercity for a while?", next = "leave" },
         { text = "What do you see on your walks?", next = "see" },
@@ -1449,6 +1563,7 @@ P:NPC {
         { text = "You walk like someone who's been buried alive.", next = "buried" },
         { text = "Mind if I walk a circuit with you?", next = "walk" },
         { text = "Do you ever take a lesson from the mages?", next = "lesson", when = { class = { "MAGE", "WARLOCK" } } },
+        { text = "What happens if you stop walking?", next = "w3_stop" },
         { text = "I'll let you walk on.", next = "END" },
       },
     },

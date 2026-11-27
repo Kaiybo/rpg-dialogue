@@ -51,7 +51,25 @@ P:NPC {
         { text = "Who is Brine?", next = "brine", when = { class = "SHAMAN" } },
         { text = "Can you cleanse Felwood's water?", next = "felwood", when = { questActive = TODO_QUEST("Seeking Spiritual Aid") } },
         { text = "How do you know Xanis Flameweaver of Thunder Bluff?", next = "xanis" },
+        { text = "Mahren Skyseer lives along this coast too.", next = "mahren" },
+        { text = "What does the sea say, today?", next = "sea" },
+        { text = "The Manifestation you call at the Tidus Stair. What is it to you?", next = "w5_manif" },
         { text = "I'll leave you to the tide.", next = "END" },
+      },
+    },
+    w5_manif = {
+      lines = { { id = "w5_manif_l", text = "A guest, and a very old one. When I hold up fouled water from the wells and ask, the sea sends something of itself to taste it. It does not serve me. It answers because it is curious about the land, the way the land is curious about the sea." } },
+      choices = {
+        { text = "Is it dangerous to call it?", next = "w5_manif2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_manif2 = {
+      lines = { { id = "w5_manif2_l", text = "Only if you forget that it is the sea. The sea does not hate anyone, and it does not love anyone either. If I asked it for more than a taste of the wells, it might give me more than I could stand on. So I ask small, and I thank it, and I let it go." } },
+      choices = {
+        { text = "Ask small and give thanks. The spirits deserve respect.", next = "BACK", reply = "Yes. That is the whole of the shaman's road, in one breath.", fx = { align = { order = 1 } } },
+        { text = "A shaman's strength is in commanding the elements, not asking.", next = "BACK", reply = "Some believe so. The sea has drowned a few of them, quite politely.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     water = {
@@ -92,6 +110,33 @@ P:NPC {
     xanis = {
       lines = { { id = "xa_default", text = "Xanis and I sat by the same fire as children, before the tauren had a bluff to call home. He went up to the Spirit Rise to teach, and I came down to the sea to listen, and we both think the other chose wrongly." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    mahren = {
+      lines = { { id = "mh_default", text = "She does, further up the shore, and she listens to the wind as I listen to the tide. We share fish and silence, and once a season we share a fire and tell each other what the spirits have said. Hers talk more than mine, and they gossip." } },
+      choices = {
+        { text = "What do the winds gossip about?", next = "mahren2" },
+        { text = "Two seers on one shore. The spirits must be busy.", next = "mahren2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mahren2 = {
+      lines = { { id = "mh2_default", text = "About the island to the south, where the wind smells of blood and goblin coin, and about the soldiers at Northwatch, who curse in their sleep. Mahren hears more of the world than I do, and she chooses to stay out of it, as I do. We are well matched." } },
+      choices = { { text = "Well matched. Something else.", next = "BACK" } },
+    },
+    sea = {
+      lines = { { id = "se3_default", text = "That a storm is coming from the south in three days, and that the fish have gone deep. It says what it always says, little one, that it was here before us and will be here after, and that we should listen while we can." } },
+      choices = {
+        { text = "Does the sea ever speak of anything else?", next = "sea2" },
+        { text = "I'll keep off the boats for three days, then.", next = "sea2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sea2 = {
+      lines = { { id = "se4_default", text = "Sometimes it speaks of the drowned, the sailors from the ships Northwatch sank, who lie off this shore. I sing to them on the darkest nights, so they know someone remembers. The humans in the fort hear me and think it is the wind." } },
+      choices = {
+        { text = "I'm a shaman. Could I sing with you some night?", next = "BACK", reply = "You could, little one, if you come gently. The drowned do not mind new voices.", when = { class = "SHAMAN" } },
+        { text = "Something else, Islen.", next = "BACK" },
+      },
     },
   },
 
@@ -144,7 +189,26 @@ P:NPC {
         { text = "Tell me about your brother.", next = "jorn" },
         { text = "How does anyone hunt in the sea?", next = "sea" },
         { text = "What does it mean, to learn to see?", next = "see", when = { questDone = TODO_QUEST("Isha Awak") } },
+        { text = "Islen Waterseer listens to the tide further down the shore.", next = "islen" },
+        { text = "What else hunts in these shallows?", next = "shallows" },
+        { text = "Do the murlocs along this coast trouble you?", next = "w5_murloc" },
         { text = "I'll leave you to watch the water.", next = "END" },
+      },
+    },
+    w5_murloc = {
+      lines = { { id = "w5_murloc_l", text = "They trouble everyone who sets a foot in the surf. They come up in packs, shrieking, and they take nets, fish, and now and then a careless fisher. But they are of the sea, as Isha Awak is. They hunt here because the sea made them hunters." } },
+      choices = {
+        { text = "Should they be driven off the coast?", next = "w5_murloc2" },
+        { text = "I hunt the coast too. Murlocs ruin a good stalk.", next = "BACK", when = { class = "HUNTER" }, reply = "They do. Learn the sound they make before they rise, and you will hear them coming long before your beast does." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_murloc2 = {
+      lines = { { id = "w5_murloc2_l", text = "My brother Jorn would say they should be culled, as any pest. I see them as part of the tide. When there are too many, the sharks feed well, and when the sharks have fed, there are fewer. The sea keeps its own balance, if we let it." } },
+      choices = {
+        { text = "Let the sea keep its balance. We take only what we need.", next = "BACK", reply = "Spoken like a true hunter of the shore. Jorn would argue, but he is far inland.", fx = { align = { light = 1 } } },
+        { text = "Cull them. They prey on fishers, and that's enough.", next = "BACK", reply = "You sound like my brother. Come back when one has nearly drowned you, and we will speak again.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     isha = {
@@ -181,6 +245,33 @@ P:NPC {
     see = {
       lines = { { id = "sa_default", text = "It means you'll find, one day, that you know where a beast will be before it knows itself. Isha Awak lived his whole life knowing that, and now some of it lives in you." } },
       choices = { { text = "Something else, Mahren.", next = "BACK" } },
+    },
+    islen = {
+      lines = { { id = "mis_default", text = "She does, and she thinks I spend too much time with a spear in my hand and too little with my ears open. She may be right. Islen hears the water, I hear the wind, and between the two of us very little happens on this coast that we do not know." } },
+      choices = {
+        { text = "What does the wind tell you lately?", next = "islen2" },
+        { text = "A hunter and a seer make good neighbours.", next = "islen2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    islen2 = {
+      lines = { { id = "mis2_default", text = "That Northwatch has sent more soldiers along the shore, and that the goblins at Ratchet are nervous about it. The wind does not care who wins, {class}, but it carries the smell of powder, and I have learned to hunt further from the fort." } },
+      choices = { { text = "Wise of you. Something else.", next = "BACK" } },
+    },
+    shallows = {
+      lines = { { id = "sl_default", text = "Makrura, the clawed ones that walk the bottom, and the murlocs who steal from every nest and net on this shore. Sharks come close on the warm days, and the turtles come up onto the sand to lay their eggs, and those I leave alone." } },
+      choices = {
+        { text = "Why leave the turtles?", next = "shallows2" },
+        { text = "Murlocs are a pest wherever there's water.", next = "shallows2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shallows2 = {
+      lines = { { id = "sl2_default", text = "Because they come back to the same sand every year, as my people came back to the same plains, and a hunter does not take what returns faithfully. The murlocs I would gladly thin, if they did not breed faster than I can throw." } },
+      choices = {
+        { text = "I'm a hunter. I'll thin the murlocs for you.", next = "BACK", reply = "Then go up the coast, where the nests are thickest, and mind their spears. They are small, but they are many.", when = { class = "HUNTER" } },
+        { text = "Something else, Mahren.", next = "BACK" },
+      },
     },
   },
 

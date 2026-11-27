@@ -601,7 +601,7 @@ P:NPC {
           text = "The bones speak of a great many Syndicate deaths, and they speak your name beside them. Whatever those humans were calling up at Northfold, they have fewer hands to call with now." },
       },
       again = {
-        { id = "h_again", text = "Anything else? Keep your voice down." },
+        { id = "h_again", text = "Anything else? Softly, please. Drum has ears like a wolf when his name is spoken." },
         { id = "h_again2", text = "Ask, but be quick about it, because the drum's already on the wall." },
       },
       choices = {
@@ -735,6 +735,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_train = {
+      lines = {
+        { id = "w2_train_l", text = "You don't, not really. You feed it from your own hand until it decides you're worth keeping, and then it carries whoever you put on its back because you asked. They're loyal to the master, not the rider." },
+      },
+      choices = {
+        { text = "So what happens if you're gone?", next = "w2_train2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_train2 = {
+      lines = {
+        { id = "w2_train2_l", text = "Then they mope and bite and refuse to fly, and somebody from Orgrimmar has to come and start over. I've a girl learning the roost with me, and the young ones are beginning to take meat from her. That's how I'll know I can leave." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "I think they smell the Light on you, the way they smell clean air before a storm, and they like it better than the smell of the grave. The Highlands' winds respect nothing, but my beasts respect you, and that counts for something here." } },
@@ -817,6 +834,7 @@ P:NPC {
         { text = "I'd wager a wind rider has thrown a warrior or two, Urda.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Should the wind riders be ridden into battle?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Why would the wind riders trust a paladin over other Forsaken?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "How do you train a wind rider to carry strangers?", next = "w2_train" },
         { text = "Not today.", next = "END" },
       },
     },

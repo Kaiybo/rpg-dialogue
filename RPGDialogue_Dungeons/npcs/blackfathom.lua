@@ -35,12 +35,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_alone = {
+      lines = { { id = "w8_alone_a", text = "Since the last new moon, and before that with two companions who went deeper and did not return. I keep their packs beside my own, in case they find their way back, though I know in my heart they will not." } },
+      choices = {
+        { text = "Who were they?", next = "w8_alone2" },
+        { text = "You should come away from this place.", next = "w8_alone2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w8_alone2 = {
+      lines = { { id = "w8_alone2_a", text = "A human priest of the Dawn and a Sentinel from Astranaar, and both of them braver than I am. I will not leave until someone carries word of what they found, and if that someone is you, I will finally sleep." } },
+      choices = {
+        { text = "I'll look for them below.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I serve the Argent Dawn, and they sent me here to watch the Twilight's Hammer and learn what they want in these ruins. What I've learned is that they want something old and very hungry woken up." },
         { id = "h_elf", when = { race = "NightElf" }, text = "These were temples once, sister of the moon, built when Ashenvale's shore still stood above the sea. The Sundering drowned them, and now worse things than water fill them." },
       },
-      again = { { id = "h_again", text = "What else would you know?" }, { id = "h_again2", text = "Ask, but keep watch on the water while you do." } },
+      again = { { id = "h_again", text = "Ask what you must, friend. The water is cold and the dark is long, and a voice is welcome in it." }, { id = "h_again2", text = "Ask, but keep watch on the water while you do." } },
       choices = {
         { text = "Who are the Twilight's Hammer?", next = "hammer" },
         { text = "What is down there that they worship?", next = "akumai" },
@@ -50,6 +66,7 @@ P:NPC {
         { text = "Elune has not forgotten this place, sister.", next = "elune", when = { race = "NightElf" } },
         { text = "I can feel that cold you mean.", next = "elune", when = { class = "PRIEST" } },
         { text = "What do you need from me?", next = "BUSINESS" },
+        { text = "How long have you watched these waters alone?", next = "w8_alone" },
         { text = "I'll go on.", next = "END" },
       },
     },

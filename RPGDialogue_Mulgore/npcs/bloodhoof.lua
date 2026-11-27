@@ -1091,10 +1091,39 @@ P:NPC {
         { text = "What I keep could help you track, Maur. Shall I loose it?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Would you hunt beside a paladin, Maur?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Harken says the swoops are quieter now.", next = "dd_swoop", when = { questDone = TODO_QUEST("Swoop Hunting") } },
+        { text = "What will you do with Mazzranache's hide?", next = "w7_hide" },
         { text = "I'll find it.", next = "END", fx = { affinity = 1, trait = { brave = 1 } } },
       },
       again = {
         { id = "h_again", text = "Anything else? Speak softly; voices carry out on the grass, and the Earth Mother's beasts have long ears." },
+      },
+    },
+    w7_hide = {
+      lines = {
+        { id = "w7_hide_l1", text = "Hang it in the lodge at Bloodhoof, where the young hunters can see it, and tell them it was taken cleanly and with respect. A beast that large has been killing kodo calves for two seasons, and the herds need to rest easy." },
+      },
+      choices = {
+        { text = "Is it really that dangerous?", next = "w7_hide2" },
+        { text = "You just want the glory.", next = "w7_hide3" },
+        { text = "Something else, Maur.", next = "BACK" },
+      },
+    },
+    w7_hide2 = {
+      lines = {
+        { id = "w7_hide2_l1", text = "It took three calves from Harb Clawhoof's herd this spring, and a brave who went after it alone came back with a torn arm and no spear. Yes, it is dangerous, and the sooner it is ended, the better for everyone." },
+        { id = "w7_hide2_l2", when = { class = "HUNTER" }, text = "Three calves this spring, and a brave's spear. You hunt; you know a beast that tastes kodo once will not stop. Go carefully, and go with someone at your back." },
+      },
+      choices = {
+        { text = "I'll be careful.", next = "BACK", reply = "Do. I would rather have you back than the hide." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_hide3 = {
+      lines = {
+        { id = "w7_hide3_l1", text = "A little. But mostly I want the calves to sleep without fear. Glory is the hide on the wall; the calves are the reason." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     dd_swoop = {
@@ -1270,12 +1299,41 @@ P:NPC {
         { text = "Could prayer cleanse the sacred wells, Mull?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "The kind of magic I know could have sickened these wells, Mull.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Could the Light cleanse the wells, Mull?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "What were the wells like, before?", next = "w7_before" },
         { text = "Goblin oil means goblin coin, and I won't stand in its way.", next = "END", reply = "Then go your way, and I'll go mine, toward the wells, as I always do. The Earth Mother sees who stands where.", fx = { align = { light = -1 } } },
         { text = "The water spirits are frightened. I can hear them.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "A druid could help the land heal the wells.", next = "druid", when = { class = "DRUID" } },
       },
       again = {
         { id = "h_again", text = "Something more? Forgive me; half my mind is still at the wells, where the earth is weeping oil." },
+      },
+    },
+    w7_before = {
+      lines = {
+        { id = "w7_before_l1", text = "Clear as the sky after rain, and so cold they made your teeth ache. My grandmother brought me to the well near Red Rocks as a calf, and I drank until my belly hurt, and she said the Earth Mother was giving me her blessing in every sip." },
+      },
+      choices = {
+        { text = "Can they be clear again?", next = "w7_before2" },
+        { text = "Water is just water.", next = "w7_before3" },
+        { text = "Something else, Mull.", next = "BACK" },
+      },
+    },
+    w7_before2 = {
+      lines = {
+        { id = "w7_before2_l1", text = "I believe so, if the goblins stop and the shaman sing to them long enough. The water spirits are frightened, not dead, and a frightened spirit can be coaxed back, slowly." },
+        { id = "w7_before2_l2", when = { class = { "SHAMAN", "DRUID" } }, text = "I believe so. You can feel the spirits, so you'll know whether I'm right: frightened, not dead. If you have time, sit by one of the wells and speak to them; they may listen to you more than to me." },
+      },
+      choices = {
+        { text = "I'll try.", next = "BACK", reply = "Thank you. The Earth Mother will remember it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_before3 = {
+      lines = {
+        { id = "w7_before3_l1", text = "To a goblin, perhaps. To a tauren, the wells are the Earth Mother's own blood, and they are bleeding oil." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     shaman = {
@@ -1433,6 +1491,7 @@ P:NPC {
         { text = "Shall I say a prayer for Kyle, Ahab?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What walks with me could sniff Kyle out for you, Ahab.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I haven't seen Kyle, Ahab. I'm sorry.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "What does Kyle like to eat?", next = "w7_eat" },
         { text = "It's only a dog.", next = "END", fx = { affinity = -2 } },
         { text = "My beast could follow Kyle's scent.", next = "hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "The spirits might watch over a lost dog, Ahab.", next = "xhsham", when = { class = "SHAMAN" } },
@@ -1441,6 +1500,34 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? Sorry, I keep looking at the lake shore in case he comes back, the way a cow watches for a strayed calf." },
+      },
+    },
+    w7_eat = {
+      lines = {
+        { id = "w7_eat_l1", text = "Oh, anything at all, but his favourite is tasty lion meat, from the prairie lions out on the plains. He would sit and beg so politely, with his ears up and his tail going, that I could never say no to him." },
+      },
+      choices = {
+        { text = "Maybe that would bring him home.", next = "w7_eat2" },
+        { text = "Lion meat for a dog?", next = "w7_eat3" },
+        { text = "Something else, Ahab.", next = "BACK" },
+      },
+    },
+    w7_eat2 = {
+      lines = {
+        { id = "w7_eat2_l1", text = "Do you think so? Oh, I hadn't thought of that, and I feel such a fool. If anyone could find him with a bit of lion meat, I'd be grateful beyond words, truly I would." },
+        { id = "w7_eat2_l2", when = { class = "HUNTER" }, text = "Do you think so? You'd know better than me how a beast thinks. If your companion could carry a bit of lion meat and follow his nose, I'd be in your debt." },
+      },
+      choices = {
+        { text = "I'll see what I can do.", next = "BACK", reply = "Thank you, thank you. He's a good dog, really." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_eat3 = {
+      lines = {
+        { id = "w7_eat3_l1", text = "He's a very particular dog. I spoil him, I know, and my neighbours tell me so." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     dd_gnolls = {
@@ -1842,10 +1929,39 @@ P:NPC {
         { text = "Have you met many druids on the roads, Kaga?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I'd guess you don't share your fire with folk like me.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What do the wandering tauren make of the Light, Kaga?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "What's the best place you've ever camped?", next = "w7_camp" },
         { text = "Earth Mother keep you.", next = "END" },
       },
       again = {
         { id = "h_again", text = "Something else? Throw a stick on the fire while you think of it, and not the one with the grub in it; that's supper." },
+      },
+    },
+    w7_camp = {
+      lines = {
+        { id = "w7_camp_l1", text = "On the edge of Wildwind Lake in Feralas, under trees so tall the stars looked like they were tangled in the branches. I stayed a whole moon, and the only reason I left was that the ogres decided they wanted the lake back." },
+      },
+      choices = {
+        { text = "Would you go back?", next = "w7_camp2" },
+        { text = "Ogres sound like a good reason to leave.", next = "w7_camp3" },
+        { text = "Something else, Kaga.", next = "BACK" },
+      },
+    },
+    w7_camp2 = {
+      lines = {
+        { id = "w7_camp2_l1", text = "Every spring I think about it, and every spring the wind turns me somewhere new. Chief Hawkwind says I'll never settle anywhere, and he's right, and I wouldn't want to." },
+        { id = "w7_camp2_l2", when = { race = "Tauren" }, text = "Every spring I think of it, cousin. You might go one day, too; Camp Mojache is close, and the tauren there would give you a fire. Tell them Kaga sent you, and watch them roll their eyes." },
+      },
+      choices = {
+        { text = "I might.", next = "BACK", reply = "Do, and take a long stick for the fire." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_camp3 = {
+      lines = {
+        { id = "w7_camp3_l1", text = "They are, especially when they come with clubs. But they were polite about it, for ogres." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     skyborne = {

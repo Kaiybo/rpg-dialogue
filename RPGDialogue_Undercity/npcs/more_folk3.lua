@@ -33,13 +33,60 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_forges = {
+      lines = {
+        { id = "d2_forges_1", text = "The War Quarter forges, mostly, where James Van Brunt and his people work the iron that comes in from the mines in Tirisfal and Silverpine. I'll not buy from the goblins, because a goblin blade is a sale first and a sword second." },
+      },
+      choices = {
+        { text = "Is Van Brunt's steel good?", next = "d2_forges2" },
+        { text = "A strong opinion of goblins.", next = "d2_forges2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_forges2 = {
+      lines = {
+        { id = "d2_forges2_1", text = "It's honest, and that's the best I can say of anything these days. He sends me the swords he says are good enough and keeps the best for the royal guards, and I'd do the same in his place." },
+      },
+      choices = {
+        { text = "Then I'll trust his judgement.", next = "BACK" },
+        { text = "Something else, Louis.", next = "BACK" },
+      },
+    },
+    d2_buyers = {
+      lines = {
+        { id = "d2_buyers_1", text = "Deathguard going south to Tarren Mill, mostly, since the Mill's always short of blades. Then the Horde off the zeppelin, who buy cheap and break things quickly, and Benijah Fenner, who comes by to look at my stock and tell me his is better." },
+      },
+      choices = {
+        { text = "Is his better?", next = "d2_buyers2" },
+        { text = "Benijah sounds like a fair rival.", next = "d2_buyers2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_buyers2 = {
+      lines = {
+        { id = "d2_buyers2_1", text = "His is heavier, and that's not the same thing, though I'd never tell him so. We sell to different people, as it happens: he arms the ones who want to be noticed and I arm the ones who want to come home." },
+      },
+      choices = {
+        { text = "I know which I'd rather be.", next = "BACK" },
+        { text = "Ask you something else.", next = "BACK" },
+      },
+    },
+    d2_orc = {
+      lines = {
+        { id = "d2_orc_1", text = "They are, and I'll not pretend otherwise, because they're made for Forsaken hands. Try the broad axe at the end of the rack, which I keep for orcs and tauren, and if that's still too light, Benijah Fenner across the way sells heavier." },
+      },
+      choices = {
+        { text = "I'll try it.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Louis Warren. I sell the common arms, swords and maces and axes, to deathguards and travellers and anyone setting out. Gordon Wendham has the stall beside me, and between us we've armed half of what leaves by the east gate." },
         { id = "hello_2", when = { metBefore = true }, text = "Louis Warren, as before. The stock's much the same, good plain steel from the War Quarter forges. I've nothing fancy and I'd not sell it to you if I had." },
       },
       again = {
-        { id = "hello_a1", text = "Was there something more?" },
+        { id = "hello_a1", text = "Was there anything else? I'm afraid I'm in no hurry to be alone with my thoughts." },
         { id = "hello_a2", text = "Go on, friend. I've time." },
         { id = "hello_a3", text = "Ask what you like." },
       },
@@ -51,6 +98,9 @@ P:NPC {
         { text = "How's trade beside Gordon Wendham?", next = "gordon" },
         { text = "You said a good many don't come back.", next = "gone" },
         { text = "What would you sell a warrior like me?", next = "notch", when = { class = "WARRIOR" } },
+        { text = "Where do your weapons come from?", next = "d2_forges" },
+        { text = "Who buys the most from you, these days?", next = "d2_buyers" },
+        { text = "Your axes are too light for an orc's hands.", next = "d2_orc", when = { race = "Orc" } },
         { text = "Farewell, Louis.", next = "END" },
       },
     },
@@ -149,6 +199,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_stalk = {
+      lines = {
+        { id = "d2_stalk_1", text = "When they let me, which is seldom, because a deathstalker doesn't like anyone close enough to measure her. I've learned to fit them by eye from across the counter, and then adjust the straps while they're pretending not to watch me." },
+      },
+      choices = {
+        { text = "Do they come back?", next = "d2_stalk2" },
+        { text = "That takes nerve.", next = "d2_stalk2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_stalk2 = {
+      lines = {
+        { id = "d2_stalk2_1", text = "The good ones come back for repairs, and they never say where the damage came from. I can tell a worgen claw from a Scarlet blade by the cut, though, and this season it's been mostly claws from Silverpine." },
+      },
+      choices = {
+        { text = "Grim work in Silverpine.", next = "BACK" },
+        { text = "Something else, Lauren.", next = "BACK" },
+      },
+    },
+    d2_worst = {
+      lines = {
+        { id = "d2_worst_1", text = "A leather jerkin a deathguard bought from a peddler on the Brill road, which was really two jerkins stitched together and dyed to hide the seam. It came apart in the first rain, and he walked into the Bulwark with half of it hanging off his back." },
+      },
+      choices = {
+        { text = "What did you do?", next = "d2_worst2" },
+        { text = "He must have felt a fool.", next = "d2_worst2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_worst2 = {
+      lines = {
+        { id = "d2_worst2_1", text = "Fitted him properly, at cost, and told him the name of every honest leatherworker between here and the Sepulcher. I'd rather lose a few coppers than have the Deathguard believe armour is something you buy off a cart." },
+      },
+      choices = {
+        { text = "Good of you.", next = "BACK" },
+        { text = "Ask you something else.", next = "BACK" },
+      },
+    },
+    d2_creak = {
+      lines = {
+        { id = "d2_creak_1", text = "Then you'll want leather oiled twice and worked soft, and none of that new stuff the War Quarter sends me. Gillian Moore in the Rogues' Quarter does it best, I'll admit, but I'll have it done for you if you'd rather not go below." },
+      },
+      choices = {
+        { text = "I'll see what you've got.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Lauren Newcomb. I sell the light stuff, padded cloth and leather, for those who'd rather not be hit than be hit and survive it. I fit everything myself, and I'll tell you if it doesn't suit, even if you've already paid." },
@@ -167,6 +264,9 @@ P:NPC {
         { text = "Who makes your stock?", next = "makers" },
         { text = "Is it different, fitting the dead?", next = "dead" },
         { text = "An hour is no trouble.", next = "gusset", when = { race = "Tauren" } },
+        { text = "Do you fit the deathstalkers?", next = "d2_stalk" },
+        { text = "What's the worst armour that's come across your counter?", next = "d2_worst" },
+        { text = "I need leather that doesn't creak.", next = "d2_creak", when = { class = "ROGUE" } },
         { text = "I'll stop slouching and go.", next = "END" },
       },
     },
@@ -264,6 +364,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_buyers = {
+      lines = {
+        { id = "d2_buyers_1", text = "Deathguard going up to the Bulwark, mostly, because Mr. Ellingson says the front line wants plate and the patrols want mail. And Garen Largo's paladins, who come in for shields and never haggle, which I'm told is very unusual." },
+      },
+      choices = {
+        { text = "Paladins, in the Undercity?", next = "d2_buyers2" },
+        { text = "The Bulwark must go through a lot of plate.", next = "d2_buyers2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_buyers2 = {
+      lines = {
+        { id = "d2_buyers2_1", text = "Forsaken paladins, I mean, the ones the Light still answers. They're very polite and they look at the shields as if they're choosing a prayer, and I always give them the best of the rack, even before Mr. Ellingson says to." },
+      },
+      choices = {
+        { text = "That's kind of you.", next = "BACK", reply = "It feels right, somehow. Don't tell Mr. Ellingson, please." },
+        { text = "Ask you something else, Timothy.", next = "BACK" },
+      },
+    },
+    d2_heavy = {
+      lines = {
+        { id = "d2_heavy_1", text = "A tower shield, taller than I am, that Mr. Ellingson made for a deathguard who never came to collect it. I polish it every morning with the rest, and nobody's ever been strong enough to carry it out of the shop." },
+      },
+      choices = {
+        { text = "Who was it made for?", next = "d2_heavy2" },
+        { text = "It sounds like a monument.", next = "d2_heavy2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_heavy2 = {
+      lines = {
+        { id = "d2_heavy2_1", text = "Mr. Ellingson won't say, and he goes quiet when I ask, so I've stopped asking. I think it was somebody he knew from the royal guard, from before, and I think he made it hoping he'd come back." },
+      },
+      choices = {
+        { text = "Keep polishing it.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_tauren = {
+      lines = {
+        { id = "d2_tauren_1", text = "Oh, no, I don't suppose it would, would it? You're much bigger than anyone I've fitted. But Mr. Ellingson could make you something, if you've a week and don't mind him muttering about the size of your shoulders." },
+      },
+      choices = {
+        { text = "I'll think on it.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Timothy Weldon. I sell mail and plate, helms and shields, alongside Mr. Ellingson, who taught me the trade. He does the mending and the grumbling, and I do the polishing and the selling, mostly." },
@@ -283,6 +430,9 @@ P:NPC {
         { text = "You've never worn this in battle yourself.", next = "fight" },
         { text = "I'll tell you how I got that dent.", next = "dent", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Our smiths would laugh at your stand.", next = "orcplate", when = { race = "Orc" } },
+        { text = "Who buys the most plate from you?", next = "d2_buyers" },
+        { text = "What's the heaviest thing on your rack?", next = "d2_heavy" },
+        { text = "None of this will fit me, I'm afraid.", next = "d2_tauren", when = { race = "Tauren" } },
         { text = "Keep polishing, Timothy.", next = "END" },
       },
     },
@@ -380,6 +530,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_mend = {
+      lines = {
+        { id = "d2_mend_1", text = "A breastplate with an abomination's cleaver still stuck in it, brought back from the Bulwark by a deathguard who'd walked all the way home rather than leave it behind. The plate was ruined, but I've the cleaver on my wall, and the man's still alive, after a fashion." },
+      },
+      choices = {
+        { text = "Why keep the cleaver?", next = "d2_mend2" },
+        { text = "Tough plate to hold that.", next = "d2_mend2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_mend2 = {
+      lines = {
+        { id = "d2_mend2_1", text = "To remind the boy what plate is for. Weldon looks at armour and sees something shining, and I want him to look at that cleaver and see what the shine is meant to stop." },
+      },
+      choices = {
+        { text = "He'll learn.", next = "BACK", reply = "He'll have to, or he'll be no use to anyone. Don't tell him I said he might." },
+        { text = "Something else, Walter.", next = "BACK" },
+      },
+    },
+    d2_vanbrunt = {
+      lines = {
+        { id = "d2_vanbrunt_1", text = "James and his brother Samuel, who sells the smithing supplies. James forges honest plate in the War Quarter, and Samuel counts every nail as though he'd lose a finger for each one missing, and between them they keep the city's smiths in iron." },
+      },
+      choices = {
+        { text = "You approve of them?", next = "d2_vanbrunt2" },
+        { text = "High praise, from you.", next = "d2_vanbrunt2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_vanbrunt2 = {
+      lines = {
+        { id = "d2_vanbrunt2_1", text = "I approve of anyone who does the work properly, and I don't approve of many. James learned under a smith I knew in the capital, and it shows in his rivets, though his edges are a shade soft for my liking." },
+      },
+      choices = {
+        { text = "I'll tell him you said so.", next = "BACK", reply = "Do, and he'll ignore it, as he always has." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_hear = {
+      lines = {
+        { id = "d2_hear_1", text = "You can't be taught it; you learn it. Tap every rivet with a light hammer as you go, and listen, and after ten thousand of them you'll hear the dull one, which is the cracked one, before your hammer's finished falling." },
+      },
+      choices = {
+        { text = "Ten thousand rivets.", next = "BACK", reply = "At least. I'd count them, but I lost count in the first year." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Walter Ellingson. I was armourer to the king's own guard for thirty years, and now I sell mail to whoever walks in off the zeppelin. The boy Weldon does the smiling. If you want it mended properly, you want me." },
@@ -398,6 +595,9 @@ P:NPC {
         { text = "You're hard on young Weldon.", next = "boy" },
         { text = "Is today's armour worse than the old?", next = "work" },
         { text = "It was granite. How did you know?", next = "rock", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "What's the worst mending you've ever done?", next = "d2_mend" },
+        { text = "You mentioned James Van Brunt's forge.", next = "d2_vanbrunt" },
+        { text = "Teach me to hear a cracked rivet.", next = "d2_hear", when = { profession = "Blacksmithing" } },
         { text = "I'll go and tighten my greave.", next = "END" },
       },
     },
@@ -496,6 +696,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_living = {
+      lines = {
+        { id = "d2_living_1", text = "Salt, for the orcs, who salt everything twice, and something sweet for the trolls, who are forever asking after fruit I can't get. The tauren ask what things are before they buy them, which is sensible, because half of what's down here was meant for someone without a tongue." },
+      },
+      choices = {
+        { text = "Can you get them the fruit?", next = "d2_living2" },
+        { text = "The tauren are wise to ask.", next = "d2_living2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_living2 = {
+      lines = {
+        { id = "d2_living2_1", text = "Now and again, dried, by zeppelin from Orgrimmar, and it's gone in a morning. Eunice says I should ask the goblins for a regular order, and I've asked, and they've quoted me a price that would make a banker weep." },
+      },
+      choices = {
+        { text = "Goblins will be goblins.", next = "BACK" },
+        { text = "Ask you something else, Ronald.", next = "BACK" },
+      },
+    },
+    d2_meat = {
+      lines = {
+        { id = "d2_meat_1", text = "From the hunters in the Glades, mostly boar and darkhound, and from the butchers in Brill who send it in by cart. Every carcass is looked over by the apothecaries before it's sold, which is more than you could say for the meat in Lordaeron before the war." },
+      },
+      choices = {
+        { text = "Do the apothecaries ever turn any away?", next = "d2_meat2" },
+        { text = "A careful city, in its way.", next = "d2_meat2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_meat2 = {
+      lines = {
+        { id = "d2_meat2_1", text = "They do, and they never say why, and the carcass vanishes into the Apothecarium instead. Eunice says I'm not to think about where it goes, and for once I agree with her entirely." },
+      },
+      choices = {
+        { text = "Sensible of you both.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_hound = {
+      lines = {
+        { id = "d2_hound_1", text = "A good deal of pepper and some of the hot red powder from Orgrimmar, because darkhound's a sour meat and needs drowning. Eunice uses garlic, but I'll not sell garlic in this city, since half the customers flinch at the smell." },
+      },
+      choices = {
+        { text = "Pepper and red powder, then.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Ronald Burch. I sell flour, salt, spice and what sweetening I can get. Eunice Burch teaches the cooking just along there, and she's my sister, which is why my stall's arranged as it is and I'm not permitted to move the nutmeg." },
@@ -514,6 +761,9 @@ P:NPC {
         { text = "Where does spice come from, down here?", next = "spice" },
         { text = "Why do the dead buy seasoning?", next = "dead" },
         { text = "Let me taste that pepper for you.", next = "pepper", when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "What do the living Horde ask you for most?", next = "d2_living" },
+        { text = "Where does the city get its meat?", next = "d2_meat" },
+        { text = "What spice would suit darkhound?", next = "d2_hound", when = { profession = "Cooking" } },
         { text = "Mind the nutmeg, Ronald.", next = "END" },
       },
     },
@@ -612,13 +862,60 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_demand = {
+      lines = {
+        { id = "d2_demand_1", text = "The Apothecarium, without question. A chemist comes up every morning with a list written so small I need a lens to read it, and he wants every vial counted twice and every cork sniffed, and he's never once said what any of it is for." },
+      },
+      choices = {
+        { text = "Do you ever wonder?", next = "d2_demand2" },
+        { text = "Sounds exhausting.", next = "d2_demand2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_demand2 = {
+      lines = {
+        { id = "d2_demand2_1", text = "Every morning, and I've learned that wondering is free and asking is not. I note what he takes in my own book, though, because a list like that tells you more about this city than anything the heralds cry in the Royal Quarter." },
+      },
+      choices = {
+        { text = "What does it tell you?", next = "BACK", reply = "That the Society is very busy, and very thirsty for glass. I'll leave the rest to you." },
+        { text = "Ask you something else, Felicia.", next = "BACK" },
+      },
+    },
+    d2_late = {
+      lines = {
+        { id = "d2_late_1", text = "Vials, always, because the apothecaries won't wait and the goblins never pack enough straw. After vials it's black dye, which the tailors want for the funerals, and after that it's flux, and then I start counting what I have left." },
+      },
+      choices = {
+        { text = "And when it all runs out?", next = "d2_late2" },
+        { text = "You plan better than most.", next = "d2_late2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_late2 = {
+      lines = {
+        { id = "d2_late2_1", text = "Then I send customers across the ring to Daniel Bartlett, who has three months of everything packed away in a cistern because he's sure the world is ending. He's not right about the world, but he's right about the cistern, and I'm glad of him." },
+      },
+      choices = {
+        { text = "Don't tell him that.", next = "BACK", reply = "Never. He'd only worry that I was ill." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_tailor = {
+      lines = {
+        { id = "d2_tailor_1", text = "Then you'll want the fine spools from the far crate, not the coarse ones the deathguards buy for their mending. Rhiannon Davis buys half of every shipment, so get yours before she comes by on the turn of the week." },
+      },
+      choices = {
+        { text = "I'll take some now.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Felicia Doan. I sell the small necessary things, thread, flux, vials, salt, dye, whatever a craftsman forgets until the moment it's wanted. Every trade in this city comes to my crates sooner or later." },
         { id = "hello_2", when = { metBefore = true }, text = "Felicia Doan. I've restocked since you came, and the weak flux went in an afternoon, which tells me the smiths have a large order." },
       },
       again = {
-        { id = "hello_a1", text = "What else are you short of?" },
+        { id = "hello_a1", text = "What else do you need for the road? Tell me plainly and I'll tell you if I have it." },
         { id = "hello_a2", text = "Go on, I'm only counting." },
         { id = "hello_a3", text = "Yes?" },
       },
@@ -630,6 +927,9 @@ P:NPC {
         { text = "Where do your goods come from?", next = "crates" },
         { text = "There's another trade supplier in this quarter.", next = "bartlett" },
         { text = "Bright colours keep the spirits friendly.", next = "dye", when = { race = "Troll" } },
+        { text = "Who's your most demanding customer?", next = "d2_demand" },
+        { text = "What runs out first when the zeppelin's late?", next = "d2_late" },
+        { text = "I could use some fine thread for tailoring.", next = "d2_tailor", when = { profession = "Tailoring" } },
         { text = "I have what I need. Farewell.", next = "END" },
       },
     },
@@ -727,6 +1027,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_norman = {
+      lines = {
+        { id = "d2_norman_1", text = "He does, pet, every morning before the city's properly stirring, and he gives me the loaves the living would turn their noses up at. They're perfectly good, mind; he's only fussy because his inn has the orcs and tauren to feed." },
+      },
+      choices = {
+        { text = "Do the dead even eat bread?", next = "d2_norman2" },
+        { text = "Norman sounds a decent sort.", next = "d2_norman2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_norman2 = {
+      lines = {
+        { id = "d2_norman2_1", text = "Some of us do, a nibble, for the comfort of it. The newly risen chew it for days, as if it'll remind them of something, and I always give them the softest end and don't charge them for the crust." },
+      },
+      choices = {
+        { text = "That's a kind habit.", next = "BACK" },
+        { text = "Ask you something else, Eleanor.", next = "BACK" },
+      },
+    },
+    d2_care = {
+      lines = {
+        { id = "d2_care_1", text = "Oh, nobody needs to, pet, I've been minding myself since I was eleven. Though Ronald Burch brings me a pinch of something nice from his stall now and then, and Merill Pleasance stops by to tell me about the new companies, and that's company enough." },
+      },
+      choices = {
+        { text = "You've good neighbours, then.", next = "d2_care2" },
+        { text = "Everyone needs minding sometimes.", next = "d2_care2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_care2 = {
+      lines = {
+        { id = "d2_care2_1", text = "I have, and that's more than I expected when I woke. There's a cold way of being dead, and most of this city chose it, but the Trade Quarter's a warm sort of place, in its way, so long as you don't look too closely at the green." },
+      },
+      choices = {
+        { text = "I'll try not to look.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_horde = {
+      lines = {
+        { id = "d2_horde_1", text = "They do, pet, and they're lovely customers once they stop staring at my jaw. The orcs want waterskins and the trolls want rope, for reasons I don't ask about, and the tauren ask whether everything's safe for the living before they buy it." },
+      },
+      choices = {
+        { text = "Is it safe?", next = "BACK", reply = "Everything on this stall is. I'd not sell anything to a warm stomach that I'd be ashamed of." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Eleanor Rusk. I sell the ordinary things, bread and water and candles and a bit of rope, to folk coming and going. It isn't grand, but nobody's ever left this city on an adventure without stopping at my counter first." },
@@ -745,6 +1092,9 @@ P:NPC {
         { text = "You must see everyone who passes through.", next = "travellers" },
         { text = "Why do the dead buy drink?", next = "drink" },
         { text = "A candle did help, when I first woke.", next = "candle", when = { race = "Scourge" } },
+        { text = "Innkeeper Norman bakes your bread?", next = "d2_norman" },
+        { text = "Who looks after you, Eleanor?", next = "d2_care" },
+        { text = "Do the living Horde shop with you?", next = "d2_horde", when = { race = { "Orc", "Troll", "Tauren" } } },
         { text = "Take care, Eleanor.", next = "END" },
       },
     },
@@ -844,14 +1194,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_luck = {
+      lines = {
+        { id = "w3_luck_1", text = "I do it every time, and I'd thank you not to make light of it. I never sell the last candle of a box, I step over the canal grate with my left foot, and I don't say the Lich King's name aloud, because I said it once in the old days and the very next week the plague came to my street." },
+      },
+      choices = {
+        { text = "You think saying the name brought the plague?", next = "w3_name" },
+        { text = "Trolls would call that respecting the spirits.", next = "BACK", when = { race = "Troll" }, reply = "Would they? Then trolls have sense. Not many down here would agree with you." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_name = {
+      lines = {
+        { id = "w3_name_1", text = "I think I died and got up again, and after that I'll not rule out anything. If knocking on a counter does nothing, it costs me nothing, and if it does something, I've knocked." },
+      },
+      choices = {
+        { text = "That's sound reasoning, Mordan. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Thomas Mordan. I sell reagents. Powders, runes, candles, feathers, a few things in jars. Hannah Akeley has the Magic Quarter's trade and I have the travellers', and I've never had a complaint that lived to be made." },
         { id = "hello_2", when = { metBefore = true }, text = "Mordan. The stock's the same, and the tongs are the same. What do you need?" },
       },
       again = {
-        { id = "hello_a1", text = "Something else?" },
-        { id = "hello_a2", text = "Go on." },
+        { id = "hello_a1", text = "Something else? Mind the jars on your way past." },
+        { id = "hello_a2", text = "Go on. I'll keep the lid on while you ask." },
         { id = "hello_a3", text = "Well?" },
       },
       choices = {
@@ -862,6 +1230,7 @@ P:NPC {
         { text = "Who buys the most from you?", next = "buyers" },
         { text = "What's in the jars?", next = "jars" },
         { text = "I can tell you what the ankh is like.", next = "ankh", when = { class = "SHAMAN" } },
+        { text = "You touched the counter twice before you spoke.", next = "w3_luck" },
         { text = "I'll not open anything. Farewell.", next = "END" },
       },
     },
@@ -967,6 +1336,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_hobb = {
+      lines = {
+        { id = "d2_hobb_1", text = "He drives the flour cart from Tarren Mill and the coal cart from the Sepulcher, and he's been ambushed four times and lost a wheel to a worgen once. He arrives, every time, swearing he'll never do it again, and goes out the next morning." },
+      },
+      choices = {
+        { text = "Why does he keep going?", next = "d2_hobb2" },
+        { text = "A man after your own heart.", next = "d2_hobb2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_hobb2 = {
+      lines = {
+        { id = "d2_hobb2_1", text = "He says it's because nobody else would, and I believe him. I tell him every time that the road will kill him, and he tells me every time that it already has, and we both find that funnier than we ought to." },
+      },
+      choices = {
+        { text = "Gallows humour suits you.", next = "BACK", reply = "It's the only humour that keeps down here. The other sort spoils." },
+        { text = "Ask you something else.", next = "BACK" },
+      },
+    },
+    d2_worstcase = {
+      lines = {
+        { id = "d2_worstcase_1", text = "The Bulwark falls, the Scourge come down the road, and the zeppelin stops running all in the same week. I've a plan for each, and a plan for all three at once, and it begins with the cistern and ends with a very long wait." },
+      },
+      choices = {
+        { text = "And if that fails?", next = "d2_worstcase2" },
+        { text = "That's grim planning.", next = "d2_worstcase2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_worstcase2 = {
+      lines = {
+        { id = "d2_worstcase2_1", text = "Then nothing I've stored will matter, and I'll at least have been right. Felicia says that's no comfort, and she's correct, but it's the comfort I've got." },
+      },
+      choices = {
+        { text = "Being right is cold comfort.", next = "BACK" },
+        { text = "Something else, Daniel.", next = "BACK" },
+      },
+    },
+    d2_eng = {
+      lines = {
+        { id = "d2_eng_1", text = "They do, and they never plan for it, which is why I keep a crate of bronze tubes and blasting powder set by for the day Elizabeth Van Talen runs out. She always does, and she always looks surprised, and I always have it." },
+      },
+      choices = {
+        { text = "Then show me what you've got.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Daniel Bartlett. I sell trade supplies, thread and flux and coal and vials. I keep three months' stock behind the stall, because the zeppelin's bound to fail, or the road to Tarren Mill will close, or both." },
@@ -985,6 +1401,9 @@ P:NPC {
         { text = "Three months of stock is a great deal.", next = "stock" },
         { text = "Felicia Doan says you both overcharge.", next = "doan", when = { heardLine = "uc_doan.bartlett_1" } },
         { text = "What's the news of the roads?", next = "roads" },
+        { text = "Tell me about Hobb the carter.", next = "d2_hobb" },
+        { text = "What's the worst thing that could happen, in your view?", next = "d2_worstcase" },
+        { text = "Engineers burn through supplies fast.", next = "d2_eng", when = { profession = "Engineering" } },
         { text = "I'll buy before the sky falls.", next = "END" },
       },
     },
@@ -1082,6 +1501,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_popular = {
+      lines = {
+        { id = "d2_popular_1", text = "Black, I'm afraid, because the Deathguard think it looks stern, and green, because the apothecaries think it looks clever. I keep trying to sell a nice deep blue, and nobody will have it, because they say it looks like Lordaeron." },
+      },
+      choices = {
+        { text = "Does it?", next = "d2_popular2" },
+        { text = "Blue might be a hard sell, here.", next = "d2_popular2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_popular2 = {
+      lines = {
+        { id = "d2_popular2_1", text = "It does, exactly, and that's why I like it! But I understand, I suppose. The old blue and gold belongs to a kingdom that betrayed us, and the Forsaken would rather wear the colour of their own graves than that." },
+      },
+      choices = {
+        { text = "Keep the blue anyway.", next = "BACK", reply = "I will, in a drawer. One day someone will want it, I'm sure." },
+        { text = "Ask you something else, Merill.", next = "BACK" },
+      },
+    },
+    d2_return = {
+      lines = {
+        { id = "d2_return_1", text = "All the time! A tabard gets torn or burned or bloodied, and the company comes in with a list of new members and wants matching ones. I love those visits, because it means the company's still going and growing." },
+      },
+      choices = {
+        { text = "And when the list gets shorter?", next = "d2_return2" },
+        { text = "You enjoy this work.", next = "d2_return2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_return2 = {
+      lines = {
+        { id = "d2_return2_1", text = "Then I make fewer, and I don't say anything, and I stitch the device a little more carefully on each one. Mr. Drakul thinks I'm sentimental, but he signs the charters, and I sew the cloth, and we each mourn in our own way." },
+      },
+      choices = {
+        { text = "A good way to mourn.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_troll = {
+      lines = {
+        { id = "d2_troll_1", text = "Oh, would you let me? Red and black, with a tusked skull in bone-white, I think, or would that be too much? The trolls I've met never seem to think anything is too much, which I find very refreshing." },
+      },
+      choices = {
+        { text = "Not too much at all.", next = "BACK", reply = "Then I'll sketch it tonight. Come back and tell me if I've done it justice." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Merill Pleasance! I sell tabards, plain ones ready for a company's device. Mr. Drakul there does the charters and the signing, and then they come one step to the left and I dress them. It's the nicest part of anybody's day." },
@@ -1100,6 +1566,9 @@ P:NPC {
         { text = "You're very cheerful, for the Undercity.", next = "cheer" },
         { text = "How do you get on with the guild master?", next = "drakul" },
         { text = "Why would an orc wear green?", next = "green", when = { race = "Orc" } },
+        { text = "What's the most popular colour this year?", next = "d2_popular" },
+        { text = "Do any companies ever come back for new tabards?", next = "d2_return" },
+        { text = "Make me something in Darkspear colours.", next = "d2_troll", when = { race = "Troll" } },
         { text = "Thank you, Merill.", next = "END" },
       },
     },
@@ -1196,6 +1665,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_best = {
+      lines = {
+        { id = "d2_best_1", text = "That halberd at the end, which I'd have given my left arm for in the old days. It's a long reach and a heavy head, and a deathguard who knows how to plant it can hold a door against three ghouls, which I've seen done." },
+      },
+      choices = {
+        { text = "Who held the door?", next = "d2_best2" },
+        { text = "Three ghouls is a tall order.", next = "d2_best2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_best2 = {
+      lines = {
+        { id = "d2_best2_1", text = "A young corporal at the Bulwark, last spring, who'd never held a halberd until the week before. He came back to tell me himself, and he bought another, because the first was stuck in a ghoul." },
+      },
+      choices = {
+        { text = "That's a good story.", next = "BACK", reply = "It's the only kind I care to tell, so I tell it often." },
+        { text = "Ask you something else, sergeant.", next = "BACK" },
+      },
+    },
+    d2_drill = {
+      lines = {
+        { id = "d2_drill_1", text = "Not officially, since Archibald's the weapon master and he doesn't like his pupils being shouted at by somebody else. But a recruit who stops at my stall gets a word on his grip whether he wants it or not, and most of them want it." },
+      },
+      choices = {
+        { text = "And the ones who don't?", next = "d2_drill2" },
+        { text = "Old habits, sergeant.", next = "d2_drill2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_drill2 = {
+      lines = {
+        { id = "d2_drill2_1", text = "Get the word twice, louder. I've not had a recruit yet who didn't hold his sword better after, and I've had a few come back to thank me from the Sepulcher and Tarren Mill." },
+      },
+      choices = {
+        { text = "Then keep shouting.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_pole = {
+      lines = {
+        { id = "d2_pole_1", text = "Now you're talking sense. A polearm keeps the Scourge at arm's length and then some, and the Scourge are best kept as far off as you can manage. Look at the halberd and the glaive, and leave the pretty ones to Eliot's customers." },
+      },
+      choices = {
+        { text = "Show me, then.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Benijah Fenner, late a sergeant of the king's foot. I sell swords, axes and polearms, and every one of them is something I'd have carried on a twenty-mile march. If it's pretty, it's by accident." },
@@ -1214,6 +1730,9 @@ P:NPC {
         { text = "Three weapon merchants on one ring.", next = "ring" },
         { text = "Have you kin in the city?", next = "lucian" },
         { text = "We hit hard, and you held the gate.", next = "war", when = { race = "Orc" } },
+        { text = "What's the best weapon on your rack?", next = "d2_best" },
+        { text = "Do you still drill anyone?", next = "d2_drill" },
+        { text = "I could use a polearm, sergeant.", next = "d2_pole", when = { class = { "WARRIOR", "PALADIN", "HUNTER" } } },
         { text = "Dismissed, sergeant. Farewell.", next = "END" },
       },
     },
@@ -1310,13 +1829,60 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_house = {
+      lines = {
+        { id = "d2_house_1", text = "The Barovs, though I'd not say so to their faces, if they still had faces. Their swords were always a shade too ornate, but the steel underneath was the finest in Lordaeron, and the family had a sense of occasion I've rarely seen since." },
+      },
+      choices = {
+        { text = "What became of the Barovs?", next = "d2_house2" },
+        { text = "You speak fondly of nobles.", next = "d2_house2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_house2 = {
+      lines = {
+        { id = "d2_house2_1", text = "They went to Caer Darrow, I'm told, and things went very badly there, and the estate is now a ruin in the Plaguelands. The deathguards who bring me their swords don't say where they found them, and I don't ask." },
+      },
+      choices = {
+        { text = "Some questions are better unasked.", next = "BACK" },
+        { text = "Ask you something else, Mr. Eliot.", next = "BACK" },
+      },
+    },
+    d2_taste = {
+      lines = {
+        { id = "d2_taste_1", text = "Every hour of every day. The light is green, the water is green, and the customers are frequently green, and I have yet to find a polishing cloth that will survive a week in this damp." },
+      },
+      choices = {
+        { text = "Why not move to Brill?", next = "d2_taste2" },
+        { text = "You seem to manage, regardless.", next = "d2_taste2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_taste2 = {
+      lines = {
+        { id = "d2_taste2_1", text = "Because there's no gentry in Brill, only farmers and Deathguard and that dreadful inn. Here at least the Dark Lady's officers pass, and occasionally someone asks me about a crest, and that's enough to keep a man in his trade." },
+      },
+      choices = {
+        { text = "A small consolation.", next = "BACK", reply = "A small one, yes, but small consolations are the only kind left in Lordaeron." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_mage = {
+      lines = {
+        { id = "d2_mage_1", text = "A dagger, then, light and balanced, for the hand that's busy with spells. I've one from a Dalaran magus's household, with the Violet Eye on the pommel, though I'd suggest you file the sigil off before you visit Hillsbrad." },
+      },
+      choices = {
+        { text = "I'll take a look.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Francis Eliot. I was sword-cutler to half the noble houses of Lordaeron, and I continue the trade for what gentry the Undercity affords. My blades are balanced, engraved, and provided with a history, and I sell them to those who can tell the difference." },
         { id = "hello_2", when = { metBefore = true }, text = "Francis Eliot, at your service once more. I have acquired a sabre from the Barov estate since you called, with the crest quite unmarked. One doesn't see its like twice." },
       },
       again = {
-        { id = "hello_a1", text = "Was there something further?" },
+        { id = "hello_a1", text = "Is there anything further? Do try not to lean on the display." },
         { id = "hello_a2", text = "Do go on." },
         { id = "hello_a3", text = "Yes? I am attending." },
       },
@@ -1327,6 +1893,9 @@ P:NPC {
         { text = "A blade with a history costs more.", next = "history" },
         { text = "Is there any gentry left to sell to?", next = "gentry" },
         { text = "How do you regard the other merchants here?", next = "fenner" },
+        { text = "Which house's blades do you prize most?", next = "d2_house" },
+        { text = "The Undercity must offend your taste.", next = "d2_taste" },
+        { text = "I'd like a blade worthy of a mage's hand.", next = "d2_mage", when = { class = { "MAGE", "WARLOCK" } } },
         { text = "Good day, Mr. Eliot.", next = "END" },
       },
     },
@@ -1424,6 +1993,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_find = {
+      lines = {
+        { id = "d2_find_1", text = "From the zeppelin, mostly, where the goblins sell me anything they've found and claim it belonged to a famous warlord. A few come from deathguards who strip the Scarlet camps, and once a whole crate arrived from Ratchet with a note that said only 'enjoy.'" },
+      },
+      choices = {
+        { text = "What was in the crate?", next = "d2_find2" },
+        { text = "You trust the goblins?", next = "d2_find2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_find2 = {
+      lines = {
+        { id = "d2_find2_1", text = "Centaur arrows, a harpoon from Booty Bay and a club made from what I'm fairly sure was a jawbone. I've no idea who sent it, and I've been happier with that crate than with almost anything I've ever bought on purpose." },
+      },
+      choices = {
+        { text = "A mystery gift. Lucky man.", next = "BACK" },
+        { text = "Ask you something else, Geoffrey.", next = "BACK" },
+      },
+    },
+    d2_odd = {
+      lines = {
+        { id = "d2_odd_1", text = "A gnomish pistol that fired forwards and backwards at once, which a goblin swore was a feature. Nicholas Atwood took it apart to see how it worked, and it went off, and he's never told me which way." },
+      },
+      choices = {
+        { text = "Is Atwood all right?", next = "d2_odd2" },
+        { text = "Gnomes build strange things.", next = "d2_odd2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_odd2 = {
+      lines = {
+        { id = "d2_odd2_1", text = "He's fine, though he moves his powder box a little further from my stall every week. I keep the pistol on a high shelf now, with a card that says 'do not touch,' which naturally everyone does." },
+      },
+      choices = {
+        { text = "Maybe lock it up.", next = "BACK", reply = "Anastasia said the same. She also suggested I lock myself up, which I took less kindly." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_dwarf = {
+      lines = {
+        { id = "d2_dwarf_1", text = "They would, and they'd be welcome to try. These came off the Alliance dead at the Bulwark, or so I was told, and I think a pick that's carried that far deserves a quiet shelf and a good card, not a melting pot." },
+      },
+      choices = {
+        { text = "Fair enough.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Geoffrey Hartwell. I sell weapons, and I try to sell the interesting ones, though the deathguards will keep asking for plain swords. I've a troll glaive, two dwarven war picks and something from Kalimdor I can't yet put a name to." },
@@ -1442,6 +2058,9 @@ P:NPC {
         { text = "What's the thing from Kalimdor?", next = "kalimdor" },
         { text = "You're kin to Anastasia Hartwell, the mage?", next = "family" },
         { text = "Wind it wet, and let it dry tight.", next = "cord", when = { race = "Troll" } },
+        { text = "Where do you find your foreign pieces?", next = "d2_find" },
+        { text = "What's the oddest weapon you've ever owned?", next = "d2_odd" },
+        { text = "Dwarves would want those war picks back.", next = "d2_dwarf", when = { race = { "Orc", "Tauren" } } },
         { text = "I must go before you unpack another.", next = "END" },
       },
     },
@@ -1543,6 +2162,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_buyers = {
+      lines = {
+        { id = "d2_buyers_1", text = "The trolls off the zeppelin, who've a fondness for anything loud, and a few deathguards who've seen what a goblin rifle does to an abomination. And the hunters, who are the only customers who look after a barrel as it ought to be looked after." },
+      },
+      choices = {
+        { text = "Do any Forsaken stick with it?", next = "d2_buyers2" },
+        { text = "Trolls do love a loud noise.", next = "d2_buyers2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_buyers2 = {
+      lines = {
+        { id = "d2_buyers2_1", text = "A handful, and they're the best shots in the city once they've learned. There's a deathstalker who comes in every month for shot and never says a word, and I've heard the Scarlets at the Monastery have learned to fear the crack from the trees." },
+      },
+      choices = {
+        { text = "Good to hear.", next = "BACK" },
+        { text = "Ask you something else, Nicholas.", next = "BACK" },
+      },
+    },
+    d2_source = {
+      lines = {
+        { id = "d2_source_1", text = "From the goblins in Orgrimmar, by zeppelin, packed in straw and in boxes marked 'pickles' so the crew don't panic. Twice the boxes have been very nearly pickles, and twice I've sent them back with a letter." },
+      },
+      choices = {
+        { text = "Did the goblins apologise?", next = "d2_source2" },
+        { text = "Pickles, of all things.", next = "d2_source2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_source2 = {
+      lines = {
+        { id = "d2_source2_1", text = "They sent a discount, which is a goblin's way of saying sorry, and a crate of actual pickles, which I think was a joke. I gave the pickles to Eleanor Rusk, and she sold them to the orcs in a day." },
+      },
+      choices = {
+        { text = "Nothing goes to waste here.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_dwarfish = {
+      lines = {
+        { id = "d2_dwarfish_1", text = "You have, and I'm glad of it, since the goblins sell to you and you put their work to good use. An orc with a blunderbuss is a sight to see, and a troll with a long rifle is a better one." },
+      },
+      choices = {
+        { text = "Show me your long rifle.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Nicholas Atwood. I sell firearms, shot and powder. It's a dwarven craft and a goblin vice, and the Forsaken haven't taken to it, but one day a deathguard is going to drop an abomination at eighty paces and I'll be the busiest man in the quarter." },
@@ -1561,6 +2227,9 @@ P:NPC {
         { text = "You keep your powder well away from the forge.", next = "powder" },
         { text = "Have you family in the trade?", next = "helena" },
         { text = "Why should I give up my bow?", next = "bow", when = { class = "HUNTER" } },
+        { text = "Who actually buys guns down here?", next = "d2_buyers" },
+        { text = "Where do you get your powder?", next = "d2_source" },
+        { text = "My people have taken well to goblin guns.", next = "d2_dwarfish", when = { race = { "Orc", "Troll" } } },
         { text = "Mind your powder, Nicholas.", next = "END" },
       },
     },
@@ -1658,6 +2327,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_richard = {
+      lines = {
+        { id = "d2_richard_1", text = "He sits near the forge and offers opinions, which James ignores and I write down. Every so often one of the opinions is right, and that's why we keep him, though I've never told him the ratio." },
+      },
+      choices = {
+        { text = "What's the ratio?", next = "d2_richard2" },
+        { text = "Every family has one like him.", next = "d2_richard2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_richard2 = {
+      lines = {
+        { id = "d2_richard2_1", text = "One in forty-one, by my last count, and that one is usually about the weather. Still, a man who's right once in forty-one is right more often than the heralds, so he's earned his stool." },
+      },
+      choices = {
+        { text = "High praise, from you.", next = "BACK", reply = "It's arithmetic, not praise. I'm sorry if the two sound alike." },
+        { text = "Ask you something else, Samuel.", next = "BACK" },
+      },
+    },
+    d2_short = {
+      lines = {
+        { id = "d2_short_1", text = "Coal, then flux, then patience, in that order. The charcoal from Silverpine comes slower every season, because the burners keep getting eaten by worgen, and James won't use the green wood the apothecaries offer because it smokes." },
+      },
+      choices = {
+        { text = "What do the apothecaries offer?", next = "d2_short2" },
+        { text = "Worgen eating charcoal burners. Grim.", next = "d2_short2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_short2 = {
+      lines = {
+        { id = "d2_short2_1", text = "Timber from the blighted groves, which burns hot and leaves a residue on the steel that nobody can name. I've a sample in a jar, labelled, and I've declined to put it anywhere near the forge." },
+      },
+      choices = {
+        { text = "Wise of you.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_miner = {
+      lines = {
+        { id = "d2_miner_1", text = "Then you'll know what I pay for clean copper and tin, and you'll know I check the weight on the scale twice. Sarah Killian sends her pupils to me with their first bags, and I've never had to send one back twice." },
+      },
+      choices = {
+        { text = "Then I'll trade with you.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Samuel Van Brunt. James has the anvil and the talent, and I have the coal, the flux, the hammers and the accounts. A forge is three parts supply to one part skill, though you'll not hear a smith admit it." },
@@ -1676,6 +2392,9 @@ P:NPC {
         { text = "Where does coal come from, down here?", next = "coal" },
         { text = "I hear you supply the whole city with wire wool.", next = "wool" },
         { text = "We feed the fire well, and it feeds us.", next = "burn", when = { race = "Orc" } },
+        { text = "What does Richard actually do?", next = "d2_richard" },
+        { text = "What's the city's forge most short of?", next = "d2_short" },
+        { text = "I mine my own ore, Samuel.", next = "d2_miner", when = { profession = "Mining" } },
         { text = "I'll let you finish your count.", next = "END" },
       },
     },
@@ -1774,13 +2493,60 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_alterac = {
+      lines = {
+        { id = "d2_alterac_1", text = "Deep, cold and honest, before the Syndicate and the ogres took the mountains. We worked a seam under Strahnbrad for twelve years, and Brom could tell a silver vein by the sound of a pick against it." },
+      },
+      choices = {
+        { text = "Do you ever think of going back?", next = "d2_alterac2" },
+        { text = "Twelve years is a long time underground.", next = "d2_alterac2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_alterac2 = {
+      lines = {
+        { id = "d2_alterac2_1", text = "Think of it, aye, but the Crushridge sit on the old workings now, and they've no idea what silver's worth. Brom says one day the Dark Lady will want those mines, and on that day we'll be the first to know the way in." },
+      },
+      choices = {
+        { text = "I hope you get there.", next = "BACK" },
+        { text = "Ask you something else, Sarah.", next = "BACK" },
+      },
+    },
+    d2_found = {
+      lines = {
+        { id = "d2_found_1", text = "A miner's lamp still lit, in a gallery that had been sealed for twenty years. There was nobody beside it, and nobody could say who'd lit it, and Brom bricked the gallery up again that same afternoon." },
+      },
+      choices = {
+        { text = "No idea who lit it?", next = "d2_found2" },
+        { text = "I'd have bricked it up too.", next = "d2_found2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_found2 = {
+      lines = {
+        { id = "d2_found2_1", text = "None, and I've stopped guessing. Down here, you learn that some things are better left lit and left alone, and the apothecaries' tunnels are full of things I'd rather not have seen at all." },
+      },
+      choices = {
+        { text = "Wise advice.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_dwarves = {
+      lines = {
+        { id = "d2_dwarves_1", text = "They would, I suppose, and I'd take to them, if they weren't on the other side. Brom met an Ironforge prospector once, before the war, and they spent a whole night arguing about tin, and he's never forgotten it." },
+      },
+      choices = {
+        { text = "Miners are miners.", next = "BACK", reply = "Aye, they are. Rock doesn't care who's swinging at it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Sarah Killian. Brom teaches folk to find ore and I sell them the picks to get it out with. We were miners in Alterac before any of this, and I've been underground more of my life than above it, so the Undercity suits me well enough." },
         { id = "hello_2", when = { profession = "Mining" }, text = "Sarah Killian. I've picks, lamps, oil and a good stout sack. Brom's the one to ask about finding a vein. I'm the one to ask about getting home again after." },
       },
       again = {
-        { id = "hello_a1", text = "Anything else, love?" },
+        { id = "hello_a1", text = "Go on, petal, what else? I've a crate to unpack, but it's not going anywhere." },
         { id = "hello_a2", text = "Go on. Brom's busy with a pupil." },
         { id = "hello_a3", text = "Yes?" },
       },
@@ -1792,6 +2558,9 @@ P:NPC {
         { text = "You and Brom have worked together a long while.", next = "brom" },
         { text = "Are there tunnels under the city nobody enters?", next = "shut" },
         { text = "The earth hears, when you ask.", next = "leave", when = { race = "Tauren" } },
+        { text = "Tell me about the Alterac silver workings.", next = "d2_alterac" },
+        { text = "What's the worst thing you've found underground?", next = "d2_found" },
+        { text = "Dwarves would take to you, I think.", next = "d2_dwarves", when = { race = { "Orc", "Troll" } } },
         { text = "I'll carry two lamps. Farewell.", next = "END" },
       },
     },
@@ -1890,6 +2659,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_andorhal = {
+      lines = {
+        { id = "d2_andorhal_1", text = "Glorious, friend, simply glorious! Every road into town choked with carts, the granaries full to the rafters, and my ring at the heart of it, with a brass band on feast days and a pie stall that could feed a regiment." },
+      },
+      choices = {
+        { text = "And then the plague came.", next = "d2_andorhal2" },
+        { text = "You make it sound like a festival.", next = "d2_andorhal2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_andorhal2 = {
+      lines = {
+        { id = "d2_andorhal2_1", text = "Through the granaries, aye, in the very grain I'd watched sold the week before. I called the last lot on that ring myself, a team of greys, and I'll never know whether the man who bought them got home." },
+      },
+      choices = {
+        { text = "Andorhal's still a ruin, they say.", next = "BACK", reply = "So they say, and full of the walking dead. I'll not go back to see it, not for any price." },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    d2_big = {
+      lines = {
+        { id = "d2_big_1", text = "A full set of Scarlet plate, every piece matched, stripped off a commander at the Monastery and listed by a deathguard who wanted it gone before anyone asked questions. The bidding ran a whole afternoon, and I sang every number like a hymn." },
+      },
+      choices = {
+        { text = "Who won it?", next = "d2_big2" },
+        { text = "A Scarlet's armour, for sale. Fitting.", next = "d2_big2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_big2 = {
+      lines = {
+        { id = "d2_big2_1", text = "An orc captain from Orgrimmar, who wanted it melted down for axe heads. I thought it was the finest end that armour could have had, and the hall agreed, because they cheered when the hammer fell." },
+      },
+      choices = {
+        { text = "A good end for it.", next = "BACK" },
+        { text = "Ask you something else, Cain.", next = "BACK" },
+      },
+    },
+    d2_kodo = {
+      lines = {
+        { id = "d2_kodo_1", text = "Do they now? Then I'd have given a year of my life to call a kodo sale, with the beasts walking the ring and the whole hall shaking under them! You bring me a kodo, friend, and I'll find you a buyer, if it'll fit down the lift." },
+      },
+      choices = {
+        { text = "It won't fit down the lift.", next = "BACK", reply = "Then I'll call it from the top of the lift, and shout down to the bidders. Nothing's impossible!" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Auctioneer Cain, at your service and anybody's. You bring me what you'd sell, you name a price to start, and the whole Horde gets a chance to outbid its neighbour. The house takes a small cut, and I take the pleasure of it." },
@@ -1906,6 +2722,9 @@ P:NPC {
         { text = "What sells best in the Undercity?", next = "lots" },
         { text = "There are a great many auctioneers on this ring.", next = "seven" },
         { text = "Who pays most for good pelts?", next = "pelts", when = { class = "HUNTER" } },
+        { text = "What was Andorhal like on a market day?", next = "d2_andorhal" },
+        { text = "What's the biggest sale you've called down here?", next = "d2_big" },
+        { text = "My people trade kodo, not cattle.", next = "d2_kodo", when = { race = "Tauren" } },
         { text = "I'll bid another day.", next = "END" },
       },
     },
@@ -2004,6 +2823,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_mistake = {
+      lines = {
+        { id = "d2_mistake_1", text = "Pricing what it cost them instead of what it's worth. A man spends a week hunting one hide, and he wants a week's wages for it, and nobody cares about his week, only the hide." },
+      },
+      choices = {
+        { text = "That seems harsh.", next = "d2_mistake2" },
+        { text = "And the second mistake?", next = "d2_mistake2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_mistake2 = {
+      lines = {
+        { id = "d2_mistake2_1", text = "Harsh is efficient. The second is listing too long, so the coin is tied up for two days when it could be working. List for the shortest time that will sell it, collect, and list the next thing, and you'll clear twice what the dreamers do." },
+      },
+      choices = {
+        { text = "I'll remember that.", next = "BACK" },
+        { text = "Ask you something else.", next = "BACK" },
+      },
+    },
+    d2_goblins = {
+      lines = {
+        { id = "d2_goblins_1", text = "Constantly, and they're the only customers who're faster than I am. They list, they bid, they relist at a mark-up within the hour, and they never once ask me how it works, which I find very nearly beautiful." },
+      },
+      choices = {
+        { text = "You admire them?", next = "d2_goblins2" },
+        { text = "They'd make good clerks.", next = "d2_goblins2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_goblins2 = {
+      lines = {
+        { id = "d2_goblins2_1", text = "I admire the speed, not the ethics. A goblin will buy your lot and sell it back to you at twice the price, and he'll do it before you've left the ring, so watch your listings when the zeppelin's in." },
+      },
+      choices = {
+        { text = "Noted.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_potions = {
+      lines = {
+        { id = "d2_potions_1", text = "Healing draughts, always, because the Bulwark goes through them by the crate. Mana potions to the mages in the evening, when they've spent the day casting. Anything else, list it small and see what happens." },
+      },
+      choices = {
+        { text = "Healing draughts it is.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Auctioneer Epitwee. You list, they bid, the house takes its share, the rest is yours. That's the whole of it. If you've a question that isn't answered by that, ask it briskly." },
@@ -2020,6 +2886,9 @@ P:NPC {
         { text = "How do I price what I sell?", next = "price" },
         { text = "How do you rate the other auctioneers?", next = "others" },
         { text = "Why stacks of twenty?", next = "stacks", when = { profession = { "Herbalism", "Mining", "Skinning" } } },
+        { text = "What's the commonest mistake a seller makes?", next = "d2_mistake" },
+        { text = "Do goblins use your stand?", next = "d2_goblins" },
+        { text = "Do potions sell well down here?", next = "d2_potions", when = { profession = "Alchemy" } },
         { text = "Done. Good day.", next = "END" },
       },
     },
@@ -2118,6 +2987,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_sources = {
+      lines = {
+        { id = "d2_sources_1", text = "Oh, everyone, love, though Eleanor Rusk is the best of them, since she sees every traveller on the ring. Merill Pleasance tells me which companies are growing, and Tawny Grisette tells me who's been in the damp corners, and I put it all together over a quiet afternoon." },
+      },
+      choices = {
+        { text = "And what do you do with it all?", next = "d2_sources2" },
+        { text = "You run a little intelligence network.", next = "d2_sources2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_sources2 = {
+      lines = {
+        { id = "d2_sources2_1", text = "Nothing, mostly! I keep it for the joy of knowing, and now and then I tell a customer which stand will sell their lot fastest. The deathstalkers have asked me twice, and I've told them twice that I only know about frocks and swords." },
+      },
+      choices = {
+        { text = "Do they believe you?", next = "BACK", reply = "No, and they keep coming to buy frocks, which I take as a compliment." },
+        { text = "Ask you something else, Leeka.", next = "BACK" },
+      },
+    },
+    d2_trouble = {
+      lines = {
+        { id = "d2_trouble_1", text = "Once, when I hinted at a necklace a little too heavily and the owner's husband guessed it. It turned out she'd sold his mother's necklace to pay for a new sword, and the whole Trade Quarter heard them arguing about it." },
+      },
+      choices = {
+        { text = "What happened after?", next = "d2_trouble2" },
+        { text = "That's a hard lesson.", next = "d2_trouble2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_trouble2 = {
+      lines = {
+        { id = "d2_trouble2_1", text = "They made it up, and he bought it back off the winning bidder at twice the price, and they both stopped speaking to me for a month. I hint more gently now, and I never hint at jewellery." },
+      },
+      choices = {
+        { text = "Wise of you.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_own = {
+      lines = {
+        { id = "d2_own_1", text = "Only once, a music box from my old house, which I'd carried with me out of the grave. I listed it, and then I bid on it myself under another name, and Naxxremis made me pay the fee twice for my trouble." },
+      },
+      choices = {
+        { text = "Did you keep it?", next = "BACK", reply = "I did. It doesn't play any more, but I keep it on the stand, and nobody's allowed to bid on it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Auctioneer Leeka. I take in what people want rid of and find it somebody who wants it, and I do love to know the story in between. You can use any stand on the ring, but mine's the one where you'll be asked how you are." },
@@ -2134,6 +3050,9 @@ P:NPC {
         { text = "What came through this week?", next = "hint" },
         { text = "Epitwee says you clear fewer lots than she does.", next = "epitwee", when = { heardLine = "uc_epitwee.others_1" } },
         { text = "What sells from across the sea?", next = "sea", when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "Who brings you your gossip?", next = "d2_sources" },
+        { text = "Has your nosiness ever got you in trouble?", next = "d2_trouble" },
+        { text = "Have you ever listed anything of your own?", next = "d2_own", when = { race = "Scourge" } },
         { text = "I'll be back, Leeka.", next = "END" },
       },
     },
@@ -2232,6 +3151,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_writ = {
+      lines = {
+        { id = "d2_writ_1", text = "One. A widow in Brill, behind on her rent to a landlord who had raised it twice in a year. The law was on his side, so I served it, and I helped her carry her things out to the road." },
+      },
+      choices = {
+        { text = "What became of her?", next = "d2_writ2" },
+        { text = "You still followed the law.", next = "d2_writ2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_writ2 = {
+      lines = {
+        { id = "d2_writ2_1", text = "She took a room above the old Gallows' End, and died there in the plague, as did the landlord, as did I. We are all in this city now, so far as I know, and none of us has spoken of it since." },
+      },
+      choices = {
+        { text = "Some debts end with the grave.", next = "BACK", reply = "They should. The ledger says otherwise, and I have learned to obey the ledger." },
+        { text = "Ask you something else.", next = "BACK" },
+      },
+    },
+    d2_books = {
+      lines = {
+        { id = "d2_books_1", text = "I do, and nobody else is permitted to touch them. Every deposit, every fee, every forfeit, entered in my own hand and checked against the Royal Quarter's receipts at the end of each week." },
+      },
+      choices = {
+        { text = "Have you ever found an error?", next = "d2_books2" },
+        { text = "That's a great deal of work.", next = "d2_books2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_books2 = {
+      lines = {
+        { id = "d2_books2_1", text = "Seven, in all, and six of them were Cain's, who adds in his head and sings the result. The seventh was mine, and I reported it to the Royal Quarter myself, and paid the shortfall from my own purse." },
+      },
+      choices = {
+        { text = "Exacting, even with yourself.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_mercy = {
+      lines = {
+        { id = "d2_mercy_1", text = "Mercy is the magistrate's to give, not the bailiff's. I enforce the terms equally, so that a lord and a beggar lose the same deposit, and in this city that is the nearest thing to mercy anyone will offer you." },
+      },
+      choices = {
+        { text = "We see it differently.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Auctioneer Naxxremis. The terms are these: a deposit, forfeit if your lot fails; a fee from the sale; payment in full, at once, from the winning bid. I did not write the terms. I see them kept." },
@@ -2248,6 +3214,9 @@ P:NPC {
         { text = "What becomes of failed deposits?", next = "fail" },
         { text = "Does anyone try to cheat the auction?", next = "cheats" },
         { text = "You'd take a thief's fingers?", next = "fingers", when = { class = "ROGUE" } },
+        { text = "Did you ever serve a writ you regretted?", next = "d2_writ" },
+        { text = "Who keeps the house's books?", next = "d2_books" },
+        { text = "Law without mercy is only cruelty.", next = "d2_mercy", when = { class = "PALADIN" } },
         { text = "My account is in order. Farewell.", next = "END" },
       },
     },
@@ -2345,6 +3314,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_instead = {
+      lines = {
+        { id = "d2_instead_1", text = "Sitting somewhere quiet with a book I'll never finish, which is what I'd have said alive as well. But the Dark Lady needs coin moving, and somebody has to explain deposits to people who've just climbed out of the ground." },
+      },
+      choices = {
+        { text = "You could leave the stand.", next = "d2_instead2" },
+        { text = "A quiet corner and a book. Sounds nice.", next = "d2_instead2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_instead2 = {
+      lines = {
+        { id = "d2_instead2_1", text = "And go where? Every corner of this city has someone in it asking a question. At least here I'm paid for my sighing, and the fee's always the same." },
+      },
+      choices = {
+        { text = "I'll keep my questions short.", next = "BACK", reply = "You've kept them short so far. I'll put that in my book of small mercies." },
+        { text = "Ask you something else, Rhyker.", next = "BACK" },
+      },
+    },
+    d2_fav = {
+      lines = {
+        { id = "d2_fav_1", text = "The orcs, as I've said, and the hunters, who list their hides properly bundled and never ask what anything's worth. And the deathguard who listed his arm, actually, since he made my whole year with that." },
+      },
+      choices = {
+        { text = "Did he ever come back?", next = "d2_fav2" },
+        { text = "Strange things please you.", next = "d2_fav2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_fav2 = {
+      lines = {
+        { id = "d2_fav2_1", text = "Every month, with something new from the Bulwark, and he's never once asked for a refund. Last week it was a ghoul's jawbone, still snapping, and it sold to the apothecaries before I'd finished writing the label." },
+      },
+      choices = {
+        { text = "The apothecaries buy everything.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_troll = {
+      lines = {
+        { id = "d2_troll_1", text = "So I've noticed, and it's the only kind of haggling I don't mind, since a troll laughs when he loses. The goblins haggle like it's a war, and the Forsaken haggle like it's a funeral, and you lot haggle like it's a party." },
+      },
+      choices = {
+        { text = "Life's short, mon. Laugh while you can.", next = "BACK", reply = "Easy for you to say. Mine's been over for a while." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Auctioneer Rhyker. I've been asked the same four questions every hour since this stand opened, so let me save us both the bother. Deposit, yes. Fee, yes. Refunds, no. And I've no idea why it didn't sell." },
@@ -2361,6 +3377,9 @@ P:NPC {
         { text = "What's the worst listing you've seen?", next = "worst" },
         { text = "You seem tired of the work.", next = "why" },
         { text = "We say it and stop. Talk wastes daylight.", next = "orc", when = { race = "Orc" } },
+        { text = "What would you rather be doing?", next = "d2_instead" },
+        { text = "Do you have any favourite customers?", next = "d2_fav" },
+        { text = "Trolls haggle for the fun of it, you know.", next = "d2_troll", when = { race = "Troll" } },
         { text = "No more questions. Farewell.", next = "END" },
       },
     },
@@ -2458,6 +3477,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_hope = {
+      lines = {
+        { id = "d2_hope_1", text = "A Thalassian circlet, from Quel'Thalas, with the gems still in it. The elves fled south when the Scourge came through, and they left a great many beautiful things behind, and one day a deathguard is going to bring one to my stand." },
+      },
+      choices = {
+        { text = "And then you'll bid on it.", next = "d2_hope2" },
+        { text = "Quel'Thalas is a long way off.", next = "d2_hope2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_hope2 = {
+      lines = {
+        { id = "d2_hope2_1", text = "Of course I will, and I'll lose, because Bethor Iceshard's people will want it for the magic in it. But I'll have held it first, and turned it in the light, and that's the part I'm really after." },
+      },
+      choices = {
+        { text = "A magpie's honest wish.", next = "BACK", reply = "I've been called worse, and usually by Leeka." },
+        { text = "Ask you something else, Tricket.", next = "BACK" },
+      },
+    },
+    d2_hoard = {
+      lines = {
+        { id = "d2_hoard_1", text = "In a crypt behind the Rogues' Quarter, in a row of little boxes with a label on every one. Nobody else knows where, so don't tell anyone, though I suppose I've just told you, haven't I?" },
+      },
+      choices = {
+        { text = "What's the best thing in there?", next = "d2_hoard2" },
+        { text = "Your secret's safe.", next = "d2_hoard2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_hoard2 = {
+      lines = {
+        { id = "d2_hoard2_1", text = "A silver thimble from Stratholme, with a tiny crest on it, which I won for four coppers because nobody else noticed it. It's worth nothing at all and I love it more than anything I've ever owned." },
+      },
+      choices = {
+        { text = "Worth more than coin, then.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_dalaran = {
+      lines = {
+        { id = "d2_dalaran_1", text = "Now and again, and they're always lovely. A wand with the Violet Eye on it, a scroll case, once a mage's spectacles that made everything look slightly purple. Bethor's people outbid everyone, so I'd tell you to sell rather than buy." },
+      },
+      choices = {
+        { text = "I'll keep an eye out.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Auctioneer Tricket! You list, they bid, the house takes a nibble. That's the dull part. The good part is that every strange and lovely thing in the Horde passes over this stand sooner or later, and I get to hold it first." },
@@ -2474,6 +3540,9 @@ P:NPC {
         { text = "They say you bid on your own lots.", next = "own" },
         { text = "How do you tell rare from common?", next = "eye" },
         { text = "Lesser magic, yes. How did you know?", next = "wand", when = { profession = "Enchanting" } },
+        { text = "What are you hoping will turn up?", next = "d2_hope" },
+        { text = "Where do you keep what you win?", next = "d2_hoard" },
+        { text = "Do Dalaran trinkets come across the stand?", next = "d2_dalaran", when = { class = "MAGE" } },
         { text = "I'll bring you something shiny.", next = "END" },
       },
     },
@@ -2572,13 +3641,60 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_month = {
+      lines = {
+        { id = "d2_month_1", text = "That bandages are steady and arrows are climbing, which means the Deathguard are patrolling more than fighting. And that silk is thin, so the tailors are waiting on spiders, and the spiders in Silverpine are winning." },
+      },
+      choices = {
+        { text = "You can see all that in the figures?", next = "d2_month2" },
+        { text = "That's a fine forecast.", next = "d2_month2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_month2 = {
+      lines = {
+        { id = "d2_month2_1", text = "I can see the shape of it. The figures don't tell me why, only that something has changed, and I watch for the week the shape breaks. That's when it's worth knowing who's selling and who's buying." },
+      },
+      choices = {
+        { text = "I'll ask you again next month.", next = "BACK" },
+        { text = "Ask you something else.", next = "BACK" },
+      },
+    },
+    d2_others = {
+      lines = {
+        { id = "d2_others_1", text = "Stockton, on the other side of the ring, though he keeps his in his head and talks about it. We compare notes now and then, quietly, and he's usually right about the cause and I'm usually right about the timing." },
+      },
+      choices = {
+        { text = "Between you, you'd have it all.", next = "d2_others2" },
+        { text = "He talks, you write.", next = "d2_others2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_others2 = {
+      lines = {
+        { id = "d2_others2_1", text = "We would, if we agreed about anything. He thinks the market is a story and I think it's a tide, and we've argued about it for a year without either of us raising our voice, which is a very Undercity way to argue." },
+      },
+      choices = {
+        { text = "A civil rivalry.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_herb = {
+      lines = {
+        { id = "d2_herb_1", text = "Peacebloom is down, so hold it. Briarthorn is up, because the Society's brewing again, so sell it this week. And Kingsblood never falls far, so it's a safe thing to sit on if you need to wait." },
+      },
+      choices = {
+        { text = "Briarthorn this week, then.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Auctioneer Yarly. I take listings and bids like the other six. I also keep a record of what things sell for, day by day. Nobody asked me to. I find that prices make more sense written down than they do shouted." },
         { id = "hello_2", when = { metBefore = true }, text = "Yarly. I've nothing new to tell you, except that silk is thin on the stands and wool's plentiful. Make of it what you will." },
       },
       again = {
-        { id = "hello_a1", text = "Was there something else?" },
+        { id = "hello_a1", text = "Something else you'd know? The bids will wait a moment for you." },
         { id = "hello_a2", text = "Take your time." },
         { id = "hello_a3", text = "Yes?" },
       },
@@ -2588,6 +3704,9 @@ P:NPC {
         { text = "You watch prices like weather.", next = "weather" },
         { text = "Cain calls you the quiet one.", next = "cain", when = { heardLine = "uc_cain.seven_1" } },
         { text = "Trade on the difference between halls?", next = "mage", when = { class = "MAGE" } },
+        { text = "What does your book say about this month?", next = "d2_month" },
+        { text = "Does anyone else keep figures like yours?", next = "d2_others" },
+        { text = "What should an herbalist sell right now?", next = "d2_herb", when = { profession = "Herbalism" } },
         { text = "Thank you for the forecast, Yarly.", next = "END" },
       },
     },

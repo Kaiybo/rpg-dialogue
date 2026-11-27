@@ -27,6 +27,44 @@ P:NPC {
 
   start = "hello",
   nodes = {
+
+    mr_log = {
+      lines = { { id = "mrl_1", text = "Every wagon that came up the road into this fortress, stranger, what it carried and how many guarded it. I counted iron and grain and cages, and the cages were the part that frightened me, because they were coming in empty and going out full." } },
+      choices = {
+        { text = "Full of what? Prisoners?", next = "mr_log2" },
+        { text = "Then the log matters more than any of us.", next = "mr_log2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mr_log2 = {
+      lines = { { id = "mrl2_1", text = "People from the farms, and the odd Horde scout, and once a whole wagon of folk from Windstead's country. Whatever the Hammer means to do with them, it needs a great many, and Demar has to know that before he decides what to send against this place." } },
+      choices = {
+        { text = "He'll know. I'll see to it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mr_demar = {
+      lines = { { id = "mrd_1", text = "One of his best, was I? He'd never have said it to my face, and I'd never have believed him if he had. Demar's held the Riverglades for twenty years, and he did it by sending people like me where he couldn't go himself." } },
+      choices = {
+        { text = "You sound bitter about it.", next = "mr_demar2" },
+        { text = "Tell me about Thaddeus Brillyard.", next = "mr_thaddeus", when = { race = "Dwarf" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mr_demar2 = {
+      lines = { { id = "mrd2_1", text = "Not bitter, only tired. He's a good commander, stranger, and good commanders spend men, and I'd have done the same in his boots. Tell him I said so, because he'll be hard on himself, and the keep can't afford that." } },
+      choices = {
+        { text = "I'll tell him exactly that.", next = "BACK", reply = "Good. And tell Riftan his lads are in the cages, if he doesn't know already." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mr_thaddeus = {
+      lines = { { id = "mrt_1", text = "A dwarf rider in a company of human horsemen, and the most stubborn soul at Farholde, which is saying a great deal. He taught me to shoe my own horse, and he'll tell you I never learned it properly, and he'll be right." } },
+      choices = {
+        { text = "I'll give him your regards.", next = "BACK", reply = "Tell him the horse threw a shoe on the way here. He'll laugh, and then he'll go quiet, and that'll be enough.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -49,6 +87,8 @@ P:NPC {
         { text = "Who is Abigail?", next = "abigail" },
         { text = "Why fight so long, Marshal?", next = "why" },
         { text = "Let me pray with you.", next = "xpray", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "What's in this log of yours?", next = "mr_log" },
+        { text = "Demar sent me. He called you one of his best.", next = "mr_demar" },
         { text = "I'll carry your crest to Demar.", next = "END", when = { questActive = TODO_QUEST("Dying Wish") } },
         { text = "Rest now, Marshal.", next = "END" },
       },
@@ -155,6 +195,45 @@ P:NPC {
 
   start = "hello",
   nodes = {
+
+    sf_neigh = {
+      lines = { { id = "sfn_1", text = "Cultists, chum, which are terrible neighbours, and an ogre called Clubtoe up in the Sunnyglade ruins who wants the cultists gone even worse than I do. And the Brotherhood's horse boys, who ride past twice a day and look at my engine like it owes them money." } },
+      choices = {
+        { text = "An ogre who hates the cultists? Tell me more.", next = "sf_neigh2" },
+        { text = "The Brotherhood probably thinks you're a spy.", next = "sf_neigh2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sf_neigh2 = {
+      lines = { { id = "sfn2_1", text = "Clubtoe's all right, chum, for an ogre; he doesn't eat customers and he doesn't ask about the engine, which makes him my favourite person in the Riverglades. The horse boys, though, think a goblin in a swamp has to be up to somethin', and they're right, but it's legal." } },
+      choices = {
+        { text = "Mostly legal, I'd guess.", next = "BACK", reply = "Mostly's a legal term, pal, look it up. Actually, don't, the fee's terrible." },
+        { text = "I'll look in on Clubtoe.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sf_boom = {
+      lines = { { id = "sfb_1", text = "Oh, that's nothin', that's from the second lid. The first lid took my cousin Grizzik's eyebrows clean off, and he says they grew back thicker, so really that was a free cosmetic service, and I'm thinkin' of chargin' for it." } },
+      choices = {
+        { text = "Who do you mean to sell this engine to?", next = "sf_sell" },
+        { text = "Gnomes tried marsh-gas engines years ago, you know.", next = "sf_boom2", when = { race = "Gnome" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sf_boom2 = {
+      lines = { { id = "sfb2_1", text = "Tried, chum, tried! And where are they now? Livin' in a tinker's closet in Ironforge, while I'm out here with a valve you people never thought of, which I'm still not showin' you, so stop leanin'." } },
+      choices = {
+        { text = "I wasn't leaning. Much.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sf_sell = {
+      lines = { { id = "sfs_1", text = "Anybody with coin, chum, Alliance, Horde, the Cartel, the boat crews at Melbin's port, and maybe even the Brotherhood, once they stop glarin'. A good engine doesn't care whose wagon it pulls, and neither does a good businessman." } },
+      choices = {
+        { text = "Both sides of a war. That's a big market.", next = "BACK", reply = "The biggest, pal, and the best part is they keep breakin' each other's wagons." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -178,7 +257,27 @@ P:NPC {
         { text = "Why marsh gas?", next = "gas" },
         { text = "Does Melbin Powderfuse know you're out here?", next = "melbin" },
         { text = "I'm an engineer too. Show me.", next = "xengineer", when = { profession = { name = "Engineering", min = 1 } } },
+        { text = "Who else is out here in the glades with you?", next = "sf_neigh" },
+        { text = "Your boots are singed right up to the ankle.", next = "sf_boom" },
+        { text = "How do you bottle swamp gas, anyway?", next = "w9_bottle" },
         { text = "Good luck with the future.", next = "END" },
+      },
+    },
+
+    w9_bottle = {
+      lines = { { id = "w9_bottle_d", text = "Very carefully, chum, upside down, with a funnel, a cork and absolutely no lanterns within forty yards. You hold the bottle over the bubbles, you count to ten, and you cork it before the gas changes its mind, which it does, often." } },
+      choices = {
+        { text = "What happens if it changes its mind?", next = "w9_bottle2" },
+        { text = "Is that where the singed boots came from?", next = "w9_bottle2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_bottle2 = {
+      lines = { { id = "w9_bottle2_d", text = "Then you learn to swim very fast, chum, because the pond's the safest place to be when the bottle goes. My boots are a record of every lesson, and I've learned a lot of lessons, and I'm about two lessons away from needing new boots." } },
+      choices = {
+        { text = "I'll keep my lantern away.", next = "BACK", reply = "Smart, chum! See, you're practically an investor already." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     engine = {
@@ -272,6 +371,38 @@ P:NPC {
 
   start = "hello",
   nodes = {
+
+    jj_best = {
+      lines = { { id = "jjb_1", text = "Best ever? A troll out of Stranglethorn who'd fought in the Gurubashi pit, kid, three seasons in Gadgetzan and never lost a bout. The crowd loved him, the bookies hated him, and I loved the bookies hatin' him, because that's when the side bets get interesting." } },
+      choices = {
+        { text = "What happened to him?", next = "jj_best2" },
+        { text = "A champion's only good while he keeps winning.", next = "jj_best2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jj_best2 = {
+      lines = { { id = "jjb2_1", text = "He retired rich, kid, which nobody in this business ever does, and I'm still a little sore about it. Took his purse back to the jungle and never fought again, and I've been lookin' for the next one ever since, which is why I'm standin' in a swamp." } },
+      choices = {
+        { text = "Maybe the next one's standing in front of you.", next = "BACK", reply = "That's the confidence I like, kid! Win a few more out there and we'll talk about your poster.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jj_ogre = {
+      lines = { { id = "jjo_1", text = "Kid, I tried, believe me, I walked right up to Sunnyglade with a contract and a smile. Clubtoe took the contract, ate half of it, and told me he only fights the cultists, and he does it for free, which broke my heart a second time." } },
+      choices = {
+        { text = "Some fighters care about more than the purse.", next = "jj_ogre2" },
+        { text = "Did he at least eat the half with the fees?", next = "jj_ogre2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jj_ogre2 = {
+      lines = { { id = "jjo2_1", text = "Ha! He ate the signature line, kid, so I can't even sue him. But I'm patient, and once the Hammer's out of those ruins, an ogre with nothin' to punch is gonna come lookin' for work, and I'll have a pen ready." } },
+      choices = {
+        { text = "Krom'rosh would fight anyone you put in front of him.", next = "BACK", when = { faction = "Horde" }, reply = "The old orc at your camp? Kid, he looked at me like I was a cultist with a moustache. Put in a good word, would ya?" },
+        { text = "You'll wait a long time, I think.", next = "BACK", reply = "Waitin's free, kid, and free's my favourite price when I'm the one payin' it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     -- Deeds pass: the player's deaths, as a business proposition.
     dd_deaths = {
       lines = { { id = "dd_default", text = "Want to? Kid, a fighter who keeps gettin' back up is the best investment in the business! If the spirit healer keeps sendin' you back, that's repeat bookings, and repeat bookings means repeat tickets." } },
@@ -305,7 +436,27 @@ P:NPC {
         { text = "Do you know Jazzle Cheapshot at the port?", next = "jazzle", when = { heardLine = "jazzle.h_default" } },
         { text = "What makes a good fighter, to you?", next = "fighter" },
         { text = "Here's a rank. Want to sign me?", next = "xpvp", when = { pvpRank = 3 } },
+        { text = "Who's the best fighter you ever booked?", next = "jj_best" },
+        { text = "That ogre Clubtoe would make a fine headliner.", next = "jj_ogre" },
+        { text = "What happens to fighters who lose?", next = "w9_lose" },
         { text = "I'll pass.", next = "END" },
+      },
+    },
+
+    w9_lose = {
+      lines = { { id = "w9_lose_d", text = "Depends how they lose, kid! A fighter who loses big, with a lot of blood and a good speech, sells more tickets the next time than the one who won quiet. A fighter who loses boring, well, he goes back to whatever he did before, and I never book him again." } },
+      choices = {
+        { text = "That's harsh.", next = "w9_lose2" },
+        { text = "So losing well is a skill?", next = "w9_lose2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_lose2 = {
+      lines = { { id = "w9_lose2_d", text = "It's show business, kid, and the show is the business. Win if you can, lose loud if you can't, and never, ever die before the second round, because refunds are murder on my margins." } },
+      choices = {
+        { text = "I'll keep it loud.", next = "BACK", reply = "That's my contender! I'll put your name on the posters already." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     why = {

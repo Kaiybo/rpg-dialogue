@@ -28,6 +28,53 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d2_cold = {
+      lines = {
+        { id = "d2_cold_1", text = "More than the living do, because they don't notice when it's wearing through. A deathguard will walk his boots to rags and his feet to bone and only find out when he's leaving pieces of himself on the Pyrewood road." },
+      },
+      choices = {
+        { text = "So you inspect them yourself?", next = "d2_cold2" },
+        { text = "That sounds grim, even for here.", next = "d2_cold2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_cold2 = {
+      lines = {
+        { id = "d2_cold2_1", text = "I stand at the edge of the market when the patrols come back and I look at their boots, and I send the worst of them to Meloche for the plates and to me for the rest. Hadrec has never ordered it, and he has never once told me to stop." },
+      },
+      choices = {
+        { text = "Good of you to watch out for them.", next = "BACK", reply = "It's good business, and it happens to be good of me too. I don't mind which you call it." },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    d2_market = {
+      lines = {
+        { id = "d2_market_1", text = "Meloche for the plate and Guillaume for anyone patient enough to learn, and the bat handler for anyone who'd rather not walk. I'm the only one here who can tell a good hide from a bad one by the smell, and I've had a long time to learn it." },
+      },
+      choices = {
+        { text = "You and Guillaume get on?", next = "d2_market2" },
+        { text = "Every market has its proud one.", next = "d2_market2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_market2 = {
+      lines = {
+        { id = "d2_market2_1", text = "We get on as two proud craftsmen get on, which is to say we each think the other's work is very nearly good. He once told me my rivets were adequate, and I have been trying to forgive him for the compliment ever since." },
+      },
+      choices = {
+        { text = "Adequate is high praise from him.", next = "BACK", reply = "So I'm told. I'd still rather have had excellent, but I'm a vain old saddler." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_coat = {
+      lines = {
+        { id = "d2_coat_1", text = "It has, and I'll thank you not to point it out in front of the customers. A tailor's coat is always the last one mended, and a saddler's is even later, since nobody ever pays me to mend my own." },
+      },
+      choices = {
+        { text = "Then I'll keep the secret.", next = "BACK" },
+        { text = "Ask you something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Alexandre Lefevre, and that's leather on every hook you see. I made saddles in Lordaeron when there were horses to sit on them, and now I make jerkins for soldiers who can't feel the cold, which is easier work and less rewarding." },
@@ -45,6 +92,9 @@ P:NPC {
         { text = "What was Lordaeron like for a saddler?", next = "saddles" },
         { text = "Do you work worgen hide?", next = "worgen" },
         { text = "Any advice for a skinner?", next = "skin", when = { profession = { "Skinning", "Leatherworking" } } },
+        { text = "Soldiers who can't feel cold still need leather?", next = "d2_cold" },
+        { text = "Who else sells in the Sepulcher's market?", next = "d2_market" },
+        { text = "Your own coat's seen some wear.", next = "d2_coat", when = { race = "Scourge" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -127,6 +177,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_shoot = {
+      lines = {
+        { id = "w3_shoot_1", text = "Every one, before it leaves my bench, at a worgen pelt I've nailed to the pine out back. If the arrow goes through the pelt, the bow's sold, and if it doesn't, it's kindling, and I don't care how pretty it is." },
+      },
+      choices = {
+        { text = "How many go to kindling?", next = "w3_kindling" },
+        { text = "A hard test for a bow.", next = "BACK", when = { class = "HUNTER" }, reply = "It's a fair one. You'll be shooting at the real thing soon enough, and the real thing doesn't hold still." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_kindling = {
+      lines = {
+        { id = "w3_kindling_1", text = "One in four, in a bad month, and the bad months are most of them. The Deathguard burn the kindling in the gatehouse brazier, and they tell me it's the best-smelling fire in the Sepulcher, which is the only praise I ever get." },
+      },
+      choices = {
+        { text = "Small mercies. Something else.", next = "BACK" },
+      },
+    },
     sawyer = {
       lines = { { id = "sy_default", text = "Abigail Sawyer, yes. She makes a decent stave and she doesn't mind the walk, so we don't tread on each other. I arm the Deathguard on these walls, and she sees to whoever passes through, and there are more than enough worgen for both our order books." } },
       choices = {
@@ -174,7 +242,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? I've strings to wax." },
-        { id = "h_again2", text = "Go on, I'm listening, mostly." },
+        { id = "h_again2", text = "Talk, then. I'll hear the half of it that matters." },
         { id = "h_again3", text = "Was there something else? Talk to my hands, they're the part that's busy." },
       },
       choices = {
@@ -185,6 +253,7 @@ P:NPC {
         { text = "There's another bowyer in Silverpine, I've heard.", next = "sawyer" },
         { text = "Fletching must be hard to come by here.", next = "fletch" },
         { text = "Troll bows are cut differently from these.", next = "troll", when = { race = "Troll" } },
+        { text = "Do you shoot the bows yourself?", next = "w3_shoot" },
         { text = "Good day, Nadia.", next = "END" },
       },
     },
@@ -266,6 +335,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_repair = {
+      lines = {
+        { id = "w3_repair_1", text = "A Deathguard's helm bitten clean through by a worgen, with two of the teeth still stuck in the steel. I hammered the dents out round them, because getting them out would have split the helm, and he wears it now with the teeth in like a trophy." },
+      },
+      choices = {
+        { text = "He wears the worgen's teeth?", next = "w3_teeth" },
+        { text = "Worgen jaws must be fearsome.", next = "BACK", reply = "Fearsome enough that I've started putting a second plate at the back of every helm. The forest taught me that one." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_teeth = {
+      lines = {
+        { id = "w3_teeth_1", text = "Proudly, and he's told everyone at the Sepulcher that he killed the beast with his bare hands while it was still chewing. Hadrec says it's nonsense, and I say it's good for morale, and the helm doesn't say anything at all." },
+      },
+      choices = {
+        { text = "Morale matters out here. Something else.", next = "BACK" },
+      },
+    },
     forge = {
       lines = { { id = "fg_default", text = "I've a forge in the only dry corner the High Executor would give me. The smoke goes up through a crack in the vault and comes out among the headstones, and the first week I was here a patrol nearly put an arrow in it, thinking the crypt was on fire." } },
       choices = {
@@ -322,6 +409,7 @@ P:NPC {
         { text = "You've a forge in a graveyard, Meloche.", next = "forge" },
         { text = "Who are you arming out here?", next = "arming" },
         { text = "What would you teach a smith about worgen-proofing?", next = "proof", when = { profession = "Blacksmithing" } },
+        { text = "What's the worst repair you've ever had to do?", next = "w3_repair" },
         { text = "Good day.", next = "END" },
       },
     },
@@ -388,13 +476,31 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_bats = {
+      lines = {
+        { id = "w3_bats_1", text = "Couriers from the Undercity, mostly, with sealed letters for Hadrec and a list of what I've run out of, which they always get wrong. Now and then an apothecary comes in looking green about the gills, because bat flight doesn't agree with them, and I sell them a vial of water and a sympathetic ear." },
+      },
+      choices = {
+        { text = "You sell them water?", next = "w3_water" },
+        { text = "The bat handler must see everyone first.", next = "BACK", reply = "Karos does, and he never tells me anything, which is very selfish of him when you consider how much I tell him." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_water = {
+      lines = {
+        { id = "w3_water_1", text = "Clean water, boiled and stoppered, which is worth more in Silverpine than any potion. I charge a copper, and they pay it gladly, and I sleep easy, or would, if I slept." },
+      },
+      choices = {
+        { text = "Fair trade. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Andrew Hilbert, trade goods. I keep the Sepulcher's crafters stitched and soldered, and the apothecaries in vials, though they go through vials faster than anyone ever goes through thread." },
       },
       again = {
         { id = "h_again", text = "What else can I tell you? I've had nobody to talk to since the last bat." },
-        { id = "h_again2", text = "Go on, ask me anything. I usually know." },
+        { id = "h_again2", text = "Go on, ask me anything. I usually know, and if I don't, I'll guess cheerfully." },
       },
       choices = {
         { text = "Selling a crafter short-weight flux is no better than stealing.", next = "BACK", reply = "Worse, I'd say, because their whole piece fails for it. My scales are honest, and you're welcome to check them.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -406,6 +512,7 @@ P:NPC {
         { text = "Your prices are higher than Brill's.", next = "markup" },
         { text = "I go through vials faster than the apothecaries.", next = "xalch", when = { profession = "Alchemy" } },
         { text = "I can't afford much today, I'm afraid.", next = "xpoor", when = { money = { max = 200 } } },
+        { text = "Who comes in on the bats?", next = "w3_bats" },
         { text = "Good day.", next = "END" },
       },
     },
@@ -513,6 +620,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_wolf = {
+      lines = {
+        { id = "w3_wolf_1", text = "A hunter left her here and went into Shadowfang Keep, and never came back for her. She paced that stall for six weeks, up and down, until her pads were raw, and I sat with her every night and talked until she lay down." },
+      },
+      choices = {
+        { text = "What will become of her?", next = "w3_become" },
+        { text = "She knows you now.", next = "BACK", reply = "She does, and she lets me feed her by hand. I don't think she's given up waiting, mind; she's only decided to wait sitting down." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_become = {
+      lines = {
+        { id = "w3_become_1", text = "I've asked the hunters who come through whether any would take her, and they look at her and look at me and say she seems settled. I think they're telling me something, and I think I've heard it." },
+      },
+      choices = {
+        { text = "Then she's yours. Something else.", next = "BACK" },
+      },
+    },
     kept = {
       lines = { { id = "kp_default", text = "They need more keeping than the soldiers do. A Deathguard can go a month without food or sleep, but a wolf wants meat every day and clean straw, and both have to come from somewhere in a forest where half the game is sick." } },
       choices = {
@@ -560,7 +685,7 @@ P:NPC {
         { id = "h_back", when = { metBefore = true }, text = "Sarah Goode, at the stables, where else? The grey wolf has stopped pacing since you were last here, and I'd like to think he's settling, though he may only be tired." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I've a wolf that needs a bit of talking to." },
+        { id = "h_again", text = "Anything else? I've a wolf that needs a bit of talking to, and she's waiting." },
         { id = "h_again2", text = "Go on, I'm listening. So are they." },
         { id = "h_again3", text = "What else? Ask it softly, and nobody in the stalls will mind." },
       },
@@ -572,6 +697,7 @@ P:NPC {
         { text = "The beasts here look better kept than the soldiers.", next = "kept" },
         { text = "You share your yard with Karos Razok's bats.", next = "bats" },
         { text = "How does a hunter keep a beast calm among the dead?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "What's the grey wolf's story?", next = "w3_wolf" },
         { text = "Good day, Sarah.", next = "END" },
       },
     },

@@ -36,7 +36,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Ask what you will, for the watch is long and the plain is quiet." },
-        { id = "h_again2", text = "Was there something more you wished to know?" },
+        { id = "h_again2", text = "Was there something more you wished to know? Ask it slowly; the plain is quiet, and loud questions carry to the cougars." },
       },
       choices = {
         { text = "What beast left bones that size?", next = "bones" },
@@ -46,7 +46,36 @@ P:NPC {
         { text = "Have you ever felt the kodo's spirit here?", next = "yspirit" },
         { text = "Who taught you to keep a watch?", next = "ytaught" },
         { text = "I'm a druid. These bones feel old.", next = "BACK", when = { class = "DRUID" }, reply = "Older than any of us, the elders say. If you hear them, walk softly, and tell me what they say." },
+        { text = "Do the cougars ever come close to the bones?", next = "w7_cougar" },
         { text = "Walk with the Earth Mother, brave.", next = "END" },
+      },
+    },
+    w7_cougar = {
+      lines = {
+        { id = "w7_cougar_l1", text = "They sleep in the shade of the great ribs at midday, and I let them, because a cougar asleep is a cougar that is not hunting. Only when a calf comes too close do I go and wake them, gently, with a stone thrown wide." },
+      },
+      choices = {
+        { text = "Have they ever turned on you?", next = "w7_cougar2" },
+        { text = "You should drive them away for good.", next = "w7_cougar3" },
+        { text = "Something else, Greathoof.", next = "BACK" },
+      },
+    },
+    w7_cougar2 = {
+      lines = {
+        { id = "w7_cougar2_l1", text = "Once, an old female who was hungrier than she was wise. She came at me through the long grass, and I stood my ground and roared, and she stopped, and we looked at each other for a long time before she walked away." },
+        { id = "w7_cougar2_l2", when = { class = "HUNTER" }, text = "Once, an old hungry female. You know how it is: stand your ground, make yourself large, and wait. She looked at me a long while, then walked away. I think she decided I was too stubborn to eat." },
+      },
+      choices = {
+        { text = "Brave of you.", next = "BACK", reply = "Or foolish. On the plains they are the same thing, mostly." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_cougar3 = {
+      lines = {
+        { id = "w7_cougar3_l1", text = "They were here before the bones were bones. I share the shade with them, and they share the plain with me." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     bones = {
@@ -150,7 +179,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Speak as we walk, if you would, because I do not like to stand still on a watch." },
-        { id = "h_again2", text = "What else, then?" },
+        { id = "h_again2", text = "What else, then? Ask while we walk; the pass is only half a mile on, and I mean to reach it before the sun does." },
       },
       choices = {
         { text = "Where does this road lead?", next = "road" },
@@ -159,7 +188,36 @@ P:NPC {
         { text = "How many have you counted leave?", next = "ycount" },
         { text = "Who was the last who didn't return?", next = "ylast" },
         { text = "Do you ever rest?", next = "yrest" },
+        { text = "What do you say to the young ones leaving the mesa?", next = "w7_say" },
         { text = "I'll be on my way.", next = "END" },
+      },
+    },
+    w7_say = {
+      lines = {
+        { id = "w7_say_l1", text = "The same words every time: 'Stay on the road, drink before you're thirsty, and come back to tell me what you saw.' Most of them laugh, but some of them do come back, years later, and tell me, and those are my favourite days." },
+      },
+      choices = {
+        { text = "Who came back most recently?", next = "w7_say2" },
+        { text = "That's not much advice.", next = "w7_say3" },
+        { text = "Something else, Lightninghorn.", next = "BACK" },
+      },
+    },
+    w7_say2 = {
+      lines = {
+        { id = "w7_say2_l1", text = "A young warrior named Hakota, who left with a stick for a spear four seasons ago. He came back last moon with scars from the Barrens and a Crossroads axe, and he walked the road with me for a whole morning just to tell me about it." },
+        { id = "w7_say2_l2", when = { race = "Tauren" }, text = "A warrior named Hakota, with scars from the Barrens. You came down this road too, I think. When you've seen enough of the world, come back and tell me about it, and I'll walk with you a while." },
+      },
+      choices = {
+        { text = "I'll come back.", next = "BACK", reply = "Good. I'll be on the road. I always am." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_say3 = {
+      lines = {
+        { id = "w7_say3_l1", text = "It is all they will remember, so it had better be short. The long advice they learn on the road." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     road = {
@@ -270,7 +328,36 @@ P:NPC {
         { text = "Whose scaffold do you visit most?", next = "ywho" },
         { text = "Have you seen a spirit linger?", next = "yseen" },
         { text = "Have the quilboar ever come near?", next = "yquil" },
+        { text = "Do you speak to the ancestors yourself?", next = "w7_speak" },
         { text = "May the ancestors rest well.", next = "END", fx = { affinity = 1 } },
+      },
+    },
+    w7_speak = {
+      lines = {
+        { id = "w7_speak_l1", text = "Every evening, quietly, before I leave my post. I tell them what happened in the camp that day, who passed their rites, which calf fell and got up again. I do not know if they hear, but my grandmother always wanted to know the news." },
+      },
+      choices = {
+        { text = "What did you tell them today?", next = "w7_speak2" },
+        { text = "The dead don't need news.", next = "w7_speak3" },
+        { text = "Something else, Proudsnout.", next = "BACK" },
+      },
+    },
+    w7_speak2 = {
+      lines = {
+        { id = "w7_speak2_l1", text = "That a young one with a quick eye came by the burial ground and asked about them, and did not trample anything. My grandmother would like that; she always said the respectful ones were rarer than the brave." },
+        { id = "w7_speak2_l2", when = { class = { "PRIEST", "SHAMAN" } }, text = "That someone who walks with the spirits came by and asked about them. You might speak to them yourself, if you wished; they may hear you more clearly than they hear an old brave." },
+      },
+      choices = {
+        { text = "Tell them I said hello.", next = "BACK", reply = "I will, tonight. They will be glad of it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_speak3 = {
+      lines = {
+        { id = "w7_speak3_l1", text = "Perhaps not. But I need to tell it, and they are good listeners." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     rites = {
@@ -371,7 +458,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Speak, but forgive me if I keep my eyes on the east." },
-        { id = "h_again2", text = "What more would you ask?" },
+        { id = "h_again2", text = "What more would you ask? Ask it fast, while the ravine is quiet; when the Bristleback stir, I stop talking." },
       },
       choices = {
         { text = "Tell me about the Bristleback.", next = "quilboar" },
@@ -381,7 +468,36 @@ P:NPC {
         { text = "Why do you want to fight so badly?", next = "ywhy" },
         { text = "Do you have family in the camp?", next = "yfam" },
         { text = "A warrior wants to stand with you.", next = "BACK", when = { class = "WARRIOR" }, reply = "Then stand here a while, and if the Bristleback come, we will meet them together." },
+        { text = "What will you do if the chief lets you fight?", next = "w7_fight" },
         { text = "Hold your corner well, brave.", next = "END" },
+      },
+    },
+    w7_fight = {
+      lines = {
+        { id = "w7_fight_l1", text = "Go into Brambleblade Ravine at dawn, with my father's spear, and not come out until Sharptusk Thornmantle's tusks are hanging from my belt. Then I will come back to this post, and stand here again, because the ravine will still be full of quilboar." },
+      },
+      choices = {
+        { text = "Then what changes?", next = "w7_fight2" },
+        { text = "Revenge won't bring your father back.", next = "w7_fight3" },
+        { text = "Something else, Running Wolf.", next = "BACK" },
+      },
+    },
+    w7_fight2 = {
+      lines = {
+        { id = "w7_fight2_l1", text = "I do, a little. My mother will sleep better, and so will I, and the young ones who walk past this corner will be a little safer. That is enough for one brave to change." },
+        { id = "w7_fight2_l2", when = { class = "WARRIOR" }, text = "Me, a little. You fight, so you know: one victory does not end a war, but it changes the one who wins it. I want to stand at this post knowing I did what my father would have done." },
+      },
+      choices = {
+        { text = "I understand.", next = "BACK", reply = "Thank you. Few do, here." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_fight3 = {
+      lines = {
+        { id = "w7_fight3_l1", text = "No. Nothing will. But it might let him rest, and me with him." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     quilboar = {
@@ -496,7 +612,36 @@ P:NPC {
         { text = "Has the weather ever cost the village?", next = "ystorm" },
         { text = "Do you get many strangers on the bridge?", next = "ystrangers" },
         { text = "What of the dwarves digging west of the bluffs?", next = "ydwarves" },
+        { text = "Can you teach me to read the clouds?", next = "w7_clouds" },
         { text = "Winds guide you, brave.", next = "END" },
+      },
+    },
+    w7_clouds = {
+      lines = {
+        { id = "w7_clouds_l1", text = "A little, if you have a moment. Look there, over Thunder Bluff: long thin clouds like the hair of an old bull mean wind tomorrow, and fat grey ones that sit low over the plains mean rain by dusk." },
+      },
+      choices = {
+        { text = "And what are those now?", next = "w7_clouds2" },
+        { text = "I'll trust my eyes instead.", next = "w7_clouds3" },
+        { text = "Something else, Cloudmane.", next = "BACK" },
+      },
+    },
+    w7_clouds2 = {
+      lines = {
+        { id = "w7_clouds2_l1", text = "Old bull's hair, which means tomorrow the swoops will fly high and the herders will grumble about dust. You learn quickly; my grandmother would have liked you." },
+        { id = "w7_clouds2_l2", when = { class = { "SHAMAN", "DRUID" } }, text = "Old bull's hair, wind tomorrow. You may feel it already, if you listen to the air spirits. My family reads with the eye; yours reads with something deeper. Between us, nobody in Bloodhoof gets wet." },
+      },
+      choices = {
+        { text = "Thank you, Cloudmane.", next = "BACK", reply = "Walk with the wind, and watch the sky." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_clouds3 = {
+      lines = {
+        { id = "w7_clouds3_l1", text = "Your eyes will tell you it is raining when it is already raining. The clouds tell you before." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     north = {
@@ -602,7 +747,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Go on, then, but I am listening to the road as well as to you." },
-        { id = "h_again2", text = "Ask it quickly." },
+        { id = "h_again2", text = "Ask it quickly, and keep your voice low; the goblins' machines go quiet at night, and then I can hear everything." },
       },
       choices = {
         { text = "Looking twice is wise. A watch is only as good as its doubt.", next = "BACK", reply = "Then you will live long, {class}, and so will the village behind me.", fx = { align = { order = 1 } } },
@@ -610,7 +755,76 @@ P:NPC {
         { text = "What have the goblins done?", next = "goblins" },
         { text = "Why do you prefer the night?", next = "night" },
         { text = "You don't trust strangers much.", next = "trust" },
+        { text = "Who else keeps watch in the village?", next = "watch" },
+        { text = "The Venture mine runs all night, doesn't it?", next = "mine" },
+        { text = "I could scout the goblin mine for you.", next = "scout", when = { class = "ROGUE" } },
+        { text = "What do you hear from the mine at night?", next = "w7_hear" },
         { text = "I'll leave you to your watch.", next = "END" },
+      },
+    },
+    w7_hear = {
+      lines = {
+        { id = "w7_hear_l1", text = "Picks, mostly, and the goblins arguing about who owes whom. But some nights I hear something else, a grinding deep in the hill, as if their machines have dug into a place that should have been left alone." },
+      },
+      choices = {
+        { text = "What do you think it is?", next = "w7_hear2" },
+        { text = "Probably just a machine.", next = "w7_hear3" },
+        { text = "Something else, Darksky.", next = "BACK" },
+      },
+    },
+    w7_hear2 = {
+      lines = {
+        { id = "w7_hear2_l1", text = "I do not know, and I do not like not knowing. Baine says the Venture Company will dig until there is nothing left, and I think they may already have dug too far." },
+        { id = "w7_hear2_l2", when = { class = "ROGUE" }, text = "I do not know. You move quietly; you could go and see, if you were willing. I would want to know what is in that hill before it decides to come out on its own." },
+      },
+      choices = {
+        { text = "I'll keep an ear out.", next = "BACK", reply = "Good. Two ears in the night are better than one." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_hear3 = {
+      lines = {
+        { id = "w7_hear3_l1", text = "Probably. And probably the Bristleback are only hungry. I keep the watch for the times probably is wrong." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    watch = {
+      lines = { { id = "watch_d", text = "Dawneagle holds the middle of the village, and she has stood longer than any of us. Rockhorn walks the south road, and Strongbash watches the inn, though he spends more time listening to the guests than watching the doors." } },
+      choices = {
+        { text = "What do you make of Dawneagle?", next = "watch_dawneagle" },
+        { text = "Strongbash doesn't seem much of a watchman.", next = "BACK", reply = "He watches people, not roads. Perhaps that is a kind of watch too, though I would not tell him so." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    watch_dawneagle = {
+      lines = { { id = "watch_dawneagle_d", text = "She is the steadiest of us, and she knew this land when there was no village here at all. When I first came to the watch, she told me that a brave who trusts nothing will soon trust nothing about himself, and I have been chewing on that ever since." } },
+      choices = {
+        { text = "She sounds wise.", next = "BACK", reply = "She is, and she knows it, which is why I seldom tell her." },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    mine = {
+      lines = { { id = "mine_d", text = "It does, and that is why I keep the night watch. Their machines grind and bang until dawn, and the smoke drifts west over our fields, and the elders say the Earth Mother is weeping every time the goblins break the stone." } },
+      choices = {
+        { text = "What do they take from the mine?", next = "mine_take" },
+        { text = "Goblins never stop working, do they?", next = "BACK", reply = "Not when there is coin in it. I have never seen a goblin sleep, and I have looked." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mine_take = {
+      lines = { { id = "mine_take_d", text = "Iron and copper, and they cut down every tree near their camp for timber to brace their tunnels. I have counted the stumps from the ridge, and every one of them was older than the village." } },
+      choices = {
+        { text = "That's a heavy price for ore.", next = "BACK", reply = "It is, and the goblins will never pay it. The land will, and so will we." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    scout = {
+      lines = { { id = "scout_d", text = "I would not refuse the help, though I would not ask it either. Go quietly, look at what they have built near the entrance, and come back to tell me how many guards they post after dark." } },
+      choices = {
+        { text = "I'll be quieter than the wind.", next = "BACK", reply = "Then you are quieter than most of us. Go carefully." },
+        { text = "Another time, perhaps.", next = "BACK" },
       },
     },
     goblins = {
@@ -675,7 +889,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Ask, child, for I have answered every question this village has."  },
-        { id = "h_again2", text = "What else would you know?" },
+        { id = "h_again2", text = "What else would you know, child? Ask; I have stood this watch since before your mother was a calf, and I have answers enough." },
       },
       choices = {
         { text = "A long watch kept faithfully deserves respect.", next = "BACK", reply = "Then you understand the Bloodhoof, and you are welcome among us.", fx = { align = { order = 1 } } },
@@ -683,7 +897,76 @@ P:NPC {
         { text = "What was it like before the village?", next = "before" },
         { text = "Where can I find things here?", next = "find" },
         { text = "The other braves look to you.", next = "others" },
+        { text = "What do the young braves ask you most?", next = "young" },
+        { text = "Bloodhoof Village is busy for a tauren town.", next = "busy" },
+        { text = "Do the tauren still remember what the orcs did for them?", next = "orcs_help", when = { race = "Orc" } },
+        { text = "Have you ever thought of leaving your post?", next = "w7_leave" },
         { text = "May the eternal sun shine on you.", next = "END", fx = { affinity = 1 } },
+      },
+    },
+    w7_leave = {
+      lines = {
+        { id = "w7_leave_l1", text = "Once, when the High Chieftain asked me to come up to Thunder Bluff and train the young braves there. I thought about it for a whole night, and in the morning I came back here, because the village needs someone who remembers it as tents." },
+      },
+      choices = {
+        { text = "Do you regret it?", next = "w7_leave2" },
+        { text = "The Bluff needed you more.", next = "w7_leave3" },
+        { text = "Something else, Dawneagle.", next = "BACK" },
+      },
+    },
+    w7_leave2 = {
+      lines = {
+        { id = "w7_leave2_l1", text = "Never. Thunder Bluff has many teachers, and Bloodhoof has only one old brave who knows where every fence post was set and why. That is worth more to me than a lodge on the high rise." },
+        { id = "w7_leave2_l2", when = { race = "Tauren" }, text = "Never, child. You'll learn this as you grow: some places need you more than you need them. Bloodhoof is mine, and I will stand here until the Earth Mother calls me home." },
+      },
+      choices = {
+        { text = "That's loyal.", next = "BACK", reply = "It is only love, with a spear in its hand." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_leave3 = {
+      lines = {
+        { id = "w7_leave3_l1", text = "Perhaps. But the Bluff has many braves, and only one of them stood here when Bloodhoof was four tents." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    young = {
+      lines = { { id = "young_d", text = "Whether I have ever been afraid, mostly, and they do not like the answer, which is yes, every day. The young think courage means feeling nothing, and it takes them a long while to learn that courage is feeling it and staying anyway." } },
+      choices = {
+        { text = "That's a good lesson to give them.", next = "young_more" },
+        { text = "I'd have thought you'd lie to comfort them.", next = "BACK", reply = "Lies only comfort until the first real danger. After that they cost lives." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    young_more = {
+      lines = { { id = "young_more_d", text = "It is the only one I have, child, and I give it to everyone who asks. Ruul Eagletalon gives them the harpies and the elders give them the stories, but somebody has to tell them the truth about fear." } },
+      choices = {
+        { text = "Then I'm glad it's you.", next = "BACK", reply = "So am I, most days. Go well, and stay afraid enough to stay alive." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    busy = {
+      lines = { { id = "busy_d", text = "It is, and it grows busier every season. Orcs and trolls come through on the road to the Barrens, and the Forsaken come to trade, and Innkeeper Kauth has had to put up another tent for those who cannot fit inside his inn." } },
+      choices = {
+        { text = "You don't seem to mind the crowds.", next = "busy_mind" },
+        { text = "The Horde is a strange mix of peoples.", next = "BACK", reply = "It is, but no stranger than a herd of different beasts drinking at the same pool." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    busy_mind = {
+      lines = { { id = "busy_mind_d", text = "I mind the noise, but not the people. When I was young we were hunted by the centaur across these very plains, and now strangers come to us for shelter, and I find I am proud of that." } },
+      choices = {
+        { text = "You should be.", next = "BACK", reply = "Perhaps. But pride is a soft thing, and I keep it soft so it does not make me careless." },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    orcs_help = {
+      lines = { { id = "orcs_help_d", text = "We remember, orc, and we will not forget. When the centaur had driven us nearly to the edge, Thrall and his people fought beside the High Chieftain and drove them back, and it was after that the tauren could rest here at last." } },
+      choices = {
+        { text = "The orcs were glad to help.", next = "BACK", reply = "I know it. And your people have been welcome here ever since." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     before = {
@@ -750,7 +1033,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Speak plainly, as a brave should." },
-        { id = "h_again2", text = "What else?" },
+        { id = "h_again2", text = "What else? Speak it plainly; I have no patience for a question that hides behind its own tail." },
       },
       choices = {
         { text = "Who teaches in these lodges?", next = "trainers" },
@@ -759,7 +1042,36 @@ P:NPC {
         { text = "What weapon do you carry?", next = "yweapon" },
         { text = "What worries you about the young?", next = "yworry" },
         { text = "Have you fought the Venture Company?", next = "yventure" },
+        { text = "Which of the young ones shows the most promise?", next = "w7_promise" },
         { text = "As you were, brave.", next = "END" },
+      },
+    },
+    w7_promise = {
+      lines = {
+        { id = "w7_promise_l1", text = "A girl named Tahsi, who trains with Krang Stonehoof and cannot hold a spear straight yet, but who gets up every single time she falls. I have watched her fall forty times in a morning, and she has never once stayed down." },
+      },
+      choices = {
+        { text = "That's courage.", next = "w7_promise2" },
+        { text = "Falling forty times isn't promise.", next = "w7_promise3" },
+        { text = "Something else, Ironhorn.", next = "BACK" },
+      },
+    },
+    w7_promise2 = {
+      lines = {
+        { id = "w7_promise2_l1", text = "It is the only courage that matters, in the end. Skill can be taught; getting up cannot. I do not tell her this, because she would stop trying so hard." },
+        { id = "w7_promise2_l2", when = { class = "WARRIOR" }, text = "It is. You'll know, as a warrior: the ones who get up are the ones who last. Do not tell her I said so; she would become proud, and pride falls harder than she does." },
+      },
+      choices = {
+        { text = "Your secret is safe.", next = "BACK", reply = "Good. Let her keep falling." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_promise3 = {
+      lines = {
+        { id = "w7_promise3_l1", text = "It is the start of it. The ones who fall forty times learn forty ways not to fall." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     trainers = {
@@ -872,7 +1184,36 @@ P:NPC {
         { text = "Who do you look up to?", next = "yhero" },
         { text = "What would you do if not a brave?", next = "yelse" },
         { text = "A hunter like you. Any advice for me?", next = "BACK", when = { class = "HUNTER" }, reply = "Watch the sky as well as the ground. The swoops will teach you that, whether you like it or not." },
+        { text = "Do you swim in Stonebull Lake?", next = "w7_swim" },
         { text = "Keep the shore safe.", next = "END" },
+      },
+    },
+    w7_swim = {
+      lines = {
+        { id = "w7_swim_l1", text = "Every morning, before my watch, when the water is cold enough to wake a kodo. Harn Longcast shouts at me from the bridge that I am scaring his fish, and I tell him the fish are glad of the company." },
+      },
+      choices = {
+        { text = "Are they?", next = "w7_swim2" },
+        { text = "Harn has a point.", next = "w7_swim3" },
+        { text = "Something else, Leaping Deer.", next = "BACK" },
+      },
+    },
+    w7_swim2 = {
+      lines = {
+        { id = "w7_swim2_l1", text = "I think so! A little sunfish follows me every morning, the same one, I am sure of it, with a nick in its tail. I have named it Harn, which Harn does not find as funny as I do." },
+        { id = "w7_swim2_l2", when = { race = "Troll" }, text = "I think so! You'll know about swimming with fish, from the Echo Isles. A little sunfish follows me every morning; I named it Harn, after the fisherman, and he is very cross about it." },
+      },
+      choices = {
+        { text = "That's a good name.", next = "BACK", reply = "I think so too. The fish has no opinion." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_swim3 = {
+      lines = {
+        { id = "w7_swim3_l1", text = "He does, and I swim anyway. A brave must have one foolish thing she loves, or the watch becomes too heavy." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     swoops = {
@@ -975,7 +1316,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else would you ask? I have time, for tracks do not run away." },
-        { id = "h_again2", text = "Speak, friend." },
+        { id = "h_again2", text = "Speak, friend, but softly; there are fresh Palemane prints by the west fence, and I am still reading them." },
       },
       choices = {
         { text = "Tell me about the Palemane.", next = "gnolls" },
@@ -984,7 +1325,36 @@ P:NPC {
         { text = "What's the hardest track you've followed?", next = "yhard" },
         { text = "How do you get along with the other braves?", next = "yothers" },
         { text = "Any trouble from the Venture Company?", next = "yventure" },
+        { text = "What do gnoll tracks tell you that others don't?", next = "w7_gnoll" },
         { text = "Good hunting, brave.", next = "END" },
+      },
+    },
+    w7_gnoll = {
+      lines = {
+        { id = "w7_gnoll_l1", text = "That they are afraid, nearly always. A gnoll walks on its toes, ready to run, and the prints are deep at the front and shallow at the heel. The only time I see a full print is when there are many of them together." },
+      },
+      choices = {
+        { text = "So you can tell when they gather?", next = "w7_gnoll2" },
+        { text = "Fear makes them dangerous.", next = "w7_gnoll3" },
+        { text = "Something else, Rainchaser.", next = "BACK" },
+      },
+    },
+    w7_gnoll2 = {
+      lines = {
+        { id = "w7_gnoll2_l1", text = "I can, and I tell Baine at once. The last time I saw full prints, there were fourteen gnolls in the brush by the west fields, and we were ready for them before they were ready for us." },
+        { id = "w7_gnoll2_l2", when = { class = "HUNTER" }, text = "I can, and you could learn to as well. Look at the heel. A scared gnoll never puts its heel down; a bold one does. When you see heels, run for help, because they are not alone." },
+      },
+      choices = {
+        { text = "Useful to know.", next = "BACK", reply = "It has kept this village safe more than once." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_gnoll3 = {
+      lines = {
+        { id = "w7_gnoll3_l1", text = "It does. A frightened thing bites harder than a hungry one. That is why I watch them so closely." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     gnolls = {
@@ -1087,7 +1457,7 @@ P:NPC {
         { id = "h_default", text = "I am Brave Rockhorn. I walk the south road between the village and the pass up to Red Cloud Mesa, and I see the young ones in when they come down from Camp Narache." },
       },
       again = {
-        { id = "h_again", text = "Ask, and I will think on it." },
+        { id = "h_again", text = "Ask, and I will think on it. I am a slow answerer, but I have never had to take an answer back." },
         { id = "h_again2", text = "There is no hurry, so say what you wish." },
       },
       choices = {
@@ -1097,7 +1467,76 @@ P:NPC {
         { text = "Where should a newcomer go first?", next = "first" },
         { text = "Lightninghorn says his road is quiet.", next = "lightning", when = { heardLine = "brave_lightninghorn.rw_default" } },
         { text = "You're a tauren of few words.", next = "words" },
+        { text = "What do the young ones say coming down from Narache?", next = "young" },
+        { text = "This road has seen a great many hooves.", next = "road" },
+        { text = "You'd make a fine tracker, walking this road every day.", next = "tracks", when = { class = "HUNTER" } },
+        { text = "Vira says you let her treat others first.", next = "w7_vira" },
         { text = "I'll walk on.", next = "END" },
+      },
+    },
+    w7_vira = {
+      lines = {
+        { id = "w7_vira_l1", text = "She talks too much, that one, though she bandages well. The young brave was frightened, and I was not, and a wound waits better than fear does." },
+      },
+      choices = {
+        { text = "Weren't you in pain?", next = "w7_vira2" },
+        { text = "You could have bled out.", next = "w7_vira3" },
+        { text = "Something else, Rockhorn.", next = "BACK" },
+      },
+    },
+    w7_vira2 = {
+      lines = {
+        { id = "w7_vira2_l1", text = "I was. But pain is only the body talking, and I have learned to let it talk without listening too closely. The young one's fear was louder than my shoulder." },
+        { id = "w7_vira2_l2", when = { class = { "WARRIOR", "PALADIN" } }, text = "I was. You'll know how it is; pain is the body talking, and a warrior learns when to listen and when to let it speak to itself. The boy's fear was the louder wound." },
+      },
+      choices = {
+        { text = "You're tougher than most.", next = "BACK", reply = "I am only old. Old is a kind of tough." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_vira3 = {
+      lines = {
+        { id = "w7_vira3_l1", text = "I could have. I did not. Vira is very good at her work, and I knew it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    young = {
+      lines = { { id = "young_d", text = "They talk of the wolves and the Bristleback, and of the first time they held a spear against something that meant to kill them. Most are proud, a few are frightened, and every one of them asks how far it is to Bloodhoof." } },
+      choices = {
+        { text = "What do you tell the frightened ones?", next = "young_fear" },
+        { text = "I asked the same question, I think.", next = "BACK", reply = "Most do. The road is longer for the first time, and shorter every time after." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    young_fear = {
+      lines = { { id = "young_fear_d", text = "That fear is the plains teaching them to listen, and that the plains are a good teacher if you heed them. Then I walk beside them for a while without talking, which helps more than anything I could say." } },
+      choices = {
+        { text = "Silence is a good comfort.", next = "BACK", reply = "It is the only kind I am good at giving, so I am glad it works." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    road = {
+      lines = { { id = "road_d", text = "It has, and more every year. Caravans come down from Thunder Bluff and go east toward the Barrens, and the orcs who pass this way always ask why the tauren road is so slow, and I tell them it is a road for walking, not for running." } },
+      choices = {
+        { text = "Where does the road lead, past Mulgore?", next = "road_barrens" },
+        { text = "Orcs are always in a hurry.", next = "BACK", reply = "They are, and they arrive tired. We take our time and arrive ready." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    road_barrens = {
+      lines = { { id = "road_barrens_d", text = "Out through the gate and down into the Barrens, to the Crossroads and beyond. It is a hot, dry country, and the centaur ride there too, so the young ones who go that way should carry water and keep their spears close." } },
+      choices = {
+        { text = "I'll be careful.", next = "BACK" },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    tracks = {
+      lines = { { id = "tracks_d", text = "I have learned a little of it, {class}. The plainstriders leave three toes, the wolves leave four, and the gnolls leave the marks of their boots and of what they have dragged behind them, and I know them all by now." } },
+      choices = {
+        { text = "You'd do well among the hunters.", next = "BACK", reply = "Perhaps, but I would miss the road. A watch is a hunter's patience without the kill." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     south = {
@@ -1164,7 +1603,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else, friend? I am glad of the talk." },
-        { id = "h_again2", text = "Ask away, for I am not going anywhere." },
+        { id = "h_again2", text = "Ask away, for I am planted here like the inn post, and about as easy to move." },
       },
       choices = {
         { text = "Who's inside the inn today?", next = "inn" },
@@ -1173,7 +1612,36 @@ P:NPC {
         { text = "Have you ever had to throw someone out?", next = "ythrow" },
         { text = "Who would you most like to wrestle?", next = "ywho" },
         { text = "Who's the best story-teller in the inn?", next = "ystory" },
+        { text = "Who's the best wrestler you've ever faced?", next = "w7_wrestle" },
         { text = "I'll go in to the fire.", next = "END" },
+      },
+    },
+    w7_wrestle = {
+      lines = {
+        { id = "w7_wrestle_l1", text = "An orc grunt from the Crossroads, half my size, who threw me over his shoulder in front of the whole inn. I lay on the floor and laughed so hard that Kauth thought I had hit my head, and the orc and I have been friends ever since." },
+      },
+      choices = {
+        { text = "How did he throw you?", next = "w7_wrestle2" },
+        { text = "You let him win.", next = "w7_wrestle3" },
+        { text = "Something else, Strongbash.", next = "BACK" },
+      },
+    },
+    w7_wrestle2 = {
+      lines = {
+        { id = "w7_wrestle2_l1", text = "He went low, under my arms, and used my own weight against me. Tauren wrestle by pushing, orcs by twisting, and I had never been twisted before. I have practised it since, and now I can throw any tauren in Bloodhoof." },
+        { id = "w7_wrestle2_l2", when = { race = "Orc" }, text = "He went low and twisted, the way your people do. Tauren only push. If you'd like to try me, after my watch, I'll show you I've learned a few orc tricks since then." },
+      },
+      choices = {
+        { text = "I'd like that.", next = "BACK", reply = "After my watch, then. Kauth will hold the coats." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_wrestle3 = {
+      lines = {
+        { id = "w7_wrestle3_l1", text = "I did not! Well, a little, at the very end. But he had already won." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     inn = {
@@ -1285,7 +1753,36 @@ P:NPC {
         { text = "What's your fastest run?", next = "yfast" },
         { text = "What did you find at the caravan?", next = "ycaravan" },
         { text = "Have you been to Orgrimmar?", next = "yorg" },
+        { text = "What's the best news you ever carried?", next = "w7_best" },
         { text = "Safe watch, brave.", next = "END" },
+      },
+    },
+    w7_best = {
+      lines = {
+        { id = "w7_best_l1", text = "The day the High Chieftain came home from Ashenvale after the battle at Mount Hyjal. I ran from the eastern pass to the lifts with the word that he was alive, and I did not feel my legs at all until the next morning." },
+      },
+      choices = {
+        { text = "What was it like in the village?", next = "w7_best2" },
+        { text = "That was a long time ago.", next = "w7_best3" },
+        { text = "Something else, Swiftwind.", next = "BACK" },
+      },
+    },
+    w7_best2 = {
+      lines = {
+        { id = "w7_best2_l1", text = "Everyone came out of their tents at once, and the drums started, and nobody stopped them for two days. Old Dawneagle wept openly, and I had never seen her weep, and I never have since." },
+        { id = "w7_best2_l2", when = { race = "Tauren" }, text = "Every drum in Mulgore beat at once. You may have been a calf then, and heard them; it is a sound no Bloodhoof forgets. I hope I carry news like that again before I am too old to run." },
+      },
+      choices = {
+        { text = "I hope so too.", next = "BACK", reply = "Thank you. Bring me some good news, if you find any." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_best3 = {
+      lines = {
+        { id = "w7_best3_l1", text = "Not so long. A runner remembers the good news longer than the bad, because the bad ones he tries to forget." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     news = {

@@ -105,6 +105,7 @@ P:NPC {
         { text = "Caught anything strange lately?", next = "y_strange" },
         { text = "What should be done with corrupted fish?", next = "y_stance" },
         { text = "I'm a fisherman too.", next = "BACK", when = { profession = "Fishing" }, reply = "Then you know the hardest part is waiting. Sit, and let's wait together." },
+        { text = "What do you do with the fish you can't name?", next = "w_name" },
         { text = "Good fishing, Heldan.", next = "END" },
       },
     },
@@ -126,6 +127,25 @@ P:NPC {
     ruins = {
       lines = { { id = "ru_default", text = "Not since the ghosts started walking there. Ameth'Aran was a fine place once, they say, before the Highborne who lived there brought ruin on it. I keep to the beach." } },
       choices = { { text = "Wise of you. Something else.", next = "BACK" } },
+    },
+    w_name = {
+      lines = {
+        { id = "w_name_default", text = "I draw them, in a little book, with charcoal, and then I throw them back. There are forty pages now, and the last ten are fish nobody in Auberdine has ever seen, not even old Thamarian on the pier." },
+      },
+      choices = {
+        { text = "Have you shown the book to anyone?", next = "w_name2" },
+        { text = "Forty pages of strange fish.", next = "w_name2" },
+      },
+    },
+    w_name2 = {
+      lines = {
+        { id = "w_name2_default", text = "Thundris Windweaver, once, and he turned the pages very slowly and asked to keep it for a week. When he gave it back he had marked six of them with a small black dot, and he would not tell me why. I have not caught any of those six since." },
+        { id = "w_name2_w1", when = { profession = "Fishing" }, text = "You fish, so take a look at the dotted pages. If you ever pull one of those up, cut your line and walk away." },
+      },
+      choices = {
+        { text = "Thundris knows something.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Something else, Heldan.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -215,6 +235,7 @@ P:NPC {
         { text = "Do you hear from home?", next = "y_home" },
         { text = "Will you ever go back to Quel'Thalas?", next = "y_return" },
         { text = "Is it true about Quel'Thalas?", next = "BACK", when = { class = "MAGE" }, reply = "The Sunwell's gone, if that's what you mean. A mage would feel the lack of it. I do, every day." },
+        { text = "What do you make of the night elves, honestly?", next = "w_kaldorei" },
         { text = "Goodbye, Fiora.", next = "END" },
       },
     },
@@ -246,6 +267,25 @@ P:NPC {
       choices = {
         { text = "Old grudges have their reasons.", next = "BACK", reply = "They do. But I wasn't alive for any of them.", fx = { align = { order = 1 } } },
         { text = "Then let's leave them there.", next = "BACK", reply = "Thank you. That's kinder than most.", fx = { align = { order = -1 } } },
+      },
+    },
+    w_kaldorei = {
+      lines = {
+        { id = "w_kaldorei_default", text = "Honestly? They're very like my own people, if my people had spent ten thousand years in a forest instead of a palace. Same long memories, same pride, same way of looking down the nose. They just look down it at trees instead of at humans." },
+      },
+      choices = {
+        { text = "Do they know you think that?", next = "w_kaldorei2" },
+        { text = "That's not very flattering.", next = "w_kaldorei2" },
+      },
+    },
+    w_kaldorei2 = {
+      lines = {
+        { id = "w_kaldorei2_default", text = "I'd never say it to their faces, and you'll keep it between us. The truth is, I like them better than I expected. There's a Sentinel on the dock who brings me tea every morning and never says a word, and I've grown very fond of her." },
+        { id = "w_kaldorei2_w1", when = { race = "NightElf" }, text = "Oh, you're kaldorei. Well, I meant every word kindly, and you'll forgive a high elf her habits. We were cousins once, after all." },
+      },
+      choices = {
+        { text = "Old grudges can soften.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Fiora.", next = "BACK" },
       },
     },
   },
@@ -349,7 +389,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Tiyani. I keep food and drink for those who visit the Grove of the Ancients, and for the druids who forget to eat when they're talking to trees." },
       },
       again = {
-        { id = "h_again", text = "Is there something else?" },
+        { id = "h_again", text = "Is there something else? The dew is fresh from the ancients' leaves this morning." },
         { id = "h_again2", text = "Yes? I'm still here." },
       },
       choices = {
@@ -402,7 +442,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Ishnu-alah, traveller. The festival moon has brought you to me." },
-    { id = "g_festival", when = { holiday = "lunar" }, text = "The festival lights burn in Moonglade, and I have come back once more to be remembered. Stay a while, and let us honor the old ways together." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The lanterns of Moonglade are lit once more, and I have walked back from the long sleep to stand among the living. Linger a while, and remember the old ways with me." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Elune smiles on those who remember." },
     { id = "g_quest", when = { questActive = TODO_QUEST("Starweave the Elder") }, text = "You seek the blessing of the elders. Come, and receive mine." },
   },
@@ -416,14 +456,62 @@ P:NPC {
       lines = { { id = "h_default", text = "I am Starweave, and once I wove the starlight into songs for the Sisters of Elune. Now each year the moon lets me return to these shores I loved." } },
       again = {
         { id = "h_again", text = "Speak, child. The tide is patient, and so am I." },
-        { id = "h_again2", text = "What else would you know?" },
+        { id = "h_again2", text = "What more would you ask an elder who has seen so many festivals?" },
       },
       choices = {
         { text = "Why return to Darkshore?", next = "shore" },
         { text = "What is the Lunar Festival to the kaldorei?", next = "festival" },
         { text = "Darkshore seems troubled these days.", next = "troubled" },
         { text = "I serve Elune too, Elder.", next = "priest", when = { class = "PRIEST" } },
+        { text = "What songs did you weave for the Sisters?", next = "es_songs" },
+        { text = "Do you see the living when you return?", next = "es_living" },
+        { text = "Was there a song you never finished?", next = "w_song" },
         { text = "Elune keep you, Elder.", next = "END" },
+      },
+    },
+    es_songs = {
+      lines = {
+        { id = "es_songs_1", text = "Songs of the moon's path across the sky, and of the stars that Elune hung to light the way of the lost. I sang them in the old temples, long before Darkshore was a shore at all, and the Sisters sing them still." },
+      },
+      choices = {
+        { text = "Sing me one, Elder.", next = "es_sing" },
+        { text = "I'm a priest. I know some of those songs.", next = "es_sing", when = { class = "PRIEST" } },
+      },
+    },
+    es_sing = {
+      lines = {
+        { id = "es_sing_1", text = "A spirit's voice is thin, child, but listen. The moon rises over the sea, and the sea remembers, and all who are lost may find the way home by her light, if they will only look up." },
+      },
+      choices = {
+        { text = "That's beautiful.", next = "es_beauty" },
+        { text = "A song for the lost. Something else.", next = "BACK" },
+      },
+    },
+    es_beauty = {
+      lines = {
+        { id = "es_beauty_1", text = "It is old, and it is true, which is the best a song can be. When you see the moon over Auberdine tonight, look up, and remember that the dead do not forget the living." },
+      },
+      choices = {
+        { text = "I will remember.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
+    es_living = {
+      lines = {
+        { id = "es_living_1", text = "I see them, and they do not always see me, for the living look ahead and the dead look back. I watch the Sentinels at their posts and the children on the docks, and I am glad that some things endure." },
+      },
+      choices = {
+        { text = "What has changed most, since your time?", next = "es_changed" },
+        { text = "I'm a night elf. I'll honour your memory.", next = "es_changed", when = { race = "NightElf" } },
+      },
+    },
+    es_changed = {
+      lines = {
+        { id = "es_changed_1", text = "The forest has grown sad, child, and the furbolgs have grown angry, and the Highborne ruins are full of restless ghosts. But the moon is the same, and so are the songs, and that is enough for an old spirit like me." },
+      },
+      choices = {
+        { text = "The moon remains. That's a comfort.", next = "BACK" },
+        { text = "Something else, Elder.", next = "BACK" },
       },
     },
     shore = {
@@ -451,6 +539,25 @@ P:NPC {
     priest = {
       lines = { { id = "p_default", text = "Then you know her light does not fade, even for the dead. Carry it gently, and she will carry you." } },
       choices = { { text = "Thank you, Elder. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    w_song = {
+      lines = {
+        { id = "w_song_default", text = "One, child, a song for the stars that fell into the sea when the Well broke. I began it the night of the Sundering, standing on a shore that is not there anymore, and I could not find the last verse before I died." },
+      },
+      choices = {
+        { text = "Could you finish it now?", next = "w_song2" },
+        { text = "That's a heavy song to carry.", next = "w_song2" },
+      },
+    },
+    w_song2 = {
+      lines = {
+        { id = "w_song2_default", text = "I try, every year when the moon lets me come back. I stand here and look at the sea and wait for the verse. It has not come yet. Perhaps it is not mine to write; perhaps it belongs to someone still living, who has not yet seen enough to sing it." },
+        { id = "w_song2_w1", when = { class = "PRIEST" }, text = "You serve the Mother Moon, child. If you ever find yourself singing a verse you did not know you knew, come and sing it to me here." },
+      },
+      choices = {
+        { text = "Maybe next year it will come.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
     },
   },
   topics = {

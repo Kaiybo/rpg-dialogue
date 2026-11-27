@@ -225,6 +225,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_stones = {
+      lines = {
+        { id = "w3_stones_1", text = "I sweep them every morning, dear, with a broom I brought out from the Sepulcher, and I scrape the moss off with my thumbnail. It's foolish work for a dead woman, and I know it, but when the stone's clean I can read the name without crying." },
+      },
+      choices = {
+        { text = "Whose names are on the others?", next = "w3_others" },
+        { text = "It isn't foolish. It's care.", next = "BACK", reply = "You're kind to say it. Edward used to say the same, and then he'd take the broom from me and do the corners." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_others = {
+      lines = {
+        { id = "w3_others_1", text = "Strangers, mostly, from the old village that stood here before the Sepulcher. I sweep theirs as well, because nobody else will, and it seems unkind to leave them dirty beside our boy's." },
+      },
+      choices = {
+        { text = "That's a gentle thing, Tabitha. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -239,7 +257,7 @@ P:NPC {
           text = "I still come out to the stones every morning. I suppose I'm waiting for two of them now, and I've stopped pretending otherwise." },
       },
       again = {
-        { id = "h_again", text = "Is there something else, dear?" },
+        { id = "h_again", text = "Is there something else, dear? I've the stones to finish." },
         { id = "h_again2", text = "Go on. I'm not going anywhere." },
       },
       choices = {
@@ -250,6 +268,7 @@ P:NPC {
         { text = "Was Edward right to keep searching?", next = "worth", when = { questDone = TODO_QUEST("A Frightened Request") } },
         { text = "I found Edward, Tabitha.", next = "found", when = { questDone = TODO_QUEST("A Frightened Request") } },
         { text = "Why live out here, among the graves?", next = "why" },
+        { text = "You keep these stones very clean.", next = "w3_stones" },
         { text = "Goodbye, Tabitha.", next = "END" },
       },
     },
@@ -420,7 +439,7 @@ P:NPC {
           text = "This will do very nicely. I knew Ott had it in him to make something great, and now there's only the beast left to kill, so speak with Lumina when you're ready." },
       },
       again = {
-        { id = "h_again", text = "What else can I do for you?" },
+        { id = "h_again", text = "Anything more I can help with? I'm afraid helping is most of what I'm good for these days." },
         { id = "h_again2", text = "Go on; my mace and I are listening." },
       },
       choices = {
@@ -630,7 +649,7 @@ P:NPC {
           text = "One of Banon's people. I'm sorry; I keep seeing him in every tauren I meet, and it isn't fair to any of you. Winds' blessings to you." },
       },
       again = {
-        { id = "h_again", text = "What else would you like to know?" },
+        { id = "h_again", text = "Ask what you will, friend, while the winds are quiet. Banon's debt still waits on me, and I mean to pay it." },
         { id = "h_again2", text = "Ask; I owe you that much, and more." },
       },
       choices = {

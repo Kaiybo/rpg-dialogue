@@ -56,7 +56,54 @@ P:NPC {
         { text = "How do you like Thunder Bluff?", next = "likes" },
         { text = "Send me to the Darkspear Islands.", next = "BUSINESS", when = { minLevel = 30 } },
         { text = "I've killed my share of Alliance soldiers, Borook.", next = "dd_honor", when = { honorKills = { min = 100 } } },
+        { text = "Who fights for the Darkspear Raiders?", next = "raiders" },
+        { text = "This wind would drive any troll mad.", next = "wind" },
+        { text = "What do the tauren make of a troll recruiting them?", next = "w5_tauren" },
         { text = "Another time, Borook.", next = "END" },
+      },
+    },
+    w5_tauren = {
+      lines = { { id = "w5_tauren_l", text = "At first dey look at Borook like he be a strange bird blown up de cliff. Den dey hear about de islands, how Theramore's men burn de huts an' shoot de raptors, an' dey get quiet. Tauren know about bein' driven from home, mon." } },
+      choices = {
+        { text = "So they fight for the islands as their own?", next = "w5_tauren2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_tauren2 = {
+      lines = { { id = "w5_tauren2_l", text = "Some do. Some fight because Cairne say de Horde stand together. A few just like to hit humans, an' Borook don't ask too many questions. When a big tauren come back from de islands an' tell Borook he saw de sea for de first time, dat be a good day." } },
+      choices = {
+        { text = "A tauren who has seen the sea. That's a good day.", next = "BACK", reply = "It be, mon. He say it look like Mulgore, only wetter an' angrier." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    raiders = {
+      lines = { { id = "raiders_d", text = "Darkspear, mostly, mon, and orcs who owe Sen'jin a debt, and tauren who like a fight. Vol'jin say every Horde warrior who bleeds on those islands be blood-kin to the Darkspear, and Borook believe him." } },
+      choices = {
+        { text = "Vol'jin is generous with his kin.", next = "raiders_voljin" },
+        { text = "The islands mean a lot to your people.", next = "BACK", reply = "They mean everything, mon. They be where we became the Horde." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    raiders_voljin = {
+      lines = { { id = "raiders_voljin_d", text = "He be generous with everything but his trust, mon. A warrior who fights for the Darkspear gets a place at the fire, but a warrior who betrays dem gets a place in Bwonsamdi's arms, and Vol'jin don't forget either kind." } },
+      choices = {
+        { text = "Fair enough.", next = "BACK" },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    wind = {
+      lines = { { id = "wind_d", text = "It nearly has, mon! A troll be made for sea air and jungle heat, not for this cold wind that come screaming across the plains every night. Borook sleep with three blankets and still dream of the beach." } },
+      choices = {
+        { text = "Why not ask to be sent somewhere warmer?", next = "wind_warmer" },
+        { text = "The tauren seem to love the wind.", next = "BACK", reply = "They do, mon. Borook think they be a little mad, but in a good way." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wind_warmer = {
+      lines = { { id = "wind_warmer_d", text = "Because the Raiders need a voice in Thunder Bluff, mon, and Borook be the voice. When the islands be ours again, Borook will go home and never complain about the wind again, but until then he stays." } },
+      choices = {
+        { text = "I hope you get home soon.", next = "BACK" },
+        { text = "Let me ask about something else.", next = "BACK" },
       },
     },
     dd_honor = {

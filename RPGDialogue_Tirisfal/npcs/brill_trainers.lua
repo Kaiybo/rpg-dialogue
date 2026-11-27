@@ -389,6 +389,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_ratslin = {
+      lines = {
+        { id = "w3_ratslin_1", text = "We trade nothing at all, which is its own kind of arrangement. He keeps the street and I keep the inn, and if one of us ever wanders into the other's ground, we both pretend it didn't happen." },
+      },
+      choices = {
+        { text = "And if he heard something you needed?", next = "w3_needed" },
+        { text = "That's a very civilised rivalry.", next = "BACK", reply = "It's not a rivalry, friend. It's a border, and borders are the most civilised things there are." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_needed = {
+      lines = {
+        { id = "w3_needed_1", text = "Then I'd find out from him without asking, and he'd let me, and we'd both enjoy it. That's how professionals talk in Brill, with their backs to each other and their ears open." },
+      },
+      choices = {
+        { text = "I'll learn that trick. Something else.", next = "BACK" },
+      },
+    },
     corner = {
       lines = { { id = "co_default", text = "I chose it with care. From here I can see the door, the stairs and the cellar hatch, and Renee's lamp doesn't reach me unless she trims the wick, which she does on purpose when she thinks I've been listening too long." } },
       choices = {
@@ -447,6 +465,7 @@ P:NPC {
         { text = "You picked the darkest corner of the inn.", next = "corner" },
         { text = "What sort of pupils does Brill send you?", next = "pupils" },
         { text = "What's the first thing you'd fix in me, Marion?", next = "fix", when = { class = "ROGUE" } },
+        { text = "Do you trade secrets with Ratslin Maime?", next = "w3_ratslin" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -513,13 +532,31 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_florence = {
+      lines = {
+        { id = "w3_florence_1", text = "She does, and she sends me her best pupils once she's taught them not to tear up the roots, so I never have to. We swap seeds by the courier cart, and she complains that my marigolds won't grow in her soil, and I tell her that's because she's too stern with them." },
+      },
+      choices = {
+        { text = "Do marigolds mind a stern gardener?", next = "w3_stern" },
+        { text = "You two sound like friends.", next = "BACK", reply = "We're the only two people in Tirisfal who care which way a seed is planted. That's more than enough to be friends on." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_stern = {
+      lines = {
+        { id = "w3_stern_1", text = "I like to think everything minds a stern gardener, even if it doesn't say. My mother sang to hers, and they grew taller than the windowsill, and I've never been able to prove the singing did it, but I've never stopped either." },
+      },
+      choices = {
+        { text = "Keep singing, Faruza. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Faruza, and I teach herbalism to anyone patient enough to kneel in the mud for it. Tirisfal's soil is sick, but things still grow in it, and the apothecaries pay well for the ones that grow strangely." },
       },
       again = {
         { id = "h_again", text = "What else would you know? I've seeds to sort." },
-        { id = "h_again2", text = "Go on. Plants don't mind waiting." },
+        { id = "h_again2", text = "Go on. Plants don't mind waiting, and I've had a lot of practice at it." },
       },
       choices = {
         { text = "An herbalist should leave the blighted patches to heal.", next = "BACK", reply = "Yes, exactly. Every plant in Tirisfal is sick, and they need time, the same as any patient.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -532,6 +569,7 @@ P:NPC {
         { text = "What's the first thing an herbalist learns?", next = "lesson" },
         { text = "Here. Smell my satchel and tell me what's off.", next = "xherb", when = { profession = "Herbalism" } },
         { text = "The Earth Mother could heal this soil, in time.", next = "xtauren", when = { race = "Tauren" } },
+        { text = "Florence Nightshade at Deathknell trains herbalists too.", next = "w3_florence" },
         { text = "Good day, Faruza.", next = "END" },
       },
     },

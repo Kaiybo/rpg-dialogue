@@ -273,7 +273,25 @@ P:NPC {
         { text = "Why do they call you the Marksman?", next = "name" },
         { text = "What makes a good hunter, Galamav?", next = "xhunter", when = { class = "HUNTER" } },
         { text = "What do you make of Warlord Goretooth?", next = "goretooth" },
+        { text = "What do you count, leaving Kargath?", next = "w9_count" },
         { text = "Good hunting, Galamav.", next = "END" },
+      },
+    },
+
+    w9_count = {
+      lines = { { id = "w9_count_d", text = "Everyone. Every patrol, every caravan, every grunt who walks out toward the mountain, and I count them again when they walk back. The gap between the two numbers is the most important thing I know, and I tell it to the Warlord every evening." } },
+      choices = {
+        { text = "What's the gap been lately?", next = "w9_count2" },
+        { text = "That's a grim kind of tally.", next = "w9_count2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_count2 = {
+      lines = { { id = "w9_count2_d", text = "Smaller than it was in the spring, which I put down to people like you clearing the paths. Still, it's never been nothing, and the day it is, I'll put the bow down and take a long drink, and that day hasn't come." } },
+      choices = {
+        { text = "May it come soon.", next = "BACK", reply = "I'll hold you to that, if you come back to drink it with me." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -627,7 +645,7 @@ P:NPC {
           text = "The Warlord says you hunted Dark Irons off his poster. That's fewer of them hitting my shield, so I owe you, and I don't say that to many." },
       },
       again = {
-        { id = "h_again", text = "What else? I'm not going anywhere." },
+        { id = "h_again", text = "What else? Ask it. I'm rooted here like the rock, and I'll stay that way till sundown." },
         { id = "h_again2", text = "Speak. I'm listening, but my shield's facing the ridge." },
       },
       choices = {
@@ -635,7 +653,63 @@ P:NPC {
         { text = "Tell me about your shield.", next = "shield" },
         { text = "What do you fight for, Gargal?", next = "fight" },
         { text = "Who are you protecting?", next = "protect" },
+        { text = "What comes over that ridge?", next = "gg_ridge" },
+        { text = "Who leads Kargath?", next = "gg_lead" },
+        { text = "Do you ever sit down, Gargal?", next = "w9_sit" },
         { text = "Lok'tar, Gargal.", next = "END" },
+      },
+    },
+
+    w9_sit = {
+      lines = { { id = "w9_sit_d", text = "At night, when the next grunt takes the shield. Then I eat, and I sleep, and I dream about the ridge, so I suppose I never really get off it." } },
+      choices = {
+        { text = "What do you dream about?", next = "w9_sit2" },
+        { text = "You need a proper rest.", next = "w9_sit2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_sit2 = {
+      lines = { { id = "w9_sit2_d", text = "Dark Irons coming over the ridge, and me not there to meet them. When I wake, I come back out early, and the night grunt is always glad to see me, so maybe the dream is a good one after all." } },
+      choices = {
+        { text = "It means you care.", next = "BACK", reply = "Hm. Maybe. Don't tell the others." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gg_ridge = {
+      lines = {
+        { id = "gg_ridge_1", text = "Dark Irons from the south, and the ogres from the hills, and once a dragon, though it did not land. I stood here with my shield up and watched it fly over, and it did not come back." },
+      },
+      choices = {
+        { text = "A dragon? Here?", next = "gg_dragon" },
+        { text = "I'd stand behind you for that.", next = "BACK", reply = "Good, there's room." },
+      },
+    },
+    gg_dragon = {
+      lines = {
+        { id = "gg_dragon_1", text = "From the Lethlor Ravine in the east, where the scouts say dragons nest among old bones. I do not know what they want, and I do not need to know, so I keep my shield up." },
+      },
+      choices = {
+        { text = "Shield up. Good advice.", next = "BACK" },
+        { text = "Something else, Gargal.", next = "BACK" },
+      },
+    },
+    gg_lead = {
+      lines = {
+        { id = "gg_lead_1", text = "Warlord Goretooth, and he is a hard orc, and a good one. He holds this ground for the Horde, and he sends us to fight the Dark Irons and the Blackrock both, and he never asks us to do what he would not do himself." },
+      },
+      choices = {
+        { text = "You respect him.", next = "gg_respect" },
+        { text = "I'm an orc. Goretooth has a fine name.", next = "gg_respect", when = { race = "Orc" } },
+      },
+    },
+    gg_respect = {
+      lines = {
+        { id = "gg_respect_1", text = "I do, and I would die for him, though I hope he does not ask. The Blackrock orcs shame our blood in the mountain to the north, and Goretooth keeps us here to show them the true Horde has not forgotten." },
+      },
+      choices = {
+        { text = "That's a good reason to stand firm.", next = "BACK" },
+        { text = "Something else, Gargal.", next = "BACK" },
       },
     },
     shield = {

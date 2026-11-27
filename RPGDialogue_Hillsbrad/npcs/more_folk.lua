@@ -39,6 +39,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_customer = {
+      lines = {
+        { id = "w3_customer_1", text = "Last Tuesday an orc from Tarren Mill bought a pair of bracers at noon, and a Southshore lieutenant bought the matching pair at dusk, and neither knew the other had been here. If they ever meet on the road, they'll be very well matched, and I'll have done my bit for fair fighting." },
+      },
+      choices = {
+        { text = "Doesn't that trouble you at all?", next = "w3_trouble" },
+        { text = "That's the cleverest sale I've heard of.", next = "BACK", reply = "Clever's my trade, friend. Leather's only the excuse." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_trouble = {
+      lines = {
+        { id = "w3_trouble_1", text = "What troubles me is a customer who doesn't pay, and both of them paid. The war was here before I came and it'll be here after I'm gone, so I may as well see that everyone in it has decent boots." },
+      },
+      choices = {
+        { text = "A practical view. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -62,6 +80,7 @@ P:NPC {
         { text = "This was the orcs' prison, once.", next = "keep" },
         { text = "I'm from Southshore. What's the keep's weak side?", next = "weak", when = { faction = "Alliance" } },
         { text = "I could use a quiet way in and out.", next = "quiet", when = { class = "ROGUE" } },
+        { text = "Who's your best customer, then?", next = "w3_customer" },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -195,6 +214,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_difficult = {
+      lines = {
+        { id = "w3_difficult_1", text = "Apothecary Lydon, who buys my finest silk thread to tie off his specimens and then complains that it frays in the acid. I've told him it's meant for collars, not for whatever he's pickling, and he looks at me as if I'm the one who's being unreasonable." },
+      },
+      choices = {
+        { text = "What is he pickling?", next = "w3_pickling" },
+        { text = "Sell him the coarse thread instead.", next = "BACK", reply = "I tried that, and he sent it back with a note saying the specimen had escaped. I've gone back to silk." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_pickling = {
+      lines = {
+        { id = "w3_pickling_1", text = "I've no idea and I've made a point of not finding out. Whatever it is, it twitches in the jar when I deliver the thread, and I'd like to go on not knowing for as long as Tarren Mill lets me." },
+      },
+      choices = {
+        { text = "Wise. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -203,7 +240,7 @@ P:NPC {
           text = "Mallen Swain, tailoring supplies. The living buy thread for their clothes, and the dead buy it for themselves, and I sell to both without asking which." },
       },
       again = {
-        { id = "h_again", text = "Anything further?" },
+        { id = "h_again", text = "Anything further? Mind the needle cushion; it bites." },
         { id = "h_again2", text = "Go on. I'm only threading a needle." },
         { id = "h_again3", text = "Yes? I can listen and wax thread at once." },
       },
@@ -218,6 +255,7 @@ P:NPC {
         { text = "You said you had a shop in Hillsbrad.", next = "shop" },
         { text = "Which thread should a tailor carry out here?", next = "tailor", when = { profession = "Tailoring" } },
         { text = "Could you look at my own stitches?", next = "mend", when = { race = "Scourge" } },
+        { text = "Who's your most difficult customer?", next = "w3_difficult" },
         { text = "Not today.", next = "END" },
       },
     },
@@ -353,6 +391,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_strange = {
+      lines = {
+        { id = "w3_strange_1", text = "A pale one with a frilly cap that hummed, very softly, if you put your ear to it in the dark. I'd half decided to keep it as a pet when Apothecary Lydon heard about it and took it away in a jar, and I've not had the heart to ask what became of it." },
+      },
+      choices = {
+        { text = "Did it hum a tune?", next = "w3_tune" },
+        { text = "Lydon takes everything interesting, I hear.", next = "BACK", reply = "He does, and he never brings anything back. I've started hiding the odd ones under a sack until they've gone quiet." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_tune = {
+      lines = {
+        { id = "w3_tune_1", text = "Something like a lullaby, I thought, though Samsa said it was only the damp. I hum it to the new batches now, out of fondness, and the orcs think I've gone soft in the head, which isn't far wrong." },
+      },
+      choices = {
+        { text = "Hum away, Jason. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -375,6 +431,7 @@ P:NPC {
         { text = "What's on the right, then?", next = "right" },
         { text = "Don't you find this town grim, brother?", next = "grim", when = { race = "Scourge" } },
         { text = "How would you cook these, if you could taste?", next = "cook", when = { profession = "Cooking" } },
+        { text = "What's the strangest mushroom you've grown?", next = "w3_strange" },
         { text = "Not now.", next = "END" },
       },
     },
@@ -497,6 +554,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_finest = {
+      lines = {
+        { id = "w3_finest_1", text = "The garrison's banner, which hangs over the inn: black field, the Dark Lady's sigil in silver thread, and every stitch done by lamplight over three weeks. High Executor Darthalia looked at it for a long while and said \"acceptable,\" which from her is a medal." },
+      },
+      choices = {
+        { text = "Did anyone else notice the work?", next = "w3_notice" },
+        { text = "Three weeks for one banner.", next = "BACK", reply = "A banner is looked at by every soldier every morning, {class}. It is the one piece of cloth in the town that cannot be hurried." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_notice = {
+      lines = {
+        { id = "w3_notice_1", text = "An orc from the Warchief's detachment stood under it and told me his clan's banners were painted on hide, and that he'd never seen thread do what mine did. I've thought about that more than about anything the High Executor ever said." },
+      },
+      choices = {
+        { text = "High praise from an orc. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Daryl Stack. I teach tailoring to whoever in Tarren Mill will learn it, and I keep the garrison's uniforms fit to be seen. It isn't grand work, but there's a great deal of it, and it doesn't wait." },
@@ -516,6 +591,7 @@ P:NPC {
         { text = "What does the garrison wear through fastest?", next = "wear" },
         { text = "Who do you work with in the town?", next = "town" },
         { text = "What should I learn after wool?", next = "next", when = { profession = "Tailoring" } },
+        { text = "What's the finest thing you've sewn here?", next = "w3_finest" },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -619,13 +695,31 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_wolves = {
+      lines = {
+        { id = "w3_wolves_1", text = "Every evening, the scraps and the bones and whatever the orcs leave in the bowl, which isn't much. The wolves are better company than their riders, if I'm honest, because they eat what they're given and lick the pot afterwards." },
+      },
+      choices = {
+        { text = "Which wolf is your favourite?", next = "w3_favourite" },
+        { text = "The orcs might not like you spoiling them.", next = "BACK", reply = "The orcs don't notice. Krusk's wolf, though, sits by my door every night now, and Krusk's noticed that." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_favourite = {
+      lines = {
+        { id = "w3_favourite_1", text = "Krusk's, a grey bitch with a torn ear, who follows me round the kitchen like I'm the pack leader. Krusk says I've stolen her, and I say she's got taste, and we've agreed to leave it there." },
+      },
+      choices = {
+        { text = "She's got taste. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Derak Nightfall, cook. The Dark Lady's soldiers don't need feeding, but the Warchief's do, and so do their wolves, and so does every sellsword who comes up the road. I feed the lot out of one pot." },
         { id = "h_scourge", when = { race = "Scourge" }, text = "Derak Nightfall, cook. You'll not be wanting a bowl, being one of us, so we can skip the part where you pretend to like it. That's restful, I'll admit." },
       },
       again = {
-        { id = "h_again", text = "What? I've a pot on." },
+        { id = "h_again", text = "What? I've a pot on, and it's boiling." },
         { id = "h_again2", text = "Go on, then. It wants stirring, but it can stir itself a moment." },
         { id = "h_again3", text = "Ask. Don't lean on the table, it's the clean one." },
       },
@@ -638,6 +732,7 @@ P:NPC {
         { text = "Who complains the most?", next = "complain" },
         { text = "Your stew needs acid. A little sour apple.", next = "apple", when = { profession = "Cooking" } },
         { text = "I'll tell you honestly how it tastes.", next = "honest", when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "Do you feed the orcs' wolves too?", next = "w3_wolves" },
         { text = "I'll leave you to your pot.", next = "END" },
       },
     },
@@ -740,6 +835,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_users = {
+      lines = {
+        { id = "d2_users_1", text = "Lydon takes the most, as you've heard, and the rest go to the poisoners and to whoever's wrapping the Deathguard's wounds. Even Darthalia keeps a pot of peacebloom on her sill, though she'll tell you it's for the smell, and the dead don't notice smells much." },
+      },
+      choices = {
+        { text = "Then why does she keep it?", next = "d2_users2" },
+        { text = "A High Executor with a flowerpot.", next = "d2_users2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_users2 = {
+      lines = {
+        { id = "d2_users2_1", text = "I think she had a garden in life, and her hands remember it even when she doesn't. I water the pot when she's out on the walls, and neither of us has ever mentioned it." },
+      },
+      choices = {
+        { text = "Your secret's safe with me.", next = "BACK" },
+        { text = "Something else, Aranae.", next = "BACK" },
+      },
+    },
+    d2_danger = {
+      lines = {
+        { id = "d2_danger_1", text = "The Southshore militia, chiefly, who shoot first at anyone bending over in the fields. Then the gnolls in the south hills, and the bears, and once a Syndicate patrol who wanted my satchel and changed their minds when they saw what was in it." },
+      },
+      choices = {
+        { text = "What was in it?", next = "d2_danger2" },
+        { text = "You don't seem the kind to scare easily.", next = "d2_danger2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_danger2 = {
+      lines = {
+        { id = "d2_danger2_1", text = "Fadeleaf and a jar of something Lydon asked me to carry back for him, with a skull on the lid. I didn't know what was in the jar, but they didn't either, and that was enough for a man in a black mask." },
+      },
+      choices = {
+        { text = "A good bluff.", next = "BACK", reply = "It wasn't a bluff, it was honesty with a skull on it, and the skull did the work." },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    d2_druid = {
+      lines = {
+        { id = "d2_druid_1", text = "Then you'll have learned the kind side of it and I the other. The druids teach that a plant is a gift of the land, and I'd agree, though in Tarren Mill we've learned what a gift can be used for." },
+      },
+      choices = {
+        { text = "The land would not approve.", next = "BACK", reply = "The land isn't fighting the Alliance. I am, and so is everyone who lives here now." },
+        { text = "Ask you something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Aranae Venomblood. I teach herbalism, which here means showing people which Hillsbrad weeds are worth bending down for. The apothecaries want some of them badly, and it's healthier not to dwell on why." },
@@ -759,6 +901,9 @@ P:NPC {
         { text = "That's a name to frighten students with.", next = "name" },
         { text = "Where are your northern spots?", next = "spots", when = { profession = "Herbalism" } },
         { text = "My people ask the plant first. It matters.", next = "ask", when = { race = "Tauren" } },
+        { text = "Who else in Tarren Mill uses your herbs?", next = "d2_users" },
+        { text = "These hills must hold dangers for an herbalist.", next = "d2_danger" },
+        { text = "I've learned herbs from the druids.", next = "d2_druid", when = { class = "DRUID" } },
         { text = "I'll mind the racks. Goodbye.", next = "END" },
       },
     },
@@ -855,6 +1000,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_house = {
+      lines = {
+        { id = "d2_house_1", text = "Lord Ravenholdt, whom you will meet if he wishes it and not otherwise. Smudge brews in the cellar, Zan tinkers behind his curtain, and a few dozen rogues sleep in shifts and pretend they are not watching each other, which is the first lesson of the house." },
+      },
+      choices = {
+        { text = "Tell me about Lord Ravenholdt.", next = "d2_house2" },
+        { text = "A house of watchers. Charming.", next = "d2_house2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_house2 = {
+      lines = {
+        { id = "d2_house2_1", text = "He is old, he is patient, and he has never in my hearing raised his voice, because he has never needed to. If you want his good opinion, do what you said you would do, and do it before anyone thought to ask." },
+      },
+      choices = {
+        { text = "I'll remember that.", next = "BACK" },
+        { text = "Something else, Fahrad.", next = "BACK" },
+      },
+    },
+    d2_find = {
+      lines = {
+        { id = "d2_find_1", text = "They are brought, or they are clever, or they are lost, and the lost ones are rarely allowed to stay lost. The road up from Hillsbrad is narrower than it looks and watched from more places than you saw on your way in." },
+      },
+      choices = {
+        { text = "I didn't see anyone watching.", next = "d2_find2" },
+        { text = "And the clever ones?", next = "d2_find2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_find2 = {
+      lines = {
+        { id = "d2_find2_1", text = "No, you did not, which is how it should be. The clever ones I keep an eye on, because a man who finds this house by his own wits will one day try to find something else in it, and I like to be in the room when he does." },
+      },
+      choices = {
+        { text = "Fair warning, then.", next = "BACK", reply = "It is the only warning you will have from me. Treasure it." },
+        { text = "Ask another thing.", next = "BACK" },
+      },
+    },
+    d2_light = {
+      lines = {
+        { id = "d2_light_1", text = "It troubles nobody here, since the house has taken coin from priests before, and from their enemies in the same week. Your Light may watch everything, but in this manor it is not the only thing watching." },
+      },
+      choices = {
+        { text = "The Light sees more than you think.", next = "BACK", reply = "Then it will have seen that I am very good at my work. Good day to it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Fahrad. I train the rogues of this house, and Lord Ravenholdt trusts me to decide which of them are worth keeping. The manor takes no side but its own, so you may stay as long as you are interesting." },
@@ -873,6 +1065,9 @@ P:NPC {
         { text = "You've no love for the Syndicate.", next = "syndicate" },
         { text = "What makes a rogue worth keeping?", next = "keep" },
         { text = "I pick pockets for a living. Judge my hands.", next = "hands", when = { class = "ROGUE" } },
+        { text = "Who else lives in this manor?", next = "d2_house" },
+        { text = "How do people find Ravenholdt at all?", next = "d2_find" },
+        { text = "I serve the Light. Does that trouble the house?", next = "d2_light", when = { class = { "PALADIN", "PRIEST" } } },
         { text = "I'll see myself out, by the left path.", next = "END" },
       },
     },
@@ -972,13 +1167,60 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_inn = {
+      lines = {
+        { id = "d2_inn_1", text = "The best of everything, since Chef Jessen won't cook what he hasn't picked himself. He comes in at dawn and prods every joint on the hooks like he's buying a horse, and then he takes the forerib and leaves me the shanks." },
+      },
+      choices = {
+        { text = "And what do you do with the shanks?", next = "d2_inn2" },
+        { text = "Sounds like you resent him.", next = "d2_inn2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_inn2 = {
+      lines = {
+        { id = "d2_inn2_1", text = "Sell them to the militia for stew, and they're grateful for it, which is more than I can say for Jessen. Neema at the inn slips me a bowl of his soup now and then, and I'll admit the man can cook, though I'll never say it to his face." },
+      },
+      choices = {
+        { text = "I won't tell him either.", next = "BACK" },
+        { text = "Ask you something else, Bront.", next = "BACK" },
+      },
+    },
+    d2_count = {
+      lines = {
+        { id = "d2_count_1", text = "I do, every month, so nobody forgets. There were eleven farms sending cattle when the Mill fell, and there are four now, and the last time a farm stopped, I found out from the cart driver and not from the family." },
+      },
+      choices = {
+        { text = "Which farms are left?", next = "d2_count2" },
+        { text = "That's a grim thing to count.", next = "d2_count2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_count2 = {
+      lines = {
+        { id = "d2_count2_1", text = "Ray, Getz, Kalaba and old Nethander's lad, and Nethander's is nearest the Mill, so I don't count on it long. Every time I say the number out loud in the square, Magistrate Maleb looks at me like I've broken a window." },
+      },
+      choices = {
+        { text = "Someone needs to say it.", next = "BACK", reply = "That's what I tell him. He'd rather I said it quieter." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_hunter = {
+      lines = {
+        { id = "d2_hunter_1", text = "Then you'll know a clean kill from a messy one, and you'll know why I'd pay a fair price for venison if you bring it in dressed. The deer have gone up into the hills since the dead came to the Mill, and my hunters have gone with them." },
+      },
+      choices = {
+        { text = "I'll keep that in mind.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Bront Coldcleave, butcher. I feed Southshore, and the militia, and any traveller who's sick of fish, which in this town is most of them by the second day." },
         { id = "h_horde", when = { faction = "Horde" }, text = "Bront Coldcleave. You're not from the Alliance side, and I'll be honest, I'd sooner you bought and went. But coin's coin, and a butcher who turns it away doesn't stay a butcher." },
       },
       again = {
-        { id = "h_again", text = "What else can I do for you?" },
+        { id = "h_again", text = "Anything else, friend? Speak up over the cleaver, I've a side of beef that won't joint itself." },
         { id = "h_again2", text = "Go on, I can talk and trim." },
         { id = "h_again3", text = "Aye? Mind the block, it's sharp work today." },
       },
@@ -991,6 +1233,9 @@ P:NPC {
         { text = "How's the town holding up?", next = "town" },
         { text = "What would you roast for a feast?", next = "roast", when = { profession = "Cooking" } },
         { text = "I'm with the militia's effort. What do they need?", next = "militia", when = { faction = "Alliance", minLevel = 25 } },
+        { text = "What does the inn buy off your block?", next = "d2_inn" },
+        { text = "You count the farms aloud, I hear.", next = "d2_count" },
+        { text = "I hunt my own meat on the road.", next = "d2_hunter", when = { class = "HUNTER" } },
         { text = "Good day, Bront.", next = "END" },
       },
     },
@@ -1089,6 +1334,62 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_evening = {
+      lines = {
+        { id = "w3_evening_1", text = "Sit on the end of the dock with a pipe I can still taste, and look up the valley at the lamps of Tarren Mill. My father shod horses for both towns once, when it was one county, and I find I can't stop looking that way." },
+      },
+      choices = {
+        { text = "You don't hate them, up there?", next = "w3_hate" },
+        { text = "One county, once. That's a sad thought.", next = "BACK", reply = "It is. My father's anvil came from a Tarren Mill smith. I'd like to think the old man is resting, whatever's walking his streets now." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_hate = {
+      lines = {
+        { id = "w3_hate_1", text = "I hate what they've become, and I hate what they shoot into our militia. But I knew the baker up there, and the carter, and I've no wish to meet any of them across a shield wall, whatever colour their banners are." },
+      },
+      choices = {
+        { text = "War makes strangers of neighbours. Something else.", next = "BACK" },
+      },
+    },
+    d2_best = {
+      lines = {
+        { id = "d2_best_1", text = "Marshal Redpath, though you'd not know it, since he insists on wearing it under a plain surcoat so the men don't see him better armored than they are. I respect him for it, even if it means nobody admires my finest plate." },
+      },
+      choices = {
+        { text = "And Lieutenant Orinelle?", next = "d2_best2" },
+        { text = "A modest marshal. That's rare.", next = "d2_best2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_best2 = {
+      lines = {
+        { id = "d2_best2_1", text = "Orinelle wears whatever's nearest and wears it out in a month, because she's always the first over a wall. I've stopped making her anything fine and started making her things that are easy to mend, and she's never noticed the difference." },
+      },
+      choices = {
+        { text = "Wise of you.", next = "BACK" },
+        { text = "Ask you something else, Robert.", next = "BACK" },
+      },
+    },
+    d2_shield = {
+      lines = {
+        { id = "d2_shield_1", text = "Aye, and that's no trophy. It belonged to a lad from the Hillsbrad Fields who carried it up toward the Mill and came back on a cart without it, and a deathguard sold it back to Southshore at Kris Legace's stall, of all the cheek." },
+      },
+      choices = {
+        { text = "Kris Legace sells to both sides?", next = "d2_shield2" },
+        { text = "So you bought it back.", next = "d2_shield2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_shield2 = {
+      lines = {
+        { id = "d2_shield2_1", text = "She trades with anyone who comes up the hill with coin, and I paid her three silver for a shield I made for nothing. I hang it there so that every soldier who comes in for mending sees it and thinks twice about how far up the road he goes." },
+      },
+      choices = {
+        { text = "Does it work?", next = "BACK", reply = "Not as often as I'd like. They're brave lads, and bravery's never been much for listening." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Robert Aebischer, armorsmith. I make and mend for Southshore's militia first and for travellers after, and these days the mending takes up more of the forge than the making." },
@@ -1108,6 +1409,9 @@ P:NPC {
         { text = "What do they call superior about it?", next = "superior" },
         { text = "How would you temper mail for these hills?", next = "temper", when = { profession = "Blacksmithing" } },
         { text = "Dwarven mail's lighter. You know that.", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "Who wears your best work?", next = "d2_best" },
+        { text = "You've a militia shield on the wall.", next = "d2_shield" },
+        { text = "What do you do when the forge is cold?", next = "w3_evening" },
         { text = "Good day to you.", next = "END" },
       },
     },
@@ -1206,13 +1510,69 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_children = {
+      lines = {
+        { id = "w3_children_1", text = "A dozen or so, love, and they play at militia on the green with sticks, and the Forsaken are always the ones who lose. I don't stop them, because it's what children do, but my heart turns over every time I hear one of them pretend to die." },
+      },
+      choices = {
+        { text = "Do they understand the danger?", next = "w3_danger" },
+        { text = "Children play at whatever frightens them.", next = "BACK", reply = "They do, and my mother said the same during the orcs' war. I suppose every war gets its own game on the green." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_danger = {
+      lines = {
+        { id = "w3_danger_1", text = "They understand the bells, which ring when something's coming up from the Mill, and they run inside without being told. That's more than I'd like a child to know, but it's the thing that keeps them alive." },
+      },
+      choices = {
+        { text = "Then the town's looking after them. Something else.", next = "BACK" },
+      },
+    },
+    d2_stock = {
+      lines = {
+        { id = "d2_stock_1", text = "Thread, believe it or not, because every soldier tears his kit on the hills and every wife in town is mending. The ship brings bolts of it from Menethil, and they're gone in two days, and then I'm selling string to people who know perfectly well it's string." },
+      },
+      choices = {
+        { text = "Can't you order more?", next = "d2_stock2" },
+        { text = "String will do in a pinch.", next = "d2_stock2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_stock2 = {
+      lines = {
+        { id = "d2_stock2_1", text = "I order double every time, and Micha Yance tells me the ship can only carry what the murlocs leave it. I've started saving a spool under the counter for Brewmeister Bilger's wife, since she does the militia's colours and nobody else can match them." },
+      },
+      choices = {
+        { text = "Kind of you.", next = "BACK" },
+        { text = "Ask you something else, Sarah.", next = "BACK" },
+      },
+    },
+    d2_breath = {
+      lines = {
+        { id = "d2_breath_1", text = "It does, doesn't it, love? Everyone's waiting for the Mill to do something, or for the Marshal to, and in the meantime they buy lamp oil and keep their children in after dark, and the whole town goes to bed early." },
+      },
+      choices = {
+        { text = "What do you think will happen?", next = "d2_breath2" },
+        { text = "Waiting's harder than fighting.", next = "d2_breath2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_breath2 = {
+      lines = {
+        { id = "d2_breath2_1", text = "I think nothing will happen for a long while, and then everything will at once, the way it did in Lordaeron. I keep a basket packed under the counter myself, with bread and a blanket in it, and I've never told anyone that but you." },
+      },
+      choices = {
+        { text = "I'll keep it to myself.", next = "BACK" },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Sarah Raycroft, and this is the general store, such as it is. If Southshore needs it and it isn't a fish, it likely came through my door." },
         { id = "h_nightelf", when = { race = "NightElf" }, text = "Sarah Raycroft, and welcome. We don't see many of your people this far east, and I hope you'll forgive the staring. I've a few things from Auberdine that came by ship, if you're missing home." },
       },
       again = {
-        { id = "h_again", text = "Anything else, love?" },
+        { id = "h_again", text = "Anything else I can find for you, my duck? I've a good eye for what a traveller's missing." },
         { id = "h_again2", text = "Go on, I'm only counting stock." },
         { id = "h_again3", text = "Yes? Mind the barrel, the lid's loose." },
       },
@@ -1225,6 +1585,9 @@ P:NPC {
         { text = "How do goods still reach Southshore?", next = "ships" },
         { text = "I'm heading into Alterac. What should I pack?", next = "pack", when = { minLevel = 28 } },
         { text = "I've come from Menethil. Any message to carry?", next = "menethil", when = { faction = "Alliance", minLevel = 20 } },
+        { text = "What's the hardest thing to keep in stock?", next = "d2_stock" },
+        { text = "Southshore feels like it's holding its breath.", next = "d2_breath" },
+        { text = "Are there many children left in Southshore?", next = "w3_children" },
         { text = "Thank you, Sarah.", next = "END" },
       },
     },
@@ -1322,6 +1685,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_raleigh = {
+      lines = {
+        { id = "d2_raleigh_1", text = "That the Light forgives every sin, even mine, and that he'll keep asking it to until it agrees. He means it kindly, which is the trouble, because a man who hates you can be ignored and a man who prays for you has to be thanked." },
+      },
+      choices = {
+        { text = "Do you thank him?", next = "d2_raleigh2" },
+        { text = "He sounds like a good man.", next = "d2_raleigh2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_raleigh2 = {
+      lines = {
+        { id = "d2_raleigh2_1", text = "Every time, and I send him a jar of liniment for his knees every winter, unlabelled so he can pretend he doesn't know where it came from. He kneels on the chapel steps for half the night, and somebody has to look after the knees." },
+      },
+      choices = {
+        { text = "A poisoner's charity.", next = "BACK", reply = "Call it a professional courtesy. He looks after my soul, and I look after his joints." },
+        { text = "Ask you something else.", next = "BACK" },
+      },
+    },
+    d2_back = {
+      lines = {
+        { id = "d2_back_1", text = "It would, since it's where I boil things that shouldn't be boiled near bread. I keep it shut and I keep the window open toward the sea, and the Magistrate has asked me twice to move it further from the inn." },
+      },
+      choices = {
+        { text = "Will you move it?", next = "d2_back2" },
+        { text = "The smell must drive the customers off.", next = "d2_back2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_back2 = {
+      lines = {
+        { id = "d2_back2_1", text = "Where to, the hill? I'd be up there with the gnolls, or worse, halfway to the Mill and selling to the other side by accident. No, the Magistrate gets a closed door and my word that nothing's burning, and so far nothing has." },
+      },
+      choices = {
+        { text = "So far.", next = "BACK", reply = "That's the only promise anyone in my trade ever makes, friend." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_durn = {
+      lines = {
+        { id = "d2_durn_1", text = "Durnholde, is it? Then something that dulls the wits rather than the blood, since the Syndicate guard in pairs, and a man who falls over gets noticed. Mind-numbing work is what you want, and you'll want plenty of it." },
+      },
+      choices = {
+        { text = "I'll take your word on it.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Jaysin Lanyda. Reagents for those who cast, and something stronger for those who'd rather not be seen doing it. All for the defence of Southshore, you understand, and I've a letter from the Marshal saying so." },
@@ -1341,6 +1751,9 @@ P:NPC {
         { text = "Where do you get it all?", next = "source" },
         { text = "What works on a Forsaken?", next = "undead", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Poison is a coward's weapon.", next = "coward", when = { class = { "PALADIN", "WARRIOR" } } },
+        { text = "What does Raleigh the Devout say to your face?", next = "d2_raleigh" },
+        { text = "Your back room smells strange.", next = "d2_back" },
+        { text = "I could use a quieter poison for Durnholde.", next = "d2_durn", when = { class = "ROGUE" } },
         { text = "I was never here.", next = "END" },
       },
     },
@@ -1437,6 +1850,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_long = {
+      lines = {
+        { id = "w3_long_1", text = "Eleven winters, if you count the one I spent mostly in a snowdrift. Lord Ravenholdt hired me on a handshake and a test, and I've never asked for a new contract, because the path never asks me for anything new either." },
+      },
+      choices = {
+        { text = "What was the test?", next = "w3_test" },
+        { text = "Eleven winters is a long watch.", next = "BACK", reply = "It's a short watch, done many times. That's the trick of it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_test = {
+      lines = {
+        { id = "w3_test_1", text = "To walk up the path to the door without anybody in the house noticing. I made it to the bottom step and found Lord Ravenholdt sitting on it, waiting, with two cups of tea. He hired me for getting that far, and for drinking the tea without asking what was in it." },
+      },
+      choices = {
+        { text = "What was in it?", next = "BACK", reply = "Tea. That was the second test." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Winstone Wolfe. I walk the ground between the cliff and the door, and I decide what gets as far as the door. You've got this far, so somebody inside wants you, or I've grown careless, and I haven't." },
@@ -1444,8 +1876,8 @@ P:NPC {
       },
       again = {
         { id = "hello_a1", text = "Something else? Keep it short." },
-        { id = "hello_a2", text = "Go on. I can listen and watch." },
-        { id = "hello_a3", text = "Well?" },
+        { id = "hello_a2", text = "Talk if you want. My eyes stay on the road either way." },
+        { id = "hello_a3", text = "Well? Out with it, and keep off the scree." },
       },
       choices = {
         { text = "Ravenholdt's rules exist for a reason, and I'll keep them.", next = "BACK", reply = "Good. Most who come up this road think they're above the rules, and most of them leave sooner than they planned.", fx = { align = { order = 1 } } }, -- dp_stance
@@ -1455,6 +1887,7 @@ P:NPC {
         { text = "Who else keeps this house?", next = "house" },
         { text = "The Syndicate must want this place badly.", next = "syndicate" },
         { text = "What gave me away on the upper path?", next = "path", when = { class = "ROGUE" } },
+        { text = "How long have you watched this path?", next = "w3_long" },
         { text = "I'll go on to the door.", next = "END" },
       },
     },
@@ -1559,14 +1992,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_lord = {
+      lines = {
+        { id = "w3_lord_1", text = "Precise. He keeps no more men than the house needs and pays them before they ask, and in eleven years I have never heard him raise his voice. Those he displeases simply find, one morning, that they are no longer expected at breakfast." },
+      },
+      choices = {
+        { text = "And those he pleases?", next = "w3_pleases" },
+        { text = "That sounds like a frightening master.", next = "BACK", reply = "It is a restful one, for those of us who prefer to know exactly where we stand." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_pleases = {
+      lines = {
+        { id = "w3_pleases_1", text = "Are given harder work, which is the only praise the house offers. I was sent to Stromgarde within a month of my arrival, and that is all I will say of it." },
+      },
+      choices = {
+        { text = "Understood. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "I am Myrokos Silentform. I came to this house when my own country had no further use for the living, and Lord Ravenholdt has found work for what I know. I say little, and you should not mistake that for having little to say." },
         { id = "hello_2", when = { metBefore = true }, text = "Myrokos Silentform, as before. Ask what you wish. I will answer what I can, and briefly." },
       },
       again = {
-        { id = "hello_a1", text = "Is there more you would ask?" },
-        { id = "hello_a2", text = "Go on. I am listening." },
+        { id = "hello_a1", text = "You have another question. Ask it; I will not waste words on the answer." },
+        { id = "hello_a2", text = "Speak. I am attending." },
         { id = "hello_a3", text = "Yes?" },
       },
       choices = {
@@ -1575,6 +2026,7 @@ P:NPC {
         { text = "What work does the house give you?", next = "work" },
         { text = "Teach me to cross a floor as you do.", next = "board", when = { class = "ROGUE" } },
         { text = "We remember the parting differently.", next = "kin", when = { race = "NightElf" } },
+        { text = "What is Lord Ravenholdt like?", next = "w3_lord" },
         { text = "I'll go quietly.", next = "END" },
       },
     },
@@ -1679,6 +2131,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_ingred = {
+      lines = {
+        { id = "d2_ingred_1", text = "The hills, mostly, and the rest by courier from Jaysin Lanyda down in Southshore, who sends me reagents in crates marked 'pickled herring.' The herring joke was mine, and he's never once laughed at it, which tells ye everythin' about the man." },
+      },
+      choices = {
+        { text = "You trade with Southshore?", next = "d2_ingred2" },
+        { text = "A poisoner shipping herring. Lovely.", next = "d2_ingred2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_ingred2 = {
+      lines = {
+        { id = "d2_ingred2_1", text = "The house trades with everyone, {g:lad|lass}, and I'm the house's poisoner, so I trade with everyone too. Jaysin's honest in the way only a dishonest man can be, and he's never once short-weighted me, which is more than I'd say for the Syndicate's suppliers." },
+      },
+      choices = {
+        { text = "You've bought from the Syndicate?", next = "d2_ingred3" },
+        { text = "High praise, from you.", next = "BACK", reply = "It is, and if ye repeat it to Jaysin, I'll deny it." },
+      },
+    },
+    d2_ingred3 = {
+      lines = {
+        { id = "d2_ingred3_1", text = "Once, and once only, and the stuff was cut with chalk. Fahrad sent a polite note to Durnholde about it, and the supplier hasnae been seen since, so I'd say the matter's closed." },
+      },
+      choices = {
+        { text = "I'll not ask what the note said.", next = "BACK" },
+        { text = "Ask you something else.", next = "BACK" },
+      },
+    },
+    d2_forge = {
+      lines = {
+        { id = "d2_forge_1", text = "Every day, if I'm honest. My father had me at the bellows before I could walk, and I was a terrible smith, so I took up brewin', and the brewin' went wrong in an interestin' direction." },
+      },
+      choices = {
+        { text = "Interesting how?", next = "d2_forge2" },
+        { text = "Some mistakes make a career.", next = "d2_forge2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_forge2 = {
+      lines = {
+        { id = "d2_forge2_1", text = "I made a stout that put three Kharanos men on the floor for a day, and none of them could remember their own names after. A gentleman from this house came askin' for the recipe, and I've been up here ever since, and my stout's still banned from the Thunderbrew." },
+      },
+      choices = {
+        { text = "I'd like to try it.", next = "BACK", reply = "Nae, ye wouldnae. Ask the three lads from Kharanos, if they've remembered who they are." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Smudge Thunderwood, purveyor of fine poisons to the house of Ravenholdt and its friends. Everythin' on these shelves I've brewed myself or tested myself, and I've the stomach of a dwarf, so when I say a thing's strong, ye can take it as gospel." },
@@ -1697,6 +2196,8 @@ P:NPC {
         { text = "How do you test a poison?", next = "brew" },
         { text = "You share this cellar with a gnome.", next = "zan" },
         { text = "Your mother thinks you make barrels?", next = "cooper", when = { race = "Dwarf" } },
+        { text = "Where do you get your ingredients, up here?", next = "d2_ingred" },
+        { text = "Do you ever miss the forge, as a dwarf?", next = "d2_forge" },
         { text = "I'll touch nothing on my way out.", next = "END" },
       },
     },
@@ -1793,6 +2294,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_strange = {
+      lines = {
+        { id = "d2_strange_1", text = "A mechanical cat, to keep the rats out of Smudge's cellar, except Smudge names his rats and tests his brews on them, so he took it very personally! It's in a crate now, purring at nobody, because I couldn't bring myself to take it apart." },
+      },
+      choices = {
+        { text = "What became of the rats?", next = "d2_strange2" },
+        { text = "A purring crate. That's a little sad.", next = "d2_strange2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_strange2 = {
+      lines = {
+        { id = "d2_strange2_1", text = "They're fine, all of them, Barnaby especially, who I'm fairly sure has become immune to several kinds of death. I keep meaning to write that up, but there's nobody to write it up for, since the Society of Engineers is in Ironforge and doesn't answer letters from houses of assassins." },
+      },
+      choices = {
+        { text = "Their loss.", next = "BACK", reply = "That's what I said! I said it to the cat, mostly." },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    d2_smudge = {
+      lines = {
+        { id = "d2_smudge_1", text = "We do, half and half, with a curtain down the middle so his fumes don't get in my gears and my sparks don't get in his barrels. The curtain's caught fire twice, which isn't anyone's fault, it's just what happens when you share a room." },
+      },
+      choices = {
+        { text = "Twice seems like someone's fault.", next = "d2_smudge2" },
+        { text = "Does Fahrad know?", next = "d2_smudge2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_smudge2 = {
+      lines = {
+        { id = "d2_smudge2_1", text = "Fahrad knows everything, which is very annoying, and he said the curtain was a cheaper lesson than the house would be. So now there's a bucket by the curtain, and a second bucket by the first bucket, and the second one's Smudge's idea." },
+      },
+      choices = {
+        { text = "Sensible man.", next = "BACK" },
+        { text = "Something else, Zan.", next = "BACK" },
+      },
+    },
+    d2_eng = {
+      lines = {
+        { id = "d2_eng_1", text = "Do you? What sort? No, don't tell me, let me guess from your hands: burns on the left, so you're right-handed and you hold the casing wrong. Everyone does! Hold the casing with the tongs and the fuse with the fingers, never the other way round." },
+      },
+      choices = {
+        { text = "I'll try it your way.", next = "BACK" },
+        { text = "My hands are fine, thank you.", next = "BACK", reply = "They're fine now! Ask them again after the next misfire." },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Zan Shivsproket, speciality engineer, which means I build the things nobody else will build and several things nobody ought to. Traps, locks, a few devices of my own, and the schematics for them, if you've the skill to follow my handwriting." },
@@ -1811,6 +2359,9 @@ P:NPC {
         { text = "Do you build the house's locks?", next = "locks" },
         { text = "What's a gnome doing among assassins?", next = "gnome" },
         { text = "Time me on that lock, then.", next = "try", when = { class = "ROGUE" } },
+        { text = "What's the strangest thing you've built?", next = "d2_strange" },
+        { text = "You and Smudge share a cellar.", next = "d2_smudge" },
+        { text = "I've some engineering of my own, Zan.", next = "d2_eng", when = { profession = "Engineering" } },
         { text = "I'll back out the way I came.", next = "END" },
       },
     },
@@ -1908,6 +2459,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_syndicate = {
+      lines = {
+        { id = "w3_syndicate_1", text = "Twice, on the path below, when they came at night thinking an old orc would be asleep. The first fight took two movements, the second took three, and I have been ashamed of that third movement ever since." },
+      },
+      choices = {
+        { text = "Why ashamed?", next = "w3_third" },
+        { text = "Two out of three is fine work.", next = "BACK", reply = "Fine for a student. A master counts the movement he did not need, and I needed it, so I was slow." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_third = {
+      lines = {
+        { id = "w3_third_1", text = "Because the man had stopped fighting and I struck again out of habit, not need. A blade that moves without the mind behind it is no better than a Syndicate club, and I teach my sentries that lesson using my own mistake." },
+      },
+      choices = {
+        { text = "That's a hard thing to admit. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "I am called Master Kang. I teach the sentries of this house to stand a watch and to end a fight in three movements or fewer. They were bold and sloppy when I came. Now they are only a little sloppy." },
@@ -1915,8 +2484,8 @@ P:NPC {
       },
       again = {
         { id = "hello_a1", text = "Ask, while they rest." },
-        { id = "hello_a2", text = "Go on. I am listening." },
-        { id = "hello_a3", text = "What else would you know?" },
+        { id = "hello_a2", text = "The students may breathe a moment longer. Ask what you came to ask." },
+        { id = "hello_a3", text = "A question is a door, my friend. Which one will you open next?" },
       },
       choices = {
         { text = "Discipline means fighting fair, even when no one is watching.", next = "BACK", reply = "It does. A blade without honour is only a knife in the dark, and these hills have enough of those.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -1926,6 +2495,7 @@ P:NPC {
         { text = "Are they any good, your sentries?", next = "sentries" },
         { text = "Why not teach in Orgrimmar?", next = "horde", when = { race = "Orc" } },
         { text = "Show me what's wrong with my stance.", next = "stance", when = { class = { "WARRIOR", "ROGUE" } } },
+        { text = "Have you fought the Syndicate yourself?", next = "w3_syndicate" },
         { text = "I'll leave you to your drill.", next = "END" },
       },
     },
@@ -2030,6 +2600,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_leisure = {
+      lines = {
+        { id = "w3_leisure_1", text = "I read poetry, the older the better, and I keep a rose in a pot that Simone Cantrell gave me with instructions I follow exactly. The rose has outlived two of my colleagues, which I take as a sign that it is better at its work than they were at theirs." },
+      },
+      choices = {
+        { text = "An assassin who reads poetry?", next = "w3_poetry" },
+        { text = "Simone trusts you with a rose.", next = "BACK", reply = "She trusts me with a rose, which is not the same as trusting me. I find the distinction charming." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_poetry = {
+      lines = {
+        { id = "w3_poetry_1", text = "Who better? Poetry is the art of saying a great deal with very few words, and so is my trade, though my readers seldom get to finish the page. Forgive me, that was in poor taste, and I said it anyway." },
+      },
+      choices = {
+        { text = "I'll forgive it. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Carlo Aurelius. The house lists me as an assassin, which is accurate, though I prefer to think I deal in conclusions. I am between engagements, and so I walk, and take the air, and talk to whoever the Wolf has let up the path." },
@@ -2038,7 +2626,7 @@ P:NPC {
       again = {
         { id = "hello_a1", text = "Was there something else? I have the afternoon." },
         { id = "hello_a2", text = "Do go on." },
-        { id = "hello_a3", text = "Yes?" },
+        { id = "hello_a3", text = "Yes? Take your time; I have nowhere to be until somebody else does." },
       },
       choices = {
         { text = "You call it dealing in conclusions.", next = "trade" },
@@ -2046,6 +2634,7 @@ P:NPC {
         { text = "What do you make of the others here?", next = "house" },
         { text = "Why is two blades a mistake?", next = "two", when = { class = "ROGUE" } },
         { text = "Zan says I opened his lock faster than you.", next = "zan", when = { heardLine = "hb_zan.try_1" } },
+        { text = "How do you spend your leisure, Carlo?", next = "w3_leisure" },
         { text = "Enjoy your leisure, Carlo.", next = "END" },
       },
     },
@@ -2150,6 +2739,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_lord = {
+      lines = {
+        { id = "w3_lord_1", text = "Every night, alone, on the one path the hedges will always let him take. He never speaks of what he thinks there, and I never ask, but he stops in the same place each time, by the moonpetal, and stays a little longer than a man of his trade ought to." },
+      },
+      choices = {
+        { text = "What does he look at?", next = "w3_look" },
+        { text = "A garden can hold a man's thoughts.", next = "BACK", reply = "It can. That is half of what gardens are for, though men rarely know they've left their thoughts behind in one." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_look = {
+      lines = {
+        { id = "w3_look_1", text = "The moon, perhaps, or the flower, or the valley below where the Syndicate's fires burn. I have walked the path after him and found nothing there but the smell of the petals, so I think he simply rests." },
+      },
+      choices = {
+        { text = "Even a lord of thieves must rest. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "I am Simone Cantrell. I shaped these grounds for Lord Ravenholdt, the terraces and the hedges and the path you climbed. A human sees a pretty garden. It is rather more than that, and I am pleased when someone notices." },
@@ -2157,7 +2764,7 @@ P:NPC {
       },
       again = {
         { id = "hello_a1", text = "Ask freely. The garden will keep." },
-        { id = "hello_a2", text = "What else would you know?" },
+        { id = "hello_a2", text = "Something more on your mind, traveller? The thorns never mind an interruption." },
         { id = "hello_a3", text = "Yes, traveller?" },
       },
       choices = {
@@ -2166,6 +2773,7 @@ P:NPC {
         { text = "What grows on a hill this cold?", next = "plants" },
         { text = "The roots did not all consent?", next = "roots", when = { class = "DRUID" } },
         { text = "Myrokos says you two talk about nothing.", next = "myrokos", when = { heardLine = "hb_myrokos.silence2_1" } },
+        { text = "Does Lord Ravenholdt walk your garden?", next = "w3_lord" },
         { text = "I'll keep to the worn moss.", next = "END" },
       },
     },
@@ -2270,6 +2878,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_young = {
+      lines = {
+        { id = "w3_young_1", text = "Loud, and full of fish, and every autumn a fair on the green with music until the lamps ran out of oil. The orcs were in the camp up at Durnholde then, and we'd see the guards marching past on their way up, and we never once thought about what was inside." },
+      },
+      choices = {
+        { text = "Do you think of it now?", next = "w3_now" },
+        { text = "It sounds a happy place.", next = "BACK", reply = "It was, mostly. I'd like it to be again, before I'm too old to dance at the fair." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_now = {
+      lines = {
+        { id = "w3_now_1", text = "Since the orcs broke out and came back with a Warchief, I've thought of nothing else some nights. We let those camps stand on our hill for years, and I've wondered whether that's why the war keeps finding us." },
+      },
+      choices = {
+        { text = "You're not to blame, Tamara. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Tamara Armstrong. Hemmit and I have lived in Southshore all our married life, and I was born two streets from the water. There's a town of dead men a morning's walk north of here, and I'm told I ought to leave. I'll not." },
@@ -2278,7 +2904,7 @@ P:NPC {
       again = {
         { id = "hello_a1", text = "What else? I'm glad of someone to talk to." },
         { id = "hello_a2", text = "Go on. I'm only watching the road." },
-        { id = "hello_a3", text = "Yes?" },
+        { id = "hello_a3", text = "Yes? Say it, love, I'm only watching the road." },
       },
       choices = {
         { text = "Why not leave, if it frightens you?", next = "stay" },
@@ -2286,6 +2912,7 @@ P:NPC {
         { text = "How is Southshore holding up?", next = "town" },
         { text = "I'll stand by your fence a while.", next = "fence", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Tell me about Hemmit.", next = "hemmit" },
+        { text = "What was Southshore like when you were young?", next = "w3_young" },
         { text = "Light keep you, Tamara.", next = "END" },
       },
     },
@@ -2389,15 +3016,71 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_hide = {
+      lines = {
+        { id = "w3_hide_1", text = "An Arathi raptor skin, green and gold, brought over the wall by a hunter who'd lost two fingers getting it. I sold it to a goblin for a price I'm still ashamed of, and the goblin told me he'd have paid double, and I've never quite recovered." },
+      },
+      choices = {
+        { text = "Who was the hunter?", next = "w3_hunter" },
+        { text = "A goblin will always pay double, eventually.", next = "BACK", reply = "So I've learned. I charge them triple to start, now, and they look at me with real respect." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_hunter = {
+      lines = {
+        { id = "w3_hunter_1", text = "A Forsaken who'd deserted the Mill and lived in the hills beyond the wall, which I'll tell you only because he's long gone east. He bought thread with the coin, and salt, and walked off toward the Arathi ruins, and I've not seen him since." },
+      },
+      choices = {
+        { text = "I hope he found his way. Something else.", next = "BACK" },
+      },
+    },
+    d2_gnolls = {
+      lines = {
+        { id = "d2_gnolls_1", text = "The Mudsnouts, you mean, from down by Dun Garok. They come up the hill now and then, sniff at the tent, and go away again, because there's nothing here they can eat and I've nothing they want to steal, except the salt." },
+      },
+      choices = {
+        { text = "They steal salt?", next = "d2_gnolls2" },
+        { text = "Lucky you, being so unappetising.", next = "d2_gnolls2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_gnolls2 = {
+      lines = {
+        { id = "d2_gnolls2_1", text = "They took a whole sack of curing salt last summer, and I'd love to know what a gnoll does with it. I've a notion they're curing the dwarves' old stores down in Dun Garok, but I've never been fool enough to go and look." },
+      },
+      choices = {
+        { text = "Best not.", next = "BACK" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    d2_road = {
+      lines = {
+        { id = "d2_road_1", text = "I do, because the only people who come up here are customers, deserters or debt collectors, and I like to know which before they reach the tent. You I took for a customer, which is why you're still standing there and I'm not halfway over the wall." },
+      },
+      choices = {
+        { text = "And if I'd been a collector?", next = "d2_road2" },
+        { text = "Deserters, you said?", next = "d2_road2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_road2 = {
+      lines = {
+        { id = "d2_road2_1", text = "Then I'd have been a very fast leather merchant for an hour or two. As for deserters, there's a few from the Mill who come through, Forsaken who'd rather not be counted, and I sell them thread and don't take their names, since I'd want the same." },
+      },
+      choices = {
+        { text = "A quiet kind of solidarity.", next = "BACK", reply = "Call it what you like. I call it minding my own business, which is the only business I've got." },
+        { text = "Something else, George.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "George Candarte. I sell the makings for leatherwork: thread, salt, dye, a good awl. I sell them here, behind this hill, by the old wall, because the custom's poor but the company's exactly what I want, which is none." },
         { id = "hello_2", when = { profession = "Leatherworking" }, text = "George Candarte. I've coarse and fine thread, curing salt and a few dyes. The hunters who work the Arathi side come through the wall and buy from me, so it's fresh stock, whatever the place looks like." },
       },
       again = {
-        { id = "hello_a1", text = "Anything else? Keep your voice down." },
+        { id = "hello_a1", text = "Anything else? Lean in, and mind who's listening over by the inn." },
         { id = "hello_a2", text = "Go on, nobody's about. I've checked." },
-        { id = "hello_a3", text = "Yes?" },
+        { id = "hello_a3", text = "Yes? Quietly, mind, there's a deathguard on the ridge." },
       },
       choices = {
         { text = "A merchant should sell fair, even way out here behind the wall.", next = "BACK", reply = "Especially out here, since nobody walks this far twice for a merchant who cheated them.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -2407,6 +3090,9 @@ P:NPC {
         { text = "What is this old wall?", next = "wall" },
         { text = "Who buys from you, so far from town?", next = "custom" },
         { text = "I've met Jeffcoat. What does he want with you?", next = "jeffcoat", when = { heardLine = "christoph_jeffcoat.h_default" } },
+        { text = "Don't the gnolls bother you out here?", next = "d2_gnolls" },
+        { text = "You keep a careful eye on the road.", next = "d2_road" },
+        { text = "What's the best hide you've ever sold?", next = "w3_hide" },
         { text = "I never saw you, George.", next = "END" },
       },
     },
@@ -2503,6 +3189,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_apples = {
+      lines = {
+        { id = "w3_apples_1", text = "One tree's still trying, at the bottom of the strip, by the old well. It gave me three apples last year, black at the core and sour as vinegar, and I picked them as if they were the finest in Lordaeron." },
+      },
+      choices = {
+        { text = "What did you do with them?", next = "w3_three" },
+        { text = "One tree is a start.", next = "BACK", reply = "That's what I tell myself, every morning, when I walk down to look at it. It's a long walk for one tree." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_three = {
+      lines = {
+        { id = "w3_three_1", text = "Gave one to Innkeeper Shay, who put it in a pie for an orc, and one to Tara Coldgaze, who looked at it a long while and said it was the best apple she'd ever been given. The third I buried under the tree, to give it something back." },
+      },
+      choices = {
+        { text = "That's a farmer's thanks. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Craig Hewitt. I farmed the north strip here for twenty years, barley and apples, and I've gone on farming it since I rose, because nobody told me to stop. The barley comes up black. I plant it anyway." },
@@ -2519,6 +3223,7 @@ P:NPC {
         { text = "What was Tarren Mill like before?", next = "mill" },
         { text = "Let me stand in your field a moment.", next = "feel", when = { race = "Tauren" } },
         { text = "The Hillsbrad farms still grow good crops.", next = "fields" },
+        { text = "Will your apples ever come back?", next = "w3_apples" },
         { text = "Good luck with the barley, Craig.", next = "END" },
       },
     },
@@ -2624,6 +3329,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_loft = {
+      lines = {
+        { id = "w3_loft_1", text = "On a clear day, the lights of Southshore down by the water, the ruin of Durnholde on its hill, and a thread of smoke over Strahnbrad that shouldn't be there. At night, the Syndicate's lanterns moving, and once, very far north, a light in Alterac that went out as I watched." },
+      },
+      choices = {
+        { text = "What do you think the light was?", next = "w3_light" },
+        { text = "You keep a better watch than the Deathguard.", next = "BACK", reply = "The Deathguard watch the road. I watch the sky over it, which is a different kind of watching." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_light = {
+      lines = {
+        { id = "w3_light_1", text = "A signal, I thought, answered by nothing. I wrote it down, and the hour, and I've watched for it every night since. It hasn't come again, and I've begun to think that whoever lit it got their answer some other way." },
+      },
+      choices = {
+        { text = "Keep watching, Shara. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Shara Blazen. I keep this church, after a fashion. Nobody prays here now, but someone ought to sweep it. And from the bell loft on a clear day I can see smoke over Strahnbrad, where there should be no one left to light a fire." },
@@ -2633,7 +3356,7 @@ P:NPC {
       again = {
         { id = "hello_a1", text = "Ask. I've little else to do but watch the hills." },
         { id = "hello_a2", text = "Go on. The candles will last a while." },
-        { id = "hello_a3", text = "Yes?" },
+        { id = "hello_a3", text = "Yes? Speak softly, the candles flicker at a loud voice." },
       },
       choices = {
         { text = "What have you seen at Strahnbrad?", next = "strahn" },
@@ -2641,6 +3364,7 @@ P:NPC {
         { text = "What do you know of the Syndicate?", next = "syndicate" },
         { text = "Something's missing from your altar.", next = "altar", when = { class = "PRIEST" } },
         { text = "You wanted someone quiet. Why?", next = "quiet", when = { class = "ROGUE" } },
+        { text = "What can you see from the bell loft?", next = "w3_loft" },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -2747,6 +3471,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_toll = {
+      lines = {
+        { id = "w3_toll_1", text = "The Durnholde guards, every one of them, riding down from the camps with their noses in the air and their purses shut. Blackmoore's men, they called themselves, as if that were a coin, and I let them through because I'd a family to think of." },
+      },
+      choices = {
+        { text = "Blackmoore's men?", next = "w3_blackmoore" },
+        { text = "Every road has its bullies.", next = "BACK", reply = "Aye, and every tollman learns to smile at them. I smiled for eleven years, and I've not smiled since, which I consider fair." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_blackmoore = {
+      lines = {
+        { id = "w3_blackmoore_1", text = "Aedelas Blackmoore, who ran the orc camps and drank himself stupid in that keep. One of his sergeants spat on my boots every week, and I hear the orcs he guarded came back with a Warchief and paid him out in full. I'd have liked to see that." },
+      },
+      choices = {
+        { text = "So would I. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Hans Zandin. I kept the tollhouse on the Southshore road for eleven years and knew every carter in the foothills by his horse. Now I'm dead, the tollhouse is a pile of stones, and I stand here and keep accounts of a different sort." },
@@ -2755,7 +3497,7 @@ P:NPC {
       again = {
         { id = "hello_a1", text = "What else? I've the whole afternoon to be unpleasant in." },
         { id = "hello_a2", text = "Go on. I've no pressing engagements." },
-        { id = "hello_a3", text = "Well?" },
+        { id = "hello_a3", text = "Well? Out with it, or move along; the road's busier than you are." },
       },
       choices = {
         { text = "What sort of accounts?", next = "accounts" },
@@ -2763,6 +3505,7 @@ P:NPC {
         { text = "Who's worth knowing in Tarren Mill?", next = "town" },
         { text = "Give me those names.", next = "names", when = { class = "WARRIOR" } },
         { text = "Why do the Forsaken look at us sideways?", next = "sideways", when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "Who never paid your toll?", next = "w3_toll" },
         { text = "I'll leave you to your grudges.", next = "END" },
       },
     },
@@ -2866,6 +3609,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_trap = {
+      lines = {
+        { id = "w3_trap_1", text = "A bear pit on the ridge above the falls, dug over a fortnight and covered so well I fell in it myself the morning I came to check. The bear came along that evening, looked down at me, and walked round." },
+      },
+      choices = {
+        { text = "How did you get out?", next = "w3_out" },
+        { text = "Even a bear knows a trap.", next = "BACK", when = { class = "HUNTER" }, reply = "They know a person in a hole, which is what I was. Dig your pit, then stay out of it, is the lesson." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_out = {
+      lines = {
+        { id = "w3_out_1", text = "Hans Zandin found me at dusk, on his way home from the toll, and threw me a rope and laughed until he wept. He's never told anyone, which is the only reason I'll still stand near him on the road." },
+      },
+      choices = {
+        { text = "Your secret's safe. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Tara Coldgaze. I watch the south road. Nobody posted me. I trapped these hills for twenty years and I know what belongs on that road and what doesn't, so I stand here, and I tell the deathguards what's coming before they can see it." },
@@ -2873,8 +3634,8 @@ P:NPC {
       },
       again = {
         { id = "hello_a1", text = "Speak. I can listen without looking round." },
-        { id = "hello_a2", text = "Go on." },
-        { id = "hello_a3", text = "Yes?" },
+        { id = "hello_a2", text = "Go on. Quietly; the wind's toward the road." },
+        { id = "hello_a3", text = "Yes? Say it, and keep still while you do." },
       },
       choices = {
         { text = "What do you watch for?", next = "road" },
@@ -2882,6 +3643,7 @@ P:NPC {
         { text = "You trapped these hills when you were alive.", next = "before" },
         { text = "You'd have spooked those deer too, once.", next = "wind", when = { class = "HUNTER" } },
         { text = "Hans says you haven't blinked since spring.", next = "hans", when = { heardLine = "hb_zandin.town_1" } },
+        { text = "What's the best trap you ever set?", next = "w3_trap" },
         { text = "I'll not block your view.", next = "END" },
       },
     },

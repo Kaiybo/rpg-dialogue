@@ -61,7 +61,36 @@ P:NPC {
         { text = "Binding spirits in jars is cruel, Uzer'i.", next = "shaman", when = { class = { "SHAMAN", "DRUID" } } },
         { text = "Is my companion's spirit safe from you?", next = "hunter", when = { class = "HUNTER" } },
         { text = "What work do you have?", next = "BUSINESS" },
+        { text = "Which jar holds the spirit that owes you money?", next = "w7_jar" },
         { text = "Later, witch doctor.", next = "END" },
+      },
+    },
+    w7_jar = {
+      lines = {
+        { id = "w7_jar_l1", text = "Dat one on de end, mon, de green one with de crack. A goblin trader's pet monkey, who stole my lunch and my purse in de same afternoon, and den got himself eaten by a cat before I could get it back." },
+      },
+      choices = {
+        { text = "So you caught the monkey's spirit?", next = "w7_jar2" },
+        { text = "That seems petty.", next = "w7_jar3" },
+        { text = "Something else, witch doctor.", next = "BACK" },
+      },
+    },
+    w7_jar2 = {
+      lines = {
+        { id = "w7_jar2_l1", text = "Ya, mon, and he still be owin' me. Every night he rattles de jar and tries to steal from de other spirits, and I laugh, because now he be learnin' what it feels like to be robbed by somebody smarter." },
+        { id = "w7_jar2_l2", when = { race = "Troll" }, text = "Ya, and you know how dis goes, Darkspear. A spirit dat owes you be a spirit you keep, until de debt be paid. He rattles de jar at night, and I tell him one more year, mon, one more year." },
+      },
+      choices = {
+        { text = "Fair enough, I suppose.", next = "BACK", reply = "Fair be what de loa decide. Uzer'i only collects." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_jar3 = {
+      lines = {
+        { id = "w7_jar3_l1", text = "Petty? Mon, it was a good lunch. Uzer'i don't forgive easy, and dat monkey don't get let off easy neither." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     muisek = {

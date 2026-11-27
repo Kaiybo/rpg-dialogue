@@ -59,6 +59,7 @@ P:NPC {
         { text = "Teach me something about Ashenvale's herbs.", next = "herbs", when = { profession = "Herbalism" } },
         { text = "Could my healing help the child?", next = "heal_o", when = { class = { "PRIEST", "PALADIN", "SHAMAN", "DRUID" } } },
         { text = "How can I help?", next = "BUSINESS" },
+        { text = "Who taught you your healing?", next = "w_teach" },
         { text = "Goodbye, Orendil.", next = "END" },
       },
     },
@@ -148,6 +149,25 @@ P:NPC {
       choices = {
         { text = "Then I'll try, at least.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_teach = {
+      lines = {
+        { id = "w_teach_default", text = "My mother, in the groves of Ashenvale, before the orcs and before the furbolgs turned. She healed with herbs and with her hands and with a great deal of plain talk, and she said that half of any cure is making the sick one believe they will be well." },
+      },
+      choices = {
+        { text = "And the other half?", next = "w_teach2" },
+        { text = "That's wise.", next = "w_teach2" },
+      },
+    },
+    w_teach2 = {
+      lines = {
+        { id = "w_teach2_default", text = "The herbs, and the rest, and luck. I have the herbs, and I try for the rest, and lately the luck has been thin. I tell the child she will be well every morning, and I am beginning to wonder whether I believe it myself." },
+        { id = "w_teach2_w1", when = { class = "PRIEST" }, text = "You heal with prayer; perhaps you have more of the believing than I do. Sit with her a while, if you will, and lend her some." },
+      },
+      choices = {
+        { text = "Keep believing for her.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Orendil.", next = "BACK" },
       },
     },
   },

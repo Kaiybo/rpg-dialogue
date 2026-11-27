@@ -50,7 +50,27 @@ P:NPC {
         { text = "What happens to the silithyst we gather?", next = "extractor" },
         { text = "Who serves under you here?", next = "camp" },
         { text = "Ironforge should have sent more soldiers sooner.", next = "late", when = { race = "Dwarf" } },
+        { text = "How do you keep morale up out here?", next = "morale" },
+        { text = "What do you think of the Cenarion Circle's rules?", next = "circle" },
+        { text = "What do you make of General Kirika?", next = "w9_kirika" },
         { text = "Back to the desert, then.", next = "END" },
+      },
+    },
+
+    w9_kirika = {
+      lines = { { id = "w9_kirika_d", text = "She's the reason the Horde got ahead of us, and I'll not pretend otherwise. She had her people on the silithyst while we were still arguing about whether the desert was worth the trouble, and a commander who moves first is a commander to be watched." } },
+      choices = {
+        { text = "Do you respect her?", next = "w9_kirika2" },
+        { text = "She's just an orc with a head start.", next = "w9_kirika2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_kirika2 = {
+      lines = { { id = "w9_kirika2_d", text = "Respect her, aye, the way ye'd respect a rival miner who found the seam first. If the truce at the Hold ever broke, I'd want her on the far side of a very wide dune, and I'd want every rifle I've got pointed at it." } },
+      choices = {
+        { text = "Then we'd better gather faster.", next = "BACK", reply = "That's the spirit! Back to the desert with ye." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     silithyst = {
@@ -80,6 +100,37 @@ P:NPC {
     camp = {
       lines = { { id = "ca_default", text = "Captain Blackanvil keeps the field duty soldiers in line, and Janela Stouthammer keeps them armed, and she's the one you want to please if you ever need a new blade. The rest are riflemen and footmen, and they're all short on water and patience." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    morale = {
+      lines = { { id = "mr_default", text = "With ale when we have it and shouting when we don't. A dwarf in the desert is a miserable creature, recruit, and the only cure I know is to give him something to do and someone to beat. The silithyst gives him the first, and the Horde gives him the second." } },
+      choices = {
+        { text = "Does the ale ever arrive?", next = "morale2" },
+        { text = "Shouting seems to come easily to you.", next = "morale2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    morale2 = {
+      lines = { { id = "mr2_default", text = "Once a month, by way of Gadgetzan, at goblin prices, and it's warm as bathwater by the time it gets here. The lads drink it anyway and sing about Ironforge, and for an evening they forget the bugs. That's worth every copper the goblins charge." } },
+      choices = {
+        { text = "I'm a dwarf. I'll bring a barrel next time.", next = "morale3", when = { race = "Dwarf" } },
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
+    morale3 = {
+      lines = { { id = "mr3_default", text = "Then you'll be the most popular dwarf in Silithus, and I'll see you promoted on the spot. Make it Thunderbrew, if you can. The lads have opinions about the Southshore stuff." } },
+      choices = { { text = "Thunderbrew it is. Something else.", next = "BACK" } },
+    },
+    circle = {
+      lines = { { id = "cr_default", text = "The druids want the Hold kept neutral, and they want the hives watched, and they want both of us to stop fighting over crystals long enough to look at the wall. I'll keep the peace inside their walls. Outside, the desert belongs to whoever carries the most." } },
+      choices = {
+        { text = "Do you think they're right about the wall?", next = "circle2" },
+        { text = "The Circle's asking for a lot.", next = "circle2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    circle2 = {
+      lines = { { id = "cr2_default", text = "I think they know more than they're telling, and that's never comforted a soldier. Commander Mar'alith walks the walls of the Hold every night, staring south, and a man doesn't do that unless he's expecting company." } },
+      choices = { { text = "Unwelcome company. Something else.", next = "BACK" } },
     },
   },
 
@@ -296,7 +347,28 @@ P:NPC {
         { text = "Your ledger has more red ink than black.", next = "ledger" },
         { text = "Who do you bargain with at the Hold?", next = "bargain" },
         { text = "What would you have a crafter make first?", next = "crafter", when = { profession = { "Blacksmithing", "Leatherworking" } } },
+        { text = "Do you ever go out to the hives yourself?", next = "w9_front" },
         { text = "I'll leave you to your ledger.", next = "END" },
+      },
+    },
+
+    w9_front = {
+      lines = {
+        { id = "w9_front_d", text = "More than the captain would like. A lieutenant with a ledger is useful, but a lieutenant who knows what a silithid actually does to a shield is better, so I take a patrol out once a week and come back with notes, and bruises." },
+        { id = "w9_front_v1", when = { class = "PALADIN" }, text = "Of course, as you would, I expect. A paladin who never leaves the tent forgets what the Light is for, so once a week I take a patrol out to the hives, and I come back with notes, bruises and a little more faith." },
+      },
+      choices = {
+        { text = "What have you learned out there?", next = "w9_front2" },
+        { text = "Your captain is right to worry.", next = "w9_front2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_front2 = {
+      lines = { { id = "w9_front2_d", text = "That the drones go for the shield arm first, which no manual ever told us, and that our shields were too narrow for it. I've written to Ironforge for wider ones, and they've written back asking for the form I used, which I'm told doesn't exist yet." } },
+      choices = {
+        { text = "Then make one.", next = "BACK", reply = "I did. It's been lost on a ship, probably. Still, I'll make another." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     lost = {
@@ -430,7 +502,27 @@ P:NPC {
         { text = "Do you answer to the Circle here?", next = "circle" },
         { text = "How did you become a general?", next = "rank" },
         { text = "For the Horde. I'll get to it.", next = "END", when = { faction = "Horde" } },
+        { text = "What about the cult in the north of the desert?", next = "cult" },
+        { text = "What happens to the Legion if the Alliance wins the race?", next = "race" },
+        { text = "What does Orgrimmar send you, besides orders?", next = "w9_org" },
         { text = "I'm going.", next = "END" },
+      },
+    },
+
+    w9_org = {
+      lines = { { id = "w9_org_d", text = "Recruits, too young, and rations, too few, and once a month a letter asking why I need more of both. The Warchief has a whole Horde to feed, so I do not blame him, but I do keep the letters, and I count them." } },
+      choices = {
+        { text = "Why count them?", next = "w9_org2" },
+        { text = "You could ask the Circle for help.", next = "w9_org2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_org2 = {
+      lines = { { id = "w9_org2_d", text = "Because when the gates open, someone will ask what the Legion was given and what it did with it, and I mean to have the answer written down. We have done more with less than any camp in this desert, and the dwarves know it." } },
+      choices = {
+        { text = "The Legion has done the Horde proud.", next = "BACK", reply = "It has. Now go and do your part of it." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     why = {
@@ -459,6 +551,40 @@ P:NPC {
       choices = {
         { text = "That's an honest answer.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    cult = {
+      lines = { { id = "cu_default", text = "Twilight's Hammer, robed fools who want the world to end and think the desert will help them do it. They camp in the north and the west, and they kill anyone who wanders close. I'd burn them out if I had the grunts, but the silithyst comes first." } },
+      choices = {
+        { text = "The Circle seems more worried about them than you are.", next = "cult2" },
+        { text = "Fools with blades can still kill.", next = "cult2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cult2 = {
+      lines = { { id = "cu2_default", text = "The Circle worries about everything, which is its job. The cult worries me when it comes close enough to touch, and so far my grunts have kept it at a spear's length. If they ever march on the Hold, the Legion will be there, whatever the druids think of us." } },
+      choices = {
+        { text = "Krug Skullsplit at the Hold. Does he answer to you?", next = "cult3" },
+        { text = "Good to know. Something else.", next = "BACK" },
+      },
+    },
+    cult3 = {
+      lines = { { id = "cu3_default", text = "Krug answers to the Circle while he stands in the Hold, and to the Legion when he walks out of it, and he knows the difference better than I do. He keeps the druids happy so that I don't have to. Every general should have one Krug." } },
+      choices = { { text = "Every general should. Something else.", next = "BACK" } },
+    },
+    race = {
+      lines = { { id = "rc_default", text = "Then I go back to Orgrimmar and explain to the Warchief why a camp of dwarves beat the Legion at its own game. I'd sooner die in the sand. So we won't lose, because I won't let us." } },
+      choices = {
+        { text = "That's a lot of weight on one general.", next = "race2" },
+        { text = "Determination doesn't carry crystals.", next = "race2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    race2 = {
+      lines = { { id = "rc2_default", text = "No, but it puts the crystals in the grunts' hands and keeps them walking when the heat says stop. That's what a general is for. The weight's mine, and I carry it, and the grunts carry the rest." } },
+      choices = {
+        { text = "I'm Horde. I'll carry my share.", next = "BACK", reply = "Then stop talking to me and carry it. Lok'tar.", when = { faction = "Horde" } },
+        { text = "Something else, General.", next = "BACK" },
       },
     },
   },

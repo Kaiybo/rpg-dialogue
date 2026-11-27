@@ -52,7 +52,54 @@ P:NPC {
         { text = "Tell me about the Great Lift.", next = "lift" },
         { text = "The Grimtotem are tauren. Why fear them?", next = "kin", when = { race = "Tauren" } },
         { text = "What do you need?", next = "BUSINESS" },
+        { text = "Who gives the orders at Freewind Post?", next = "orders" },
+        { text = "You can see the whole canyon floor from here.", next = "view" },
+        { text = "I'll stand a watch with you if you need it.", next = "stand", when = { class = "WARRIOR" } },
         { text = "Stay safe, Moonhorn.", next = "END" },
+      },
+    },
+    orders = {
+      lines = { { id = "orders_d", text = "Cliffwatcher Longhorn holds the post, and he hears everything that comes up the lifts before anyone else does. Rau Cliffrunner keeps the old knowledge, and Innkeeper Abeqwa keeps the rest of us from starving, which some days is the harder job." } },
+      choices = {
+        { text = "What sort of leader is Longhorn?", next = "orders_longhorn" },
+        { text = "Freewind seems well run for a place on a pillar.", next = "BACK", reply = "It has to be. One careless night up here and you lose a brave over the edge." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    orders_longhorn = {
+      lines = { { id = "orders_longhorn_d", text = "Careful, and slow to anger, and he has a long memory for every caravan we've lost. He'd rather send ten messengers than one war party, and I used to think that was weakness, though I don't anymore." } },
+      choices = {
+        { text = "Caution keeps people alive.", next = "BACK", reply = "It does. I've just had to watch long enough to see it." },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    view = {
+      lines = { { id = "view_d", text = "All of it, from the Galak camps in the west to the harpies' cliffs at Screeching Canyon. On a clear morning I can count the centaur fires, and I do, every morning, because the number has been growing." } },
+      choices = {
+        { text = "How many fires now?", next = "view_fires" },
+        { text = "The harpies don't bother the lift?", next = "view_harpies" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    view_fires = {
+      lines = { { id = "view_fires_d", text = "More than last season, and last season was more than the one before it. I tell Longhorn each morning and he writes it down, and between the two of us we've got a tally that frightens me." } },
+      choices = {
+        { text = "Then the tally should go to Thunder Bluff.", next = "BACK", reply = "Longhorn sent it. Whether anyone at the Bluff reads it is another matter." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    view_harpies = {
+      lines = { { id = "view_harpies_d", text = "They try, now and then, when the wind is with them. A harpy can't lift a brave, but she can knock one off a ledge, so we keep our spears up and our backs to the rock." } },
+      choices = {
+        { text = "Sound advice for anyone up here.", next = "BACK" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    stand = {
+      lines = { { id = "stand_d", text = "I'd be glad of it, though I can't pay you in anything but thanks and a cold supper. Stand at the lip of the lift and watch the switchbacks, and shout if you see anything with four legs coming up them." } },
+      choices = {
+        { text = "I'll shout loud enough for all of Freewind.", next = "BACK", reply = "Good. Longhorn sleeps heavily, and that's a fact." },
+        { text = "Maybe another time. Something else.", next = "BACK" },
       },
     },
     centaur = {

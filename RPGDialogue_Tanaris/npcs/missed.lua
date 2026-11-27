@@ -40,7 +40,53 @@ P:NPC {
         { text = "Why can only the dead see you?", next = "seen" },
         { text = "How did you die?", next = "died" },
         { text = "What do you make of Gadgetzan?", next = "town" },
+        { text = "You must know every soul in Gadgetzan's graveyard.", next = "gy" },
+        { text = "What does the desert hide that the living miss?", next = "sands" },
+        { text = "I could pray for your spirit to find its rest.", next = "rest", when = { class = "PRIEST" } },
         { text = "Rest well, Gaeriyan.", next = "END" },
+      },
+    },
+    gy = {
+      lines = { { id = "gy_d", text = "Most of those under the stones died much as I did, only with a goblin's bill in their pockets. There are Wastewander bandits there, and prospectors who trusted a stranger's map, and a few who walked west to Zul'Farrak and were carried home in pieces." } },
+      choices = {
+        { text = "Zul'Farrak seems to claim a great many.", next = "gy_zf" },
+        { text = "Do any of them linger, as you do?", next = "gy_linger" },
+        { text = "Something else, Gaeriyan.", next = "BACK" },
+      },
+    },
+    gy_zf = {
+      lines = { { id = "gy_zf_d", text = "The Sandfury trolls hold that city as if the desert had raised it for them, and they give back nothing that wanders inside. I have watched the goblins' hired swords march west in good order and come home by ones and twos, when they came home at all." } },
+      choices = {
+        { text = "Then I'll go with friends, or not at all.", next = "BACK", reply = "That is the first wise thing a living soul has said on this cliff in a long while." },
+        { text = "Let us speak of other things.", next = "BACK" },
+      },
+    },
+    gy_linger = {
+      lines = { { id = "gy_linger_d", text = "None that I have seen, and I have looked on a good many quiet nights. Perhaps they had less to regret than I did, or perhaps the goblins' noise drives them off, for nothing rests easily within earshot of that town." } },
+      choices = {
+        { text = "Maybe they simply had somewhere to go.", next = "BACK", reply = "Perhaps. It is a kinder thought than mine, and I will keep it." },
+        { text = "Another question, then.", next = "BACK" },
+      },
+    },
+    sands = {
+      lines = { { id = "sands_d", text = "Everything the wind has buried, and will dig up again when it pleases. I have seen old walls rise out of the dunes in a storm and sink again by morning, with nobody but me on the cliff to watch them." } },
+      choices = {
+        { text = "You must see a great deal from this height.", next = "sands_south" },
+        { text = "I have other questions.", next = "BACK" },
+      },
+    },
+    sands_south = {
+      lines = { { id = "sands_south_d", text = "More than I would like. Far to the south the ground is broken open, and things with too many legs crawl out of it at night and go back down before the sun, and the goblins have not yet decided whether to fear them or to sell them." } },
+      choices = {
+        { text = "The goblins will try selling them first.", next = "BACK", reply = "Very likely, and I shall watch that bargain from up here with some interest." },
+        { text = "Back to other matters.", next = "BACK" },
+      },
+    },
+    rest = {
+      lines = { { id = "rest_d", text = "That is kindly offered, {class}, and I thank you for it. But I do not know what holds me to this cliff, and I am not sure I wish to be loosed from it before I understand, so keep your prayer for one who asks." } },
+      choices = {
+        { text = "Then I'll keep it ready, should you ever ask.", next = "BACK", reply = "Few have offered even that. Thank you." },
+        { text = "As you wish. Something else.", next = "BACK" },
       },
     },
     sword = {
@@ -155,7 +201,28 @@ P:NPC {
         { text = "Has anyone else visited?", next = "y_visit" },
         { text = "Will you ever go back to work?", next = "y_back" },
         { text = "I'm an engineer myself.", next = "BACK", when = { profession = "Engineering" }, reply = "Oh dear. Please don't tell me what you're working on. I'll want to help, and then I'll be working." },
+        { text = "What do you eat out here on your own?", next = "w9_eat" },
         { text = "Enjoy the sun, Winkey.", next = "END" },
+      },
+    },
+
+    w9_eat = {
+      lines = {
+        { id = "w9_eat_d", text = "Crab, mostly, and fish when I can be bothered, and the occasional coconut that floats in from somewhere very far away. I built a little grill out of a ship's lantern and some pipe, and it holds a perfect cooking temperature, plus or minus two degrees." },
+        { id = "w9_eat_v1", when = { race = "Gnome" }, text = "Crab, fish and the odd lost coconut, same as any gnome on holiday would, I imagine! I built a grill from a ship's lantern and some pipe, and you'll appreciate this, it holds temperature to within two degrees without a single valve." },
+      },
+      choices = {
+        { text = "Two degrees? I thought you were resting.", next = "w9_eat2" },
+        { text = "Sounds like a good life.", next = "w9_eat2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_eat2 = {
+      lines = { { id = "w9_eat2_d", text = "I am resting, I promise! I just rest more precisely than most people. Besides, if I let the grill wander about, the crab comes out like boot leather, and nobody swims all the way out here for boot leather." } },
+      choices = {
+        { text = "I'd swim out for good crab.", next = "BACK", reply = "Then you're welcome any time! Bring your own plate, though." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     island = {

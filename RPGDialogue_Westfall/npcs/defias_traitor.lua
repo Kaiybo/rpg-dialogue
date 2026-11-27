@@ -12,7 +12,7 @@ P:NPC {
   },
   greetings = {
     { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "You. Good. Keep your voice down, but I'm glad to see you." },
-    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Keep your voice down, and keep your distance." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Keep your voice down and stay where you are. I've no friends left on either side, and I'm not counting you among them." },
     { id = "g_default", text = "Keep your voice down, will you? If any of my old mates see me talking to you, I'm a dead man." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Are we going or not? Every hour I sit here is another hour for them to find me." },
   },

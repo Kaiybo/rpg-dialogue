@@ -244,7 +244,25 @@ P:NPC {
         { text = "I'd guess you came to Fray Island for the money.", next = "how" },
         { text = "What are my odds, Twiggy?", next = "myodds", when = { class = "WARRIOR" } },
         { text = "I'd bet some of these fights get fixed, Twiggy.", next = "fixed", when = { class = "ROGUE" } },
+        { text = "Klannoc seems to run the fighting, not you.", next = "klannoc" },
+        { text = "Who comes all this way to watch?", next = "crowd" },
+        { text = "What's the biggest upset you've ever seen on Fray Island?", next = "w5_upset" },
         { text = "See you at ringside, Twiggy.", next = "END" },
+      },
+    },
+    w5_upset = {
+      lines = { { id = "w5_upset_l", text = "Skinny Darkspear kid, pal, with a stick and a bad attitude. The book had him at forty to one against a challenger twice his size, and he knocked the big fella flat in the third round. I paid out more that afternoon than I took all season." } },
+      choices = {
+        { text = "Did you pay out in full?", next = "w5_upset2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_upset2 = {
+      lines = { { id = "w5_upset2_l", text = "Every copper, and it about killed me. Half the island was waitin' to see if Twiggy would welsh, and Klannoc was standin' right there with his arms folded. The book's only worth something if people believe it pays." } },
+      choices = {
+        { text = "Always pay out. The book's word is all you've got.", next = "BACK", reply = "That's what I told myself while I was cryin' into the cash box. Still true.", fx = { align = { honor = 1 } } },
+        { text = "The house always wins, one way or another.", next = "BACK", reply = "Usually, sure. That day the house lost its shirt, and I'm still wearin' a cheaper one.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     odds = {
@@ -293,6 +311,33 @@ P:NPC {
       choices = {
         { text = "Put me down to win, Twiggy.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    klannoc = {
+      lines = { { id = "kl_default", text = "Klannoc runs the fightin', pal, and I run the money, and that's a partnership made in heaven or somewhere warmer. He's an old pit fighter himself, with more scars than sense, and he thinks blood sport is about honour, bless him." } },
+      choices = {
+        { text = "Maybe it is, to the fighters.", next = "klannoc2" },
+        { text = "And to you it's about margins.", next = "klannoc2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    klannoc2 = {
+      lines = { { id = "kl2_default", text = "To the fighters, sure, and that's why they come back! A fighter who thinks he's fightin' for honour bleeds longer and the crowd drinks more, so Klannoc's honour is the best thing that ever happened to my margins. Don't tell him I said so." } },
+      choices = { { text = "Your secret's safe. Something else.", next = "BACK" } },
+    },
+    crowd = {
+      lines = { { id = "cw_default", text = "Sailors off the Ratchet boats, grunts on leave, Northwatch soldiers out of uniform who think I don't recognise 'em, and a few rich folks from Booty Bay who like their blood with a view of the sea. They all bet, pal, and they all lose, eventually." } },
+      choices = {
+        { text = "Horde and Alliance at the same ringside?", next = "crowd2" },
+        { text = "Northwatch soldiers betting on blood sport. Interesting.", next = "crowd2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    crowd2 = {
+      lines = { { id = "cw2_default", text = "Same ringside, opposite sides of it, and nobody starts anything, 'cause the only thing they hate more than each other is missin' the main event. Neutral ground, pal. Fray Island's the most peaceful place in the Barrens, apart from the fightin'." } },
+      choices = {
+        { text = "I'm a rogue. I'd watch the crowd more than the fights.", next = "BACK", reply = "Then you're my kinda customer, and also don't. The bruisers watch the folks who watch the crowd.", when = { class = "ROGUE" } },
+        { text = "Something else, then.", next = "BACK" },
       },
     },
   },

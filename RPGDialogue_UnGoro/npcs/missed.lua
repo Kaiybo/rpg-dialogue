@@ -42,7 +42,30 @@ P:NPC {
         { text = "Have you made friends with one yet?", next = "friends" },
         { text = "Those are bite scars on your arms.", next = "scars" },
         { text = "How do you survive out here?", next = "survive" },
+        { text = "Why come all this way for ravasaurs?", next = "why" },
+        { text = "What do the goblins at the Refuge make of you?", next = "refuge" },
+        { text = "Do the Darkspear know you're out here?", next = "w9_tribe" },
         { text = "Good hunting, Mor'vek.", next = "END" },
+      },
+    },
+
+    w9_tribe = {
+      lines = {
+        { id = "w9_tribe_d", text = "Some of dem, mon. I send word with every goblin cart goin' up de ramp, and de raptor masters at Sen'jin read it and laugh, and den dey write back askin' when I be bringin' one home." },
+        { id = "w9_tribe_v1", when = { race = "Troll" }, text = "Some of our people do, cousin. De raptor masters at Sen'jin get my letters and laugh, and den dey write back askin' when I be bringin' a ravasaur home for de village, like it be a pet goat." },
+      },
+      choices = {
+        { text = "Will you bring one home?", next = "w9_tribe2" },
+        { text = "They laugh at you?", next = "w9_tribe2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_tribe2 = {
+      lines = { { id = "w9_tribe2_d", text = "Not dis year, mon, and maybe not ever, because a ravasaur don't leave its crater any more dan a loa leave its shrine. But I might bring home what I learned, and dat be worth more dan a beast dat would bite de whole village." } },
+      choices = {
+        { text = "Knowledge travels better than raptors.", next = "BACK", reply = "Ya, mon, and it don't bite. Usually." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     different = {
@@ -74,6 +97,33 @@ P:NPC {
     survive = {
       lines = { { id = "su_default", text = "By rememberin' dat nothin' in this crater be at the top for long. The devilsaur eats the ravasaur, the ravasaur eats the troll, and the troll stays alive by bein' too small and too quiet to be worth the walk." } },
       choices = { { text = "Tell me something else.", next = "BACK" } },
+    },
+    why = {
+      lines = { { id = "wy_default", text = "Because de Darkspear ride raptors, mon, and a ravasaur be a raptor's bigger, meaner cousin. If a troll could ride one into battle, de Horde would have somethin' de Alliance never seen. I want to be de troll who figured it out, and I be patient enough to try." } },
+      choices = {
+        { text = "And if it never works?", next = "why2" },
+        { text = "A ravasaur cavalry would be a terrible sight.", next = "why2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why2 = {
+      lines = { { id = "wy2_default", text = "Den I learned more about ravasaurs dan any troll livin', and dat be worth somethin' too. De witch doctors at Sen'jin say every failure be a lesson de loa wanted you to learn. I got a lot of scars, so de loa must want me very educated." } },
+      choices = { { text = "Very educated. Something else.", next = "BACK" } },
+    },
+    refuge = {
+      lines = { { id = "rf_default", text = "Dey think I be mad, mon, and dey sell me bandages at twice de price because of it. De scientists like me better, because I tell dem where de ravasaurs nest, and dey write it in deir books and argue about it all night." } },
+      choices = {
+        { text = "Do you trust the scientists with what you know?", next = "refuge2" },
+        { text = "Twice the price for bandages. That's the goblin way.", next = "refuge2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    refuge2 = {
+      lines = { { id = "rf2_default", text = "Some of it. Dey want to know what de beasts eat and how de crystals glow. Dey don't want to ride nothin', so dey be no rivals of mine. If an Alliance gnome ever ask me how to tame a ravasaur, though, I suddenly forget everything, mon." } },
+      choices = {
+        { text = "I'm Darkspear. I'd ride a ravasaur into battle gladly.", next = "BACK", reply = "Den come back when ya got de venom in ya blood, cousin, and we see if she likes ya face.", when = { race = "Troll" } },
+        { text = "Something else, Mor'vek.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -116,7 +166,28 @@ P:NPC {
         { text = "Do you visit other elders at the festival?", next = "yothers" },
         { text = "What do you think of the goblins and scholars here?", next = "yscholars" },
         { text = "A child of the herds greets you, Elder.", next = "ytauren", when = { race = "Tauren" } },
+        { text = "Which beast here would you have hunted, in life?", next = "w9_hunt" },
         { text = "Farewell.", next = "END" },
+      },
+    },
+
+    w9_hunt = {
+      lines = {
+        { id = "w9_hunt_d", text = "None of the great ones, little one, for I was proud but I was not a fool. The devilsaur walks this jungle the way the kodo walks the plains, and I would sooner have sat beside one and listened to its breathing than raised a spear to it." },
+        { id = "w9_hunt_v1", when = { class = "HUNTER" }, text = "You ask as a hunter does, and I will answer as one. I would not have hunted the devilsaur, little one, though younger hunters do, for some beasts are meant to be honoured from a distance, like the thunder." },
+      },
+      choices = {
+        { text = "The young hunters here don't agree.", next = "w9_hunt2" },
+        { text = "What would you have hunted, then?", next = "w9_hunt2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_hunt2 = {
+      lines = { { id = "w9_hunt2_d", text = "The young always want the largest kill, as I did, before my grandfather took my spear and made me watch a herd for a whole summer. Hunt the raptors if you must, for they are many, but leave the old ones be, and the crater will remember you kindly." } },
+      choices = {
+        { text = "I'll honour the old ones.", next = "BACK", reply = "Then the Earth Mother walks beside you here, even in this heat." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     crater = {

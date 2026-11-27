@@ -39,6 +39,7 @@ P:NPC {
         { text = "Who in the camp is your family?", next = "yfamily" },
         { text = "What's the biggest tree ever cut here?", next = "ybig" },
         { text = "I'm a dwarf. We know about axes.", next = "ydwarf", when = { race = "Dwarf" } },
+        { text = "Show me how the loggers cut the notch.", next = "e3_notch" },
         { text = "Keep clear of the saws, Eric.", next = "END" },
       },
     },
@@ -94,6 +95,24 @@ P:NPC {
       },
       choices = { { text = "Maybe when you're older. Something else.", next = "BACK" } },
     },
+    e3_notch = {
+      lines = {
+        { id = "e3_notch_l0", text = "You cut a wedge out on the side you want it to fall, low down, like a big bite, and then you cut from the other side a bit higher, and the tree leans into the bite. Dad lets me hold the end of the rope sometimes, but I have to let go the moment he shouts." },
+      },
+      choices = {
+        { text = "What happens if the rope man doesn't let go?", next = "e3_notch2" },
+        { text = "That's proper woodcraft, Eric.", next = "BACK" },
+      },
+    },
+    e3_notch2 = {
+      lines = {
+        { id = "e3_notch2_l0", text = "He goes up with the rope, Dad says, and then he comes down very fast, and then he's Old Wendel with fewer fingers. So I always let go first, even before Dad shouts, and he says that's the right instinct." },
+      },
+      choices = {
+        { text = "It is. Something else.", next = "BACK" },
+        { text = "Your father's a good teacher.", next = "BACK" },
+      },
+    },
   },
   topics = {
     raelen = { { id = "yt_raelen", text = "Supervisor Raelen shouts a lot, but he knows the name of every tree in the cutting." } },
@@ -137,6 +156,7 @@ P:NPC {
         { text = "Do you ever ride the horses?", next = "yride" },
         { text = "What worries you about the camp?", next = "yworry" },
         { text = "I'm a hunter. My pet's a beast too.", next = "ypet", when = { class = "HUNTER" } },
+        { text = "You found a horseshoe by the stables?", next = "e3_horseshoe" },
         { text = "Goodbye, Jay.", next = "END" },
       },
     },
@@ -189,6 +209,24 @@ P:NPC {
       },
       choices = { { text = "{pet} likes you. Something else.", next = "BACK", reply = "I knew it! Animals always know.", fx = { affinity = 1 } } },
     },
+    e3_horseshoe = {
+      lines = {
+        { id = "e3_horseshoe_l0", text = "It's an old one, rusty, with only three nails left in it, and Katie says it came off the grey before I was born. I hung it over my bed points up so the luck doesn't fall out, and the chestnut mare sniffed it when I showed her, so she remembers." },
+      },
+      choices = {
+        { text = "Points up keeps the luck in, they say.", next = "e3_horseshoe2" },
+        { text = "That's a fine treasure, Jay.", next = "BACK" },
+      },
+    },
+    e3_horseshoe2 = {
+      lines = {
+        { id = "e3_horseshoe2_l0", text = "That's what Randal said too. Eric says luck's only for people who can't tell which way a tree falls, but I think the wolves have stayed away from my side of the camp, so it might be working." },
+      },
+      choices = {
+        { text = "Keep it up there. Something else.", next = "BACK" },
+        { text = "Luck won't stop wolves, Jay.", next = "BACK" },
+      },
+    },
   },
   topics = {
     katie = { { id = "yt_katie", text = "Katie Hunter talks to every traveller who comes through, and she always knows the gossip from Goldshire first." } },
@@ -232,6 +270,7 @@ P:NPC {
         { text = "What will you do when you're let out?", next = "yout" },
         { text = "Where are your parents now?", next = "yparents" },
         { text = "I could teach you to hide in shadows.", next = "yshadow", when = { class = "ROGUE" } },
+        { text = "What's the squeaky board for in your plan?", next = "e3_squeak" },
         { text = "Hold fast in there, Kevin.", next = "END" },
       },
     },
@@ -287,6 +326,24 @@ P:NPC {
       },
       choices = { { text = "Another day, then. Something else.", next = "BACK" } },
     },
+    e3_squeak = {
+      lines = {
+        { id = "e3_squeak_l0", text = "It's the alarm, but backwards, because if Mother hears it she'll think it's Kyle going to the privy, and Kyle has to cough so she's sure. Then I go out the window while she's not listening, and the blanket's so I don't scrape my knees on the sill." },
+      },
+      choices = {
+        { text = "And where would you go, once you're out?", next = "e3_squeak2" },
+        { text = "Your mother's cleverer than you think.", next = "BACK" },
+      },
+    },
+    e3_squeak2 = {
+      lines = {
+        { id = "e3_squeak2_l0", text = "Only to the woodpile, honest, and only for a minute, to see a wolf from far away, so I can tell Eric and Jay I've seen one. Then I'd come straight back, before anybody knew, and nobody would be any the worse." },
+      },
+      choices = {
+        { text = "Wolves don't keep to minutes. Something else.", next = "BACK" },
+        { text = "Stay inside, Kevin. I mean it.", next = "BACK" },
+      },
+    },
   },
   topics = {
     kyle = { { id = "yt_kyle", text = "Kyle's my cousin. He's careful about everything, which is useful, but he never ever wants to have any fun." } },
@@ -321,7 +378,7 @@ P:NPC {
       lines = { { id = "h_default", text = "I'm Kyle. I walk round and round the house, since there's nowhere else to walk, and I make sure Kevin doesn't climb out of anything while I'm at it." } },
       again = {
         { id = "h_again", text = "Did you want to know something else? I'll keep walking, if you don't mind." },
-        { id = "h_again2", text = "Go on, I'm listening." },
+        { id = "h_again2", text = "Go on, then, and I'll keep walking my circle; it's eleven times round the table to a mile, I've worked it out." },
       },
       choices = {
         { text = "Don't you mind being shut in?", next = "mind" },
@@ -330,6 +387,7 @@ P:NPC {
         { text = "What do you want to be one day?", next = "ybe" },
         { text = "How did Kevin come to live with you?", next = "ycousin" },
         { text = "I'm a healer. Do you need anything?", next = "yheal", when = { class = { "PRIEST", "PALADIN", "DRUID", "SHAMAN" } } },
+        { text = "What words did the brother say when he mended the logger?", next = "e3_words" },
         { text = "Look after him, Kyle.", next = "END" },
       },
     },
@@ -382,6 +440,25 @@ P:NPC {
       },
       choices = { { text = "They're learned at the abbey. Something else.", next = "BACK" } },
     },
+    e3_words = {
+      lines = {
+        { id = "e3_words_l0", text = "Something very soft, about the Light holding what's broken till it can hold itself, and his hand went warm and the logger stopped shouting. I've been saying it to Kevin when he scrapes his knee, and nothing happens, but he does stop shouting, so maybe it's half working." },
+        { id = "e3_words_l1", when = { class = { "PRIEST", "PALADIN" } }, text = "Something soft, about the Light holding what's broken until it can hold itself, which you'd know better than me. I say it to Kevin when he scrapes his knee, and nothing glows, but he does stop shouting, so maybe it's half working." },
+      },
+      choices = {
+        { text = "Comfort is half of any healing.", next = "e3_words2" },
+        { text = "Keep practising, Kyle.", next = "BACK" },
+      },
+    },
+    e3_words2 = {
+      lines = {
+        { id = "e3_words2_l0", text = "That's what Mother says, that a kind word's the first bandage. I'm going to ask the brother next time if I can come to Northshire and learn the rest, and I'll take Kevin, because he'll need somebody to cough for him." },
+      },
+      choices = {
+        { text = "That's very wise. Something else.", next = "BACK" },
+        { text = "Kevin will manage without you, surely.", next = "BACK" },
+      },
+    },
   },
   topics = {
     abbey = { { id = "yt_abbey", text = "Northshire Abbey is where the brothers learn the Light. One day I'm going to walk there and ask to join." } },
@@ -425,6 +502,7 @@ P:NPC {
         { text = "Why did no one ask you to watch?", next = "ywhy" },
         { text = "Have you ever been beyond Eastvale?", next = "ybeyond" },
         { text = "I serve in the Alliance's army.", next = "yarmy", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "What do you think of Marshal Haggard?", next = "e3_haggard" },
         { text = "Carry on, watchman.", next = "END" },
       },
     },
@@ -480,6 +558,24 @@ P:NPC {
       },
       choices = { { text = "Keep carrying logs. Something else.", next = "BACK" } },
     },
+    e3_haggard = {
+      lines = {
+        { id = "e3_haggard_l0", text = "He's the best man in the camp, and he doesn't waste words, which is why I practise not wasting mine. He told me once that a watchman's job is to see first and speak second, and I've written it on the wall above my bed." },
+      },
+      choices = {
+        { text = "Has he ever noticed your watch?", next = "e3_haggard2" },
+        { text = "Good advice for any guard.", next = "BACK" },
+      },
+    },
+    e3_haggard2 = {
+      lines = {
+        { id = "e3_haggard2_l0", text = "Once, last month, he came out of his porch and stood beside me for a whole hour without saying anything. When he left, he nodded, and I don't think I've ever been so proud of anything." },
+      },
+      choices = {
+        { text = "You've earned that nod. Something else.", next = "BACK" },
+        { text = "Don't let it go to your head.", next = "BACK" },
+      },
+    },
   },
   topics = {
     thomas = { { id = "yt_thomas", text = "Guard Thomas on the east bridge taught me what a watch is for. You notice, and then you tell." } },
@@ -527,6 +623,7 @@ P:NPC {
         { text = "He called my robes dreadful.", next = "dreadful", when = { class = "MAGE" } },
         { text = "Where did you learn your trade?", next = "ylearn" },
         { text = "What's the grey bolt you warned me off?", next = "ygrey" },
+        { text = "What's the worst thing Theocritus has spilled?", next = "e3_spill" },
         { text = "Good day, Master Eberlein.", next = "END" },
       },
     },
@@ -574,6 +671,24 @@ P:NPC {
         { id = "yg_mage", when = { class = "MAGE" }, text = "Cloth the archmage brought from somewhere he won't name. It's cold to the touch and refuses every needle, and you'll feel the hum off it from there, I expect. He wants a cloak of it. I've stalled four months." },
       },
       choices = { { text = "Wise to be wary. Something else.", next = "BACK" } },
+    },
+    e3_spill = {
+      lines = {
+        { id = "e3_spill_l0", text = "A flask of something luminous, down the front of a robe of midnight mageweave that took me a fortnight to make. It glowed in the dark for a month afterwards, and he wore it anyway, because he said it saved him a candle." },
+      },
+      choices = {
+        { text = "Could you get it out?", next = "e3_spill2" },
+        { text = "A glowing archmage. How practical.", next = "BACK" },
+      },
+    },
+    e3_spill2 = {
+      lines = {
+        { id = "e3_spill2_l0", text = "Nothing would shift it, not lye, not lemon, not a gnome's solvent that took the colour off my thumb. I've accepted it, after a fashion, and I now line all his robes in a darker cloth so the next disaster has somewhere to hide." },
+      },
+      choices = {
+        { text = "Wise planning. Something else.", next = "BACK" },
+        { text = "Perhaps he should wear an apron.", next = "BACK" },
+      },
     },
   },
   topics = {

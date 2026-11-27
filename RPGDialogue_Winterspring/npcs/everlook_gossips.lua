@@ -267,7 +267,25 @@ P:NPC {
         { text = "Why do you love the wilds so much?", next = "hills" },
         { text = "I never thought I'd meet a goblin who likes the outdoors.", next = "goblin" },
         { text = "I know the wilds too. I'm a hunter.", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "Does anyone in Everlook share your love of the wilds?", next = "w9_share" },
         { text = "I'll let you get on, Meggi.", next = "END" },
+      },
+    },
+
+    w9_share = {
+      lines = { { id = "w9_share_d", text = "Not a soul, sweetie, not one! The rest of them think \"outdoors\" is the walk between the inn and the bank, and Gogo laughs every time I come back with pine needles in my hair. Azzleby understands a little, since he likes animals, though he prefers them indoors." } },
+      choices = {
+        { text = "Doesn't that get lonely?", next = "w9_share2" },
+        { text = "Maybe you could take Gogo with you.", next = "w9_share2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_share2 = {
+      lines = { { id = "w9_share2_d", text = "Gogo, in the hills! She'd want a carriage and a hot drink and someone to carry her coat, sweetie, and I love her for it, but no. I like it lonely out there, because the hills don't interrupt me, which is more than I can say for anybody in town." } },
+      choices = {
+        { text = "I won't interrupt, then.", next = "BACK", reply = "Oh, you're no trouble, sweetie. Now, where was I?" },
+        { text = "Something else.", next = "BACK" },
       },
     },
     trouble = {

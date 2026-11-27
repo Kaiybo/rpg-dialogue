@@ -50,7 +50,76 @@ P:NPC {
         { text = "Tell me about your brother.", next = "eyahn" },
         { text = "Teach me something, as one warrior to another.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I'm ready for a trial.", next = "BUSINESS" },
+        { text = "What else threatens Bloodhoof besides harpies?", next = "threats" },
+        { text = "How should I fight the Windfury?", next = "tactics" },
+        { text = "Can my pet fight the harpies with me?", next = "pet_harpy", when = { class = "HUNTER" } },
+        { text = "How did you get that scar on your arm?", next = "w7_scar" },
         { text = "Farewell, Ruul.", next = "END" },
+      },
+    },
+    w7_scar = {
+      lines = {
+        { id = "w7_scar_l1", text = "A Windfury matriarch, years ago, when I was as young and as sure as you. She came down on me from above while I was watching the three in front, and her talons opened me from shoulder to wrist." },
+      },
+      choices = {
+        { text = "How did you survive?", next = "w7_scar2" },
+        { text = "You should have watched the sky.", next = "w7_scar3" },
+        { text = "Something else, Ruul.", next = "BACK" },
+      },
+    },
+    w7_scar2 = {
+      lines = {
+        { id = "w7_scar2_l1", text = "My brother Eyahn, who was watching the sky when I was not. He put a spear through her before she could come back for my throat, and then he carried me down to Bloodhoof and complained about my weight the whole way." },
+        { id = "w7_scar2_l2", when = { class = "WARRIOR" }, text = "Eyahn, who watched the sky for me. You'll learn this, as I did: a warrior is only as safe as the one at his back. Find someone who will watch your sky, and watch theirs." },
+      },
+      choices = {
+        { text = "He sounds like a good brother.", next = "BACK", reply = "The best, though I will never tell him so to his face." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_scar3 = {
+      lines = {
+        { id = "w7_scar3_l1", text = "I should have, and now I do. That is why I send the young against the harpies first: they teach you to look up." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    threats = {
+      lines = { { id = "threats_d", text = "The Palemane gnolls in the west, who steal what they cannot hunt, and the goblins of the Venture Company in the east, who take what they cannot buy. And in the north, the dwarves have opened a dig at Bael'dun, and they treat our land as if it had no owner." } },
+      choices = {
+        { text = "The dwarves are digging in Mulgore?", next = "threats_dwarves" },
+        { text = "Enemies on every side.", next = "BACK", reply = "That is the way of the plains, and we have always lived it. The difference now is that we have a city to come home to." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    threats_dwarves = {
+      lines = { { id = "threats_dwarves_d", text = "They are, and they mean to keep digging until someone stops them. The Bael'dun dwarves fire upon our braves when they come near, and the elders debate whether to drive them out by force, which tells you how much patience they have left." } },
+      choices = {
+        { text = "Then the elders should stop debating.", next = "BACK", reply = "You speak like a young warrior, and you may be right. But let the elders do their work first." },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    tactics = {
+      lines = { { id = "tactics_d", text = "Keep your back to rock, young one, so they cannot dive at you from behind. A harpy is quick and cruel but light in the bones, and one good blow will put her down, so wait for it and do not waste your strength on the air." } },
+      choices = {
+        { text = "Wait for the one good blow. I understand.", next = "tactics_patience" },
+        { text = "That sounds like a lesson you learned the hard way.", next = "BACK", reply = "Every lesson worth teaching was learned that way. I only hope yours will come easier." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tactics_patience = {
+      lines = { { id = "tactics_patience_d", text = "Good, for patience is the whole of it, in harpies and in everything else. A warrior who strikes at every shadow will tire before the real enemy comes, and the real enemy always comes last." } },
+      choices = {
+        { text = "I'll remember that beyond Mulgore.", next = "BACK", reply = "Do. My brother says I repeat it too often, but it has never once been wrong." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    pet_harpy = {
+      lines = { { id = "pet_harpy_d", text = "It can, and gladly, but harpies fight from the air and your companion fights from the ground. Let your beast hold their attention while you strike, {class}, and keep it close, for a harpy will lead it away to the cliffs if she can." } },
+      choices = {
+        { text = "My companion won't wander.", next = "BACK", reply = "Then you have trained it well, and I'll trust your word." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     harpies = {

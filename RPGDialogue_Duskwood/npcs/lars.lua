@@ -35,6 +35,51 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    lar_sv1 = {
+      lines = {
+        { id = "lar_sv1_1", text = "Watches the road to Raven Hill, mostly, and sharpens the same knife he sharpened yesterday. Now and then he writes in a little book, and I don't ask what, because once I did and he didn't speak for two days." },
+      },
+      choices = {
+        { text = "Does he ever go into town?", next = "lar_sv2" },
+        { text = "Something else, Lars.", next = "BACK" },
+      },
+    },
+    lar_sv2 = {
+      lines = {
+        { id = "lar_sv2_1", text = "Never, not once since I've known him. Darkshire sends things out to him instead, flash bundles and letters from the Commander and the odd parcel nobody explains, and I'm the one who walks to the road to collect them." },
+      },
+      choices = {
+        { text = "Who sends the parcels?", next = "lar_sv3" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    lar_sv3 = {
+      lines = {
+        { id = "lar_sv3_1", text = "The Commander's name is on most of them, though I've seen Madame Eva's seal once or twice. Whatever's in them, Sven reads every word and burns the wrappings, and I've stopped wondering why folk in town care so much about a hermit." },
+      },
+      choices = {
+        { text = "Maybe he matters more than you think.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lar_sup1 = {
+      lines = {
+        { id = "lar_sup1_1", text = "I walk into Darkshire once a fortnight, early, with a pack and a long knife, and I trade pelts for flour and salt. The wolves have learned the day, I swear, because that's when they come closest to the camp." },
+      },
+      choices = {
+        { text = "I'll walk you in next time.", next = "lar_sup2", when = { class = { "HUNTER", "WARRIOR" } } },
+        { text = "The wolves can't count days.", next = "lar_sup2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lar_sup2 = {
+      lines = {
+        { id = "lar_sup2_1", text = "Maybe not, but they can smell an empty camp, and Sven's no help against them when he's in one of his moods. Anyone who thinned that pack would have my thanks, I'll say that much." },
+      },
+      choices = {
+        { text = "Then they'll learn to respect you. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Lars. Sven's the brooding one by the fire, and I'm the one who goes out and finds dinner. Living out here alone is dangerous work, but somebody's got to feed him." },
@@ -50,7 +95,7 @@ P:NPC {
           text = "A hunter! Thank the Light, someone who knows which end of a rabbit to start on." },
       },
       again = {
-        { id = "h_again", text = "Anything else? The pot won't stir itself." },
+        { id = "h_again", text = "Anything else? Ask while the rabbit's on, and mind the smoke; the wind's turning." },
         { id = "h_again2", text = "Go on, I'm listening, as long as you don't mind me skinning while you talk." },
       },
       choices = {
@@ -59,6 +104,9 @@ P:NPC {
         { text = "Who else makes trouble in these woods?", next = "necro" },
         { text = "Let me teach you a better snare.", next = "snare", when = { class = { "HUNTER", "DRUID" } } },
         { text = "I'll help with the wolves.", next = "BUSINESS" },
+        { text = "What does Sven do all day by that fire?", next = "lar_sv1" },
+        { text = "How do you get supplies out here?", next = "lar_sup1" },
+        { text = "What's in the pot tonight?", next = "e3_stew" },
         { text = "Good hunting, Lars.", next = "END" },
       },
     },
@@ -104,6 +152,24 @@ P:NPC {
       choices = {
         { text = "Set it low, by the water, and use wire.", next = "BACK", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    e3_stew = {
+      lines = {
+        { id = "e3_stew_l0", text = "Rabbit, if the snare was kind, and wolf, if it wasn't and the wolf came after my rabbit. Tonight it's a bit of both, with wild onion and a mushroom Scott Carevin swore was safe, so if I'm dead by morning, you know who to blame." },
+      },
+      choices = {
+        { text = "Does Sven ever eat?", next = "e3_stew2" },
+        { text = "Wolf stew. Fitting.", next = "BACK" },
+      },
+    },
+    e3_stew2 = {
+      lines = {
+        { id = "e3_stew2_l0", text = "When I put the bowl right in his hands and stand there, yes, and he says it's good, which from Sven is a speech. Some nights he even asks what's in it, and those are the nights I think he's coming back to us." },
+      },
+      choices = {
+        { text = "Keep cooking for him. Something else.", next = "BACK" },
+        { text = "He'll come back in his own time.", next = "BACK" },
       },
     },
   },

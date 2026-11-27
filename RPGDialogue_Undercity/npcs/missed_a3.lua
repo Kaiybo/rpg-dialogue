@@ -27,6 +27,25 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_travist = {
+      lines = {
+        { id = "w3_travist_1", text = "Because Travist swings as though the dummy had insulted his mother, and he has split three of them since the month began. Houser says strength without aim is just a way of tiring yourself out before the ghouls arrive, and he says it at Travist, at length, every morning." },
+      },
+      choices = {
+        { text = "He sounds like he'd do well at the Bulwark.", next = "w3_posting" },
+        { text = "Better too hard than too timid.", next = "BACK", reply = "Houser would agree, I suspect, though he'd sooner die again than admit it in front of Travist." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_posting = {
+      lines = {
+        { id = "w3_posting_1", text = "I expect that's where we'll all go, to the Bulwark and its walls, once Houser is satisfied. I've worked out the odds of the three of us coming back whole, and I'd rather not tell you what they are, because I'd like to keep thinking of them as a rough draft." },
+      },
+      choices = {
+        { text = "Then don't tell me. Something else.", next = "BACK" },
+        { text = "Odds change once the fighting starts.", next = "BACK", reply = "So people keep telling me. I find it a comfort, and also not at all." },
+      },
+    },
     ylife = {
       lines = { { id = "ylife_x", text = "I kept the tax rolls for the parish of Brill, which is how I know half the names on the graveyard stones. I counted their sheep and their debts, and then I counted their dead, and then I joined them." } },
       choices = {
@@ -58,7 +77,7 @@ P:NPC {
         { id = "yh_mage", when = { class = "MAGE" }, text = "A mage. You'll understand, I hope, that a sword stroke has its theory too, though Sergeant Houser denies it with real feeling." },
       },
       again = {
-        { id = "h_again", text = "Was there more? He's still busy with Travist." },
+        { id = "h_again", text = "Was there more? He's still busy with Travist, and by the sound of it, so is the dummy." },
         { id = "h_again2", text = "Ask on. I think better when I'm talking, which is half my trouble." },
       },
       choices = {
@@ -69,6 +88,7 @@ P:NPC {
         { text = "What did you do in life?", next = "ylife" },
         { text = "What worries you about the front?", next = "yworry" },
         { text = "Does Houser ever praise anyone?", next = "yhouser" },
+        { text = "Why does the sergeant shout at Travist so much?", next = "w3_travist" },
         { text = "Back to it, recruit.", next = "END" },
       },
     },
@@ -127,6 +147,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_calc = {
+      lines = {
+        { id = "w3_calc_1", text = "How much of me glows, and how fast it stops! I count the green on my fingers every morning with a little copper dial I made out of a spoon, and so far I'm down by four parts in a hundred, or else the spoon is wrong, which is also likely." },
+        { id = "w3_calc_2", when = { profession = "Engineering" }, text = "How much of me glows! You'll appreciate this, you're a tinkerer, I can smell the solder: I built a little dial out of a spoon and a copper coil, and it says I'm down four parts in a hundred, though the coil's bent." },
+      },
+      choices = {
+        { text = "A dial made from a spoon? Show me.", next = "w3_spoon" },
+        { text = "Four in a hundred sounds like good news.", next = "BACK", reply = "It does, doesn't it? At this rate I'll be safe to hug in about twenty-five years, give or take a spoon." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_spoon = {
+      lines = {
+        { id = "w3_spoon_1", text = "Oh, I can't, the tall dead people took it to copy, and they wrote \"fascinating\" on a label and put it in a drawer. They're very polite about stealing things, which is nicer than troggs, though not as nice as asking." },
+      },
+      choices = {
+        { text = "They should give it back.", next = "BACK" },
+        { text = "Build another one. Something else.", next = "BACK" },
+      },
+    },
     ymiss = {
       lines = { { id = "ymiss_x", text = "The gears! The sound of them, all day and all night, tick, tock, clank. It's so quiet here, nobody hums. I've started humming myself, in the right pitch, and the apothecaries write it down." } },
       choices = {
@@ -157,7 +197,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Yes, yes, what else? I'm between calculations, more or less." },
-        { id = "h_again2", text = "Ask me another one! I get about seven in ten of them right." },
+        { id = "h_again2", text = "Ask me another one! I get about seven in ten right, eight if I haven't looked at the vats today." },
       },
       choices = {
         { text = "What happened to you in Gnomeregan?", next = "gnomeregan" },
@@ -167,6 +207,7 @@ P:NPC {
         { text = "What do you miss most about Gnomeregan?", next = "ymiss" },
         { text = "Are you afraid of the apothecaries?", next = "yafraid" },
         { text = "Would you go home, if you could?", next = "yhome" },
+        { text = "What are you calculating, Ganoosh?", next = "w3_calc" },
         { text = "Keep well, Ganoosh.", next = "END" },
       },
     },
@@ -226,6 +267,73 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_keep = {
+      lines = {
+        { id = "w3_keep_1", text = "She eats what I put in front of her and sleeps where I tell her to lie down, and both are a nuisance. The living need bread from the Trade Quarter every day and a blanket against the damp, and I resent every copper of it, though I'll admit the bother is a kind of proof that she's still alive in there." },
+      },
+      choices = {
+        { text = "Then let her go, Abernathy.", next = "w3_free" },
+        { text = "You talk about her like a horse you keep.", next = "w3_free" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_free = {
+      lines = {
+        { id = "w3_free_1", text = "And send her where, exactly, to wander up the stair and into a ghoul's arms in the Glades? Whatever she was, she has no home left above us, and I'm the only one in this city who knows her name, so you may call that cruelty if it comforts you." },
+      },
+      choices = {
+        { text = "A slave is a slave, whatever you tell yourself.", next = "BACK", reply = "How righteous. You'll forgive me if I don't stop the demonstration on your account.", fx = { align = { light = 1 } } },
+        { text = "She's alive and fed. Worse fates walk Lordaeron.", next = "BACK", reply = "At last, someone with a sense of proportion. Theresa, bow to the {class}.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_errands = {
+      lines = {
+        { id = "d2_errands_1", text = "Everywhere a message can be carried, and a great many places where it needn't be. She takes my letters to the Magic Quarter, my laundry to the canals and my insults to Father Lankester, and she has never once been late or asked me why." },
+      },
+      choices = {
+        { text = "Does anyone stop her?", next = "d2_errands2" },
+        { text = "You use her like a footman.", next = "d2_errands2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_errands2 = {
+      lines = {
+        { id = "d2_errands2_1", text = "The royal guards stopped her once on the bridge, because a living woman walking alone in the Undercity is either lost or a spy. She stood there in silence until they sent for me, and I've never enjoyed explaining anything so much in my life." },
+      },
+      choices = {
+        { text = "And they let her go?", next = "BACK", reply = "They did, and now they nod to her on the bridge, which she doesn't notice. I notice for her." },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    d2_society = {
+      lines = {
+        { id = "d2_society_1", text = "Of course they do, since nothing in this city happens without the Apothecarium sniffing at it. One of Faranell's chemists came to watch Theresa for an afternoon and took notes, and asked whether the method could be done to a hundred at once." },
+      },
+      choices = {
+        { text = "And could it?", next = "d2_society2" },
+        { text = "That's an ugly question.", next = "d2_society2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_society2 = {
+      lines = {
+        { id = "d2_society2_1", text = "Not by me, and I told him so, because I'm an artist and not a factory. They have their own plans for the living, and theirs involve barrels, and I find it all rather crude by comparison." },
+      },
+      choices = {
+        { text = "Crude, coming from you.", next = "BACK", reply = "I know. I enjoy being the refined one for once." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_human = {
+      lines = {
+        { id = "d2_human_1", text = "She looks at everyone like that, and it means nothing, I assure you. There's no one left in there to know you, only the habit of looking, which I've kept because it unsettles people so nicely." },
+      },
+      choices = {
+        { text = "I don't believe you.", next = "BACK", reply = "Nobody does, the first time. Come back in a month and see whether she remembers your face." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Gerard Abernathy. The woman with the empty eyes is Theresa, and she is mine in a way that no spell of the ordinary sort could make her, because she will stay so whether I'm attending to her or not." },
@@ -240,6 +348,10 @@ P:NPC {
         { text = "Father Lankester doesn't care for you.", next = "lankester" },
         { text = "A dominated mind always slips free. How?", next = "priest", when = { class = { "PRIEST", "WARLOCK" } } },
         { text = "This is vile, Abernathy.", next = "vile" },
+        { text = "Where do you send her, on these errands?", next = "d2_errands" },
+        { text = "Does the Royal Apothecary Society know of this?", next = "d2_society" },
+        { text = "She looked at me just now as if she knew me.", next = "d2_human", when = { race = "Human" } },
+        { text = "Does Theresa eat, or sleep?", next = "w3_keep" },
         { text = "I've seen enough.", next = "END" },
       },
     },
@@ -303,6 +415,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_me = {
+      lines = {
+        { id = "w3_me_1", text = "You favour your right side when you turn, and you set your feet down like someone used to roads more than woods. I'd know you from a hundred others by the second print, which is a thing worth knowing about yourself if anyone ever has cause to follow you." },
+        { id = "w3_me_2", when = { race = "Tauren" }, text = "Hooves leave the plainest sign there is, friend, and yours are heavy behind and light at the front, as if you're always ready to charge. I'd know you from a hundred others by the second print, so mind that if anyone ever has cause to follow you." },
+        { id = "w3_me_3", when = { class = "ROGUE" }, text = "You walk on the outside of your foot, as your sort are taught, and you think it leaves nothing. It leaves a narrower print, that's all, and a narrower print is still a print." },
+      },
+      choices = {
+        { text = "Could you follow a Scarlet scout as easily?", next = "w3_scarlet" },
+        { text = "I'd rather nobody followed me at all.", next = "BACK", reply = "Then cross water and stone, and never stop by a leather stall. Most folk can't manage the last one." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_scarlet = {
+      lines = {
+        { id = "w3_scarlet_1", text = "Easier, because they walk in iron-shod boots and believe the Light will keep them from being seen. I tracked one from the Brill road almost to the Monastery fields last spring, and he never looked behind him once, which says a great deal about the Crusade." },
+      },
+      choices = {
+        { text = "What did you do when you caught him?", next = "BACK", reply = "I told the Deathguard where he slept. They did the rest, and I didn't ask about it." },
+        { text = "Something else, Winslow.", next = "BACK" },
+      },
+    },
     ylife = {
       lines = { { id = "ylife_x", text = "The Silverpine woods, from Pyrewood to the coast. Baron Silverlaine's game warden, if you can believe it, and I knew every badger's sett by name. Now the wolves out there walk on two legs at night." } },
       choices = {
@@ -350,6 +483,7 @@ P:NPC {
         { text = "Where did you hunt, in life?", next = "ylife" },
         { text = "Who's passed here lately?", next = "ylately" },
         { text = "Do you ever track for the Dark Lady?", next = "ytrack" },
+        { text = "What would you read from my own trail?", next = "w3_me" },
         { text = "Good hunting, Winslow.", next = "END" },
       },
     },
@@ -408,6 +542,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_count = {
+      lines = {
+        { id = "w3_count_1", text = "I do, because on the walls you lose track of how many you have left, and the one you didn't count is the one that isn't there when a ghoul comes over the parapet. It's an old soldier's habit, and I learned it from a dead man who didn't learn it in time." },
+      },
+      choices = {
+        { text = "Who taught you that?", next = "w3_teacher" },
+        { text = "Doesn't the noise bother anyone down here?", next = "w3_noise" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_teacher = {
+      lines = {
+        { id = "w3_teacher_1", text = "A sergeant of the Stratholme watch named Hale, who could hit a crow on a weathervane and couldn't add past twenty. He ran dry on the city wall during the culling, and I've counted every shot since, even the ones I fire at a sack." },
+      },
+      choices = {
+        { text = "Then count well, Atwood. Something else.", next = "BACK" },
+      },
+    },
+    w3_noise = {
+      lines = {
+        { id = "w3_noise_1", text = "The bats in the vaulting hate it, and so do the rogues, who think a city of whispers ought to stay quiet. Nicholas says the noise is good for business, because every shot reminds somebody they ought to buy powder." },
+      },
+      choices = {
+        { text = "Your cousin's a shrewd one. Something else.", next = "BACK" },
+      },
+    },
     ylife = {
       lines = { { id = "ylife_x", text = "I shot crows off my uncle's barley near Stratholme. Then I shot ghouls off the barley. Then I didn't shoot fast enough. Nicholas sold me my first rifle after I rose, and wouldn't take a copper for it." } },
       choices = {
@@ -440,7 +600,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? I'm reloading, so you have about as long as that takes." },
-        { id = "h_again2", text = "Go on, between shots." },
+        { id = "h_again2", text = "Go on, between shots, and don't flinch at the next one." },
       },
       choices = {
         { text = "Why the rifle, and not a bow?", next = "rifle" },
@@ -450,6 +610,7 @@ P:NPC {
         { text = "What did you do before you died?", next = "ylife" },
         { text = "What's your best shot ever?", next = "ybest" },
         { text = "I'm a hunter. Rifle or bow?", next = "yhunter", when = { class = "HUNTER" } },
+        { text = "You count your shots under your breath.", next = "w3_count" },
         { text = "I'll let you shoot.", next = "END" },
       },
     },
@@ -508,6 +669,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_late = {
+      lines = {
+        { id = "w3_late_1", text = "I don't give out names, but I'll tell you there's a young man who borrowed against a trip to Shadowfang Keep and came back without the treasure he promised, or his left hand. I'm going to see him this afternoon, and I'll be gentle, because a man with one hand is halfway to repaying in sympathy." },
+      },
+      choices = {
+        { text = "You'd go easier on him because he's maimed?", next = "w3_soft" },
+        { text = "Sounds like Shadowfang paid him already.", next = "BACK", reply = "Ha! It took its interest, right enough. My people would like the principal." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_soft = {
+      lines = {
+        { id = "w3_soft_1", text = "Easier isn't the word, but a broken man pays nothing, and a frightened one pays slowly. I'll tell him the debt can wait a fortnight, and he'll spend that fortnight working twice as hard to stay out of my way, which suits everyone." },
+      },
+      choices = {
+        { text = "That's cleverer than it sounds. Something else.", next = "BACK" },
+      },
+    },
     ywho = {
       lines = { { id = "ywho_x", text = "Merchants in the Trade Quarter who lend to adventurers, mostly. Coin goes out to fools, I bring it back. The rogues leave me be because I'm good at it, and because I once taught one of them to count with broken fingers." } },
       choices = { { text = "Something else.", next = "BACK" } },
@@ -537,7 +716,7 @@ P:NPC {
         { id = "yh_rogue", when = { class = "ROGUE" }, text = "A rogue. You'll know the difference between a reminder and a warning, then. I deliver both." },
       },
       again = {
-        { id = "h_again", text = "What else? Keep walking while you ask." },
+        { id = "h_again", text = "What else? Keep walking while you ask, and keep on my left." },
         { id = "h_again2", text = "Go on, then. I've a way to go before I've anyone to call on." },
       },
       choices = {
@@ -548,6 +727,7 @@ P:NPC {
         { text = "Who do you collect for?", next = "ywho" },
         { text = "What did you do in life?", next = "ylife" },
         { text = "Have you ever let someone off?", next = "yoff" },
+        { text = "Who's late paying this week?", next = "w3_late" },
         { text = "I'll walk my own way.", next = "END" },
       },
     },

@@ -42,7 +42,25 @@ P:NPC {
         { text = "Aren't you afraid, alone among the quilboar?", next = "alone" },
         { text = "You said hope. What do you hope for?", next = "hope" },
         { text = "What must I do to hear the water?", next = "task", when = { class = "SHAMAN" } },
+        { text = "How do you live up here, with no water to hand?", next = "live" },
+        { text = "Islen Waterseer sends you her shaman. You know her well?", next = "islen" },
+        { text = "Kranal Fiss says the Horde needs burners, not menders.", next = "w5_kranal" },
         { text = "I'll go back down the hill.", next = "END" },
+      },
+    },
+    w5_kranal = {
+      lines = { { id = "w5_kranal_l", text = "He would. Kranal is all hunger, and fire feeds hunger. He thinks I sit on this hill doing nothing because there is no water to command. He forgets that after every one of his burnings, someone has to wash the wounds." } },
+      choices = {
+        { text = "Who is right, you or Kranal?", next = "w5_kranal2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_kranal2 = {
+      lines = { { id = "w5_kranal2_l", text = "Both of us, which neither of us will ever say to the other. The Horde lives in a land that wants to kill it. It needs fire to hold the walls and water to keep the people behind them alive. I only wish more young shaman chose the slower lesson." } },
+      choices = {
+        { text = "The Horde needs its healers more than its fire.", next = "BACK", reply = "Say that in Orgrimmar and they will laugh, until the day they need me.", fx = { align = { light = 1 } } },
+        { text = "Fire wins wars. Healers only tidy up afterward.", next = "BACK", reply = "Then go to Kranal, and when the fire is done with you, come back up my hill.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     dry = {
@@ -81,6 +99,33 @@ P:NPC {
     task2 = {
       lines = { { id = "t2_default", text = "Because each has kept itself pure with ruin all around it, and you need to taste what that's like before Islen sends you to water that hasn't. Bring them all back to her, and don't spill any on the road." } },
       choices = { { text = "I'll carry them carefully. Something else.", next = "BACK" } },
+    },
+    live = {
+      lines = { { id = "lv_default", text = "Carefully. I catch the rain in skins when it comes, I drink from the old well below when it doesn't, and I eat what the plainstriders don't. A shaman who wants to learn water should learn first how little of it a body truly needs." } },
+      choices = {
+        { text = "That sounds like penance more than study.", next = "live2" },
+        { text = "And when the well runs dry?", next = "live2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    live2 = {
+      lines = { { id = "lv2_default", text = "It hasn't in all my years here, and I don't think it will, because something below keeps it filled. Call it penance if you like. I spent my youth in the camps drinking whatever the humans poured, and up here, every mouthful is mine." } },
+      choices = { { text = "Every mouthful yours. Something else.", next = "BACK" } },
+    },
+    islen = {
+      lines = { { id = "il_default", text = "Well enough to argue with. She sits by the sea and listens, and I sit on a dry hill and wait, and we both think we've found the truer path. She's tauren, so she's patient with me, and I'm orc, so I'm not patient with anyone." } },
+      choices = {
+        { text = "Which of you is right?", next = "islen2" },
+        { text = "Patience is a kind of water too.", next = "islen2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    islen2 = {
+      lines = { { id = "il2_default", text = "Both of us, which is why the spirits send the young ones from her shore to my hill and back again. The sea shows you how much water there is, and the dust shows you what it's worth, and you need to know both before the totem means anything." } },
+      choices = {
+        { text = "I'm a shaman. I'll carry both lessons, Brine.", next = "BACK", reply = "Then carry them carefully, {class}, and don't spill either one.", when = { class = "SHAMAN" } },
+        { text = "Something else, then.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -321,14 +366,30 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Sit, if you're staying, so I needn't look up." },
-        { id = "h_again2", text = "Go on, {class}." },
+        { id = "h_again2", text = "Go on, {class}. I've nowhere to run off to, as you can see." },
       },
       choices = {
         { text = "What happened to your leg?", next = "leg" },
         { text = "Why camp out here, away from the Crossroads?", next = "camp" },
         { text = "Who are the lion hides for?", next = "tanner" },
         { text = "What steel would you put in a warrior's hand?", next = "steel", when = { class = "WARRIOR" } },
+        { text = "Who buys arms out here, so far from any town?", next = "w5_buyers" },
         { text = "Rest that leg, Vrang.", next = "END" },
+      },
+    },
+    w5_buyers = {
+      lines = { { id = "w5_buyers_l", text = "Far Watch scouts, mostly, and the odd traveller who broke a blade on the Kolkar. Now and then young orcs come down from Dreadmist with a burned mark on the wrist, wanting axes, a lot of them. Those I send away." } },
+      choices = {
+        { text = "Even if they pay well?", next = "w5_buyers2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_buyers2 = {
+      lines = { { id = "w5_buyers2_l", text = "They pay very well, and I could use the coin. This leg won't heal on its own, and a healer costs. But I know where those axes would go, and whose throats they'd be for. I've never owed anyone, and I won't owe the Burning Blade either." } },
+      choices = {
+        { text = "Turn them away. Your steel shouldn't arm traitors.", next = "BACK", reply = "Aye. A smith answers for his blades, even after they leave his hands.", fx = { align = { honor = 1 } } },
+        { text = "Coin is coin. Let the Horde deal with traitors.", next = "BACK", reply = "Spoken like a goblin. Maybe that's wisdom. I still won't do it.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     leg = {
@@ -410,7 +471,7 @@ P:NPC {
       lines = { { id = "h_default", text = "I'm Lanti'gah, and I keep this hole in the ground standing while Regthar goes out and shouts at centaur. I mind the stores, I walk the line at night, and I feed those pigs, which nobody thanks me for." } },
       again = {
         { id = "h_again", text = "What else? I've a perimeter to walk." },
-        { id = "h_again2", text = "Go on, I'm listening with one ear." },
+        { id = "h_again2", text = "Go on. One ear's on you, the other's on those pigs past the wire." },
       },
       choices = {
         { text = "A clean bunker keeps the soldiers healthy.", next = "BACK", reply = "It does! Finally, someone who understands.", fx = { align = { order = 1 } } },
@@ -422,7 +483,23 @@ P:NPC {
         { text = "Which pig opens the gate?", next = "ypig" },
         { text = "What do you think of the Kolkar khans?", next = "ykhans" },
         { text = "What do the Darkspear here do for fun?", next = "ytroll" },
+        { text = "What's actually in the stores you guard?", next = "w5_stores" },
         { text = "Keep the door shut, Lanti'gah.", next = "END" },
+      },
+    },
+    w5_stores = {
+      lines = { { id = "w5_stores_l", text = "Salt pork, which is why I hate the pigs, because I know how they end. Powder kegs, which is why nobody smokes in here. And a crate of Kolkar banners that Regthar keeps, one for every raid party he's broken. It's a big crate." } },
+      choices = {
+        { text = "Why does Regthar keep the banners?", next = "w5_stores2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_stores2 = {
+      lines = { { id = "w5_stores2_l", text = "He says a warrior should remember every enemy who stood against him. I say they smell of horse and they take up room I could fill with salt. Some nights I want to burn the lot, and some nights I count them, and I'm proud of every one." } },
+      choices = {
+        { text = "Keep the banners. A beaten foe deserves to be remembered.", next = "BACK", reply = "That's what Regthar says, word for word. He'll like you.", fx = { align = { honor = 1 } } },
+        { text = "Burn them. Trophies just feed old grudges.", next = "BACK", reply = "Don't let Regthar hear you. Though I'll admit I've thought it with a torch in my hand.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     pigs = {
@@ -528,7 +605,23 @@ P:NPC {
         { text = "Do ogres ever come for you?", next = "yogres" },
         { text = "Does little boss ever cheat people?", next = "ycheat" },
         { text = "What do you do with thieves, Jorb?", next = "ysneaky" },
+        { text = "What does Jorb think about, walking all day?", next = "w5_think" },
         { text = "Walk well, Jorb.", next = "END" },
+      },
+    },
+    w5_think = {
+      lines = { { id = "w5_think_l", text = "Jorb counts. Jorb counts the steps from the Crossroads to the goblin town by the water. It is many steps." } },
+      choices = {
+        { text = "How many steps is it?", next = "w5_think2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_think2 = {
+      lines = { { id = "w5_think2_l", text = "Jorb does not know. Jorb loses the count at the big hill, every time, because the cart squeaks and little boss talks. So Jorb starts again at the bottom. Jorb has never finished counting. Jorb thinks one day he will, and then he will know." } },
+      choices = {
+        { text = "I hope you finish someday, Jorb.", next = "BACK", reply = "Jorb hopes too. Then Jorb will count the way back." },
+        { text = "Count out loud. Lizzarik can't talk over you then.", next = "BACK", reply = "Ha! Little boss would not like that. Jorb will try it tomorrow." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     why = {
@@ -633,7 +726,23 @@ P:NPC {
         { text = "Will the Venture Company come after you?", next = "yafter" },
         { text = "What will you do now?", next = "ynext" },
         { text = "Should I join the Venture Company?", next = "ygob" },
+        { text = "Is there anything you miss about the Company?", next = "w5_miss" },
         { text = "Good luck, pilot.", next = "END" },
+      },
+    },
+    w5_miss = {
+      lines = { { id = "w5_miss_l", text = "The hat. It was a good hat, pal, regulation, with a little brass badge. And the shredder, if I'm honest. Thirty feet of steel, saws on both arms, and when you pull the lever she sings like a choir of very angry gears." } },
+      choices = {
+        { text = "You could build another shredder, couldn't you?", next = "w5_miss2" },
+        { text = "I could help you build one. I know engines.", next = "BACK", when = { profession = "Engineering" }, reply = "Now you're talkin'! Get me a workshop in Ratchet, and we'll build one that cuts nothing but rope." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_miss2 = {
+      lines = { { id = "w5_miss2_l", text = "Sure, in about ten years and with somebody else's money. Sputtervalve says Ratchet's got a use for a goblin who knows the plans. Maybe they'll let me drive one again, for the good guys. Or the slightly better guys. I'm not fussy." } },
+      choices = {
+        { text = "For the slightly better guys, then.", next = "BACK", reply = "That's the spirit, pal. Low standards, high hopes." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     why = {

@@ -25,6 +25,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2proud = {
+      lines = { { id = "w2pr_default", text = "A breastplate I made for a Warsong outrider four winters past. She has worn it through every season in Ashenvale since, and it came back to me last month with eleven arrowheads in it and not one of them through." } },
+      choices = {
+        { text = "What did she say when she brought it back?", next = "w2proud2" },
+        { text = "Eleven arrows. The elves must hate that plate.", next = "w2proud2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2proud2 = {
+      lines = {
+        { id = "w2pr2_smith", when = { profession = "Blacksmithing" }, text = "She asked me to mend it and not to polish out the marks, and I did as she asked. You will understand this one day, smith: a warrior who wants her dents kept has trusted your work with her life, and that is the only praise worth having." },
+        { id = "w2pr2_default", text = "She asked me to mend it and not to polish out the marks, and I did as she asked. A warrior who wants her dents kept has trusted your work with her life, and that is the only praise I care for." },
+      },
+      choices = { { text = "That is praise worth earning.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_quest", when = { questActive = TODO_QUEST("The Art of the Armorsmith") }, text = "You know what I asked of you, smith. Bring me the pieces finished and true, and do not bring them until you would wear them into battle yourself." },
@@ -41,6 +56,7 @@ P:NPC {
         { text = "Who is the tauren beside you?", next = "ox" },
         { text = "A good axe ends the fight sooner.", next = "axe" },
         { text = "I am a smith. Will you teach me?", next = "teach", when = { profession = "Blacksmithing" } },
+        { text = "Which piece of your work are you proudest of?", next = "w2proud" },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -122,13 +138,58 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2forge = {
+      lines = {
+        { id = "w2fg_tauren", when = { race = "Tauren" }, text = "You have heard the elders say that the forge wounds the land, I think. I believe the Earth Mother gave us the stone and the ore as she gave us the grass, and asks only that we take what we need and waste none of it." },
+        { id = "w2fg_default", text = "Some of the elders in Thunder Bluff say the forge wounds the land. I believe the Earth Mother gave us the ore as she gave us the grass, and asks only that we take what we need and waste none of it." },
+      },
+      choices = {
+        { text = "And do the orcs here waste much?", next = "w2forge2" },
+        { text = "Fire and iron seem far from the plains.", next = "w2forge2" },
+        { text = "Something else, Ox.", next = "BACK" },
+      },
+    },
+    w2forge2 = {
+      lines = { { id = "w2fg2_default", text = "They waste less than you would think, because the camps taught them the price of iron. I have watched Okothos melt down a single bent rivet to use again, and I thought then that he and the Earth Mother would understand each other well." } },
+      choices = { { text = "A good thought to hold.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
+    ox_okothos = {
+      lines = { { id = "ox_okothos_l", text = "He does, and the forge answers him as a herd answers its strongest bull. Okothos Ironrager is the finest armorsmith in Orgrimmar, and the Order sent me to stand beside him so that his best students would not have to search for us." } },
+      choices = {
+        { text = "Does he welcome the Order?", next = "ox_okothos2" },
+        { text = "So you wait for his students.", next = "ox_okothos2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ox_okothos2 = {
+      lines = { { id = "ox_okothos2_l", text = "He tolerates us, as a tired bull tolerates a calf at his flank. When a student has learned all he can give, he sends them to me without a word, and I take that silence for the highest praise an orc can give." } },
+      choices = {
+        { text = "An orc's silence says a great deal.", next = "BACK" },
+        { text = "Something else, Ox.", next = "BACK" },
+      },
+    },
+    ox_mithril = {
+      lines = { { id = "ox_mithril_l", text = "That it is the most patient of metals, and so it suits a tauren well. Mithril will not be rushed and will not be bullied, and a smith who forces it gets a brittle plate and a lesson." } },
+      choices = {
+        { text = "Where is mithril found?", next = "ox_mithril2" },
+        { text = "Patience seems to be the root of every craft.", next = "ox_mithril2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ox_mithril2 = {
+      lines = { { id = "ox_mithril2_l", text = "In the deep places of the world, far from Durotar, in the Badlands and the hills of the eastern kingdoms and the mountains of Feralas. A smith of the Order must travel to find it, which is part of the teaching, for the road shapes a smith as surely as the hammer." } },
+      choices = {
+        { text = "Then I'll walk that road one day.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_quest", when = { questActive = TODO_QUEST("Booty Bay or Bust!") }, text = "You carry my insignia, and it will speak for you in Booty Bay. Seek McGavan there, and be patient with him, because he tests every smith who comes." },
         { id = "h_default", text = "The Mithril Order is an old fellowship of armorers, and we care for the craft more than for the banners above it. I wait here for smiths whom Okothos has finished with, and I send the worthy ones onward." },
       },
       again = {
-        { id = "h_again", text = "What else would you know, {class}?" },
+        { id = "h_again", text = "Ask what you will, {class}. The fire will burn the same whether we hurry or not." },
         { id = "h_again2", text = "Ask. A forge teaches patience, and I have learned mine." },
       },
       choices = {
@@ -136,6 +197,9 @@ P:NPC {
         { text = "How did a tauren come to smithing?", next = "tauren" },
         { text = "It's a strange place for one of your people.", next = "place" },
         { text = "I am an armorsmith. Where do you send us?", next = "send", when = { profession = "Blacksmithing" } },
+        { text = "Okothos works his forge harder than any orc here.", next = "ox_okothos" },
+        { text = "What does a tauren smith think of mithril?", next = "ox_mithril" },
+        { text = "What does the Earth Mother make of a forge?", next = "w2forge" },
         { text = "Walk with the Earth Mother, Ox.", next = "END" },
       },
     },
@@ -206,6 +270,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2arm = {
+      lines = { { id = "w2ar_default", text = "I don't, so I swap hands. Saru made me strike left-handed for a whole summer when I was young, until I could set a rivet with either fist, and I cursed him for every day of it." } },
+      choices = {
+        { text = "Was he right to make you?", next = "w2arm2" },
+        { text = "A whole summer sounds cruel.", next = "w2arm2" },
+        { text = "Something else, Shayis.", next = "BACK" },
+      },
+    },
+    w2arm2 = {
+      lines = {
+        { id = "w2ar2_warrior", when = { class = "WARRIOR" }, text = "Annoyingly, yes. You should try it yourself, warrior, because the day your sword arm is cut you'll want the other one to remember what it's doing. I've seen grunts die for never having learned." },
+        { id = "w2ar2_default", text = "Annoyingly, yes. When I burned my right hand on a quench two years ago, I worked the rest of the season left-handed and nobody at the forge could tell, and I'll not say thank you to him for it." },
+      },
+      choices = { { text = "Some lessons only pay later.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Shayis Steelfury, and I make armor, and I show others how when they have the arm for it. The name is known at this forge, so I have to work twice as hard to deserve it." },
@@ -222,6 +301,7 @@ P:NPC {
         { text = "Who taught you to smith?", next = "y_teach" },
         { text = "What do you fear at the forge?", next = "y_fear" },
         { text = "Who is Kelgruk to you?", next = "y_kelgruk" },
+        { text = "How do you keep your arm from tiring?", next = "w2arm" },
         { text = "Strength and honor, Shayis.", next = "END" },
       },
     },
@@ -307,6 +387,18 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2pleased = {
+      lines = { { id = "w2pl_default", text = "Nothing, which is how you know. When the work is bad he shouts and when it is good he says nothing at all and walks away, and once, only once, he tapped my hinge with his hammer and grunted." } },
+      choices = {
+        { text = "What did the grunt mean?", next = "w2pleased2" },
+        { text = "That sounds like a hard way to learn.", next = "w2pleased2" },
+        { text = "Something else, Snarl.", next = "BACK" },
+      },
+    },
+    w2pleased2 = {
+      lines = { { id = "w2pl2_default", text = "Ug'thok says it meant nothing, and he says it loudly because the master has never grunted at one of his. I kept the hinge, and it is on the door of my mother's house in the Drag now, so I can look at it every night." } },
+      choices = { { text = "Then it meant something.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Snarl, apprentice to Saru Steelfury. I pump the bellows, I haul the coal and I hold the iron while he strikes it, and one day I will be the one who strikes." },
@@ -324,6 +416,7 @@ P:NPC {
         { text = "What do you dream of forging?", next = "y_dream" },
         { text = "Those are a lot of burns on your arms.", next = "y_burn" },
         { text = "How is the horseshoe count now?", next = "y_sixtyone" },
+        { text = "What does Saru do when he's pleased?", next = "w2pleased" },
         { text = "Back to the bellows, then.", next = "END" },
       },
     },
@@ -414,6 +507,51 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2mark = {
+      lines = { { id = "w2mk_default", text = "A wolf's tooth, cut deep into the haft just below the head. I carved the stamp myself from a tooth my grandfather pulled out of a Stormwind horse, though he said it was a wolf's, and nobody can prove otherwise." } },
+      choices = {
+        { text = "Has Saru let you use it yet?", next = "w2mark2" },
+        { text = "A horse's tooth? That's funny.", next = "w2mark2" },
+        { text = "Something else, Ug'thok.", next = "BACK" },
+      },
+    },
+    w2mark2 = {
+      lines = {
+        { id = "w2mk2_orc", when = { race = "Orc" }, text = "Not yet! He says a mark is a promise to every grunt who carries the axe, and that I can make it when I can keep it. You're an orc, so you know a promise in iron is worth ten in words." },
+        { id = "w2mk2_default", text = "Not yet! He says a mark is a promise to every grunt who carries the axe, and I may make it when I can keep it. So I keep the stamp in my belt pouch and touch it for luck before every heat." },
+      },
+      choices = { { text = "You'll use it soon enough.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
+    ug_arm = {
+      lines = { { id = "ug_arm_l", text = "It is, but I would not tell the master that, because he would make me strike for another hour to teach my arm a lesson. A smith's arm is like a grunt's, it only gets strong if you use it until it hurts." } },
+      choices = {
+        { text = "Then keep swinging, Ug'thok.", next = "ug_arm2" },
+        { text = "You'll hurt yourself working like that.", next = "ug_arm2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ug_arm2 = {
+      lines = { { id = "ug_arm2_l", text = "Snarl says the same, but he says it while sitting down with a cup of water. I mean to have the strongest arm in the Valley of Honor by the summer, and then I will make the axe I drew." } },
+      choices = {
+        { text = "I'll look for that axe.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ug_shayis = {
+      lines = { { id = "ug_shayis_l", text = "She is the master's kin, and she sees everything that comes off this anvil, and she tells me what is wrong with it before the master does. I think she does it to save me from his shouting, though she would never say so." } },
+      choices = {
+        { text = "So she's kinder than she looks.", next = "ug_shayis2" },
+        { text = "Do you listen to her?", next = "ug_shayis2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ug_shayis2 = {
+      lines = { { id = "ug_shayis2_l", text = "I listen to her more than to the master, because she explains things, and he only shouts that they are wrong. One day I will make an axe she cannot find a fault in, and that will be the day I know I am a smith." } },
+      choices = {
+        { text = "Good luck with that day.", next = "BACK" },
+        { text = "Something else, Ug'thok.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_quest", when = { questActive = TODO_QUEST("This Is Spinal Axe") }, text = "Have you got what I asked for? I cannot finish the axe without it, and the master will not let me near the good steel until I show him I am serious." },
@@ -430,6 +568,9 @@ P:NPC {
         { text = "Snarl says he has the better eye.", next = "snarl" },
         { text = "A sword is the finer weapon.", next = "sword" },
         { text = "Let me see this edge of yours.", next = "edge", when = { class = { "WARRIOR", "SHAMAN", "HUNTER" } } },
+        { text = "Your arm looks tired already.", next = "ug_arm" },
+        { text = "What is Shayis Steelfury like?", next = "ug_shayis" },
+        { text = "What will your smith's mark look like?", next = "w2mark" },
         { text = "Swing true, Ug'thok.", next = "END" },
       },
     },
@@ -504,12 +645,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2envy = {
+      lines = { { id = "w2en_default", text = "Dwarven plate, though I'll deny I said so. The Warsong brought back a breastplate from Ashenvale made in Ironforge, and it was heavier than ours but sat on the body like it grew there, and my father spent a whole night taking it apart." } },
+      choices = {
+        { text = "What did he learn from it?", next = "w2envy2" },
+        { text = "The dwarves have had a long time to practise.", next = "w2envy2" },
+        { text = "Something else, Tumi.", next = "BACK" },
+      },
+    },
+    w2envy2 = {
+      lines = { { id = "w2en2_default", text = "That the dwarves curve the plate at the hip so the weight rides on the belt and not the shoulders. He swore at it for an hour, and then he started doing it himself, and now the grunts say our plate is lighter than it used to be." } },
+      choices = { { text = "Good smiths steal good ideas.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Tumi. My father, Saru, makes a good part of what hangs here and my sister Sumi sells the smiths their supplies, so if it is iron and it is in this valley, a Steelfury has had a hand on it." },
       },
       again = {
-        { id = "h_again", text = "What else do you want to know, {class}?" },
+        { id = "h_again", text = "What else, {class}? And stand up straight while you ask, so I can see how that chest piece sits." },
         { id = "h_again2", text = "Ask it. I can talk and polish at once." },
       },
       choices = {
@@ -520,6 +673,7 @@ P:NPC {
         { text = "Do you and Sumi get on?", next = "y_sumi" },
         { text = "What's the worst sale you've made?", next = "y_worst" },
         { text = "How do you make buyers prove themselves?", next = "y_proof" },
+        { text = "Is there any Alliance armor you envy?", next = "w2envy" },
         { text = "Good trading, Tumi.", next = "END" },
       },
     },
@@ -602,12 +756,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2gift = {
+      lines = { { id = "w2gf_default", text = "Once. A boy from Matron Battlewail's house came every day for a season to look at one plain axe on my rack, and when he was sent to the Valley of Trials, I gave it to him and told him the price was to come back alive." } },
+      choices = {
+        { text = "Did he come back?", next = "w2gift2" },
+        { text = "That was a kind thing to do.", next = "w2gift2" },
+        { text = "Something else, Shoma.", next = "BACK" },
+      },
+    },
+    w2gift2 = {
+      lines = { { id = "w2gf2_default", text = "He did, and he has paid me every winter since, with the tale of whatever that axe has killed. It is a grunt's axe still, but it has more of a legend in it now than half the blades I sell." } },
+      choices = { { text = "That is a legend worth selling.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Shoma. I sell blades and hafted arms here, and Zendo'jian sells beside me, and between an orc and a troll there is no weapon the Horde carries that we cannot speak for." },
       },
       again = {
-        { id = "h_again", text = "What more would you ask?" },
+        { id = "h_again", text = "Ask your question, {class}. A weapon is chosen slowly, and so are my answers." },
         { id = "h_again2", text = "Speak, {class}. I am listening." },
       },
       choices = {
@@ -618,6 +784,7 @@ P:NPC {
         { text = "You said you wore chains.", next = "y_chains" },
         { text = "Do you sell to anyone who asks?", next = "y_sell" },
         { text = "Tell me of Gorehowl.", next = "y_gorehowl" },
+        { text = "Have you ever given a weapon away?", next = "w2gift" },
         { text = "Lok'tar, Shoma.", next = "END" },
       },
     },
@@ -705,6 +872,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2target = {
+      lines = {
+        { id = "w2tg_troll", when = { race = "Troll" }, text = "You know already, cousin, it be a murloc face painted on a post. I painted dis one behind de shop with Zalazane's hat on it, an' every axe dat lands in his eye be a little prayer for de Echo Isles." },
+        { id = "w2tg_default", text = "A post behind de shop, mon, wit' a murloc face painted on it. Every Darkspear throws at murlocs first, 'cause dey come up out of de surf at Sen'jin every night like dey own de beach." },
+      },
+      choices = {
+        { text = "Does Shoma mind the noise?", next = "w2target2" },
+        { text = "I'd like to try a throw myself.", next = "w2target2" },
+        { text = "Something else, Zendo'jian.", next = "BACK" },
+      },
+    },
+    w2target2 = {
+      lines = { { id = "w2tg2_default", text = "Shoma mind everything, mon, but he come out an' watch when he think I don't see him. Last week he threw one himself an' hit de post with de handle, an' I never laughed so hard in my whole life." } },
+      choices = { { text = "Don't tell him I heard that.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I be Zendo'jian, of the Darkspear. The orcs make a fine axe, I give them dat, but they think a weapon has to stay in your hand, and a troll knows better." },
@@ -721,6 +903,7 @@ P:NPC {
         { text = "Why did you leave the Echo Isles?", next = "y_left" },
         { text = "What worries a Darkspear in this city?", next = "y_worry" },
         { text = "What happened to your uncle with nine axes?", next = "y_uncle" },
+        { text = "What do you practise throwing at?", next = "w2target" },
         { text = "Stay sharp, Zendo'jian.", next = "END" },
       },
     },

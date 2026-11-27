@@ -770,7 +770,7 @@ P:NPC {
       lines = { { id = "dq_default", text = "Probably, and I've told Williden so, but he says we've come too far and spent too much to turn back now. Every time I hear a devilsaur stomping through the jungle, I think he's wrong, and I think we should cut our losses." } },
       choices = {
         { text = "You came to finish the work. Stay the course.", next = "BACK", reply = "I'll try, but it's hard when the work keeps eating people. Williden says the same, though he sounds surer.", fx = { align = { order = 1 } } },
-        { text = "Turn back. No crystal is worth your lives.", next = "BACK", reply = "That's what I keep saying, and nobody listens. Maybe they'll listen to you.", fx = { align = { order = -1 } } },
+        { text = "Turn back. No crystal is worth your lives.", next = "BACK", reply = "Oh, I've told Williden that a dozen times, and he only pats my hand and goes back to his maps. Perhaps he'll hear it from you.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

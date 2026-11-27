@@ -371,6 +371,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_ledger = {
+      lines = {
+        { id = "w2_ledger_l", text = "Horses, arrows and the dead, like I said, and a fourth column for what was stolen. Mostly oats. Somebody in this Hall feeds his horse twice, and when I find him, he'll be feeding the whole stable for a month." },
+      },
+      choices = {
+        { text = "Do you know who it is?", next = "w2_ledger2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_ledger2 = {
+      lines = {
+        { id = "w2_ledger2_l", text = "I've a fair idea, and he's a knight, which is why I'm being careful about it. The Light doesn't say anything about oats, but Stromgarde's quartermasters do, and they're crueller." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_join = {
+      lines = {
+        { id = "w2_join_l", text = "I was a sergeant in Stromgarde's army when the old king still sat in the keep. When the Syndicate took it, I took my ledger and walked to Refuge Pointe. The League found me there, counting other people's horses already." },
+      },
+      choices = {
+        { text = "Do you miss the old army?", next = "w2_join2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_join2 = {
+      lines = {
+        { id = "w2_join2_l", text = "I miss the barracks having a roof. The League's a poorer army than the old one, but it's got more heart, and the lads in it chose to be here. That's worth more than a roof, most days." },
+        { id = "w2_join2_l1", when = { race = "Human" }, text = "I miss the barracks having a roof. You'll know, if your family came from these parts, that Stromgarde was proud. The League's a poorer army, but it's got heart, and the lads chose to be here." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -380,7 +415,7 @@ P:NPC {
       },
       again = {
         { id = "xh_again2", text = "Back again? Then make it short; the ledger won't fill itself." },
-        { id = "h_again", text = "Anything else? I've a ledger waiting." },
+        { id = "h_again", text = "Anything else? Out with it; the ledger's three columns short and the riders keep coming." },
       },
       choices = {
         { text = "The League fights for Arathor's honour, not for plunder.", next = "BACK", reply = "That's the spirit of Stromgarde, and I'm glad someone still remembers it.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -391,6 +426,8 @@ P:NPC {
         { text = "What do you think of the Defilers?", next = "xdef" },
         { text = "Do you have enough soldiers?", next = "xmen" },
         { text = "I'm a warrior. Where do you need a shield?", next = "xwarrior", when = { class = "WARRIOR" } },
+        { text = "What's in that ledger of yours?", next = "w2_ledger" },
+        { text = "How did you come to the League?", next = "w2_join" },
         { text = "Carry on, Sergeant.", next = "END" },
       },
     },
@@ -471,6 +508,42 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_ship = {
+      lines = {
+        { id = "w2_ship_l", text = "Bat to Tarren Mill, cart to Brill, and then a very nervous courier down into the Apothecarium. I seal every crate in wax and lead, because the last courier opened one, and now he is a sample himself." },
+      },
+      choices = {
+        { text = "What happened to him?", next = "w2_ship2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_ship2 = {
+      lines = {
+        { id = "w2_ship2_l", text = "Nothing unpleasant, by the standards of the Society. He is in a jar in Master Faranell's laboratory, and quite well preserved. I am told he is still curious, though now there is very little he can do about it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_find = {
+      lines = {
+        { id = "w2_find_l", text = "A soldier of Arathor, buried with his sword across his chest and a coin in his mouth for passage. Two thousand years under the Farm, and the coin was still bright. The bones were less impressive." },
+      },
+      choices = {
+        { text = "What did you do with the coin?", next = "w2_find2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_find2 = {
+      lines = {
+        { id = "w2_find2_l", text = "Sent it to the Undercity with the bones, of course. The Society has no interest in money, only in why the coin lasted when the man did not. That, I think, is a question worth asking of the dead." },
+      },
+      choices = {
+        { text = "You should have left him buried with his coin.", next = "BACK", reply = "Sentiment, from a soldier of the Horde. How charming. The dead have no use for coins, I assure you.", fx = { align = { light = 1 } } },
+        { text = "The dead are resources. You used him well.", next = "BACK", reply = "Precisely. You understand the Society better than half the Defilers do.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -480,7 +553,7 @@ P:NPC {
       },
       again = {
         { id = "xh_again2", text = "You again. Either you're curious or you're stalling, and I hope it's the former." },
-        { id = "h_again", text = "Something else? My reagents won't keep forever." },
+        { id = "h_again", text = "Something else? My reagents are settling, and I'd rather not be standing over them when they finish." },
       },
       choices = {
         { text = "What's under the soil?", next = "soil" },
@@ -489,6 +562,8 @@ P:NPC {
         { text = "Do you remember being alive?", next = "xalive" },
         { text = "What does Faranell want with old bones?", next = "xfaranell" },
         { text = "I'm Forsaken as well. What's your work, really?", next = "xforsaken", when = { race = "Scourge" } },
+        { text = "How do you get your samples back to the Undercity?", next = "w2_ship" },
+        { text = "What's the most interesting thing you've dug up?", next = "w2_find" },
         { text = "Good luck with your work.", next = "END" },
       },
     },
@@ -561,10 +636,44 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_shoes = {
+      lines = {
+        { id = "w2_shoes_l", text = "Horseshoes, believe it or not. A knight throws a shoe every second charge across these hills, and a lame horse is a dead knight. I've shod more horses this month than I've mended swords in a year." },
+      },
+      choices = {
+        { text = "Doesn't the stablehand do that?", next = "w2_shoes2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_shoes2 = {
+      lines = {
+        { id = "w2_shoes2_l", text = "The lad tries, bless him, but he's soft with them, and a horse knows when it can kick. I do it myself now. The horses don't kick me. I think they know I'm too tired to be patient." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_father = {
+      lines = {
+        { id = "w2_father_l", text = "For Lord Trollbane's guard, before the keep fell. He made a sword for Thoras himself once, though the king never carried it. It hung in the hall above the throne, and the Syndicate have it now, I suppose." },
+      },
+      choices = {
+        { text = "Would you take it back?", next = "w2_father2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_father2 = {
+      lines = {
+        { id = "w2_father2_l", text = "In a heartbeat, and melt it down, and make horseshoes from it. Don't look at me like that. A sword over a throne never saved anybody, and my father would sooner see his work carry a knight than gather dust." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", key = true, text = "I keep the basin's forge burning for the League, and every blade and horseshoe that goes out to the fight comes off this anvil. Hold the Blacksmith and we hold the steel, it's that simple." } },
       again = {
-        { id = "h_again", text = "Anything else? The iron's cooling." },
+        { id = "h_again", text = "Anything else? Be quick about it; the iron's cooling and I've three more horses waiting on shoes." },
         { id = "xh_again2", text = "Still here? Then pump the bellows while you talk, and earn your keep." },
       },
       choices = {
@@ -575,6 +684,8 @@ P:NPC {
         { text = "Are the Defilers' blades any good?", next = "xblades" },
         { text = "I'm a blacksmith too.", next = "xsmith", when = { profession = "Blacksmithing" } },
         { text = "A dwarf could teach you a thing or two here.", next = "xdwarf", when = { race = "Dwarf" } },
+        { text = "What does the forge make most of?", next = "w2_shoes" },
+        { text = "Who did your father make arms for?", next = "w2_father" },
         { text = "Keep the fire hot.", next = "END" },
       },
     },
@@ -641,10 +752,44 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_learn = {
+      lines = {
+        { id = "w2_learn_l", text = "My father, mostly, and the horses themselves. He'd put me in a stall with a mare in foal and tell me to watch, and not come out until I knew what she needed. I was six. She needed me to stop crying." },
+      },
+      choices = {
+        { text = "Did it work?", next = "w2_learn2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_learn2 = {
+      lines = {
+        { id = "w2_learn2_l", text = "I stopped crying, and she had the foal, and I named it Thistle. Thistle carried a League rider to the Mine last week and back again, with an arrow in her saddle. I've never been prouder." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_lost = {
+      lines = {
+        { id = "w2_lost_l", text = "Some wander back after a day or two, with their saddles hanging off. Some the Defilers take, and I see them later, walking again, all stitches. That's the worst of it, seeing a horse you knew come back like that." },
+      },
+      choices = {
+        { text = "Do they recognise you?", next = "w2_lost2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_lost2 = {
+      lines = {
+        { id = "w2_lost2_l", text = "One did. Old Bracken, from my father's stable. He looked at me across the field and he stopped, just for a moment, before the Forsaken rider kicked him on. I think he knew me. I hope he did." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", key = true, text = "I look after the horses here at the Stables, and the League rides them out to every corner of the basin. It's not glorious work, but a knight without a horse is just a man in very heavy boots." } },
       again = {
-        { id = "h_again", text = "Anything else? The bay mare needs her feed." },
+        { id = "h_again", text = "Anything else? The bay mare's stamping for her feed, and she sulks if I'm late with it." },
         { id = "xh_again2", text = "Oh, you're back. Mind the grey, she bites, though only people she likes." },
       },
       choices = {
@@ -655,6 +800,8 @@ P:NPC {
         { text = "Tell me about your father.", next = "xfather" },
         { text = "I'm a paladin. My charger could use a look.", next = "xpaladin", when = { class = "PALADIN" } },
         { text = "I'm a hunter. Horses and I get on well.", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "How did you learn to care for horses?", next = "w2_learn" },
+        { text = "What happens to the horses that don't come back?", next = "w2_lost" },
         { text = "Take care of them.", next = "END" },
       },
     },
@@ -722,6 +869,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_rest = {
+      lines = {
+        { id = "w2_rest_l", text = "None of the three, and I have not decided whether that is a blessing. The forge never closes, so neither do I. I work through the nights now, and I find the iron keeps better company than the living ever did." },
+      },
+      choices = {
+        { text = "Is there anything you still enjoy?", next = "w2_rest2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_rest2 = {
+      lines = {
+        { id = "w2_rest2_l", text = "The sound of a blade when it's been quenched right. I could always hear it, even in life, and I can still hear it now. Everything else has gone grey, but that sound is exactly as it was in Andorhal." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_tools = {
       lines = {
         { id = "y_y_tools", text = "These are my own tools, from my shop in Andorhal. I went back for them after I rose. The shop was full of Scourge, and I was half afraid they'd mistake me for one of their own. They nearly did." },
@@ -753,7 +917,7 @@ P:NPC {
     hello = {
       lines = { { id = "h_default", key = true, text = "I was a smith in Lordaeron before the Plague, and I am a smith in Arathi now, for the Dark Lady and the Defilers. The fire doesn't care whether my hands are warm, and neither does the iron." } },
       again = {
-        { id = "h_again", text = "What else? I've blades to finish." },
+        { id = "h_again", text = "What else? I've blades to finish, and the Den's orcs don't wait politely for them." },
         { id = "xh_again2", text = "Back again. The forge doesn't mind company, and neither do I, much." },
       },
       choices = {
@@ -767,6 +931,7 @@ P:NPC {
         { text = "Tell me about your tools.", next = "y_tools" },
         { text = "What do you think of the League's smiths?", next = "y_league" },
         { text = "I worked a forge in life too.", next = "BACK", when = { race = "Scourge" }, reply = "Then you know the iron remembers what the hand forgets. Mine certainly does." },
+        { text = "Do you still sleep, or eat, or rest?", next = "w2_rest" },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -831,6 +996,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_source = {
+      lines = {
+        { id = "w2_source_l", text = "Fallen League mounts, mostly, and the odd plough horse from the farms. The apothecaries raise them and send them to me with instructions I've learned not to read. A horse is a horse, alive or not." },
+      },
+      choices = {
+        { text = "Do they ever remember being alive?", next = "w2_source2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_source2 = {
+      lines = {
+        { id = "w2_source2_l", text = "One mare stops at the Farm's fence every time she passes it and won't move for a while. I don't push her. I stood outside my own house in Hillsbrad once, after I woke, so I know the feeling." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_horse = {
       lines = {
         { id = "y_y_horse", text = "This one is Bones. That's not a joke; that's his name. He was a farm horse in Hillsbrad, and he came back with the rest of us. He doesn't remember his old owner, but he remembers apples, and he still looks for them." },
@@ -862,7 +1044,7 @@ P:NPC {
     hello = {
       lines = { { id = "h_default", key = true, text = "I tend the horses at the Stables for the Defilers, and most of them are as dead as I am. They don't need feeding, which saves a great deal of trouble, though they do have a habit of losing pieces." } },
       again = {
-        { id = "h_again", text = "Something else? The roan's lost a hoof again." },
+        { id = "h_again", text = "Something else? Speak while I sew; the roan's lost a hoof again and I've found only half of it." },
         { id = "xh_again2", text = "Still here? Pass me that thread, then, the grey's lost an ear." },
       },
       choices = {
@@ -875,6 +1057,7 @@ P:NPC {
         { text = "Tell me about this horse.", next = "y_horse" },
         { text = "Do you envy the League's stables?", next = "y_league" },
         { text = "I rode horses once, in life.", next = "BACK", when = { race = "Scourge" }, reply = "So did I. Now I ride nothing, but I tend everything. It's a change." },
+        { text = "Where do the dead horses come from?", next = "w2_source" },
         { text = "I'll leave you to it.", next = "END" },
       },
     },

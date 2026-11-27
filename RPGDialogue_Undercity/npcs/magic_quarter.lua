@@ -1104,13 +1104,31 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_finest = {
+      lines = {
+        { id = "w3_finest_1", text = "A longsword in the palace armoury, worked by my master's master, that rang like a bell when it was drawn and held its edge through a whole campaign. It went north with the prince's expedition to Northrend, and nothing that went north with him came home as it left." },
+      },
+      choices = {
+        { text = "Do you know where it is now?", next = "w3_where" },
+        { text = "Could you make its equal?", next = "BACK", reply = "In time, perhaps, and with a better master than the one I became. I have the runes, but not yet the patience." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_where = {
+      lines = {
+        { id = "w3_where_1", text = "No, and I've stopped asking the couriers. If it's in a frozen grave, it's ringing for nobody, and if it's in the Scourge's hands, I would rather not know which hand." },
+      },
+      choices = {
+        { text = "Let it lie, then. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Josef Gregorian, artisan enchanter. Lavinia Crowe teaches the basics very ably, and when you've outgrown them, you come to me, and not a moment before." },
         { id = "h_notench", when = { ["not"] = { profession = "Enchanting" } }, text = "You're no enchanter, I see. Still, you're carrying a good deal of steel that's never had a kind word said over it, and that offends me professionally." },
       },
       again = {
-        { id = "h_again", text = "Something further? Speak; the runes can wait, as they've waited for centuries." },
+        { id = "h_again", text = "Something further? Speak; the runes can wait, as they've waited for centuries, though I'd rather they didn't." },
         { id = "h_again2", text = "Yes? Do be concise. Enchanting is the art of saying exactly enough, and I prefer conversation the same way." },
       },
       choices = {
@@ -1122,6 +1140,7 @@ P:NPC {
         { text = "What do you think of Lavinia Crowe's teaching?", next = "crowe" },
         { text = "I disenchant everything I find. It's quicker.", next = "everything", when = { profession = "Enchanting" } },
         { text = "Teach me.", next = "BUSINESS", when = { profession = "Enchanting" } },
+        { text = "What's the finest enchantment you've ever seen?", next = "w3_finest" },
         { text = "Good day, Gregorian.", next = "END" },
       },
     },
@@ -1220,13 +1239,31 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_luck = {
+      lines = {
+        { id = "w3_luck_1", text = "Whistling indoors, a green candle burned to the end, and anyone saying \"it can't get worse,\" since it always does, love. Thomas Mordan across the way taps his counter before every sale, and I'll tell you a secret: he started doing it after he watched me." },
+      },
+      choices = {
+        { text = "So you're Mordan's teacher?", next = "w3_mordan" },
+        { text = "You two sound like a matched pair.", next = "BACK", reply = "Don't you tell him that, love. He'd never knock on wood again if he thought I'd approve." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_mordan = {
+      lines = {
+        { id = "w3_mordan_1", text = "I wouldn't say teacher, dear, I'd say example. He used to laugh at my horseshoe, and then a crate of his candles caught fire the same week, and now he steps over the canal grate left foot first and won't say why." },
+      },
+      choices = {
+        { text = "Your horseshoe works, then. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Hannah Akeley, reagents and supplies. Mages, priests, warlocks, anyone who needs a pinch of something before the magic works, living or otherwise, they all end up at my table eventually." },
         { id = "h_warrior", when = { class = { "WARRIOR", "ROGUE" } }, text = "You don't look like a spellcaster, love. If you're lost, the War Quarter is that way, but you're welcome to browse." },
       },
       again = {
-        { id = "h_again", text = "Anything else, dear? I've a queue of warlocks behind you, and they're not patient." },
+        { id = "h_again", text = "Anything else, dear? I've a queue of warlocks behind you, and they never say please." },
         { id = "h_again2", text = "Go on, love, ask away. Just don't whistle while you do it; it's bad luck indoors." },
       },
       choices = {
@@ -1238,6 +1275,7 @@ P:NPC {
         { text = "Do you sell soul shards, or must I harvest my own?", next = "shards", when = { class = "WARLOCK" } },
         { text = "I'll need an ankh or two, Hannah.", next = "ankh", when = { class = "SHAMAN" } },
         { text = "Show me your wares.", next = "BUSINESS" },
+        { text = "What counts as bad luck in the Undercity?", next = "w3_luck" },
         { text = "Goodbye, Hannah.", next = "END" },
       },
     },

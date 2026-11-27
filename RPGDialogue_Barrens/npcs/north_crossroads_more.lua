@@ -45,7 +45,25 @@ P:NPC {
         { text = "Where do I go for the fire sapta?", next = "telf", when = { class = "SHAMAN" } },
         { text = "Why live out here, alone in the hills?", next = "hills" },
         { text = "What's to the north of here?", next = "north" },
+        { text = "Brine says the Horde needs menders more than burners.", next = "brine" },
+        { text = "What happens to the young ones who fail the fire?", next = "fail" },
+        { text = "Your children run wild around the homestead.", next = "w5_kids" },
         { text = "I'll leave you to your fire.", next = "END" },
+      },
+    },
+    w5_kids = {
+      lines = { { id = "w5_kids_l", text = "They do. Karu cooks, Okla gathers stones, and Trok runs from bees, as he is doing now. Their mother went to the ancestors when Trok was small, and the spirits keep me on the hill more than a father should be away. They raise each other, mostly. They do it well." } },
+      choices = {
+        { text = "Will any of them follow the fire?", next = "w5_kids2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_kids2 = {
+      lines = { { id = "w5_kids2_l", text = "Trok has the hunger for it. He is reckless, and fire loves the reckless. Karu has the patience for water, I think, and Okla listens to stones the way I once listened to flame. I could teach them all fire, as I was taught. I am not sure that I should." } },
+      choices = {
+        { text = "Let each child find their own element.", next = "BACK", reply = "Yes. The spirits choose. A father only makes the choosing harder if he pushes.", fx = { align = { order = -1 } } },
+        { text = "Teach them fire. A father passes on what he knows.", next = "BACK", reply = "That is the old way, and it made me. But I look at Trok and I see what fire did to me first.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     fire = {
@@ -82,6 +100,33 @@ P:NPC {
     north = {
       lines = { { id = "no_default", text = "The road runs north to the Mor'shan gate and on into Ashenvale, so don't wander too far, or you'll find yourself in the elves' lands. They don't take kindly to orcs, and they take even less kindly to orcs carrying fire." } },
       choices = { { text = "Something else, Kranal.", next = "BACK", fx = { learn = { "warsong" } } } },
+    },
+    brine = {
+      lines = { { id = "bn_default", text = "Does she now? Brine's a good shaman, and stubborn as a thunder lizard, and she's not wrong, exactly. But a Horde surrounded by centaur and quilboar and elves needs both, {class}, and someone has to teach the young ones how to burn without becoming what we were." } },
+      choices = {
+        { text = "Then fire and water aren't truly enemies.", next = "brine2" },
+        { text = "You two must argue often.", next = "brine2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    brine2 = {
+      lines = { { id = "bn2_default", text = "Whenever we meet, and we meet about once a year, at the Crossroads, over a fire she complains about. The elements argue too, and the shaman who learns to hear all four arguing at once is the one who'll lead the rest of us." } },
+      choices = { { text = "All four at once. Something else.", next = "BACK" } },
+    },
+    fail = {
+      lines = { { id = "fl_default", text = "Some come back from the mountaintop burned and angry, and I sit them by this fire until the anger goes. A few never climb at all, and that's no shame, because the earth will still answer them. The fire only wants those it can trust." } },
+      choices = {
+        { text = "And the ones who want it too much?", next = "fail2" },
+        { text = "Fire trusting anyone sounds dangerous.", next = "fail2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fail2 = {
+      lines = { { id = "fl2_default", text = "Those I send back to their trainers in Orgrimmar with a word, quietly. The warlocks of the old Horde wanted fire too much, and you can still see what they left behind in Durotar's scorched earth. I won't make another of them." } },
+      choices = {
+        { text = "I'm a warlock. Not every one of us is the old Horde.", next = "BACK", reply = "Perhaps not, and I'll judge you by your deeds, {class}. But I'll watch your deeds closely.", when = { class = "WARLOCK" } },
+        { text = "Something else, Kranal.", next = "BACK" },
+      },
     },
   },
 
@@ -122,7 +167,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else? The beasts need their evening walk soon." } },
       choices = {
-        { text = "Good stables keep the Crossroads strong.", next = "BACK", reply = "They do. You understand.", fx = { align = { order = 1 } } },
+        { text = "Good stables keep the Crossroads strong.", next = "BACK", reply = "They do. A rider who walks home because his wolf went lame is no use to anyone.", fx = { align = { order = 1 } } },
         { text = "Stables are just barns.", next = "BACK", reply = "Then sleep in one.", fx = { align = { order = -1 } } },
         { text = "I'd like to stable my companion.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "What beasts do the Barrens hunters tame?", next = "beasts" },

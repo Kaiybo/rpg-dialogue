@@ -243,6 +243,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_rest = {
+      lines = { { id = "w8_rest_a", text = "I do not, mortal, not truly, because to dream here is to invite the Old God to share the dream. I close my eyes for a moment between your expeditions and open them before anything can find its way in." } },
+      choices = {
+        { text = "That sounds exhausting.", next = "w8_rest2" },
+        { text = "Can the Old God really reach into dreams?", next = "w8_rest2" },
+        { text = "A druid guards their dreams too.", next = "w8_rest2", when = { class = "DRUID" } },
+        { text = "Something else, Vethsera.", next = "BACK" },
+      },
+    },
+    w8_rest2 = {
+      lines = {
+        { id = "w8_rest2_a", text = "It is, and it is also the reason I am sharp with you, so you may forgive me for it or not as you choose. What sleeps beneath this temple dreams loudly, and some of my kin have heard it, and I will not be one of them." },
+        { id = "w8_rest2_dr", when = { class = "DRUID" }, text = "Then guard yours fiercely while you are here, druid, and do not walk the Dream within these walls. What sleeps below dreams loudly, and it is hungry for a mind that wanders." },
+      },
+      choices = {
+        { text = "I'll keep my dreams to myself.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Vethsera. Andorgos will tell you of histories and threads, and he is right to. I will tell you what kills people in this temple, because that is what you actually need." },
@@ -257,6 +277,7 @@ P:NPC {
         { text = "My people were raised with tales of your kind.", next = "dream", when = { race = "NightElf" } },
         { text = "Do you have work for me?", next = "BUSINESS" },
         { text = "What will you do when this war ends?", next = "yafter" },
+        { text = "How do you rest in a place like this?", next = "w8_rest" },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -356,11 +377,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_sky = {
+      lines = { { id = "w8_sky_a", text = "Not Grim Batol, little one, for that place is a cage to my flight. I miss the open sky over the Wetlands' lakes before the orcs came, and the smell of rain, which never falls in this place." } },
+      choices = {
+        { text = "Will the red flight ever be free of the orcs?", next = "w8_sky2" },
+        { text = "This dry place must weigh on you.", next = "w8_sky2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w8_sky2 = {
+      lines = { { id = "w8_sky2_a", text = "I hope so, and hope is a thing the red flight keeps even in chains. For now my task is here, and when the temple's darkness is broken, I will fly north and feel rain on my wings again, and that will be enough." } },
+      choices = {
+        { text = "May you feel the rain soon.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Kandrostrasz. My task is a simple one beside my companions': to see that those who fight for the Brood of Nozdormu do not go unrewarded. Bring me the relics the qiraji guard, and the Brood will remember." },
       },
-      again = { { id = "h_again", text = "What else can I do for you?" } },
+      again = { { id = "h_again", text = "What else can I do for you, little one? The Brood's patience is long, but this hive's is not." } },
       choices = {
         { text = "What does the Brood want from the qiraji?", next = "relics" },
         { text = "How do you three get along?", next = "siblings" },
@@ -370,6 +407,7 @@ P:NPC {
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "What do you fear most in this temple?", next = "yfear" },
         { text = "How long have you stood guard here?", next = "ylong" },
+        { text = "What do you miss most about Grim Batol's skies?", next = "w8_sky" },
         { text = "Goodbye.", next = "END" },
       },
     },

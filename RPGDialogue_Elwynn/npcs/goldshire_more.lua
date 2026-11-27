@@ -557,6 +557,7 @@ P:NPC {
         { text = "Why do you want to be a paladin, Bo?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you want to see me turn into a bear?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you want to see a little lightning, Bo?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "What's the best thing Argus has made while you watched?", next = "e3_sparks" },
         { text = "Off you go, then.", next = "END" },
       },
     },
@@ -585,6 +586,24 @@ P:NPC {
       choices = {
         { text = "There you go, Bo, a little one.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Magic isn't a game, Bo.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
+    e3_sparks = {
+      lines = {
+        { id = "e3_sparks_l0", text = "A sword for a soldier going to Redridge, with a lion on the handle, and it glowed orange in the fire like a sunset. Argus let me pump the bellows for one whole minute, and my arms nearly fell off, but I didn't stop." },
+      },
+      choices = {
+        { text = "Do you want to be a smith, then?", next = "e3_sparks2" },
+        { text = "A minute on the bellows is hard work.", next = "BACK" },
+      },
+    },
+    e3_sparks2 = {
+      lines = {
+        { id = "e3_sparks2_l0", text = "Maybe, if I can't be a paladin, because a smith makes the paladins' swords, so it's nearly the same. Mark says smiths get burned, and Joshua says paladins get stabbed, so I think I'll just be brave about whichever one it is." },
+      },
+      choices = {
+        { text = "That's a good plan, Bo. Something else.", next = "BACK" },
+        { text = "Being brave is the main thing.", next = "BACK" },
       },
     },
   },

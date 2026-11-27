@@ -32,6 +32,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_fire = {
+      lines = { { id = "w8_fire_a", text = "Foror's Compendium, if it were here, but it is not, and so I would save the oldest catalogue of this library instead. A library that loses its books can gather them again, but a library that loses its catalogue no longer knows what it has lost." } },
+      choices = {
+        { text = "That's a librarian's answer.", next = "w8_fire2" },
+        { text = "Can a ghost even carry a book?", next = "w8_fire2" },
+        { text = "I'm a mage. I'd save the spellbooks.", next = "w8_fire2", when = { class = "MAGE" } },
+        { text = "Something else, Lorekeeper.", next = "BACK" },
+      },
+    },
+    w8_fire2 = {
+      lines = {
+        { id = "w8_fire2_a", text = "It is the only answer I have, and the ogres would use the catalogue to light the fire in any case. A ghost cannot carry a book, no, which is why I am so tiresome about where the living put them down." },
+        { id = "w8_fire2_mage", when = { class = "MAGE" }, text = "Of course you would, and that is why your kind should never be left alone in a burning library. The spells will be rewritten by the next fool who thinks himself clever; the catalogue tells you which fool wrote them first." },
+      },
+      choices = {
+        { text = "I'll mind where I put books down.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Lydros, lorekeeper of Eldre'Thalas. When the Highborne were cast out, we carried our learning here, and I have kept it ever since, though my body gave out long before my duty did." },
@@ -49,6 +69,7 @@ P:NPC {
         { text = "My people remember the Highborne's pride, Lorekeeper.", next = "kaldorei", when = { race = "NightElf" } },
         { text = "I've felt the arcane hunger you speak of.", next = "hunger", when = { class = "MAGE" } },
         { text = "What do you need done?", next = "BUSINESS" },
+        { text = "Which book here would you save first from a fire?", next = "w8_fire" },
         { text = "I'll leave you to your shelves.", next = "END" },
       },
     },
@@ -147,6 +168,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_see = {
+      lines = { { id = "w8_see_a", text = "Hmm. Stone, where there was garden, and satyr dung, where there were flowers. A little sky, through the broken roof, and sometimes a bird, and the bird is the best part of the day." } },
+      choices = {
+        { text = "What kind of bird?", next = "w8_see2" },
+        { text = "That's a sad view, old one.", next = "w8_see2" },
+        { text = "Something else, Ironbark.", next = "BACK" },
+      },
+    },
+    w8_see2 = {
+      lines = { { id = "w8_see2_a", text = "A small brown one, very quick. It nests in my shoulder, and it does not mind that I am slow. Hmm. When the satyrs are gone, perhaps more birds will come." } },
+      choices = {
+        { text = "I'll make room for more birds.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am called Ironbark. I grew here when the elves first raised these walls, and I have watched the satyrs twist my brothers into the Warpwood things you passed on your way in." },
@@ -162,6 +199,7 @@ P:NPC {
         { text = "How old are you?", next = "age" },
         { text = "Cenarius's children have not forgotten you, Ironbark.", next = "cenarius", when = { class = "DRUID" } },
         { text = "What do you remember of the Highborne?", next = "yhigh" },
+        { text = "What do you see from where you stand?", next = "w8_see" },
         { text = "Rest well, old one.", next = "END" },
       },
     },
@@ -252,6 +290,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_star = {
+      lines = { { id = "w8_star_a", text = "The courses of the Wanderers and the slow turning of the great wheel, and once, a star that rose green over Zin-Azshari and was never seen again. The court thought it an omen of their glory, and I wrote it down as such, to my long shame." } },
+      choices = {
+        { text = "What was it, truly?", next = "w8_star2" },
+        { text = "You couldn't have known.", next = "w8_star2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w8_star2 = {
+      lines = { { id = "w8_star2_a", text = "The first light of the Legion's coming, I think now, though no one asked a stargazer's opinion then. Remember it, stranger: when the proud see an omen of their own greatness, someone else is usually opening the door." } },
+      choices = {
+        { text = "I'll remember it.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am one of the eldest of the Shen'dralar, the Highborne who fled here when the Well of Eternity was lost. We built Eldre'Thalas to keep our magic alive, and we have paid for that magic ever since." },
@@ -268,6 +322,7 @@ P:NPC {
         { text = "My people banished yours for good reason.", next = "exile", when = { race = "NightElf" } },
         { text = "What were you, in life?", next = "ylife" },
         { text = "Do you remember the Well of Eternity?", next = "ywell" },
+        { text = "What stars did you chart in Azshara's court?", next = "w8_star" },
         { text = "Rest easy, ancient one.", next = "END" },
       },
     },
@@ -358,6 +413,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_dmg = {
+      lines = { { id = "w8_dmg_a", text = "A history of the Highborne magisters, eleven volumes, used as a doorstop until the spine gave way and then as tinder until there was nothing left. I recovered the index, which now describes a library that no longer exists." } },
+      choices = {
+        { text = "Can the volumes be rewritten?", next = "w8_dmg2" },
+        { text = "Ogres don't know any better.", next = "w8_dmg2" },
+        { text = "A rogue might steal back what ogres took.", next = "w8_dmg2", when = { class = "ROGUE" } },
+        { text = "Something else, Lorekeeper.", next = "BACK" },
+      },
+    },
+    w8_dmg2 = {
+      lines = {
+        { id = "w8_dmg2_a", text = "From memory, perhaps, if anyone still remembers, and most of those who did are now bound to the pylons. Ignorance is not an excuse, outsider; it is merely an explanation, and a poor one." },
+        { id = "w8_dmg2_rog", when = { class = "ROGUE" }, text = "Steal, recover, retrieve, the word matters less to me than the book in my hands. Bring me what the ogres have taken, and I will not ask how your fingers came by it." },
+      },
+      choices = {
+        { text = "I'll look for your missing books.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Kildrath, a keeper of this library, and my charge is the lore of rogues, warriors and magi. Bring me the tomes that have scattered through these halls, and I will reward you with something of ours." },
@@ -375,6 +450,7 @@ P:NPC {
         { text = "What was this library before the ogres came?", next = "xlib" },
         { text = "Where do the ogres keep the books?", next = "xogre" },
         { text = "Tell me about the pylons.", next = "xpylon" },
+        { text = "What is the worst damage the ogres have done to a book?", next = "w8_dmg" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -452,10 +528,26 @@ P:NPC {
   greetings = { { id = "g_default", text = "Quietly, please. The books here are older than your kingdoms, and they do not care for shouting." } },
   start = "hello",
   nodes = {
+    w8_read = {
+      lines = { { id = "w8_read_a", text = "Mykos, who reads everything and remembers too much of it, and Lydros, who corrects my shelving in a voice he believes is quiet. The prince's court have not opened a book in a century, and the zealots read only the faces of strangers." } },
+      choices = {
+        { text = "That's a lonely library.", next = "w8_read2" },
+        { text = "Perhaps outsiders will read them now.", next = "w8_read2" },
+        { text = "Something else, Lorekeeper.", next = "BACK" },
+      },
+    },
+    w8_read2 = {
+      lines = { { id = "w8_read2_a", text = "Perhaps, and I find I do not mind the idea as much as I expected. A book unread is only paper and pride, and the Shen'dralar have had quite enough of both." } },
+      choices = {
+        { text = "Then I'll read one, someday.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", key = true, text = "I am Javon, and I keep the lore of priests, shamans and druids, though I confess some of it is shelved with a raised eyebrow. Bring me the lost tomes and the Shen'dralar will thank you properly." } },
       again = {
-        { id = "h_again", text = "Something further?" },
+        { id = "h_again", text = "Something further? Ask it softly; the old bindings in this aisle are fragile." },
         { id = "xh_again2", text = "You return. Do lower your voice, though; the books have been through enough." },
       },
       choices = {
@@ -467,6 +559,7 @@ P:NPC {
         { text = "I'm a druid. I'd like to see the Dream volume.", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'm a shaman. What's Frost Shock and You?", next = "xshaman", when = { class = "SHAMAN" } },
         { text = "Which tome do you love most?", next = "ylove" },
+        { text = "Who reads these books, besides you?", next = "w8_read" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -541,10 +634,30 @@ P:NPC {
   greetings = { { id = "g_default", text = "Ah, a visitor. Come in, come in, and do mind the shelves on the left, they are older than they look." } },
   start = "hello",
   nodes = {
+    w8_cat = {
+      lines = { { id = "w8_cat_a", text = "A shelf of hunting journals, written by a Highborne lord who kept a pet bear and wrote about it with more feeling than he ever wrote about his wife. It is the most charming thing in this library, and it is filed under zoology, which is wrong." } },
+      choices = {
+        { text = "Where should it be filed?", next = "w8_cat2" },
+        { text = "A Highborne with a pet bear?", next = "w8_cat2" },
+        { text = "I'm a hunter. I'd like to read about that bear.", next = "w8_cat2", when = { class = "HUNTER" } },
+        { text = "Something else, Lorekeeper.", next = "BACK" },
+      },
+    },
+    w8_cat2 = {
+      lines = {
+        { id = "w8_cat2_a", text = "Under friendship, if the Shen'dralar had such a shelf, which they do not. I have started one, quietly, behind the warlock texts where Lydros will not look, and it has three books on it so far." },
+        { id = "w8_cat2_hu", when = { class = "HUNTER" }, text = "Then you will be the first reader it has had in ten thousand years, and the bear would have liked you, I think. Bring back The Greatest Race of Hunters and I will let you read the journal as well, as a small extra kindness." },
+      },
+      choices = {
+        { text = "A shelf for friendship. I like that.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", key = true, text = "I am Mykos, and the lore of paladins, warlocks and hunters falls to me. An odd company of subjects, I know, but the Shen'dralar collect everything." } },
       again = {
-        { id = "h_again", text = "What else can I tell you?" },
+        { id = "h_again", text = "What else can I tell you? Few come so far into the library, and fewer still ask good questions." },
         { id = "xh_again2", text = "Ah, you again. I was hoping someone would come and interrupt my cataloguing." },
       },
       choices = {
@@ -556,6 +669,7 @@ P:NPC {
         { text = "I'm a warlock. I'd like to read Harnessing Shadows.", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "I'm a hunter. Which race does the book favour?", next = "xhunter", when = { class = "HUNTER" } },
         { text = "Have you ever read a book that frightened you?", next = "yfright" },
+        { text = "What are you cataloguing at the moment?", next = "w8_cat" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -631,10 +745,26 @@ P:NPC {
   greetings = { { id = "g_default", text = "You are an outsider, but your coin is not. What do you require?" } },
   start = "hello",
   nodes = {
+    w8_tab = {
+      lines = { { id = "w8_tab_a", text = "Moonberry wine from the vineyards of Eldre'Thalas, which no longer exist, and honeyed bread baked in arcane ovens that no longer burn. I serve the survivors dried fruit and water, and they eat it as if it were a feast, which is worse." } },
+      choices = {
+        { text = "Why is that worse?", next = "w8_tab2" },
+        { text = "Survival is its own feast.", next = "w8_tab2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w8_tab2 = {
+      lines = { { id = "w8_tab2_a", text = "Because it means they have forgotten what a feast was, outsider, and a people that forgets its feasts will soon forget its songs. I keep one bottle of the old wine in the cellar, for the day the demon is gone, and I do not know who I will pour it for." } },
+      choices = {
+        { text = "Perhaps for yourself.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", key = true, text = "I keep the Shen'dralar's stores, and lately I sell from them to those the lorekeepers favour. We are too few now to be proud about whom we trade with." } },
       again = {
-        { id = "h_again", text = "Anything else?" },
+        { id = "h_again", text = "Anything else? Speak plainly; the stores do not count themselves." },
         { id = "xh_again2", text = "You return. Something else, or are you merely browsing?" },
       },
       choices = {
@@ -646,6 +776,7 @@ P:NPC {
         { text = "Is the demon's gift worth the cost?", next = "xdemon" },
         { text = "I'm a night elf. We share a people, once.", next = "xkaldorei", when = { race = "NightElf" } },
         { text = "Who were you, before the stores?", next = "ywho" },
+        { text = "What do you miss from the prince's old table?", next = "w8_tab" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -723,6 +854,22 @@ P:NPC {
   greetings = { { id = "g_default", text = "You are permitted in the Athenaeum because the lorekeepers will it. Do not mistake that for welcome." } },
   start = "hello",
   nodes = {
+    w8_pyl = {
+      lines = { { id = "w8_pyl_a", text = "Stand at this door until the end, outsider, and see who comes through it. If the demon is loosed, the prince will need guards, and if the prince falls, the library will need guards, and I will be both." } },
+      choices = {
+        { text = "That's loyalty, at least.", next = "w8_pyl2" },
+        { text = "Loyalty to a prince who feeds you to a demon?", next = "w8_pyl2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w8_pyl2 = {
+      lines = { { id = "w8_pyl2_a", text = "Loyalty to the Shen'dralar, which is not the same as loyalty to the prince, though I would not say so where he could hear. Go, outsider, and do not mention to anyone that a zealot spoke so plainly." } },
+      choices = {
+        { text = "I heard nothing.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", key = true, text = "I guard the Athenaeum for Prince Tortheldrin and the house of the Shen'dralar. Outsiders come and go now, and I watch every one of them." } },
       again = {
@@ -737,6 +884,7 @@ P:NPC {
         { text = "Do you trust the lorekeepers?", next = "xlore" },
         { text = "A kaldorei standing guard for exiles.", next = "xkaldorei", when = { race = "NightElf" } },
         { text = "Have you lost anyone to the demon?", next = "ylost" },
+        { text = "What would you do if the pylons failed?", next = "w8_pyl" },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -812,11 +960,31 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_chm = {
+      lines = { { id = "w8_chm_a", text = "Highborne enchantments for binding a spell into cloth and leather, the old way, before your trainers in the cities simplified everything into dust and runes. Half of it is nonsense and the other half could kill a man, and I am working out which half is which." } },
+      choices = {
+        { text = "That sounds dangerous.", next = "w8_chm2" },
+        { text = "Why not take the books somewhere safer?", next = "w8_chm2" },
+        { text = "I'm an enchanter. Show me one of these old charms.", next = "w8_chm2", when = { profession = "Enchanting" } },
+        { text = "Something else, Falrin.", next = "BACK" },
+      },
+    },
+    w8_chm2 = {
+      lines = {
+        { id = "w8_chm2_a", text = "Of course it is dangerous, which is why the books are still here and not in some tidy library in Stormwind. The Shen'dralar would not let me take one page out of this hall, and the ogres would eat me on the way, so I read here, and I swear a great deal." },
+        { id = "w8_chm2_ench", when = { profession = "Enchanting" }, text = "Hmph, an enchanter who wants to learn rather than buy, that's rare enough to earn a look. See this? A binding rune worked into the weave itself, not laid over it, and it'll hold through fire that would strip any modern enchantment bare. Don't try it at home." },
+      },
+      choices = {
+        { text = "I'll leave you to your swearing.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", key = true, text = "I'm Falrin Treeshaper, and I know a charm or two that most folk have long forgotten. I keep to this library because the books are here, and because the ogres who killed my brother are close enough to hate." } },
       again = {
-        { id = "h_again", text = "What else would you like to know?" },
-        { id = "h_again2", text = "Go on, I'm listening." },
+        { id = "h_again", text = "What else? Ask it and be done, because I've ogres to hate and little patience to spare." },
+        { id = "h_again2", text = "Go on, then, I'm listening, which is more than the Shen'dralar ever do." },
       },
       choices = {
         { text = "Who is your old friend?", next = "anthion" },
@@ -825,6 +993,7 @@ P:NPC {
         { text = "Treeshaper sounds like a druid's name.", next = "druid", when = { class = "DRUID" } },
         { text = "Tell me about your brother.", next = "ybrother" },
         { text = "How do you live here among ogres?", next = "ylive" },
+        { text = "What charms are you studying here?", next = "w8_chm" },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -906,11 +1075,27 @@ P:NPC {
   notices = { "race", "quest" },
   greetings = {
     { id = "g_default", text = "Welcome, traveller. You have come a long and dangerous way to honour an old spirit, and that is no small thing." },
-    { id = "g_festival", when = { holiday = "lunar" }, text = "The new moon of the year is upon us, and the Lunar Festival with it. Few walk this far to honor an elder, and I will not forget it." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "Mist and moonlight, and the Lunar Festival come round again. You walked past ogres and old magic to find an elder in these ruins, and that honor will be remembered." },
     { id = "g_done", when = { questDone = TODO_QUEST("Mistwalker the Elder") }, text = "Your coin of ancestry carries my blessing now. Go with it, and remember the elders who came before you." },
   },
   start = "hello",
   nodes = {
+    w8_mist = {
+      lines = { { id = "w8_mist_a", text = "The shapes of the Highborne walking their old avenues, child, which only the dead can see, and they walk without knowing they are gone. They do not see me either, and I think that is a mercy for both of us." } },
+      choices = {
+        { text = "Can they be laid to rest?", next = "w8_mist2" },
+        { text = "That sounds like a haunting.", next = "w8_mist2" },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
+    w8_mist2 = {
+      lines = { { id = "w8_mist2_a", text = "When the demon in the pylons is gone, perhaps, for it holds the whole city between one breath and the next. Until then I honour them as ancestors, foolish ones, and wait for someone brave enough to set them free." } },
+      choices = {
+        { text = "I'll remember them too.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Mistwalker, an elder of the ancient ways, and each year at the Lunar Festival I wait here to greet those who seek the wisdom of their ancestors. Few come so deep into these ruins, but those who do are always remembered." },
@@ -924,6 +1109,7 @@ P:NPC {
         { text = "The Earth Mother walks with you, elder.", next = "tauren", when = { race = "Tauren" } },
         { text = "Who were you, before you were an elder?", next = "ywho" },
         { text = "Do the ogres trouble you here?", next = "yogres" },
+        { text = "What do you see in the mists of this place?", next = "w8_mist" },
         { text = "Farewell, elder.", next = "END" },
       },
     },

@@ -32,6 +32,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_commission = {
+      lines = {
+        { id = "w2_commission_l0", text = "A wedding band for a thane's son, set with a sapphire from the Badlands, cut so the light went round the inside like water round a stone. Half the Mystic Ward came to look before I delivered it." },
+      },
+      choices = {
+        { text = "What happened to it?", next = "w2_commission_after" },
+        { text = "One ring doesn't make a name.", next = "BACK" },
+      },
+    },
+    w2_commission_after = {
+      lines = {
+        { id = "w2_commission_after_l0", text = "His bride wears it still, I'm told. She's one of the few who never believed the rumours, and she sends her friends to me, though they rarely buy. A good word is still a good word, even if it doesn't pay the rent." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -57,7 +74,39 @@ P:NPC {
         { text = "Tell me about the necklace.", next = "necklace" },
         { text = "Why does your mark turn up in odd places?", next = "mark" },
         { text = "I found your ring in Gnomeregan.", next = "ring", when = { questDone = TODO_QUEST("Return of the Ring") } },
+        { text = "Where do you get your gems?", next = "d0_gems" },
+        { text = "Your cases look sad without any stock.", next = "d0_cases" },
+        { text = "What was your best commission, before the rumours?", next = "w2_commission" },
         { text = "I'll come back when I'm buying.", next = "END" },
+      },
+    },
+    d0_gems = {
+      lines = { { id = "d0ge_default", text = "From the miners, mostly, who bring up bits of tigerseye and malachite with their copper and haven't the faintest notion what they're worth. The finer stones came up from the Badlands by caravan, or did, before everyone decided my work was cursed." } },
+      choices = {
+        { text = "Is the Badlands trade dangerous?", next = "d0_gems_badlands" },
+        { text = "Miners must be easy to bargain with.", next = "BACK", reply = "Easier than you'd think, and I pay them fairly anyway, which is more than some jewelers in this city can say." },
+      },
+    },
+    d0_gems_badlands = {
+      lines = { { id = "d0gb_default", text = "Dreadfully. There are ogres in the hills and Dark Irons at the edge of every map, and a caravan that comes back at all comes back with half its cargo, which is why a good ruby costs what it does and why I wept over the three in that necklace." } },
+      choices = {
+        { text = "Then the necklace was worth recovering.", next = "BACK" },
+        { text = "Something else, Talvash.", next = "BACK" },
+      },
+    },
+    d0_cases = {
+      lines = { { id = "d0ca_default", text = "They are, aren't they? I used to fill them every morning and empty them by supper, and now I polish the glass and rearrange the three rings I have left. A gnome came in yesterday, looked about, and asked whether I was closing down." } },
+      choices = {
+        { text = "Are you?", next = "d0_cases_close" },
+        { text = "Gnomes would buy again, if your name were cleared.", next = "BACK", when = { race = "Gnome" }, reply = "Do you think so? Then tell them when it is, and loudly, all through Tinker Town." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d0_cases_close = {
+      lines = { { id = "d0cc_default", text = "Not while I've breath and a polishing cloth. If the necklace is restored and seen glowing on a living customer, the rumour dies, and the competitor whose name I won't say can go back to selling paste to visitors." } },
+      choices = {
+        { text = "Paste to visitors. That's a sharp tongue.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Let me ask something else.", next = "BACK" },
       },
     },
 
@@ -152,6 +201,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_others = {
+      lines = {
+        { id = "w2_others_l0", text = "The dwarven ones think I'm wastin' a good mind on elves, an' the elven ones think a dwarf has nae business wi' their glyphs. So I'm laughed at in two languages, which I've decided is an honour." },
+      },
+      choices = {
+        { text = "Has anyone helped you?", next = "w2_others_help" },
+        { text = "Prove them wrong, then.", next = "BACK" },
+      },
+    },
+    w2_others_help = {
+      lines = {
+        { id = "w2_others_help_l0", text = "A night elf priestess in Darnassus writes now an' again, though she always signs off wi' a warnin' about what Azshara's mages did wi' their knowledge. She's no' wrong, which makes me read her letters very carefully." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -164,7 +230,7 @@ P:NPC {
           text = "The rubbin's are up on the wall, all four, an' I've been starin' at them for three nights runnin'. I think they're rules, laws o' magic, an' I think the elves who wrote them were very sure o' themselves." },
       },
       again = {
-        { id = "h_again", text = "What else? Ask away, I love a question." },
+        { id = "h_again", text = "What else? Ask away, I love a question, especially one wi' a rune in it." },
         { id = "h_again2", text = "Go on, the runes have waited ten thousand years, they can wait a wee bit more." },
       },
       choices = {
@@ -173,7 +239,46 @@ P:NPC {
         { text = "Who else wants the ruins?", next = "rivals" },
         { text = "Who is Pilot Xiggs?", next = "xiggs" },
         { text = "I can read a little of that arcane script.", next = "mage", when = { class = { "MAGE", "WARLOCK" } } },
+        { text = "How did you learn to read the old elven script?", next = "d0_learn" },
+        { text = "The papers on your floor are in three languages.", next = "d0_papers" },
+        { text = "What do the other scholars make of your work?", next = "w2_others" },
         { text = "I'll leave you to your runes.", next = "END" },
+      },
+    },
+    d0_learn = {
+      lines = { { id = "d0lr_default", text = "Slowly, an' badly at first. The Explorers' League has a few rubbings from Ashenvale an' Darkshore, an' I sat wi' them every night for years till the shapes started tae talk back." } },
+      choices = {
+        { text = "Did any night elf ever help you?", next = "d0_learn_elf" },
+        { text = "Years of night work. That's devotion.", next = "BACK" },
+      },
+    },
+    d0_learn_elf = {
+      lines = { { id = "d0le_default", text = "One Sentinel, passin' through on her way tae Stormwind, who looked at my notes, laughed, an' corrected nine words in a minute. She wouldnae tell me the tenth, for she said it was a word for somethin' best forgotten." } },
+      choices = {
+        { text = "What do you think the word was?", next = "d0_learn_word" },
+        { text = "Something else, Tymor.", next = "BACK" },
+      },
+    },
+    d0_learn_word = {
+      lines = { { id = "d0lw_default", text = "I've a guess, an' I'll no' say it aloud in a hall full o' mages. It turns up beside the name o' the old elves' capital every time, cut deep, as if the carver wanted it remembered an' feared both at once." } },
+      choices = {
+        { text = "Some words are best left uncut.", next = "BACK" },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    d0_papers = {
+      lines = { { id = "d0pa_default", text = "Four, if ye count the gnomish, for Xiggs left me his invoice. Elven for the runes, Common for my notes, an' Dwarven for the swearin' in the margins when a rune refuses tae make sense." } },
+      choices = {
+        { text = "What does the swearing say?", next = "BACK", reply = "Nothin' I'd repeat under the same roof as the priests. Ask me again at the Stonefire." },
+        { text = "I could read the elven ones for you.", next = "d0_papers_elf", when = { race = "NightElf" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d0_papers_elf = {
+      lines = { { id = "d0pe_default", text = "Could ye? Then look at this line an' tell me if I've got it right, for I make it a warnin' against drawin' too deep from the old elves' well o' magic. If I'm right, it was carved by somebody who'd seen what happened when they did." } },
+      choices = {
+        { text = "You have it right. It's a warning.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

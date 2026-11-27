@@ -45,7 +45,24 @@ P:NPC {
         { text = "Why sell wrapping paper out here?", next = "paper" },
         { text = "How did you end up with a goblin partner?", next = "xaphod" },
         { text = "Show me your wares.", next = "BUSINESS" },
+        { text = "Plenty of travellers pass on this road, I'd guess.", next = "road" },
+        { text = "What did the old voodoo teach you on the islands?", next = "voodoo" },
+        { text = "What's the worst fortune you ever told?", next = "w5_worst" },
         { text = "Farewell, mystic.", next = "END" },
+      },
+    },
+    w5_worst = {
+      lines = { { id = "w5_worst_l", text = "Ah. A Venture Company foreman come to Tuu'li, laughin', an' ask what de spirits see for him. Tuu'li close his eyes, an' see nothin', mon. Not darkness. Nothin'. So Tuu'li tell him de spirits be shy today, an' take his coin." } },
+      choices = {
+        { text = "What happened to him?", next = "w5_worst2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_worst2 = {
+      lines = { { id = "w5_worst2_l", text = "A tree fall on him de next week, mon, one of de ones his own crew been cuttin'. Xaphod say it be coincidence. Tuu'li say maybe. But since dat day, when Tuu'li see nothin', he don't take de coin. Some fortunes, you give for free." } },
+      choices = {
+        { text = "Some fortunes shouldn't be sold at all.", next = "BACK", reply = "Ya, mon. Dat be de first true thing Tuu'li learn in dis job." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     mystic = {
@@ -111,6 +128,33 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    road = {
+      lines = { { id = "rd_default", text = "Every kind, mon! Horde braves going up to Sun Rock, druids going up to the Peak, goblins from the Crag who pretend not to be goblins from the Crag. Everybody stops for Tuu'li, because everybody wants to hear their road has a happy ending." } },
+      choices = {
+        { text = "Even the Venture Company goblins?", next = "road2" },
+        { text = "Night elves stop at a troll's stall?", next = "road2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    road2 = {
+      lines = { { id = "rd2_default", text = "The goblins buy the most paper, mon, for presents to their bosses, and the night elves buy the most vials and pretend they didn't see the troll who sold them. Tuu'li tells them all de same fortune, and dey all leave smiling. Peace through commerce, Xaphod calls it." } },
+      choices = { { text = "Peace through commerce. Something else.", next = "BACK" } },
+    },
+    voodoo = {
+      lines = { { id = "vd_default", text = "Enough to know de loa are real, mon, and to know Tuu'li is not de one they talk to. My grandmother could hear de spirits like you hear de wind. I can hear dem like you hear somebody talking in de next hut, a word here and dere." } },
+      choices = {
+        { text = "So you do hear something, sometimes?", next = "voodoo2" },
+        { text = "Then your fortunes aren't all a trick.", next = "voodoo2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    voodoo2 = {
+      lines = { { id = "vd2_default", text = "Sometimes, mon, and those times I don't charge. Once I told a tauren brave not to go down de Webwinder dat day, and I don't know why I said it. He listened, and de next day he came back and bought every vial I had. I still don't know why." } },
+      choices = {
+        { text = "I'm Darkspear. Bwonsamdi hears more than you'd think.", next = "BACK", reply = "Hush, cousin, don't say his name so loud on a mountain. Tuu'li still has to sleep tonight.", when = { race = "Troll" } },
+        { text = "Something else, Tuu'li.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "A Darkspear from the islands, a little voodoo, a lot of talking. That's all the story Tuu'li needs, mon." } },
@@ -160,7 +204,23 @@ P:NPC {
         { text = "What's a Booty Bay goblin doing in Stonetalon?", next = "bootybay" },
         { text = "Are you with the Venture Company?", next = "venture" },
         { text = "Let's see what you've got.", next = "BUSINESS" },
+        { text = "What's the best deal you ever made on this road?", next = "w5_deal" },
         { text = "Not today, Xaphod.", next = "END" },
+      },
+    },
+    w5_deal = {
+      lines = { { id = "w5_deal_l", text = "Sold a crate of mining picks to a Venture Company crew in the morning, pal, then sold a box of bandages to the druids who'd been fightin' 'em by afternoon. Same day, same spot. That's the beauty of a crossroads. Everybody's buying from the middle." } },
+      choices = {
+        { text = "You don't mind selling to both sides?", next = "w5_deal2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_deal2 = {
+      lines = { { id = "w5_deal2_l", text = "Mind? Pal, I'm a Booty Bay goblin. The day I start picking sides is the day I stop eating. Tuu'li says I got no conscience. I say I got a very flexible one, and it does yoga." } },
+      choices = {
+        { text = "Somebody has to sell in the middle. It's honest trade.", next = "BACK", reply = "That's what I keep tellin' Tuu'li! Finally, a customer with sense.", fx = { align = { honor = 1 } } },
+        { text = "Arming both sides makes you part of the killing.", next = "BACK", reply = "Hey, I sell picks and bandages, pal. The killing they bring themselves.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     picks = {

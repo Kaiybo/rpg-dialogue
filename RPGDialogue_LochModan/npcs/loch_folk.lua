@@ -37,6 +37,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_after = {
+      lines = {
+        { id = "w2_after_l0", text = "I've no' thought that far. Maybe drive carts for Hearthstove, or haul for the dam crew. My mother wants me tae be a baker like my uncle, an' some days, after the gully, I think she might have the right of it." },
+      },
+      choices = {
+        { text = "You'd make a fine baker.", next = "BACK", reply = "Ye think so? Bread doesnae ambush ye from the rocks, at least.", fx = { affinity = 1 } },
+        { text = "You've too much nerve to bake bread.", next = "w2_after_nerve" },
+      },
+    },
+    w2_after_nerve = {
+      narr = "He laughs, a little too loud.",
+      lines = {
+        { id = "w2_after_nerve_l0", text = "Nerve? Me? I've checked these straps more times than I've breathed today. But I'll take it, friend, an' I'll tell my mother ye said so." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     dw_di = {
       lines = {
         { id = "dw_di_default", text = "I worry, an' I'm only a hauler. The Dark Irons have hated us since the War o' the Three Hammers, an' my grandda used tae say they'd come back for Ironforge one day, an' I used tae laugh at him." },
@@ -72,6 +90,7 @@ P:NPC {
         { text = "What's Prospector Ironband like?", next = "ironband" },
         { text = "You seem nervous, Miran.", next = "nerves" },
         { text = "Dark Irons this close to Thelsamar? Should we worry?", next = "dw_di" },
+        { text = "What will you do when the dig closes?", next = "w2_after" },
         { text = "I have to go, Miran.", next = "END" },
       },
     },
@@ -194,6 +213,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_trouble = {
+      lines = {
+        { id = "w2_trouble_l0", text = "Old Stubbin, the grey one by the trough. He's broken the gate four times, eaten half o' Kali's herb garden, an' once got intae the inn's cellar, where my brother found him asleep on a barrel o' stout." },
+      },
+      choices = {
+        { text = "Why keep him?", next = "w2_trouble_keep" },
+        { text = "He sounds like a proper Thelsamar dwarf.", next = "BACK" },
+      },
+    },
+    w2_trouble_keep = {
+      lines = {
+        { id = "w2_trouble_keep_l0", text = "Because he was my first, an' he carried me over the pass in a blizzard when I was a girl, an' he's never once let a rider fall. A ram like that can eat all the herbs he likes, an' Kali knows it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -212,7 +248,55 @@ P:NPC {
         { text = "So you're family to the innkeeper?", next = "family" },
         { text = "What are the rams like?", next = "rams" },
         { text = "Any advice for keeping a pet in these hills?", next = "advice", when = { class = "HUNTER" } },
+        { text = "How do you care for a ram in these hills?", next = "lh_ram" },
+        { text = "What do travellers ride through Thelsamar?", next = "lh_ride" },
+        { text = "Which of your rams is the most trouble?", next = "w2_trouble" },
         { text = "Good day, Lina.", next = "END" },
+      },
+    },
+    lh_ram = {
+      lines = {
+        { id = "lh_ram_1", text = "Plenty o' hay, a dry stall, an' a good scratch behind the horns, for they're vain beasts. The mountaineers ride them on patrol, an' a ram that's well cared for can climb a cliff wi' a dwarf in full mail on its back." },
+      },
+      choices = {
+        { text = "Up a cliff with a full dwarf?", next = "lh_climb" },
+        { text = "Vain rams. I'll scratch their horns, then.", next = "BACK", reply = "They'll love ye for it, an' butt ye after." },
+      },
+    },
+    lh_climb = {
+      lines = {
+        { id = "lh_climb_1", text = "Aye, an' they'll do it in the snow, too. My favourite, old Granite, carried Mountaineer Cobbleflint up the north ridge in a blizzard last winter, an' he got an extra bucket o' oats for it." },
+      },
+      choices = {
+        { text = "Granite sounds like a fine ram.", next = "lh_granite" },
+        { text = "I'd ride a ram up a cliff.", next = "lh_granite", when = { race = "Dwarf" } },
+      },
+    },
+    lh_granite = {
+      lines = {
+        { id = "lh_granite_1", text = "The finest, an' the most stubborn, for he'll only eat from my hand an' no' from a bucket. If ye go past the stalls, give him a pat, but dinnae turn yer back on him, for he likes tae push." },
+      },
+      choices = {
+        { text = "I'll keep my back to the wall.", next = "BACK" },
+        { text = "Something else, Lina.", next = "BACK" },
+      },
+    },
+    lh_ride = {
+      lines = {
+        { id = "lh_ride_1", text = "Horses from Stormwind, rams from Dun Morogh, an' the odd hunter's beast that'd eat the horses if I let it. I keep them all apart, for the rams start fights an' the hunters' pets finish them." },
+      },
+      choices = {
+        { text = "Who's the worst for fighting?", next = "lh_fight" },
+        { text = "I'm a hunter. My pet behaves itself.", next = "lh_fight", when = { class = "HUNTER" } },
+      },
+    },
+    lh_fight = {
+      lines = {
+        { id = "lh_fight_1", text = "The cats, without a doubt, for they think every ram's a meal. Claude Erksine at the lodge says it's all in the trainin', but I've yet tae meet a cat that listens tae anyone." },
+      },
+      choices = {
+        { text = "Cats don't listen. That's true.", next = "BACK" },
+        { text = "I'll talk to Claude about it.", next = "BACK" },
       },
     },
     family = {

@@ -38,6 +38,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_lis = {
+      lines = { { id = "w8_lis_a", text = "Mostly the sprites, which sound like a kettle that never quite boils. Once in a long while there's something deeper underneath them, like a breath held in a very large chest, and then it's gone before I'm sure I heard it." } },
+      choices = {
+        { text = "Could it be one of the old spirits?", next = "w8_lis2" },
+        { text = "Maybe it's only the wind.", next = "w8_lis2" },
+        { text = "I'm a shaman. Let me listen with you.", next = "w8_lis2", when = { class = "SHAMAN" } },
+        { text = "Something else, Yala.", next = "BACK" },
+      },
+    },
+    w8_lis2 = {
+      lines = {
+        { id = "w8_lis2_a", text = "I've told Rorian, and he wrote it down and told me to keep listening, which is what he says about everything. I'd like it to be a spirit, and I'm afraid it's something the Al'Aketh have woken instead." },
+        { id = "w8_lis2_sham", when = { class = "SHAMAN" }, text = "Would you? Stand here, where the third stone leans, and close your eyes. If you hear the deep breath, tell me whether it sounds glad or angry, because I've never been able to tell." },
+      },
+      choices = {
+        { text = "Keep listening, Yala.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Yala Windwatcher, and Rorian the Dayseeker sent me to watch the winds at these stones. The wind spirits have left us, and what remains here are only mindless echoes, and lately those echoes have turned angry." },
@@ -60,6 +80,7 @@ P:NPC {
         { text = "Does Rorian keep you busy?", next = "rorian" },
         { text = "Do you think the true spirits will return?", next = "spirits" },
         { text = "The spirits still answer me, Yala.", next = "xshaman", when = { class = "SHAMAN", ["not"] = { race = "Skyborne" } } },
+        { text = "What do you hear when you listen to the stones?", next = "w8_lis" },
         { text = "Winds guide you, Yala.", next = "END" },
       },
     },
@@ -185,6 +206,51 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    ela_hal1 = {
+      lines = {
+        { id = "ela_hal1_1", text = "He taught every ranger in Thendal Grove worth the name, and a few who weren't. He's slow now and stiff in the knees, but he can still tell you which way a hive lies by the hum of the air, and I've never learned the trick of it." },
+      },
+      choices = {
+        { text = "How did he teach you?", next = "ela_hal2" },
+        { text = "Something else, Elatrell.", next = "BACK" },
+      },
+    },
+    ela_hal2 = {
+      lines = {
+        { id = "ela_hal2_1", text = "By sending me out alone with a waterskin and no map, and waiting at the edge of the grove until I came back. The first time I was gone two days, and he only said I'd taken the long way round, which I had." },
+      },
+      choices = {
+        { text = "That's a hard way to learn.", next = "ela_hal3" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    ela_hal3 = {
+      lines = {
+        { id = "ela_hal3_1", text = "It is, but nobody on this isle ever got lost twice after one of Halaan's walks. He's grateful for every ranger who comes back, and he says so stiffly, as if gratitude were a piece of armour that didn't fit him." },
+      },
+      choices = {
+        { text = "Then I'll thank him for you. Something else.", next = "BACK" },
+      },
+    },
+    ela_st1 = {
+      lines = {
+        { id = "ela_st1_1", text = "Yala Windwatcher keeps the stones, but I keep an eye on Yala, because the cultists who stirred up the sprites came out of those same trees. If the Al'Aketh want the grove, they'll go through the stones first." },
+      },
+      choices = {
+        { text = "Why would the cult want the stones?", next = "ela_st2" },
+        { text = "I've walked the stones. The air there hums.", next = "ela_st2", when = { race = "Skyborne" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ela_st2 = {
+      lines = {
+        { id = "ela_st2_1", text = "Rorian could tell you better, but the stones were raised to listen to the winds, back when the winds still answered. The Al'Aketh think that if they shout loud enough into them, something will shout back, and I'd rather not find out what." },
+      },
+      choices = {
+        { text = "Then the grove needs its rangers more than ever.", next = "BACK" },
+        { text = "Back to other matters.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_dd_agitators", when = { questDone = TODO_QUEST("Agitators") },
@@ -208,6 +274,8 @@ P:NPC {
         { text = "Is something leading the swarm?", next = "queen" },
         { text = "The rangers must have their hands full out here.", next = "rangers" },
         { text = "I hunt for a living. Bugs included.", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "Halaan Hawk-Eye taught you, didn't he?", next = "ela_hal1" },
+        { text = "You watch the standing stones as closely as the bugs.", next = "ela_st1" },
         { text = "Winds be with you, Elatrell.", next = "END" },
       },
     },
@@ -319,6 +387,71 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_rng = {
+      lines = { { id = "w8_rng_a", text = "Seven, counting me, and two of them are barely past their coming of age. We used to be twenty, before the young ones started leaving for the mainland and the old ones started being too old." } },
+      choices = {
+        { text = "Seven isn't many for a whole grove.", next = "w8_rng2" },
+        { text = "Do you blame the ones who left?", next = "w8_rng2" },
+        { text = "I'm a hunter. I'll walk a watch with you.", next = "w8_rng2", when = { class = "HUNTER" } },
+        { text = "Something else, Valreaa.", next = "BACK" },
+      },
+    },
+    w8_rng2 = {
+      lines = {
+        { id = "w8_rng2_a", text = "It isn't, and we know every path because we have to. I don't blame anyone for going below the clouds, but I'd be lying if I said I didn't count the empty bunks some nights." },
+        { id = "w8_rng2_hu", when = { class = "HUNTER" }, text = "Then take the southwest path at dusk, where the ursera come closest, and keep your companion upwind. If you do, I'll count eight on the roster tonight, and that'll be the first time in a season." },
+      },
+      choices = {
+        { text = "The grove is well guarded, even so.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    val_xy1 = {
+      lines = {
+        { id = "val_xy1_1", text = "Patient with beasts and impatient with rangers, which is the wrong way round for a man who lives in a village. He thinks we cull too quickly, and he's told me so in front of the whole grove, and I've told him he's welcome to stand between an ursera and a child." },
+      },
+      choices = {
+        { text = "Has he ever done it?", next = "val_xy2" },
+        { text = "Something else, Valreaa.", next = "BACK" },
+      },
+    },
+    val_xy2 = {
+      lines = {
+        { id = "val_xy2_1", text = "Once, and he came back with claw marks and the young bear calmed, so I've had to eat a few of my words. He can't do it every time, though, and I can't wait for him every time either." },
+      },
+      choices = {
+        { text = "Then you both have a point.", next = "val_xy3" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    val_xy3 = {
+      lines = {
+        { id = "val_xy3_1", text = "We do, and that's what makes it so tiresome. We've agreed that he tries first if there's time, and I draw if there isn't, and neither of us is happy with it, which I suppose makes it fair." },
+      },
+      choices = {
+        { text = "That sounds like a good bargain. Something else.", next = "BACK" },
+      },
+    },
+    val_tree1 = {
+      lines = {
+        { id = "val_tree1_1", text = "Haal and Meeri, mostly, and half a dozen others who climb it whenever their parents aren't looking. They think the tree keeps them safe, and for now it does, because a ranger is always within a bowshot of it." },
+      },
+      choices = {
+        { text = "Do they know how close the ursera came?", next = "val_tree2" },
+        { text = "I climbed that tree as a child too.", next = "val_tree2", when = { race = "Skyborne" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    val_tree2 = {
+      lines = {
+        { id = "val_tree2_1", text = "They know a little, and they've turned it into a game where one of them is the bear and the rest run screaming. I can't decide if that's healthy or not, but it does mean they all know which way to run." },
+      },
+      choices = {
+        { text = "Better a game than a nightmare.", next = "BACK" },
+        { text = "Back to other matters, ranger.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Valreaa Valewind, Rangers of Thendal Grove. The ursera den to the southwest is becoming a problem; just last week we had to kill a young one that came too close and went for a boy playing at the foot of the elder tree." },
@@ -330,7 +463,7 @@ P:NPC {
           text = "A druid. Xyton, our druid trainer, would say the ursera are only doing what hunger tells them, and he's right, but hunger doesn't care whose child is in the way." },
       },
       again = {
-        { id = "h_again", text = "What else would you know?" },
+        { id = "h_again", text = "What else would you know? Ask while the grove is quiet; the wind changes quickly here." },
         { id = "h_again2", text = "Ask. I've a moment before my watch." },
       },
       choices = {
@@ -338,6 +471,9 @@ P:NPC {
         { text = "The ursera have grown very bold.", next = "why" },
         { text = "Is killing them the only answer?", next = "kill" },
         { text = "Couldn't a druid calm the ursera?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Xyton sounds a patient sort of druid.", next = "val_xy1" },
+        { text = "The children play by the elder tree, you said.", next = "val_tree1" },
+        { text = "How many rangers guard Thendal Grove?", next = "w8_rng" },
         { text = "Winds be with you, Valreaa.", next = "END" },
       },
     },
@@ -442,6 +578,68 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    dal_find1 = {
+      lines = {
+        { id = "dal_find1_1", text = "You feel for them more than you see them, because a windstone makes the air around it go still for a moment, as if it were holding its breath. Once you know that stillness, you find them everywhere the elementals used to rest." },
+      },
+      choices = {
+        { text = "Can anyone learn to feel it?", next = "dal_find2" },
+        { text = "Something else, Dalia.", next = "BACK" },
+      },
+    },
+    dal_find2 = {
+      lines = {
+        { id = "dal_find2_1", text = "Most shen'dorei can, with a little patience, because we were born with the wind's magic in us. Outsiders find it harder, I think, though one of the Kirin Tor visitors managed it in a single afternoon and was terribly pleased with himself." },
+      },
+      choices = {
+        { text = "I'll try it in the grove.", next = "dal_find3" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    dal_find3 = {
+      lines = {
+        { id = "dal_find3_1", text = "Do, and if you find one, sit beside it before you pick it up and listen. It's a small thing, but I think the stones like to be noticed before they're carried off, and the clusters come out cleaner for it." },
+      },
+      choices = {
+        { text = "I'll remember that. Something else.", next = "BACK" },
+      },
+    },
+    dal_main1 = {
+      lines = {
+        { id = "dal_main1_1", text = "Do you have anything like them where you come from, stones that hold a piece of the weather? I've heard the mainland is full of crystals and ores, but I've never met anyone who could tell me which ones are alive." },
+      },
+      choices = {
+        { text = "There are elemental stones in many places.", next = "dal_main2" },
+        { text = "I couldn't tell you, I'm afraid.", next = "dal_main2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dal_main2 = {
+      lines = {
+        { id = "dal_main2_1", text = "Then the elementals must live on the mainland still, which is more than they do here. That's a comfort and a sorrow at once, because it means they could have stayed with us and chose not to." },
+      },
+      choices = {
+        { text = "Perhaps they'll come back. Something else.", next = "BACK" },
+      },
+    },
+    dal_buy1 = {
+      lines = {
+        { id = "dal_buy1_1", text = "Destin Thriceforged, who'd rather have stones than coin, and Othesia in Valanaar, who uses them for her dyes, and every apprentice of the High Order who thinks I won't notice when a few go missing. I count every one of them, and I always notice." },
+      },
+      choices = {
+        { text = "Do the High Order pay fairly?", next = "dal_buy2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dal_buy2 = {
+      lines = {
+        { id = "dal_buy2_1", text = "They pay in lectures, mostly, about how windstones are wasted on lamps and warmth. I tell them the elders want warm houses more than they want Highborne magic, and we part as unhappy as we met." },
+      },
+      choices = {
+        { text = "I think the elders have the right of it.", next = "BACK" },
+        { text = "Back to other matters, Dalia.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Dalia, and they call me the Collector, because I collect windstones. They hold the raw, concentrated energy of the winds themselves, and since the wind elementals left us, they've become very precious indeed." },
@@ -462,6 +660,9 @@ P:NPC {
         { text = "What happens to the stones you collect?", next = "use" },
         { text = "I'd like to study a windstone's magic.", next = "xmage", when = { class = "MAGE" } },
         { text = "I carried windstones between Valanaar and Shen'dramar, Dalia. Quietly.", next = "xorig_runner", when = { origin = "skyborne_windstone_runner" } },
+        { text = "How do you find the stones in the grove?", next = "dal_find1" },
+        { text = "You said you'd like to know of mainland stones.", next = "dal_main1", when = { ["not"] = { race = "Skyborne" } } },
+        { text = "Who else in Thendal wants your windstones?", next = "dal_buy1" },
         { text = "Winds guide you, Dalia.", next = "END" },
       },
     },

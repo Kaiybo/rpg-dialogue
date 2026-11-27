@@ -6,7 +6,7 @@ local TODO_QUEST = P.TODO_QUEST
 
 P:Thread {
   id = "elwynn_gold",
-  theme = "Elwynn's mines pay someone. Not the kobolds, and not the farmers.",
+  theme = "Elwynn's mines are paying someone, and it isn't the kobolds and it isn't the farmers.",
   title = "The gold of Elwynn's mines",
   story = {   -- the journal's Stories page, by state
     stirring = { first = "Someone is taking gold out of Elwynn's mines, and it isn't the kobolds and it isn't the farmers. Remy swears he's the only buyer of dust in the forest, and yet the dust keeps disappearing.",
@@ -239,7 +239,7 @@ P:Thread {
     {
       id = "b2_haggard", npc = "haggard",
       when = { thread = { id = "stalvan", beat = "b1_smitts" } },
-      text = "Smitts still has those pages? Of course he does. We worked that murder for a season, he and I. The papers in my attic came with this house, the same house, and I've never liked thinking about that.",
+      text = "Smitts still has those pages? Of course he does, for we worked that murder together for a whole season, he and I. The papers in my attic came with this house, the same house, and I've never liked thinking about that.",
       fx = { thread = { id = "stalvan", beat = "b2_haggard", state = "unfolding" } },
     },
     {
@@ -312,7 +312,7 @@ P:Thread {
     {
       id = "b3_terenthis", npc = "terenthis",
       when = { class = "DRUID", thread = { id = "the_circle", beat = "b2_remulos" } },
-      text = "The Keeper's druid! He wrote that you might come. Look at this moss, then, and look closely. Tell him what you see, because I've run out of ways to say it.",
+      text = "The Keeper's druid! He wrote that you might come, so look at this moss, then, and look closely. Tell him what you see, because I've run out of ways to say it.",
       fx = { thread = { id = "the_circle", beat = "b3_terenthis" } },
     },
     {

@@ -37,6 +37,60 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_wr = {
+      lines = { { id = "w8_wr_a", text = "No, and I am glad of it. Thysta keeps the wind riders on the tower, and a wyvern in this damp is a sour beast, with a sting that weeps and wings that will not dry." } },
+      choices = {
+        { text = "What does Thysta do about the damp?", next = "w8_wr2" },
+        { text = "A wyvern is no harder than a raptor, surely.", next = "w8_wr2" },
+        { text = "My people raise kodo. These beasts are strange to me.", next = "w8_wr2", when = { race = "Tauren" } },
+        { text = "Something else, Durik.", next = "BACK" },
+      },
+    },
+    w8_wr2 = {
+      lines = {
+        { id = "w8_wr2_a", text = "She rubs their wings with oil and sings to them in the evenings, which the grunts laugh at until they hear it. I keep to my raptors, because a raptor bites and is done with it, but a wyvern remembers who was rough with it for a long time." },
+        { id = "w8_wr2_tau", when = { race = "Tauren" }, text = "Strange to me too, and I have kept beasts all my life. A kodo is slow and kind and forgives, and nothing in this jungle forgives, so go gently with all of them, and gentlest with Thysta's wyverns." },
+      },
+      choices = {
+        { text = "I'll be careful at the tower.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    d6_mok = {
+      lines = { { id = "d6_mok_a", text = "He does, and I pay for it in bandages. Mok'thardin sends them out for crocolisk skins and stalker feathers for his enchantments, and the beasts come back to me with bites the hunters never noticed them take." } },
+      choices = {
+        { text = "Which beast here do you fear most?", next = "d6_mok2" },
+        { text = "The Far Seer's work matters more than a few bites.", next = "d6_mok2" },
+        { text = "Something else, Durik.", next = "BACK" },
+      },
+    },
+    d6_mok2 = {
+      lines = { { id = "d6_mok2_a", text = "The crocolisk, and it is not close. A raptor screams before it strikes and a tiger at least lets you smell it, but a snapjaw lies in the river like a log until a wolf goes down to drink, and then there is no wolf." } },
+      choices = {
+        { text = "I'll keep my beast away from the riverbank.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Enough of crocolisks. Something else.", next = "BACK" },
+      },
+    },
+    d6_zep = {
+      lines = { { id = "d6_zep_a", text = "Badly, every one of them. A wolf paces the deck from Tirisfal to this coast and howls at the clouds, and Squibby charges the owner extra for the noise, which I think is the only joke a goblin has ever told me." } },
+      choices = {
+        { text = "Do the Forsaken bring beasts down on that line?", next = "d6_zep2" },
+        { text = "I keep a bat. Will you see to it?", next = "d6_zep2", when = { race = "Scourge" } },
+        { text = "A wolf should run, not fly. Something else.", next = "BACK" },
+      },
+    },
+    d6_zep2 = {
+      lines = {
+        { id = "d6_zep2_a", text = "Bats and spiders, mostly, and the grunts are always surprised that they are alive and warm. A beast does not care if its master's heart beats, only that it is fed, and some of the dead feed theirs better than the living do." },
+        { id = "d6_zep2_scourge", when = { race = "Scourge" }, text = "I will, and I will not flinch at your hands when you pass me the leash. A bat does not care if its master's heart beats, only that it is fed, and yours looks well fed, so you have done that much right." },
+      },
+      choices = {
+        { text = "You're fairer to the Forsaken than most orcs.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     dd_durik_b = {
       lines = {
         { id = "dd_durik_b_a", text = "Maybe, and maybe he'd have taken my arm off, which is how most taming begins. A beast like that respects strength and patience both, and the humans at their camp only bring strength, so they come back with skins instead of friends." },
@@ -78,6 +132,9 @@ P:NPC {
         { text = "How do you keep beasts alive in this jungle?", next = "jungle" },
         { text = "Do you keep raptors of your own?", next = "raptors" },
         { text = "What do you think of Nesingwary's hunters?", next = "nesingwary" },
+        { text = "The Far Seer must keep your hunters busy.", next = "d6_mok" },
+        { text = "How does a beast stand the zeppelin?", next = "d6_zep" },
+        { text = "Do you look after the wind riders too?", next = "w8_wr" },
         { text = "I'll leave you to your beasts.", next = "END" },
       },
     },
@@ -164,6 +221,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_crg = {
+      lines = { { id = "w8_crg_a", text = "Oh, pal, don't get me started, but since you asked: forty sealed crates for the Royal Apothecary Society, all sloshing, all humming a little, and a label that said 'do not jostle' in three languages. We flew through a storm over Hillsbrad and I didn't breathe for six hours." } },
+      choices = {
+        { text = "What was in the crates?", next = "w8_crg2" },
+        { text = "You fly for the Apothecaries? That's a risk.", next = "w8_crg2" },
+        { text = "The Apothecaries pay well for discretion, goblin.", next = "w8_crg2", when = { race = "Scourge" } },
+        { text = "Something else, Squibby.", next = "BACK" },
+      },
+    },
+    w8_crg2 = {
+      lines = {
+        { id = "w8_crg2_a", text = "I don't ask, pal, and that's not cowardice, that's a business model. The Forsaken pay on time and the crates never leak, mostly, and the one that did ate a hole clean through the deck, so now we've got a little window to look at the swamp through." },
+        { id = "w8_crg2_und", when = { race = "Scourge" }, text = "They do, friend, they do, and I'm very discreet, ask anybody, actually don't ask anybody. The crates go up, the coin comes down, and nobody on my ship opens a lid, because the one fella who tried still has a funny green tint." },
+      },
+      choices = {
+        { text = "I'll keep clear of the cargo hold.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -185,6 +262,7 @@ P:NPC {
         { text = "How long is the run to Tirisfal?", next = "run" },
         { text = "You and Nez'raz split the towers.", next = "nezraz" },
         { text = "I'd sooner march than fly in that thing.", next = "march", when = { race = "Orc", class = "WARRIOR" } },
+        { text = "What's the worst cargo you've ever flown north?", next = "w8_crg" },
         { text = "I'll go and wait for the zeppelin.", next = "END" },
       },
     },
@@ -303,6 +381,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_rust = {
+      lines = { { id = "w8_rust_a", text = "Crocolisk fat, rubbed into every blade at dusk, and a dry cloth over the rack before the night mists come off the river. Mudduk says I steal his fat, and he is right, but a rusted axe gets a grunt killed and a thin stew does not." } },
+      choices = {
+        { text = "Does Mudduk ever catch you at it?", next = "w8_rust2" },
+        { text = "A good warrior oils their own blade.", next = "w8_rust2" },
+        { text = "I smith too. Fat or oil, which is better?", next = "w8_rust2", when = { profession = "Blacksmithing" } },
+        { text = "Something else, Vharr.", next = "BACK" },
+      },
+    },
+    w8_rust2 = {
+      lines = {
+        { id = "w8_rust2_a", text = "Every night, and every night he shouts, and every night I take it anyway. We are old men of the Horde, both of us, and shouting is how we say we are glad the other one is still alive." },
+        { id = "w8_rust2_bs", when = { profession = "Blacksmithing" }, text = "Fat, here, because the goblins' oil thins in this heat and runs off by midnight. In Orgrimmar I would say oil, but Orgrimmar is dry and honest, and this jungle is neither." },
+      },
+      choices = {
+        { text = "I'll oil my weapon before I sleep tonight.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     dd_vharr_b = {
       lines = {
         { id = "dd_vharr_b_a", text = "Good, because the Bloodscalp raid our supply lines every week and take heads for their shrines. The Darkspear in this camp say they were kin once, long ago, but kin who takes your head is no kin of yours." },
@@ -347,6 +445,7 @@ P:NPC {
         { text = "What about the ogres in the Mosh'Ogg mound?", next = "ogres" },
         { text = "I need a blade that bites, smith. What do you have?", next = "warrior", when = { class = { "WARRIOR", "ROGUE" } } },
         { text = "Do Forsaken hands suit an orc's axe?", next = "undead", when = { race = "Scourge" } },
+        { text = "How do you keep steel from rusting in this damp?", next = "w8_rust" },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -453,6 +552,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_dur = {
+      lines = { { id = "w8_dur_a", text = "Scorpid, roasted in the shell on hot stones, and cactus apples split open with the juice running down your arm. Nothing in this jungle tastes of sun and dust, and an orc's belly remembers Durotar even when his feet have forgotten it." } },
+      choices = {
+        { text = "Could you get scorpid on the zeppelin?", next = "w8_dur2" },
+        { text = "Raptor is good enough for any orc.", next = "w8_dur2" },
+        { text = "My mother cooked scorpid every harvest festival.", next = "w8_dur2", when = { race = "Orc" } },
+        { text = "Something else, Mudduk.", next = "BACK" },
+      },
+    },
+    w8_dur2 = {
+      lines = {
+        { id = "w8_dur2_a", text = "I tried once, and the goblin on the ship let them out over the Badlands, or so he says, and I think he ate them. Now I ask the grunts coming south to bring me a sack of cactus apples, and one in three remembers, and I feed that one first." },
+        { id = "w8_dur2_orc", when = { race = "Orc" }, text = "Then you know! Bring me a scorpid from home the next time you come south, and I will cook it the way your mother did, and the whole fire will be jealous of you." },
+      },
+      choices = {
+        { text = "I'll remember the cactus apples.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "dd_defense_mudduk", when = { questDone = TODO_QUEST("The Defense of Grom'gol") },
@@ -477,6 +596,7 @@ P:NPC {
         { text = "Your pot looks older than the camp.", next = "pot" },
         { text = "Is there really no kodo in that pot?", next = "kodo", when = { race = "Tauren" } },
         { text = "That root you use, mon, I know it.", next = "troll", when = { race = "Troll" } },
+        { text = "What do you miss cooking from Durotar?", next = "w8_dur" },
         { text = "I'm not hungry, thanks.", next = "END" },
       },
     },
@@ -581,6 +701,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_thf = {
+      lines = { { id = "w8_thf_a", text = "The monkeys, the rats and the grunts, in that order, and the monkeys are the only ones honest enough to run when they are caught. A jungle monkey can untie a knot faster than any goblin, and it takes the salt, which nobody else would think to steal." } },
+      choices = {
+        { text = "Why would a monkey want salt?", next = "w8_thf2" },
+        { text = "Set a trap, and the problem's solved.", next = "w8_thf2" },
+        { text = "The jungle monkeys are clever, mon. Don't fight them.", next = "w8_thf2", when = { race = "Troll" } },
+        { text = "Something else, Nerrist.", next = "BACK" },
+      },
+    },
+    w8_thf2 = {
+      lines = {
+        { id = "w8_thf2_a", text = "The same reason the raptors lick the stones by the river, I think, because the jungle sweats it out of everything that lives here. I tried a trap once and caught a grunt, which settled the question of who was taking the dried meat." },
+        { id = "w8_thf2_tr", when = { race = "Troll" }, text = "Your people say that, and the Darkspear in camp leave a little salt out for them on purpose. I think it is foolishness, but my crates have been safer since they started, so I count it and say nothing." },
+      },
+      choices = {
+        { text = "You caught a grunt? What did you do?", next = "BACK", reply = "I counted what he owed and took it out of his rations for a month, and now he carries my crates for nothing and thinks it was his idea." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -602,6 +742,7 @@ P:NPC {
         { text = "You count those crates like a quartermaster.", next = "count" },
         { text = "I came down on the zeppelin from the Undercity.", next = "undead", when = { race = "Scourge" } },
         { text = "How do you keep silk from rotting?", next = "silk", when = { profession = "Tailoring" } },
+        { text = "Does anything in this camp steal from your stores?", next = "w8_thf" },
         { text = "Nothing today.", next = "END" },
       },
     },

@@ -52,7 +52,23 @@ P:NPC {
         { text = "I'm Forsaken too. How do you bear it here?", next = "kin", when = { race = "Scourge" } },
         { text = "I serve the Light. Your husband might have been right.", next = "light", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "What do you need?", next = "BUSINESS" },
+        { text = "What do you do with your days, up here?", next = "w5_days" },
         { text = "Goodbye, Clarice.", next = "END" },
+      },
+    },
+    w5_days = {
+      lines = { { id = "w5_days_l", text = "I walk. Up the bridges and down again, around the rises, past the lifts. The tauren nod at me and keep going, and that is the finest courtesy anyone has paid me since I died. Nobody here knew me as a wife. I am only a dead woman who walks." } },
+      choices = {
+        { text = "Doesn't that ever feel lonely?", next = "w5_days2" },
+        { text = "I walk too. It's the only thing that quiets my head.", next = "BACK", when = { race = "Scourge" }, reply = "Then there are two of us walking these bridges, and neither of us has anywhere to be. I find that oddly comforting." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_days2 = {
+      lines = { { id = "w5_days2_l", text = "Lonely? I spent eleven years married to Yuriv. Loneliness is a gift by comparison. Some evenings I stand by the bonfire on the Elder Rise and listen to the tauren sing, and I do not understand a word, and it is the most peaceful hour of my week." } },
+      choices = {
+        { text = "Then may the songs keep you company.", next = "BACK", reply = "They do, in their way. It is more than I hoped for, when I came here." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     yuriv = {

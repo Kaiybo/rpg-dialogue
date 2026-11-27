@@ -47,7 +47,31 @@ P:NPC {
         { text = "Why is the Brigade in Silithus at all?", next = "why" },
         { text = "How many recruits actually come back?", next = "back" },
         { text = "You make the desert sound like a grave.", next = "grave" },
+        { text = "How do ye bear the heat, rifleman?", next = "heat" },
+        { text = "What's the Brigade's camp like?", next = "brigade" },
+        { text = "That orc across the yard does your job for the Horde.", next = "w9_orc" },
         { text = "I'll be off.", next = "END" },
+      },
+    },
+
+    w9_orc = {
+      lines = {
+        { id = "w9_orc_d", text = "Scout Bloodfist, aye, and he does it well, which is the worst thing I can say about him. Every morning we take the same patch of shade from opposite ends, and every morning one of us has to move first when the sun comes round." },
+        { id = "w9_orc_v1", when = { faction = "Horde" }, text = "Bloodfist's yer lot's man, aye, and I'll not pretend he's bad at it. We share the one patch o' shade from opposite ends, and every morning one of us has to give ground when the sun swings round, which is as close as we come to a war in here." },
+      },
+      choices = {
+        { text = "Who usually moves first?", next = "w9_orc2" },
+        { text = "You almost sound like you respect him.", next = "w9_orc2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_orc2 = {
+      lines = { { id = "w9_orc2_d", text = "He does, three days in four, and I've never asked why, because I suspect it's manners and I'd hate to owe an orc manners. The druids say the Hold is neutral ground, and I've come to think that means two old soldiers too stubborn to admit they're tired." } },
+      choices = {
+        { text = "Stand your ground, then. Give him nothing.", next = "BACK", fx = { align = { honor = -1 } }, reply = "Ha! That's the Brigade spirit, though me knees disagree with it." },
+        { text = "Move first tomorrow. Return the courtesy.", next = "BACK", fx = { align = { honor = 1 } }, reply = "Hmph. Maybe I will, and maybe I'll watch his face when I do." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     camp = {
@@ -90,6 +114,33 @@ P:NPC {
     grave = {
       lines = { { id = "gr_default", text = "Aye, well, it's buried a few kingdoms already, from what the Circle says. I'm a dwarf, so I'm fond of things underground, but I'd sooner they were ale cellars than whatever's under these dunes." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    heat = {
+      lines = { { id = "ht_default", text = "Badly, and I'll thank ye not to tell the marshal. A dwarf's built for a cold mountain and a warm tunnel, not for standing in a furnace with a rifle that gets too hot to hold by noon. I wet my beard every hour and pretend it's Dun Morogh snow." } },
+      choices = {
+        { text = "Does it work?", next = "heat2" },
+        { text = "Ironforge must miss its riflemen.", next = "heat2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    heat2 = {
+      lines = { { id = "ht2_default", text = "Not in the least, but it gives a dwarf something to do with his hands besides fanning himself like a noble lady. The Circle's druids walk about in this as if it were a spring morning, and I've half a mind to ask them their secret." } },
+      choices = {
+        { text = "I'm a dwarf. I'll wet my beard too.", next = "BACK", reply = "Ha! Then we'll be the two soggiest beards in Silithus, and proud of it.", when = { race = "Dwarf" } },
+        { text = "Something else, Torrig.", next = "BACK" },
+      },
+    },
+    brigade = {
+      lines = { { id = "bg_default", text = "Tents, sand, and the marshal shouting, mostly. Captain Blackanvil runs the soldiers on field duty, and Janela Stouthammer keeps the blades sharp, and the rest of us carry crystals and watch the Horde watching us from their own camp across the dunes." } },
+      choices = {
+        { text = "Do the two camps ever come to blows?", next = "brigade2" },
+        { text = "It sounds a cheerless posting.", next = "brigade2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    brigade2 = {
+      lines = { { id = "bg2_default", text = "Out on the sands, aye, over a crystal now and then, and nobody writes it down. In the Hold, the Circle won't have it, so we glare at the orcs over our ale and they glare back over theirs. It's cheerless, but it's dry, which out here counts as a luxury." } },
+      choices = { { text = "Dry is something. Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -135,14 +186,34 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Speak. I am listening, and watching the dunes." },
-        { id = "h_again2", text = "What else? Be quick." },
+        { id = "h_again2", text = "What more, grunt? Say it fast, because the dunes shift while we talk." },
       },
       choices = {
         { text = "Where is General Kirika's camp?", next = "camp", when = { faction = "Horde" } },
         { text = "What does the Legion want in this desert?", next = "why" },
         { text = "What have you seen out on the sands?", next = "seen" },
         { text = "The Alliance is gathering too, now.", next = "rivals" },
+        { text = "How do you scout in open sand with no cover?", next = "scout" },
+        { text = "General Kirika. What kind of leader is she?", next = "kirika" },
+        { text = "The dwarf across the yard watches you all day.", next = "w9_dwarf" },
         { text = "Lok'tar.", next = "END" },
+      },
+    },
+
+    w9_dwarf = {
+      lines = { { id = "w9_dwarf_d", text = "Torrig, the rifleman. He watches me and I watch him, and between us nothing at the Hold goes unwatched, which the druids should thank us for. He talks too much, as dwarves do, but he has never once pointed that rifle my way." } },
+      choices = {
+        { text = "Would you fight him, if the truce broke?", next = "w9_dwarf2" },
+        { text = "You two are more alike than you'd admit.", next = "w9_dwarf2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_dwarf2 = {
+      lines = { { id = "w9_dwarf2_d", text = "If the truce broke, yes, and he would fight me, and one of us would die in the shade we argue over every morning. I would rather the bugs kill us both on the same day, because then neither of us has to win." } },
+      choices = {
+        { text = "That's a grim kind of friendship.", next = "BACK", reply = "It is the only kind this desert allows." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     camp = {
@@ -174,6 +245,40 @@ P:NPC {
         { text = "Then we strike their gatherers before they catch up.", next = "BACK", reply = "Ha! Kirika will like you. But we strike in the open, where the Circle cannot say we broke their peace.", fx = { align = { honor = -1 } } },
         { text = "We beat them by gathering more, not by ambush.", next = "BACK", reply = "Honourable, and the Circle would agree. Gather fast, then, and let the dwarves eat our dust.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    scout = {
+      lines = { { id = "sc_default", text = "At night, low, and slow. The bugs hunt by the sound of footsteps in the sand, so I walk on the rocks when I can and lie still when I can't. A scout who runs in Silithus is a scout the hive finds by morning." } },
+      choices = {
+        { text = "What do you watch for, out there?", next = "scout2" },
+        { text = "Lying still among silithid takes nerve.", next = "scout2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    scout2 = {
+      lines = { { id = "sc2_default", text = "The cult's camps, which move, and the hives, which grow, and the dwarves, who march to the crystals like they own the sand. Last week I counted a new tent at the Twilight's camp to the north, and new robes going in and out of it." } },
+      choices = {
+        { text = "Does Kirika know?", next = "scout3" },
+        { text = "Something else, Bloodfist.", next = "BACK" },
+      },
+    },
+    scout3 = {
+      lines = { { id = "sc3_default", text = "She knows, and so do the druids, because I told both. Kirika wants the silithyst first and the cult second, and the Circle wants it the other way round. I scout for both of them and let them argue about it over the map." } },
+      choices = { { text = "Wise of you. Something else.", next = "BACK" } },
+    },
+    kirika = {
+      lines = { { id = "kr_default", text = "Hard and fair. She does not waste words or grunts, and she remembers the name of every warrior she sends out who does not come back. The dwarves fear her, and that is how it should be." } },
+      choices = {
+        { text = "Do the grunts love her?", next = "kirika2" },
+        { text = "Fear is a poor thing to build a peace on.", next = "kirika2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kirika2 = {
+      lines = { { id = "kr2_default", text = "They follow her, which is better. Love is for a chieftain in Orgrimmar who sends you gifts. In Silithus you want a general who will stand in the sand next to you, and Kirika stands there every day, in the worst of the heat." } },
+      choices = {
+        { text = "I'm an orc. I'd follow a general like that.", next = "BACK", reply = "Then go to her camp and prove it. Lok'tar, warrior.", when = { race = "Orc" } },
+        { text = "Something else, then.", next = "BACK" },
       },
     },
   },
@@ -394,7 +499,26 @@ P:NPC {
         { text = "You're profiting from a war, in the end.", next = "profit" },
         { text = "Do you miss the eastern kingdoms?", next = "home", when = { race = "Human" } },
         { text = "Does anything out here sell well back east?", next = "sell", when = { profession = { "Skinning", "Mining", "Herbalism" } } },
+        { text = "The cultists must need rope and lamp oil too.", next = "w9_cult" },
         { text = "Keep well, Garon.", next = "END" },
+      },
+    },
+
+    w9_cult = {
+      lines = { { id = "w9_cult_d", text = "One came in once, a pale man with good manners and a robe he'd tried to hide under a traveller's cloak. He wanted lamp oil, a great deal of it, and he paid in old Lordaeron silver, which nobody out here carries unless they've come a long way for bad reasons." } },
+      choices = {
+        { text = "Did you sell it to him?", next = "w9_cult2" },
+        { text = "You'd know their robes by now, surely.", next = "w9_cult2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_cult2 = {
+      lines = { { id = "w9_cult2_d", text = "I did, friend, because I didn't know what he was until he'd gone, and then I told the Circle and they went quiet in a way I didn't care for. I've thought since about whether I'd sell to him again, and I still haven't settled it." } },
+      choices = {
+        { text = "A merchant sells to all. That's the Circle's rule too.", next = "BACK", fx = { align = { order = 1 } }, reply = "That's what I tell myself, and it's even true. It only sits badly at night." },
+        { text = "Turn them away. Coin from cultists is poison.", next = "BACK", fx = { align = { order = -1 } }, reply = "Aye, I think you're right, though I'll have to learn to spot them first." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     why = {
@@ -524,7 +648,29 @@ P:NPC {
         { text = "What do the spirits whisper?", next = "whisper", when = { class = { "PRIEST", "SHAMAN", "WARLOCK" } } },
         { text = "What do the loa say of this place?", next = "loa", when = { race = "Troll" } },
         { text = "What does the Legion need?", next = "BUSINESS" },
+        { text = "Do you ever tend the Alliance wounded?", next = "w9_ally" },
         { text = "Spirits guard you, Shai.", next = "END" },
+      },
+    },
+
+    w9_ally = {
+      lines = {
+        { id = "w9_ally_d", text = "Once, mon, when a dwarf come stumblin' into de camp with a stinger through his leg and nobody else would touch him. De grunts grumbled for a week, but de Circle's truce says de Hold's ground be for everybody, and de spirits don't check banners when dey come to take somebody." },
+        { id = "w9_ally_v1", when = { faction = "Alliance" }, text = "Once, mon, one of your own, a dwarf with a stinger through his leg who came limpin' into dis camp like he didn't know where he was. De grunts grumbled, but de spirits don't check banners, and neither did I dat night." },
+      },
+      choices = {
+        { text = "What happened to the dwarf?", next = "w9_ally2" },
+        { text = "The grunts were right to grumble.", next = "w9_ally2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_ally2 = {
+      lines = { { id = "w9_ally2_d", text = "He lived, and he went back to his rifles, and now and den I see him on de far dune, and he lifts a hand like a man who owes somebody. Dat be worth more dan de grumblin', and de loa be laughin' about it still." } },
+      choices = {
+        { text = "Mercy is never wasted.", next = "BACK", fx = { align = { light = 1 } }, reply = "Dat be what de old priests said, mon, and de old priests weren't always fools." },
+        { text = "He'll still shoot at orcs tomorrow.", next = "BACK", fx = { align = { light = -1 } }, reply = "Maybe so, mon. But maybe a little slower, and slow can be enough." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     work = {

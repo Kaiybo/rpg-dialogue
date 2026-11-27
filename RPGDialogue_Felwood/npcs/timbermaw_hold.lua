@@ -317,6 +317,7 @@ P:NPC {
         { text = "What do you do with them?", next = "keeping" },
         { text = "Can you feel the corruption in them?", next = "xsham", when = { class = { "SHAMAN", "DRUID" } } },
         { text = "I've seen things like this in the Plaguelands.", next = "xpriest", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "How did you learn to read totems?", next = "w_learn" },
         { text = "That's all for now, Kernda.", next = "END" },
       },
     },
@@ -424,6 +425,25 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    w_learn = {
+      lines = {
+        { id = "w_learn_default", text = "From Kernda's grandmother, who carved them for the whole hold, before the sickness. She sat Kernda on her knee and made her trace every line with a claw until she could feel the prayer under her fingers. Kernda did not understand it then." },
+      },
+      choices = {
+        { text = "Do you understand it now?", next = "w_learn2" },
+        { text = "Your grandmother sounds wise.", next = "w_learn2" },
+      },
+    },
+    w_learn2 = {
+      lines = {
+        { id = "w_learn2_default", text = "Now Kernda feels the prayer even in the Deadwood totems, buried under the demon's cuts like a voice under water. That is the worst part. The Deadwood still pray, outsider. Their prayers have only been taught to say the wrong things." },
+        { id = "w_learn2_w1", when = { class = "SHAMAN" }, text = "You speak with spirits. Hold one of the Deadwood totems some time, and you will feel the old prayer underneath, and you will know why Kernda cannot burn them." },
+      },
+      choices = {
+        { text = "Their prayers aren't lost.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Kernda.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -485,6 +505,9 @@ P:NPC {
         { text = "What makes Timbermaw work special?", next = "work" },
         { text = "Do you trade with the Deadwood?", next = "deadwood" },
         { text = "Let me see what you have.", next = "BUSINESS" },
+        { text = "What is the hold like inside, beyond the tunnels?", next = "hold" },
+        { text = "Who are Grazle and Nafien?", next = "gate" },
+        { text = "Which piece took you longest to make?", next = "w_long" },
         { text = "Farewell, Meilosh.", next = "END" },
       },
     },
@@ -544,6 +567,53 @@ P:NPC {
         { text = "Keep that hurt. It's what keeps you whole.", next = "BACK", reply = "Meilosh will, outsider, and thanks you for saying it. Meilosh still has a Deadwood belt, from before, that he cannot throw away.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Hurt makes your hand slow. Harden your heart to them.", next = "BACK", reply = "A hard heart is how the Deadwood began, outsider. Meilosh would rather be slow than lost.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    hold = {
+      lines = { { id = "hd_default", text = "Warm, and dark, and full of the sound of the tribe, which is good. The tunnels run all the way through the mountain to Winterspring, and the furless use them to walk from one to the other without the cold. Meilosh thinks the furless should be more grateful." } },
+      choices = {
+        { text = "Why do the Timbermaw let us through at all?", next = "hold2" },
+        { text = "I'm grateful. It's a long walk otherwise.", next = "hold2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hold2 = {
+      lines = { { id = "hd2_default", text = "Because the elders say the sickness came from outside, and that the Timbermaw cannot stand alone against it forever. Meilosh does not always agree with the elders, but he does as they say, and he watches the tunnels, and he counts who comes back." } },
+      choices = { { text = "Fair enough. Something else.", next = "BACK" } },
+    },
+    gate = {
+      lines = { { id = "gt_default", text = "Grazle is a warrior, and Nafien is a hunter, and they watch the southern gate for the hold. They will tell you which Deadwood must die and which feathers to bring, and they will remember whether you did it well or badly. They remember everything, which is tiring." } },
+      choices = {
+        { text = "Why feathers?", next = "gate2" },
+        { text = "Remembering everything is a fine trait in a guard.", next = "gate2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gate2 = {
+      lines = { { id = "gt2_default", text = "The Deadwood wear headdresses of feathers when they go to war, and a feather is easy to carry and hard to lie about. The elders count them, and every feather means one Deadwood who will not come against the hold. Meilosh does not like counting, but he likes fewer Deadwood." } },
+      choices = {
+        { text = "I'm a druid. I'll bring feathers, and remember the Deadwood kindly.", next = "BACK", reply = "Hm. Meilosh did not expect a furless to say that. Good. Maybe you are a friend after all.", when = { class = "DRUID" } },
+        { text = "Something else, Meilosh.", next = "BACK" },
+      },
+    },
+    w_long = {
+      lines = {
+        { id = "w_long_default", text = "A cloak of winter bear for the eldest of the hold, outsider, which took Meilosh three seasons. Every stitch was blessed and every patch came from a bear that died of age in the high snows, so that nothing was killed for it." },
+      },
+      choices = {
+        { text = "Does the elder still wear it?", next = "w_long2" },
+        { text = "Three seasons for one cloak.", next = "w_long2" },
+      },
+    },
+    w_long2 = {
+      lines = {
+        { id = "w_long2_default", text = "Every winter, and the elder says it is warmer than any fire. When the elder dies, it will be wrapped around them and buried in the hold, and Meilosh will begin another for the next eldest. That is how Meilosh's work is meant to end, not in a trader's pack." },
+        { id = "w_long2_w1", when = { profession = "Leatherworking" }, text = "You work leather. Then you know that the best things are not made to be sold. Meilosh trades the rest so that he has time to make the best." },
+      },
+      choices = {
+        { text = "Some work isn't for sale.", next = "BACK", fx = { align = { order = 1 } }, reply = "Yes. Meilosh is glad an outsider understands." },
+        { text = "Good work should be shared.", next = "BACK", fx = { align = { order = -1 } }, reply = "Meilosh shares it, with the hold. That is enough sharing." },
+        { text = "Something else, Meilosh.", next = "BACK" },
       },
     },
   },

@@ -33,6 +33,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_pikes = {
+      lines = {
+        { id = "w3_pikes_1", text = "So that the Crushridge see them every morning from their caves and count how many chieftains they have left. An ogre understands very little, {class}, but it understands a head on a stick, and that is a lesson that needs no translating." },
+      },
+      choices = {
+        { text = "Does it work?", next = "w3_work" },
+        { text = "A grim message.", next = "BACK", reply = "A clear one. The Dark Lady prefers her messages clear, and so do I." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_work = {
+      lines = {
+        { id = "w3_work_1", text = "They have stopped raiding the road for nine days, which is eight more than they managed before. When they forget, there will be another head and another pike, and the lesson will be taught again, more slowly." },
+      },
+      choices = {
+        { text = "Then the road is safer. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -60,6 +78,7 @@ P:NPC {
         { text = "Who is Sharlindra?", next = "sharlindra" },
         { text = "I can't imagine what it's like, being a banshee.", next = "banshee" },
         { text = "I know what it is to be bound.", next = "bound", when = { race = "Scourge" } },
+        { text = "Why put the ogres' heads on pikes?", next = "w3_pikes" },
         { text = "I'll take my leave, Melisara.", next = "END" },
       },
     },

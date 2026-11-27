@@ -236,7 +236,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Be quick; I've a pupil coming at the hour." },
-        { id = "h_again2", text = "Go on, then. I'm listening." },
+        { id = "h_again2", text = "Go on, then, and say it like you'd loose an arrow: once, and straight." },
       },
       choices = {
         { text = "What makes someone a real hunter?", next = "real" },
@@ -485,6 +485,48 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d6_dry3 = {
+      lines = { { id = "d6_dry3_a", text = "A bowyer out at Eastvale, Rallic Finn, who fletches better than any dwarf I know, an' I'll deny I said it. I take the bullets from the mountain an' the arrows from the forest, an' that way I've a friend in both an' an argument with neither." } },
+      choices = {
+        { text = "Wise of you to keep both friends.", next = "BACK" },
+        { text = "On to something else, Nordun.", next = "BACK" },
+      },
+    },
+    d6_ale = {
+      lines = { { id = "d6_ale_a", text = "Thin as a gnome's excuse, friend, an' served cold besides, as if the cold might hide it. The Lion's Pride pours a decent enough mug for humans, but I've had a Thunderbrew stout that could stand a spoon up, an' that's what I measure by." } },
+      choices = {
+        { text = "Humans have their own fine brews.", next = "d6_ale2" },
+        { text = "You must ration what you brought from home.", next = "d6_ale2" },
+        { text = "Let's leave the ale be.", next = "BACK" },
+      },
+    },
+    d6_ale2 = {
+      lines = { { id = "d6_ale2_a", text = "Two barrels came down with me on the cart, an' there's half of one left, so aye, I ration it like a miser. Mind, the innkeeper's taken to askin' me for a taste, so I reckon Goldshire's ale may improve yet, if I'm here long enough." } },
+      choices = {
+        { text = "A dwarf improving the local ale. Good.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Ask ye something else, then.", next = "BACK" },
+      },
+    },
+    d6_dry = {
+      lines = { { id = "d6_dry_a", text = "Oil, an' a wax cloth, an' never leavin' the powder where the dew can find it. Elwynn's a damp wee forest of a mornin', an' I've seen a human hunter's blunderbuss go off sideways for want of a dry flask." } },
+      choices = {
+        { text = "Can a warrior make use of a gun?", next = "d6_dry2", when = { class = "WARRIOR" } },
+        { text = "What about bows in the damp?", next = "d6_dry2" },
+        { text = "Sideways? Was anyone hurt?", next = "d6_dry2" },
+      },
+    },
+    d6_dry2 = {
+      lines = {
+        { id = "d6_dry2_a", text = "A bow's worse, if ye ask me, for the string goes slack an' the wood swells, an' then ye're shootin' at a wolf an' hittin' a fence. The fellow with the blunderbuss lost his eyebrows an' his pride, an' then he bought a bow off me, which I'll admit I didn't argue." },
+        { id = "d6_dry2_war", when = { class = "WARRIOR" }, text = "Ye can, an' ye should, for pullin' a beast off yer friends before it reaches 'em. Ye'll not be the best shot in the valley, but a gun doesn't care who's holdin' it, an' a wolf that's been shot comes runnin' at the one who did it." },
+      },
+      choices = {
+        { text = "Then I'll take care with my powder.", next = "BACK" },
+        { text = "Where do your arrows come from?", next = "d6_dry3" },
+        { text = "Something else, Nordun.", next = "BACK" },
+      },
+    },
+
     hello = {
       hub = true,
       lines = {
@@ -505,6 +547,9 @@ P:NPC {
         { text = "Why sell out here and not in Ironforge?", next = "road" },
         { text = "Who buys guns in Goldshire?", next = "buyers" },
         { text = "Let me see your wares.", next = "BUSINESS" },
+        { text = "What's wrong with Elwynn's ale, then?", next = "d6_ale" },
+        { text = "How do you keep a gun dry out here?", next = "d6_dry" },
+        { text = "You travel with a cart, then?", next = "e3_cart" },
         { text = "Not today, Nordun.", next = "END" },
       },
     },
@@ -564,6 +609,24 @@ P:NPC {
         { text = "Some of them are just hungry men.", next = "BACK", reply = "Hungry men can buy bread, an' I'll not sell a hungry man a rifle so he can rob the baker. Pity's fine, but it doesnae belong behind a trigger.", fx = { align = { light = 1 } } },
         { text = "Bandits are bandits. You chose well.", next = "BACK", reply = "Aye, I'll sleep sound on that, so long as nobody tells me otherwise. A gun's an honest tool in honest hands, an' that's the only kind I sell to.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    e3_cart = {
+      lines = {
+        { id = "e3_cart_l0", text = "Aye, a wee cart an' a mule called Brannigan who has opinions about the road, an' all o' them involve stoppin'. We come down frae Ironforge through the Loch an' the Wetlands passes, an' I'll no' pretend I didnae weep wi' joy when I first saw the Elwynn grass." },
+      },
+      choices = {
+        { text = "Why not take the tram instead?", next = "e3_cart2" },
+        { text = "A mule with opinions sounds like a dwarf.", next = "BACK" },
+      },
+    },
+    e3_cart2 = {
+      lines = {
+        { id = "e3_cart2_l0", text = "Have ye ever tried tae get a mule on a gnomish tram, friend? Brannigan took one look at the platform an' sat down, an' three gnomes wi' a winch couldnae shift him, so we walked, an' I'd walk again." },
+      },
+      choices = {
+        { text = "Brannigan has good sense. Something else.", next = "BACK" },
+        { text = "Next time, leave the mule.", next = "BACK" },
       },
     },
   },
@@ -626,6 +689,7 @@ P:NPC {
         { text = "How does someone become a mining trainer?", next = "trade" },
         { text = "What's this bigger job of yours?", next = "big", when = { questDone = TODO_QUEST("Mining Consultant") } },
         { text = "Teach me something about mining.", next = "BUSINESS" },
+        { text = "What's the best seam you've ever found?", next = "e3_seam" },
         { text = "Good luck with your kobolds.", next = "END" },
       },
     },
@@ -719,6 +783,25 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    e3_seam = {
+      lines = {
+        { id = "e3_seam_l0", text = "A ribbon of tin as thick as my wrist, three bends past the main shaft at Echo Ridge, right before the kobolds came pouring in. I marked it with chalk and a little cairn, and I'd give a year's pay to know whether they've dug it out or just knocked my cairn over." },
+        { id = "e3_seam_l1", when = { profession = "Mining" }, text = "A ribbon of tin as thick as my wrist, three bends past the main shaft, and you'd have wept at it, being a miner. I marked it with chalk and a cairn before the kobolds came, and if you get that far in, I'd love to know if it's still there." },
+      },
+      choices = {
+        { text = "I'll look for your cairn if I'm inside.", next = "e3_seam2" },
+        { text = "Kobolds don't care much for tin, surely.", next = "BACK" },
+      },
+    },
+    e3_seam2 = {
+      lines = {
+        { id = "e3_seam2_l0", text = "Would you? Look for three flat stones stacked by the wall, with a white K scratched on the top one. If it's still there, then so's my seam, and I'll start sleeping again." },
+      },
+      choices = {
+        { text = "Three stones and a K. Something else.", next = "BACK" },
+        { text = "I'll make no promises.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -758,6 +841,54 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d6_vine = {
+      lines = { { id = "d6_vine_a", text = "Oh, lovely things, peacebloom along the rows and silverleaf by the stones, but I don't go up there now. Milly Osworth's grapes are up there, and the bandits have been camping among the vines and eating them, and she's beside herself about it." } },
+      choices = {
+        { text = "Who's Milly Osworth?", next = "d6_vine2" },
+        { text = "Bandits eating grapes. That's almost funny.", next = "d6_vine2" },
+        { text = "Let's talk about other things.", next = "BACK" },
+      },
+    },
+    d6_vine2 = {
+      lines = { { id = "d6_vine2_a", text = "She keeps the Abbey's vineyard and makes the wine the brothers aren't supposed to like as much as they do. She stands by the road with her hands on her hips and asks every new recruit to go and fetch her harvest back, and somebody always does." } },
+      choices = {
+        { text = "Maybe I'll be the one who does.", next = "d6_vine3" },
+        { text = "Why don't the guards clear them out?", next = "d6_vine3" },
+      },
+    },
+    d6_vine3 = {
+      lines = { { id = "d6_vine3_a", text = "Deputy Willem says the bandits are thick as weeds up there and his men are needed at the mine, so it falls to the young ones. If you do go, bring me back a sprig of the silverleaf by the far wall, would you? It's the best in the valley, and I haven't seen it since spring." } },
+      choices = {
+        { text = "I'll bring you a sprig if I can.", next = "BACK", fx = { learn = { "defias" } } },
+        { text = "Something else, Nancy.", next = "BACK" },
+      },
+    },
+    d6_abbey = {
+      lines = { { id = "d6_abbey_a", text = "Poultices, mostly, for the recruits who come back from the kobold mine with cuts all over them. The priests can heal a wound with the Light, but they say it's kinder to save the Light for the bad ones and use a bit of peacebloom for the rest." } },
+      choices = {
+        { text = "I heal with the Light. Why bother with herbs?", next = "d6_abbey2", when = { class = "PRIEST" } },
+        { text = "How do you make a poultice?", next = "d6_abbey2" },
+        { text = "So the herbs spare the priests' strength.", next = "d6_abbey2" },
+      },
+    },
+    d6_abbey2 = {
+      lines = {
+        { id = "d6_abbey2_a", text = "You crush the peacebloom with a little earthroot and a drop of water, and you wrap it in clean linen, and you tell the recruit to stop picking at it. That last part's the hardest, and none of them ever listen." },
+        { id = "d6_abbey2_priest", when = { class = "PRIEST" }, text = "Because you get tired, dear, even if you won't say so, and Brother Paxton says a priest who's spent all his Light on scraped knees has nothing left when someone's really hurt. A bit of peacebloom does for the knees, and you can keep yourself for the rest." },
+      },
+      choices = {
+        { text = "Do the brothers ever come to you for teaching?", next = "d6_abbey3" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    d6_abbey3 = {
+      lines = { { id = "d6_abbey3_a", text = "The young novices do, when Brother Sammuel lets them out of the training yard, and I show them which leaf is which. One of them ate a whole handful of mageroyal to see what would happen, and nothing did, except he was very sorry about it afterwards." } },
+      choices = {
+        { text = "Some lessons are learned the hard way.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+
     hello = {
       hub = true,
       lines = {
@@ -776,6 +907,9 @@ P:NPC {
         { text = "How do I pick without ruining the plant?", next = "picking" },
         { text = "Do the plants really talk to you?", next = "druid", when = { class = "DRUID" } },
         { text = "Teach me herbalism.", next = "BUSINESS" },
+        { text = "Does anything grow up by the vineyard?", next = "d6_vine" },
+        { text = "What do the Abbey's priests want herbs for?", next = "d6_abbey" },
+        { text = "Do bees bother your herbs much?", next = "e3_bees" },
         { text = "Good day, Nancy.", next = "END" },
       },
     },
@@ -826,6 +960,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    e3_bees = {
+      lines = {
+        { id = "e3_bees_l0", text = "Bother them? The bees are the best friends my peacebloom has, and there's a hive in the old oak by the Abbey road that I'd protect with my life. Brother Neals keeps telling me it's a nuisance near the gardens, and I keep telling him he'll have no apples without it." },
+      },
+      choices = {
+        { text = "Who's winning that argument?", next = "e3_bees2" },
+        { text = "Bees can sting, mind.", next = "BACK" },
+      },
+    },
+    e3_bees2 = {
+      lines = {
+        { id = "e3_bees2_l0", text = "The bees, dear, because Brother Neals got stung twice trying to move the hive and now he only argues from the far side of the path. The apples have never been better, and he's never once thanked them." },
+      },
+      choices = {
+        { text = "Good for the bees. Something else.", next = "BACK" },
+        { text = "Poor Brother Neals.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -865,6 +1017,54 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d6_sell = {
+      lines = { { id = "d6_sell_a", text = "Down to Goldshire in a cart, mostly, to the armourers and the traders at the inn. The rest go to the Abbey, for boots for the recruits, and the brothers pay in bread and blessings, which I've never once complained about." } },
+      choices = {
+        { text = "My hides keep tearing at the belly. Why?", next = "d6_sell2", when = { profession = "Skinning" } },
+        { text = "Do you ever sell in Stormwind?", next = "d6_sell2" },
+        { text = "Bread and blessings is a fair price.", next = "d6_sell2" },
+      },
+    },
+    d6_sell2 = {
+      lines = {
+        { id = "d6_sell2_a", text = "Once a season, when there's enough to make the trip worth it, and the city tanners pay better than Goldshire does. But it's a long walk with a heavy cart and the city's loud, so I don't hurry back." },
+        { id = "d6_sell2_skin", when = { profession = "Skinning" }, text = "You're cutting too deep where the hide's thinnest, that's all. The belly wants a shallow blade and a slow hand, and if you pull while you cut, it'll tear every time, so let the knife do the work." },
+      },
+      choices = {
+        { text = "What do the city tanners want most?", next = "d6_sell3" },
+        { text = "Ask you something else.", next = "BACK" },
+      },
+    },
+    d6_sell3 = {
+      lines = { { id = "d6_sell3_a", text = "Clean wolf hides with no holes in them, which is why I'm hard on the young ones about the knife. A tanner in the city will pay double for a hide that's whole, and he'll know at a glance whether you rushed it." } },
+      choices = {
+        { text = "Then I'll take my time with the knife.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Riley.", next = "BACK" },
+      },
+    },
+    d6_bold = {
+      lines = { { id = "d6_bold_a", text = "They are, and Eagan says it's because they've come over from across the border where they've had no one to fear. A wolf that isn't afraid of people is a wolf that comes to the door, and we've had two at ours this month." } },
+      choices = {
+        { text = "What did you do about the ones at the door?", next = "d6_bold2" },
+        { text = "Hungry beasts make bold beasts.", next = "d6_bold2" },
+        { text = "Let's move on.", next = "BACK" },
+      },
+    },
+    d6_bold2 = {
+      lines = { { id = "d6_bold2_a", text = "Eagan shot one and I skinned it, which is how the Peltskinners deal with most things. The other ran off into the trees toward the kobold mine, and I'll not follow it there, because the kobolds are worse than the wolves." } },
+      choices = {
+        { text = "What's wrong with the kobold mine?", next = "d6_bold3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d6_bold3 = {
+      lines = { { id = "d6_bold3_a", text = "It's full of them, with candles on their heads and picks in their hands, and they've driven the miners out. Deputy Willem sends the recruits in to thin them, and the recruits come back with candle wax in their hair and no idea what they've been fighting for." } },
+      choices = {
+        { text = "Candles on their heads. I've heard the saying.", next = "BACK", fx = { learn = { "kobolds" } } },
+        { text = "Ask you something else, Riley.", next = "BACK" },
+      },
+    },
+
     hello = {
       hub = true,
       lines = {
@@ -873,7 +1073,7 @@ P:NPC {
           text = "Eagan says you cleared out a good few of those wolves for him. That's meat for his table and hides for mine, so I'm grateful too." },
       },
       again = {
-        { id = "h_again", text = "Anything else you need?" },
+        { id = "h_again", text = "Anything else? Ask, but I'm scraping while you do, so stand upwind." },
         { id = "h_again2", text = "Go on, then. Ask." },
       },
       choices = {
@@ -883,6 +1083,9 @@ P:NPC {
         { text = "What makes a good skinner?", next = "craft" },
         { text = "What's worth skinning in Northshire?", next = "beasts" },
         { text = "Train me.", next = "BUSINESS" },
+        { text = "Where do your hides go, once they're tanned?", next = "d6_sell" },
+        { text = "The wolves here are bolder than they should be.", next = "d6_bold" },
+        { text = "Show me how you keep your knife.", next = "e3_knife" },
         { text = "Take care, Riley.", next = "END" },
       },
     },
@@ -930,6 +1133,25 @@ P:NPC {
       },
       choices = {
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    e3_knife = {
+      lines = {
+        { id = "e3_knife_l0", text = "A whetstone every evening, oil every week, and never in the dirt, not even for a moment. My mother cut herself on a dull blade when I was a girl, and she said a sharp knife is the only kind that listens to you." },
+        { id = "e3_knife_l1", when = { profession = "Skinning" }, text = "Let's have yours first. A whetstone every evening and oil every week, and never in the dirt, because a dull blade slips and a slipping blade cuts the skinner before the hide." },
+      },
+      choices = {
+        { text = "Did your mother teach you the trade?", next = "e3_knife2" },
+        { text = "I'll sharpen mine tonight.", next = "BACK" },
+      },
+    },
+    e3_knife2 = {
+      lines = {
+        { id = "e3_knife2_l0", text = "She did, and her father before her, which is how the Peltskinners got the name. She'd stand behind me with a willow switch and tap my wrist every time I cut against the grain, and I still feel it when I do." },
+      },
+      choices = {
+        { text = "A hard teacher. Something else.", next = "BACK" },
+        { text = "That's harsh for a child.", next = "BACK" },
       },
     },
   },
@@ -1194,6 +1416,7 @@ P:NPC {
         { text = "What's this trading post?", next = "post" },
         { text = "I'll find your supplies.", next = "BUSINESS", when = { questBefore = TODO_QUEST("Downstream") } },
         { text = "I've brought back your tools.", next = "BUSINESS", when = { questActive = TODO_QUEST("Downstream") } },
+        { text = "What's your horse called?", next = "e3_horse" },
         { text = "Good luck with the camp.", next = "END" },
       },
     },
@@ -1282,6 +1505,24 @@ P:NPC {
         { text = "Stormwind should patrol these roads.", next = "BACK", reply = "They should, and I'll say so to anybody who'll listen. A few more guards on the road would do more good than all the posters in Goldshire.", fx = { align = { order = 1 } } },
         { text = "Carry a weapon. Don't wait for the guard.", next = "BACK", reply = "I've a cudgel under the seat for that very reason, though I've never had the stomach to swing it. Still, maybe the next fellow in a bandana won't know that.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    e3_horse = {
+      lines = {
+        { id = "e3_horse_l0", text = "Bluebell, and she's the gentlest mare in Elwynn until something green comes out of the water, and then she's the fastest. She's in the paddock behind the trading post resting her nerves, and frankly mine could do with a rest too." },
+      },
+      choices = {
+        { text = "You can't blame her for a murloc.", next = "e3_horse2" },
+        { text = "Bluebell's a lovely name.", next = "BACK" },
+      },
+    },
+    e3_horse2 = {
+      lines = {
+        { id = "e3_horse2_l0", text = "I don't, not one bit, and I've told her so, and brought her an apple to prove it. Only the loggers will want to know why the load's late, and I can hardly tell them the horse saw a fish." },
+      },
+      choices = {
+        { text = "Tell them the truth anyway. Something else.", next = "BACK" },
+        { text = "The loggers would laugh, I'd wager.", next = "BACK" },
       },
     },
   },

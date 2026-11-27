@@ -30,6 +30,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_mine = {
+      lines = {
+        { id = "w3_mine_1", text = "First aid and cooking, both, which the others think is funny for a man who can't bleed properly or taste anything. But I can bind a Deathguard's arm on so it stays on, and I can cook a stew the orcs off the zeppelin come back for, so who's laughing?" },
+      },
+      choices = {
+        { text = "The orcs come back for your stew?", next = "w3_stew" },
+        { text = "First aid for the dead must be strange work.", next = "BACK", reply = "It's mostly needlework and linen, and a good deal of the linen comes from the burial shrouds. Nothing's wasted in Deathknell, you'll find." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_stew = {
+      lines = {
+        { id = "w3_stew_1", text = "Twice, now! I make it by the recipe and by the clock, since I can't taste it, and I watch their faces for the verdict. The first one went very quiet, and the second asked for more, and I've decided to count that as one success and one learning experience." },
+      },
+      choices = {
+        { text = "A fair way to count. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -49,6 +67,7 @@ P:NPC {
         { text = "Where are the trainers in Deathknell?", next = "trainers" },
         { text = "Why does a dead man care about trades?", next = "why" },
         { text = "I've already taken up a trade.", next = "already", when = { any = { { profession = "Herbalism" }, { profession = "Mining" }, { profession = "Skinning" }, { profession = "Alchemy" }, { profession = "Blacksmithing" }, { profession = "Leatherworking" }, { profession = "Tailoring" }, { profession = "Engineering" }, { profession = "Enchanting" } } } },
+        { text = "Which trades did you take up, Clarence?", next = "w3_mine" },
         { text = "Thank you, Clarence. I'll be going.", next = "END" },
       },
     },
@@ -166,6 +185,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_unsold = {
+      lines = {
+        { id = "w3_unsold_1", text = "I dry them and hang them over the chapel door in bunches, which keeps the place smelling of something other than crypt. Dark Cleric Duesten says it's sentimental, and he's not wrong, but he hasn't taken them down either." },
+      },
+      choices = {
+        { text = "Does Duesten secretly like them?", next = "w3_duesten" },
+        { text = "A chapel ought to smell of something green.", next = "BACK", reply = "That's what I think, and I'm glad someone agrees. The shadow priests can keep the altar; I'll keep the door." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_duesten = {
+      lines = {
+        { id = "w3_duesten_1", text = "I've seen him stop under them, once or twice, when he thought nobody was looking. He'd never admit it, and I'll never mention it to him, and that's how two people in Deathknell keep the peace." },
+      },
+      choices = {
+        { text = "A wise peace. Something else.", next = "BACK" },
+      },
+    },
     junior = {
       lines = {
         { id = "jr_default", text = "Because I teach the first steps and no more, and I'm content with that. When you've learned what I know, Faruza in Brill will take you further, and after her there's Martha Alliestar in the Undercity's Apothecarium." },
@@ -228,7 +265,7 @@ P:NPC {
         { id = "h_druid", when = { class = "DRUID" }, text = "A druid. I suppose you think you know plants already, and perhaps you do, but Tirisfal's soil has been through the plague, and it grows things differently now." },
       },
       again = {
-        { id = "h_again", text = "Well? What else?" },
+        { id = "h_again", text = "Well? What else? And stay on the path." },
         { id = "h_again2", text = "Go on, then, and mind where you're standing; that's a seedling." },
         { id = "h_again3", text = "Is there more? I've a row of peacebloom to see to, so ask it briskly." },
       },
@@ -242,6 +279,7 @@ P:NPC {
         { text = "Where should a beginner pick, near Deathknell?", next = "where" },
         { text = "Your patch is the only tidy thing in this village.", next = "patch" },
         { text = "The plants here feel sick to me, Florence.", next = "sick", when = { class = { "DRUID", "SHAMAN" } } },
+        { text = "What do you do with the herbs nobody buys?", next = "w3_unsold" },
         { text = "Goodbye, Florence.", next = "END" },
       },
     },
@@ -335,7 +373,7 @@ P:NPC {
         { id = "h_hunter", when = { class = "HUNTER" }, text = "A hunter. You'll leave a trail of carcasses behind you wherever you go, so you might as well learn to take the hides from them as well." },
       },
       again = {
-        { id = "h_again", text = "Anything else, dear?" },
+        { id = "h_again", text = "Is there something more, my dear? There's no hurry; the hides can wait." },
       },
       choices = {
         { text = "A skinner should use every part of the beast he can.", next = "BACK", reply = "Yes, that's right. Wasting a hide is the worst thing a skinner can do, worse than a bad cut.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -483,7 +521,7 @@ P:NPC {
         { id = "h_tauren", when = { race = "Tauren" }, text = "A tauren! I'm told your people don't care much for digging in the earth, so I'm curious what brings you to a mining trainer, though you're welcome all the same." },
       },
       again = {
-        { id = "h_again", text = "What else would you like to know?" },
+        { id = "h_again", text = "What else would you like to hear about? I could talk shop all day, you know." },
       },
       choices = {
         { text = "A miner should leave a vein for the next one if he's taken enough.", next = "BACK", reply = "That's the old miners' way, and a good one. The rocks always remember a greedy miner.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -744,6 +782,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_strange = {
+      lines = {
+        { id = "w3_strange_1", text = "A man who walked out, looked at the Glades for a good long while, turned round and walked straight back into the crypt. He asked the caretaker to close the door behind him, very politely, and Caice did, and nobody has opened it since." },
+      },
+      choices = {
+        { text = "Did you try to stop him?", next = "w3_stop" },
+        { text = "Perhaps he had the right idea.", next = "BACK", reply = "Perhaps he did. I've thought so on bad nights, and then I come back to the gate in the morning, and the thought goes." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_stop = {
+      lines = {
+        { id = "w3_stop_1", text = "No. The Dark Lady gave us our wills, and I'll not take one back at the gate. I saluted him, which I don't do for many, and he nodded at me as if we'd agreed on something." },
+      },
+      choices = {
+        { text = "You honoured his choice. Something else.", next = "BACK" },
+      },
+    },
     ylife = {
       lines = { { id = "ylife_x", text = "A gatekeeper at the capital, if you can believe it. I let Prince Arthas through on the day he came home. I opened the gate myself and cheered. I've been standing at gates ever since, trying to do it properly this time." } },
       choices = {
@@ -770,7 +826,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I've held Deathknell's gate since the Dark Lady took it back from the Scourge, and I've watched a great many fresh corpses walk out of it. The mindless wander the fields, and the Scarlet Crusade comes over the hills when they feel bold, so mind both." },
         { id = "yh_warrior", when = { class = "WARRIOR" }, text = "A warrior. Keep your shield up past the gate, and don't charge the first Scarlet you see. There are always two more behind him." },
       },
-      again = { { id = "h_again", text = "Anything else? I'll be here." } },
+      again = { { id = "h_again", text = "Anything else? I'll be here, and so will the gate." } },
       choices = {
         { text = "What's out there, past the gate?", next = "out" },
         { text = "Are the Scarlets really that close?", next = "scarlet" },
@@ -780,6 +836,7 @@ P:NPC {
         { text = "I've come to Deathknell from the Horde lands.", next = "horde", when = { faction = "Horde", ["not"] = { race = "Scourge" } } },
         { text = "Who were you before you died?", next = "ylife" },
         { text = "Do you ever want to leave this gate?", next = "yleave" },
+        { text = "Who's the strangest risen that ever walked out this gate?", next = "w3_strange" },
         { text = "Carry on, Deathguard.", next = "END" },
       },
     },
@@ -857,6 +914,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_mend = {
+      lines = {
+        { id = "w3_mend_1", text = "Lay walls in my head, the way I did when I couldn't sleep as a mason. I've built the whole of Deathknell twice over since I lay down here, stone by stone, and I've put a proper gate on it, which is more than the real one has." },
+      },
+      choices = {
+        { text = "What's wrong with the real gate?", next = "w3_gate" },
+        { text = "A mason never stops measuring.", next = "BACK", reply = "He doesn't, and I'll tell you a secret: the chapel wall's leaning two fingers to the east. Nobody's noticed but me." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_gate = {
+      lines = {
+        { id = "w3_gate_1", text = "The posts are set too shallow, and the hinge side's on the wrong wall for the wind. The Veteran stands by it like it's a fortress, and I haven't the heart to tell him a determined Scarlet could lift it off with a crowbar." },
+      },
+      choices = {
+        { text = "Perhaps tell him once you're up. Something else.", next = "BACK" },
+      },
+    },
     ylife = {
       lines = { { id = "ylife_x", text = "A stonemason, laying walls in Lordaeron. I know how a thing comes apart, and how to put it back. Shame I can't mortar myself. I've tried, mind. The apothecaries laughed." } },
       choices = {
@@ -884,7 +959,7 @@ P:NPC {
         { id = "h_default", key = true, text = "The Scarlets caught our patrol on the road west of here, and I came off worse than I'd like to admit. The good news about being dead is that it hurts less than it should, and the bad news is that I mend slower than a living man." },
         { id = "yh_priest", when = { class = "PRIEST" }, text = "A priest. Don't waste the Light on me, it stings. A bit of shadow mending, though, I'd not say no." },
       },
-      again = { { id = "h_again", text = "Something more? I'm not going anywhere, as you can see." } },
+      again = { { id = "h_again", text = "Something more? I'm not going anywhere, as you can see, and nor is my leg." } },
       choices = {
         { text = "Will you heal?", next = "heal" },
         { text = "You took it well, for a man in pieces.", next = "joke" },
@@ -894,6 +969,7 @@ P:NPC {
         { text = "Want me to hunt the Scarlets who did this?", next = "revenge", when = { class = { "WARRIOR", "ROGUE", "HUNTER" } } },
         { text = "Who were you before?", next = "ylife" },
         { text = "What scares you about being hurt?", next = "yscared" },
+        { text = "What will you do while you mend?", next = "w3_mend" },
         { text = "Rest easy, Deathguard.", next = "END" },
       },
     },

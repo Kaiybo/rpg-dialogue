@@ -241,6 +241,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_first = {
+      lines = {
+        { id = "w3_first_1", text = "To stop praying to the Light out of habit, which is the hardest lesson and the first. A risen priest will kneel before he knows he's kneeling, and he'll call on the old saints, and the Light will answer him with fire, and I must teach him to call on himself instead." },
+      },
+      choices = {
+        { text = "Does the habit ever fade?", next = "w3_habit" },
+        { text = "Perhaps the habit has a reason.", next = "BACK", reply = "A reason, yes, which is that we were taught to beg. The Forgotten Shadow teaches us to stand." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_habit = {
+      lines = {
+        { id = "w3_habit_1", text = "In most, given time. One of my pupils still crosses himself at the chapel door every morning, and I've stopped correcting him, because his shadow is the strongest of any of them and I suspect the two are connected." },
+      },
+      choices = {
+        { text = "Faith is stubborn. Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every soldier believes in something, even if it's only the strength of the arm beside them. The Forgotten Shadow asks only that you believe in yourself, which is the one thing the Light never let its soldiers do." } },
@@ -296,6 +314,7 @@ P:NPC {
         { text = "Warriors have little need of faith, Cleric.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do hunters pray to anything, Cleric?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Rogues have no need of faith, Duesten.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "What do you teach a new priest first?", next = "w3_first" },
         { text = "Farewell.", next = "END" },
       },
       again = {
@@ -1150,6 +1169,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_favourite = {
+      lines = {
+        { id = "w3_favourite_1", text = "The black gelding at the end, with one white bone in his foreleg where the hide's worn through. He stamps when anyone comes near, every time, as if he still remembers being proud, and I've never once managed to sell him." },
+      },
+      choices = {
+        { text = "Have you tried?", next = "w3_tried" },
+        { text = "Perhaps he's waiting for the right rider.", next = "BACK", reply = "That's what I tell myself, and it's a merchant's lie, but it's a comfortable one." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_tried = {
+      lines = {
+        { id = "w3_tried_1", text = "Twice, and twice the buyer brought him back within the week, saying he wouldn't take the bit. He takes it from me, mind, every morning, and walks the paddock with me, so I suppose he's decided who he belongs to." },
+      },
+      choices = {
+        { text = "Then he's yours. Something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "The knights of Lordaeron rode white chargers into battle, and look where it got them. A horse of bone doesn't tire or bolt, and it won't mind your Light, so I'd say a paladin of the Forsaken deserves a better mount than the Silver Hand ever had." } },
@@ -1227,6 +1264,7 @@ P:NPC {
         { text = "A dead horse can't keep up on the hunt, Zachariah.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Would you sell a horse to a mage, Zachariah?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Would a paladin ride one of your horses into battle, Zachariah?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Which of your horses is your favourite?", next = "w3_favourite" },
         { text = "Goodbye.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything else? The horses aren't going anywhere, and neither am I; the dead keep very few appointments." } },

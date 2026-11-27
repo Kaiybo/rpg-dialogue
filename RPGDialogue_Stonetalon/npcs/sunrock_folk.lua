@@ -67,10 +67,25 @@ P:NPC {
         { text = "How do you keep your beast from fighting the riders?", next = "hunter", when = { class = "HUNTER" } },
         { text = "The winds over these ridges feel restless, Tharm.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Will your riders carry me, given what I am?", next = "dead", when = { race = "Scourge" } },
+        { text = "Which of your wind riders is the oldest?", next = "w5_oldest" },
         { text = "Safe winds, Tharm.", next = "END" },
       },
     },
 
+    w5_oldest = {
+      lines = { { id = "w5_oldest_l", text = "That one on the end, with the grey in her mane. She has flown the routes from Sun Rock to the Crossroads more times than I can count, and she knows the winds better than I do. When she won't fly, I don't send anyone." } },
+      choices = {
+        { text = "What will happen when she's too old?", next = "w5_oldest2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_oldest2 = {
+      lines = { { id = "w5_oldest2_l", text = "She'll stay here, on the rock, and eat too much and bite the young ones when they're foolish. A wind rider who has carried the Horde for twenty years has earned her perch. The young ones learn more from her bites than from me." } },
+      choices = {
+        { text = "A perch earned is a fine retirement.", next = "BACK", reply = "It is. And she'll still sting you if you stand too close, so mind that." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     wild = {
       lines = {
         { id = "wi_default", text = "Some come from these very mountains. Wild wyverns nest on the ridges, the Pridewings, and they are bigger and fiercer than anything I keep, so I watch them the way a herder watches a strong young bull." },
@@ -221,10 +236,28 @@ P:NPC {
         { text = "Did the fires in the vale reach the animals?", next = "fire" },
         { text = "Will you take good care of my {pet}?", next = "care", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "How do orcs see a hunter's bond with a beast?", next = "bond", when = { class = "HUNTER" } },
+        { text = "Who's Besseleth, that marked Maggran?", next = "besseleth" },
+        { text = "The kodos must hate this climb.", next = "kodo" },
+        { text = "Which beast here has been through the worst?", next = "w5_worst" },
         { text = "Rest easy, Gereck.", next = "END" },
       },
     },
 
+    w5_worst = {
+      lines = { { id = "w5_worst_l", text = "A wolf from the Charred Vale, half his fur burned off, who came in with a hunter who'd carried him on her back the last five miles. He wouldn't let anyone near him for a week. Now he follows me around the pens like a pup." } },
+      choices = {
+        { text = "What changed his mind?", next = "w5_worst2" },
+        { text = "My companion was hurt once. Patience brought him back.", next = "BACK", when = { class = "HUNTER" }, reply = "Then you know. Patience and quiet. Nothing else works." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_worst2 = {
+      lines = { { id = "w5_worst2_l", text = "Nothing changed it. I sat by his pen every evening and said nothing, and brought him nothing, and one night he put his nose through the bars. That's all a beast needs, most times. Somebody who stays." } },
+      choices = {
+        { text = "Somebody who stays. That's a good rule.", next = "BACK", reply = "It's the only rule. People forget it more than beasts do." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     beasts = {
       lines = {
         { id = "be_default", text = "Wolves from Durotar, cats from the Barrens, and now and then a great spider some fool hunter has charmed off the Webwinder Path. The spiders frighten the kodos, so I keep them at the far end, and I keep my distance too." },
@@ -283,6 +316,33 @@ P:NPC {
         { text = "Mine walks with me by choice, and I honor that.", next = "BACK", reply = "Then you're a better hunter than most, {class}. I can see it in the way it watches you, even now.", fx = { align = { light = 1 } } },
         { text = "A beast follows the strongest. That's the way of things.", next = "BACK", reply = "Strength holds a beast for a while, but it doesn't keep it. I wore chains once, and the day they came off, I didn't stay.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    besseleth = {
+      lines = { { id = "bs_default", text = "A great spider of the Webwinder Path, older and bigger than the rest, that nests in the hollows south of here. She bit Maggran years ago and he nearly lost the arm, and the young hunters dare each other to go and find her." } },
+      choices = {
+        { text = "Has anyone killed her?", next = "besseleth2" },
+        { text = "A spider worth fearing, then.", next = "besseleth2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    besseleth2 = {
+      lines = { { id = "bs2_default", text = "Not yet, and Maggran would pay well for her fang, I think, though he'd never say it's about revenge. If you go down the Webwinder, carry antivenom and keep your beast close, {class}, because she takes the smaller ones first." } },
+      choices = { { text = "I'll keep my beast close. Something else.", next = "BACK" } },
+    },
+    kodo = {
+      lines = { { id = "kd_default", text = "They don't love it, but they're too proud to say so. A kodo coming up from the Barrens will stop at every switchback and look at you like you've insulted its mother, and then it'll keep climbing, because it'd sooner die than turn round." } },
+      choices = {
+        { text = "That sounds like an orc, honestly.", next = "kodo2" },
+        { text = "Do you stable the caravan kodos too?", next = "kodo2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kodo2 = {
+      lines = { { id = "kd2_default", text = "Ha! It does, and the tauren say the same about me. The caravan kodos stay with me a night before they go back down, and I rub their feet with fat and talk to them about the Barrens, which they seem to like. A beast misses the plains same as anyone." } },
+      choices = {
+        { text = "I'm an orc. We'd all sooner die than turn round.", next = "BACK", reply = "Then you and the kodos will get on fine. Go on, stubborn one.", when = { race = "Orc" } },
+        { text = "Something else, Gereck.", next = "BACK" },
       },
     },
   },

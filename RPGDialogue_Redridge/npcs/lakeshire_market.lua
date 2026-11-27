@@ -284,7 +284,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "Can't blame them, I suppose, since a horse with no shoes hurts nobody and a guard with no sword hurts everybody. But Verner shoes the patrol horses too, and they forget that when they're carting his bars off." } },
       choices = {
         { text = "The Guard's need comes first. That's how a town survives.", next = "BACK", reply = "It does, and I know it. I'd just like the Guard to say thank you once.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "The Guard takes too much. Verner deserves his iron.", next = "BACK", reply = "That's what I keep saying, and nobody listens. Maybe they'll listen to you.", fx = { align = { order = -1 } } },
+        { text = "The Guard takes too much. Verner deserves his iron.", next = "BACK", reply = "Verner's been short all season, and the Guard knows it. Say it louder than I can.", fx = { align = { order = -1 } } },
         { text = "Something else, Karen.", next = "BACK" },
       },
     },
@@ -367,7 +367,7 @@ P:NPC {
     stonemasons = { { id = "tp_stonemasons", text = "My father worked iron for the Stonemasons' Guild when they rebuilt Stormwind, and they never got paid for the last of it. I don't hold with the Defias, but I understand them better than I'd like." } },
     background = { { id = "tp_bg", text = "My father was a miner in the Redridge hills before the orcs came, and I took one look at his back and decided to sell picks instead of swinging them." } },
     advice = { { id = "tp_ad", text = "Keep your pick sharp and your back to a wall, friend. Gnolls like miners; we're slow and noisy." } },
-    _none = { { id = "tp_none", text = "Not a thing I sell, so not a thing I know." } },
+    _none = { { id = "tp_none", text = "If it doesn't break rock or melt in a crucible, friend, I've no use for knowing about it." } },
   },
 }
 

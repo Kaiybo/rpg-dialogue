@@ -32,6 +32,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_house = {
+      lines = { { id = "w8_house_a", text = "Since the Dark Iron fool's summoning tore my master from the Firelands, three hundred of your years and more. I have tended every hall, ordered every servant and greeted every guest, and none of them has ever stood where you stand." } },
+      choices = {
+        { text = "Do you hate us for it?", next = "w8_house2" },
+        { text = "You're a servant, nothing more.", next = "w8_house2" },
+        { text = "I'm a shaman. Fire should not serve only rage.", next = "w8_house2", when = { class = "SHAMAN" } },
+        { text = "Something else, Executus.", next = "BACK" },
+      },
+    },
+    w8_house2 = {
+      lines = {
+        { id = "w8_house2_a", text = "Hate is a small, cold word for what burns in me, mortal. I am a servant, yes, and I serve the greatest flame in this world, which is more than any of you can say of your little kings." },
+        { id = "w8_house2_sham", when = { class = "SHAMAN" }, text = "Rage? You mistake the nature of fire, spirit-talker, as all your kind do. Fire does not serve rage; it is the end of everything, and my master is its lord, and you will learn that when he rises." },
+      },
+      choices = {
+        { text = "We'll see who learns what.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Executus, majordomo of the Firelord's hall, and I have tended his house since the Dark Iron fool called him into this mountain. Speak your wish, mortals, and I will answer as the binding demands." },
@@ -48,6 +68,7 @@ P:NPC {
         { text = "The Hydraxian Waterlords sent us here.", next = "hydraxian" },
         { text = "My people know the elements. Fire should not rule them all.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Thaurissan's folly cursed my kin as much as yours.", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "How long have you kept this house, Majordomo?", next = "w8_house" },
         { text = "We'll be back when we're ready.", next = "END" },
       },
     },

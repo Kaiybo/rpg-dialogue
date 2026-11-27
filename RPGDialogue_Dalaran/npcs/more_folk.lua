@@ -33,6 +33,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_find = {
+      lines = { { id = "w8_find_a", text = "A carved stone tablet from the Badlands, wi' titan-marks on it nae dwarf had ever read, an' I carried it tae Ironforge on my own back. The League put it in a case wi' somebody else's name on the card, but I ken who found it." } },
+      choices = {
+        { text = "That must sting.", next = "w8_find2" },
+        { text = "What did the tablet say?", next = "w8_find2" },
+        { text = "I'm a gnome. I'd love to see the titan-marks here.", next = "w8_find2", when = { race = "Gnome" } },
+        { text = "Something else, Prospector.", next = "BACK" },
+      },
+    },
+    w8_find2 = {
+      lines = {
+        { id = "w8_find2_a", text = "It stings, aye, an' that's why I want the valley, {g:lad|lass}, for whatever's down in Alterac will have my name on it an' nobody else's. They're still arguin' over what the tablet says, an' I'll wager it's somethin' borin' like 'mind the step'." },
+        { id = "w8_find2_gn", when = { race = "Gnome" }, text = "Then ye'll help me read them, if we ever get down there, for yer folk are cleverer wi' the old symbols than half the League. Bring a lantern an' a notebook, an' dinnae let the Frostwolves see ye comin'." },
+      },
+      choices = {
+        { text = "May you find your name in the valley.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -44,7 +64,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Ask quick, I've a map tae mark." },
-        { id = "h_again2", text = "Go on, {g:lad|lass}, I'm listenin'." },
+        { id = "h_again2", text = "Go on, {g:lad|lass}, I'm listenin', and if it's about rocks I'm listenin' twice as hard." },
       },
       choices = {
         { text = "What artifacts are in the valley?", next = "artifacts" },
@@ -52,6 +72,7 @@ P:NPC {
         { text = "This is a war, not a dig site.", next = "war" },
         { text = "The Frostwolves were here first.", next = "frostwolves" },
         { text = "I've heard you have treasure for heroes.", next = "hero", when = { reputation = { faction = "Stormpike Guard", min = "exalted" } } },
+        { text = "What's the best find you've made in your career?", next = "w8_find" },
         { text = "Good digging, Prospector.", next = "END" },
       },
     },
@@ -174,6 +195,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_hard = {
+      lines = { { id = "w8_hard_a", text = "The Stonehearth Bunker, the night the Frostwolves came three times before dawn, an' we held it every time wi' fewer hands. I lost a good corporal on the second charge, an' I still hear him shoutin' for more powder." } },
+      choices = {
+        { text = "What was his name?", next = "w8_hard2" },
+        { text = "You held, Sergeant. That's what counts.", next = "w8_hard2" },
+        { text = "I've held that bunker myself.", next = "w8_hard2", when = { race = "Dwarf" } },
+        { text = "Something else, Sergeant.", next = "BACK" },
+      },
+    },
+    w8_hard2 = {
+      lines = {
+        { id = "w8_hard2_a", text = "Brennik, an' he was a stubborn wee dwarf wi' a laugh like a rockfall. The spirit healers brought him back, but he'd seen too much that night, an' he went home tae Ironforge an' I didnae blame him." },
+        { id = "w8_hard2_dw", when = { race = "Dwarf" }, text = "Have ye now? Then ye'll ken why the Stormpike drink tae it every night we keep it. Hold it again for me, soldier, an' I'll write yer name next tae the ones who held it before." },
+      },
+      choices = {
+        { text = "For the Stormpike, Sergeant.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -185,7 +226,7 @@ P:NPC {
       },
       again = {
         { id = "h_again3", text = "Ye've time for questions, have ye? Then the Frostwolves must be havin' a quiet day." },
-        { id = "h_again", text = "What else, soldier?" },
+        { id = "h_again", text = "What else, soldier? Say it plain, for the Frostwolves willnae wait on manners." },
         { id = "h_again2", text = "Quick, now. There's a war on." },
       },
       choices = {
@@ -195,6 +236,7 @@ P:NPC {
         { text = "Stormpike? Any relation to Vanndar?", next = "name" },
         { text = "I'm a dwarf of Ironforge. Where am I needed most?", next = "dwarf", when = { race = "Dwarf" } },
         { text = "The Guard knows my name by now, Sergeant.", next = "known", when = { reputation = { faction = "Stormpike Guard", min = "honored" } } },
+        { text = "What's the hardest fight you've seen in the valley?", next = "w8_hard" },
         { text = "I'll get to it, Sergeant.", next = "END" },
       },
     },
@@ -328,6 +370,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_name = {
+      lines = { { id = "w8_name_a", text = "In my first season, holding the Iceblood tower alone after the others fell. A dwarf came up the stair with an axe, and I fought him with my teeth when my blade broke, and the wolf riders gave me the name at the fire that night." } },
+      choices = {
+        { text = "With your teeth? Truly?", next = "w8_name2" },
+        { text = "A name earned in blood is a proud one.", next = "w8_name2" },
+        { text = "Lok'tar. My clan gives names the same way.", next = "w8_name2", when = { race = "Orc" } },
+        { text = "Something else, Corporal.", next = "BACK" },
+      },
+    },
+    w8_name2 = {
+      lines = {
+        { id = "w8_name2_a", text = "Truly, and the dwarf lived, and he still has the mark on his ear, I think. Go and earn your own name in this valley, and I will be the first to shout it at the fire." },
+        { id = "w8_name2_orc", when = { race = "Orc" }, text = "Then you understand. Fight well at the towers, warrior, and when you have done something worth a name, the Frostwolves will give you one, and you will carry it home to Durotar." },
+      },
+      choices = {
+        { text = "I'll earn one.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -351,6 +413,7 @@ P:NPC {
         { text = "Who are the Frostwolves to you?", next = "clan" },
         { text = "The spirits of this valley are restless.", next = "spirits", when = { class = "SHAMAN" } },
         { text = "The Frostwolves know my deeds, Corporal.", next = "known", when = { reputation = { faction = "Frostwolf Clan", min = "honored" } } },
+        { text = "How did you earn the name Bloodsnarl?", next = "w8_name" },
         { text = "Lok'tar, Corporal.", next = "END" },
       },
     },
@@ -488,6 +551,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_cold = {
+      lines = { { id = "w8_cold_a", text = "Badly, friend. I wear three Stormpike cloaks over my own and still wake with frost in my hair, and the dwarves laugh and tell me a kaldorei was never meant for honest weather." } },
+      choices = {
+        { text = "Could you use a fire spell?", next = "w8_cold2" },
+        { text = "The dwarves are right, aren't they?", next = "w8_cold2" },
+        { text = "I'm a night elf too. The cold bites us hard.", next = "w8_cold2", when = { race = "NightElf" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w8_cold2 = {
+      lines = {
+        { id = "w8_cold2_a", text = "Fire in a supply tent full of powder is the sort of idea only a mage would have, so no. I have taken to drinking the dwarves' ale for its warmth, which they find extremely funny and I find surprisingly effective." },
+        { id = "w8_cold2_ne", when = { race = "NightElf" }, text = "Then you understand me better than any dwarf here. Wool beneath leather, and leather beneath fur, and never take off your gloves to count a ledger, {g:brother|sister}, because the fingers do not come back." },
+      },
+      choices = {
+        { text = "To the dwarves' ale, then.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -497,7 +580,7 @@ P:NPC {
       },
       again = {
         { id = "h_again3", text = "You have another question. Ask it; my ledgers will keep, and so will the cold." },
-        { id = "h_again", text = "Anything else?" },
+        { id = "h_again", text = "Anything else? Ask before the ink in my ledger freezes again." },
         { id = "h_again2", text = "Speak; the snow and I are both patient." },
       },
       choices = {
@@ -509,6 +592,7 @@ P:NPC {
         { text = "What is it like, keeping stores for dwarves?", next = "stores" },
         { text = "Who else stands at this gate with you?", next = "gate" },
         { text = "Elune-adore. What news from home?", next = "home", when = { race = "NightElf" } },
+        { text = "How do you keep warm in these mountains?", next = "w8_cold" },
         { text = "Not today.", next = "END" },
       },
     },
@@ -623,6 +707,51 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    jek_led1 = {
+      lines = {
+        { id = "jek_led1_1", text = "The bindings are older, yes, for I brought them from the Undercity, where good leather is easier to find than good clerks. The pages are new, and every one of them is a raid, a mine taken, or a clansman's name with a debt beside it." },
+      },
+      choices = {
+        { text = "What kind of debt?", next = "jek_led2" },
+        { text = "Something else, quartermaster.", next = "BACK" },
+      },
+    },
+    jek_led2 = {
+      lines = {
+        { id = "jek_led2_1", text = "Service owed and service paid, which is the only currency the Frostwolves respect. A warrior who has carried back a Stormpike banner is owed a great deal, and one who has only drunk the clan's grog is owed nothing at all." },
+      },
+      choices = {
+        { text = "And the orcs trust your sums?", next = "jek_led3" },
+        { text = "I'd hate to be in the second column.", next = "jek_led3" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    jek_led3 = {
+      lines = {
+        { id = "jek_led3_1", text = "Drek'Thar checks them himself, once each moon, with one of his wolves sniffing at the pages. The old shaman is blind, so he has me read him every line aloud, and he has never once caught me in an error, for there have been none." },
+      },
+      choices = {
+        { text = "An accurate clerk, then. Something else.", next = "BACK" },
+      },
+    },
+    jek_sto1 = {
+      lines = {
+        { id = "jek_sto1_1", text = "Thanthaldis Snowgleam, a high elf, keeps the dwarves' stores on the far side of the valley. We have never met, but I have read his requisitions when the clan took them off a dead courier, and his hand is very neat." },
+      },
+      choices = {
+        { text = "You admire your enemy's handwriting?", next = "jek_sto2" },
+        { text = "I've met Snowgleam. He's as careful as you.", next = "jek_sto2", when = { faction = "Alliance" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jek_sto2 = {
+      lines = {
+        { id = "jek_sto2_1", text = "I admire anyone who keeps an honest column in a war, and his are honest, which is more than I can say for half the Undercity's. If the valley ever falls quiet, I should like to compare ledgers with him, though I expect he would decline." },
+      },
+      choices = {
+        { text = "He would, I think. Back to other matters.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -643,6 +772,8 @@ P:NPC {
         { text = "How do I earn the clan's regard?", next = "regard" },
         { text = "Who else keeps this camp?", next = "camp" },
         { text = "What does the Dark Lady want with this valley?", next = "lady", when = { race = "Scourge" } },
+        { text = "Your ledgers look older than the war in the valley.", next = "jek_led1" },
+        { text = "The Stormpike have a quartermaster too, I suppose.", next = "jek_sto1" },
         { text = "Another time.", next = "END" },
       },
     },
@@ -741,6 +872,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_worst = {
+      lines = { { id = "w8_worst_a", text = "A dwarf stepped on the pad holdin' a mug of ale, pal, and the machine turned the mug into a Little Helper too, and it ran off. We found it two streets away, singin', and nobody's been able to explain the singin'." } },
+      choices = {
+        { text = "Did the dwarf get his ale back?", next = "w8_worst2" },
+        { text = "That's not 'perfectly safe'.", next = "w8_worst2" },
+        { text = "I'm an engineer. That's a field-boundary fault.", next = "w8_worst2", when = { profession = "Engineering" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w8_worst2 = {
+      lines = {
+        { id = "w8_worst2_a", text = "Eventually, pal, and it was still full, which he said was the real miracle of the season. Smokywood had me put up a sign, No Drinks On The Pad, which nobody reads, so mostly I just shout it." },
+        { id = "w8_worst2_eng", when = { profession = "Engineering" }, text = "Field boundary, sure, sure, that's what I wrote in the report too, pal, word for word. Don't go tellin' Smokywood you fixed it, though, 'cause then they'll want to know why I didn't." },
+      },
+      choices = {
+        { text = "No drinks on the pad. Got it.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", text = "This beauty is the PX-238 Winter Wondervolt, finest holiday machine Smokywood money can buy. Step on the pad, and you'll be dressed for the season in a flash." } },
       again = {
@@ -754,6 +905,7 @@ P:NPC {
         { text = "Who runs Smokywood Pastures?", next = "smokywood" },
         { text = "That thing looks dangerous.", next = "danger" },
         { text = "I'm an engineer. How is it powered?", next = "power", when = { profession = "Engineering" } },
+        { text = "What's the worst thing that's happened at this machine?", next = "w8_worst" },
         { text = "Maybe later.", next = "END" },
       },
     },

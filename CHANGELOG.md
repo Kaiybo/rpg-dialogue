@@ -2,6 +2,14 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.117.0 (2026-11-27): Every Voice Its Own
+No new files; a /reload is enough. A big writing pass over every pack.
+- **Deeper conversations everywhere.** About 2,700 NPCs who had the fewest things to talk about got new branches, roughly 7,400 new conversation nodes in all: their work, their neighbours, their town's troubles and the quests nearby, with some replies only certain races, classes or professions get.
+- **Every shopkeeper sounds like themselves.** The warm and cold greetings and the stances added last release for Eastern Kingdoms shopkeepers, trainers, guards and other service folk were shared between many people; now each of about 1,350 NPCs has their own, in their own manner and dialect.
+- **No more echoes.** About 1,200 lines that several NPCs said word for word (most of them in Alterac Valley) are rewritten for each speaker, and many plain "what else?" lines now sound like the person saying them.
+- **World talk rewritten.** About 340 weaker lines in views, asks, threads and letters are rewritten, with new views, asks, threads and letters for both factions.
+- **Lore fixes.** A few lines that reached past the Classic era (Garrosh in Durotar, Kezan) are corrected.
+
 ## 0.116.1 (2026-11-27): No Hand Stayed
 - Fixed the "RPGDialogue has been blocked from an action" popup when the dialogue box or journal closed during combat.
 - New `/rpgd blocked`: if the game blocks the addon again, a chat line names what was blocked; `/rpgd blocked` lists recent ones, `/rpgd blocked log` turns on the game's taint log.

@@ -32,6 +32,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_burned = {
+      lines = {
+        { id = "w3_burned_1", text = "One, a single page of Ur's on how to keep a door to the Nether open after the caster has died. I read it twice, and understood it the second time, and then I put it in the brazier, because I could think of nobody in this city I would trust to read it a third." },
+        { id = "w3_burned_2", when = { class = "WARLOCK" }, text = "One page, of Ur's, on holding a door to the Nether open after the caster dies. You'll be disappointed in me, I expect, but I understood it on the second reading, and I knew there was no one in this city I'd trust with a third." },
+      },
+      choices = {
+        { text = "Not even yourself?", next = "w3_self" },
+        { text = "So you do believe in forbidden knowledge.", next = "BACK", reply = "I believe in timing. Some knowledge comes before its keepers are ready, and that page was a century early." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_self = {
+      lines = {
+        { id = "w3_self_1", text = "Least of all myself, since I'm the one who'd have been tempted to try it. A collector who can't refuse himself a book is no keeper, only a hoarder with a lock, and I'd rather be thought cold than careless." },
+      },
+      choices = {
+        { text = "A rare kind of restraint. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Keeper Bel'dugur. I gather the writings of those who came before us, Ur of Dalaran's above all, for certain parties among the Forsaken, so that we needn't repeat their mistakes, or their scruples." },
@@ -45,7 +64,7 @@ P:NPC {
           text = "A warlock. You, at least, have already decided that the rules were written by the timid, and we'll get on well for it." },
       },
       again = {
-        { id = "h_again", text = "Something more? Ask; I don't promise to answer." },
+        { id = "h_again", text = "Something more? Ask; I don't promise to answer, and I seldom do." },
         { id = "h_again2", text = "Go on. Questions are the cheapest form of knowledge, so I don't begrudge them." },
       },
       choices = {
@@ -54,6 +73,7 @@ P:NPC {
         { text = "Who are these \"certain parties\"?", next = "parties" },
         { text = "Some knowledge is forbidden for a reason.", next = "forbidden", when = { class = { "PRIEST", "PALADIN", "MAGE" } } },
         { text = "Do you have work for me?", next = "BUSINESS" },
+        { text = "Have you ever burned a book?", next = "w3_burned" },
         { text = "I'll leave you to your books.", next = "END" },
       },
     },

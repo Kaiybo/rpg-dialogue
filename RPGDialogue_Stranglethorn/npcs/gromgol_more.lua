@@ -219,6 +219,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_wet = {
+      lines = { { id = "w8_wet_a", text = "Oil for the wings, smoke for the ticks, and dry meat, never jungle meat, because something in the raptor flesh here sours their stomachs. Durik thinks I fuss over them, and he is right, but a sick wind rider does not land gently." } },
+      choices = {
+        { text = "Do you sing to them, as Durik says?", next = "w8_wet2" },
+        { text = "They're just beasts, surely.", next = "w8_wet2" },
+        { text = "Something else, Thysta.", next = "BACK" },
+      },
+    },
+    w8_wet2 = {
+      lines = { { id = "w8_wet2_a", text = "I do, old songs from the Valley of Spirits, and they settle when I sing them, which is more than the grunts do. Tell Durik that a raptor might learn some manners if he sang to his, and watch his face when you say it." } },
+      choices = {
+        { text = "I'll tell him.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "It doesn't worry me, but it interests the trolls on the ridges, and that worries me. Out here anything bright draws eyes, and the Bloodscalp have no love for the Light or the dead, so they'll have twice the reason to come for you." } },
@@ -330,6 +346,7 @@ P:NPC {
         { text = "How long have the ridge trolls been watching, Thysta?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What do you see the trolls doing up on the ridges, Thysta?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Does the Light on me worry you, Thysta?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "How do you keep the wind riders healthy in this damp?", next = "w8_wet" },
         { text = "Not now.", next = "END" },
       },
     },
@@ -398,6 +415,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_cust = {
+      lines = { { id = "w8_cust_a", text = "The scouts who go out to the Mosh'Ogg mound, because they buy bags, rope and drink, and they pay quickly because they want to leave quickly. The worst are the peons, who want everything on credit and have never once repaid it." } },
+      choices = {
+        { text = "Why give peons credit at all?", next = "w8_cust2" },
+        { text = "A camp needs its peons.", next = "w8_cust2" },
+        { text = "Something else, Uthok.", next = "BACK" },
+      },
+    },
+    w8_cust2 = {
+      lines = { { id = "w8_cust2_a", text = "Because they build the walls, and a camp without walls has no need of a merchant. I write their debts on a board behind the tent, and one day the Commander will see it, and then we will both be shouting." } },
+      choices = {
+        { text = "Good luck with the Commander.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Less than anyone else, which is a pity for me. The jungle rots everything I sell, and you're the only customer who doesn't rot any faster than you already have, so take what you need and leave the rest for the living." } },
@@ -505,6 +538,7 @@ P:NPC {
         { text = "Why are arrows so dear at Grom'gol, Uthok?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why don't you stock herbs, Uthok, with the jungle right outside?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "What does a Forsaken paladin need from your stock, Uthok?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Who are your best customers in camp?", next = "w8_cust" },
         { text = "Nothing today.", next = "END" },
       },
     },

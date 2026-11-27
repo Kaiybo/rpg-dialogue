@@ -43,7 +43,7 @@ P:Letter {
 P:Letter {
   id = "al_maybell_hope", npc = "maybell", delay = 3600,
   subject = "The far bank",
-  body = "{name},\n\nI read your letter three times and then hid it inside my boot, which is the only place in the house Pa never looks. You're the first person who hasn't told me to be patient, or to be sensible, or to think of the family, and I nearly cried on the grapes.\n\nAnd guess what? Gramma Stonefield came all the way down to the river on her own two feet, with her stick and her shawl, and stood on the far bank and waved at me. She didn't say a word, only waved, and then she went home again. I don't know what it means, but Tommy Joe says that when Gramma decides something, the whole family follows eventually, even if it takes them a year to notice they've moved.\n\nThank you. I mean it.\n\nMaybell",
+  body = "{name},\n\nI read your letter three times and then hid it inside my boot, which is the only place in the house Pa never looks. You're the first person who hasn't told me to be patient, or to be sensible, or to think of the family, and I nearly cried on the grapes.\n\nAnd guess what? Gramma Stonefield came all the way down to the river on her own two feet, with her stick and her shawl, and stood on the far bank and waved at me. She didn't say a word, only waved, and then she went home again. I don't know what it means, but Tommy Joe says that when Gramma decides something, the whole family follows eventually, even if it takes them a year to notice they've moved.\n\nThank you, and I mean it with all my heart.\n\nMaybell",
   replies = {
     { id = "gramma", text = "Tell her Gramma Stonefield is plainly on her side, and scheming.", fx = { affinity = 1 } },
     { id = "careful", text = "Tell her to keep the letters out of her boots.", fx = {} },
@@ -142,7 +142,7 @@ P:Letter {
 P:Letter {
   id = "al_martie_seeds", npc = "martie", delay = 4500,
   subject = "Your wildflowers",
-  body = "Dear,\n\nI read your letter out loud to Verner over the fence, and he pretended not to listen and then asked me twice to read the part about the yellow ones again. I've no seeds of any of them, of course, but I've made a little bed by the gate and called it your bed, and I've planted it with the nearest thing I could find to what you described. It's mostly marigolds, if I'm honest, but they're very determined marigolds.\n\nBellygrub hasn't touched them yet. Darcy says it's the mint. I say it's respect.\n\nWould you tell me about another place, when you've a moment? Somewhere wet, perhaps. The lake is lovely, but I've always wondered what grows in a real rain.\n\nMartie",
+  body = "Dear,\n\nI read your letter out loud to Verner over the fence, and he pretended not to listen and then asked me twice to read the part about the yellow ones again. I've no seeds of any of them, of course, but I've made a little bed by the gate and called it your bed, and I've planted it with the nearest thing I could find to what you described. It's mostly marigolds, if I'm honest, but they're very determined marigolds.\n\nBellygrub hasn't touched them yet, and Darcy says it's the mint, but I say it's respect.\n\nWould you tell me about another place, when you've a moment? Somewhere wet, perhaps. The lake is lovely, but I've always wondered what grows in a real rain.\n\nMartie",
   replies = {
     { id = "rain", text = "Tell her about the moss and lilies of a rainy marsh.", fx = { affinity = 1, letter = "al_martie_tulips" } },
     { id = "busy", text = "Tell her the road's kept me too busy to look at flowers.", fx = { affinity = -1 } },
@@ -309,7 +309,7 @@ P:Letter {
   id = "al_flagongut_uldaman", npc = "flagongut", delay = 2400,
   when = { cleared = "Uldaman", faction = "Alliance" },
   subject = "ULDAMAN!",
-  body = "{name},\n\nI've only just heard, an' I've spilled ink on three maps already, so forgive the blots! They're sayin' at the League that ye went all the way down intae Uldaman, past the troggs an' the Dark Irons an' the stone things, an' came out again wi' yer head still on. Is it true there's a great hall down there, wi' a keeper made o' stone that woke when ye came in? Is it true about the discs, an' what's written on them, about where we dwarves came from?\n\nI've been stuck in Menethil for longer than I like tae say, starin' at the same maps while the raptors sit on my dig. An' now here's somebody I've actually spoken to, standin' in the very place every one o' us has dreamed about since we were wee.\n\nWrite. Write everythin'. I'm no' fussy, but I'm very, very eager.\n\nArchaeologist Flagongut, the Explorers' League",
+  body = "{name},\n\nI've only just heard, an' I've spilled ink on three maps already, so forgive the blots! They're sayin' at the League that ye went all the way down intae Uldaman, past the troggs an' the Dark Irons an' the stone things, an' came out again wi' yer head still on. Is it true there's a great hall down there, wi' a keeper made o' stone that woke when ye came in? Is it true about the discs, an' what's written on them, about where we dwarves came from?\n\nI've been stuck in Menethil for longer than I like tae say, starin' at the same maps while the raptors sit on my dig. An' now here's somebody I've actually spoken to, standin' in the very place every one o' us has dreamed about since we were wee.\n\nWrite, an' write everythin'. I'm no' fussy, but I'm very, very eager.\n\nArchaeologist Flagongut, the Explorers' League",
   replies = {
     { id = "describe", text = "Describe the stone halls and the great keeper, as best I can.", fx = { affinity = 1, letter = "al_flagongut_shard" } },
     { id = "elbows", text = "Tell him it's no place for a dwarf who minds his elbows.", fx = {} },
@@ -465,7 +465,7 @@ P:Letter {
 P:Letter {
   id = "al_amaren_refuge", npc = "ar_commander_amaren", random = true, when = { faction = "Alliance", minLevel = 30 },
   subject = "Refuge Pointe, status",
-  body = "{class},\n\nI'll keep this short, since that's the only way I know how to write. Refuge Pointe still stands. The Syndicate still hold Stromgarde's lower city, the ogres still hold the hills, the Forsaken still sit in their farmhouses to the south, and the orcs at Hammerfall still beat their drums at night so we know they're there. We know.\n\nI have fewer soldiers than I had in the spring and more ground to watch, and the old men in the keep still talk as though Stromgarde's banners will be over Arathor again by harvest. Perhaps they will. I'd settle for the bridge.\n\nYou fought for this hill once. I've not forgotten it.\n\nCommander Amaren, Refuge Pointe",
+  body = "{class},\n\nI'll keep this short, since that's the only way I know how to write. Refuge Pointe still stands. The Syndicate still hold Stromgarde's lower city, the ogres still hold the hills, the Forsaken still sit in their farmhouses to the south, and the orcs at Hammerfall still beat their drums at night so we know they're there. We know.\n\nI have fewer soldiers than I had in the spring and more ground to watch, and the old men in the keep still talk as though Stromgarde's banners will be over Arathor again by harvest. Perhaps they will, though I'd settle for the bridge.\n\nYou fought for this hill once. I've not forgotten it.\n\nCommander Amaren, Refuge Pointe",
   replies = {
     { id = "stand", text = "Tell her Stromgarde will stand again, if I've any say in it.", fx = { affinity = 1 } },
     { id = "leave", text = "Tell her to leave the highlands to the ogres and the orcs.", fx = { affinity = -1 } },
@@ -517,5 +517,74 @@ P:Letter {
     { id = "hang", text = "Tell him to hang every Syndicate man he catches, as a lesson.", fx = { align = { order = 2 }, opinion = { syndicate = "hate" } } },
     { id = "bread", text = "Tell him a rope fixes nothing, and hungry men need bread, not courts.", fx = { align = { order = -2 }, opinion = { syndicate = "pity" } } },
     { id = "clerk", text = "Tell him I'd take a clerk's job somewhere safe, too.", fx = { affinity = 1 } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Writing pass (World): more Alliance folk who write once they know you
+---------------------------------------------------------------------------
+P:Letter {
+  id = "al_w2_cobbleflint", npc = "cobbleflint", random = true, when = { faction = "Alliance", minLevel = 12 },
+  subject = "From the south gate",
+  body = "{name},\n\nThe south gate's still standin', an' so am I, which is more than the troggs hoped for when they came boilin' up out o' the hills last week. We put down eleven o' them before supper an' four after, an' Stormpike says he counted more, but Stormpike always counts more.\n\nI've a new lad on the gate now, fresh from Ironforge, an' he's so keen he salutes the sheep. I've told him about ye, so if a beardless youngster salutes ye on the road, that'll be him. Be kind; he'll learn.\n\nThe loch's quiet tonight, an' the stars are out over the dam. Come back an' see them sometime, an' bring yer axe in case the troggs want an encore.\n\nMountaineer Cobbleflint, Thelsamar",
+  replies = {
+    { id = "lad", text = "I'll salute the lad back, Cobbleflint. Every guard deserves that once.", fx = { affinity = 1 } },
+    { id = "count", text = "Tell Stormpike I counted fourteen. That'll settle the argument.", fx = { affinity = 1 } },
+    { id = "troggs", text = "Fifteen troggs in a day? Ironforge should send you more mountaineers.", fx = { opinion = { troggs = "threat" } } },
+  },
+}
+
+P:Letter {
+  id = "al_w2_bluntnose", npc = "lm_bluntnose", random = true, when = { faction = "Alliance", minLevel = 14 },
+  subject = "A copy for your records",
+  body = "{name},\n\nEnclosed please find a copy o' my latest letter tae the Senate in Ironforge, in which I ask for six more mountaineers, two barrels o' powder an' a new roof for the town hall, an' in which I mention ye by name as an example o' the sort o' help Loch Modan's been forced tae rely on in the Reserve's absence.\n\nI did not mean it as an insult, an' I'd be obliged if ye didnae take it as one. I meant it as a warnin' tae the Senate that if they won't send soldiers, I'll keep hirin' adventurers, an' adventurers are a great deal more expensive an' a great deal less tidy.\n\nThe roof still leaks. I've put a bucket under it an' a petition on my desk, an' I'm no' sure which will fill first.\n\nMagistrate Bluntnose, Thelsamar",
+  replies = {
+    { id = "tidy", text = "I'll try to be tidier next time, Magistrate. I promise nothing.", fx = { affinity = 1 } },
+    { id = "proud", text = "I'm proud to be named in it, Magistrate. Send another.", fx = { affinity = 1 } },
+    { id = "fee", text = "If I'm so expensive, perhaps Thelsamar should pay me better.", fx = { affinity = -1 } },
+  },
+}
+
+P:Letter {
+  id = "al_w2_stoutfist", npc = "stoutfist", random = true, when = { faction = "Alliance", minLevel = 22 },
+  subject = "Menethil's harbour",
+  body = "{name},\n\nThe tide's been eatin' at the harbour wall again, an' half o' Menethil's under a foot o' water at high tide, which the locals say is normal an' the gnome engineers say is very interestin'. I say it's wet, an' I'm sick o' it.\n\nThe Dragonmaw were seen near the Thandol Span last week, more o' them than we've seen since the spring, an' I've doubled the watch on the eastern road. If ye're comin' through the Wetlands, come by the main road an' come in daylight. I'd hate tae lose ye tae a raptor rider in the fog after all yer trouble.\n\nThere's a seat for ye at the Deepwater Tavern whenever ye're in port. Mind the floor; it floats.\n\nCaptain Stoutfist, Menethil Harbor",
+  replies = {
+    { id = "dragonmaw", text = "If the Dragonmaw come in force, send word. I'll come to Menethil.", fx = { affinity = 1, opinion = { dragonmaw = "fight" } } },
+    { id = "floor", text = "I'll mind the floor, Captain. Save me a dry seat.", fx = { affinity = 1 } },
+    { id = "gnomes", text = "Let the gnomes fix the wall. It's what they're for." },
+  },
+}
+
+P:Letter {
+  id = "al_w2_thundris", npc = "thundris", random = true, when = { faction = "Alliance", minLevel = 14 },
+  subject = "From Auberdine",
+  body = "{name},\n\nThe moon rose full over Auberdine three nights ago, and the whole village came down to the shore to watch it lay a silver road across the water to the Veiled Sea. I have seen ten thousand such moons, and yet I stood on the dock until the tide came in over my feet, and did not mind.\n\nThe Blackwood furbolgs grow worse. Something in the forest has soured them, as it soured the Cliffspring, and the druids of Darnassus speak of it in low voices and send us very few answers. I would not ask it of you, but if your road takes you north of the village, keep your bow strung and your eyes on the treeline.\n\nIshnu-alah, and may Elune light your way home.\n\nThundris Windweaver, Auberdine",
+  replies = {
+    { id = "moon", text = "I'd have liked to see that moon, Thundris. Save me the next one.", fx = { affinity = 1 } },
+    { id = "furbolgs", text = "I'll find what's souring the furbolgs, Thundris. They deserve better.", fx = { affinity = 1, opinion = { furbolgs = "pity" } } },
+    { id = "druids", text = "Your druids should share what they know. Secrets cost lives.", when = { race = "NightElf" }, fx = { affinity = -1 } },
+  },
+}
+
+P:Letter {
+  id = "al_w2_bingles", npc = "bingles", random = true, when = { faction = "Alliance", minLevel = 14 },
+  subject = "Supplies (located!)",
+  body = "Dear {name},\n\nGood news! I have recovered all but two of the supplies the troggs carried off, including the blastencapper, the hammer, the spanner and the large shiny thing whose purpose I have temporarily forgotten but which I am quite certain is vital. The two still missing are a pair of my good socks, which I suspect have been adopted by a trogg chieftain as a hat.\n\nI have also recalculated the blasting charges for the excavation and found that I was wrong before by a factor of four, which explains the crater, and also my eyebrows. They are growing back at a rate of approximately one-sixteenth of an inch a week, which I am logging carefully for science.\n\nIf you see a trogg wearing socks, please do not engage. I would like to study it.\n\nYours explosively,\nBingles Blastenheimer",
+  replies = {
+    { id = "socks", text = "If I see a trogg in your socks, Bingles, I'll take notes.", fx = { affinity = 1 } },
+    { id = "eyebrows", text = "A sixteenth of an inch a week? You'll have eyebrows by midwinter.", fx = { affinity = 1 } },
+    { id = "careful", text = "Please recalculate those charges a third time, Bingles.", when = { race = "Gnome" }, fx = { affinity = 1 } },
+  },
+}
+
+P:Letter {
+  id = "al_w2_falstad", npc = "falstad", random = true, when = { faction = "Alliance", minLevel = 45 },
+  subject = "From the Aerie",
+  body = "{name},\n\nThe gryphons have been restless all week, an' when a Wildhammer gryphon's restless, ye listen. The Vilebranch have been drummin' in Jintha'Alor every night since the new moon, an' the Witherbark have come down out o' their hills to raid the low farms, bold as ye like.\n\nMy riders have been out over the Hinterlands from dawn to dusk, an' we've given the trolls somethin' tae think about, but there are more o' them than there are o' us, an' that's a sum I dinnae like the look of.\n\nIf ye've a mind for a fight in good mountain air, come up to the Aerie. The ale's strong, the birds are fierce, an' there's always a troll that needs a hammer between the eyes.\n\nFalstad Wildhammer, Aerie Peak",
+  replies = {
+    { id = "come", text = "I'll come to the Aerie, Falstad. Keep a gryphon saddled for me.", fx = { affinity = 1 } },
+    { id = "trolls", text = "Strike Jintha'Alor before the Vilebranch finish whatever they're drumming up.", fx = { affinity = 1, opinion = { vilebranch = "strike" } } },
+    { id = "ironforge", text = "You should ask Ironforge for help. Magni would send it.", when = { race = "Dwarf" }, fx = { affinity = -1 } },
   },
 }

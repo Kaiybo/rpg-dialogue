@@ -1594,7 +1594,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Ask, and I'll tell you how to cook it." },
-        { id = "h_again2", text = "Anything else, friend?" },
+        { id = "h_again2", text = "Anything else, friend? The stew's simmering nicely and I'm in a mood to talk." },
       },
       choices = {
         { text = "Have you ever cooked anything for a shaman's ceremony?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },

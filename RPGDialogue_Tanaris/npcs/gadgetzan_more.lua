@@ -58,7 +58,28 @@ P:NPC {
         { text = "Where do I find the right ghosts?", next = "ghosts", when = { minLevel = 55 } },
         { text = "Where would I find the rod you need?", next = "imp", when = { minLevel = 55 } },
         { text = "Do you actually believe in ghosts?", next = "believe" },
+        { text = "What happens if a ghost gets loose in here?", next = "w9_loose" },
         { text = "I'll see you around, Mux.", next = "END" },
+      },
+    },
+
+    w9_loose = {
+      lines = {
+        { id = "w9_loose_d", text = "Containment, pal, is a line item I budgeted for and then spent on the resonator coil, so right now the plan is a lead-lined bucket and positive thinking. Ghosts don't pay rent, but they don't break leases neither, so how much trouble can one be?" },
+        { id = "w9_loose_v1", when = { class = "PRIEST" }, text = "A priest, asking about containment! Listen, if you wanted to wave a little Light over my bucket, friend, I'd write it up as consulting and pay ya in gratitude, which is a currency I've got plenty of." },
+      },
+      choices = {
+        { text = "Does Bilgewhizzle know what you keep in here?", next = "w9_loose2" },
+        { text = "A bucket won't hold the dead, Mux.", next = "w9_loose2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_loose2 = {
+      lines = { { id = "w9_loose2_d", text = "Chief Bilgewhizzle knows I keep \"scientific instruments,\" which is true, and his Bruisers know not to knock anything off my shelves, which is also true. If a spirit ever does get out, the official story is that the town's haunted and I'm the only fella sellin' the cure." } },
+      choices = {
+        { text = "That's either genius or a crime.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -367,7 +388,28 @@ P:NPC {
         { text = "A Dark Iron in Gadgetzan?", next = "darkiron" },
         { text = "What's the Thorium Brotherhood?", next = "brotherhood" },
         { text = "That's a lot of thorium for one chestpiece.", next = "chest", when = { profession = "Blacksmithing" } },
+        { text = "How does a Dark Iron stand forging in this heat?", next = "w9_heat" },
         { text = "I'll be going.", next = "END" },
+      },
+    },
+
+    w9_heat = {
+      lines = {
+        { id = "w9_heat_d", text = "Heat? I was born under a mountain full of fire, ya soft thing, and the desert's only warm by comparison. It's the sand that gets me, 'cause it's in the bellows, in the coal and in my beard, and I swear some mornings it's in the steel." },
+        { id = "w9_heat_v1", when = { race = "Dwarf" }, text = "Ye'd know, if ye'd ever worked a proper forge instead of those cosy Ironforge hearths. The heat's nothin', but the sand's in my bellows, my coal and my beard, and some mornings I swear it's in the steel." },
+      },
+      choices = {
+        { text = "Where does a smith get coal out here?", next = "w9_heat2" },
+        { text = "Gadgetzan has its own smiths, I hear.", next = "w9_heat2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_heat2 = {
+      lines = { { id = "w9_heat2_d", text = "Off the caravans from Ratchet, at goblin prices, which means I pay fer the coal, the camel and the camel's opinion. The Goodsteel brothers buy from the same caravan and try to outbid me fer it, but they hammer like they're knockin' on a door and they know it." } },
+      choices = {
+        { text = "You sound almost fond of them.", next = "BACK", reply = "Fond? I'd sooner kiss a slag heap, but aye, it'd be quiet without 'em." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -482,7 +524,29 @@ P:NPC {
         { text = "How'd you end up in Gadgetzan?", next = "gadgetzan" },
         { text = "I'd never turn my back on Gnomeregan for goblin bombs.", next = "gnome_never", when = { race = "Gnome" } },
         { text = "Dwarves were blowing things up before goblins were.", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "Ever lose a student, Nixx?", next = "w9_lost" },
         { text = "So long, Nixx.", next = "END" },
+      },
+    },
+
+    w9_lost = {
+      lines = {
+        { id = "w9_lost_d", text = "Lose? Never, pal, I just occasionally misplace a few pieces of one. Fella last spring held a sapper charge the wrong way round, and he still drops by every week to thank me for the eyebrows he grew back, mostly." },
+        { id = "w9_lost_v1", when = { race = "Goblin" }, text = "Lose a goblin student? Pal, you know how it is back home: nobody's lost till the insurance man says so, and the insurance man ain't been brave enough to come out here. I've had a few lose eyebrows, sure, but that's tuition." },
+      },
+      choices = {
+        { text = "Doesn't anyone sue?", next = "w9_lost2" },
+        { text = "That's no way to run a school.", next = "w9_lost2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_lost2 = {
+      lines = { { id = "w9_lost2_d", text = "Sue who, me? Every apprentice signs the waiver before he touches a fuse, in triplicate, and the third copy's printed on fireproof paper for obvious reasons. You take the pledge, pal, you take the risk, and that's the best bargain in Tanaris." } },
+      choices = {
+        { text = "Danger's the price of real progress.", next = "BACK", fx = { align = { order = -1 } }, reply = "Now you're talkin' like a goblin, pal! Progress and paperwork, that's the whole trade." },
+        { text = "A good teacher keeps his students whole.", next = "BACK", fx = { align = { order = 1 } }, reply = "Whole's a strong word, friend. I keep 'em mostly whole, and mostly's more than Gnomeregan managed." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -616,7 +680,25 @@ P:NPC {
         { text = "I left Gnomeregan with nothing.", next = "gnome_nothing", when = { race = "Gnome" } },
         { text = "Would Ironforge want a transporter like this?", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Mages teleport without any machines.", next = "mage", when = { class = "MAGE" } },
+        { text = "You and Nixx must argue a great deal.", next = "w9_nixx" },
         { text = "Goodbye, Jhordy.", next = "END" },
+      },
+    },
+
+    w9_nixx = {
+      lines = { { id = "w9_nixx_d", text = "Oh, constantly, but very politely, at least on my side! He says my transporter's a toy, and I say his dimensional ripper sends people to Everlook with their shoes on backwards, which has actually happened twice, and then we both go back to work." } },
+      choices = {
+        { text = "Which one actually works better?", next = "w9_nixx2" },
+        { text = "His ripper sounds more exciting.", next = "w9_nixx2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_nixx2 = {
+      lines = { { id = "w9_nixx2_d", text = "Mine, of course, because mine knows where it's going, and his only knows roughly which continent. To be fair to Nixx, his does get you somewhere cold and far away, which some of his customers seem to want very badly." } },
+      choices = {
+        { text = "I'll trust the gnome with the beacon.", next = "BACK", reply = "Oh, thank you! I'll tell Nixx, and he'll laugh, but I'll know." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -746,7 +828,28 @@ P:NPC {
         { text = "Good armor is wasted on anyone who can't pay.", next = "pay" },
         { text = "What would you wear into Zul'Farrak?", next = "zf", when = { class = { "WARRIOR", "PALADIN", "SHAMAN" } } },
         { text = "Do you buy from outside smiths?", next = "smiths", when = { profession = "Blacksmithing" } },
+        { text = "What's the worst return you've ever had?", next = "w9_ret" },
         { text = "Good trading, Wrinkle.", next = "END" },
+      },
+    },
+
+    w9_ret = {
+      lines = {
+        { id = "w9_ret_d", text = "A fella brought back a breastplate from Zul'Farrak with a Sandfury axe still stuck in it, pal, and wanted his money back on account of the axe went through. I pointed out he was standing there complaining, which means the armor did its job, and he didn't care for that answer." },
+        { id = "w9_ret_v1", when = { class = "WARRIOR" }, text = "You warriors are the worst for it, no offense, buddy. One of yours brought back a breastplate with a Sandfury axe still stuck in it, and he wanted a refund because the axe went through, even though he was standing in my shop alive to ask." },
+      },
+      choices = {
+        { text = "Did he get his refund?", next = "w9_ret2" },
+        { text = "He had a point, though.", next = "w9_ret2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_ret2 = {
+      lines = { { id = "w9_ret2_d", text = "He got the complaint form, which is twelve pages, and halfway through he decided he'd rather buy a new one. I sold him the axe back too, cleaned up, since it was obviously a quality piece." } },
+      choices = {
+        { text = "You sold him the axe?", next = "BACK", reply = "Krinkle appraised it. Good steel, pal, it'd be a crime to waste it." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     brothers = {
@@ -877,7 +980,25 @@ P:NPC {
         { text = "A bank is just a polite way to hoard.", next = "hoard" },
         { text = "Has anyone ever robbed this place?", next = "robbed", when = { class = "ROGUE" } },
         { text = "What do preferred customers get?", next = "preferred", when = { reputation = { faction = "Gadgetzan", min = "honored" } } },
+        { text = "What's the strangest thing anyone's deposited here?", next = "w9_odd" },
         { text = "Keep it safe, Qizzik.", next = "END" },
+      },
+    },
+
+    w9_odd = {
+      lines = { { id = "w9_odd_d", text = "A mummified hand from Zul'Farrak, pal, still wearing three rings, and the fella who brought it insisted it went in its own box. I counted the fingers twice, the rings three times, and I've been counting my own fingers ever since." } },
+      choices = {
+        { text = "Is it still in the vault?", next = "w9_odd2" },
+        { text = "You don't ask what people bring in?", next = "w9_odd2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_odd2 = {
+      lines = { { id = "w9_odd2_d", text = "The Bank asks no questions, valued customer, because questions create liability, and liability creates paperwork. What I do ask is that nothing in the vault is alive, on fire or ticking, and after the hand I added \"moving\" to the list." } },
+      choices = {
+        { text = "Wise policy.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
       },
     },
     safe = {
@@ -999,7 +1120,7 @@ P:NPC {
       again = {
         { id = "hello_again1", text = "Something else, pal? I got nowhere to be." },
         { id = "hello_again2", text = "Go on, friend. The line's quiet anyhow." },
-        { id = "hello_again3", text = "Ask away, and keep your voice down a little." },
+        { id = "hello_again3", text = "Ask away, pal, only keep it low, because the yellowtail spook easier than I do." },
       },
       choices = {
         { text = "What's fresh today?", next = "BUSINESS" },
@@ -1008,7 +1129,28 @@ P:NPC {
         { text = "Sitting on a dock isn't what I'd call work.", next = "work" },
         { text = "Where do the stonescale eels run?", next = "eels", when = { profession = { "Fishing", "Cooking" } } },
         { text = "Who else lives at this port?", next = "port" },
+        { text = "What do you use for bait out here?", next = "w9_bait" },
         { text = "Tight lines, Gikkix.", next = "END" },
+      },
+    },
+
+    w9_bait = {
+      lines = {
+        { id = "w9_bait_d", text = "Scorpid tail for the mackerel and a bit of crab shell for the yellowtail, pal, and nothing costs me a copper, because the dunes are crawling with bait that crawls right up to me. A rival tried shiny gnome lures once, and all he caught was a seagull and a bad reputation." },
+        { id = "w9_bait_v1", when = { profession = "Cooking" }, text = "A cook asking about bait, now there's a friend who thinks ahead! Scorpid tail for the mackerel, crab shell for the yellowtail, and whatever you don't use on the hook goes in the pot, because waste is just profit that didn't show up." },
+      },
+      choices = {
+        { text = "You'd make a poor goblin, you know.", next = "w9_bait2" },
+        { text = "Who's this rival?", next = "w9_bait2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_bait2 = {
+      lines = { { id = "w9_bait2_d", text = "Everybody tells me that, friend, usually right before they pay me double for a fish they could've caught themselves if they'd sat still. The fella with the shiny lures went back to Booty Bay, and I'm still here, so I figure patience pays better than gnomish engineering." } },
+      choices = {
+        { text = "I'll remember that.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
       },
     },
     bites = {
@@ -1141,7 +1283,7 @@ P:NPC {
       again = {
         { id = "hello_again1", text = "What else, pal? I've got creditors to dodge." },
         { id = "hello_again2", text = "Ask quick. Every knock on that door costs me a year off my life." },
-        { id = "hello_again3", text = "Go on, friend, I'm listening." },
+        { id = "hello_again3", text = "Go on, pal, I'm listening, and if that's a knock at the door, you never saw me." },
       },
       choices = {
         { text = "What did Ribbly do, exactly?", next = "ribbly" },
@@ -1150,7 +1292,26 @@ P:NPC {
         { text = "What would a goblin want in Blackrock?", next = "blackrock", when = { race = "Dwarf" } },
         { text = "Some debts get collected the hard way.", next = "hardway", when = { class = { "ROGUE", "WARLOCK" } } },
         { text = "I'll look for your sister.", next = "BUSINESS" },
+        { text = "Who keeps knocking on your door?", next = "w9_cred" },
         { text = "Good luck with the creditors.", next = "END" },
+      },
+    },
+
+    w9_cred = {
+      lines = { { id = "w9_cred_d", text = "Who doesn't, pal? There's a bookie from Booty Bay, two Steamwheedle accountants, a pirate who claims Ribbly sold him a ship that turned out to be a rowboat, and a very polite ogre whose politeness is the scariest thing about him." } },
+      choices = {
+        { text = "What do you tell them?", next = "w9_cred2" },
+        { text = "You could just pay them yourself.", next = "w9_cred2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_cred2 = {
+      lines = { { id = "w9_cred2_d", text = "I tell 'em the truth, which is that Ribbly's gone east and the family's handling it, and then I lie about the rest. I'm not paying his debts, friend, because once you pay one, word gets round, and suddenly every goblin from here to Undermine remembers Ribbly owed him something." } },
+      choices = {
+        { text = "Family should cover family's debts.", next = "BACK", fx = { align = { honor = 1 } }, reply = "Spoken like somebody who never met Ribbly, pal. Still, maybe you're right, and that's what bothers me." },
+        { text = "Keep your coin. His debts aren't yours.", next = "BACK", fx = { align = { honor = -1 } }, reply = "Finally, somebody talking sense! Write that down, pal, so I can show my uncle." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     ribbly = {

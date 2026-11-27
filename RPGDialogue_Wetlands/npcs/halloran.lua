@@ -36,6 +36,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_keep = {
+      lines = { { id = "w8_keep_a", text = "Boots for the children, mostly, because Jesse goes through a pair a season climbing things he shouldn't. The rest goes on the ships, and I keep the best skin of every batch for Andrea, though she says she has enough belts for three wives." } },
+      choices = {
+        { text = "Jesse's climbing must keep you busy.", next = "w8_keep2" },
+        { text = "Andrea's a lucky woman.", next = "w8_keep2" },
+        { text = "Something else, James.", next = "BACK" },
+      },
+    },
+    w8_keep2 = {
+      lines = { { id = "w8_keep2_a", text = "Busy and worried both, but I climbed the masts in this harbour when I was his age, so I can't say much. Andrea says that's exactly the problem, and she's not wrong, so I make him good boots with a grip on the sole and hope for the best." } },
+      choices = {
+        { text = "Good boots are a father's best defence.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -65,6 +81,7 @@ P:NPC {
         { text = "Who brings you your skins?", next = "einar" },
         { text = "A hide must pass through many hands before market.", next = "trade" },
         { text = "Any tips for a working leatherworker?", next = "craft", when = { profession = { name = "Leatherworking" } } },
+        { text = "What do you make from the leather you keep?", next = "w8_keep" },
         { text = "Good day, James.", next = "END" },
       },
     },

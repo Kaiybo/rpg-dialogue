@@ -54,7 +54,23 @@ P:NPC {
         { text = "I've studied beasts. Let me look at the eggs.", next = "study", when = { class = { "DRUID", "HUNTER" } } },
         { text = "I brought the eggs. What did you find?", next = "findings", when = { questDone = TODO_QUEST("Egg Hunt") } },
         { text = "I'll help you.", next = "BUSINESS" },
+        { text = "What do the orcs at the Crossroads make of your notes?", next = "w5_notes" },
         { text = "Watch the road, Korran.", next = "END" },
+      },
+    },
+    w5_notes = {
+      lines = { { id = "w5_notes_l", text = "Dey laugh, mon. A troll writin' about bugs, dey say, an' dey slap me on de back. But Thork, he reads every page. He don't laugh. He just ask me how many, an' how fast, an' write it down himself." } },
+      choices = {
+        { text = "Should Orgrimmar hear of this now?", next = "w5_notes2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_notes2 = {
+      lines = { { id = "w5_notes2_l", text = "Dat be de question I chew on. Belgrom want proof, real proof, before he carry it to de Warchief. But de bugs, dey don't wait for proof. Every week dere be more holes in de ground out past Taurajo." } },
+      choices = {
+        { text = "Wait for proof. A false alarm costs Belgrom his voice.", next = "BACK", reply = "Ya, I know it. Dat be what Belgrom say too. I just don't like waitin' wit' bugs.", fx = { align = { order = 1 } } },
+        { text = "Send word now. Proof comes too late with things like these.", next = "BACK", reply = "You talk like me at night, mon, when I can't sleep. Maybe I send a letter anyway.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     insects = {

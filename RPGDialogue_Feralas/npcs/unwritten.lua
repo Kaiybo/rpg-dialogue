@@ -30,7 +30,7 @@ P:NPC {
     hello = {
       big = true,
       lines = { { id = "h_default", text = "I am Azj'Tordin, once of the Shen'dralar. I fled the city you call Dire Maul, and in fleeing I gave up the magic that kept me young, so every day I live now is a day I chose." } },
-      again = { { id = "h_again", text = "Ask, then. I have time, though less of it than I once did." } },
+      again = { { id = "h_again", text = "Ask, then. I have time, though each hour of it costs me now, and I find I do not mind the price." } },
       choices = {
         { text = "Why did you flee Eldre'Thalas?", next = "flee" },
         { text = "Who are the Shen'dralar?", next = "shendralar" },
@@ -38,7 +38,36 @@ P:NPC {
         { text = "I'll trust no Highborne.", next = "distrust" },
         { text = "How do you live without the arcane?", next = "withdrawal", when = { class = "MAGE" } },
         { text = "Elune forgives those who turn from the Well.", next = "forgive", when = { race = "NightElf" } },
+        { text = "What surprised you most about growing old?", next = "w7_old" },
         { text = "Farewell, elder.", next = "END" },
+      },
+    },
+    w7_old = {
+      lines = {
+        { id = "w7_old_l1", text = "The aches, first, which I had read about for ten thousand years and never once imagined. Then the way that food tastes better, now that it matters whether I eat it; and the way the sunlight feels warmer, now that I will not see an endless number of mornings." },
+      },
+      choices = {
+        { text = "Do you regret leaving?", next = "w7_old2" },
+        { text = "You'll die out here, alone.", next = "w7_old3" },
+        { text = "Something else, elder.", next = "BACK" },
+      },
+    },
+    w7_old2 = {
+      lines = {
+        { id = "w7_old2_l1", text = "Never, though some nights I shake with the thirst, and I would weep for a drop of the old power. A life that cannot end was never a life, only a long wait in a beautiful room." },
+        { id = "w7_old2_l2", when = { race = "NightElf" }, text = "Never, child of Elune. Your people chose mortality's road long ago, in a way, when you turned from the Well; I chose it only now. I envy you the head start." },
+      },
+      choices = {
+        { text = "I'm glad you left.", next = "BACK", reply = "So am I, most mornings. Thank you for saying it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_old3 = {
+      lines = {
+        { id = "w7_old3_l1", text = "I will die, certainly, and perhaps alone. But I will die having lived, which is more than any of my people in that city can say." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     flee = {
@@ -122,7 +151,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "We sailed over from Stormwind to see the world while we're young enough to enjoy it. The elves at Feathermoon think we're mad, and they may be right." } },
-      again = { { id = "h_again", text = "Anything else? Paige has the map, but I've the stories." } },
+      again = { { id = "h_again", text = "Anything else? Ask away, friend; Paige keeps the map and I keep the tall tales, and only one of us ever gets lost." } },
       choices = {
         { text = "Seeing the world while you're young is wise.", next = "BACK", reply = "That's what I keep telling Paige! Thank you!", fx = { align = { light = 1 } } },
         { text = "You should go home before something eats you.", next = "BACK", reply = "Paige says the same. Perhaps you're both right.", fx = { align = { light = -1 } } },
@@ -133,7 +162,36 @@ P:NPC {
         { text = "How did you and Paige meet?", next = "xmet" },
         { text = "You seem very happy for a man so far from home.", next = "xhappy" },
         { text = "I'm from Stormwind too. Where did you live?", next = "xhuman", when = { race = "Human" } },
+        { text = "Where do you two sleep out here?", next = "w7_camp" },
         { text = "Safe travels.", next = "END" },
+      },
+    },
+    w7_camp = {
+      lines = {
+        { id = "w7_camp_l1", text = "Wherever the rain isn't, which in Feralas is a short list. Last night we slept in the roots of a tree so big you could fit our old flat in Stormwind inside it, and a cat the size of a pony walked past us at midnight and didn't even look." },
+      },
+      choices = {
+        { text = "Weren't you frightened?", next = "w7_camp2" },
+        { text = "You're lucky to be alive.", next = "w7_camp3" },
+        { text = "Something else, Erik.", next = "BACK" },
+      },
+    },
+    w7_camp2 = {
+      lines = {
+        { id = "w7_camp2_l1", text = "Terrified! I held my sword so tight I couldn't open my hand till morning. Paige slept through the whole thing, and when I told her she said I'd dreamed it, and then we found the paw prints and she went very quiet." },
+        { id = "w7_camp2_l2", when = { class = "HUNTER" }, text = "Terrified, and you'd have laughed at me, I'm sure. Paige thinks you hunter types are all mad for liking it out here. Was it a big cat, do you think, or a very small tiger? I genuinely can't tell." },
+      },
+      choices = {
+        { text = "That's a good story, at least.", next = "BACK", reply = "The best one yet! I'll tell it at every inn in Stormwind." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_camp3 = {
+      lines = {
+        { id = "w7_camp3_l1", text = "So everyone keeps telling me! Lucky's a good thing to be, though. I'd rather be lucky than careful, and Paige is careful enough for both of us." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     why = {
@@ -240,7 +298,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "Erik wanted adventure, so here we are, sleeping under a tree the size of a cathedral. I wanted a cottage in Goldshire, but I lost that argument on the ship." } },
-      again = { { id = "h_again", text = "What else, dear?" } },
+      again = { { id = "h_again", text = "What else, dear? Ask before Erik wanders off after another butterfly; I've learned to talk quickly." } },
       choices = {
         { text = "A cottage in Goldshire sounds like a fine life.", next = "BACK", reply = "It does, doesn't it? Someday, perhaps.", fx = { align = { order = 1 } } },
         { text = "Adventure beats a cottage any day.", next = "BACK", reply = "Erik says that too. Look where it got us.", fx = { align = { order = -1 } } },
@@ -251,7 +309,36 @@ P:NPC {
         { text = "Is Erik a good husband?", next = "xerik" },
         { text = "You seem the sensible one.", next = "xsense" },
         { text = "I'm a priest. Want a blessing for the road?", next = "xpriest", when = { class = "PRIEST" } },
+        { text = "What do you write in that little book?", next = "w7_book" },
         { text = "Take care.", next = "END" },
+      },
+    },
+    w7_book = {
+      lines = {
+        { id = "w7_book_l1", text = "Everything we spend, everything we eat and everyone we meet, so that when we get home I can prove to my mother that Erik didn't starve me. There's a page for you now, if you'd like to know." },
+      },
+      choices = {
+        { text = "What does my page say?", next = "w7_book2" },
+        { text = "You could write a guide for travellers.", next = "w7_book3" },
+        { text = "Something else, Paige.", next = "BACK" },
+      },
+    },
+    w7_book2 = {
+      lines = {
+        { id = "w7_book2_l1", text = "'Polite, well-armed, and didn't laugh at Erik's sword, which is more than most.' I'll add something nicer if you help me find a dry spot to camp before it rains again." },
+        { id = "w7_book2_l2", when = { race = "Human" }, text = "'From home, and talked to us like neighbours,' which you don't know how much that means out here. Every elf we meet is lovely, but none of them know where Goldshire is, and I miss being from somewhere people know." },
+      },
+      choices = {
+        { text = "That's a kind page.", next = "BACK", reply = "You've earned it. Most people just tell us we're mad." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_book3 = {
+      lines = {
+        { id = "w7_book3_l1", text = "Do you think so? 'A Sensible Woman's Guide to Kalimdor.' First chapter: don't follow your husband. Second chapter: if you do, pack twice the socks." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     next = {
@@ -359,7 +446,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "I buy hides here and ship them west through Feathermoon to the Alliance tanners. The Pesterhide hyenas of Thousand Needles have the toughest pelts around, if you can find one that isn't torn to shreds." } },
-      again = { { id = "h_again", text = "Anything else? I've a ledger to keep." } },
+      again = { { id = "h_again", text = "Anything else? Make it quick, if you don't mind; I've three pelts to grade and the light's going." } },
       choices = {
         { text = "How did you get into the hide trade?", next = "ykri_how" },
         { text = "What do you need?", next = "need" },
@@ -367,7 +454,36 @@ P:NPC {
         { text = "Who are your sisters?", next = "sisters" },
         { text = "Another human this far west! I've come from Stormwind.", next = "home", when = { race = "Human" } },
         { text = "I skin. I can take those hyenas cleanly.", next = "skinner", when = { profession = "Skinning" } },
+        { text = "How do you get the hides to market?", next = "w7_ship" },
         { text = "Good trading.", next = "END" },
+      },
+    },
+    w7_ship = {
+      lines = {
+        { id = "w7_ship_l1", text = "Bundled and salted, flown by hippogryph to Feathermoon, then by ship north to Auberdine and onward to Stormwind. A Pesterhide pelt crosses half the world before it's made into a coat, and every leg of that journey takes its cut." },
+      },
+      choices = {
+        { text = "Is it worth all that?", next = "w7_ship2" },
+        { text = "Seems simpler to sell locally.", next = "w7_ship3" },
+        { text = "Something else, Kristy.", next = "BACK" },
+      },
+    },
+    w7_ship2 = {
+      lines = {
+        { id = "w7_ship2_l1", text = "Barely, some months, and handsomely others, when the Stormwind nobles decide hyena is fashionable again. I'm hoping it's a long fashion, because I've a lot of debts left to pay." },
+        { id = "w7_ship2_l2", when = { profession = "Skinning" }, text = "Barely, unless the pelt's pristine, and that's where folk like you come in. A clean hide fetches three times a ragged one in Stormwind, so every careful cut you make pays for one more leg of the journey." },
+      },
+      choices = {
+        { text = "I hope it stays fashionable.", next = "BACK", reply = "So do I. Pray for cold winters and vain nobles." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_ship3 = {
+      lines = {
+        { id = "w7_ship3_l1", text = "To whom? The elves wear leaves and moonlight, and the only other buyers here are hyenas. No, coin is in the cities, and the cities are a long way off." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     need = {
@@ -485,7 +601,36 @@ P:NPC {
         { text = "What do you think of yetis?", next = "xyeti" },
         { text = "You're very polite for a robot.", next = "xpolite" },
         { text = "I'm a gnome. Can I fix your thrusters?", next = "xgnome", when = { race = "Gnome" } },
+        { text = "What will you do when you get home?", next = "w7_home" },
         { text = "I'll leave you be.", next = "END" },
+      },
+    },
+    w7_home = {
+      lines = {
+        { id = "w7_home_l1", text = "Bzzt. Upon arrival at Booty Bay, this unit will submit a full report to Mister Obnoticus. The report will be forty-two pages long. This unit has already written thirty-nine pages, most of them concerning yetis." },
+      },
+      choices = {
+        { text = "What's in the other three pages?", next = "w7_home2" },
+        { text = "He won't read forty-two pages.", next = "w7_home3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_home2 = {
+      lines = {
+        { id = "w7_home2_l1", text = "Bzzt. Page forty contains recommendations for improved thrusters. Page forty-one contains an apology for the crash. Page forty-two is reserved for the name of the rescuer, which this unit hopes will be yours." },
+        { id = "w7_home2_l2", when = { race = "Gnome" }, text = "Bzzt. Recommendations, an apology, and the rescuer's name. Mister Obnoticus respects gnomish engineers greatly; your name on page forty-two would raise this unit's status in the workshop by an estimated thirty percent." },
+      },
+      choices = {
+        { text = "I'd be honoured.", next = "BACK", reply = "Bzzt. Name logged provisionally. Escort remains pending." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_home3 = {
+      lines = {
+        { id = "w7_home3_l1", text = "Bzzt. Correct. He will read page forty-two and skip the rest. This unit has calculated this, and has written the yeti pages anyway, for its own satisfaction." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     walk = {
@@ -715,7 +860,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "Tribal leatherworking is the old way, honouring the beast in what is made from it. Our druids and hunters wore such things before your kingdoms had names." } },
-      again = { { id = "h_again", text = "Ask what you would, traveller." } },
+      again = { { id = "h_again", text = "Ask what you would, traveller. My hands are on the hide, but my ears are yours." } },
       choices = {
         { text = "Honouring the beast is the heart of tribal leathercraft.", next = "BACK", reply = "It is. You understand the old way.", fx = { align = { honor = 1 } } },
         { text = "Old crafts don't matter now. Only what works.", next = "BACK", reply = "Then you will make nothing that lasts.", fx = { align = { honor = -1 } } },
@@ -726,7 +871,36 @@ P:NPC {
         { text = "What beasts do you work with?", next = "xbeasts" },
         { text = "You speak of the beast with respect.", next = "xrespect" },
         { text = "I'm a hunter. My pet would approve, I think.", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "What's the hardest piece you've ever made?", next = "w7_piece" },
         { text = "Elune keep you.", next = "END" },
+      },
+    },
+    w7_piece = {
+      lines = {
+        { id = "w7_piece_l1", text = "A cloak from a white stag a Sentinel brought me, killed cleanly by her own arrow, after it had led her patrol away from an ogre ambush. She wanted it made into something that would remember the beast, and it took me a whole winter." },
+      },
+      choices = {
+        { text = "What became of the cloak?", next = "w7_piece2" },
+        { text = "That's a strange way to honour it.", next = "w7_piece3" },
+        { text = "Something else, Caryssia.", next = "BACK" },
+      },
+    },
+    w7_piece2 = {
+      lines = {
+        { id = "w7_piece2_l1", text = "She wears it still, on the patrols out to the Twin Colossals, and the Gordunni will not come near her. They say the white stag walks beside her in the dusk, and I do not tell them it is only a cloak." },
+        { id = "w7_piece2_l2", when = { class = "DRUID" }, text = "She wears it, and the Gordunni will not approach her. You know the Dream better than I; perhaps it is only a cloak, and perhaps the stag's spirit has chosen to walk with her a while longer." },
+      },
+      choices = {
+        { text = "A fitting end.", next = "BACK", reply = "It is the only kind of ending a crafter can hope for." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_piece3 = {
+      lines = {
+        { id = "w7_piece3_l1", text = "Perhaps, to those who have never taken a life with their own hands. To us, it is the only honest way." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     diff = {
@@ -832,7 +1006,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "I sell leather armour, made by the hunters and crafters of the outpost. I also stand a watch when the Sentinels are short, which lately is often." } },
-      again = { { id = "h_again", text = "Anything else? Be quick, I may be called to the wall." } },
+      again = { { id = "h_again", text = "Anything else? Be quick about it; if the horn sounds I'll be on the wall, bad leg and all." } },
       choices = {
         { text = "Standing watch is a worthy duty.", next = "BACK", reply = "It is, though I would rather sell armour.", fx = { align = { order = 1 } } },
         { text = "The Sentinels should find their own guards.", next = "BACK", reply = "They try. There are not enough of them.", fx = { align = { order = -1 } } },
@@ -843,7 +1017,36 @@ P:NPC {
         { text = "What's the danger out in the forest?", next = "xdanger" },
         { text = "You stand like a Sentinel, not a merchant.", next = "xsentinel" },
         { text = "I'm a druid. Do you sell to druids often?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Do you miss running patrols?", next = "w7_patrol" },
         { text = "Thank you.", next = "END" },
+      },
+    },
+    w7_patrol = {
+      lines = {
+        { id = "w7_patrol_l1", text = "Every day. I used to run the long loop from Thalanaar down to the Woodpaw hills and back in a single night, and now I can barely reach the moonwell without resting on my spear." },
+      },
+      choices = {
+        { text = "Is there no healing for it?", next = "w7_patrol2" },
+        { text = "At least you're still serving.", next = "w7_patrol3" },
+        { text = "Something else, Rendow.", next = "BACK" },
+      },
+    },
+    w7_patrol2 = {
+      lines = {
+        { id = "w7_patrol2_l1", text = "The druids did what they could, and the bone is whole. But the leg remembers the break, and a Sentinel who limps is a Sentinel who leaves tracks the Grimtotem can follow. So I sell armour, and stand watch, and wait." },
+        { id = "w7_patrol2_l2", when = { class = { "PRIEST", "DRUID", "SHAMAN" } }, text = "You heal, so you will know that some wounds close and never quite mend. The bone is whole; the leg still remembers. Do not trouble yourself over it, traveller. I have made my peace." },
+      },
+      choices = {
+        { text = "I'm sorry.", next = "BACK", reply = "Do not be. I am alive, and many of my patrol are not." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_patrol3 = {
+      lines = {
+        { id = "w7_patrol3_l1", text = "I am, and that is what keeps me from sitting in the dark. A wall needs eyes even more than a patrol needs legs." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     short = {
@@ -952,7 +1155,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "I keep the outpost in thread and dye, and I tend the moonwell when the others are on patrol. It is quiet work, and I am glad of it." } },
-      again = { { id = "h_again", text = "What else, traveller?" } },
+      again = { { id = "h_again", text = "What else, traveller? Speak softly, if you would; the moonwell is still, and I like to keep it so." } },
       choices = {
         { text = "Tending the moonwell is sacred work.", next = "BACK", reply = "It is. Thank you for honouring it.", fx = { align = { light = 1 } } },
         { text = "A moonwell is only water.", next = "BACK", reply = "It is not. Please, take your thread and go.", fx = { align = { light = -1 } } },
@@ -963,7 +1166,36 @@ P:NPC {
         { text = "Who comes through Thalanaar?", next = "xwho" },
         { text = "Your thread shimmers in the light.", next = "xshimmer" },
         { text = "I'm a priestess of Elune too.", next = "xpriest", when = { class = "PRIEST" } },
+        { text = "What do you sing at the moonwell?", next = "w7_song" },
         { text = "Elune keep you.", next = "END" },
+      },
+    },
+    w7_song = {
+      lines = {
+        { id = "w7_song_l1", text = "Old hymns to Elune, the ones the priestesses taught me in Ashenvale, and a few I made up myself on the long nights here. The made-up ones are mostly about thread, I'm afraid, which may not be what the Goddess wants to hear." },
+      },
+      choices = {
+        { text = "Sing one about thread.", next = "w7_song2" },
+        { text = "Elune hears every song.", next = "w7_song3" },
+        { text = "Something else, Brienna.", next = "BACK" },
+      },
+    },
+    w7_song2 = {
+      lines = {
+        { id = "w7_song2_l1", text = "Very well, but quietly. 'Silver in the needle, silver in the sky, mend the cloak that keeps her warm, and let the moon go by.' There; it is not very holy, but the Sentinels like it." },
+        { id = "w7_song2_l2", when = { race = "NightElf" }, text = "Quietly, then. 'Silver in the needle, silver in the sky.' You know the old tune, I think; it is the cradle hymn from Ashenvale, only with my words. Hum it with me, if you remember it." },
+      },
+      choices = {
+        { text = "It's lovely.", next = "BACK", reply = "Thank you. Elune is kind to bad poets, I think." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_song3 = {
+      lines = {
+        { id = "w7_song3_l1", text = "I believe she does, and I hope she has patience with the ones about thread." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     priestess = {
@@ -1059,7 +1291,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "Miblon watches the plants behind the door. Nobody brings Miblon food, nobody brings Miblon relief, so Miblon stands here and grumbles." } },
-      again = { { id = "h_again", text = "Still here? Miblon is still hungry." } },
+      again = { { id = "h_again", text = "Still here? Miblon is still hungry, and Miblon's belly is louder than Miblon now." } },
       choices = {
         { text = "Miblon guards the door well.", next = "BACK", reply = "Miblon does! Somebody notices, at last.", fx = { align = { order = 1 } } },
         { text = "Miblon should leave this door and find food.", next = "BACK", reply = "Miblon cannot leave. Go away.", fx = { align = { order = -1 } } },
@@ -1070,7 +1302,36 @@ P:NPC {
         { text = "What's an Evoroot?", next = "xevo" },
         { text = "You don't look like the other gnolls.", next = "xdiff" },
         { text = "I'm a hunter. I could share some meat.", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "What does Miblon do at night?", next = "w7_night" },
         { text = "Enjoy your post.", next = "END" },
+      },
+    },
+    w7_night = {
+      lines = {
+        { id = "w7_night_l1", text = "Miblon stands here, and Miblon counts the stars. Miblon counts to eleven, then forgets, and starts again. Miblon has counted to eleven many, many times." },
+      },
+      choices = {
+        { text = "Teach Miblon to count higher.", next = "w7_night2" },
+        { text = "Miblon should sleep.", next = "w7_night3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_night2 = {
+      lines = {
+        { id = "w7_night2_l1", text = "Twelve? There is twelve? Miblon did not know. Miblon will count to twelve tonight, and then Miblon will be the smartest gnoll in the pack, and Woodpaw will be jealous." },
+        { id = "w7_night2_l2", when = { class = "MAGE" }, text = "You are clever one, with books! Miblon thinks you know very big numbers. Miblon only wants twelve. Twelve is enough for Miblon, and for stars." },
+      },
+      choices = {
+        { text = "Good luck, Miblon.", next = "BACK", reply = "Miblon will count, and Miblon will think of you at twelve." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_night3 = {
+      lines = {
+        { id = "w7_night3_l1", text = "If Miblon sleeps, Woodpaw finds Miblon sleeping, and then Miblon is very sorry. Miblon counts stars instead. Stars do not tell Woodpaw." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     door = {
@@ -1176,7 +1437,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "I am Grimtotem, an elder of the tauren. I lived long before my clan turned to hatred, and I mourn what they have become." } },
-      again = { { id = "h_again", text = "Speak, young one." } },
+      again = { { id = "h_again", text = "Speak, young one. The dead have patience, but they also have very good hearing." } },
       choices = {
         { text = "How long ago did you walk among the living?", next = "ygri_long" },
         { text = "I'm Grimtotem by blood. Can I change my clan?", next = "ygri_blood", when = { race = "Tauren" } },
@@ -1184,7 +1445,36 @@ P:NPC {
         { text = "What is the Lunar Festival?", next = "festival" },
         { text = "I've come to honor you, Elder.", next = "honor" },
         { text = "Do you blame the clan, Elder?", next = "blame", when = { race = "Tauren" } },
+        { text = "What was your clan like before Magatha?", next = "w7_before" },
         { text = "Farewell.", next = "END" },
+      },
+    },
+    w7_before = {
+      lines = {
+        { id = "w7_before_l1", text = "We were the singers, young one, the tribe who kept the oldest songs of the Earth Mother. When the herds moved, the Grimtotem drums led them, and the other tribes were glad of us." },
+      },
+      choices = {
+        { text = "What changed?", next = "w7_before2" },
+        { text = "Some of your clan still sing.", next = "w7_before3" },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
+    w7_before2 = {
+      lines = {
+        { id = "w7_before2_l1", text = "The songs became walls. We kept them so close, so long, that we began to think only we were worthy to hear them. That is how pride turns to hate: slowly, and with good reasons at every step." },
+        { id = "w7_before2_l2", when = { race = "Tauren" }, text = "Pride became walls, as it does. Your tribe may remember the Grimtotem drums at the head of the herds; ask your own elders, and they will tell you we were loved once. Remember that, when you meet my clan in the hills." },
+      },
+      choices = {
+        { text = "I'll remember.", next = "BACK", reply = "Then a little of what we were lives on in you." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_before3 = {
+      lines = {
+        { id = "w7_before3_l1", text = "They do, but the words have turned sour in their mouths. I would give my coin of blessing a hundred times to hear one of them sing the old way again." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     clan = {

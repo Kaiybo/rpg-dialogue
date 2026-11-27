@@ -253,7 +253,25 @@ P:NPC {
         { text = "Do the orcs trust you?", next = "trust" },
         { text = "What's the worst you've seen?", next = "worst" },
         { text = "Can you set your own bones?", next = "own" },
+        { text = "Who else heals at the Crossroads?", next = "healers" },
+        { text = "What did you do before you died?", next = "before" },
+        { text = "Do you ever lose a patient?", next = "w5_lose" },
         { text = "I'll leave you to your work.", next = "END" },
+      },
+    },
+    w5_lose = {
+      lines = { { id = "w5_lose_l", text = "Rarely to the injury. Occasionally to the shock of waking up and finding me leaning over them. But yes, now and then a grunt comes in from the Kolkar lines too far gone for splints, and then there is nothing to do but sit with him." } },
+      choices = {
+        { text = "What do you say to them, at the end?", next = "w5_lose2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_lose2 = {
+      lines = { { id = "w5_lose2_l", text = "The truth, mostly. That it does not hurt as much as they fear, and that what comes after is less interesting than the priests promise. I am the only one at the Crossroads who can speak about dying from experience. It seems a waste not to." } },
+      choices = {
+        { text = "The dying deserve company, even a dead man's. Especially yours.", next = "BACK", reply = "How kind. You are the second person to tell me so. The first died shortly after, but he meant it.", fx = { align = { light = 1 } } },
+        { text = "Time spent on the hopeless is time stolen from the living.", next = "BACK", reply = "A practical view. The living will still be waiting when I am done, I find. They always are.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     why = {
@@ -313,6 +331,33 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    healers = {
+      lines = { { id = "hl_default", text = "Apothecary Helbrim, another of the Dark Lady's servants, who brews for the outpost and doesn't care to touch anyone. And the shaman who pass through, of course, who can close a wound with a word, which I find professionally insulting." } },
+      choices = {
+        { text = "Then why do the grunts need you at all?", next = "healers2" },
+        { text = "A word doesn't set a bone straight.", next = "healers2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    healers2 = {
+      lines = { { id = "hl2_default", text = "Because a shaman closes what's in front of him and a broken bone heals crooked if no one sets it first. I've had grunts come to me a month after a shaman's blessing, limping, with a leg that knit at the wrong angle. Then I break it again, and that does make them look at me." } },
+      choices = { { text = "Break it again. How kind. Something else.", next = "BACK" } },
+    },
+    before = {
+      lines = { { id = "bf_default", text = "I was a barber-surgeon in a market town north of Andorhal, as far as I can piece it together. I pulled teeth, I let blood, I set the legs of farmers who fell off their own carts. Then the grain came, and I died in my own shop with a patient on the table." } },
+      choices = {
+        { text = "Do you remember the patient?", next = "before2" },
+        { text = "The plagued grain took a great many.", next = "before2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    before2 = {
+      lines = { { id = "bf2_default", text = "Only the shape of him, and that he was afraid. I think I was telling him it would be all right, which was the last lie I told while I still had a pulse. I've found the dead are rather better at telling the truth." } },
+      choices = {
+        { text = "I remember Lordaeron too. It's best left buried.", next = "BACK", reply = "Spoken like one of us. We're the only ones who can say it and mean it.", when = { race = "Scourge" } },
+        { text = "Something else, Pallwick.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I set bones in life and I set them in death. The work hasn't changed much; the patients have." } },
@@ -361,7 +406,7 @@ P:NPC {
         { id = "h_druid", when = { class = "DRUID" }, text = "A druid! Maybe you could ask the beasts nicely to leave? No? I didn't think so, but it was worth asking." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I'm not going anywhere, as you can see." },
+        { id = "h_again", text = "Anything else? Take your time. These beasts below certainly are." },
         { id = "h_again2", text = "Go on, I've got all day. All week, maybe." },
       },
       choices = {
@@ -700,7 +745,23 @@ P:NPC {
         { text = "You don't eat Aza'bek's food, I hear.", next = "food" },
         { text = "Teach me something of your enchanting.", next = "craft", when = { profession = "Enchanting" } },
         { text = "I'm a shaman. The winds speak to me too.", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "What do the kodo drivers ask you to enchant?", next = "w5_drivers" },
         { text = "Farewell, Beneris.", next = "END" },
+      },
+    },
+    w5_drivers = {
+      lines = { { id = "w5_drivers_l", text = "Nothing I would call an enchantment. They ask for luck. A charm for the lead bell, a stone that will keep the Kolkar away, a feather that turns aside arrows. I tell them I cannot make luck, and they look at me as though I have refused them water." } },
+      choices = {
+        { text = "Do you make the charms anyway?", next = "w5_drivers2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_drivers2 = {
+      lines = { { id = "w5_drivers2_l", text = "I make them something small. A faint warmth in the bell's metal, a stone that glows a little at dusk. It does nothing against arrows. But Okamache says the drivers who carry them sit straighter and watch the hills, and perhaps that is worth more than any rune." } },
+      choices = {
+        { text = "Tell them the truth. False comfort gets drivers killed.", next = "BACK", reply = "You are right, and I have told them. They buy the charms regardless, and I cannot decide whether that is wisdom or folly.", fx = { align = { honor = 1 } } },
+        { text = "If it makes them braver, let them believe.", next = "BACK", reply = "That is what I tell myself on the nights the wind will not speak to me.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     people = {
@@ -931,7 +992,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Gor'mak. I make the steel that goes out of this camp on the backs of kodo, to every grunt from the Crossroads to Camp Taurajo. My plans go to those who've helped the camp, because I won't have my work made badly by strangers." },
       },
       again = {
-        { id = "h_again", text = "What else? Speak up over the hammer." },
+        { id = "h_again", text = "What else? Talk between strokes, or the anvil talks over you." },
         { id = "h_again2", text = "Still here. Ask, then." },
       },
       choices = {
@@ -944,7 +1005,22 @@ P:NPC {
         { text = "Your anvil's seen some use.", next = "anvil" },
         { text = "I could use a smith's eye on my weapon.", next = "eye", when = { class = { "WARRIOR", "PALADIN", "SHAMAN" } } },
         { text = "My father was in the camps too.", next = "father", when = { race = "Orc" } },
+        { text = "Where does your steel end up, mostly?", next = "w5_steel" },
         { text = "I'll go.", next = "END" },
+      },
+    },
+    w5_steel = {
+      lines = { { id = "w5_steel_l", text = "Everywhere the kodo go. The Crossroads towers, Taurajo's wall, the grunts at Mor'shan holding the elves back from the lumber road. Wherever the Horde is standing in the Barrens, there's a blade of mine nearby, unless somebody's lost it." } },
+      choices = {
+        { text = "Have any ever come back to you?", next = "w5_steel2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_steel2 = {
+      lines = { { id = "w5_steel2_l", text = "One. A Mor'shan grunt brought it back on a kodo, notched clean through near the hilt by a Sentinel glaive. He'd held the gate with it for an hour before it broke. I keep it under the anvil, so I remember what my work is for." } },
+      choices = {
+        { text = "That's a better story than any plan could tell.", next = "BACK", reply = "Hm. It is. Don't tell Beneris I said so. He'll make it into a poem." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     past = {
@@ -970,7 +1046,7 @@ P:NPC {
     camps = {
       lines = { { id = "ca_default", text = "Well enough. The humans fed us slop and watched us waste away, and most of us were too sick in the blood to care. I mended their chains because it was that or sit and rot." } },
       choices = {
-        { text = "A good plan makes a good sword.", next = "BACK", reply = "It does. You understand.", fx = { align = { order = 1 } } },
+        { text = "A good plan makes a good sword.", next = "BACK", reply = "Aye. Plan the blade before you heat the steel, and the steel forgives you.", fx = { align = { order = 1 } } },
         { text = "A good smith doesn't need plans.", next = "BACK", reply = "Then he makes bad swords.", fx = { align = { order = -1 } } },
         { text = "What broke the lethargy, for you?", next = "camps_thrall" },
         { text = "Something else.", next = "BACK" },
@@ -1054,7 +1130,24 @@ P:NPC {
         { text = "Where do you get your cloth out here?", next = "cloth" },
         { text = "I'm a mage. Show me what your shadow weave does.", next = "mage", when = { class = { "MAGE", "WARLOCK", "PRIEST" } } },
         { text = "I've heard trolls make poor tailors.", next = "insult" },
+        { text = "What would you sew for Thrall, if he stopped by?", next = "w5_thrall" },
         { text = "I'll be going.", next = "END" },
+      },
+    },
+    w5_thrall = {
+      lines = { { id = "w5_thrall_l", text = "Ahh, now you ask me a good question, mon. Somet'ing dark, wit' a little storm in de weave, so it move when he move. Not too fancy. De Warchief, he wear dat old plate of his father's, and nobody gonna tell him to take it off." } },
+      choices = {
+        { text = "Should a Warchief dress plainly?", next = "w5_thrall2" },
+        { text = "My Warchief would never wear troll silk.", next = "BACK", when = { race = "Orc" }, reply = "Dat's because nobody ever offer him de good stuff, mon. One day." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_thrall2 = {
+      lines = { { id = "w5_thrall2_l", text = "Dat be de argument, ya. Some say he should look like any grunt, so de grunts know he be one of dem. Some say he should look like a king, so de Alliance know who dey be dealin' wit'. Me, I say he should look like he chose it himself." } },
+      choices = {
+        { text = "A Warchief should look like his warriors.", next = "BACK", reply = "Dat be de orc way, and it be why orcs dress so bad. But I respect it, mon.", fx = { align = { order = -1 } } },
+        { text = "A leader should look like a leader. Let him shine.", next = "BACK", reply = "Ya! Somebody understand. I make you somet'ing shiny too, if you got de coin.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     patterns = {
@@ -1165,7 +1258,23 @@ P:NPC {
         { text = "Aza'bek cooks kodo, I hear.", next = "stew" },
         { text = "How did you come to keep the herd?", next = "past" },
         { text = "Could you teach me about beasts?", next = "hunter", when = { class = { "HUNTER", "DRUID" } } },
+        { text = "What happens to a kodo too old to carry?", next = "w5_old" },
         { text = "Walk with the Earth Mother.", next = "END" },
+      },
+    },
+    w5_old = {
+      lines = { { id = "w5_old_l", text = "When a kodo grows too old, it knows. It stops eating with the herd, and it looks west, toward Desolace, where the old ones go to lie down among their ancestors. My people call that place the Kodo Graveyard, and every kodo finds its way there in the end." } },
+      choices = {
+        { text = "Do you let them go, when they look west?", next = "w5_old2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_old2 = {
+      lines = { { id = "w5_old2_l", text = "Some keepers do. Some keep them on light work until they fall in the harness. I have done both, and I am not proud of either. Letting them go means a long walk alone. Keeping them means they never reach their ancestors." } },
+      choices = {
+        { text = "Let them walk to their ancestors. It is their right.", next = "BACK", reply = "Yes. I unbuckle the harness myself, and I walk the first mile with them.", fx = { align = { light = 1 } } },
+        { text = "Keep them close and safe. The road west is deadly.", next = "BACK", reply = "It is. And yet they look west every evening, and I feel it in my own bones.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     offduty = {
@@ -1266,7 +1375,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Pawani, and I work the hides the hunters bring into this camp, so that the Horde's scouts have something to wear besides dust. My best patterns I keep for those who have helped the camp; the rest of my work I share with anyone." },
       },
       again = {
-        { id = "h_again", text = "What else would you ask, traveller?" },
+        { id = "h_again", text = "Ask what you like. My hands can scrape this hide while my ears listen." },
         { id = "h_again2", text = "Ask, then. The hide won't mind waiting." },
       },
       choices = {
@@ -1278,7 +1387,22 @@ P:NPC {
         { text = "Those racks really do lean.", next = "racks" },
         { text = "I skin what I hunt, too.", next = "skinner", when = { profession = { "Skinning", "Leatherworking" } } },
         { text = "Are you from Thunder Bluff?", next = "home", when = { race = "Tauren" } },
+        { text = "The kodo drivers must wear out their boots quickly.", next = "w5_boots" },
         { text = "Earth Mother keep you.", next = "END" },
+      },
+    },
+    w5_boots = {
+      lines = { { id = "w5_boots_l", text = "Every week. Okamache's drivers walk beside the kodo from here to Taurajo and back, and the Gold Road eats soles faster than I can stitch them. I have started resoling with lion hide, which is tough enough to last a moon if they do not wade the oases." } },
+      choices = {
+        { text = "Do they wade the oases?", next = "w5_boots2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_boots2 = {
+      lines = { { id = "w5_boots2_l", text = "Of course they do, because they are thirsty and the water is there. Then the leather swells and splits and they come to me looking sorry. I scold them, I mend them, and next week they wade the oasis again." } },
+      choices = {
+        { text = "You scold them like a mother.", next = "BACK", reply = "Someone must. Their mothers are in Mulgore and Durotar, and the oases are right here." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     hides = {
@@ -1357,16 +1481,83 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "The kodo lets out a long, rumbling sigh and shifts its weight off one sore foot. There are pale marks on its back where the pack straps sit, and it clearly has no plans to wear them today." },
       },
+      again = {
+        { id = "h_again", text = "The kodo blinks slowly, as though waiting to see what else you might do." },
+        { id = "h_again2", text = "The kodo shifts its bulk and goes back to chewing, one ear turned your way." },
+      },
       choices = {
         { text = "You deserve a good rest, old kodo.", next = "BACK", reply = "The kodo lets out a long, contented sigh.", fx = { align = { light = 1 } } },
         { text = "Get up and work, lazy kodo.", next = "BACK", reply = "The kodo stamps once and pointedly ignores you.", fx = { align = { light = -1 } } },
         { text = "Scratch it behind the horn.", next = "scratch" },
+        { text = "Look at the sore foot it's favouring.", next = "foot" },
+        { text = "Offer it a handful of the dry grass by the fence.", next = "grass" },
+        { text = "Check the pale marks on its back.", next = "w5_marks" },
+        { text = "Sit down in the shade beside it for a while.", next = "w5_shade" },
         { text = "Leave it to its rest.", next = "END" },
+      },
+    },
+    w5_marks = {
+      lines = { { id = "w5_marks_l", text = "The marks are old strap-sores, healed over and hardened, with a fresh raw patch near the shoulder where the pack must have rubbed on the last run. The kodo flinches a little when your hand gets close, then holds still." } },
+      choices = {
+        { text = "Rub a little salve into the raw patch.", next = "w5_marks2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_marks2 = {
+      lines = { { id = "w5_marks2_l", text = "The kodo lets out a sigh that you feel through your boots, and its great head swings around to look at you. After a moment it leans its whole weight against your shoulder, carefully, as if it knows exactly how heavy it is." } },
+      choices = {
+        { text = "Easy, old one. You've earned your day off.", next = "BACK", reply = "The kodo blinks once, slowly, and does not move away." },
+        { text = "I'll tell Okamache about that shoulder.", next = "BACK", reply = "The kodo's ear flicks at the name, and it rumbles low in its chest, which you choose to take as thanks." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_shade = {
+      lines = { { id = "w5_shade_l", text = "You settle in the narrow strip of shade along the kodo's flank. It shifts to make the shade wider, which may or may not be an accident. The Gold Road stretches away, empty and shimmering, and for a while neither of you has anywhere to be." } },
+      choices = {
+        { text = "Tell the kodo about the road you've walked.", next = "w5_shade2" },
+        { text = "Hum one of the old herd songs.", next = "BACK", when = { race = "Tauren" }, reply = "The kodo's ears go forward and it lows softly, long and deep, as if it remembers the tune from somewhere before the harness." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_shade2 = {
+      lines = { { id = "w5_shade2_l", text = "The kodo listens to the whole of it, or at least chews steadily the entire time, which in a kodo amounts to the same thing. When you finish, it lets out a long breath through its nose that ruffles the dust between your boots." } },
+      choices = {
+        { text = "That's the best audience I've had in the Barrens.", next = "BACK", reply = "The kodo blinks at you, unbothered and approving." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     scratch = {
       lines = { { id = "s_default", text = "The kodo leans its enormous head into your hand until you nearly fall over, then rumbles contentedly. Across the camp, Okamache looks up, sees what you're doing and nods." } },
       choices = { { text = "Good kodo.", next = "END", fx = { affinity = 1 } } },
+    },
+    foot = {
+      lines = { { id = "ft_default", text = "The kodo lets you lift the edge of one great foot. A thorn the length of your finger has worked its way between the thick pads, the kind that grows along the quilboar trails to the south, and the skin around it is hot." } },
+      choices = {
+        { text = "Pull the thorn out, carefully.", next = "foot2" },
+        { text = "Set the foot down and leave it be.", next = "BACK" },
+      },
+    },
+    foot2 = {
+      lines = { { id = "ft2_default", text = "The thorn comes free with a wet sound, and the kodo groans like an old door, then lowers its head and blows a gust of warm breath into your face. Somewhere nearby, a tauren drover laughs and calls out that the beast has been sulking about that foot for three days." } },
+      choices = {
+        { text = "Pat its flank and step back.", next = "BACK", reply = "The kodo gives you a long, approving look." },
+        { text = "Leave it to its rest now.", next = "END" },
+      },
+    },
+    grass = {
+      lines = { { id = "gs_default", text = "The kodo considers the grass for a long moment, sniffs it, and then eats it out of your palm with great dignity and a great deal of spit. It seems to expect more, and its eyes drift meaningfully toward the feed sacks stacked by the caravan wagons." } },
+      choices = {
+        { text = "Fetch it a little feed from the sacks.", next = "grass2" },
+        { text = "No more. You'll get fat, kodo.", next = "grass2" },
+        { text = "Wipe your hand and step away.", next = "BACK" },
+      },
+    },
+    grass2 = {
+      lines = { { id = "gs2_default", text = "Before you can do anything at all, the kodo has made up its own mind, ambled two steps to the nearest sack and put its nose inside it. Okamache shouts from across the camp, and the kodo pretends very hard not to hear him." } },
+      choices = {
+        { text = "That's between you and Okamache, kodo.", next = "BACK", reply = "The kodo chews on, entirely unbothered." },
+        { text = "Slip away before Okamache blames you.", next = "END" },
+      },
     },
   },
   topics = {
@@ -1414,7 +1605,23 @@ P:NPC {
         { text = "How'd you end up an auctioneer?", next = "start" },
         { text = "You must be skimming off the top.", next = "skim" },
         { text = "Any tips for a fellow goblin?", next = "goblin", when = { race = "Goblin" } },
+        { text = "What's the biggest bid you've ever seen?", next = "w5_bid" },
         { text = "Not today.", next = "END" },
+      },
+    },
+    w5_bid = {
+      lines = { { id = "w5_bid_l", text = "Arcanite bar, pal, three summers back. An orc and a tauren went at it for an hour like two kodo butting heads, and the tauren won by one silver. One silver! I took my cut and bought a new hat. This hat, actually." } },
+      choices = {
+        { text = "Was there ever a bid you wouldn't take?", next = "w5_bid2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_bid2 = {
+      lines = { { id = "w5_bid2_l", text = "Once. Fella put up a ring with a name still engraved on it, and blood still in the setting. The Cartel says goods are goods. I said this good was gonna bring trouble back to my counter, and I sent him and his ring down the road." } },
+      choices = {
+        { text = "You did right. Stolen goods stain the whole house.", next = "BACK", reply = "Stain's bad for business, that's my thinking. Morals are just good accounting.", fx = { align = { honor = 1 } } },
+        { text = "Goods are goods. Somebody else took that cut.", next = "BACK", reply = "Somebody did. I hear he's got a lovely hat now too. Still glad it ain't me.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     both = {
@@ -1472,9 +1679,9 @@ P:NPC {
     },
   },
   topics = {
-    steamwheedle = { { id = "tp_sw", text = "Neutral, bonded and very well guarded. That's the Cartel, pal." } },
+    steamwheedle = { { id = "tp_sw", text = "The Cartel? Neutral ground, bonded clerks, and enough bruisers to keep both true. That's where my cut comes from." } },
     auction = { { id = "tp_auction", text = "Put it up, set a price, and let the market do the cryin'." } },
-    _none = { { id = "tp_none", text = "Don't know, don't care, unless there's a percentage in it." } },
+    _none = { { id = "tp_none", text = "Never heard of it. Put a price tag on it and I'll learn fast, though." } },
   },
 }
 
@@ -1506,7 +1713,25 @@ P:NPC {
         { text = "You look exhausted.", next = "tired" },
         { text = "What's the strangest thing you've delivered?", next = "strange" },
         { text = "Do you read the letters?", next = "read" },
+        { text = "Who's this boss of yours?", next = "boss" },
+        { text = "Which way's the most dangerous run?", next = "danger" },
+        { text = "Have you ever lost a letter?", next = "w5_lost" },
         { text = "Never mind.", next = "END" },
+      },
+    },
+    w5_lost = {
+      lines = { { id = "w5_lost_l", text = "Lost? Never. Misplaced, twice. Delivered to the wrong orc, once, and that was the most interesting week of my career. But there's one I've still got in the bag, three months now, for a grunt at Mor'shan who isn't at Mor'shan any more." } },
+      choices = {
+        { text = "Why haven't you sent it back?", next = "w5_lost2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_lost2 = {
+      lines = { { id = "w5_lost2_l", text = "Because it's from his mother, and it says she's proud of him, and I read it, all right? I read it. If I send it back, she'll know. If I keep carrying it, maybe he turns up, and maybe she never has to find out he didn't." } },
+      choices = {
+        { text = "Send it back. She deserves to know the truth.", next = "BACK", reply = "I know. I know she does. I'll do it on the next run. Probably.", fx = { align = { honor = 1 } } },
+        { text = "Keep carrying it. Some news is better late.", next = "BACK", reply = "Yeah. That's what I keep tellin' myself, every time it gets a little heavier.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     boom = {
@@ -1546,6 +1771,33 @@ P:NPC {
     read = {
       lines = { { id = "re_default", text = "Me? Never, pal, it's against the Cartel code and I'd lose my license. I mean, sometimes the envelope's thin and the sun's behind it, and you can't help seein' a word or two, but that's just physics." } },
       choices = { { text = "Of course. Physics. Something else.", next = "BACK" } },
+    },
+    boss = {
+      lines = { { id = "bo_default", text = "The postmaster down in Ratchet, pal, a goblin with a pocket watch for a heart. He's got a chart on the wall with every run timed to the minute, and if I'm late he docks me, and if I'm early he asks why I didn't take another sack." } },
+      choices = {
+        { text = "Why not work for yourself?", next = "boss2" },
+        { text = "Sounds like every goblin boss I've heard of.", next = "boss2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    boss2 = {
+      lines = { { id = "bo2_default", text = "'Cause the Cartel's got the license, buddy, and a goblin who carries mail without one gets a visit from the bruisers. So I carry, I save, and one day I'll buy my own route, someplace quiet, like Thousand Needles. Don't laugh, I said quiet, not safe." } },
+      choices = { { text = "I won't laugh. Something else.", next = "BACK" } },
+    },
+    danger = {
+      lines = { { id = "dn_default", text = "The north road, past the Forgotten Pools, 'cause the Kolkar love a mail cart, they think it's full of gold. It's full of letters to grandmothers, pal, but you try explainin' that to a centaur with a spear." } },
+      choices = {
+        { text = "How do you get through?", next = "danger2" },
+        { text = "I could ride with you sometime.", next = "danger2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    danger2 = {
+      lines = { { id = "dn2_default", text = "I wait at the Crossroads gate till a patrol goes out and then I ride behind 'em real close, like a very small, very scared extra grunt. The grunts call me their lucky charm, which is nice, 'cause nobody's ever called me lucky before." } },
+      choices = {
+        { text = "I'm a warrior. Ride behind me, and you'll be safe.", next = "BACK", reply = "Pal, you just made my whole week. I'll hold you to that, and I'll bill the Cartel for the comfort.", when = { class = "WARRIOR" } },
+        { text = "Something else, then.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -1597,7 +1849,22 @@ P:NPC {
         { text = "How's business with the centaur raiding?", next = "raids" },
         { text = "Got anything a warrior could use?", next = "warrior", when = { class = { "WARRIOR", "ROGUE" } } },
         { text = "Gnomish or goblin engineering, which is better?", next = "schools", when = { profession = "Engineering" } },
+        { text = "Who's your competition out here?", next = "w5_rivals" },
         { text = "I'll take a look at your goods later.", next = "END" },
+      },
+    },
+    w5_rivals = {
+      lines = { { id = "w5_rivals_l", text = "Nobody out here, pal, that's the beauty of it. The real competition's down in Ratchet: Gagsprocket, who won't sell to anybody he don't like, and Liv Rizzlefix, who'll sell to anybody but charges like she's doing 'em a favour. Me, I'm the convenience option." } },
+      choices = {
+        { text = "Do they know you're undercutting them?", next = "w5_rivals2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_rivals2 = {
+      lines = { { id = "w5_rivals2_l", text = "Gagsprocket sent me a note. It said \"enjoy the dust.\" Liv sent me a crate of powder at cost, which I'm still trying to figure out the angle on. Either she's being nice, which is suspicious, or the crate's gonna blow, which is also suspicious." } },
+      choices = {
+        { text = "Open it very slowly, from a long way off.", next = "BACK", reply = "That's the plan, pal. I got a very long stick." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     why = {

@@ -58,7 +58,25 @@ P:NPC {
         { text = "Why live here, so near Blackrock Mountain?", next = "camp" },
         { text = "How do you weave shadow silk?", next = "xtailor", when = { profession = "Tailoring" } },
         { text = "Few warlocks have the nerve to bind an infernal.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Who buys your shadow silk?", next = "w9_buy" },
         { text = "I'll leave you to your silk.", next = "END" },
+      },
+    },
+
+    w9_buy = {
+      lines = { { id = "w9_buy_d", text = "Vizzklick, in Gadgetzan, who pays well and asks nothing, and a handful of tailors in Stormwind and Undercity who think it's spun by ghosts. I let them believe it, because mystery adds a third to the price." } },
+      choices = {
+        { text = "Doesn't Vizzklick ask where it comes from?", next = "w9_buy2" },
+        { text = "That's dishonest.", next = "w9_buy2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_buy2 = {
+      lines = { { id = "w9_buy2_d", text = "Vizzklick knows exactly where it comes from, which is why he pays without haggling and why he never sends anyone else to find me. A good buyer protects his supplier, and a good supplier keeps her spiders alive, and everyone else can believe what they like." } },
+      choices = {
+        { text = "A sensible arrangement.", next = "BACK", reply = "It is. I like sensible people, which is why you're still here." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

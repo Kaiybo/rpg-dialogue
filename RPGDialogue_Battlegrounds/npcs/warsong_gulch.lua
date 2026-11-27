@@ -33,6 +33,42 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_night = {
+      lines = {
+        { id = "w2_night_l", text = "With owls on the ramparts and archers in the trees beyond them. The orcs carry torches, for they cannot see as we do, and a torch in the gulch is a target long before it is a threat." },
+      },
+      choices = {
+        { text = "Do they still come at night?", next = "w2_night2" },
+        { text = "Something else, Sentinel.", next = "BACK" },
+      },
+    },
+    w2_night2 = {
+      lines = {
+        { id = "w2_night2_l", text = "The clever ones come without light, and those we meet blade to blade in the tunnel. There are fewer clever ones every season. I do not know whether that means they are learning, or that we are." },
+      },
+      choices = {
+        { text = "Something else, Sentinel.", next = "BACK" },
+      },
+    },
+    w2_off = {
+      lines = {
+        { id = "w2_off_l", text = "I tend the moonwell in the lower court and pray for the sisters who did not come back from the mill. It is a small well, carried here in a stone basin from Astranaar, but Elune's light fills it all the same." },
+      },
+      choices = {
+        { text = "Did you lose someone close?", next = "w2_off2" },
+        { text = "Something else, Sentinel.", next = "BACK" },
+      },
+    },
+    w2_off2 = {
+      lines = {
+        { id = "w2_off2_l", text = "A sister of my own blood, Taelwen, who ran the banner from the mill alone and almost reached the Hold. The orcs say a Warsong warrior took her at the ramp. I have not met him yet, but I watch the ramp for him." },
+      },
+      choices = {
+        { text = "Let vengeance go. Elune would not want it.", next = "BACK", reply = "Perhaps not. But Elune also gave us bows, and I have not yet decided which of her gifts to honour.", fx = { align = { light = 1 } } },
+        { text = "Find him, Sentinel, and end him.", next = "BACK", reply = "I mean to. You understand the gulch better than the priestesses at the Grove, I think.", fx = { align = { light = -1 } } },
+        { text = "Something else, Sentinel.", next = "BACK" },
+      },
+    },
     hello = {
       narr = "She does not turn from the wall, but her hand settles on the glaive at her side.",
       lines = {
@@ -55,6 +91,8 @@ P:NPC {
         { text = "These walls look older than the war itself.", next = "hold" },
         { text = "Who commands the Silverwing Sentinels?", next = "command" },
         { text = "I walk the forest as you do, Sentinel.", next = "kin", when = { race = "NightElf" } },
+        { text = "How do the Sentinels hold the gulch at night?", next = "w2_night" },
+        { text = "What do you do when you're not on the wall?", next = "w2_off" },
         { text = "Elune keep you, Sentinel.", next = "END" },
       },
     },
@@ -176,6 +214,41 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_trees = {
+      lines = {
+        { id = "w2_trees_l", text = "Twenty, on a good day, when the elves are busy elsewhere. On a bad day, none, and three peons dead in the brush with arrows in their backs. Orgrimmar does not count the bad days. I do." },
+      },
+      choices = {
+        { text = "Is the timber worth it?", next = "w2_trees2" },
+        { text = "Something else, Outrider.", next = "BACK" },
+      },
+    },
+    w2_trees2 = {
+      lines = {
+        { id = "w2_trees2_l", text = "Orgrimmar's walls say yes. Every beam in the Warchief's hall came from forests like this one, and we have no other forests. The elves have a thousand leagues of trees. They can spare the gulch." },
+        { id = "w2_trees2_l1", when = { race = "Tauren" }, text = "Orgrimmar's walls say yes, though I know your people would answer differently. We have no other forests, tauren. The elves have a thousand leagues of trees, and we take only the gulch." },
+      },
+      choices = {
+        { text = "Something else, Outrider.", next = "BACK" },
+      },
+    },
+    w2_peons = {
+      lines = {
+        { id = "w2_peons_l", text = "They think it is very loud, and they want to go back to Durotar. I do not blame them. A peon swings an axe at a tree all day and then a cat with a woman's eyes leaps out of it and kills his friend." },
+      },
+      choices = {
+        { text = "Do you protect them?", next = "w2_peons2" },
+        { text = "Something else, Outrider.", next = "BACK" },
+      },
+    },
+    w2_peons2 = {
+      lines = {
+        { id = "w2_peons2_l", text = "That is the Outriders' work, and I take it seriously. Every peon who dies at the mill is a peon Orgrimmar has to send again from the docks. Hellscream fought for his warriors, and I fight for my peons." },
+      },
+      choices = {
+        { text = "Something else, Outrider.", next = "BACK" },
+      },
+    },
     hello = {
       narr = "He leans on a woodsman's axe that has clearly cut more than wood.",
       lines = {
@@ -198,6 +271,8 @@ P:NPC {
         { text = "You fight like Hellscream's own clan.", next = "grom" },
         { text = "Who leads the Outriders?", next = "command" },
         { text = "The Earth Mother weeps for these trees, orc.", next = "tauren", when = { race = "Tauren" } },
+        { text = "How many trees does the mill take in a day?", next = "w2_trees" },
+        { text = "What do the peons think of the fighting?", next = "w2_peons" },
         { text = "Lok'tar ogar, Outrider.", next = "END" },
       },
     },
@@ -310,6 +385,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_banner = {
+      lines = {
+        { id = "w2_banner_l", text = "The crescent of Elune and the wings of the Silverwing, stitched by priestesses at Astranaar from moonweave thread. It has been carried away by orcs and returned to this room more times than I would like to admit." },
+      },
+      choices = {
+        { text = "Has it ever been damaged?", next = "w2_banner2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_banner2 = {
+      lines = {
+        { id = "w2_banner2_l", text = "Once, an orc's axe cut the cloth along one edge. The priestesses offered to weave a new one, and I refused. The cut is mended now with silver thread, and it reminds every Sentinel who sees it that the banner can be lost." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_hist = {
       lines = {
         { id = "y_y_hist", text = "I was a Sentinel in Ashenvale for four centuries before the Warsong came. I watched them cut the first tree, and I swore that day I would stop them. Shandris chose me to guard this banner, and I have not left it since." },
@@ -358,6 +450,7 @@ P:NPC {
         { text = "How long have you been a Sentinel?", next = "y_hist" },
         { text = "Should we seek peace with the Horde?", next = "y_peace" },
         { text = "Elune guide us, Warden.", next = "BACK", when = { race = "NightElf" }, reply = "And you. The banner is our pride; we will not let it go." },
+        { text = "What is woven into the banner itself?", next = "w2_banner" },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -435,6 +528,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_axe = {
+      lines = {
+        { id = "w2_axe_l", text = "Cut trees, as I said. I can still tell a good oak from a bad one by the sound when the axe goes in. The elves sing to their trees. I listen to mine, and I think we hear the same thing, though they will never believe it." },
+      },
+      choices = {
+        { text = "What do the trees sound like?", next = "w2_axe2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_axe2 = {
+      lines = {
+        { id = "w2_axe2_l", text = "Like a warrior who knows he is dying and does not cry out. A good tree falls slowly and loud. I respect that. I would not have told you so when I was young, but this gulch has made me think more than it should." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_hist = {
       lines = {
         { id = "y_y_hist", text = "I was a lumberjack for the Warsong before I was a guard. I cut the trees the elves call holy, and I thought nothing of it. Now the elves come for our banner, and I think of the trees more than I used to." },
@@ -483,6 +593,7 @@ P:NPC {
         { text = "Were you always a guard?", next = "y_hist" },
         { text = "How much of the forest should we take?", next = "y_forest" },
         { text = "Lok'tar. I'll guard the banner.", next = "BACK", when = { race = "Orc" }, reply = "Good. The banner is Grom's legacy. Do not let it fall." },
+        { text = "What did you do before you guarded the banner?", next = "w2_axe" },
         { text = "I'll stand with you. Lok'tar.", next = "END" },
       },
     },

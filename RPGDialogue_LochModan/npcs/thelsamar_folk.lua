@@ -253,6 +253,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_find = {
+      narr = "He produces a smooth grey stone from his pocket and turns it in his fingers.",
+      lines = {
+        { id = "w2_find_l0", text = "This. I dug it from a cut north o' the loch my first year, an' it's got a line o' marks on it no dwarf scholar can read. Jern says it's a whetstone; I say it's the oldest writin' in Khaz Modan." },
+      },
+      choices = {
+        { text = "Who's right, do you think?", next = "w2_find_who" },
+        { text = "It looks like a whetstone to me.", next = "BACK" },
+      },
+    },
+    w2_find_who = {
+      lines = {
+        { id = "w2_find_who_l0", text = "Probably Jern, which is why I'll never let him have it. A dwarf needs one thing in his pocket that might be wonderful, an' this is mine." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -270,7 +288,46 @@ P:NPC {
         { text = "Why does Jern keep you in town?", next = "jern" },
         { text = "What's the League after, really?", next = "league" },
         { text = "My people remember the ancient world.", next = "xnelf", when = { race = "NightElf" } },
+        { text = "What's the hardest part of running the post?", next = "tq_post" },
+        { text = "Have you dug at Ironband's Excavation?", next = "tq_ironband" },
+        { text = "What's the best find you've ever made yourself?", next = "w2_find" },
         { text = "Good luck with the post, Torren.", next = "END" },
+      },
+    },
+    tq_post = {
+      lines = {
+        { id = "tq_post_1", text = "Readin' the letters people leave unsealed, an' tryin' no' tae. Half o' them are from miners who've lost their work tae the troggs, an' the other half are from wives tellin' them tae come home." },
+      },
+      choices = {
+        { text = "That's a sad sort of post.", next = "tq_sad" },
+        { text = "You read the letters?", next = "BACK", reply = "No' on purpose, but the wind does turn the pages." },
+      },
+    },
+    tq_sad = {
+      lines = {
+        { id = "tq_sad_1", text = "It is, an' it's why I'd sooner be down a hole. At least a hole tells ye somethin' honest about the world, an' doesnae ask ye tae carry it tae Ironforge." },
+      },
+      choices = {
+        { text = "I'd rather be in a hole too.", next = "BACK" },
+        { text = "Something else, Torren.", next = "BACK" },
+      },
+    },
+    tq_ironband = {
+      lines = {
+        { id = "tq_ironband_1", text = "Once, before Jern sent me back tae the post, an' I've no' stopped thinkin' about it. Prospector Ironband's found somethin' old in the stone there, an' the Dark Irons want it as much as he does." },
+      },
+      choices = {
+        { text = "What did he find?", next = "tq_find" },
+        { text = "I'm a dwarf. The titans' work fascinates me.", next = "tq_find", when = { race = "Dwarf" } },
+      },
+    },
+    tq_find = {
+      lines = {
+        { id = "tq_find_1", text = "Carvings that look like nothin' I've seen, deeper than any dwarven work. Ironband thinks the titans left them, an' if he's right, it's the biggest find in Khaz Modan since Uldaman." },
+      },
+      choices = {
+        { text = "Then I'll visit Ironband.", next = "BACK", fx = { learn = { "explorers_league" } } },
+        { text = "The titans in Loch Modan? Remarkable.", next = "BACK" },
       },
     },
 
@@ -357,6 +414,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_worst = {
+      lines = {
+        { id = "w2_worst_l0", text = "A sword made by a goblin in Booty Bay, sold tae a farmer from Westfall, carried all the way here by his son. It bent when I tapped it on the bench, an' the lad cried, for his father had paid a season's wheat for it." },
+      },
+      choices = {
+        { text = "What did you do?", next = "w2_worst_lad" },
+        { text = "The goblin should be made to pay.", next = "BACK" },
+      },
+    },
+    w2_worst_lad = {
+      lines = {
+        { id = "w2_worst_lad_l0", text = "Gave him one o' mine, an' told him it was a trade for the scrap. Mine was worth ten o' the goblin's, an' he knew it, an' he's never once come back tae Thelsamar wi'out stoppin' tae say hello." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -376,6 +450,7 @@ P:NPC {
         { text = "I'm training at the anvil myself.", next = "xsmith", when = { profession = { name = "Blacksmithing", min = 1 } } },
         { text = "You still keep an eye on Thelsamar's steel.", next = "town" },
         { text = "I've met Jordan Stilwell in Ironforge.", next = "metjordan", when = { any = { { class = "PALADIN" }, { profession = "Blacksmithing" } } } },
+        { text = "What's the worst weapon you've ever been handed?", next = "w2_worst" },
         { text = "Good day, Bailor.", next = "END" },
       },
     },

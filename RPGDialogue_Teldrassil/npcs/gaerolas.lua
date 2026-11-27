@@ -60,6 +60,7 @@ P:NPC {
         { text = "Will I one day sleep in the Dream myself?", next = "druid_g", when = { class = "DRUID" } },
         { text = "Let me look at that wound.", next = "heal_g", when = { class = { "PRIEST", "PALADIN", "SHAMAN", "DRUID" } } },
         { text = "I'll carry your message.", next = "BUSINESS" },
+        { text = "What is a Great Warden's duty?", next = "w_duty" },
         { text = "Rest well, Warden.", next = "END" },
       },
     },
@@ -171,6 +172,25 @@ P:NPC {
       choices = {
         { text = "Hold still, Warden.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_duty = {
+      lines = {
+        { id = "w_duty_default", text = "To keep the sleeping bodies safe while their spirits walk with Ysera, and to wake them if the world has need of them, which I have never once had to do. I turn them, I keep the barrow dry, and I sing to them, though I doubt they hear it." },
+      },
+      choices = {
+        { text = "Why sing, if they can't hear?", next = "w_duty2" },
+        { text = "That's a lonely duty.", next = "w_duty2" },
+      },
+    },
+    w_duty2 = {
+      lines = {
+        { id = "w_duty2_default", text = "Because a barrow den is very quiet, and quiet is where a warden starts to doubt. The song keeps me awake and keeps me honest. And once, years ago, one of the sleepers smiled at the third verse, and I have sung it every night since." },
+        { id = "w_duty2_w1", when = { class = "DRUID" }, text = "You may sleep there one day, as I said. If you do, I hope your warden sings, and sings badly, as I do." },
+      },
+      choices = {
+        { text = "They'll hear you one day.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Warden.", next = "BACK" },
       },
     },
   },

@@ -48,7 +48,27 @@ P:NPC {
         { text = "You look to be running low on a few things.", next = "low" },
         { text = "I could bring supplies from Gadgetzan.", next = "help", when = { minLevel = 55 } },
         { text = "Let me see what you have.", next = "BUSINESS" },
+        { text = "Who are your customers here, mostly?", next = "customers" },
+        { text = "What's the Hold like to live in?", next = "living" },
+        { text = "You could close the shop and go home.", next = "w9_home" },
         { text = "Good luck with the shipment.", next = "END" },
+      },
+    },
+
+    w9_home = {
+      lines = { { id = "w9_home_d", text = "I think about it every night, and every morning a soldier comes in needing thread for a torn tabard, or a cook needs salt, and I'm still here. Feathermoon has rain and trees and customers who don't track sand across my floor, and I miss all three terribly." } },
+      choices = {
+        { text = "Then why stay?", next = "w9_home2" },
+        { text = "Someone else could do this job.", next = "w9_home2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_home2 = {
+      lines = { { id = "w9_home2_d", text = "Because nobody else applied, mostly, and because the one time I left for a week, the Hold ran out of flux and Vargus was so cross that the anvil cracked. I'm not saying it was my fault, but I'm not saying it wasn't, either." } },
+      choices = {
+        { text = "The Hold needs you.", next = "BACK", reply = "That's what everyone says, and nobody brings salt." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     goblin = {
@@ -76,6 +96,40 @@ P:NPC {
     help = {
       lines = { { id = "h2_default", text = "Would you? That's kind, but the Hold can only buy through the Circle's agreements, and I'd only get scolded. Still, if you see a goblin with a cart, kick him toward me." } },
       choices = { { text = "I'll keep an eye out.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    customers = {
+      lines = { { id = "cs_default", text = "Vargus, who needs flux and coal and glares at me when I haven't any, and the druids, who need thread for their robes and never remember their sizes. And the soldiers from both camps, who come in looking for salt and leave with whatever I've got, because there's nowhere else." } },
+      choices = {
+        { text = "Both camps buy from you?", next = "customers2" },
+        { text = "A monopoly in the desert. Most traders would envy you.", next = "customers2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    customers2 = {
+      lines = { { id = "cs2_default", text = "Oh yes, and they stand on opposite sides of the counter and pretend the other isn't there. A dwarf bought the last spool of heavy thread yesterday, and an orc came in an hour later and looked at me as though I'd betrayed the Horde. Envy me, if you like. I'd trade it all for a reliable goblin." } },
+      choices = {
+        { text = "Does the Circle ever take sides at your counter?", next = "customers3" },
+        { text = "Rare thing, a reliable goblin. Something else.", next = "BACK" },
+      },
+    },
+    customers3 = {
+      lines = { { id = "cs3_default", text = "Never, thank Elune, though Windcaller Proudhorn did suggest I sell to the two camps on alternate days. I tried it for a week, and both sides came on the wrong day anyway and blamed me for it. Now I just sell to whoever's first through the door." } },
+      choices = { { text = "First through the door. Something else.", next = "BACK" } },
+    },
+    living = {
+      lines = { { id = "lv_default", text = "Hot, and sandy, and terribly quiet at night except for the hum from the hives, which you stop hearing after a month and start hearing again whenever you can't sleep. Calandrath keeps the inn, and her tea is the only thing that's ever made it bearable." } },
+      choices = {
+        { text = "The hum from the hives?", next = "living2" },
+        { text = "A good inn makes any place bearable.", next = "living2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    living2 = {
+      lines = { { id = "lv2_default", text = "A low sound under everything, like a kettle that never boils. The druids say it's the silithid talking to each other, and some of the soldiers say it's something bigger. I try not to think about it, and I make lists instead, of everything the goblin hasn't brought me." } },
+      choices = {
+        { text = "I'm a night elf. Elune will keep the hum at bay.", next = "BACK", reply = "Oh, I hope so. I light a candle to her every night, just in case.", when = { race = "NightElf" } },
+        { text = "Something else, Mishta.", next = "BACK" },
+      },
     },
   },
 

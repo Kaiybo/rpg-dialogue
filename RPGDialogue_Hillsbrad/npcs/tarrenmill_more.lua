@@ -943,6 +943,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_worst = {
+      lines = {
+        { id = "w3_worst_1", text = "A courier bound for the Undercity whose bat took a fright at a lightning flash over the lake and flew the wrong way entirely, straight down to Southshore. It landed on the church roof, and the courier sat up there for an hour while the militia argued about whether to shoot." },
+      },
+      choices = {
+        { text = "Did they shoot?", next = "w3_shoot" },
+        { text = "Bats and lightning don't mix, then.", next = "BACK", reply = "Nothing mixes with lightning, {class}, but bats less than most. I keep them down whenever a storm comes off the mountains." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_shoot = {
+      lines = {
+        { id = "w3_shoot_1", text = "They threw cabbages, which is what Southshore keeps for emergencies, apparently. The bat ate two and flew home, and the courier has asked never to be sent over water again, which I've granted." },
+      },
+      choices = {
+        { text = "Cabbages. Of course. Something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "They fear the bats already, and a dead knight carrying the Light would frighten them twice over, because it's the last thing they'd expect. I find that very funny, {class}, though I suppose you might not." } },
@@ -1054,6 +1072,7 @@ P:NPC {
         { text = "I'd like to tame one of your bats, Zarise.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do the bats mind their work, Zarise?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do the living fear a paladin of the Forsaken, Zarise?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "What's the worst flight you ever sent up?", next = "w3_worst" },
         { text = "Not today.", next = "END" },
       },
     },
@@ -1109,6 +1128,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_regular = {
+      lines = {
+        { id = "w3_regular_1", text = "Krusk, the orc, who comes in every morning and buys three days' rations for two orcs who aren't here. He says it's for when Drull and Tog'thar come back from Durnholde, and he stacks it in his tent, and I've never once told him how much he's got." },
+      },
+      choices = {
+        { text = "How much has he got?", next = "w3_stack" },
+        { text = "That's a sad sort of faith.", next = "BACK", reply = "It's a stubborn sort. I sell him the rations, and I give him the stale ones last, so the fresh ones are on top when they come home." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_stack = {
+      lines = {
+        { id = "w3_stack_1", text = "Enough to feed a patrol for a month. When those two walk back into Tarren Mill, they'll find the best-stocked tent in the Horde, and Krusk will pretend he just happened to have it lying about." },
+      },
+      choices = {
+        { text = "I hope they come back soon. Something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Rope, bandages and patience, same as everyone, though some say paladins need a little more of the last. I'd keep a few bandages anyway, because I hear the Light doesn't always come as quickly to a dead hand as to a living one." } },
@@ -1205,6 +1242,7 @@ P:NPC {
         { text = "What do warriors buy from you most, Kayren?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "I've not seen many living Horde in Tarren Mill.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Does a paladin need anything the other dead don't, Kayren?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Who's your most regular customer?", next = "w3_regular" },
         { text = "Nothing today.", next = "END" },
       },
     },

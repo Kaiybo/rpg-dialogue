@@ -84,7 +84,28 @@ P:NPC {
         { text = "Tell me about the bronze flight.", next = "y_flight" },
         { text = "Should mortals be told what is to come?", next = "y_choose" },
         { text = "I study the arcane. Can time be bent?", next = "BACK", when = { class = "MAGE" }, reply = "It can, and that is precisely why my flight exists. Study fire, mage, and leave the river alone." },
+        { text = "You wear that elf's shape like a heavy coat.", next = "w9_shape" },
         { text = "I'll leave you to your watch.", next = "END" },
+      },
+    },
+
+    w9_shape = {
+      lines = {
+        { id = "w9_shape_d", text = "Perceptive. This form is small and slow, and it aches in the heat as a body does, but mortals will speak with an old elf where they would only flee from a dragon. I have worn it so long that I sometimes forget which shape is the disguise." },
+        { id = "w9_shape_v1", when = { race = "NightElf" }, text = "You would know it, kaldorei. I chose your people's shape because the elves of old were the first to learn that dragons walked among them, and it seemed fitting to be remembered so. It aches in the heat, as all mortal shapes do." },
+      },
+      choices = {
+        { text = "Do you ever forget which you are?", next = "w9_shape2" },
+        { text = "Does Nozdormu wear a mortal shape too?", next = "w9_shape2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_shape2 = {
+      lines = { { id = "w9_shape2_d", text = "The Timeless One wears whatever shape a moment needs, and none of them for long. As for me, I remember, because remembering is my charge, but a dragon who spends a thousand years as an old elf learns a little of what it is to be one, and that is no bad thing." } },
+      choices = {
+        { text = "That sounds lonely.", next = "BACK", reply = "It is the price of watching. I pay it gladly, though not always cheerfully." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     caverns = {
@@ -572,7 +593,26 @@ P:NPC {
         { text = "What of your kin now?", next = "y_kin" },
         { text = "Should you warn the land-dwellers?", next = "y_warn" },
         { text = "Elune still remembers your kind.", next = "BACK", when = { race = "NightElf" }, reply = "Does she? Then she remembers more than I do. I would like to think it is true." },
+        { text = "Do the pirates at Lost Rigger Cove trouble you?", next = "w9_pir" },
         { text = "Farewell, naga.", next = "END" },
+      },
+    },
+
+    w9_pir = {
+      lines = { { id = "w9_pir_d", text = "They do not see me, which is the same thing as peace. I watch their ships come and go along the coast, and I hear them sing badly in the night, and sometimes their dead come to rest in the water near my den." } },
+      choices = {
+        { text = "What do you do with their dead?", next = "w9_pir2" },
+        { text = "They'd kill you if they saw you.", next = "w9_pir2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_pir2 = {
+      lines = { { id = "w9_pir2_d", text = "I give them back to the sand, land-dweller, above the tide line, so the crabs do not have them. My kin would take their gold and leave their bones, and I would rather be the kind of creature that buries strangers." } },
+      choices = {
+        { text = "Even pirates deserve that much.", next = "BACK", fx = { align = { light = 1 } }, reply = "I think so. The sea does not ask what a man was, only that he is gone." },
+        { text = "Let the sea keep them. They earned it.", next = "BACK", fx = { align = { light = -1 } }, reply = "Perhaps. But I am the one who must look at the water afterwards." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     leave = {
@@ -700,7 +740,25 @@ P:NPC {
         { text = "Do you ever want to see the sea?", next = "y_sea" },
         { text = "What will you do when Tooga comes home?", next = "y_tooga" },
         { text = "I can talk to animals a little.", next = "BACK", when = { class = "HUNTER" }, reply = "Then you know Torta is not an animal. Torta is a turtle. There is a difference." },
+        { text = "Are there other turtles out here?", next = "w9_turtles" },
         { text = "I'll look out for him.", next = "END" },
+      },
+    },
+
+    w9_turtles = {
+      lines = { { id = "w9_turtles_d", text = "There are sea turtles along the shore, who are big and rude and think they are better because they swim. Torta does not speak to them, and they do not speak to Torta, which is how Torta likes it." } },
+      choices = {
+        { text = "What did they do to you?", next = "w9_turtles2" },
+        { text = "Maybe Tooga went to visit them.", next = "w9_turtles2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_turtles2 = {
+      lines = { { id = "w9_turtles2_d", text = "One of them said Torta's shell was small, a very long time ago, and Torta has not forgotten. If Tooga went to talk to the sea turtles, Torta will be even more cross than Torta already is, and that is very cross." } },
+      choices = {
+        { text = "Your shell looks perfectly fine to me.", next = "BACK", reply = "<Torta blinks slowly.> You are not Tooga, but you are not so bad." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     where = {
@@ -784,7 +842,25 @@ P:NPC {
         { text = "Why was this record left?", next = "xwhy" },
         { text = "Are you alive?", next = "xalive" },
         { text = "I'm a mage. What do the Keepers say of magic?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Uldaman holds a record like you.", next = "w9_uld" },
         { text = "End the record.", next = "END" },
+      },
+    },
+
+    w9_uld = {
+      lines = { { id = "w9_uld_d", text = "Confirmed. The discs you carry were retrieved from the vaults of Uldaman, where a guardian named Archaedas was set to keep watch over the sleeping earthen. Records are distributed across many sites, so that no single loss erases the whole." } },
+      choices = {
+        { text = "What happened at Uldaman?", next = "w9_uld2" },
+        { text = "I've seen Archaedas. He wasn't friendly.", next = "w9_uld2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_uld2 = {
+      lines = { { id = "w9_uld2_d", text = "Data degraded. The earthen of that vault were sealed in stone to sleep, and the guardian was instructed to wake only against intruders. Your presence here suggests the guardian has encountered you. *The projection flickers briefly.* Outcome not recorded." } },
+      choices = {
+        { text = "The outcome was me standing here.", next = "BACK", reply = "Noted. Record updated: creature persistent." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     titans = {
@@ -917,7 +993,28 @@ P:NPC {
         { text = "What is the Lunar Festival?", next = "y_lunar" },
         { text = "What of the goblins digging in the ruins?", next = "y_goblins" },
         { text = "The Earth Mother walks with you.", next = "BACK", when = { race = "Tauren" }, reply = "And with you, child. Even here, where the sand hides her face." },
+        { text = "How does a tauren bear heat like this?", next = "w9_heat" },
         { text = "May the eternal sun shine on you.", next = "END" },
+      },
+    },
+
+    w9_heat = {
+      lines = {
+        { id = "w9_heat_d", text = "Slowly, child, the way a kodo crosses a dry plain, without wasting a step or a breath. I keep to the shade at midday, I drink before I am thirsty, and I do not argue with the sun, for the sun has never once lost that argument." },
+        { id = "w9_heat_v1", when = { race = "Tauren" }, text = "You feel it in your hide as I do, sister or brother of the plains. We were made for grass and rain, not this, so walk slowly, drink before you thirst, and let the sun have its way at midday." },
+      },
+      choices = {
+        { text = "Where do you find water out here?", next = "w9_heat2" },
+        { text = "The goblins sell water in Gadgetzan.", next = "w9_heat2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_heat2 = {
+      lines = { { id = "w9_heat2_d", text = "The goblins of Gadgetzan sell it from their spigots, and they charge a price for it that would make a Grimtotem blush. Still, they do not turn away a thirsty elder, and the young one who keeps the pumps says huzzah with a whole heart, so I forgive him a little." } },
+      choices = {
+        { text = "Water should not have a price.", next = "BACK", reply = "No, it should not. But the desert does not ask what should be." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     desert = {
@@ -1032,7 +1129,28 @@ P:NPC {
         { text = "Do the goblins bother you?", next = "y_goblin" },
         { text = "If you could open the gates, would you?", next = "y_open" },
         { text = "I know Uldaman's stonework.", next = "BACK", when = { race = "Dwarf" }, reply = "Do ye now? Then ye'll see it too, the same lines, the same old hands. I'm nae mad after all!" },
+        { text = "That notebook of yours looks well thumbed.", next = "w9_book" },
         { text = "Good luck with your digging.", next = "END" },
+      },
+    },
+
+    w9_book = {
+      lines = {
+        { id = "w9_book_d", text = "Aye, it's my whole life out here, and half of it's sand by now. Every glyph on those gates, every crack in the stone and every time the light changes on 'em, I've drawn it, for the League'll want proof I wasnae just sittin' in the shade." },
+        { id = "w9_book_v1", when = { race = "Dwarf" }, text = "Ye'd understand, kinsman, for every dwarf o' the League keeps one like a second beard. Every glyph on those gates is in here, an' every crack, an' every time the light shifts, because Ironforge'll want proof an' not just a tale." },
+      },
+      choices = {
+        { text = "Have you found anything in the glyphs?", next = "w9_book2" },
+        { text = "You could just be drawing sand.", next = "w9_book2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_book2 = {
+      lines = { { id = "w9_book2_d", text = "One wee thing, an' it's a beauty: the same mark keeps turnin' up, three lines meetin' under a circle, an' I've seen its twin in Uldaman. If I'm right, whoever built that place built this one too, an' the stone's been tryin' to tell us so for longer than there've been dwarves to listen." } },
+      choices = {
+        { text = "Brann Bronzebeard would want to see that.", next = "BACK", reply = "Aye, an' he'll get it, when I'm sure. Brann doesnae like guesses." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     gates = {
@@ -1138,7 +1256,25 @@ P:NPC {
         { text = "Who's your worst customer?", next = "y_worst" },
         { text = "Do you ever let anyone off?", next = "y_mercy" },
         { text = "I'm a goblin too. What's the discount?", next = "BACK", when = { race = "Goblin" }, reply = "Discount? Pal, you get the family rate. That's the regular rate, but I smile while I say it." },
+        { text = "What other departments does the Cartel have?", next = "w9_dept" },
         { text = "I'll pass for now.", next = "END" },
+      },
+    },
+
+    w9_dept = {
+      lines = { { id = "w9_dept_d", text = "Oh, pal, you don't want the whole directory. There's Collections, which is me with less charm, Acquisitions, which is pirates with paperwork, and Insurance, which takes your money for a disaster and then explains why your disaster doesn't count." } },
+      choices = {
+        { text = "And which department is worst?", next = "w9_dept2" },
+        { text = "It all sounds like the same racket.", next = "w9_dept2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_dept2 = {
+      lines = { { id = "w9_dept2_d", text = "Insurance, every time, and I say that with respect, because they're the only goblins I've ever been scared of. Second Chances is the nice department, buddy, which is why I'm stuck out here in the sand while Insurance gets an office in Booty Bay." } },
+      choices = {
+        { text = "You sound jealous.", next = "BACK", reply = "Jealous? Sure. Their chairs have cushions, pal." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     how = {
@@ -1242,7 +1378,7 @@ P:NPC {
     },
     hello = {
       lines = { { id = "h_default", text = "Name's Quinn. I don't sell anything today, so you can relax your coin purse. I just know where everything in Gadgetzan comes from and who's overcharging for it." } },
-      again = { { id = "h_again", text = "Something else on your mind?" } },
+      again = { { id = "h_again", text = "Something else? Ask while I'm in the shade and feeling generous, honey, because neither lasts." } },
       choices = {
         { text = "What's life like in Gadgetzan?", next = "life" },
         { text = "What do you think of the bruisers?", next = "bruisers" },
@@ -1254,7 +1390,25 @@ P:NPC {
         { text = "Don't you get lonely here?", next = "y_lonely" },
         { text = "Anyone asking you questions lately?", next = "y_secret2" },
         { text = "Who should I avoid in town?", next = "BACK", when = { class = "ROGUE" }, reply = "Anyone who smiles too much. In Gadgetzan, a smile is usually a price tag." },
+        { text = "That invoice you're fanning with isn't yours.", next = "w9_inv" },
         { text = "Enjoy the shade, Quinn.", next = "END" },
+      },
+    },
+
+    w9_inv = {
+      lines = { { id = "w9_inv_d", text = "Sharp eyes. It belongs to the water seller, who left it on the counter of the inn last week, and it says he owes the Cartel more than he'll ever admit to his customers. I keep it because it's useful, and because it makes a better fan than anything I'd pay for." } },
+      choices = {
+        { text = "What will you do with it?", next = "w9_inv2" },
+        { text = "That's blackmail, Quinn.", next = "w9_inv2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_inv2 = {
+      lines = { { id = "w9_inv2_d", text = "Nothing, probably, unless he raises the price of water on me again. In Gadgetzan you don't spend a secret, honey, you just let people know you've got one, and they start being very nice to you." } },
+      choices = {
+        { text = "Clever. Ruthless, but clever.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
       },
     },
     life = {

@@ -57,7 +57,25 @@ P:NPC {
         { text = "Can I see that detector's workings?", next = "engineer", when = { profession = "Engineering" } },
         { text = "These ornaments were holy to my people once.", next = "troll", when = { race = "Troll" } },
         { text = "What do you need?", next = "BUSINESS" },
+        { text = "So tell me about this pillar you talk to.", next = "w9_pillar" },
         { text = "Good luck with the research.", next = "END" },
+      },
+    },
+
+    w9_pillar = {
+      lines = { { id = "w9_pillar_d", text = "Ah, my only colleague! It's a broken troll column I dragged out of the sand, carved with Gahz'rilla from top to bottom, and it's the only one in camp that's never interrupted me. I tell it my theories, and it gives me exactly the same expression every time, which I've decided is approval." } },
+      choices = {
+        { text = "What do the carvings show?", next = "w9_pillar2" },
+        { text = "You need more company, Marvon.", next = "w9_pillar2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_pillar2 = {
+      lines = { { id = "w9_pillar2_d", text = "A hydra with more heads than I can count, rising out of a pool while trolls bow down to it, and a gong at the bottom like the one they say hangs in Zul'Farrak. If I'm right, they rang it to call the beast, and if I'm wrong, I've spent a month talking to a decorative rock." } },
+      choices = {
+        { text = "I'd keep away from that gong.", next = "BACK", reply = "Oh, I mean to, buddy! I study gongs, I don't ring 'em." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     crash = {

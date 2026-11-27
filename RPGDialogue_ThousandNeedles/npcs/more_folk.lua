@@ -43,7 +43,54 @@ P:NPC {
         { text = "Who is this diplomat you mentioned?", next = "diplomat" },
         { text = "A night elf alone this far south is unusual.", next = "alone" },
         { text = "I know the Scourge well. I was one of them.", next = "forsaken", when = { race = "Scourge" } },
+        { text = "What did you learn of the quilboar before all this?", next = "boar" },
+        { text = "What leads the cult below the hill?", next = "cold" },
+        { text = "Elune guide you, sister. What does the moon show you here?", next = "moon_ne", when = { race = "NightElf" } },
         { text = "I'll leave you to your watch.", next = "END" },
+      },
+    },
+    boar = {
+      lines = { { id = "boar_d", text = "That they are older in this land than most travellers believe, and prouder. The Razorfen say the great thorns grew from the blood of Agamaggan, their boar spirit, when he fell in the War of the Ancients, and they have defended his briars ever since." } },
+      choices = {
+        { text = "And now the briars hide the Scourge.", next = "boar_now" },
+        { text = "A strange spirit for a people to worship.", next = "boar_odd" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    boar_now = {
+      lines = { { id = "boar_now_d", text = "Yes, and that is what grieves me most. The quilboar of the Downs did not lose a war; they were persuaded, by something that promised their dead would rise again to fight beside them, and now they kneel to it." } },
+      choices = {
+        { text = "Then they can still be freed of it.", next = "BACK", reply = "Some, perhaps. The rest have gone too far into the cold to come back." },
+        { text = "Let us speak of other things.", next = "BACK" },
+      },
+    },
+    boar_odd = {
+      lines = { { id = "boar_odd_d", text = "No stranger than a moon or a stag, and Agamaggan bled for this world when the Legion first came. I did not come to judge the quilboar's faith, only to learn it, though I confess I did not expect to find it so twisted." } },
+      choices = {
+        { text = "Fair. Something else.", next = "BACK" },
+        { text = "I meant no insult to their spirit.", next = "BACK", reply = "I know. Few strangers mean it, and most still manage it." },
+      },
+    },
+    cold = {
+      lines = { { id = "cold_d", text = "I do not know its name for certain, but I have felt it. When I go near the great maw the air turns cold enough to frost the briars, even at midday, and the quilboar mutter of a master who never sleeps and never warms." } },
+      choices = {
+        { text = "That sounds like a lich.", next = "cold_lich" },
+        { text = "Then the cold is your warning.", next = "BACK", reply = "It is, and I listen to it. Stay out of the maw alone, I beg you." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cold_lich = {
+      lines = { { id = "cold_lich_d", text = "That is my fear too, though I would rather be wrong. A lich in the Razorfen would mean the Scourge did not come here by chance, and that the Barrens' edge is closer to Northrend than anyone in Kalimdor would wish to believe." } },
+      choices = {
+        { text = "Then someone must go in and end it.", next = "BACK", reply = "Someone with friends, and courage, and luck. I hope it will be you." },
+        { text = "Back to other matters.", next = "BACK" },
+      },
+    },
+    moon_ne = {
+      lines = { { id = "moon_ne_d", text = "Ishnu-alah, sister. The moon shines on these briars as it shines on Teldrassil, but here its light turns grey before it touches the ground, and I have prayed under it every night without feeling her answer." } },
+      choices = {
+        { text = "Elune hears, even when she's silent.", next = "BACK", reply = "You are kind to remind me. I will keep praying, and keep watching." },
+        { text = "Something else, then.", next = "BACK" },
       },
     },
     found = {
@@ -146,7 +193,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? I have nothing to do but sweep." },
         { id = "h_again2", text = "Ask me anything, I am glad of the company." },
-        { id = "h_again3", text = "Yes?" },
+        { id = "h_again3", text = "Yes? Sorry, I was watching Nyse take off again, I always do." },
       },
       choices = {
         { text = "What does a wind rider apprentice do?", next = "work" },
@@ -156,7 +203,36 @@ P:NPC {
         { text = "I'll go to Highperch for you.", next = "highperch", when = { questActive = TODO_QUEST("Wind Rider") } },
         { text = "A beast knows fear. I can tell you how to hide it.", next = "fear", when = { class = "HUNTER" } },
         { text = "Mulgore will see you fly home yet.", next = "home", when = { race = "Tauren" } },
+        { text = "What would you name your own wind rider?", next = "w7_name" },
         { text = "Clear skies, Elu.", next = "END" },
+      },
+    },
+    w7_name = {
+      lines = {
+        { id = "w7_name_l1", text = "I have a list! It is very long, and Nyse says that a wind rider names itself by how it flies, so I should burn the list. But I like Stormhide, or Sunbrother, or perhaps Highperch, after the spires the eggs came from." },
+      },
+      choices = {
+        { text = "Stormhide is a fine name.", next = "w7_name2" },
+        { text = "Nyse is right. Let it name itself.", next = "w7_name3" },
+        { text = "Something else, Elu.", next = "BACK" },
+      },
+    },
+    w7_name2 = {
+      lines = {
+        { id = "w7_name2_l1", text = "You think so? Then it goes to the top of the list, and I will tell Nyse a traveller agreed with me, which will make him sigh. He sighs a great deal around me, but I think he means it kindly." },
+        { id = "w7_name2_l2", when = { race = "Tauren" }, text = "You think so? My grandmother in Bloodhoof would say a name is a wish you give to the young one, and I would wish a storm's courage on it. Thank you; it goes to the top." },
+      },
+      choices = {
+        { text = "I'm sure he does.", next = "BACK", reply = "I hope so. I mean to make him proud, one day soon." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_name3 = {
+      lines = {
+        { id = "w7_name3_l1", text = "I know, I know, and I will, when the time comes. But a list is something to hold on to while I sweep, and I have swept a great deal." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     work = {
@@ -302,7 +378,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else, chum? Clock's runnin', but go ahead." },
         { id = "h_again2", text = "Ask away, I can talk and solder." },
-        { id = "h_again3", text = "Yeah?" },
+        { id = "h_again3", text = "Yeah, chum? Spit it out, I got a soldering iron that's cooling and that's money walkin' away." },
       },
       choices = {
         { text = "What exactly is this tonic?", next = "tonic" },
@@ -311,7 +387,36 @@ P:NPC {
         { text = "What's a hypercapacitor gizmo doing in a panther cage?", next = "gizmo" },
         { text = "I know machines. Tell me how your robot works.", next = "robot", when = { profession = "Engineering" } },
         { text = "Night elves won't mind one of their own at the well.", next = "nelf", when = { race = "NightElf" } },
+        { text = "What else are you selling, besides the tonic?", next = "w7_stock" },
         { text = "Later, Wizlo.", next = "END" },
+      },
+    },
+    w7_stock = {
+      lines = {
+        { id = "w7_stock_l1", text = "Glad ya asked, pal! I got self-tightening bootlaces, a pocket fan that only occasionally sets your hair on fire, and a scorpid repellent that works on everything except scorpids, which I'm still workin' on." },
+      },
+      choices = {
+        { text = "Who buys bootlaces out here?", next = "w7_stock2" },
+        { text = "None of that sounds like it works.", next = "w7_stock3" },
+        { text = "Something else, Wizlo.", next = "BACK" },
+      },
+    },
+    w7_stock2 = {
+      lines = {
+        { id = "w7_stock2_l1", text = "Nobody, friend, that's the problem with a captive market: the captives are tauren, and tauren don't wear boots. I sold one pair to Motega Firemane for a kodo and he hung 'em on his tent pole as a warning to other goblins." },
+        { id = "w7_stock2_l2", when = { profession = "Engineering" }, text = "Nobody, pal, but you and me both know that ain't the point. The point is the spring coil inside, which I'm gonna sell to Pozzik at the raceway for twice what the laces cost, once I convince him it's for steering." },
+      },
+      choices = {
+        { text = "You'll find a buyer someday.", next = "BACK", reply = "Somebody always buys, friend. It's just a matter of findin' 'em before the interest does." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_stock3 = {
+      lines = {
+        { id = "w7_stock3_l1", text = "Works is a relative term, pal. Everything works, it just don't always work at the thing it's for." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     tonic = {
@@ -446,7 +551,7 @@ P:NPC {
         { id = "h_done", when = { questDone = TODO_QUEST("The Swarm Grows") }, text = "Belgrom has your proof, and he knows now that I was not seeing shadows. You did the Horde a service that few will ever hear of." },
       },
       again = {
-        { id = "h_again", text = "What else? Be brief." },
+        { id = "h_again", text = "What else? Say it plainly; a warrior on watch has no time for long speeches." },
         { id = "h_again2", text = "Ask. I am watching the ridge, not ignoring you." },
         { id = "h_again3", text = "Speak." },
       },
@@ -457,7 +562,36 @@ P:NPC {
         { text = "Korran in the Barrens spoke of you.", next = "korran" },
         { text = "Orgrimmar should send you more blades.", next = "blades", when = { race = "Orc" } },
         { text = "I've seen insects like these in Tanaris.", next = "tanaris", when = { minLevel = 40 } },
+        { text = "What did the dwarves leave behind at the dig?", next = "w7_left" },
         { text = "Strength and honour, Moktar.", next = "END" },
+      },
+    },
+    w7_left = {
+      lines = {
+        { id = "w7_left_l1", text = "Tents, tools and a great deal of paper. The Explorers' League writes down everything, even their fear, and some of the last pages in the foreman's book are about noises under the rock that nobody wanted to hear." },
+      },
+      choices = {
+        { text = "What did the pages say?", next = "w7_left2" },
+        { text = "Paper. That's all dwarves leave.", next = "w7_left3" },
+        { text = "Something else, Moktar.", next = "BACK" },
+      },
+    },
+    w7_left2 = {
+      lines = {
+        { id = "w7_left2_l1", text = "That the rock was hollow under the dig, and warm, and that it clicked at night like a thousand beetles. I cannot read Dwarvish well, but I read enough to know the last line was a prayer, and that it stopped halfway." },
+        { id = "w7_left2_l2", when = { race = "Dwarf" }, text = "You will read it better than I did, so I will tell you plainly: your people heard the swarm long before we came, and stayed for their relics. The last page is a prayer to the titans, and it ends in the middle." },
+      },
+      choices = {
+        { text = "Then they knew before you came.", next = "BACK", reply = "They knew. They stayed for stones. I would not have." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_left3 = {
+      lines = {
+        { id = "w7_left3_l1", text = "They left more than paper. They left the hole, and what lives in it, and I am the one who must sit and watch it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     silithid = {
@@ -594,7 +728,7 @@ P:NPC {
         { id = "h_orc", when = { race = "Orc" }, text = "I am Montarr. The orcs keep their history in songs of battle, and we keep ours in the land itself, so you may find my stories slow. They are meant to be." },
       },
       again = {
-        { id = "h_again", text = "What else would you hear?" },
+        { id = "h_again", text = "What else would you hear, young one? The wind carries my stories off the mesa if I tell them too fast." },
         { id = "h_again2", text = "Ask. I have a long memory and a short day." },
         { id = "h_again3", text = "Yes?" },
       },
@@ -606,7 +740,36 @@ P:NPC {
         { text = "What do the spirits of this canyon say?", next = "spirits", when = { class = { "SHAMAN", "DRUID" } } },
         { text = "Which spire did my ancestors camp beneath?", next = "ancestors", when = { race = "Tauren" } },
         { text = "Tell me one of your stories.", next = "stories" },
+        { text = "Which name do you speak first each morning?", next = "w7_first" },
         { text = "Keep the stories well, Montarr.", next = "END" },
+      },
+    },
+    w7_first = {
+      lines = {
+        { id = "w7_first_l1", text = "The name of a calf called Little Dawn, who fell from the western spire when the post was first built, before the rope rails went up. Nobody else remembers her now, so I say her name before all the great chieftains, so she is never the one I forget." },
+      },
+      choices = {
+        { text = "That's a kind thing to do.", next = "w7_first2" },
+        { text = "Why remember a calf over chieftains?", next = "w7_first3" },
+        { text = "Something else, Montarr.", next = "BACK" },
+      },
+    },
+    w7_first2 = {
+      lines = {
+        { id = "w7_first2_l1", text = "It is a small thing, and lorekeeping is mostly small things done every day. The chieftains have songs; Little Dawn only has me, and when I go to the Earth Mother, I will teach her name to whoever keeps the stories after." },
+        { id = "w7_first2_l2", when = { race = "Tauren" }, text = "Kindness is the Earth Mother's own work, and I only borrow it. When you go home to your herd, young one, ask your elders for the small names, the ones nobody sings, and keep one of them yourself." },
+      },
+      choices = {
+        { text = "I'll remember her too.", next = "BACK", reply = "Then she has two of us now. That is twice as safe." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_first3 = {
+      lines = {
+        { id = "w7_first3_l1", text = "Because a chieftain is remembered by the whole tribe, and a calf only by those who loved her, and they are gone. The great names will survive without me; the small ones will not." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     keep = {
@@ -736,7 +899,7 @@ P:NPC {
         { id = "h_orc", when = { race = "Orc" }, text = "I am Starn. Orcs come to me for guns, mostly, and I sell them, and each time I ask them to hold a bow first. One in ten walks away with the bow." },
       },
       again = {
-        { id = "h_again", text = "What else?" },
+        { id = "h_again", text = "What else? Speak while I fletch; my hands do not need my ears." },
         { id = "h_again2", text = "Ask. I am only fletching." },
         { id = "h_again3", text = "Yes?" },
       },
@@ -748,7 +911,36 @@ P:NPC {
         { text = "Fit me with something for the canyon.", next = "fit", when = { class = "HUNTER" } },
         { text = "I build firearms. What do you think of them?", next = "guns", when = { profession = "Engineering" } },
         { text = "Where do you find bow wood in a canyon?", next = "wood" },
+        { text = "Who taught you to make a bow?", next = "w7_teach" },
         { text = "Shoot straight, Starn.", next = "END" },
+      },
+    },
+    w7_teach = {
+      lines = {
+        { id = "w7_teach_l1", text = "An old Bloodhoof bowyer named Ahote, who made me whittle the same stave for a whole summer before he let me string it. He snapped my first three bows over his knee and told me a bow that breaks in his hands will break in a hunter's." },
+      },
+      choices = {
+        { text = "Is he still in Mulgore?", next = "w7_teach2" },
+        { text = "He sounds cruel.", next = "w7_teach3" },
+        { text = "Something else, Starn.", next = "BACK" },
+      },
+    },
+    w7_teach2 = {
+      lines = {
+        { id = "w7_teach2_l1", text = "He went to the Earth Mother four winters ago, and his last bow hangs over my bench, unstrung. I take it down when a young brave asks to learn, and I let them hold it, and I watch their hands, and I know at once whether to teach them." },
+        { id = "w7_teach2_l2", when = { class = "HUNTER" }, text = "He went to the Earth Mother four winters ago. His last bow hangs over my bench; draw it, if you like. Gently. Ahote would want a hunter to feel what a bow should be, once." },
+      },
+      choices = {
+        { text = "An honour to hold it.", next = "BACK", reply = "It is. Remember the weight when you choose your next." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_teach3 = {
+      lines = {
+        { id = "w7_teach3_l1", text = "He was honest, which young ones mistake for cruel. Every bow I sell has to pass over my own knee first, and I have never had one come back broken." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     respect = {
@@ -880,7 +1072,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else, friend? I am not going anywhere." },
-        { id = "h_again2", text = "Ask away, I like the company." },
+        { id = "h_again2", text = "Ask away, friend. A merchant on a mesa gets lonely between lifts, and you will do nicely." },
         { id = "h_again3", text = "Yes?" },
       },
       choices = {
@@ -891,7 +1083,36 @@ P:NPC {
         { text = "Is the name Highmesa an old one?", next = "name", when = { race = "Tauren" } },
         { text = "What should I carry for the Shimmering Flats?", next = "flats", when = { minLevel = 30 } },
         { text = "How often does the lift run?", next = "lift" },
+        { text = "What do travellers buy most before they go down?", next = "w7_buy" },
         { text = "Good day, Jawn.", next = "END" },
+      },
+    },
+    w7_buy = {
+      lines = {
+        { id = "w7_buy_l1", text = "Water, always, and then rope, and then whatever they forgot the last time they went down. I keep a list of who forgot what, and when I see the same face twice I hand them the thing before they ask, and they think I can read minds." },
+      },
+      choices = {
+        { text = "Can you tell what I've forgotten?", next = "w7_buy2" },
+        { text = "Clever trick, for a merchant.", next = "w7_buy3" },
+        { text = "Something else, Jawn.", next = "BACK" },
+      },
+    },
+    w7_buy2 = {
+      lines = {
+        { id = "w7_buy2_l1", text = "Let me look at you. You have water and you have a weapon, but your pack hangs light on one side, so you have no bandages, or not enough. Everyone who goes to the Shimmering Flats comes back wishing for bandages." },
+        { id = "w7_buy2_l2", when = { class = { "PRIEST", "SHAMAN", "DRUID" } }, text = "You heal, so you think you need no bandages, and that is exactly what you have forgotten. A healer who falls first needs someone else to wrap them, and that someone will want cloth." },
+      },
+      choices = {
+        { text = "You might be right.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_buy3 = {
+      lines = {
+        { id = "w7_buy3_l1", text = "Not a trick, friend, only attention. On a rock this small, you notice everything, and I have little else to do between lifts." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     rock = {
@@ -1021,7 +1242,7 @@ P:NPC {
         { id = "h_eng", when = { profession = "Engineering" }, text = "I am Laer Stepperunner, and I sell bread and drink. I would trade you a loaf for an honest answer, though, for you look as if you understand machines." },
       },
       again = {
-        { id = "h_again", text = "What else would you like to know, friend?" },
+        { id = "h_again", text = "What else, friend? Ask, and I will listen while the bread stone heats." },
         { id = "h_again2", text = "Ask, and take some more water while you do." },
         { id = "h_again3", text = "Yes, traveller?" },
       },
@@ -1033,7 +1254,36 @@ P:NPC {
         { text = "What should I know about the road ahead?", next = "road" },
         { text = "Does Wizlo's machine have feelings? No.", next = "machine", when = { profession = "Engineering" } },
         { text = "You miss the grass of Mulgore.", next = "grass", when = { race = "Tauren" } },
+        { text = "Who else stops at Whitereach for bread?", next = "w7_guests" },
         { text = "Walk with the Earth Mother, Laer.", next = "END" },
+      },
+    },
+    w7_guests = {
+      lines = {
+        { id = "w7_guests_l1", text = "Runners from Freewind, the odd caravan bound for Gadgetzan, and once a dwarf from the Shimmering Flats who sat down without a word and ate four loaves. Motega says I should charge more, but I have never been able to charge a hungry face full price." },
+      },
+      choices = {
+        { text = "Who was the dwarf?", next = "w7_guests2" },
+        { text = "Motega's right. You'll go broke.", next = "w7_guests3" },
+        { text = "Something else, Laer.", next = "BACK" },
+      },
+    },
+    w7_guests2 = {
+      lines = {
+        { id = "w7_guests2_l1", text = "He never said, only that he had been working for the goblins out at the raceway and was walking home to Ironforge the long way. He left a little brass gear on the stone where he sat, and I keep it on my shelf." },
+        { id = "w7_guests2_l2", when = { race = "Dwarf" }, text = "One of your people, from the raceway, I think. He paid in a little brass gear and never said his name; if you meet a dwarf in the Flats who eats like a starving kodo, tell him Laer still has it." },
+      },
+      choices = {
+        { text = "I'll look out for him.", next = "BACK", reply = "Thank you. Tell him the bread is still warm." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_guests3 = {
+      lines = {
+        { id = "w7_guests3_l1", text = "Then I will be a poor baker with many friends, which is a thing my mother wished for me. The Earth Mother does not count coins." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     post = {
@@ -1176,7 +1426,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else, pal? I'm losin' daylight and margin." },
         { id = "h_again2", text = "Keep talkin', I can count shot and listen." },
-        { id = "h_again3", text = "Yeah, friend?" },
+        { id = "h_again3", text = "Yeah, friend? Go on, I'm listenin', and I'm also polishin', 'cause salt don't sleep and neither do I." },
       },
       choices = {
         { text = "Show me your guns.", next = "BUSINESS" },
@@ -1186,7 +1436,36 @@ P:NPC {
         { text = "Do you sell to the gnomes as well?", next = "gnomes" },
         { text = "Which half of your stock did you build?", next = "built", when = { profession = "Engineering" } },
         { text = "What do you recommend for the basilisks?", next = "basilisk", when = { class = "HUNTER" } },
+        { text = "Ever had a gun blow up on a customer?", next = "w7_boom" },
         { text = "Good selling, Synge.", next = "END" },
+      },
+    },
+    w7_boom = {
+      lines = {
+        { id = "w7_boom_l1", text = "Once, pal, and I'm gonna be upfront about it, because the story gets around anyway. A Venture Company fella bought a blunderbuss, loaded it with black powder and three handfuls of gravel, and when it went it took his hat, his eyebrows and my reputation for a month." },
+      },
+      choices = {
+        { text = "Was he all right?", next = "w7_boom2" },
+        { text = "Sounds like your fault, not his.", next = "w7_boom3" },
+        { text = "Something else, Synge.", next = "BACK" },
+      },
+    },
+    w7_boom2 = {
+      lines = {
+        { id = "w7_boom2_l1", text = "Fine, friend, fine, just bald in places he'd never been bald before. He came back the next week and bought another one, which tells ya everything about the Venture Company and the quality of my stock." },
+        { id = "w7_boom2_l2", when = { profession = "Engineering" }, text = "Fine, pal, and you'll appreciate this: the barrel held, the stock split. So I put the brass bands on after, and they've held through four gravel-loaders since, which is a better test than any I could afford to run." },
+      },
+      choices = {
+        { text = "Good to know.", next = "BACK", reply = "Knowledge is free, friend. Guns ain't." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_boom3 = {
+      lines = {
+        { id = "w7_boom3_l1", text = "My fault? Pal, the instructions said 'shot', not 'gravel'. I can't be held liable for creative customers, it's in the small print, which I wrote very small." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     why = {
@@ -1327,7 +1606,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else, pal? Talkin's thirsty work, I'll point out." },
         { id = "h_again2", text = "Go on, I got ears and a full cooler." },
-        { id = "h_again3", text = "Yeah?" },
+        { id = "h_again3", text = "Yeah, pal? Quick, the cooler's open and every second's a copper of cold I'm givin' away." },
       },
       choices = {
         { text = "Let me see what you're pouring.", next = "BUSINESS" },
@@ -1337,7 +1616,36 @@ P:NPC {
         { text = "A drink stand in a desert can't lose.", next = "desert" },
         { text = "Kravel buys by the crate, you said.", next = "kravel", when = { race = "Dwarf" } },
         { text = "What would you pour a tauren?", next = "tauren", when = { race = "Tauren" } },
+        { text = "What do you pour after a crash?", next = "w7_crash" },
         { text = "Keep it cold, Riznek.", next = "END" },
+      },
+    },
+    w7_crash = {
+      lines = {
+        { id = "w7_crash_l1", text = "Somethin' strong, friend, for the driver, and somethin' stronger for whoever bet on him. A crash is the best hour of business I get all day, because half the crowd's celebratin' and the other half's drownin' it." },
+      },
+      choices = {
+        { text = "Isn't that a bit grim?", next = "w7_crash2" },
+        { text = "Smart money.", next = "w7_crash3" },
+        { text = "Something else, Riznek.", next = "BACK" },
+      },
+    },
+    w7_crash2 = {
+      lines = {
+        { id = "w7_crash2_l1", text = "Grim? Pal, nobody's died on my watch except Tixxie, and I poured for her crew on the house, which is the only time I ever wrote off a round. The rest of 'em walk out of the wreck askin' for a drink, and I'd be a lousy businessman to say no." },
+        { id = "w7_crash2_l2", when = { race = "Gnome" }, text = "Grim's a gnome word, friend, no offence. Your crew drinks fizzy water after a crash and writes notes about it, and the goblins drink rum and blame the gnomes, and I sell to both and keep my opinions on a separate ledger." },
+      },
+      choices = {
+        { text = "Fair enough.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_crash3 = {
+      lines = {
+        { id = "w7_crash3_l1", text = "That's what I keep tellin' Kronkrider, pal! He says I'm profitin' from misfortune, and I say I'm providin' comfort at a reasonable markup." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     haul = {
@@ -1479,7 +1787,36 @@ P:NPC {
         { text = "Who buys the most?", next = "buys" },
         { text = "I could frost that crate for you.", next = "frost", when = { class = "MAGE" } },
         { text = "Your hinge is letting the cold out.", next = "hinge", when = { any = { { race = "Gnome" }, { profession = "Engineering" } } } },
+        { text = "Have you ever thought of opening a shop in Ironforge?", next = "w7_shop" },
         { text = "Stay cool, Brivelthwerp.", next = "END" },
+      },
+    },
+    w7_shop = {
+      lines = {
+        { id = "w7_shop_l1", text = "Constantly! Tinker Town has excellent cold storage, cooler by nineteen degrees than anywhere on the flats, and the foot traffic past the Deeprun Tram would be extraordinary. But Ironforge already has a cold climate, so the demand curve is far less steep." },
+      },
+      choices = {
+        { text = "So the desert is better for business?", next = "w7_shop2" },
+        { text = "You'd be happier somewhere cool.", next = "w7_shop3" },
+        { text = "Something else, Brivelthwerp.", next = "BACK" },
+      },
+    },
+    w7_shop2 = {
+      lines = {
+        { id = "w7_shop2_l1", text = "Precisely! Demand rises with the temperature at roughly four servings per degree, by my figures, so the worse the heat, the better the trade. The trouble is that my supply melts on the same curve, which I have not yet solved." },
+        { id = "w7_shop2_l2", when = { race = "Gnome" }, text = "Precisely, and you'll see the elegance of it! Demand rises four servings per degree; supply falls three per degree. That leaves one serving per degree of pure profit, if only I could stop the crate from sweating." },
+      },
+      choices = {
+        { text = "You'll solve it.", next = "BACK", reply = "I will! Probably! I have a notebook dedicated to it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_shop3 = {
+      lines = {
+        { id = "w7_shop3_l1", text = "Happier, perhaps, but far less needed! Nobody in Ironforge ever looked at a dish of strawberry ice cream the way a goblin pit crewman looks at one after a heat." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     frozen = {
@@ -1628,7 +1965,7 @@ P:NPC {
         { id = "h_scoop", tags = { "news" }, when = { questActive = TODO_QUEST("Get the Scoop") }, text = "Tabetha sent you for my book? Then I have an awkward thing to tell you, and I would be obliged if you kept your voice down while I do." },
       },
       again = {
-        { id = "h_again", text = "Was there something further?" },
+        { id = "h_again", text = "Was there something further? Be concise; I have a wager on the next heat and a missing apprentice on my mind." },
         { id = "h_again2", text = "Go on, if you must. The heat is not improving my patience." },
         { id = "h_again3", text = "Well?" },
       },

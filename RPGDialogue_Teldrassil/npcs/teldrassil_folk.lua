@@ -70,6 +70,7 @@ P:NPC {
         { text = "How bad are things in Teldrassil?", next = "trouble" },
         { text = "I didn't know he was a satyr.", next = "excuse", when = { questDone = TODO_QUEST("Zenn's Bidding") } },
         { text = "How does one become a Sentinel?", next = "ne_sentinel", when = { race = "NightElf" } },
+        { text = "How do you know so much about Zenn?", next = "w_zenn" },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -121,6 +122,25 @@ P:NPC {
         { id = "nst2_default", text = "A few now, since the war, and more every year, but it has always been the daughters who stood watch while the sons went to the druids and slept in the Dream. Since the Dream took so many of them, we take whoever has the patience, and very few do." },
       },
       choices = { { text = "I have patience. Something else.", next = "BACK", fx = { learn = { "sentinels" } } } },
+    },
+    w_zenn = {
+      lines = {
+        { id = "w_zenn_default", text = "Because I have been watching him since the day he came up the road and asked Danlyia for directions as politely as any traveller. Satyrs are always polite at first. It is the second request you must listen to." },
+      },
+      choices = {
+        { text = "What was his second request?", next = "w_zenn2" },
+        { text = "Danlyia gave him directions?", next = "w_zenn2" },
+      },
+    },
+    w_zenn2 = {
+      lines = {
+        { id = "w_zenn2_default", text = "Whether anyone in the village was young, strong and willing to do a small favour for a poor cursed creature. Danlyia told him she would ask around, and then she came straight to me, and I have had my eye on his clearing ever since." },
+        { id = "w_zenn2_w1", when = { race = "NightElf" }, text = "You are kaldorei and you should have known better, {class}. I say it because somebody must, not because I think less of you." },
+      },
+      choices = {
+        { text = "Danlyia did the right thing.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Something else, Sentinel.", next = "BACK" },
+      },
     },
   },
 }
@@ -573,7 +593,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Unless you want to hear about her eyes again." },
-        { id = "h_again2", text = "Go on, I'm listening, mostly." },
+        { id = "h_again2", text = "Go on, I am listening, though half of me is still out among the trees." },
         { id = "h_again3", text = "Sorry, where was I? Oh, you were asking me something. Go on." },
       },
       choices = {
@@ -584,6 +604,7 @@ P:NPC {
         { text = "Why not go to Darnassus yourself?", next = "go" },
         { text = "How did someone like you become a rogue?", next = "rogue" },
         { text = "Is this how all elves go courting?", next = "court", when = { race = { "Human", "Dwarf", "Gnome" } } },
+        { text = "What would you say to her, if you were brave?", next = "w_say" },
         { text = "Good luck with that.", next = "END" },
       },
     },
@@ -658,6 +679,26 @@ P:NPC {
       lines = { { id = "co_default", text = "Not all of them, no, though my cousin once wrote a lady three hundred letters and married her in the end. I'm only on letter forty, so you can see there's every reason for hope." } },
       choices = { { text = "Every reason. Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
+    w_say = {
+      lines = {
+        { id = "w_say_default", text = "That I admire her work, which is true, and that I have kept a list of every lock she has been rumoured to open, which is also true and sounds much worse aloud. I have rehearsed it to the inn's cat, who was not impressed." },
+      },
+      choices = {
+        { text = "Leave out the list.", next = "w_say2" },
+        { text = "The cat knows best.", next = "w_say2" },
+      },
+    },
+    w_say2 = {
+      lines = {
+        { id = "w_say2_default", text = "Everyone says so, and they are right, and I cannot seem to leave it out. Perhaps I shall send her the list instead and let her draw her own conclusions. A rogue ought to appreciate a careful record. That is what I tell myself at night." },
+        { id = "w_say2_w1", when = { class = "ROGUE" }, text = "You are one of us, so tell me honestly: if a rogue sent you a list of your own best work, would you be flattered or would you move house?" },
+      },
+      choices = {
+        { text = "Just tell her plainly.", next = "BACK", fx = { align = { order = 1 } }, reply = "Plainly. Yes. I shall practise plainly on the cat tonight." },
+        { text = "Send the list. She'll love it.", next = "BACK", fx = { align = { order = -1 } }, reply = "You think so? Oh, you have given me terrible courage." },
+        { text = "Something else, Jannok.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -717,7 +758,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? The sabers are napping, so we can talk." },
-        { id = "h_again2", text = "What else?" },
+        { id = "h_again2", text = "What else? The sabers are watching you, but they mean no harm." },
         { id = "h_again3", text = "Go on, I've a brush in my hand but my ears are free." },
       },
       choices = {
@@ -876,6 +917,7 @@ P:NPC {
         { text = "What should I see in Winterspring?", next = "winterspring", when = { minLevel = 50 } },
         { text = "What do the lore keepers record of the Highborne remnants?", next = "ne_shen", when = { race = "NightElf" } },
         { text = "Is it true the Archdruid lost a son in Silithus?", next = "ne_valstann", when = { race = "NightElf" } },
+        { text = "What book are you reading now?", next = "w_book" },
         { text = "I'll let you read.", next = "END" },
       },
     },
@@ -938,6 +980,25 @@ P:NPC {
       choices = {
         { text = "Then I'll not ask him either.", next = "BACK", reply = "Wise. Some books are best left closed in front of their authors.", fx = { learn = { "ahn_qiraj" } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_book = {
+      lines = {
+        { id = "w_book_default", text = "A dwarven account of the excavations at Uldaman, sent to me by a scholar of the Explorers' League in exchange for my notes on the snapjaws. It is badly written and wonderful, and every second page mentions the titans as though they had only just left the room." },
+      },
+      choices = {
+        { text = "Do you believe the dwarves' claims?", next = "w_book2" },
+        { text = "A trade of turtles for titans.", next = "w_book2" },
+      },
+    },
+    w_book2 = {
+      lines = {
+        { id = "w_book2_default", text = "I believe they found something old, and that they want very badly for it to be about them. Every people does that with old things, and the kaldorei most of all. I write a great many notes in the margin, very small, so as not to give offence." },
+        { id = "w_book2_w1", when = { race = "Dwarf" }, text = "Forgive me; your people are wonderful scholars, and only a little certain of themselves. I mean it as a compliment, mostly." },
+      },
+      choices = {
+        { text = "Every people wants a grand past.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else, Daryn.", next = "BACK" },
       },
     },
   },

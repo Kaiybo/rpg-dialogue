@@ -32,6 +32,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_home = {
+      lines = {
+        { id = "d2_home_1", text = "Always. The Plaguelands lie a day's ride east, and every week my people count more of the Scourge's dead walking out of Andorhal and Stratholme. The Bulwark holds them for now, but holding is not the same as winning." },
+      },
+      choices = {
+        { text = "What do your agents see there?", next = "d2_home2" },
+        { text = "The Bulwark seems strong enough.", next = "d2_home2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_home2 = {
+      lines = {
+        { id = "d2_home2_1", text = "Necromancers coming and going from the school at Caer Darrow, and cultists with fresh faces recruited from the living. The Cult of the Damned is as busy in Lordaeron as it is in the Barrens, and I send the Dark Lady a list every week of who they've taken." },
+      },
+      choices = {
+        { text = "A long list, I'd imagine.", next = "BACK", reply = "Long enough that I've stopped reading the names aloud. I still read them." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_bad = {
+      lines = {
+        { id = "d2_bad_1", text = "Expectation is a luxury, {class}, and I'd rather report what is than what I hope for. Every hopeful report I ever read in life came before a disaster, and the last of them came before the plague." },
+      },
+      choices = {
+        { text = "Which report was that?", next = "d2_bad2" },
+        { text = "A grim outlook.", next = "d2_bad2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_bad2 = {
+      lines = {
+        { id = "d2_bad2_1", text = "That the grain from Andorhal was safe, signed by a magistrate who had looked at it and seen nothing wrong. I was a clerk who filed that report, and I've filed my own reports very differently ever since." },
+      },
+      choices = {
+        { text = "You couldn't have known.", next = "BACK", reply = "No one could, and that is the lesson. Assume the grain is poisoned, and you'll be wrong less often." },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    d2_voice = {
+      lines = {
+        { id = "d2_voice_1", text = "No, and anyone who says they do should be reported at once. What I hear is the silence where he was, and I listen to it every night, because the day it changes is the day I'll need to send my last report." },
+      },
+      choices = {
+        { text = "Then listen for us both.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Andrew Brownell. The Dark Lady has eyes on the Scourge wherever it reaches, and some of those eyes report to me, which is why I seldom have good news for anyone." },
@@ -51,6 +98,9 @@ P:NPC {
         { text = "Who is Amnennar the Coldbringer?", next = "amnennar" },
         { text = "Who reports to you out there?", next = "agents" },
         { text = "My people have fought the quilboar for generations.", next = "tauren", when = { race = "Tauren" } },
+        { text = "Is the Scourge stirring closer to home?", next = "d2_home" },
+        { text = "You don't seem to expect good news ever.", next = "d2_bad" },
+        { text = "Do you still hear him, Brownell, in the quiet?", next = "d2_voice", when = { race = "Scourge" } },
         { text = "I'll leave you to your report.", next = "END" },
       },
     },
@@ -315,6 +365,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_student = {
+      lines = {
+        { id = "w3_student_1", text = "A Darkspear troll from Sen'jin who skinned faster than anyone I've seen and talked to every beast the whole while he did it. He thanked them, one by one, and I thought it was nonsense until I noticed his hides never tore." },
+        { id = "w3_student_2", when = { race = "Tauren" }, text = "A troll who thanked every beast while he skinned it, and I thought that was nonsense until I saw his hides never tore. You'll be the same, I'd guess, since your people waste nothing of a kill." },
+      },
+      choices = {
+        { text = "My people use every part of the beast.", next = "BACK", when = { race = "Tauren" }, reply = "Then you'd shame half my students. They keep the hide and throw the rest in the canal, and the canal has enough to put up with." },
+        { text = "Did you ever try thanking them yourself?", next = "w3_thank" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_thank = {
+      lines = {
+        { id = "w3_thank_1", text = "Once, on a Tirisfal boar, and it felt foolish, but the cut went cleaner than it had any right to. I put it down to a steadier hand from talking, and I've not done it since, though I won't say I've stopped thinking about it." },
+      },
+      choices = {
+        { text = "Your secret's safe. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Killian Hagey, skinning trainer. I'll teach anyone who can hold a knife without shaking, and in this city, that's most people." },
@@ -322,7 +391,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? I've a blade to hone." },
-        { id = "h_again2", text = "Go on." },
+        { id = "h_again2", text = "Go on, I'm listening, though I'll keep honing while you talk." },
         { id = "h_again3", text = "The blade's nearly done. What else did you want?" },
       },
       choices = {
@@ -334,6 +403,7 @@ P:NPC {
         { text = "Your knives are the cleanest thing in this quarter.", next = "knives" },
         { text = "What's worth skinning around here?", next = "beasts" },
         { text = "The plagued hides in the east are worthless.", next = "plague", when = { profession = "Skinning" } },
+        { text = "Who's the best student you've ever had?", next = "w3_student" },
         { text = "Not now.", next = "END" },
       },
     },
@@ -446,13 +516,31 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_odd = {
+      lines = {
+        { id = "w3_odd_1", text = "A heart in a jar, still beating, which its owner insisted was his own and wished to keep somewhere safe until he decided what to do with it. The box is sealed, the fee is paid to the end of the year, and I'm told I'm not to mention it rattles." },
+      },
+      choices = {
+        { text = "Whose heart is it?", next = "w3_heart" },
+        { text = "I'll keep my gold in a different row.", next = "BACK", reply = "A sensible request. I'll move you three rows down, where the boxes are quieter." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_heart = {
+      lines = {
+        { id = "w3_heart_1", text = "That, {class}, is precisely the sort of thing a banker never tells. I'll say only that the gentleman works in the Apothecarium, and that he comes down on the first of every month to listen to it for a while, which is his business entirely." },
+      },
+      choices = {
+        { text = "Fair enough. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Mortimer Montague, banker. What goes into my vault stays in it until you ask for it back, which is more than can be said for anything else in this city." },
         { id = "h_living", when = { race = { "Orc", "Troll", "Tauren" } }, text = "Mortimer Montague, banker. Your gold is as safe here as it would be in Orgrimmar, and considerably quieter, since nobody at this counter will slap you on the back while you count it." },
       },
       again = {
-        { id = "h_again", text = "Anything further?" },
+        { id = "h_again", text = "Anything further? The vault closes for nobody, but I do." },
         { id = "h_again2", text = "Yes? I'm listening, and counting." },
         { id = "h_again3", text = "I've lost my place in the column, so you may as well ask." },
       },
@@ -463,6 +551,7 @@ P:NPC {
         { text = "This vault feels like a tomb.", next = "vault" },
         { text = "How does the bank stand with the other cities?", next = "cities" },
         { text = "I banked in Lordaeron, before all this.", next = "old", when = { race = "Scourge" } },
+        { text = "What's the oddest thing anyone's deposited?", next = "w3_odd" },
         { text = "Not today.", next = "END" },
       },
     },
@@ -574,6 +663,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_tan = {
+      lines = {
+        { id = "w3_tan_1", text = "Because the Deathstalkers in Silverpine wear it, and every young rogue in this quarter wants to look like a Deathstalker before they've earned it. I dye it in the back with walnut and something from the Apothecarium I'm not to name, and it fades less than it did when I used soot." },
+      },
+      choices = {
+        { text = "Do the Deathstalkers buy from you?", next = "w3_stalkers" },
+        { text = "Looking the part won't save anyone.", next = "BACK", reply = "No, but it sells, and the ones who live long enough come back for a better cut." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_stalkers = {
+      lines = {
+        { id = "w3_stalkers_1", text = "One or two, when they come back to report, and they never like what I've made because nothing fits like the set they wore out. I take their old ones in trade and sell the scraps to the young ones as patches, and they wear them like medals." },
+      },
+      choices = {
+        { text = "That's a clever trade. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Gillian Moore. I sell leather armor in a quarter full of people who'd prefer not to be heard coming, and business has never been better." },
@@ -581,7 +688,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? Quietly, if you please." },
-        { id = "h_again2", text = "Go on." },
+        { id = "h_again2", text = "Go on, but low; Killian's students have big ears." },
         { id = "h_again3", text = "Still here? Then ask it low, the canal carries voices." },
       },
       choices = {
@@ -593,6 +700,7 @@ P:NPC {
         { text = "Tell me about the quarter.", next = "quarter" },
         { text = "Your armor doesn't creak at all.", next = "creak" },
         { text = "I need something for close, quiet work.", next = "work", when = { class = "ROGUE" } },
+        { text = "Why is the dark tan so popular?", next = "w3_tan" },
         { text = "Not today.", next = "END" },
       },
     },
@@ -667,7 +775,7 @@ P:NPC {
     scarlet_crusade = { { id = "tp_sc", text = "They wear red and carry lanterns, which makes them the easiest people in Lordaeron to sneak up on. My customers thank them for it." } },
     advice = { { id = "tp_ad", text = "Buy your boots a little loose and bind them. A tight boot squeaks, and a squeak has killed better people than you." } },
     forsaken = { { id = "tp_fs", text = "We don't breathe hard and we don't sweat, and that's half of sneaking done before I've sold you anything." } },
-    _none = { { id = "tp_none", text = "Not a thing I sell, so not a thing I know." } },
+    _none = { { id = "tp_none", text = "If it isn't stitched, tanned or sold over this counter, I couldn't tell you a thing about it, friend." } },
   },
 }
 
@@ -703,13 +811,31 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_short = {
+      lines = {
+        { id = "w3_short_1", text = "Salt, every time, and always on the day they've a hide half-scraped and going off on the bench. I've had grown leatherworkers come down that stair at a run, and I keep a sack by the door for them, priced a copper dearer for the hurry." },
+      },
+      choices = {
+        { text = "A copper dearer seems fair for the trouble.", next = "BACK", reply = "I think so. Nobody's ever complained, because by then they'd pay anything." },
+        { text = "What happens to a hide that goes off?", next = "w3_spoil" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_spoil = {
+      lines = {
+        { id = "w3_spoil_1", text = "It slips its hair and stinks worse than the canal, and then it's fit for nothing but Morley Bates's cellar, where I'm told something eats it. I don't ask what, and I'd advise you to follow my example." },
+      },
+      choices = {
+        { text = "I'll take your advice. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Joseph Moore, leatherworking supplies. I sell the small things that turn a hide into armor, and nobody ever remembers buying them until they run out." },
         { id = "h_lw", when = { profession = "Leatherworking" }, text = "Joseph Moore, leatherworking supplies. You're in the trade, so you already know that the salt and the thread matter more than the hide, and that nobody will ever praise you for either." },
       },
       again = {
-        { id = "h_again", text = "Anything else?" },
+        { id = "h_again", text = "Anything else? I'll write it in the list, whatever it is." },
         { id = "h_again2", text = "Go on. I've a list to finish." },
         { id = "h_again3", text = "I've a moment between entries, if there's more." },
       },
@@ -722,6 +848,7 @@ P:NPC {
         { text = "Where do your supplies come from?", next = "supply" },
         { text = "Tell me about the leatherworkers here.", next = "workers" },
         { text = "Which dye holds best on heavy hide?", next = "dye", when = { profession = "Leatherworking" } },
+        { text = "What runs out first, for most of your customers?", next = "w3_short" },
         { text = "Not now.", next = "END" },
       },
     },
@@ -832,6 +959,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_lost = {
+      lines = {
+        { id = "w3_lost_1", text = "Lost one? I've lost dozens, to the canal mostly, and one to a rat the size of a dog who ran off with a satchel of cheese meant for a troll customer. The cheese was gone in a moment, but I found the satchel a week later by the Apothecarium drain, and it was still perfectly sound!" },
+      },
+      choices = {
+        { text = "You're proud the satchel survived the rat.", next = "BACK", reply = "Of course I am, because that's the whole point of a good bag! I told the next six customers about it." },
+        { text = "Rats the size of dogs? Where?", next = "w3_rats" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_rats = {
+      lines = {
+        { id = "w3_rats_1", text = "Down past the sewer grates, where the old city's cellars run under the canals. The Deathguard say it's the Plague grain that grew them, and the apothecaries say it's something they spilled, and both of them say it's somebody else's problem." },
+      },
+      choices = {
+        { text = "I'll watch my pack around the grates.", next = "BACK", reply = "Do, and if they get it anyway, you know where to buy another!" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Jonathan Chambers, bag vendor. I sell the most useful thing in the Undercity, and nobody ever thanks me until they're standing in a crypt with a pocket full of loot and nowhere to put it." },
@@ -839,7 +985,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? I've a bag for that, I'm sure." },
-        { id = "h_again2", text = "Go on!" },
+        { id = "h_again2", text = "Go on, go on! I love a customer who stays to chat." },
         { id = "h_again3", text = "What else can I tell you? I've all night, and all the nights after." },
       },
       choices = {
@@ -851,6 +997,7 @@ P:NPC {
         { text = "Who makes your bags?", next = "makers" },
         { text = "You seem to know everyone on this canal.", next = "canal" },
         { text = "My herbs keep getting crushed.", next = "herbs", when = { profession = { "Herbalism", "Alchemy" } } },
+        { text = "Have you ever lost a bag down here?", next = "w3_lost" },
         { text = "Not today.", next = "END" },
       },
     },
@@ -961,15 +1108,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_worst = {
+      lines = {
+        { id = "w3_worst_1", text = "A warlock in a robe the colour of a ripe plum, dear, with orange trim and a fur collar, wearing it to a summoning. The imp laughed at him, and I didn't blame the creature in the least." },
+        { id = "w3_worst_2", when = { class = "WARLOCK" }, text = "A warlock in plum with orange trim, dear, and I hope you never do anything of the kind, because his imp laughed at him all through the summoning and he never recovered his dignity." },
+      },
+      choices = {
+        { text = "Did you sell him something better?", next = "w3_better" },
+        { text = "I like a bit of colour myself.", next = "BACK", reply = "Then wear it with confidence, dear, and away from my shop window." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_better = {
+      lines = {
+        { id = "w3_better_1", text = "I sold him a dark wool with a deep hood, and told him to keep the plum for funerals, which down here is very nearly the same as keeping it forever. He came back a week later and thanked me, and the imp, I'm told, behaves itself now." },
+      },
+      choices = {
+        { text = "You've done the city a service. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Lucille Castleton. I dressed half the mages of Lordaeron once, or I sold their tailors the cloth, which is nearly the same thing, and now I dress the Dark Lady's casters instead." },
         { id = "h_caster", when = { class = { "MAGE", "PRIEST", "WARLOCK" } }, text = "Lucille Castleton. You carry yourself like someone who's read a book or two, dear, and it's a shame to see it wrapped in that. I dressed Lordaeron's learned once, and I can certainly dress you." },
       },
       again = {
-        { id = "h_again", text = "Anything else, dear?" },
+        { id = "h_again", text = "Was there something further, darling, or are we simply admiring the stock?" },
         { id = "h_again2", text = "Go on. And mind the sleeves." },
-        { id = "h_again3", text = "Yes, dear? I'm only pinning." },
+        { id = "h_again3", text = "Yes, dear? I'm only pinning, and I can pin and listen at once." },
       },
       choices = {
         { text = "A robe should be cut to the wearer, not to the fashion.", next = "BACK", reply = "Thank you. The fashion is mostly dreadful, and the wearer often worse.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -980,6 +1146,7 @@ P:NPC {
         { text = "Who sews the robes you sell?", next = "sewn" },
         { text = "You've an opinion on every hem that passes.", next = "hems" },
         { text = "What should a caster of my sort wear?", next = "wear", when = { class = { "MAGE", "PRIEST", "WARLOCK" } } },
+        { text = "What's the worst thing you've seen someone wear in here?", next = "w3_worst" },
         { text = "Not today.", next = "END" },
       },
     },
@@ -1093,13 +1260,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_refuse = {
+      lines = {
+        { id = "w3_refuse_1", text = "Once, a gentleman of the Syndicate who came down with a forged permit and the manners of a stable hand. I couldn't prove the permit was false, so I simply told him that nothing in my stock would fit a man of his shape, which was true and not at all the point." },
+        { id = "w3_refuse_2", when = { origin = "human_minor_noble" }, text = "Once, a Syndicate man who claimed a title he hadn't the bearing for. You'll understand, I think: one can always tell, and I told him that nothing in my stock would suit him, which was perfectly true." },
+      },
+      choices = {
+        { text = "You should have called the Deathguard.", next = "w3_syndicate" },
+        { text = "Turning him away with a lie was clever.", next = "BACK", reply = "It wasn't a lie, it was tailoring advice, and a gentleman never confuses the two." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_syndicate = {
+      lines = {
+        { id = "w3_syndicate_1", text = "And tell them what, that a man was rude to me? I did mention him to Royal Overseer Bauhaus's clerk later, in the proper form, and I'm told the fellow has not been seen in the Trade Quarter since." },
+      },
+      choices = {
+        { text = "Proper form, indeed. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Von Croy, with a capital V, if you please. The family had lands in Lordaeron, once, and now I sell gloves and caps in a sewer, but one does maintain standards." },
         { id = "h_caster", when = { class = { "MAGE", "WARLOCK", "PRIEST" } }, text = "Von Croy, with a capital V. You are a caster, I see, and so you'll understand that what I sell is armor in everything but weight, and that one does not economise on the thing between oneself and a crossbow." },
       },
       again = {
-        { id = "h_again", text = "Anything further?" },
+        { id = "h_again", text = "Anything further? I am at leisure, which is to say I am very bored." },
         { id = "h_again2", text = "Do go on." },
         { id = "h_again3", text = "You have my attention, such as it is at this hour." },
       },
@@ -1112,6 +1298,7 @@ P:NPC {
         { text = "How does a gentleman end up in trade?", next = "trade" },
         { text = "Cloth doesn't sound like much armor.", next = "cloth" },
         { text = "I remember the Von Croy name, I think.", next = "name", when = { race = "Scourge" } },
+        { text = "Have you ever had a customer you refused to serve?", next = "w3_refuse" },
         { text = "Not today.", next = "END" },
       },
     },
@@ -1224,6 +1411,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_danger = {
+      lines = {
+        { id = "w3_danger_1", text = "A frost wand from a dead mage's estate that froze my fingers to it, and I couldn't put it down for a whole afternoon, so I sold three caps and a staff with it stuck to my hand! Sydney Upton had to pry it off with a wedge in the end, and he didn't say one word the whole time." },
+      },
+      choices = {
+        { text = "Do you still have it?", next = "w3_bucket" },
+        { text = "Sydney sounds patient with you.", next = "BACK", reply = "He's patient with everybody, or else he just doesn't like talking. I like to think it's patience." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_bucket = {
+      lines = {
+        { id = "w3_bucket_1", text = "It's in the bucket of sand behind the counter, with the ones I don't sell, and I don't let anyone near it, not even the apothecaries who keep asking. They want to see what it does to a ghoul, and I'd rather not know." },
+      },
+      choices = {
+        { text = "Keep it in the bucket, Zane. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Zane Bradford, wands. I stock everything from a novice's twig to something with real bite, and I can tell you exactly how each one feels when it goes off, because I've felt it." },
@@ -1231,7 +1436,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? Don't touch that one." },
-        { id = "h_again2", text = "Go on, go on." },
+        { id = "h_again2", text = "Go on, go on, I'm listening, and nothing's smoking just now." },
         { id = "h_again3", text = "Yes? Oh, sorry, that was me, I leaned on one. Go on." },
       },
       choices = {
@@ -1243,6 +1448,7 @@ P:NPC {
         { text = "Your coat is still smoking.", next = "coat" },
         { text = "What do the trainers here think of your wands?", next = "trainers" },
         { text = "I make wands myself, now and then.", next = "ench", when = { profession = "Enchanting" } },
+        { text = "What's the most dangerous wand you've ever had?", next = "w3_danger" },
         { text = "Not today.", next = "END" },
       },
     },
@@ -1353,14 +1559,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_bad = {
+      lines = {
+        { id = "w3_bad_1", text = "Damp, mostly, which this city has plenty of, and a crack you didn't see when you cut it. A staff splits the way a man does, along a line that was there all along, and usually at the worst moment." },
+      },
+      choices = {
+        { text = "You sound as though you've seen one split.", next = "w3_split" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_split = {
+      lines = {
+        { id = "w3_split_1", text = "A young mage's, in the Magic Quarter, mid-spell. The wood went one way and the fire went the other, and he lost an eyebrow he can't grow back. I check every grain twice now, and I tell people it's a matter of craft, but it's really that I remember his face." },
+      },
+      choices = {
+        { text = "Then you're a careful man, Upton.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Sydney Upton. I sell staves to the Magic Quarter's casters, and I've learned more about wood since I died than I did in all the years before it." },
         { id = "h_caster", when = { class = { "MAGE", "PRIEST", "WARLOCK", "SHAMAN", "DRUID" } }, text = "Sydney Upton. You'll be wanting a staff that carries a spell as well as your weight, and I've a few that do both, though I'd have you hold one a while before you decide." },
       },
       again = {
-        { id = "h_again", text = "Something else?" },
-        { id = "h_again2", text = "Go on." },
+        { id = "h_again", text = "Something else? Speak, I'm not going anywhere." },
+        { id = "h_again2", text = "Go on. I'll sand while you talk." },
         { id = "h_again3", text = "Take your time. The wood isn't in a hurry, and neither am I." },
       },
       choices = {
@@ -1372,6 +1596,7 @@ P:NPC {
         { text = "How do you choose a staff for someone?", next = "choose" },
         { text = "You don't say much about your neighbours.", next = "neighbours" },
         { text = "The yew here is grieving, not twisted.", next = "druid", when = { class = { "DRUID", "SHAMAN" } } },
+        { text = "What makes a staff go bad?", next = "w3_bad" },
         { text = "Not now.", next = "END" },
       },
     },
@@ -1485,14 +1710,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_eat = {
+      lines = {
+        { id = "w3_eat_1", text = "Every evening, one pale cap, out of a habit I can't shake from the days I could still taste them. It does me no good and no harm, and I sit on this stool and chew it slowly, and for a moment it's a kitchen in Brill and someone's cooking eggs." },
+        { id = "w3_eat_2", when = { race = "Scourge" }, text = "Every evening, one pale cap, and you'll know why without my telling you. It does nothing for us, but for a moment it's a kitchen somewhere, and someone's cooking eggs." },
+      },
+      choices = {
+        { text = "That's the saddest thing I've heard today.", next = "w3_sad" },
+        { text = "We all keep some habit from before.", next = "BACK", when = { race = "Scourge" }, reply = "We do. Mine's cheaper than most, and it doesn't smell as bad as the ones the apothecaries keep." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_sad = {
+      lines = {
+        { id = "w3_sad_1", text = "Then you've not been in the Undercity long, friend. Stay a week, and that'll be the cheerful story you tell people about the place." },
+      },
+      choices = {
+        { text = "Point taken. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Morley Bates. I sell food to the dead, which is a joke I've been telling for so long that I've forgotten it isn't funny." },
         { id = "h_living", when = { race = { "Orc", "Troll", "Tauren" } }, text = "Morley Bates. You're alive, so you'll actually want what I sell, and you'll want to know which caps are for your sort. I keep those on the right, and I've only mixed them up the once." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I'm not going anywhere." },
-        { id = "h_again2", text = "Go on." },
+        { id = "h_again", text = "Ask what you like. My stall and I are both stuck here until the Dark Lady says otherwise." },
+        { id = "h_again2", text = "Go on. Nobody's queueing, they never are." },
         { id = "h_again3", text = "Still here? Good. It's a long night, and they all are." },
       },
       choices = {
@@ -1504,6 +1748,7 @@ P:NPC {
         { text = "Who else feeds this city?", next = "others" },
         { text = "You've a stall among mages and warlocks.", next = "quarter" },
         { text = "Which of these can the living eat safely?", next = "living", when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "Do you ever eat your own mushrooms?", next = "w3_eat" },
         { text = "Not now.", next = "END" },
       },
     },
@@ -1614,14 +1859,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_failed = {
+      lines = {
+        { id = "w3_failed_1", text = "It goes back to Van Brunt's forge with a note telling him exactly where it gave, and he swears at me through the smoke and puts it back on the anvil. The dents that can't be beaten out go to the Deathguard's training yard, where recruits can ruin it further." },
+      },
+      choices = {
+        { text = "You don't sell the seconds cheap?", next = "w3_seconds" },
+        { text = "That's waste a poorer army couldn't afford.", next = "BACK", reply = "We're not a poor army any more, and when we were, we died in rotten mail. I'll not go back to that." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_seconds = {
+      lines = {
+        { id = "w3_seconds_1", text = "No, and I'll tell you why: a cheap breastplate goes on a poor recruit, and the poor recruit is the one who stands at the front. I'd rather he had nothing and knew it than had something and trusted it." },
+      },
+      choices = {
+        { text = "A cracked plate is a lie. You're right.", next = "BACK", reply = "It is. Worse than a lie, because he'd believe it right up to the axe.", fx = { align = { honor = 1 } } },
+        { text = "Something's better than nothing. Sell the seconds.", next = "BACK", reply = "Spoken like someone who's never been stabbed through a bad rivet. No.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Mirelle Tremayne. I sell armor to the War Quarter, and the War Quarter is hard on armor, so I sell a great deal of it." },
         { id = "h_fighter", when = { class = { "WARRIOR", "PALADIN" } }, text = "Mirelle Tremayne. You fight in the front, so I'll talk to you straight: everything on that wall has been hit before I'd sell it, and anything that dented went back to the forge." },
       },
       again = {
-        { id = "h_again", text = "Anything else?" },
-        { id = "h_again2", text = "Speak up." },
+        { id = "h_again", text = "Anything else, or are you buying?" },
+        { id = "h_again2", text = "Speak up, there's hammering from the forge all day." },
         { id = "h_again3", text = "Go on. I can talk and count stock." },
       },
       choices = {
@@ -1633,6 +1898,7 @@ P:NPC {
         { text = "Who forges what you sell?", next = "forge" },
         { text = "You size people up like a sergeant.", next = "sergeant" },
         { text = "What would you put on me?", next = "fit", when = { class = { "WARRIOR", "PALADIN", "SHAMAN", "HUNTER" } } },
+        { text = "What do you do with the armour that fails your test?", next = "w3_failed" },
         { text = "Not today.", next = "END" },
       },
     },
@@ -1746,6 +2012,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_refused = {
+      lines = {
+        { id = "w3_refused_1", text = "Twice. A company that wished to call itself the Scourge of the Living, which the Dark Lady would not care for, and another whose founder signed four times in four different hands. The second came back with four real people the following week, and I sealed it with my compliments." },
+      },
+      choices = {
+        { text = "Why would the Dark Lady object to that name?", next = "w3_name" },
+        { text = "Four hands, one founder. Clever forgery.", next = "BACK", reply = "Not clever at all; he spelled his own name two ways. I've seen better from a ghoul." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_name = {
+      lines = {
+        { id = "w3_name_1", text = "Because \"Scourge\" is the one word in this city that no Forsaken wears with pride. We were its slaves, {class}, and a name is a small thing, but I will not stamp the seal of the Undercity beside it." },
+      },
+      choices = {
+        { text = "A fair refusal. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Christopher Drakul, guild master. I register companies, write charters, and keep the cloth for their tabards, and in a city of the dead, that's as close to a christening as we get." },
@@ -1753,7 +2037,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything further?" },
-        { id = "h_again2", text = "Go on." },
+        { id = "h_again2", text = "Go on. I write slowly, and so I listen well." },
         { id = "h_again3", text = "I am at your disposal. The ink will keep." },
       },
       choices = {
@@ -1764,6 +2048,7 @@ P:NPC {
         { text = "You keep a great deal of cloth here.", next = "cloth" },
         { text = "What sort of companies sign here?", next = "companies" },
         { text = "I knew that staff's make, once.", next = "priest", when = { class = "PRIEST" } },
+        { text = "Have you ever refused a charter?", next = "w3_refused" },
         { text = "Not today.", next = "END" },
       },
     },
@@ -1878,6 +2163,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_word = {
+      lines = {
+        { id = "w3_word_1", text = "By the zeppelin from the tower outside the city, in a sealed case that the goblins carry and swear they never open. I write in the old runes of my clan, so if they do open it, they'll learn only that orcs have bad handwriting." },
+        { id = "w3_word_2", when = { race = "Orc" }, text = "By zeppelin, brother, sealed and in the old runes of my clan. The goblins swear they never open the case, and if they do, they'll learn that a Bloodfist spells worse than he fights." },
+      },
+      choices = {
+        { text = "The goblins read everything. You know that.", next = "w3_goblins" },
+        { text = "Tell the Warchief the Undercity holds.", next = "BACK", when = { race = "Orc" }, reply = "I tell him that every month, and every month it's true. I'll add that one of ours came down here and didn't flinch." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_goblins = {
+      lines = {
+        { id = "w3_goblins_1", text = "I know it, and I count on it. Anything I wish the Steamwheedle to believe, I write in plain Orcish, and anything that matters goes by a rider through the Barrens, who's never failed me yet." },
+      },
+      choices = {
+        { text = "Clever, Bloodfist. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Bragor Bloodfist. The Warchief sent me to stand beside the Dark Lady's throne, and so I stand, and I listen, and what I hear goes back to Orgrimmar." },
@@ -1888,7 +2192,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? Say it plainly." },
         { id = "h_again2", text = "Go on. The dreadlord's listening anyway, so you may as well speak up." },
-        { id = "h_again3", text = "Hrm. Ask." },
+        { id = "h_again3", text = "Hrm. Ask, then, and quickly. The throne room has ears in every wall." },
       },
       choices = {
         { text = "Why does Thrall keep a watchman here?", next = "watch" },
@@ -1897,6 +2201,7 @@ P:NPC {
         { text = "You stand ten paces from a dreadlord.", next = "dread" },
         { text = "How does an orc bear this place?", next = "orc", when = { race = "Orc" } },
         { text = "Do you trust us at all?", next = "trust", when = { race = "Scourge" } },
+        { text = "How does your word get back to Orgrimmar?", next = "w3_word" },
         { text = "Strength and honor, Bragor.", next = "END" },
       },
     },
@@ -2003,6 +2308,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_living = {
+      lines = {
+        { id = "w3_living_1", text = "I hate them for living well on my mother's silver, which is a distinction you might bother to make. Half the farmers of Lordaeron fled east with nothing, and I wish them all good harvests, but Kenata climbed over my sickbed to reach the jewellery box." },
+      },
+      choices = {
+        { text = "And when she's dead, what then?", next = "w3_after" },
+        { text = "Grief has made you cruel, Genavie.", next = "BACK", reply = "Grief made me dead. Cruelty I came by honestly, and I find it keeps me company better than grief did." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_after = {
+      lines = {
+        { id = "w3_after_1", text = "Then I'll sit here, I suppose, and find that it changes nothing, and be glad of it anyway. The apothecaries have work for anyone who isn't busy hating someone, and perhaps one day I'll take some, though I can't say I'm eager." },
+      },
+      choices = {
+        { text = "That's honest of you. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Genavie Callow. I had a family, and the plague took it, and I had an estate, and the war burned it. What little I carried out with me was stolen afterwards, and I know exactly who has it." },
@@ -2010,7 +2333,7 @@ P:NPC {
         { id = "h_done", when = { questDone = TODO_QUEST("To Steal From Thieves") }, text = "With that cow dead, and her brood with her, I find I can think about other things. I hope you looted the farmstead after you'd finished, because I'd hate to think of it going to waste." },
       },
       again = {
-        { id = "h_again", text = "What is it now?" },
+        { id = "h_again", text = "What is it now? Some other wound to poke at?" },
         { id = "h_again2", text = "Go on. I've nothing left to do but talk and wait." },
         { id = "h_again3", text = "Yes? Do get on with it." },
       },
@@ -2020,6 +2343,7 @@ P:NPC {
         { text = "What was the Callow estate like?", next = "estate" },
         { text = "Where is this farmstead?", next = "where" },
         { text = "I've lost a house and a name myself.", next = "noble", when = { origin = "human_minor_noble" } },
+        { text = "You hate the Dabyries for living well.", next = "w3_living" },
         { text = "I'll leave you to your grievances.", next = "END" },
       },
     },
@@ -2126,6 +2450,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_belief = {
+      lines = {
+        { id = "w3_belief_1", text = "Their own loa, chiefly, and the old glory of the Amani, which they speak of as if it were last week. Their priests keep shrunken heads as witnesses to oaths, and a broken oath, I am told, sets the head to talking, though no reliable witness has yet heard one." },
+        { id = "w3_belief_2", when = { race = "Troll" }, text = "Their own loa, and the glory of the Amani, which I suspect you'll tell me they've got entirely wrong. Their priests keep heads as witnesses to oaths, and I should value a troll's opinion of that practice more than any scout's." },
+      },
+      choices = {
+        { text = "The loa aren't something you study like ink, mon.", next = "BACK", when = { race = "Troll" }, reply = "No, I suppose they're not, and I shall note your objection, which is itself a very useful piece of evidence." },
+        { text = "You believe a head could talk?", next = "w3_heads" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_heads = {
+      lines = {
+        { id = "w3_heads_1", text = "I believe nothing until it is written down by two reliable witnesses who have not met, and I have neither. If you should find such a head in the Hinterlands, I'd ask you to bring it here unopened, since I'd rather hear it first." },
+      },
+      choices = {
+        { text = "I'll keep an ear out. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Oran Snakewrithe. I study the Witherbark trolls of the Hinterlands, their marks and their movements, and I am told I'm the best authority this side of the mountains. I see no reason to dispute it." },
@@ -2133,7 +2476,7 @@ P:NPC {
         { id = "h_tablet_done", when = { questDone = TODO_QUEST("Rin'ji's Secret") }, text = "That tablet of Rin'ji's was quite unusual, and I am still working through the last of its markings. You did well to bring it to me, and not to someone who would only have admired it." },
       },
       again = {
-        { id = "h_again", text = "Yes? I can spare you another question." },
+        { id = "h_again", text = "Yes? I can spare you another question, but only the one, and an exact one." },
         { id = "h_again2", text = "Go on, but be exact. I dislike vague questions." },
         { id = "h_again3", text = "Ask. My ink is drying in any case." },
       },
@@ -2143,6 +2486,7 @@ P:NPC {
         { text = "How does one study trolls from a cellar?", next = "method" },
         { text = "I can read some of those marks for you.", next = "troll", when = { race = "Troll" } },
         { text = "I've been among the Witherbark. They aren't what you think.", next = "been", when = { minLevel = 42 } },
+        { text = "What do the Witherbark believe in?", next = "w3_belief" },
         { text = "I'll leave you to your notes.", next = "END" },
       },
     },
@@ -2248,13 +2592,31 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_failed = {
+      lines = {
+        { id = "w3_failed_1", text = "The frog lives in a jar on Keever's shelf and is called Third Batch. The others go to the canal drains, or to Master Faranell's tables for the dissection, and Keever is not consulted about which." },
+      },
+      choices = {
+        { text = "You kept the frog?", next = "w3_frog" },
+        { text = "Nothing goes to waste down here, then.", next = "BACK", reply = "Nothing, no. Waste is a word for the living, and the Society does not employ it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_frog = {
+      lines = {
+        { id = "w3_frog_1", text = "Keever did, and Keever does not wish to discuss it. It is the only result of value so far, if one counts a frog that has grown slightly cleverer than Keever's colleague, which Keever does." },
+      },
+      choices = {
+        { text = "Your secret's safe. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "This is Apothecary Keever, assistant to Master Faranell, of the Royal Apothecary Society. Keever is seeking a serum that will make a weapon of great power out of a prisoner, and so far Keever has made a frog." },
         { id = "h_alch", when = { profession = "Alchemy" }, text = "Apothecary Keever, and the visitor is of the craft, so Keever will speak plainly. Three batches, three subjects, and not one result of any military value. Keever is most unhappy." },
       },
       again = {
-        { id = "h_again", text = "Yes, yes. Keever is listening with one ear." },
+        { id = "h_again", text = "Yes, yes. Keever is listening, though the vial is listening harder." },
         { id = "h_again2", text = "Another question. Keever will allow it, while the third batch settles." },
         { id = "h_again3", text = "Speak, then, before the subject wakes." },
       },
@@ -2264,6 +2626,7 @@ P:NPC {
         { text = "Why do you speak of yourself that way?", next = "keever" },
         { text = "You work under Master Faranell.", next = "master" },
         { text = "You've added too much earthroot.", next = "earth", when = { profession = { "Alchemy", "Herbalism" } } },
+        { text = "What becomes of the failed subjects?", next = "w3_failed" },
         { text = "I'll leave Keever to his work.", next = "END" },
       },
     },
@@ -2371,6 +2734,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_arrivals = {
+      lines = {
+        { id = "w3_arrivals_1", text = "Mages of the Horde, mostly, from Orgrimmar and Thunder Bluff, with whatever companions they cared to bring along. The tauren are the trial, since their mages tend to bring druids, and a druid will sometimes come through as a bear because he forgot he was one." },
+      },
+      choices = {
+        { text = "A bear on the mark sounds like trouble.", next = "w3_bear" },
+        { text = "You sound fond of them.", next = "BACK", reply = "Fond is a strong word for a man of my training. Tolerant, I would say, and occasionally amused." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_bear = {
+      lines = {
+        { id = "w3_bear_1", text = "It is, chiefly for the Deathguard standing beside it, who are paid to stab what arrives unannounced. I have since taught them to look for a tauren's earrings before they draw, and nobody has been eaten yet, on either side." },
+      },
+      choices = {
+        { text = "A wise rule. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Lexington Mortaim, portal trainer. I teach mages of sufficient skill to fold the road between here and anywhere into a single step, and I keep the Undercity's own arrival mark from drifting, which it likes to do." },
@@ -2378,7 +2759,7 @@ P:NPC {
         { id = "h_mage", when = { class = "MAGE", minLevel = 40 }, text = "Lexington Mortaim. You are ready for the larger working, I think, the door that others may walk through after you. It is a responsibility, and I shall treat it as one even if you do not." },
       },
       again = {
-        { id = "h_again", text = "Yes? Be exact, if you please." },
+        { id = "h_again", text = "Yes? Be exact, if you please, and stand back from the mark." },
         { id = "h_again2", text = "Another question. Very well; I have until the next arrival." },
         { id = "h_again3", text = "Go on. Nothing is due on the mark for a quarter of an hour." },
       },
@@ -2394,6 +2775,7 @@ P:NPC {
         { text = "I can step home alone. Is a portal so different?", next = "m_diff", when = { class = "MAGE", minLevel = 20 } },
         { text = "My first portal opened crooked. What went wrong?", next = "m_crooked", when = { class = "MAGE", minLevel = 40 } },
         { text = "I'm living. Will you teach me the Undercity's door?", next = "m_living", when = { class = "MAGE", race = { "Orc", "Troll", "Tauren" } } },
+        { text = "Who usually arrives on your mark?", next = "w3_arrivals" },
         { text = "I'll take the stairs.", next = "END" },
       },
     },
@@ -2522,6 +2904,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_void = {
+      lines = {
+        { id = "w3_void_1", text = "Because his warlock went down into Ragefire Chasm and didn't come back up, and a voidwalker whose master is dead doesn't know what to do with itself. It came here because this is the last place it was told to wait, and it's been waiting for nine days." },
+      },
+      choices = {
+        { text = "What happens to a demon when its warlock dies?", next = "w3_masterless" },
+        { text = "Poor thing. It almost sounds loyal.", next = "BACK", reply = "It isn't loyalty, it's instructions, but I'll admit that from the outside the two look much alike." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_masterless = {
+      lines = {
+        { id = "w3_masterless_1", text = "Most go home to the Nether the moment the binding breaks, and good riddance. This one's binding was tied too tight, so it's stuck between going and staying, and I'll have Carendin cut it loose once he's finished his tea." },
+      },
+      choices = {
+        { text = "Better cut loose than left to sulk.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       narr = "She runs a thumb along a row of spines without looking at them, the way someone counts sheep in a pen.",
       lines = {
@@ -2530,7 +2931,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Mind the voidwalker in the corner, he's sulking." },
-        { id = "h_again2", text = "Go on, then, I can shelve and listen at the same time." },
+        { id = "h_again2", text = "Go on, then, I can shelve and listen at once, and the books will mind their manners while I do." },
         { id = "h_again3", text = "Ask it, before something in here gets bored." },
       },
       choices = {
@@ -2545,6 +2946,7 @@ P:NPC {
         { text = "Which servant gives the most trouble?", next = "trouble" },
         { text = "How do you get on with the warlock masters?", next = "masters" },
         { text = "My demon has started testing its chains. Not with the small orders yet.", next = "obey", when = { class = "WARLOCK" } },
+        { text = "Why is the voidwalker in the corner sulking?", next = "w3_void" },
         { text = "I'll leave you to your shelves.", next = "END" },
       },
     },
@@ -2678,13 +3080,60 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_odd = {
+      lines = {
+        { id = "d2_odd_1", text = "A deathstalker who deposits a single sealed jar every month and withdraws the one from the month before. I don't know what's in them, and I've been very firmly advised by Ophelia not to guess aloud." },
+      },
+      choices = {
+        { text = "Have you guessed quietly?", next = "d2_odd2" },
+        { text = "Discretion is part of the trade.", next = "d2_odd2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_odd2 = {
+      lines = {
+        { id = "d2_odd2_1", text = "Every month, and each guess is worse than the last. The jars are always exactly the same weight, which is the part that keeps me awake, or would, if I slept." },
+      },
+      choices = {
+        { text = "Best not to know.", next = "BACK" },
+        { text = "Ask you something else, Randolph.", next = "BACK" },
+      },
+    },
+    d2_thieves = {
+      lines = {
+        { id = "d2_thieves_1", text = "It would be, if the vault were where you think it is. The counter is here, but the boxes are kept somewhere considerably deeper and better guarded, and the Rogues' Quarter is on excellent terms with us because many of them bank here." },
+      },
+      choices = {
+        { text = "Thieves trust a bank?", next = "d2_thieves2" },
+        { text = "Clever arrangement.", next = "d2_thieves2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_thieves2 = {
+      lines = {
+        { id = "d2_thieves2_1", text = "More than honest folk do, since they know exactly how hard a vault is to rob. A thief who's tried once becomes our most loyal customer, and we've two or three of those who still send William a card on the anniversary." },
+      },
+      choices = {
+        { text = "A card?", next = "BACK", reply = "Unsigned, naturally. William keeps them in a drawer and pretends not to be touched." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_rogue = {
+      lines = {
+        { id = "d2_rogue_1", text = "I'm certain you could get into a vault, my friend, though perhaps not ours. Do feel free to try, so long as you'll let us know how far you got, because William pays very well for that kind of information." },
+      },
+      choices = {
+        { text = "Then I'll keep my secrets.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Randolph Montague, banker, at your service. There are four of us Montagues at this counter, and I am the one who doesn't mind being asked questions, so the others send the talkative customers down to me." },
         { id = "h_met", when = { metBefore = true }, text = "Randolph Montague, as before. You'll find everything as you left it. We have never lost so much as a copper, though Mortimer once mislaid a decimal and didn't speak for a week." },
       },
       again = {
-        { id = "h_again", text = "Anything else I can do for you?" },
+        { id = "h_again", text = "What else may the bank do for you? Your coin keeps very quietly with us, whatever else you ask." },
         { id = "h_again2", text = "Go on, I'm in no hurry. Money is very patient company." },
         { id = "h_again3", text = "Ask away. William is glaring, but he glares at everyone." },
       },
@@ -2694,6 +3143,9 @@ P:NPC {
         { text = "What do the Forsaken keep in a bank?", next = "keep" },
         { text = "Does trade still reach the Undercity?", next = "trade" },
         { text = "How's the Horde's credit, between cities?", next = "living", when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "Who's your strangest depositor?", next = "d2_odd" },
+        { text = "A vault beside the Rogues' Quarter seems unwise.", next = "d2_thieves" },
+        { text = "I could get into that vault, you know.", next = "d2_rogue", when = { class = "ROGUE" } },
         { text = "That'll be all.", next = "END" },
       },
     },
@@ -2792,6 +3244,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_worst = {
+      lines = {
+        { id = "w3_worst_1", text = "A young mage who thought a fireball would boil water faster than a stove, and he was quite right about that, though he was wrong about the pot. We had stew on the ceiling for a week, and the Magic Quarter still teases him about it, I'm happy to say." },
+        { id = "w3_worst_2", when = { class = "MAGE" }, text = "A mage, dear, and I hope you'll take this as a warning: he thought a fireball would boil water faster than a stove. He was right about the water and wrong about the pot, and we scraped stew off the ceiling for a week." },
+      },
+      choices = {
+        { text = "Did he ever learn to cook properly?", next = "w3_learnt" },
+        { text = "I'd have paid to see that.", next = "BACK", reply = "You'd not have paid to clean it, I can promise you. Mind the pan." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_learnt = {
+      lines = {
+        { id = "w3_learnt_1", text = "He did, in the end, and his dumplings are the best of any of my students, because a mage measures everything to the grain once he's been embarrassed enough. Patience, a low flame and a good dose of shame will teach anyone, dear." },
+      },
+      choices = {
+        { text = "Shame's a hard teacher. Something else.", next = "BACK" },
+        { text = "I could do with that lesson myself.", next = "BACK", when = { profession = "Cooking" }, reply = "Then start with the low flame and work up to the shame, which I'll provide free of charge." },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Eunice Burch, and I teach cooking. Most of my students can't taste a thing, so I teach them to cook by eye and ear and the clock, and I'll put their stew against any living cook's in Lordaeron." },
@@ -2811,6 +3283,7 @@ P:NPC {
         { text = "Where do your ingredients come from?", next = "larder" },
         { text = "Raleigh Andrean was a chef. Does he help you?", next = "raleigh", when = { heardLine = "uc_raleigh.h_default" } },
         { text = "Let me taste the pot for you.", next = "tastes", when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "Who's the worst student you've ever had?", next = "w3_worst" },
         { text = "I'll leave you to your stove.", next = "END" },
       },
     },
@@ -2915,6 +3388,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_strange = {
+      lines = {
+        { id = "d2_strange_1", text = "A little white cap that glows in the dark, from a bed by the Apothecarium drains. It glows a pale green, like the lamps along the canals, and I've never been sure if that's a good thing or a very bad one." },
+      },
+      choices = {
+        { text = "Did you sell it?", next = "d2_strange2" },
+        { text = "That sounds like the Apothecarium's doing.", next = "d2_strange2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_strange2 = {
+      lines = {
+        { id = "d2_strange2_1", text = "No, an apothecary came and took the whole bed away in a jar, and gave me a silver for my trouble. He said they were very interesting, in a voice that meant they weren't for eating, and I've not grown anything near those drains since." },
+      },
+      choices = {
+        { text = "Wise choice, Tawny.", next = "BACK" },
+        { text = "Ask you something else.", next = "BACK" },
+      },
+    },
+    d2_buyers = {
+      lines = {
+        { id = "d2_buyers_1", text = "The troll who comes on the zeppelin every week, first of all, who says my red caps taste like home. Then Innkeeper Norman, for his stew, and Eunice Burch, who buys a handful each time and says they're for her students to practise on." },
+      },
+      choices = {
+        { text = "What does the troll do with them?", next = "d2_buyers2" },
+        { text = "Eunice sounds like a good customer.", next = "d2_buyers2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_buyers2 = {
+      lines = {
+        { id = "d2_buyers2_1", text = "He dries them and grinds them and burns them, I think, for some kind of ceremony, because he once asked me if they'd been grown in the dark with proper respect. I told him I sang to them, and he seemed to think that was respectful enough." },
+      },
+      choices = {
+        { text = "I'd say it was.", next = "BACK", reply = "So would I, though the mushrooms have never said." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_glades = {
+      lines = {
+        { id = "d2_glades_1", text = "Never, because the sun's no good for my kind of growing and the Scarlets shoot at anything that bends in a field. Ask Martine down at the water, though, because she gathers in the Glades and sends me the odd puffball when she finds one." },
+      },
+      choices = {
+        { text = "I'll ask her.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Tawny Grisette. I walk the Trade Quarter with my basket, and I sell what grows in the quiet parts of the city. They're good mushrooms, and I raised every one of them from a speck." },
@@ -2934,6 +3454,9 @@ P:NPC {
         { text = "Why do you wander, when others keep stalls?", next = "wander" },
         { text = "Morley Bates says yours are prettier than his.", next = "morley", when = { heardLine = "uc_bates.o_default" } },
         { text = "The earth here is sick. Do they mind?", next = "sick", when = { class = { "DRUID", "SHAMAN" } } },
+        { text = "What's the strangest thing you've grown?", next = "d2_strange" },
+        { text = "Who buys the most from your basket?", next = "d2_buyers" },
+        { text = "Do you ever forage up in the Glades?", next = "d2_glades", when = { profession = "Herbalism" } },
         { text = "Good growing, Tawny.", next = "END" },
       },
     },
@@ -3031,6 +3554,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_horde = {
+      lines = {
+        { id = "w3_horde_1", text = "Oh, now and then, when an orc comes down from the zeppelin with a tear in his jerkin, and they're a joy to sew for because they never complain about the price. The tauren are the trial, because I haven't a pattern in the shop broad enough across the shoulder, and I have to cut one fresh on the floor." },
+        { id = "w3_horde_2", when = { race = "Tauren" }, text = "Oh, gladly, and you're the reason I keep a bolt of the wide cloth! Not a pattern in the shop goes broad enough across a tauren's shoulder, so I cut them fresh on the floor and hum while I do it." },
+      },
+      choices = {
+        { text = "What's different about sewing for the living?", next = "w3_living" },
+        { text = "I'd trust your needle with my coat.", next = "BACK", reply = "You're very kind. Bring it down whenever it wants mending, and don't mind the humming." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_living = {
+      lines = {
+        { id = "w3_living_1", text = "The living sweat, dear, and they grow, and they eat, so you leave room at the seams for all of it. My dead customers stay the same shape forever, more or less, and some of them have taken in their waists a little since I first fitted them." },
+      },
+      choices = {
+        { text = "That's grim, Victor. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Victor Ward, tailor. I'll teach anyone who can thread a needle, and a fair few who can't yet. My sister Angela sells the patterns along the way, so between the pair of us a beginner can leave this quarter knowing how to make something." },
@@ -3038,7 +3580,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? I've yards to go, so ask away." },
-        { id = "h_again2", text = "Go on. I'm only basting." },
+        { id = "h_again2", text = "Go on. I'm only basting, and basting never minds a chat." },
         { id = "h_again3", text = "Hm hm hm. Oh, I beg your pardon. You were saying?" },
       },
       choices = {
@@ -3050,6 +3592,7 @@ P:NPC {
         { text = "What do the Forsaken need sewn?", next = "need" },
         { text = "Angela says you sewed the pages' liveries.", next = "livery", when = { heardLine = "uc_angela_ward.cl_default" } },
         { text = "How do I get past plain linen?", next = "learn", when = { profession = "Tailoring" } },
+        { text = "Do you ever sew for the living Horde?", next = "w3_horde" },
         { text = "I'll leave you to your hem.", next = "END" },
       },
     },

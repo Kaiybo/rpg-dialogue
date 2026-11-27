@@ -48,7 +48,25 @@ P:NPC {
         { text = "What goes into a stormstout?", next = "stormstout" },
         { text = "Why brew in a goblin town?", next = "ratchet" },
         { text = "What was trogg brew like?", next = "trogg", when = { questDone = TODO_QUEST("Chen's Empty Keg") } },
+        { text = "Who drinks your ale, mostly?", next = "drinkers" },
+        { text = "Your mentor got out of a trogg cave alive, you said.", next = "mentor" },
+        { text = "What do you brew with, so far from good grain?", next = "w5_grain" },
         { text = "I'll leave you to your barrel.", next = "END" },
+      },
+    },
+    w5_grain = {
+      lines = { { id = "w5_grain_l", text = "Mulgore barley, when the Thunder Bluff caravans make it through, and Durotar sorghum when they don't. It's the water that gives me grief. The oases used to be sweet, but since the trouble in the Wailing Caverns I boil every bucket three times before it goes near a barrel." } },
+      choices = {
+        { text = "Is the oasis water truly unsafe?", next = "w5_grain2" },
+        { text = "Mulgore barley is the best there is.", next = "BACK", when = { race = "Tauren" }, reply = "It is, friend, and I'd brew with nothing else if the road let me. Tell your kin to send more." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_grain2 = {
+      lines = { { id = "w5_grain2_l", text = "I'd not drink it raw, no. A sailor did, last summer, on a dare, and he spent three nights talking to the rafters about green dreams. My mentor taught me that a brewer's first duty is to the water. I didn't know he meant it quite this literally." } },
+      choices = {
+        { text = "Three boilings. I'll remember that.", next = "BACK", reply = "Do. And if anyone offers you a cup of oasis water with a smile, ask them to drink first." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     chen = {
@@ -85,6 +103,33 @@ P:NPC {
     trogg = {
       lines = { { id = "tr_default", text = "Terrible, friend, the worst thing I ever brewed, and Chen taught my mentor the recipe as a joke, I'm sure of it. The troggs loved it, though, and that's how my mentor got out of a cave in the Badlands with his head still on." } },
       choices = { { text = "Something else, Drohn.", next = "BACK", fx = { learn = { "troggs" } } } },
+    },
+    drinkers = {
+      lines = { { id = "dk_default", text = "Sailors, grunts and anybody waiting on a boat, which in Ratchet is everybody sooner or later. The goblins drink it fastest, the orcs drink it loudest, and the tauren drink it slowest and tell me what herbs I've left out, which I resent and then fix." } },
+      choices = {
+        { text = "What herbs did the tauren tell you to add?", next = "drinkers2" },
+        { text = "A tauren critic is a patient one.", next = "drinkers2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    drinkers2 = {
+      lines = { { id = "dk2_default", text = "Peacebloom in the summer batch, for the smell, and a pinch of mageroyal in the dark ale. They were right both times, curse them. Now the summer batch sells out before the boats from Booty Bay come in, and I've got a tauren to thank." } },
+      choices = { { text = "Thank the tauren, then. Something else.", next = "BACK" } },
+    },
+    mentor = {
+      lines = { { id = "mn_default", text = "He did, by rolling a barrel of trogg brew into their tunnel and walking out while they fought over it. He used to say it was the only time a bad beer saved a good brewer. He was a dwarf-sized orc with a laugh you could hear from the docks." } },
+      choices = {
+        { text = "Is he still living?", next = "mentor2" },
+        { text = "A barrel's a fine weapon, used right.", next = "mentor2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mentor2 = {
+      lines = { { id = "mn2_default", text = "No, friend, he went to his ancestors two winters back, in his sleep, with a mug on the table, which is how he'd have wanted it. I keep his paddle over the door. Every batch I start, I tap it once for luck." } },
+      choices = {
+        { text = "I'm a dwarf. We'd drink to a brewer like him.", next = "BACK", reply = "Then drink to him when you get to Ironforge, friend, and tell nobody it was an orc you toasted.", when = { race = "Dwarf" } },
+        { text = "I'll raise a mug to him. Something else.", next = "BACK" },
+      },
     },
   },
 

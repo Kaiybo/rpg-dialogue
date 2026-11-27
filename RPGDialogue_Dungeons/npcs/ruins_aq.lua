@@ -38,12 +38,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_keep = {
+      lines = { { id = "w8_keep_a", text = "By giving them a reason each morning, and the reason is always the same: the qiraji are still here, and so are we. Kaldorei have long lives and longer memories, and I remind them of every friend we lost at the Scarab Wall." } },
+      choices = {
+        { text = "That's a heavy reason to carry.", next = "w8_keep2" },
+        { text = "Do they ever want to give up?", next = "w8_keep2" },
+        { text = "I'm a Sentinel's kin. We'll fight beside you.", next = "w8_keep2", when = { race = "NightElf" } },
+        { text = "Something else, General.", next = "BACK" },
+      },
+    },
+    w8_keep2 = {
+      lines = {
+        { id = "w8_keep2_a", text = "Some days, and on those days I take the watch myself and let them sleep. A general who asks more of his soldiers than he gives is no general, and I have had a thousand years to learn that." },
+        { id = "w8_keep2_ne", when = { race = "NightElf" }, text = "Then you honour the dead of the Wall, {g:brother|sister}, and my soldiers will see it. Stand with my elite on the next push, and let them see that the world above has not forgotten them." },
+      },
+      choices = {
+        { text = "We'll finish this, General.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Andorov, Lieutenant General, and these are the last of the Kaldorei Elite who held the line at the Scarab Wall. We were sealed in with the enemy for longer than you can imagine. Now the gong has rung, and we fight again." },
       },
       again = {
-        { id = "h_again", text = "What else? Be quick." },
+        { id = "h_again", text = "What else? Be quick about it, because the Qiraji do not wait for us to finish talking." },
         { id = "h_again2", text = "Speak, but keep watch while you do." },
       },
       choices = {
@@ -54,6 +74,7 @@ P:NPC {
         { text = "The Sentinels still tell of the Scarab Wall in Darnassus.", next = "sentinels", when = { race = "NightElf" } },
         { text = "Cenarion Hold watches Silithus now. Did you know?", next = "hold", when = { class = "DRUID" } },
         { text = "I'd like to see what you have to trade.", next = "BUSINESS" },
+        { text = "How do you keep your soldiers fighting after so long?", next = "w8_keep" },
         { text = "I'll keep moving.", next = "END" },
       },
     },

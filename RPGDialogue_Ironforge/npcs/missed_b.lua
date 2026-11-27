@@ -28,6 +28,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_full = {
+      lines = {
+        { id = "w2_full_l0", text = "Start another, of course, and number it. This is number nine. Numbers one to four were lost in Gnomeregan, and I've been trying to rewrite them from memory ever since, but memory is a dreadful measuring instrument." },
+      },
+      choices = {
+        { text = "What was in the first four?", next = "w2_full_lost" },
+        { text = "Nine notebooks is a lot of counting.", next = "BACK" },
+      },
+    },
+    w2_full_lost = {
+      lines = {
+        { id = "w2_full_lost_l0", text = "My first apprentice years. Every mistake I ever made, with the date. Trixie says it's a mercy they're gone, but I'd give a great deal to know exactly how wrong I used to be. You can't measure progress without the starting point." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Jemma Quikswitch, apprentice engineer, and that's my sister Trixie making sparks at the other bench. Master Springspindle teaches us both, though he says I measure too much and she doesn't measure at all." },
@@ -43,7 +60,46 @@ P:NPC {
         { text = "You and your sister work very differently.", next = "trixie" },
         { text = "What is Springspindle like to learn from?", next = "master" },
         { text = "I'm an engineer myself.", next = "engineer", when = { profession = "Engineering" } },
+        { text = "Where do you and Trixie live now?", next = "d0_live" },
+        { text = "Your bench is tidier than any other in here.", next = "d0_bench" },
+        { text = "What will you do when the notebook's full?", next = "w2_full" },
         { text = "I'll leave you to your counting.", next = "END" },
+      },
+    },
+    d0_live = {
+      lines = { { id = "d0li_default", text = "In Tinker Town, in a room above a repair shop, which is very noisy and very convenient. Trixie sleeps through anything and I sleep through nothing, so I've started using the hours to copy my notebook out fair." } },
+      choices = {
+        { text = "What will happen to the notebook?", next = "d0_live_notebook" },
+        { text = "A noisy room makes for long nights.", next = "BACK" },
+      },
+    },
+    d0_live_notebook = {
+      lines = { { id = "d0ln_default", text = "It goes to the High Tinker's people, when it's finished. Mekkatorque is planning for the day we go back, and someone has to know which corridor leads where, and which doors were sealed, and why." } },
+      choices = {
+        { text = "Have you ever met Mekkatorque?", next = "d0_live_mekk" },
+        { text = "Something else, Jemma.", next = "BACK" },
+      },
+    },
+    d0_live_mekk = {
+      lines = { { id = "d0lm_default", text = "Once! He came through Tinker Town shaking hands, and he asked what I was writing, and when I showed him he read three whole pages standing up. Then he said 'Keep going,' and I've been keeping going ever since." } },
+      choices = {
+        { text = "Then you have the High Tinker's own orders.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d0_bench = {
+      lines = { { id = "d0be_default", text = "Thank you! Everything on it is laid out in the order I'll use it, left to right, because if I can't find a part in two seconds I've lost my place in the sum. Master Springspindle says it's the only bench in the workshop he's never set on fire." } },
+      choices = {
+        { text = "He's set fire to the others?", next = "BACK", reply = "Only twice each, and always on purpose, he says. Trixie's has been on fire four times, but she does that herself." },
+        { text = "My workshop at home was arranged the same way.", next = "d0_bench_home", when = { race = "Gnome" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d0_bench_home = {
+      lines = { { id = "d0bh_default", text = "Was it? Then you'll know how it feels to walk into a room where everything's in the wrong place. I dreamed about my old bench for a month after we got out, and in the dream all the drawers were labelled in someone else's hand." } },
+      choices = {
+        { text = "We'll put our own labels back one day.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     notebook = {
@@ -106,6 +162,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_biggest = {
+      lines = {
+        { id = "w2_biggest_l0", text = "Professionally or personally? Professionally, a pressure tank on the fourth level of Gnomeregan, which was meant to happen, mostly. Personally, Jemma's sixth notebook, which was not, and she still hasn't forgiven me." },
+      },
+      choices = {
+        { text = "How did the notebook explode?", next = "w2_biggest_book" },
+        { text = "Pressure tanks shouldn't be blown up on purpose.", next = "BACK" },
+      },
+    },
+    w2_biggest_book = {
+      lines = {
+        { id = "w2_biggest_book_l0", text = "I'd left a fuse on her bench, and she'd used it as a bookmark. Neither of us noticed till it was lit. She rewrote the whole thing in a week, and it's better now, but I'm not allowed near her bench without supervision." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Trixie Quikswitch, apprentice engineer, and that tidy person over there is my sister Jemma. She writes things down and I set things off, and Master Springspindle says he can't decide which of us worries him more." },
@@ -122,6 +195,7 @@ P:NPC {
         { text = "What's Springspindle like as a master?", next = "master" },
         { text = "Need a second pair of hands?", next = "help", when = { profession = "Engineering" } },
         { text = "Did you know my family in Gnomeregan?", next = "BACK", when = { race = "Gnome" }, reply = "Maybe! There were rather a lot of us, and I mostly knew the ones who lived near the steam vents. Tell me your clan someday and I'll check Jemma's notes." },
+        { text = "What's the biggest thing you've ever blown up?", next = "w2_biggest" },
         { text = "I'll give you some room.", next = "END" },
       },
     },
@@ -433,6 +507,25 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_know = {
+      lines = {
+        { id = "w2_know_l0", text = "Some suspect. None ask. A digger who can tell ye what a cursed tomb's carvin's mean before ye break the seal is worth a great deal tae them, an' they're careful no' tae wonder how I learned it." },
+      },
+      choices = {
+        { text = "Is that honest?", next = "w2_know_honest" },
+        { text = "Knowledge is knowledge, whatever its source.", next = "BACK", reply = "Spoken like a digger. I'll drink tae that, quietly.", fx = { align = { light = -1 } } },
+        { text = "Some knowledge is best left buried.", next = "BACK", reply = "Aye, an' I've buried some myself, deeper than ye'd think.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_know_honest = {
+      lines = {
+        { id = "w2_know_honest_l0", text = "Honest enough. I've never lied tae them, an' I've saved more diggers from cursed tombs than any League priest. If they ask straight, I'll answer straight. They never have." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Krom Stoutarm, digger for the Explorers' League. I'm between sites just now, so I read, an' ye'd be surprised what a dwarf can learn in a library if he looks on the shelves nobody dusts." },
@@ -448,7 +541,39 @@ P:NPC {
         { text = "Which shelves does nobody dust?", next = "shelves" },
         { text = "You keep watching the door.", next = "door" },
         { text = "Tell me about the Tome of the Cabal.", next = "tome", when = { class = "WARLOCK", minLevel = 30 } },
+        { text = "What's the Hall of Explorers like to work in?", next = "d0_hall" },
+        { text = "You read more than any digger I've met.", next = "d0_read" },
+        { text = "Does the League know what you study in private?", next = "w2_know" },
         { text = "I'll let you read.", next = "END" },
+      },
+    },
+    d0_hall = {
+      lines = { { id = "d0ha_default", text = "Quiet, an' full o' things that would rather have stayed buried. Prospector Stormpike sends the diggers out, Historian Karnik argues wi' them when they come back, an' the curators dust the bones an' tell nobody what they think." } },
+      choices = {
+        { text = "Where would the League send you next?", next = "d0_hall_next" },
+        { text = "A hall full of arguments and bones.", next = "BACK" },
+      },
+    },
+    d0_hall_next = {
+      lines = { { id = "d0hn_default", text = "Uldaman, if I ask nicely, an' back tae Loch Modan if I don't, where Ironband's lads still dig wi' troggs boilin' up at one end o' the site. But Uldaman's where the answers are, an' every digger in this hall kens it." } },
+      choices = {
+        { text = "I hope they send you to Uldaman.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Krom.", next = "BACK" },
+      },
+    },
+    d0_read = {
+      lines = { { id = "d0rd_default", text = "I'm the only Stoutarm who does, an' my family thinks it's a sickness. But a dig wi'out readin' is just a dwarf makin' a hole, an' I'd like tae ken what I'm standin' on before I put a pick through it." } },
+      choices = {
+        { text = "What are you reading now?", next = "d0_read_now" },
+        { text = "The Kirin Tor's old books are dangerous reading.", next = "BACK", when = { class = "MAGE" }, reply = "Aye, an' that's why I read them wi' the door in sight. Ye'd ken better than me which ones bite." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d0_read_now = {
+      lines = { { id = "d0rn_default", text = "A survey o' the Badlands written by a Dalaran scholar who never went there, which is a fine way tae write a survey. Half of it's wrong, an' the half that's right is about Uldaman's doors, so I'm copyin' that half out." } },
+      choices = {
+        { text = "Wrong books can still point the way.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     digs = {
@@ -682,6 +807,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_fit = {
+      lines = {
+        { id = "w2_fit_l0", text = "A tauren envoy, once, passing through on Alliance business, and he wanted leather. I had to stand on two crates and a ladder, and I used every hide in the shop and three borrowed from Fimble." },
+      },
+      choices = {
+        { text = "A tauren in Ironforge?", next = "w2_fit_tauren" },
+        { text = "And did it fit?", next = "BACK" },
+      },
+    },
+    w2_fit_tauren = {
+      lines = {
+        { id = "w2_fit_tauren_l0", text = "With the Cenarion Circle, under a flag of peace, and very polite. He said it was the finest jerkin he'd ever owned and that he'd remember the little tailor. I've still got his measurements pinned up, just in case." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Lissyphus Finespindle, light armour, which in this ward makes me the only shop that isn't selling a hundredweight of steel. A soldier who can't run is only brave, I always say, and I sell the running kind." },
@@ -701,6 +843,7 @@ P:NPC {
         { text = "You made safety aprons in Gnomeregan?", next = "aprons" },
         { text = "Do you sell anything for night work?", next = "nightwork", when = { class = { "ROGUE", "HUNTER" } } },
         { text = "Why should a dwarf wear leather?", next = "BACK", when = { race = "Dwarf" }, reply = "Because you'll walk twice as far in it, and you'll still be standing when the plate-wearers sit down for a rest. Try a jerkin, and see." },
+        { text = "Who's the hardest customer you've ever had to fit?", next = "w2_fit" },
         { text = "Thank you, Lissyphus.", next = "END" },
       },
     },
@@ -781,12 +924,29 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_surprise = {
+      lines = {
+        { id = "w2_surprise_l0", text = "A note in the margin of a Senate record from three hundred years back, in a clerk's hand: \"Thane Gorrum fell asleep again.\" The whole record's a dry account o' a tax dispute, an' that one line made the clerk come alive for me." },
+      },
+      choices = {
+        { text = "Did you find more of his notes?", next = "w2_surprise_more" },
+        { text = "History is full of sleeping thanes.", next = "BACK" },
+      },
+    },
+    w2_surprise_more = {
+      lines = {
+        { id = "w2_surprise_more_l0", text = "Forty-one, over twenty years o' records. He was funny, an' bored, an' fond o' a lass in the kitchens. I've come tae think o' him as a friend, an' I clerked forty years myself, so I've left a few notes o' my own for whoever comes after." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Lyon Mountainheart. I'm no' a prospector nor a curator, only a dwarf who likes tae know how things came tae be, an' the League is good enough tae let me stand here an' find out." },
       },
       again = {
-        { id = "h_again", text = "What else would ye like tae know?" },
+        { id = "h_again", text = "What else would ye like tae know? Ask, an' I'll find ye the book for it." },
         { id = "h_again2", text = "Ask away, the books will keep." },
         { id = "h_again_x0", when = { race = "Dwarf" }, text = "Back again, {g:lad|lass}? Have ye found out which clan ye're from yet?" },
       },
@@ -797,6 +957,7 @@ P:NPC {
         { text = "What do you know of Uldaman?", next = "uldaman" },
         { text = "Which clan keeps the oldest records?", next = "clans", when = { race = "Dwarf" } },
         { text = "Do you read any arcane works?", next = "BACK", when = { class = "MAGE" }, reply = "A few, though I'll confess I mostly look at the pictures. The script makes my eyes water, an' I've no' the patience for footnotes." },
+        { text = "What's the most surprising thing you've found in a book?", next = "w2_surprise" },
         { text = "I'll leave you to your books.", next = "END" },
       },
     },
@@ -880,6 +1041,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_mend = {
+      lines = {
+        { id = "w2_mend_l0", text = "Scorched cuffs, dear, from the mages, an' muddy hems from the priests who will kneel in the road. Warlocks bring me singed collars an' never say how, an' I never ask. They tip well." },
+      },
+      choices = {
+        { text = "Do they all burn their cuffs?", next = "w2_mend_cuffs" },
+        { text = "You must know every caster in the ward.", next = "BACK" },
+      },
+    },
+    w2_mend_cuffs = {
+      lines = {
+        { id = "w2_mend_cuffs_l0", text = "Every young mage, aye, for they point wi' their whole arm. I've started linin' the cuffs wi' a thread that doesnae catch, an' I tell them it's enchanted. It isnae, but they point more careful, thinkin' it's precious." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Maeva Snowbraid, an' the shop's my own, name over the door an' all. The priests o' the Hall of Mysteries are my best customers, an' the mages are my most frequent, because the mages keep scorchin' theirs." },
@@ -899,6 +1077,7 @@ P:NPC {
         { text = "Do you sell to warlocks?", next = "warlocks" },
         { text = "Could you add pockets to my robe?", next = "pockets", when = { class = { "MAGE", "PRIEST", "WARLOCK" } } },
         { text = "Do you cut robes for gnomes?", next = "BACK", when = { race = "Gnome" }, reply = "I do, dear, an' I've a whole rail for the wee folk now. The mages from Tinker Town keep me busy wi' their hems." },
+        { text = "What's the most common thing casters bring back to mend?", next = "w2_mend" },
         { text = "Good day, Maeva.", next = "END" },
       },
     },
@@ -980,13 +1159,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_grand = {
+      lines = {
+        { id = "w2_grand_l0", text = "That a breastplate's no' finished when it's shaped, but when it's been struck. He'd hit every piece wi' a war hammer before it left the shop, an' if it dented, he'd melt it an' start again." },
+      },
+      choices = {
+        { text = "Do you still do that?", next = "w2_grand_still" },
+        { text = "A harsh test.", next = "BACK" },
+      },
+    },
+    w2_grand_still = {
+      lines = {
+        { id = "w2_grand_still_l0", text = "Every piece, wi' his own hammer. Raena says the noise frightens the customers. I say a customer who flinches at the test will thank me when the orc's axe comes down." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Mangorn Flinthammer, an' I sell armour that turns a blade, right here by the gates where every recruit passes on the way in. My wife Raena has the other half o' the shop an' the better half o' the wits." },
       },
       again = {
         { id = "h_again", text = "Aye, what else?" },
-        { id = "h_again2", text = "Go on, then." },
+        { id = "h_again2", text = "Go on, then, an' I'll knock on a breastplate while ye think." },
         { id = "h_again_x0", when = { class = { "WARRIOR", "PALADIN" } }, text = "Back again, {class}? Let me hear the plate ring." },
       },
       choices = {
@@ -999,6 +1195,7 @@ P:NPC {
         { text = "What's the traffic like at the gates?", next = "gates" },
         { text = "My pauldron strap has stretched.", next = "strap", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Do you have plate in my size?", next = "BACK", when = { race = "Gnome" }, reply = "A few pieces, aye, but plate on a gnome is a heavy thing. Raena's leather might suit ye better, friend." },
+        { text = "What did your grandfather teach you about armour?", next = "w2_grand" },
         { text = "Good day, Mangorn.", next = "END" },
       },
     },
@@ -1080,12 +1277,29 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_meet = {
+      lines = {
+        { id = "w2_meet_l0", text = "He came tae my father's tannery in Kharanos tae buy straps for his armour, an' he spent so long choosin' that my father charged him rent. Three months later he asked for my hand an' a dozen straps on the same day." },
+      },
+      choices = {
+        { text = "Which did he get first?", next = "w2_meet_first" },
+        { text = "A romantic story.", next = "BACK" },
+      },
+    },
+    w2_meet_first = {
+      lines = {
+        { id = "w2_meet_first_l0", text = "The straps, for he paid in advance. I'd have said yes either way, but I made him wait a week, so he'd know I wasnae a strap tae be picked off a shelf. He's never forgotten it, an' neither have I." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Raena Flinthammer, an' I sell the armour ye can actually run in. Mangorn has the mail an' plate over there, an' between us there's no' a soul comes through the gates we cannae dress." },
       },
       again = {
-        { id = "h_again", text = "What else, dear?" },
+        { id = "h_again", text = "What else, dear? Quick, before Mangorn starts hammerin' again." },
         { id = "h_again2", text = "Go on, I've always time for a blether." },
         { id = "h_again_x0", when = { class = { "HUNTER", "ROGUE" } }, text = "Back again, dear? Let me see the leather, an' I'll tell ye if it'll last." },
       },
@@ -1098,6 +1312,7 @@ P:NPC {
         { text = "A tanner's daughter from Kharanos?", next = "tanner" },
         { text = "Any word from the Military Ward?", next = "ward" },
         { text = "Does Dun Morogh bear hide hold up?", next = "bear", when = { class = { "HUNTER", "ROGUE" } } },
+        { text = "How did you and Mangorn meet?", next = "w2_meet" },
         { text = "Good day, Raena.", next = "END" },
       },
     },

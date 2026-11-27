@@ -33,6 +33,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_after = {
+      lines = {
+        { id = "w2_after_l0", text = "Take back every bench an' every barrel, an' then put a wall across that bottom seam so thick no trogg could dig through it in a hundred years. After that, I'll have a drink, an' then another, an' then I'll go back tae work." },
+      },
+      choices = {
+        { text = "And your crew?", next = "w2_after_crew" },
+        { text = "Maybe the troggs will come back anyway.", next = "BACK" },
+      },
+    },
+    w2_after_crew = {
+      lines = {
+        { id = "w2_after_crew_l0", text = "Half o' them have gone tae Ironforge, an' I'll go fetch every one by the ear if I must. A quarry wi'out its crew is only a hole, an' I'll no' be foreman o' a hole." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -55,6 +72,7 @@ P:NPC {
         { text = "What about the blasting powder?", next = "powder" },
         { text = "Gnomeregan's troggs came from below too, Foreman.", next = "gnome", when = { race = "Gnome" } },
         { text = "I've swung a pick in a quarry myself, Foreman.", next = "dw_pick", when = { race = "Dwarf" } },
+        { text = "What will you do once the quarry's cleared?", next = "w2_after" },
         { text = "I'll go and hurt some troggs.", next = "END" },
       },
     },
@@ -162,6 +180,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_friends = {
+      lines = {
+        { id = "w2_friends_l0", text = "Oh, a few! There's a dwarf at Anvilmar who brings me soup and never asks me to talk, which I appreciate, because I always talk anyway. And a rabbit who comes by in the mornings. I'm fairly sure it's the same rabbit." },
+      },
+      choices = {
+        { text = "A rabbit counts.", next = "BACK", fx = { affinity = 1 } },
+        { text = "What do you talk about with the dwarf?", next = "w2_friends_dwarf" },
+      },
+    },
+    w2_friends_dwarf = {
+      lines = {
+        { id = "w2_friends_dwarf_l0", text = "Gears, mostly, and he nods at all the right places. Yesterday he asked what a torque converter was, and I explained it for an hour, and at the end he said it sounded like a very fine thing. I think he might have been asleep for part of it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -181,7 +216,46 @@ P:NPC {
         { text = "How did the trolls get your things?", next = "trolls" },
         { text = "Where will you go now?", next = "future" },
         { text = "We'll get our city back, Felix.", next = "gnome", when = { race = "Gnome" } },
+        { text = "What was your work in Gnomeregan?", next = "d0_work" },
+        { text = "Coldridge must feel very strange after home.", next = "d0_cold" },
+        { text = "Have you made any friends since you came here?", next = "w2_friends" },
         { text = "Take care of yourself, Felix.", next = "END" },
+      },
+    },
+    d0_work = {
+      lines = { { id = "d0wk_default", text = "I tested pressure valves, which sounds dull, and it was, wonderfully dull, the same nine valves every morning with a little gauge. I was very good at it, and I'd give anything to be bored like that again." } },
+      choices = {
+        { text = "Could you test valves here?", next = "d0_work_here" },
+        { text = "Dull work done well is still worth doing.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
+    },
+    d0_work_here = {
+      lines = { { id = "d0wh_default", text = "I asked at Anvilmar, and the dwarves were very kind, but they haven't any valves, only doors and fires and an enormous number of axes. Balir says I can help count the supplies, so I count the supplies, and some of them are nearly valves." } },
+      choices = {
+        { text = "What would you need to start again?", next = "d0_work_need" },
+        { text = "Counting supplies keeps the valley running.", next = "BACK" },
+      },
+    },
+    d0_work_need = {
+      lines = { { id = "d0wn_default", text = "My box of tools, which the trolls have, and my gauges, which the trolls also have, and a workbench somewhere warm, which Tinker Town might have if I ever get there. Everyone says Mekkatorque is finding work for all of us, so I'm trying very hard to believe it." } },
+      choices = {
+        { text = "He is. Tinker Town needs every pair of hands.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Felix.", next = "BACK" },
+      },
+    },
+    d0_cold = {
+      lines = { { id = "d0cd_default", text = "Very! At home the cold came out of the pipes, and you could turn it down. Here it comes from everywhere at once, and the dwarves just laugh and drink something brown." } },
+      choices = {
+        { text = "Have the dwarves treated you well?", next = "d0_cold_dwarves" },
+        { text = "I still dream about the warm halls at home.", next = "BACK", when = { race = "Gnome" }, reply = "So do I, every night, and then I wake up with snow on my blanket. We'll be warm again one day, won't we?" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d0_cold_dwarves = {
+      lines = { { id = "d0cw_default", text = "Oh, wonderfully, though they're very loud about it. Sten Stoutarm gave me his own spare blanket and told me gnomes were made of tougher stuff than we looked, and I've been trying to live up to it ever since." } },
+      choices = {
+        { text = "You're doing well, Felix.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

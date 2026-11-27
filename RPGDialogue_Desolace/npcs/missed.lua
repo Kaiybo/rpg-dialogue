@@ -46,7 +46,54 @@ P:NPC {
         { text = "What do the Maraudine want with you?", next = "want" },
         { text = "Your brother is sick with worry.", next = "brother", when = { heardLine = "hornizz.sister_d" } },
         { text = "What's the plan once you're out?", next = "plan" },
+        { text = "What's ghost-o-plasm actually worth?", next = "plasm" },
+        { text = "The Maraudine argue a lot for captors.", next = "mara" },
+        { text = "I could just pick this lock.", next = "lockpick", when = { class = "ROGUE" } },
         { text = "Hold on. I'll get you out.", next = "END", fx = { affinity = 1 } },
+      },
+    },
+    plasm = {
+      lines = { { id = "plasm_d", text = "To the Magram? Whatever they've got, pal, because nobody else is sellin' it and they think it keeps their ancestors happy. I've seen the figures, and if Hornizz don't spend it all on magnets, it's the best margin this family's had since my uncle sold sand in Tanaris." } },
+      choices = {
+        { text = "You keep the books for him, then?", next = "plasm_books" },
+        { text = "Selling ghosts to centaur. Bold.", next = "BACK", reply = "Bold is free, friend. It's the overhead that kills ya." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    plasm_books = {
+      lines = { { id = "plasm_books_d", text = "For him and half of Gadgetzan, sweetheart, and every one of them pays the Cartel's cut before they pay me. Hornizz writes his sums on crate lids, so I came down to sort it out in person, and you can see how well that's gone." } },
+      choices = {
+        { text = "At least you'll have a story to bill him for.", next = "BACK", reply = "Oh, he'll be billed. Interest, hazard pay, and a little extra for the indignity." },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    mara = {
+      lines = { { id = "mara_d", text = "They argue about everything, which is the only reason I'm alive to complain. Half of 'em want to roast me, half want to sell me back to Gadgetzan, and every evening the old one shouts about keepin' outsiders away from their precious Maraudon." } },
+      choices = {
+        { text = "What's in Maraudon that they guard so hard?", next = "mara_tomb" },
+        { text = "You've been listening closely.", next = "mara_listen" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mara_tomb = {
+      lines = { { id = "mara_tomb_d", text = "Some dead fella they all call the father, and a whole lot of purple crystal they won't let anybody near. If I wasn't in a cage I'd already have a price on that crystal, and I'd say a crate of it would fetch more than every ghost in Desolace." } },
+      choices = {
+        { text = "You'd sell a centaur's holy tomb?", next = "BACK", reply = "Sell it, rent it, lease it out by the hour. I ain't proud, pal, I'm a goblin." },
+        { text = "Back to the other matter.", next = "BACK" },
+      },
+    },
+    mara_listen = {
+      lines = { { id = "mara_listen_d", text = "When you're the only thing in a cage that can count, ya listen. There's Gelkis and Magram in the pens down the row, prisoners like me, and the Maraudine hate 'em worse than they hate goblins, which is the only thing they've got going for 'em in my book." } },
+      choices = {
+        { text = "Then the clans are at war with each other.", next = "BACK", reply = "Constantly, and nobody's sellin' them weapons properly. It's a crime, is what it is." },
+        { text = "I have other questions.", next = "BACK" },
+      },
+    },
+    lockpick = {
+      lines = { { id = "lockpick_d", text = "Sure you could, and the moment that door squeaks, every hoofed moron in this camp comes runnin'. No, no, we do it the honest way, out the front with you swingin' at anything that moves, because I want 'em to see who they're losin' a ransom to." } },
+      choices = {
+        { text = "Your way, then, but I'll keep the picks handy.", next = "BACK", reply = "That's a professional. I like you more every minute." },
+        { text = "Fine. Something else.", next = "BACK" },
       },
     },
     how = {
@@ -126,7 +173,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else would you know? Ask, and I will try not to wander in the telling." },
-        { id = "h_again2", text = "Yes? I am listening, truly." },
+        { id = "h_again2", text = "Yes? Say it, and I will hold my thoughts still as a pool until you finish." },
       },
       choices = {
         { text = "Who lies in Maraudon?", next = "zaetar" },
@@ -134,7 +181,36 @@ P:NPC {
         { text = "Your brother is at Nijel's Point.", next = "brother" },
         { text = "What happened to this land?", next = "land" },
         { text = "Theradras is dead. I was there.", next = "dead", when = { cleared = "Maraudon" } },
+        { text = "Your sisters guard you with spears. Are you safe here?", next = "w7_sisters" },
         { text = "I'll do what I can.", next = "END", fx = { affinity = 1 } },
+      },
+    },
+    w7_sisters = {
+      lines = {
+        { id = "w7_sisters_l1", text = "Safer than I would be alone, and less safe than I would be in Stonetalon. My sisters are fierce, fiercer than I ever was, and they have sworn to stand on this strand until Zaetar is free or the sea takes us all." },
+      },
+      choices = {
+        { text = "What will you do when he is free?", next = "w7_sisters2" },
+        { text = "The naga could overwhelm you in a night.", next = "w7_sisters3" },
+        { text = "Something else, Selendra.", next = "BACK" },
+      },
+    },
+    w7_sisters2 = {
+      lines = {
+        { id = "w7_sisters2_l1", text = "Carry him home to the mountains, to a grove where the water still runs clean, and sing to him until the earth remembers him kindly. And then, I think, I will sit by a stream for a very long time and say nothing to anyone at all." },
+      },
+      choices = {
+        { text = "He'll be at peace, then.", next = "BACK", reply = "I pray so. Cenarius taught us to hope, even here." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_sisters3 = {
+      lines = {
+        { id = "w7_sisters3_l1", text = "They could, and they have tried. But the naga want the sea and the ruins, and we want nothing they have, so they watch us more than they fight us, and I have learned to sleep with one eye on the waves." },
+        { id = "w7_sisters3_l2", when = { faction = "Horde" }, text = "They could, and they have tried. The trolls of Shadowprey have come down the strand to help us twice, which my brother at Nijel's Point would find very hard to hear, so I have not told him." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     zaetar = {

@@ -33,6 +33,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_night = {
+      lines = {
+        { id = "w3_night_1", text = "Gordo sits on the hill and counts the lights in Brill, and us argues about the number, because one of us counts in twos and one of us cannot count at all. Gordo does not sleep, but sometimes the quiet ones in us hum, and that is nearly like sleeping." },
+      },
+      choices = {
+        { text = "What do the quiet ones hum?", next = "w3_hum" },
+        { text = "Counting lights sounds peaceful.", next = "BACK", reply = "It is peaceful, until the farmer in us says there is a fox in the field, and then Gordo has to go and look, and there is never a fox." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_hum = {
+      lines = {
+        { id = "w3_hum_1", text = "A song about a girl by a river, us thinks, but nobody remembers the words, only the going up and the coming down. You can hum it with us if you like, friend, because Gordo is a very bad singer and it is nicer with two." },
+      },
+      choices = {
+        { text = "I'll hum it with you sometime.", next = "BACK", reply = "Gordo will wait on the hill, then. Us is good at waiting, it is the only thing us is good at besides carrying." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Us is Gordo. Master wants weeds, but Gordo gots big hands and is not good at picking, so maybe you help us and we not hurt you." },
@@ -58,6 +77,7 @@ P:NPC {
         { text = "I know herbs. Let me show you how to pick them.", next = "teach", when = { profession = "Herbalism" } },
         { text = "Someone must have made you, Gordo.", next = "made", when = { class = { "WARLOCK", "PRIEST", "MAGE" } } },
         { text = "I'll help you with the weeds.", next = "BUSINESS" },
+        { text = "What do you do at night, Gordo?", next = "w3_night" },
         { text = "Goodbye, Gordo.", next = "END" },
       },
     },

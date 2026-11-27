@@ -33,6 +33,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_best = {
+      lines = { { id = "w8_best_a", text = "On paper or in the field? On paper it's Private Merle, who has never once been late for a watch, and in the field it's Sergeant Yohwa, who has never once been on a watch she didn't turn into a fight." } },
+      choices = {
+        { text = "And which would you rather have beside you?", next = "w8_best2" },
+        { text = "You can't measure a soldier with a ledger.", next = "w8_best2" },
+        { text = "Something else, Corporal.", next = "BACK" },
+      },
+    },
+    w8_best2 = {
+      lines = { { id = "w8_best2_a", text = "Merle, in the dark, because I'd know where he was standing, and Yohwa in the daylight, because I'd know where the trolls were by the shouting. You can't measure them with a ledger, no, but a ledger tells you who didn't come back, and that's the one column I watch." } },
+      choices = {
+        { text = "That's a heavy column to keep.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     dd_seth_k = {
       lines = {
         { id = "dd_seth_k_a", text = "Over for him, maybe, but his men are still out there in the jungle, the ones who followed him into madness, and some of them were my friends. What do we do with them now?" },
@@ -78,6 +94,7 @@ P:NPC {
         { text = "What were you, before the jungle?", next = "before" },
         { text = "How do the men feel about the spy?", next = "camp" },
         { text = "Do you track who's on watch at night?", next = "rogue", when = { class = "ROGUE" } },
+        { text = "Who's the best soldier in your ledger?", next = "w8_best" },
         { text = "I'll leave you to your ledger.", next = "END" },
       },
     },
@@ -187,6 +204,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_watch = {
+      lines = { { id = "w8_watch_a", text = "Count the stars, mostly, and whittle, and listen to the drums from the Colonel's hills, friend. You get so you can tell the drums apart, which ones mean a patrol and which ones mean nothing at all." } },
+      choices = {
+        { text = "You can read Kurzen's drums?", next = "w8_watch2" },
+        { text = "That's a useful skill for a sentry.", next = "w8_watch2" },
+        { text = "Something else, Merle.", next = "BACK" },
+      },
+    },
+    w8_watch2 = {
+      lines = { { id = "w8_watch2_a", text = "Read is a strong word, friend, I only guess, and I'm wrong as often as not. Don't go telling the Lieutenant I said it, or he'll have me standing double watches to listen, and then I'll never sleep again." } },
+      choices = {
+        { text = "I'll keep it to myself, for now.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -210,6 +243,7 @@ P:NPC {
         { text = "You ask a lot of questions, Merle.", next = "questions" },
         { text = "What do you think of the Lieutenant?", next = "doren" },
         { text = "That isn't river mud on your boots, Merle.", next = "boots", when = { class = { "ROGUE", "HUNTER" } } },
+        { text = "What do you do on watch to pass the hours?", next = "w8_watch" },
         { text = "Good night, Merle.", next = "END" },
       },
     },
@@ -318,6 +352,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_bb = {
+      lines = { { id = "w8_bb_a", text = "Medicine, first and always, and arrows second, and the goblins know it, so they charge us like we're buying gold. I send a man down the road once a month with whatever Stormwind silver we've got left, and he comes back lighter and grumpier." } },
+      choices = {
+        { text = "Why not trade with Nesingwary's camp instead?", next = "w8_bb2" },
+        { text = "The goblins are bleeding you dry.", next = "w8_bb2" },
+        { text = "I'm a priest. I could spare some bandages and prayers.", next = "w8_bb2", when = { class = "PRIEST" } },
+        { text = "Something else, Corporal.", next = "BACK" },
+      },
+    },
+    w8_bb2 = {
+      lines = {
+        { id = "w8_bb2_a", text = "We do, a little, for powder and the odd tiger pelt, but Sir Hemet's men are hunters and not quartermasters. Barnil Stonepot will trade us shot for a good story, and I've told him every story I know twice." },
+        { id = "w8_bb2_pr", when = { class = "PRIEST" }, text = "Light bless you, {class}, and Brother Nimetz will bless you twice. Take what you can spare to his cots by the fire, because the prayers we've got and the bandages we haven't." },
+      },
+      choices = {
+        { text = "I'll see what I can do.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "dd_deaths_bluth", when = { deaths = { min = 15 } },
@@ -342,6 +396,7 @@ P:NPC {
         { text = "Nobody's been paid? How does the camp hold together?", next = "pay" },
         { text = "Your powder's damp. Let me show ye how to keep it.", next = "powder", when = { race = "Dwarf" } },
         { text = "Does Brother Nimetz have help with the wounded?", next = "nimetz", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "What do you trade with Booty Bay for?", next = "w8_bb" },
         { text = "Nothing for now.", next = "END" },
       },
     },

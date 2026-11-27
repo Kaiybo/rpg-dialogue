@@ -206,7 +206,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? I'll keep tinkering while we talk, if you don't mind." },
-        { id = "h_again2", text = "Go on, I'm listening, mostly." },
+        { id = "h_again2", text = "Go on, I'm listening, at about sixty percent capacity, with the rest of me on this lens." },
       },
       choices = {
         { text = "A good engineer shows the guild every flaw in a design.", next = "BACK", reply = "Exactly right! Half the accidents in Gnomeregan came from somebody hiding a cracked valve, and I was standing next to most of them.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -357,7 +357,7 @@ P:NPC {
           text = "A holy one, back here? Lost, I hope. If you're not, I'll trust you won't mention me to the commander." },
       },
       again = {
-        { id = "h_again", text = "Anything else? Keep your voice down." },
+        { id = "h_again", text = "Something more? Lean into the shadow and say it soft; the lamplight carries gossip." },
         { id = "h_again2", text = "Ask, but softly." },
       },
       choices = {
@@ -370,6 +370,7 @@ P:NPC {
         { text = "Who buys from you, besides rogues?", next = "buyers" },
         { text = "Teach me something the trainers in Stormwind don't.", next = "trick", when = { class = "ROGUE" } },
         { text = "You must find me a strange customer.", next = "strange", when = { race = { "Dwarf", "Gnome", "NightElf" } } },
+        { text = "You keep your old teacher's scales?", next = "e3_scales" },
         { text = "Goodbye, Malissa.", next = "END" },
       },
     },
@@ -433,6 +434,25 @@ P:NPC {
       choices = {
         { text = "Good to know.", next = "BACK", fx = { trait = { practical = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    e3_scales = {
+      lines = {
+        { id = "e3_scales_l0", text = "Brass, with a feather weight that's lighter than a sigh, and I weigh every dose on them because he did. He used to say a poison is a medicine measured wrong, and a medicine is a poison measured right." },
+      },
+      choices = {
+        { text = "Do you sell medicines too?", next = "e3_scales2" },
+        { text = "A dangerous saying.", next = "BACK" },
+      },
+    },
+    e3_scales2 = {
+      lines = {
+        { id = "e3_scales2_l0", text = "Now and then, quietly, to the Watch's wives for their children's fevers, at the same weight and half the price. The priest in town would be shocked to learn how much of Darkshire's healing comes from my corner." },
+        { id = "e3_scales2_l1", when = { class = { "PRIEST", "PALADIN" } }, text = "Now and then, quietly, to the Watch's wives for their children's fevers. Your sort might be shocked to hear how much of Darkshire's healing comes from a poisoner's corner, but the Light and I share the work, I think." },
+      },
+      choices = {
+        { text = "Your secret's safe. Something else.", next = "BACK" },
+        { text = "The priest should know.", next = "BACK" },
       },
     },
   },

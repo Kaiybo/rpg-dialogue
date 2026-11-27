@@ -24,6 +24,51 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    blo_hope1 = {
+      lines = {
+        { id = "blo_hope1_1", text = "A girl from Addle's Stead, eleven years old, who went out after a lost sheep two winters ago. Every other name from that season I've crossed out, but I can't bring myself to cross out hers." },
+      },
+      choices = {
+        { text = "Did anyone search?", next = "blo_hope2" },
+        { text = "Leave it as it is. Hope costs nothing.", next = "blo_hope2" },
+        { text = "Something else, Blomberg.", next = "BACK" },
+      },
+    },
+    blo_hope2 = {
+      lines = {
+        { id = "blo_hope2_1", text = "Half the Watch, for three days, and they found the sheep and nothing else. Hutchins says I should let her go, and then he asks me about her every winter, so I don't think he means it." },
+      },
+      choices = {
+        { text = "Then neither of you has let her go.", next = "BACK" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    blo_road1 = {
+      lines = {
+        { id = "blo_road1_1", text = "The road west to Raven Hill and the Westfall border, which surprises people. Adventurers go that way for the necromancer, merchants go that way to dodge the north road prices, and fools go that way because nobody told them not to." },
+      },
+      choices = {
+        { text = "And the fewest?", next = "blo_road2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    blo_road2 = {
+      lines = {
+        { id = "blo_road2_1", text = "The south road toward Stranglethorn, where the Vile Reef sits and the murlocs come up out of the water. Watcher Jordan walks it now, young as he is, and I put his name in the book every time he goes out." },
+      },
+      choices = {
+        { text = "You worry about him.", next = "blo_road3" },
+        { text = "Back to other matters.", next = "BACK" },
+      },
+    },
+    blo_road3 = {
+      lines = {
+        { id = "blo_road3_1", text = "I worry about all of them, but Jordan more, because he goes out like he's daring the road to take him. His brother Daniel went out the same way, and I crossed out that name myself." },
+      },
+      choices = {
+        { text = "I'll keep an eye on him. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Watcher Blomberg, Night Watch. I keep a tally of everyone who passes this crossroads, coming and going, so we know who to look for when they don't come back.", fx = { learn = { "night_watch" } } } },
       again = {
@@ -39,6 +84,8 @@ P:NPC {
         { text = "Do you know Hutchins well?", next = "xhutch" },
         { text = "Who was the last name you crossed out?", next = "xlast" },
         { text = "Mark me down as a Darkshire friend.", next = "BACK", when = { faction = "Alliance" }, reply = "Done, and I've put a star by it, which I don't do for many. Come back through here so I can mark you home." },
+        { text = "Is there a name in your book you still hope for?", next = "blo_hope1" },
+        { text = "Which road gets the most travellers?", next = "blo_road1" },
         { text = "Carry on, Watcher.", next = "END" },
       },
     },
@@ -127,6 +174,50 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    hut_yrs1 = {
+      lines = {
+        { id = "hut_yrs1_1", text = "Everything but the signpost, friend. When I started, half the traffic was farmers going to market, and now it's adventurers going to fight, and the market's a stall at the town hall with three turnips on it." },
+      },
+      choices = {
+        { text = "What about the signpost?", next = "hut_yrs2" },
+        { text = "Something else, Hutchins.", next = "BACK" },
+      },
+    },
+    hut_yrs2 = {
+      lines = {
+        { id = "hut_yrs2_1", text = "Still points to Grand Hamlet, if you can believe it, because nobody's had the heart to repaint it. I've offered twice, and twice Blomberg's told me the old name keeps the hope up, and he's right, the old grump." },
+      },
+      choices = {
+        { text = "Leave it, then. It's a good sign.", next = "hut_yrs3" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    hut_yrs3 = {
+      lines = {
+        { id = "hut_yrs3_1", text = "A good sign, ha! I'll have that one, friend, and I'll use it on Blomberg tonight and he won't laugh at it either. That's how I know it's a good one, because he tries hardest not to laugh at the good ones." },
+      },
+      choices = {
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    hut_blo1 = {
+      lines = {
+        { id = "hut_blo1_1", text = "He does, you know, only on the inside where nobody can see it. You can tell by his left ear, which goes red, and I've been watching that ear for twelve years like a farmer watches the weather." },
+      },
+      choices = {
+        { text = "I'll watch the ear next time.", next = "hut_blo2" },
+        { text = "A gnome would build you a laugh meter.", next = "hut_blo2", when = { race = "Gnome" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hut_blo2 = {
+      lines = {
+        { id = "hut_blo2_1", text = "Do, and you'll see what I mean, though don't let him catch you at it. A watcher who's been caught smiling never hears the end of it at the Raven, and he's got a reputation to keep up as the grimmest man in Duskwood." },
+      },
+      choices = {
+        { text = "Your secret's safe with me. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Watcher Hutchins, at your service. Blomberg keeps the tally, and I keep the spirits up, which is the harder job, believe me." } },
       again = {
@@ -142,6 +233,9 @@ P:NPC {
         { text = "What does Blomberg really think of you?", next = "xblom" },
         { text = "Do you ever get scared?", next = "xscared" },
         { text = "Do dwarves tell good jokes, you think?", next = "BACK", when = { race = "Dwarf" }, reply = "The best, friend, though half of them are about beer and the other half are about beards. I'd trade jokes with you any night." },
+        { text = "Twelve years at the crossroads. What's changed?", next = "hut_yrs1" },
+        { text = "Blomberg never laughs at your jokes.", next = "hut_blo1" },
+        { text = "What's the oddest traveller to pass your crossroads?", next = "e3_crossroads" },
         { text = "Take care, Hutchins.", next = "END" },
       },
     },
@@ -193,6 +287,24 @@ P:NPC {
         { text = "Fear keeps you alive. Don't hide it.", next = "BACK", reply = "Aye, and it keeps my feet quick. I won't pretend otherwise.", fx = { align = { light = -1 } } },
       },
     },
+    e3_crossroads = {
+      lines = {
+        { id = "e3_crossroads_l0", text = "A gnome on one of those clockwork striders that look like an iron chicken, going south toward the jungle at a steady trot, who stopped to ask whether Duskwood had always been this gloomy or whether it was a recent design choice. I said recent, and he wrote it down, and I've laughed about it for a year." },
+      },
+      choices = {
+        { text = "Did he ever come back?", next = "e3_crossroads2" },
+        { text = "An iron chicken? Surely not.", next = "BACK" },
+      },
+    },
+    e3_crossroads2 = {
+      lines = {
+        { id = "e3_crossroads2_l0", text = "Not on the strider. He came back on foot a month later, carrying one of its legs, and asked whether I'd seen the rest of it go past. I hadn't, and I've been watching for a headless iron chicken ever since." },
+      },
+      choices = {
+        { text = "Keep watching. Something else.", next = "BACK" },
+        { text = "That's a tall tale, Hutchins.", next = "BACK" },
+      },
+    },
   },
   topics = {
     blomberg = { { id = "tp_xblomberg", text = "My oldest friend and my worst audience." } },
@@ -223,7 +335,7 @@ P:NPC {
     hello = {
       lines = { { id = "h_default", text = "Watcher Corwin. I keep the streets of Darkshire, which means I see every face that comes in and remember most of them." } },
       again = {
-        { id = "h_again", text = "Anything else you need?" },
+        { id = "h_again", text = "Anything else? Ask while I've the lamplight; I know every face in Darkshire, and most of their troubles." },
         { id = "h_again2", text = "Go on. The town's quiet, for once." },
       },
       choices = {
@@ -235,6 +347,7 @@ P:NPC {
         { text = "Who are the strangest folk in town?", next = "xodd" },
         { text = "Do you ever leave Darkshire?", next = "xleave" },
         { text = "I'm a paladin. Can I help the town?", next = "BACK", when = { class = "PALADIN" }, reply = "Bless you, aye. Go and see Commander Ebonlocke, and maybe stand a while by the church door. Folk sleep better seeing the Light about." },
+        { text = "You said your grandfather cut the town hall beams.", next = "e3_beams" },
         { text = "Good night, Watcher.", next = "END" },
       },
     },
@@ -299,6 +412,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    e3_beams = {
+      lines = {
+        { id = "e3_beams_l0", text = "Oak from the north woods, before they went black, and he carved his mark in the end of every one, a little oak leaf. You can still see it if you stand under the council table and look up, which I do sometimes when the arguing gets long." },
+      },
+      choices = {
+        { text = "Do the councillors know you do that?", next = "e3_beams2" },
+        { text = "That's a fine thing to leave behind.", next = "BACK" },
+      },
+    },
+    e3_beams2 = {
+      lines = {
+        { id = "e3_beams2_l0", text = "Councilman Millstipe caught me once and asked what I was looking at. I told him the only honest thing in the room was over his head, and he hasn't spoken to me since." },
+      },
+      choices = {
+        { text = "Well said, Corwin. Something else.", next = "BACK" },
+        { text = "That was rude to the Councilman.", next = "BACK" },
+      },
+    },
   },
   topics = {
     darkshire = { { id = "tp_xdarkshire", text = "My town. Small, scared and stubborn, and I'll not have a word said against it." } },
@@ -330,7 +461,7 @@ P:NPC {
       lines = { { id = "h_default", text = "Watcher Cutford. I walk the road from Darkshire toward the Twilight Grove, and I turn back before I reach it, because I'm not a fool." } },
       again = {
         { id = "h_again", text = "What else? Talk fast; I keep moving." },
-        { id = "h_again2", text = "Go on, I'm listening." },
+        { id = "h_again2", text = "Go on, and walk with me; I've a fair stretch of road before I turn, and I always turn." },
       },
       choices = {
         { text = "If you won't go to the grove, say so plainly.", next = "BACK", reply = "I say it every day, {class}, loud enough for the Commander to hear. I'm not ashamed of turning back, only of lying about it.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -343,6 +474,7 @@ P:NPC {
         { text = "I'm a druid. The grove calls to me.", next = "BACK", when = { class = "DRUID" }, reply = "Then go with my blessing, but please, don't wake anything on my road. I've a long walk home." },
         { text = "What happened when you walked into the grove?", next = "y_inside" },
         { text = "Do you have family in Darkshire?", next = "y_family" },
+        { text = "You woke with leaves in your hair after the grove.", next = "e3_leaves" },
         { text = "Safe walking, Cutford.", next = "END" },
       },
     },
@@ -405,6 +537,25 @@ P:NPC {
         { text = "Let her see it. She'll learn.", next = "BACK", reply = "You sound like her. Light help me, maybe you're right.", fx = { align = { order = -1 } } },
       },
     },
+    e3_leaves = {
+      lines = {
+        { id = "e3_leaves_l0", text = "Silver leaves, though no tree in Duskwood has silver leaves, and they crumbled to dust by noon. My wife swept them up and threw them on the fire, and the smoke smelled of rain on grass for a whole evening." },
+      },
+      choices = {
+        { text = "Have you had dreams since?", next = "e3_leaves2" },
+        { text = "Best not to go back, then.", next = "BACK" },
+      },
+    },
+    e3_leaves2 = {
+      lines = {
+        { id = "e3_leaves2_l0", text = "Every few weeks, of a green place under a sky I've never seen, full of light, with something vast breathing just out of sight. I wake rested, which is the strangest part, because nobody in Duskwood wakes rested." },
+        { id = "e3_leaves2_l1", when = { class = "DRUID" }, text = "Every few weeks, of a green place under a strange sky, with something vast breathing just out of sight. You'd know what that is, I suspect, and you can keep it to yourself, because I'd rather not." },
+      },
+      choices = {
+        { text = "Count yourself lucky. Something else.", next = "BACK" },
+        { text = "Tell the night elves about it.", next = "BACK" },
+      },
+    },
   },
   topics = {
     twilight_grove = { { id = "tp_xtwilight_grove", text = "Pretty from afar. I keep it that way." } },
@@ -434,6 +585,50 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    jor_reef1 = {
+      lines = {
+        { id = "jor_reef1_1", text = "Murlocs, mostly, a whole village of them along the shore, and they come up in a rush if you stand too long near the water. Further out there's a wreck where the fishermen say something bigger lives, though nobody I know has been to look." },
+      },
+      choices = {
+        { text = "Something bigger than a murloc?", next = "jor_reef2" },
+        { text = "Something else, Jordan.", next = "BACK" },
+      },
+    },
+    jor_reef2 = {
+      lines = {
+        { id = "jor_reef2_1", text = "That's the story, a thing with too many arms that pulled a whole boat under. The Commander says it's fishermen's talk, but she's ordered nobody to swim out to the wreck, which is an odd order if it's just talk." },
+      },
+      choices = {
+        { text = "Then don't be the first to test it.", next = "jor_reef3" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    jor_reef3 = {
+      lines = {
+        { id = "jor_reef3_1", text = "I won't, I swear, and you're the fourth person to tell me today. It's funny how everyone in Darkshire thinks I'm going to do something foolish, when I've only done three foolish things all year." },
+      },
+      choices = {
+        { text = "Three is plenty. Something else.", next = "BACK" },
+      },
+    },
+    jor_th1 = {
+      lines = {
+        { id = "jor_th1_1", text = "Thayer's hard on everyone, but aye, harder on me, because I'm the youngest and I talk back. He was my brother's sergeant, and I think he sees Daniel when he looks at me and doesn't care for it." },
+      },
+      choices = {
+        { text = "He's afraid of losing you the same way.", next = "jor_th2" },
+        { text = "You remind him of a loss. That's hard on both.", next = "jor_th2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jor_th2 = {
+      lines = {
+        { id = "jor_th2_1", text = "I hadn't thought of it like that. I'll try not to answer him back tomorrow, though I'm not making any promises if he says my lamp's crooked again." },
+      },
+      choices = {
+        { text = "Fair enough. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Watcher Jordan, newest in the Watch, though I've already put down three ghouls and a spider the size of a cart. The south road's mine to walk, and I'll keep it clear." } },
       again = {
@@ -450,6 +645,8 @@ P:NPC {
         { text = "Tell me about your brother.", next = "xbrother" },
         { text = "What do you think of the commander?", next = "xcmdr" },
         { text = "I'm a warrior. Any advice for the south road?", next = "BACK", when = { class = "WARRIOR" }, reply = "Keep your shield up near the reef, because the murlocs come in a rush. And don't chase them into the water, I learned that one wet." },
+        { text = "What do you know about the Vile Reef?", next = "jor_reef1" },
+        { text = "Thayer's been hard on you, by the sound of it.", next = "jor_th1" },
         { text = "Good luck, Jordan.", next = "END" },
       },
     },
@@ -541,6 +738,7 @@ P:NPC {
         { text = "What did Stitches do last time?", next = "xlasttime" },
         { text = "I'm a priest. Should I pray for the line?", next = "BACK", when = { class = "PRIEST" }, reply = "Pray loud, then, and pray close. Light knows we need it more than the cathedral does." },
         { text = "Did you know the Wilkins boy?", next = "y_wilkins" },
+        { text = "What do you do if Stitches comes up the road?", next = "e3_horn" },
         { text = "Stand fast, Gelwin.", next = "END" },
       },
     },
@@ -611,6 +809,24 @@ P:NPC {
         { text = "Act. Everyone knows he made it.", next = "BACK", reply = "Careful saying that loud, friend. But I hear you.", fx = { align = { order = -1 } } },
       },
     },
+    e3_horn = {
+      lines = {
+        { id = "e3_horn_l0", text = "Blow the horn three times, long, and then stand where I am until the others reach me or it does. The horn's an old cow-horn from the Wilkins farm, and Tommy's mother gave it to the line the week after." },
+      },
+      choices = {
+        { text = "Why did she give it to you?", next = "e3_horn2" },
+        { text = "Three long blasts. I'll remember.", next = "BACK" },
+      },
+    },
+    e3_horn2 = {
+      lines = {
+        { id = "e3_horn2_l0", text = "She said if her boy couldn't come home, his farm's horn could at least warn someone else's boy in time. I polish it every night, and I'd sooner lose my arm than drop it." },
+      },
+      choices = {
+        { text = "That's a heavy trust. Something else.", next = "BACK" },
+        { text = "Then blow it loud.", next = "BACK" },
+      },
+    },
   },
   topics = {
     stitches = { { id = "tp_xstitches", text = "An abomination with a cleaver. If you hear it laugh, run." } },
@@ -654,6 +870,7 @@ P:NPC {
         { text = "I'm a rogue. I could rig the draw.", next = "BACK", when = { class = "ROGUE" }, reply = "Could you? No, don't tell me. If I'm asked, I want to look honestly surprised." },
         { text = "Why do you really stay in the Watch?", next = "y_stay" },
         { text = "Has the post ever gone quiet?", next = "y_quiet" },
+        { text = "You sing to keep the dark away?", next = "e3_song" },
         { text = "Better luck next draw.", next = "END" },
       },
     },
@@ -716,6 +933,24 @@ P:NPC {
         { text = "Keep it to yourself for now.", next = "BACK", reply = "Aye, no sense starting a panic over a quiet night.", fx = { align = { order = -1 } } },
       },
     },
+    e3_song = {
+      lines = {
+        { id = "e3_song_l0", text = "Old milling songs my grandmother taught me, about flour and water and a miller's daughter who married a fish, and none of it makes sense. The ghouls don't seem to like it, though, and the crows leave the post when I start, so it earns its keep." },
+      },
+      choices = {
+        { text = "Sing me a verse.", next = "e3_song2" },
+        { text = "A singing watchman. Unusual.", next = "BACK" },
+      },
+    },
+    e3_song2 = {
+      lines = {
+        { id = "e3_song2_l0", text = "\"Grind the corn and grind it fine, the miller's daughter's in the brine.\" That's all you'll get, because Thayer's on the next post and he throws stones when I sing." },
+      },
+      choices = {
+        { text = "It's catchy. Something else.", next = "BACK" },
+        { text = "Thayer has a point.", next = "BACK" },
+      },
+    },
   },
   topics = {
     stitches = { { id = "tp_xstitches", text = "The less said, the better. I've only seen it once, and that was once too many." } },
@@ -748,7 +983,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "Watcher Sarys. I hold this part of the road against whatever comes up from the Rotting Orchard, and I've done it longer than anyone else on the line." } },
-      again = { { id = "h_again", text = "What else? Be quick." } },
+      again = { { id = "h_again", text = "What else? Quick, now; I'll not take my eyes off the orchard while you ask." } },
       choices = {
         { text = "Hold the road honestly, and never claim kills you didn't make.", next = "BACK", reply = "I never have, and I've the longest service on this line to show for it. A watcher who lies about kills gets careless about counting.", fx = { align = { honor = 1 } } }, -- dp_stance
         { text = "Claim every kill you can; the tally is what the Commander sees.", next = "BACK", reply = "Then the Commander plans by a lie and sends men into the orchard short-handed. No, I count what I kill and not a ghoul more.", fx = { align = { honor = -1 } } }, -- dp_stance
@@ -760,6 +995,7 @@ P:NPC {
         { text = "A Gilnean once told me of such woods.", next = "BACK", when = { race = "Human" }, reply = "Gilneas has walled itself off, so I'd not trust much that comes over that wall. But woods like these exist, sure enough, and they make the same sort of people." },
         { text = "Did your mother teach you the road?", next = "y_taught" },
         { text = "What do you fear most, Sarys?", next = "y_fear" },
+        { text = "You know every rut on this road, they say.", next = "e3_ruts" },
         { text = "Keep the road, Sarys.", next = "END" },
       },
     },
@@ -833,6 +1069,24 @@ P:NPC {
         { text = "Don't. Some doubts keep you sane.", next = "BACK", reply = "That's what I've been telling myself for a year.", fx = { align = { light = -1 } } },
       },
     },
+    e3_ruts = {
+      lines = {
+        { id = "e3_ruts_l0", text = "Every one, and which ones fill with water when it rains and which ones a ghoul's foot has made since the last frost. My mother taught me to read a road the way a priest reads a prayer book, and I'd know if a stone had moved overnight." },
+      },
+      choices = {
+        { text = "What has moved, lately?", next = "e3_ruts2" },
+        { text = "That's a rare skill.", next = "BACK" },
+      },
+    },
+    e3_ruts2 = {
+      lines = {
+        { id = "e3_ruts2_l0", text = "Three stones on the orchard side, rolled up toward the road, as if something heavy came out of the trees and went back again. I've told Gelwin to keep his horn close, and I've stopped turning my back to that side at all." },
+      },
+      choices = {
+        { text = "Good instincts. Something else.", next = "BACK" },
+        { text = "Probably just a deer, Sarys.", next = "BACK" },
+      },
+    },
   },
   topics = {
     rotting_orchard = { { id = "tp_xrotting_orchard", text = "Don't eat the apples. That's the most important thing I can tell you." } },
@@ -875,6 +1129,7 @@ P:NPC {
         { text = "I'm from Elwynn too, Selkin.", next = "BACK", when = { race = "Human" }, reply = "Are you? Then you know the smell of the Eastvale in summer. Lord, I miss it. Tell me you've been there lately." },
         { text = "Why don't you send the letters?", next = "y_why" },
         { text = "Have you heard the worgen?", next = "y_worgen" },
+        { text = "What would you tell Maryanne, if you sent the true letter?", next = "e3_maryanne" },
         { text = "Take care, Selkin.", next = "END" },
       },
     },
@@ -944,6 +1199,24 @@ P:NPC {
       lines = { { id = "y_worgen_d", text = "At night, out past Brightwood, howling like no wolf I ever heard in Elwynn. The old hands say they came out of a tower in the Silverpine. I don't sleep well on full moons." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    e3_maryanne = {
+      lines = {
+        { id = "e3_maryanne_l0", text = "That I'm frightened every night and proud of it in the morning, that the Watch are the best people I've known, and that I miss her pies more than I miss the sun. Then I'd tell her not to come, and she'd come anyway, which is the whole trouble." },
+      },
+      choices = {
+        { text = "Perhaps she'd only want to visit.", next = "e3_maryanne2" },
+        { text = "Sisters are like that.", next = "BACK" },
+      },
+    },
+    e3_maryanne2 = {
+      lines = {
+        { id = "e3_maryanne2_l0", text = "Maryanne doesn't visit, she arrives, with luggage and opinions. Still, if I wrote that I'd like a visit, and only a visit, I think she might even listen, and I could show her the Watch is worth staying for." },
+      },
+      choices = {
+        { text = "Write that letter. Something else.", next = "BACK" },
+        { text = "Keep her away from Duskwood.", next = "BACK" },
+      },
+    },
   },
   topics = {
     elwynn = { { id = "tp_xelwynn", text = "Home before home. Sunlit and green, and a long way from here." } },
@@ -979,7 +1252,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "Watcher Thayer. The others on this line hope Stitches never comes, and I hope it does, so I can put an end to it." } },
-      again = { { id = "h_again", text = "What else? I'm not going anywhere." } },
+      again = { { id = "h_again", text = "What else? Ask, and be quick; I'm listening for the road, not for you." } },
       choices = {
         { text = "Face Stitches openly on the road, blade to blade.", next = "BACK", reply = "That's all I want, a fair stand on open ground where it can see who ends it. Let the others hide behind their lamps.", fx = { align = { honor = 1 } } }, -- dp_stance
         { text = "Lure it into a trap and burn it; fairness is for men.", next = "BACK", reply = "Burn it, aye, I'd not weep over how it falls. But I'd still want to be the one holding the torch.", fx = { align = { honor = -1 } } }, -- dp_stance
@@ -992,6 +1265,7 @@ P:NPC {
         { text = "What was Rowan like?", next = "y_rowan" },
         { text = "Has the commander warned you?", next = "y_warned" },
         { text = "Tell me about that blade.", next = "y_blade" },
+        { text = "Does the silver in your blade help at all?", next = "e3_silver" },
         { text = "Good luck, Thayer.", next = "END" },
       },
     },
@@ -1056,6 +1330,24 @@ P:NPC {
       lines = { { id = "y_blade_d", text = "Rowan's blade, reforged in Darkshire with silver in the edge. The smith said silver won't help against stitched flesh. I don't care. It's his steel, and it'll finish his fight." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    e3_silver = {
+      lines = {
+        { id = "e3_silver_l0", text = "The smith says no, and Rowan would have laughed at me for paying for it. But Rowan's mother wore a silver ring, and it was the ring I had melted into the edge, so whatever the blade does when it meets that thing, she'll be part of it." },
+      },
+      choices = {
+        { text = "I thought you meant to give the ring to his girl.", next = "e3_silver2" },
+        { text = "That's a fitting blade.", next = "BACK" },
+      },
+    },
+    e3_silver2 = {
+      lines = {
+        { id = "e3_silver2_l0", text = "His ring, aye, the one I still carry. This was his mother's, given me at the burial, and she asked me to do exactly this with it. Two rings, one for revenge and one for love, and I know which one I'm better at." },
+      },
+      choices = {
+        { text = "Keep the love one safe. Something else.", next = "BACK" },
+        { text = "Revenge won't bring him back.", next = "BACK" },
+      },
+    },
   },
   topics = {
     stitches = { { id = "tp_xstitches", text = "I'll put an end to it. That's all I have to say." } },
@@ -1102,6 +1394,7 @@ P:NPC {
         { text = "You were a physician in Lordaeron?", next = "y_physician" },
         { text = "Do you trust Zraedus?", next = "y_zraedus" },
         { text = "Who is the spy you're brewing for?", next = "y_spy" },
+        { text = "Which of Duskwood's horrors suits your work best?", next = "e3_ingredients" },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -1163,6 +1456,25 @@ P:NPC {
       lines = { { id = "y_spy_d", text = "The human in Stonard? A Stormwind scout who wandered too close to our tents. He's very brave and very stupid, which is the most useful combination in a test subject." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    e3_ingredients = {
+      lines = {
+        { id = "e3_ingredients_l0", text = "The mire lords' sap, my dear, which curdles milk at ten paces and does something altogether more interesting to blood. The shadow panthers are lovely too, though one does lose a great many porters collecting them, and porters are so hard to replace this far from Brill." },
+        { id = "e3_ingredients_l1", when = { race = "Scourge" }, text = "The mire lords' sap, cousin, which curdles milk at ten paces and does far more interesting things to living blood. You'll appreciate the irony that the living run from it and we bottle it, I trust." },
+      },
+      choices = {
+        { text = "What does it do to blood?", next = "e3_ingredients2" },
+        { text = "I'd rather not know, Faustin.", next = "BACK" },
+      },
+    },
+    e3_ingredients2 = {
+      lines = {
+        { id = "e3_ingredients2_l0", text = "Thickens it, darkens it, and persuades it to stop where it is, which in a living subject is rather final. In a truth serum, of course, I use only the smallest drop, to loosen the tongue before it loosens everything else." },
+      },
+      choices = {
+        { text = "How very reassuring. Something else.", next = "BACK" },
+        { text = "That's monstrous work.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I was a physician in Lordaeron, once. Now I'm something much more useful." } },
@@ -1192,7 +1504,7 @@ P:NPC {
     hello = {
       lines = { { id = "h_default", text = "Deathstalker Zraedus. I watch over this camp, and over Faustin, who requires more watching than the camp does." } },
       again = {
-        { id = "h_again", text = "More questions? Be brief, and be quiet." },
+        { id = "h_again", text = "More questions? Ask them softly, living or dead, and keep below the treeline while you do." },
         { id = "h_again2", text = "Go on. I'm listening, and so are the trees." },
       },
       choices = {
@@ -1203,6 +1515,7 @@ P:NPC {
         { text = "The Dark Lady's work. I'll keep quiet, cousin.", next = "kin", when = { race = "Scourge" } },
         { text = "Good sightlines. Nobody sees this camp from the road.", next = "watchpost", when = { class = "ROGUE" } },
         { text = "I've no quarrel with you, Forsaken.", next = "truce", when = { faction = "Alliance" } },
+        { text = "How long can you keep this camp hidden?", next = "e3_watch" },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -1265,6 +1578,24 @@ P:NPC {
       choices = {
         { text = "My word is good. I'll say nothing.", next = "BACK", reply = "Words are cheap among the living, but I'll take yours, for now.", fx = { align = { honor = 1 } } },
         { text = "I'll tell the Night Watch whatever I please.", next = "BACK", reply = "Then I will remember your face after all, and so will Faustin.", fx = { align = { honor = -1 } } },
+      },
+    },
+    e3_watch = {
+      lines = {
+        { id = "e3_watch_l0", text = "As long as Faustin keeps his fires small and his cackling quiet, which is to say not long at all. I move the tents every fortnight, from one ravine to the next, and every fortnight he complains that the light was better in the last one." },
+      },
+      choices = {
+        { text = "What happens if the Night Watch finds you?", next = "e3_watch2" },
+        { text = "A fortnight's a short time to hide.", next = "BACK" },
+      },
+    },
+    e3_watch2 = {
+      lines = {
+        { id = "e3_watch2_l0", text = "Then I kill whoever finds us, quickly, and we move further south, and Darkshire loses another watcher to the woods, as Darkshire always does. Nobody there would think to blame us, which is the one mercy of this cursed forest." },
+      },
+      choices = {
+        { text = "That's cold, Zraedus. Something else.", next = "BACK" },
+        { text = "They'd blame the worgen, I suppose.", next = "BACK" },
       },
     },
   },

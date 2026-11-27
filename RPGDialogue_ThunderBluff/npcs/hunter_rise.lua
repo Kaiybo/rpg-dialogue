@@ -50,7 +50,47 @@ P:NPC {
         { text = "I didn't know tauren made good smiths.", next = "smiths" },
         { text = "Krog wants to know who carried that shield.", next = "krog", when = { questActive = TODO_QUEST("The Black Shield") } },
         { text = "Show me your wares.", next = "BUSINESS" },
+        { text = "Your forge burns hotter than any on the bluff.", next = "heat" },
+        { text = "What comes back broken most often?", next = "broken" },
+        { text = "My shield's taken a beating. Can you tell from what?", next = "myshield", when = { class = "WARRIOR" } },
         { text = "Earth Mother keep your forge, Mosarn.", next = "END" },
+      },
+    },
+    heat = {
+      lines = { { id = "heat_d", text = "It's the wind, friend, not me. Hunter Rise catches every gust that comes across Mulgore, and on a good day it pushes through the forge mouth so hard that my apprentices hardly need to touch the bellows." } },
+      choices = {
+        { text = "And on a still day?", next = "heat_still" },
+        { text = "A smith who lets the wind work for him. Clever.", next = "BACK", reply = "Clever or lazy, depending on which apprentice you ask." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    heat_still = {
+      lines = { { id = "heat_still_d", text = "Then the young ones pump until their arms shake, and I tell them it's good for their swing. Karn Stonehoof down on the lower rise has a forge in the lee of the cliff, and he says mine is too wild to trust, but his iron comes out the same colour as mine." } },
+      choices = {
+        { text = "Then you're both right, in your way.", next = "BACK", reply = "Don't tell him that, or he'll come up here to argue about it." },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    broken = {
+      lines = { { id = "broken_d", text = "Shields from the Barrens, mostly, cracked across the boss by centaur clubs. The Kolkar swing like they're splitting firewood, and a shield that isn't riveted right splits the same way." } },
+      choices = {
+        { text = "What do you learn from the broken ones?", next = "broken_learn" },
+        { text = "So the centaur are your best critics.", next = "BACK", reply = "The only honest ones I've got. Everyone else is too polite." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    broken_learn = {
+      lines = { { id = "broken_learn_d", text = "Where I was lazy, usually. A rivet set crooked, or a rim beaten thin to save iron, and every one of them is a lesson I already knew and forgot. I keep the worst of them on a hook by the door, so the apprentices see them every morning." } },
+      choices = {
+        { text = "A wall of mistakes. That takes humility.", next = "BACK", reply = "Or a long memory. I'm told they're the same thing." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    myshield = {
+      lines = { { id = "myshield_d", text = "Let me see it. Those gouges are claws, not blades, and that dent is a club swung from above, so you've been fighting something big and something quick. Bring it back when it's split, warrior, and I'll tell you the rest." } },
+      choices = {
+        { text = "I'll bring it back before it splits.", next = "BACK", reply = "Wiser still. Most don't." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     buyers = {

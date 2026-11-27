@@ -27,11 +27,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_led = {
+      lines = { { id = "w8_led_a", text = "Wi' a sharp pencil an' a sharper tongue, {g:lad|lass}, for half the harbor buys on account an' the other half forgets they did. Gruham would give rope away tae anybody wi' a sad story, so I keep the book, an' I keep it shut." } },
+      choices = {
+        { text = "Who owes you the most?", next = "w8_led2" },
+        { text = "Gruham sounds soft-hearted.", next = "w8_led2" },
+        { text = "Something else, Derina.", next = "BACK" },
+      },
+    },
+    w8_led2 = {
+      lines = { { id = "w8_led2_a", text = "The League's diggers, by a long road, for Whelgar's crew buy lamp oil by the cask an' pay by the season, if the raptors let them. Gruham is soft-hearted, aye, an' I married him for it, but I'll no' let it sink the shop." } },
+      choices = {
+        { text = "The shop's in good hands.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", text = "I'm Derina Rumdnul, an' that's my husband Gruham behind the counter, sellin' ye things ye didnae know ye needed. I mind the ledger an' I mind our son, an' the ledger's a good deal less trouble." } },
       again = {
         { id = "h_again", text = "What else, dearie? I've one eye on the door, mind." },
-        { id = "h_again2", text = "Go on, I'm listenin', mostly." },
+        { id = "h_again2", text = "Go on, dearie, I'm listenin', though if Gimlok knocks that shelf over again ye'll hear me shout." },
       },
       choices = {
         { text = "What does your son get up to?", next = "gimlok" },
@@ -40,6 +56,7 @@ P:NPC {
         { text = "Where did you live before Menethil?", next = "ybefore" },
         { text = "What will Gimlok be when he's grown?", next = "yfuture" },
         { text = "Do you get trouble from the Dragonmaw here?", next = "ydmaw" },
+        { text = "How do you keep the ledger balanced in a port like this?", next = "w8_led" },
         { text = "Good day, Derina.", next = "END" },
       },
     },
@@ -130,11 +147,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_murl = {
+      lines = { { id = "w8_murl_a", text = "Once! It came up the beach at low tide an' went mrglglgl at me, an' I went mrglglgl back, an' then a guard shot at it an' it ran away. I think it wanted tae be friends, but Mam says murlocs only want tae eat ye." } },
+      choices = {
+        { text = "Your mam is right this time.", next = "w8_murl2" },
+        { text = "Maybe it did want to be friends.", next = "w8_murl2" },
+        { text = "Something else, Gimlok.", next = "BACK" },
+      },
+    },
+    w8_murl2 = {
+      lines = { { id = "w8_murl2_a", text = "That's what everybody says! But it didnae eat me, so I think it was a nice one, or it wasnae hungry. I've been practisin' mrglglgl ever since in case I see it again, an' Regina says it's disgustin'." } },
+      choices = {
+        { text = "Stay away from the beach at low tide.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", text = "I'm Gimlok, an' my da has the shop an' my mam has the shoutin'. I'm nae supposed tae be down here, but the crabs are down here, so what can I do?" } },
       again = {
         { id = "h_again", text = "What else? I've crabs tae catch." },
-        { id = "h_again2", text = "Aye, go on!" },
+        { id = "h_again2", text = "Aye, go on, but quick, before Magni the crab runs off!" },
       },
       choices = {
         { text = "What do you do with the crabs?", next = "crabs" },
@@ -143,6 +176,7 @@ P:NPC {
         { text = "What's your bravest adventure?", next = "ybrave" },
         { text = "Are you scared of anything?", next = "yscared" },
         { text = "What do you want to be when you're grown?", next = "ygrown" },
+        { text = "Have you ever seen a murloc up close?", next = "w8_murl" },
         { text = "Stay out of the water, Gimlok.", next = "END" },
       },
     },

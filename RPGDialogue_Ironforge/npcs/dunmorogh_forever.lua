@@ -210,6 +210,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_miss = {
+      lines = {
+        { id = "w2_miss_l0", text = "The warmth, of course, but more than that, the sound. A whole city of gears and pistons, all humming in key, and you'd fall asleep to it like a lullaby. Out here, the only sound at night is the wind and Grund snoring." },
+      },
+      choices = {
+        { text = "Will you go back one day?", next = "w2_miss_back" },
+        { text = "Grund's snoring must be a kind of lullaby too.", next = "BACK" },
+      },
+    },
+    w2_miss_back = {
+      lines = {
+        { id = "w2_miss_back_l0", text = "Once it's cleaned up, yes, and I'll bring Grund, and I'll show him the great gears turning. He says he'd rather see a good fire, but I think he'd like the gears. Everyone likes the gears." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
@@ -226,6 +243,7 @@ P:NPC {
         { text = "Tell me about the pocket shotgun.", next = "gun" },
         { text = "What do you think of Grund?", next = "grund" },
         { text = "Can I help with your shotgun's barrel problem?", next = "xeng", when = { profession = { "Engineering" } } },
+        { text = "What do you miss most about Gnomeregan?", next = "w2_miss" },
         { text = "Rest well, Gozwin.", next = "END" },
       },
     },

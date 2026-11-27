@@ -27,12 +27,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2stock = {
+      lines = {
+        { id = "w2st_tauren", when = { race = "Tauren" }, text = "Your people's bread, if you want the truth. Mulgore spiced bread comes up the road from the Crossroads in a caravan, and half of it is eaten by the drivers and the other half by centaur, and what reaches me sells before I can unwrap it." },
+        { id = "w2st_default", text = "Mulgore spiced bread. It comes up the road from the Crossroads by caravan, and half of it is eaten by the drivers and the other half by the centaur, and what reaches me sells before I can unwrap it." },
+      },
+      choices = {
+        { text = "The centaur raid the caravans that often?", next = "w2stock2" },
+        { text = "Bake it yourself, then.", next = "w2stock2" },
+        { text = "Something else, Asoran.", next = "BACK" },
+      },
+    },
+    w2stock2 = {
+      lines = { { id = "w2st2_default", text = "Often enough that I count each crate twice when it arrives, and pray to no one in particular before I open it. The Kolkar watch the road south of the Crossroads like vultures, and every grunt the Warchief sends there is one less guard on my bread." } },
+      choices = { { text = "I'll watch the road when I pass.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Asoran, and this market is mine. I sell food, drink, bags and all the dull things nobody sings about, and without them no warrior gets as far as the song." },
       },
       again = {
-        { id = "h_again", text = "What else do you need, {class}?" },
+        { id = "h_again", text = "What else does your pack lack, {class}? I can usually tell, but I would rather you told me." },
         { id = "h_again2", text = "Ask. I am not going anywhere, and neither is the stock." },
       },
       choices = {
@@ -42,6 +57,7 @@ P:NPC {
         { text = "How did you come to own a market?", next = "xhow" },
         { text = "Do goblins compete with you?", next = "xgoblins" },
         { text = "Any advice for a hunter on the road?", when = { class = "HUNTER" }, next = "xhunter" },
+        { text = "What's the hardest thing to keep on your shelves?", next = "w2stock" },
         { text = "Good trading, Asoran.", next = "END" },
       },
     },
@@ -138,12 +154,49 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    mg_asoran = {
+      lines = { { id = "mg_asoran_l", text = "It does, and I have told him so, and he has never once offered me a loaf for the compliment. We share a roof because the rent in the Valley of Strength is high, and because a customer who forgets his reagents usually forgets his supper too." } },
+      choices = {
+        { text = "So you send each other customers.", next = "mg_asoran2" },
+        { text = "An odd pair, a baker and a powder-seller.", next = "mg_asoran2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mg_asoran2 = {
+      lines = { { id = "mg_asoran2_l", text = "We do, without ever having agreed to it. A shaman comes to me for an ankh, and Asoran sells him bread on the way out, and a hungry grunt buys bread and sees my flash powder and wonders what it does, which is how half my sales begin." } },
+      choices = {
+        { text = "And what does flash powder do?", next = "mg_asoran3" },
+        { text = "Something else, Magenius.", next = "BACK" },
+      },
+    },
+    mg_asoran3 = {
+      lines = { { id = "mg_asoran3_l", text = "It lets a rogue vanish from where he was standing, or so the rogues tell me, because I have never seen one do it. I suppose that is the point, and they pay well enough that I do not ask for a demonstration." } },
+      choices = {
+        { text = "Wise of you not to ask.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mg_source = {
+      lines = { { id = "mg_source_l", text = "From all over, which is why the prices go up and down like the tide at Ratchet. The ankhs come from the shaman of the Valley of Wisdom, the powders from the Undercity, and the feathers from the plains of Mulgore, where the tauren gather them." } },
+      choices = {
+        { text = "The Forsaken make your powders?", next = "mg_source2" },
+        { text = "So the whole Horde stocks your shelves.", next = "mg_source2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mg_source2 = {
+      lines = { { id = "mg_source2_l", text = "They make a great many things, and I prefer not to know how. The crates arrive by zeppelin from Tirisfal with the lids nailed down, and I open them in the yard, upwind." } },
+      choices = {
+        { text = "A sensible precaution.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Magenius. I sell the powders, runes and charms that a spell consumes, and I share Asoran's roof because those who run short of reagents have usually run short of bread as well." },
       },
       again = {
-        { id = "h_again", text = "What else can I tell you?" },
+        { id = "h_again", text = "Ask me anything, and I'll answer what I can. I find people far more interesting than the pots, though the pots pay better." },
         { id = "h_again2", text = "Ask, {class}. I enjoy questions more than most traders do." },
       },
       choices = {
@@ -152,6 +205,8 @@ P:NPC {
         { text = "Who buys the most from you?", next = "buys" },
         { text = "I need runes for my teleports.", next = "m_runes", when = { class = "MAGE", minLevel = 20 } },
         { text = "I'm an orc and a mage. What do you make of that?", next = "m_orcmage", when = { class = "MAGE", race = "Orc" } },
+        { text = "Asoran's bread smells better than your powders.", next = "mg_asoran" },
+        { text = "Where do your charms and powders come from?", next = "mg_source" },
         { text = "Farewell, Magenius.", next = "END" },
       },
     },
@@ -239,6 +294,43 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    bs_hunt = {
+      lines = { { id = "bs_hunt_l", text = "I did, when I was younger and my knees worked. Now the hunters bring me what they kill in Durotar and the Barrens, and I pay them fair, and I keep the best of it for the glaze." } },
+      choices = {
+        { text = "Do you miss the hunting?", next = "bs_hunt2" },
+        { text = "Your knees seem fine to me.", next = "bs_hunt2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bs_hunt2 = {
+      lines = { { id = "bs_hunt2_l", text = "Some mornings, when the smoke is thick and the Drag is loud. But a pit is a good place to grow old, and the meat tastes better when I am not the one who had to drag it home across a mile of red rock." } },
+      choices = {
+        { text = "That's honest of you.", next = "BACK" },
+        { text = "Something else, Borstan.", next = "BACK" },
+      },
+    },
+    bs_grunts = {
+      lines = { { id = "bs_grunts_l", text = "Whatever the barracks kitchens give them, which is boiled and grey and kept warm for too long. So they come to my pit when they are off watch, and they pay for proper meat out of their own coin." } },
+      choices = {
+        { text = "The Warchief should feed his grunts better.", next = "bs_grunts2" },
+        { text = "A grunt doesn't need fine food to fight.", next = "bs_grunts2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bs_grunts2 = {
+      lines = { { id = "bs_grunts2_l", text = "I have heard both said, and both are true enough. A grunt fights on porridge, but he fights better on a good rib, and I think the Warchief knows it, because he has eaten at this pit himself." } },
+      choices = {
+        { text = "Thrall ate here? Truly?", next = "bs_grunts3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bs_grunts3 = {
+      lines = { { id = "bs_grunts3_l", text = "Once, when the city was new and the Drag had only half a roof. He paid like anyone else, and he asked my name, and he said the ribs reminded him of a meal he had once with the Frostwolves." } },
+      choices = {
+        { text = "That's a story worth telling.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_meal", when = { questActive = TODO_QUEST("Meal Appeal") }, text = "Thatog sent you about young Migi, did he? I pack that boy's lunch every morning and most days it sits here until it is cold, because he will not leave his game to fetch it." },
@@ -255,6 +347,8 @@ P:NPC {
         { text = "What's your best cut?", next = "best" },
         { text = "Your smoke fills the whole Drag.", next = "smoke" },
         { text = "Where does the meat come from?", next = "hunters" },
+        { text = "Do you hunt your own boars?", next = "bs_hunt" },
+        { text = "What do the grunts on the wall eat?", next = "bs_grunts" },
         { text = "Keep the fire hot, Borstan.", next = "END" },
       },
     },
@@ -326,13 +420,66 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2vial = {
+      lines = { { id = "w2v_default", text = "A goblin glassblower in Ratchet makes them from the sand of the coast, and they come up by wagon packed in straw. I pay her well, because a vial that cracks on the road costs me nothing, but one that cracks in an alchemist's hand costs a customer his fingers." } },
+      choices = {
+        { text = "How many survive the journey?", next = "w2vial2" },
+        { text = "You could blow the glass yourself.", next = "w2vial2" },
+        { text = "Something else, Kor'geld.", next = "BACK" },
+      },
+    },
+    w2vial2 = {
+      lines = {
+        { id = "w2v2_alch", when = { profession = "Alchemy" }, text = "Nine in ten, on a good month, and you know as well as I do that the tenth one always seems to be the one you needed. I hold every vial to the light before it goes on the shelf, and I throw out any with a bubble in the neck." },
+        { id = "w2v2_default", text = "Nine in ten, on a good month. I hold every vial up to the light before it goes on the shelf, and any with a bubble in the neck goes straight into the rubbish, however much it cost me." },
+      },
+      choices = { { text = "That care must save lives.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
+    kg_shelves = {
+      lines = { { id = "kg_shelves_l", text = "They are, because the Drag has no room to spread sideways, so I spread up. The vials go on the top because the students can't reach them, and the students are why I keep losing vials." } },
+      choices = {
+        { text = "How do you reach them yourself?", next = "kg_shelves2" },
+        { text = "A clever way to keep the stock safe.", next = "kg_shelves2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kg_shelves2 = {
+      lines = { { id = "kg_shelves2_l", text = "With a ladder that Yelmak borrows and never brings back, so most days I climb the shelves like a troll up a palm tree. My father would be ashamed, but my father never sold a vial in his life." } },
+      choices = {
+        { text = "Then ask Yelmak for the ladder back.", next = "BACK" },
+        { text = "Something else, Kor'geld.", next = "BACK" },
+      },
+    },
+    kg_cust = {
+      lines = { { id = "kg_cust_l", text = "The Forsaken apothecaries who pass through on their way to the Barrens buy more than anyone, and they never haggle. They also never say what they're brewing, and I've stopped asking, because the answers made me uneasy." } },
+      choices = {
+        { text = "What did they tell you?", next = "kg_cust2" },
+        { text = "The Forsaken brew dangerous things.", next = "kg_cust2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kg_cust2 = {
+      lines = { { id = "kg_cust2_l", text = "One told me he was making something to end the Scourge forever, and he said it the way an orc speaks of a good axe. I sold him his vials and washed my hands afterward, though I couldn't have told you why." } },
+      choices = {
+        { text = "Anything that ends the Scourge is welcome.", next = "BACK", reply = "Maybe so, and I hope you're right. I've just never seen a weapon that only cut one way.", fx = { align = { light = -1 } } },
+        { text = "A poison like that should frighten us all.", next = "BACK", reply = "It frightens me, and I only sell the glass. Tell no one I said so, {class}.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "scourge" } } },
+      },
+    },
+    kg_brewer = {
+      lines = { { id = "kg_brewer_l", text = "Then you'll already know the worst of it, which is that a cracked vial wastes a whole afternoon's work. Buy the leaded ones for anything that fumes, and keep your thin glass for the healing draughts." } },
+      choices = {
+        { text = "Leaded for fumes. I'll remember.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_medley", when = { questActive = TODO_QUEST("Yelmak's Medley") }, text = "Yelmak has sent you on one of his errands, has he? Then tell me what he wants this time, and try to remember all of it, because his lists are never short." },
         { id = "h_default", text = "I am Kor'geld, and I supply the alchemists of Orgrimmar. Yelmak teaches the brewing and I sell the glass to put it in, and between us nobody in the Drag goes without a potion who needs one." },
       },
       again = {
-        { id = "h_again", text = "What else do you need?" },
+        { id = "h_again", text = "Something more? Ask slowly, {class}, and keep your hands still while you do." },
         { id = "h_again2", text = "Go on, but keep clear of the top shelf while you talk." },
       },
       choices = {
@@ -341,6 +488,10 @@ P:NPC {
         { text = "It's strange to see an orc selling glass.", next = "glass" },
         { text = "What do alchemists run out of first?", next = "runout" },
         { text = "I'm a warrior. Which potion should never leave my belt?", next = "warbelt", when = { class = "WARRIOR" } },
+        { text = "Your shelves are stacked higher than the doorway.", next = "kg_shelves" },
+        { text = "Who are your best customers, besides students?", next = "kg_cust" },
+        { text = "I brew my own potions already.", next = "kg_brewer", when = { profession = "Alchemy" } },
+        { text = "Where do all these vials come from?", next = "w2vial" },
         { text = "Farewell, Kor'geld.", next = "END" },
       },
     },
@@ -404,6 +555,58 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2dream = {
+      lines = { { id = "w2d_default", text = "Fiery weapon! Godan put it on a warrior's axe last month, and the edge glowed like a forge coal when she swung it. I have read the formula nine times, but he says I am not to try it until my hands stop shaking when I hold an essence." } },
+      choices = {
+        { text = "Do your hands still shake?", next = "w2dream2" },
+        { text = "Godan's right to make you wait.", next = "w2dream2" },
+        { text = "Something else, Jhag.", next = "BACK" },
+      },
+    },
+    w2dream2 = {
+      lines = {
+        { id = "w2d2_ench", when = { profession = "Enchanting" }, text = "A little, still, but less than they did! You know the feeling, I expect, when the essence starts to hum in your palm. Godan says the shaking is only respect, and that a good enchanter keeps the respect and loses the shake." },
+        { id = "w2d2_default", text = "A little, still, but less than they did. Godan says the shaking is only respect, and that a good enchanter keeps the respect and loses the shake, and I am trying very hard to do both." },
+      },
+      choices = { { text = "You'll get there, Jhag.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    jh_kithas = {
+      lines = { { id = "jh_kithas_l", text = "He does, because every rune I botch means a rod he has to sell again. Kithas pretends to mind, but I think he likes it, since he makes his coin twice off my mistakes." } },
+      choices = {
+        { text = "Do you botch many runes?", next = "jh_kithas2" },
+        { text = "A shopkeeper who profits from failure.", next = "jh_kithas2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jh_kithas2 = {
+      lines = { { id = "jh_kithas2_l", text = "Fewer than I did, which Godan says is a sign I'm learning. When I began I burned through a copper rod a day, and now it takes a week, and Kithas has started asking if I'm feeling well." } },
+      choices = {
+        { text = "That's progress you can measure.", next = "BACK" },
+        { text = "Something else, Jhag.", next = "BACK" },
+      },
+    },
+    jh_first = {
+      lines = { { id = "jh_first_l", text = "Their own patience, before anything else. A student sees the dust come out of a broken bracer and wants to put it into a new one straight away, and then the rune slips and the dust is gone." } },
+      choices = {
+        { text = "So the craft punishes haste.", next = "jh_first2" },
+        { text = "And after their patience?", next = "jh_first2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jh_first2 = {
+      lines = { { id = "jh_first2_l", text = "After their patience comes a good pair of gloves, usually, because they try to enchant something they're still wearing. Godan says every enchanter does it once, and he still has the scar on his thumb to prove it." } },
+      choices = {
+        { text = "I'll take my gloves off first.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jh_ench = {
+      lines = { { id = "jh_ench_l", text = "Then you know the strange quiet when something gives up its magic, and the dust that comes out a different colour each time. Bring me your strange essences, if you find any, because I'm still learning to name them all." } },
+      choices = {
+        { text = "I'll bring you the odd ones.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_camp", tags = { "news" }, when = { questActive = TODO_QUEST("Camping 101: Enchanting") }, text = "You were sent to me about a camp, were you? A camp wants an enchanter as much as it wants a cook and a fire, because cold steel is only steel until somebody wakes it up." },
@@ -420,6 +623,10 @@ P:NPC {
         { text = "How does enchanting work?", next = "works" },
         { text = "What's it like, learning under Godan?", next = "godan" },
         { text = "Orcs aren't known for enchanting.", next = "orcs" },
+        { text = "Kithas seems to watch your runes closely.", next = "jh_kithas" },
+        { text = "What's the first thing every student breaks?", next = "jh_first" },
+        { text = "I've disenchanted a few things already.", next = "jh_ench", when = { profession = "Enchanting" } },
+        { text = "What enchantment do you most want to learn?", next = "w2dream" },
         { text = "Good luck with the runes, Jhag.", next = "END" },
       },
     },
@@ -488,6 +695,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2scale = {
+      lines = { { id = "w2sc_default", text = "From a goblin trader who used it to cheat me, as it happens. His scale read light by a pinch on every weighing, and when I found the shim he had hidden under the pan, he paid me back with the scale itself and walked out a good deal lighter." } },
+      choices = {
+        { text = "Do you still check it for tricks?", next = "w2scale2" },
+        { text = "So that's why you weigh things twice.", next = "w2scale2" },
+        { text = "Something else, Kithas.", next = "BACK" },
+      },
+    },
+    w2scale2 = {
+      lines = {
+        { id = "w2sc2_ench", when = { profession = "Enchanting" }, text = "Every morning, against a copper coin I know the weight of. You buy dust, {class}, so you know how dear a pinch is, and I will not have my customers paying for a goblin's air." },
+        { id = "w2sc2_default", text = "Every morning, against a copper coin I know the weight of. A pinch of dust is worth more than most people think, and I will not have anyone paying for a goblin's air." },
+      },
+      choices = { { text = "An honest scale is rare.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Kithas, and I sell what the enchanters of this shop use up. Godan draws the runes, Jhag teaches the beginners, and I make sure neither of them ever reaches for a rod and finds the shelf bare." },
@@ -503,6 +725,7 @@ P:NPC {
         { text = "How does an orc come to enchanting?", next = "xorc" },
         { text = "What is the strangest thing anyone sold you?", next = "xstrange" },
         { text = "Do mages buy from you?", when = { class = "MAGE" }, next = "xmage" },
+        { text = "Where did you get that brass scale?", next = "w2scale" },
         { text = "Farewell, Kithas.", next = "END" },
       },
     },

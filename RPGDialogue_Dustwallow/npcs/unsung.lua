@@ -355,7 +355,7 @@ P:NPC {
         { id = "h_again2", text = "Speak up. The hammer drowns out quiet voices." },
       },
       choices = {
-        { text = "Good armor honors the smith who makes it.", next = "BACK", reply = "It does. You understand.", fx = { align = { honor = 1 } } },
+        { text = "Good armor honors the smith who makes it.", next = "BACK", reply = "It does, and a smith who forgets that soon finds his name on cracked plate. I'd rather be remembered for the ones that held.", fx = { align = { honor = 1 } } },
         { text = "Armor is armor, whoever makes it.", next = "BACK", reply = "Then buy from someone else.", fx = { align = { honor = -1 } } },
         { text = "Does the marsh treat leather any better than steel?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Let me see your armor.", next = "BUSINESS" },

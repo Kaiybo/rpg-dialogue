@@ -30,6 +30,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_isles = {
+      lines = {
+        { id = "w3_isles_1", text = "Every mornin', mon, when de fog come in off de lake instead of de sun off de sea. Silverpine be cold and grey and full of wolves, and Tiev's toes never warm up, but de water here need help, and de loa don't send you where it be comfortable." },
+        { id = "w3_isles_2", when = { race = "Troll" }, text = "Every mornin', brotha, and you know how it be. De fog come in where de sun ought to, and de toes never warm, but de loa don't send us where it be comfortable, ya?" },
+      },
+      choices = {
+        { text = "What would you do first, back home?", next = "w3_home" },
+        { text = "Sen'jin's waters remember us, wherever we walk.", next = "BACK", when = { race = "Troll" }, reply = "Dat be true, and dat be a fine thing to say. Tiev will carry it back to de Isles, when Tiev goes." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_home = {
+      lines = {
+        { id = "w3_home_1", text = "Sit in de surf at Sen'jin Village till Tiev's whole body be warm, and eat a whole fish dat nobody poisoned first. Then Tiev tell everybody about de dead people in de wet woods, and nobody believe a word, and Tiev laugh." },
+      },
+      choices = {
+        { text = "I'd believe you. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -49,6 +68,7 @@ P:NPC {
         { text = "What's a water sapta?", next = "sapta", when = { class = "SHAMAN" } },
         { text = "A troll, alone among the Forsaken.", next = "forsaken" },
         { text = "Why do you talk about yourself like that?", next = "name" },
+        { text = "Do you miss the Echo Isles, out here?", next = "w3_isles" },
         { text = "Walk with the spirits, Tiev.", next = "END" },
       },
     },
@@ -187,6 +207,61 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_break = {
+      lines = {
+        { id = "d2_break_1", text = "Mail, at the shoulder, where a worgen's claws catch the rings and tear them open like a sack. The deathguards who ride out to Pyrewood come back with their links hanging, and they expect me to make it whole by morning." },
+      },
+      choices = {
+        { text = "Can mail be made to stand up to claws?", next = "d2_break2" },
+        { text = "Claws are a poor reason to blame the smith.", next = "d2_break2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_break2 = {
+      lines = {
+        { id = "d2_break2_1", text = "Riveted rings, each one closed by hand, and not the butted rings the Undercity sends us by the cartload. I have told Hadrec's quartermaster that one riveted shirt outlasts four of the others, and he has told me that four is a larger number than one." },
+      },
+      choices = {
+        { text = "Then you're losing that argument by arithmetic.", next = "BACK", reply = "I am losing it by arithmetic, and winning it in the infirmary, which is the only ledger I trust." },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    d2_pupil = {
+      lines = {
+        { id = "d2_pupil_1", text = "Every week, and I would turn away more if Hadrec let me. A deathguard who wants to learn smithing in three days wants a blade, not a craft, and I send him to Meloche's rack, where blades can be had in three minutes." },
+      },
+      choices = {
+        { text = "And the ones you keep?", next = "d2_pupil2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_pupil2 = {
+      lines = {
+        { id = "d2_pupil2_1", text = "I keep the ones who come back after I have sent them away, because patience is the first tool of the forge and the only one I cannot make. There are four of them now, and one of them has nearly learned to hold the tongs." },
+      },
+      choices = {
+        { text = "Nearly, after how long?", next = "d2_pupil3" },
+        { text = "That sounds like praise, from you.", next = "BACK", reply = "It is, and you will not tell him I said so." },
+      },
+    },
+    d2_pupil3 = {
+      lines = {
+        { id = "d2_pupil3_1", text = "Since the Sepulcher was taken, which is longer than any of the living would wait. The dead have the advantage there, and if they can be taught to stop hurrying, they make fine smiths." },
+      },
+      choices = {
+        { text = "Then I'll try not to hurry.", next = "BACK" },
+        { text = "Something else, Guillaume.", next = "BACK" },
+      },
+    },
+    d2_orc = {
+      lines = {
+        { id = "d2_orc_1", text = "They would, and they would be half right. An orcish hammer moves more iron in a stroke, but it moves the iron where the arm wants it and not always where the work does, and I would rather strike twice and strike true." },
+      },
+      choices = {
+        { text = "We strike once and it stays struck.", next = "BACK", reply = "So I have seen, on the gates at Orgrimmar's caravans. I concede the gates." },
+        { text = "Fair. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Guillaume Sorouy, and I teach the working of metal. I teach it slowly and I teach it correctly, and those who want it quick may go to the Undercity and learn it from someone with lower standards." },
@@ -206,6 +281,9 @@ P:NPC {
         { text = "A crypt is a strange place for a forge.", next = "crypt" },
         { text = "Where does Silverpine's iron come from?", next = "iron" },
         { text = "What was I likely taught wrongly, Guillaume?", next = "wrong", when = { profession = "Blacksmithing" } },
+        { text = "What do the Deathguard break most often?", next = "d2_break" },
+        { text = "You must turn away pupils.", next = "d2_pupil" },
+        { text = "Orcish smiths would call your hammer too light.", next = "d2_orc", when = { race = "Orc" } },
         { text = "I'll leave you to the forge.", next = "END" },
       },
     },
@@ -303,6 +381,54 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_render = {
+      lines = {
+        { id = "d2_render_1", text = "Whatever the deathstalkers bring me that is too strange to carry home. A ring off a dead Dalaran wizard at Ambermill, a charm from a Pyrewood cottage, once a whole staff from somewhere near the keep, which took me a week to undo because it kept trying to undo me." },
+      },
+      choices = {
+        { text = "The staff came from Shadowfang?", next = "d2_render2" },
+        { text = "That sounds like a dangerous hobby.", next = "d2_render2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_render2 = {
+      lines = {
+        { id = "d2_render2_1", text = "From under its walls, where a deathstalker found it in the mud and had the sense not to keep it. Whoever made it studied at Dalaran, and studied the wrong books, and I think he is still up there in that keep." },
+      },
+      choices = {
+        { text = "Arugal, you mean.", next = "BACK", reply = "I did not say the name, and you will notice I am careful not to. The wall has taught me that much too." },
+        { text = "I'll keep clear of the keep.", next = "BACK" },
+        { text = "Ask another thing.", next = "BACK" },
+      },
+    },
+    d2_camp = {
+      lines = {
+        { id = "d2_camp_1", text = "As the dead live, which is to say barely and without complaint. I need no warmth and no supper, and a cold camp is invisible at night, which matters a great deal with the Pyrewood folk wandering below." },
+      },
+      choices = {
+        { text = "Do you ever go down to the Sepulcher?", next = "d2_camp2" },
+        { text = "It sounds lonely.", next = "d2_camp2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_camp2 = {
+      lines = {
+        { id = "d2_camp2_1", text = "Once a month, to sell what I have rendered and to hear the news, and the news is always the same. Hadrec wants the keep watched, Renferrel wants more samples, and Bates wants someone to tell him the living guests have stopped complaining about the smell." },
+      },
+      choices = {
+        { text = "Have they?", next = "BACK", reply = "They have not, and they never will, and I find that a comfort of sorts." },
+        { text = "I'll ask something else.", next = "BACK" },
+      },
+    },
+    d2_lilly = {
+      lines = {
+        { id = "d2_lilly_1", text = "You have a practiced eye, then, and I will take the compliment on her behalf as well as mine. Lilly works with what the Undercity sends her, which is ground in a hurry, and I grind my own because I have nothing but time." },
+      },
+      choices = {
+        { text = "Then I'll buy from the wall in future.", next = "BACK" },
+        { text = "Something else, Leo.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Leo Sarn. I sell rods, dusts and a few formulae, and I sell them here, under the Greymane Wall, because this is where I choose to be. If that seems a poor place for a shop, you are not the first to say so." },
@@ -322,6 +448,9 @@ P:NPC {
         { text = "What do you make of the wall itself?", next = "wall" },
         { text = "Who are your customers, this far from the Sepulcher?", next = "custom" },
         { text = "There's old magic in these hills. I can feel it.", next = "ley", when = { class = { "MAGE", "WARLOCK", "PRIEST", "SHAMAN", "DRUID" } } },
+        { text = "What does an enchanter render down, out here?", next = "d2_render" },
+        { text = "You keep no fire. How do you live?", next = "d2_camp" },
+        { text = "Your dust is cleaner than Lilly's.", next = "d2_lilly", when = { profession = "Enchanting" } },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -417,6 +546,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_deep = {
+      lines = {
+        { id = "d2_deep_1", text = "Murlocs, in the shallows past the Fenris side, and they don't care for a man with a net. Further out there's something that takes a line and the rod with it, and I've never seen more than a shadow of it under the boat." },
+      },
+      choices = {
+        { text = "You've gone after it?", next = "d2_deep2" },
+        { text = "A shadow under the boat is enough for me.", next = "d2_deep2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_deep2 = {
+      lines = {
+        { id = "d2_deep2_1", text = "Once, and it cost me my good rod and very nearly the boat. The old ferrymen used to say Lordamere had a mother of all catfish, and I took it for drink talking, but I've since stopped laughing at the ferrymen." },
+      },
+      choices = {
+        { text = "I'll keep my line near the dock.", next = "BACK" },
+        { text = "Ask you something else.", next = "BACK" },
+      },
+    },
+    d2_small = {
+      lines = {
+        { id = "d2_small_1", text = "A big trade needs a boat, and a boat goes out where the Rot Hide can reach it, and they've a taste for boats. A man with one dock and two barrels isn't worth a gnoll's time, and I'd like to keep it that way." },
+      },
+      choices = {
+        { text = "And the Deathguard don't protect you?", next = "d2_small2" },
+        { text = "Smart. Nobody raids a poor man.", next = "d2_small2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_small2 = {
+      lines = {
+        { id = "d2_small2_1", text = "They protect the road, and the road is a long way up the bank. Hadrec has the Sepulcher and the keep on his mind, and a fisherman's dock comes somewhere after the bats and before the latrines." },
+      },
+      choices = {
+        { text = "You seem content with that.", next = "BACK", reply = "Content's a strong word, but it keeps me out of his reports, and that's worth something." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_living = {
+      lines = {
+        { id = "d2_living_1", text = "They don't, and I'll admit I'm glad to see a warm face buying fish, since it means I'm doing it right. The orcs who stop at the Sepulcher eat everything I bring up, scales and all, and never once ask where it swam." },
+      },
+      choices = {
+        { text = "We've eaten worse on the road.", next = "BACK", reply = "I believe you, and I'd rather not hear the list." },
+        { text = "Fair enough. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Killian Sanatha. I fish Lordamere off this dock and I sell what I catch, mostly to the Sepulcher's living guests and to hunters with beasts to feed. It's a small trade, and I keep it small deliberately." },
@@ -436,6 +612,9 @@ P:NPC {
         { text = "This dock has seen better days.", next = "dock" },
         { text = "Who buys fish in a forest of the dead?", next = "buyers" },
         { text = "Does the lake give up anything besides fish?", next = "haul", when = { profession = "Fishing" } },
+        { text = "Does anything live in Lordamere besides fish?", next = "d2_deep" },
+        { text = "You keep your trade small on purpose, you said.", next = "d2_small" },
+        { text = "Living fishermen don't last long on this shore, I'd guess.", next = "d2_living", when = { race = { "Orc", "Troll", "Tauren" } } },
         { text = "I'll leave you to your lines.", next = "END" },
       },
     },

@@ -30,6 +30,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2thrall = {
+      lines = {
+        { id = "w2th_shaman", when = { class = "SHAMAN" }, text = "That he listens, which you will know is rarer than it ought to be among us. The spirits came back to our people through him, young shaman, and they watch him the way an old wolf watches a pup that has learned to hunt." },
+        { id = "w2th_default", text = "That he listens, which is rarer than it ought to be among orcs. The spirits came back to our people through him, and they watch him the way an old wolf watches a pup that has learned to hunt." },
+      },
+      choices = {
+        { text = "Do they ever warn him?", next = "w2thrall2" },
+        { text = "Watched like a pup? He is Warchief.", next = "w2thrall2" },
+        { text = "Something else, Far Seer.", next = "BACK" },
+      },
+    },
+    w2thrall2 = {
+      lines = { { id = "w2th2_default", text = "Often, and he does not always heed them, which is as it should be. A warchief who obeys every whisper is a puppet, and Thrall weighs what I tell him against what his people need. I would not have it otherwise." } },
+      choices = { { text = "That is a wise balance.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hu_view = {
       lines = {
         { id = "hum_v_default", text = "The spirits say very little about anyone, {class}, but I remember what the camps did to us. When the demon blood left our veins, many orcs simply sat down in the mud and stopped, and the humans thought it was their walls that held us." },
@@ -64,7 +79,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Ask what else troubles you. There is time." },
-        { id = "h_again2", text = "What more would you hear?" },
+        { id = "h_again2", text = "The spirits are still talking, and so may you. What more would you have from an old far seer?" },
       },
       choices = {
         { text = "What do the spirits say of humans?", next = "hu_view" },
@@ -73,6 +88,7 @@ P:NPC {
         { text = "I've never known what a far seer does.", next = "farseer" },
         { text = "Teach me to listen to the land, Far Seer.", next = "listen", when = { class = "SHAMAN" } },
         { text = "What would you have of me?", next = "BUSINESS" },
+        { text = "What do the spirits say of the Warchief?", next = "w2thrall" },
         { text = "Spirits guide you, Far Seer.", next = "END" },
       },
     },

@@ -230,7 +230,7 @@ P:Letter {
   id = "origin_human_darkshire_watch_1", stranger = true, delay = 1200,
   when = { origin = "human_darkshire_watch", minLevel = 6 },
   from = "Agatha Venn", subject = "From the Night Watch",
-  body = "{name},\n\nThe watch roster still has your name on it, because nobody in Darkshire has the heart to cross it out. I put a line under it instead, which means away, and not the other thing.\n\nIt's been a wet season. The lamps on the east road keep going out in the fog, and something has been taking the Calders' sheep two at a time, very tidily, and leaving the fleeces folded by the fence. The children think it's funny. The adults do not.\n\nYou were always the one who could keep a torch lit in the rain. I don't know how, and I never asked. Keep it lit wherever you are, and say a word to the Light for the town when you remember us.\n\nAgatha Venn, Night Watch",
+  body = "{name},\n\nThe watch roster still has your name on it, because nobody in Darkshire has the heart to cross it out. I put a line under it instead, which means away, and not the other thing.\n\nIt's been a wet season. The lamps on the east road keep going out in the fog, and something has been taking the Calders' sheep two at a time, very tidily, and leaving the fleeces folded by the fence. The children think it's funny, and the adults do not.\n\nYou were always the one who could keep a torch lit in the rain. I don't know how, and I never asked. Keep it lit wherever you are, and say a word to the Light for the town when you remember us.\n\nAgatha Venn, Night Watch",
 }
 
 P:Letter {

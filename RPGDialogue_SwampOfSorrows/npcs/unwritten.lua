@@ -24,6 +24,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_duty = {
+      lines = { { id = "w8_duty_a", text = "The wall on the Nethergarde side, at night, when the mist comes up and you cannot see your own axe. The humans' mages send lights over the trees sometimes, just to remind us they are there." } },
+      choices = {
+        { text = "Do the humans ever attack?", next = "w8_duty2" },
+        { text = "A wall is only as strong as its watch.", next = "w8_duty2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w8_duty2 = {
+      lines = { { id = "w8_duty2_a", text = "Not yet, and not for a long while, because they are busy watching the Dark Portal. But I keep my axe sharp all the same, because a quiet enemy is still an enemy." } },
+      choices = {
+        { text = "Keep your axe sharp.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     yfirst = {
       lines = {
         { id = "ybsosstonardorc1", text = "Only stories. My grandfather marched on Stormwind with Blackhand, and he spoke of it as the greatest day of his life. Then he would go quiet, and drink, and not speak again until morning." },
@@ -55,7 +71,7 @@ P:NPC {
     },
     hello = {
       lines = { { id = "h_default", text = "Stonard is the oldest Horde fortress on this side of the sea, built when the Horde first marched on Stormwind. We held it through the defeat and the camps, and we hold it now, even if the swamp tries to rot it out from under us." } },
-      again = { { id = "h_again", text = "What else, then?" } },
+      again = { { id = "h_again", text = "What else, then? Say it before the rain gets heavier." } },
       choices = {
         { text = "You held Stonard through the internment?", next = "held" },
         { text = "What's the worst thing in this swamp?", next = "swamp" },
@@ -66,6 +82,7 @@ P:NPC {
         { text = "Lok'tar, brother. I'm an orc too.", next = "BACK", when = { race = "Orc" }, reply = "Lok'tar! You walk where our fathers marched. Do not forget it, and do not forget what it cost." },
         { text = "Do you have family in Stonard?", next = "yfamily" },
         { text = "What do you remember of the first Horde?", next = "yfirst" },
+        { text = "What's the hardest duty in Stonard?", next = "w8_duty" },
         { text = "Lok'tar.", next = "END" },
       },
     },
@@ -142,6 +159,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_str = {
+      lines = { { id = "w8_str_a", text = "Wax, and a pouch of oiled leather from Thralosh, and I string the bow only when I see the beast. A wet string throws the arrow low, and a crocolisk does not give you a second chance." } },
+      choices = {
+        { text = "How many strings do you carry?", next = "w8_str2" },
+        { text = "You could use a gun instead.", next = "w8_str2" },
+        { text = "I'm a hunter. I carry three spares.", next = "w8_str2", when = { class = "HUNTER" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w8_str2 = {
+      lines = {
+        { id = "w8_str2_a", text = "Four, and I use them all in a bad season. A gun is loud, and loud frightens the frogs, and if the frogs are frightened, the grunts eat bread, and they grumble less about the bread than they would about me." },
+        { id = "w8_str2_hu", when = { class = "HUNTER" }, text = "Then you are wiser than most who come through here, and you will need all three. Keep them in your shirt, against your skin, where it is warm, and they will last you longer." },
+      },
+      choices = {
+        { text = "Good advice.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     ytrolls = {
       lines = {
         { id = "ybsosstonardhunter1", text = "The Darkspear are good hunters, quiet and patient. The temple trolls are another kind. They hunt men, not beasts, and they give the hearts to the water. I do not hunt near the temple." },
@@ -184,6 +221,7 @@ P:NPC {
         { text = "Tauren hunt too. Any advice for a kodo-sized hunter?", next = "BACK", when = { race = "Tauren" }, reply = "Spread your weight, walk slow and never fight a crocolisk in the water. Even an Earth Mother's child sinks in this mud." },
         { text = "Who taught you to hunt?", next = "ytaught" },
         { text = "What do you think of the trolls near the road?", next = "ytrolls" },
+        { text = "How do you keep your bowstring dry out here?", next = "w8_str" },
         { text = "Good hunting.", next = "END" },
       },
     },
@@ -260,6 +298,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_ask = {
+      lines = { { id = "w8_ask_a", text = "Patience, and a little peace, which is hard to give in a fortress. Each dawn I pour out a bowl of clean rainwater by the Pool of Tears, and each dawn the water takes it, and some days I think it says thank you." } },
+      choices = {
+        { text = "Does it help?", next = "w8_ask2" },
+        { text = "A small gift for a sick spirit.", next = "w8_ask2" },
+        { text = "I pour water for the spirits too.", next = "w8_ask2", when = { class = "SHAMAN" } },
+        { text = "Something else, shaman.", next = "BACK" },
+      },
+    },
+    w8_ask2 = {
+      lines = {
+        { id = "w8_ask2_a", text = "It helps the spirits a little, and it helps me a great deal. A shaman who forgets to give stops being heard, and in this swamp, I would very much like to keep being heard." },
+        { id = "w8_ask2_sham", when = { class = "SHAMAN" }, text = "Then come with me one dawn, and we will pour together. Two bowls are louder than one, and the water here needs to know that more than one of us still remembers it." },
+      },
+      choices = {
+        { text = "May the waters heal.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     ytaught = {
       lines = {
         { id = "ysosstonardshaman1", text = "Drek'Thar, briefly, before he went north to the Frostwolves. He taught me to listen before I speak, and to speak only when the spirits are ready. I have been listening ever since." },
@@ -280,7 +338,7 @@ P:NPC {
     },
     hello = {
       lines = { { id = "h_default", text = "I tend the spirits for Stonard, and in this swamp, the spirits of water outnumber all the rest. They are restless, because something old and wicked sleeps beneath the sunken temple." } },
-      again = { { id = "h_again", text = "What else do you wish to know?" } },
+      again = { { id = "h_again", text = "What else do you wish to know? The spirits of this swamp are restless, and so am I." } },
       choices = {
         { text = "What sleeps under the temple?", next = "temple" },
         { text = "How did shamanism return to the orcs?", next = "return" },
@@ -290,6 +348,7 @@ P:NPC {
         { text = "Do you know the Atal'ai's prayers?", next = "xatal" },
         { text = "I am a shaman too. Teach me the waters here.", next = "BACK", when = { class = "SHAMAN" }, reply = "Listen first, speak later. The water here speaks in a low voice, and it is frightened. Do not frighten it more." },
         { text = "Who taught you the ways of the spirits?", next = "ytaught" },
+        { text = "What do the water spirits ask of you?", next = "w8_ask" },
         { text = "Farewell, shaman.", next = "END" },
       },
     },
@@ -367,6 +426,50 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    exp_tow1 = {
+      lines = {
+        { id = "exp_tow1_1", text = "I have never been up close, and I never will, for every scout who tried came back with nothing to say. From the ridge it is a black spire with no lights in it, and yet the crows will not fly over it, which is all I need to know." },
+      },
+      choices = {
+        { text = "Do you report it to the Commander?", next = "exp_tow2" },
+        { text = "Something else, scout.", next = "BACK" },
+      },
+    },
+    exp_tow2 = {
+      lines = {
+        { id = "exp_tow2_1", text = "Every season, the same report, that the tower stands and nothing comes out of it. Commander Ruag reads it and says nothing, but he has never once ordered a patrol up that road, and I think he has read the same old reports I have." },
+      },
+      choices = {
+        { text = "Wise of him.", next = "exp_tow3" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    exp_tow3 = {
+      lines = {
+        { id = "exp_tow3_1", text = "Wise, or afraid, and in that place I am not sure there is a difference. I will go anywhere in this swamp for the garrison, but I will not go up that road, and I have told him so to his face." },
+      },
+      choices = {
+        { text = "Some roads are better left. Something else.", next = "BACK" },
+      },
+    },
+    exp_rock1 = {
+      lines = {
+        { id = "exp_rock1_1", text = "I go round them, through the reeds on the south side, where the ogres do not bother to look because they think nothing could walk there. It is wet and it stinks, but I have walked worse, and the Dreadmaul are loud enough to hear from far off." },
+      },
+      choices = {
+        { text = "What are they doing in Rockard?", next = "exp_rock2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    exp_rock2 = {
+      lines = {
+        { id = "exp_rock2_1", text = "Building, if you can believe it, stacking the old stones of the Horde's town into walls of their own. My father helped raise that town in the old days, and I watch ogres pile up his work like a child's blocks." },
+      },
+      choices = {
+        { text = "That must burn.", next = "BACK" },
+        { text = "One day the Horde will take it back.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I walk the swamp's edges for the garrison, from the Blasted Lands' red border to the Deadwind Pass. Somebody has to know what's out there before it comes knocking on our gates." } },
       again = { { id = "h_again", text = "Anything else? I leave at dusk." } },
@@ -380,6 +483,8 @@ P:NPC {
         { text = "Have you met the Broken?", next = "xbroken" },
         { text = "Why do you keep walking?", next = "xwhy" },
         { text = "I'm a Darkspear, and I'll look at those carvings.", next = "BACK", when = { race = "Troll" }, reply = "Ha! Thank you, troll. Bring back a drawing, and I will buy you a drink of whatever the swamp hasn't spoiled." },
+        { text = "What does the tower in the pass look like up close?", next = "exp_tow1" },
+        { text = "How do you get past the ogres at Rockard?", next = "exp_rock1" },
         { text = "Safe travels.", next = "END" },
       },
     },
@@ -464,9 +569,53 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    car_mov1 = {
+      lines = {
+        { id = "car_mov1_1", text = "The Misty Reed shore, where the sea and the swamp argue every spring and neither wins. A sandbar that was there in winter is a channel in summer, and the murlocs build their huts wherever the water lets them." },
+      },
+      choices = {
+        { text = "How do you keep up with it?", next = "car_mov2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    car_mov2 = {
+      lines = {
+        { id = "car_mov2_1", text = "I draw the shore in charcoal, not ink, so I can wipe it off and draw it again. Grug taught me that, said only a fool inks a coastline, and I have been grateful for it every year since." },
+      },
+      choices = {
+        { text = "Charcoal maps for a changing land.", next = "car_mov3" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    car_mov3 = {
+      lines = {
+        { id = "car_mov3_1", text = "Exactly, and ink for the things that do not change, like Stonard and the road and the sunken temple. Those I draw dark and hard, because if any of them moves, the map will be the least of our troubles." },
+      },
+      choices = {
+        { text = "A fair rule. Something else.", next = "BACK" },
+      },
+    },
+    car_grug1 = {
+      lines = {
+        { id = "car_grug1_1", text = "A legend to the young ones, and an old fool with ink on his tusks to those of us who knew him. He mapped half of Khaz Modan for the Horde in the Second War, and he never once got lost, or never once admitted it." },
+      },
+      choices = {
+        { text = "What became of him?", next = "car_grug2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    car_grug2 = {
+      lines = {
+        { id = "car_grug2_1", text = "The camps, like most of the old Horde, and he never came out of them. The night before the humans took him, he gave me his charcoal and told me to draw this swamp so well that no orc would ever be lost in it, and I am still trying." },
+      },
+      choices = {
+        { text = "Then you honour him with every map.", next = "BACK" },
+        { text = "Back to other matters.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I make the maps that tell Stonard where the swamp ends and the dangers begin, which is harder than it sounds when the water moves every spring. Every scout who comes back tells me something, and I put it down before they forget it." } },
-      again = { { id = "h_again", text = "Yes, yes, what else?" } },
+      again = { { id = "h_again", text = "Yes, yes, what else? And mind the ink, it isn't dry on the Misty Valley sheet." } },
       choices = {
         { text = "An orc mapmaker? That's unusual.", next = "orc" },
         { text = "What's the hardest place to map?", next = "hard" },
@@ -475,6 +624,8 @@ P:NPC {
         { text = "Who was the old raider who taught you?", next = "xraider" },
         { text = "Do scouts ever lie to you?", next = "xlie" },
         { text = "I'm a gnome, and I adore a good map.", next = "BACK", when = { race = "Gnome" }, reply = "Hmph. Then look, but do not touch, and do not tell me how a gnome would draw it better." },
+        { text = "Which part of the swamp moves the most?", next = "car_mov1" },
+        { text = "Old Grug the Ink sounds like a legend.", next = "car_grug1" },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -559,6 +710,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_mark = {
+      lines = { { id = "w8_mark_a", text = "Knots in the reeds, mostly, two for firm ground and three for a turn, and a red rag on a stick where the path goes under water at high tide. The trolls cut my rags down sometimes, and I tie them up again, and that's the whole war between us." } },
+      choices = {
+        { text = "Why do the trolls cut them?", next = "w8_mark2" },
+        { text = "Two knots firm, three a turn. Got it.", next = "w8_mark2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w8_mark2 = {
+      lines = { { id = "w8_mark2_a", text = "Because they want travellers to wander into the deep places near the temple, I think, and some of them do. If you see a path with no knots at all, turn back, even if it looks dry." } },
+      choices = {
+        { text = "I'll look for the knots.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     ystrange = {
       lines = {
         { id = "ybsosstonardwayfinder1", text = "A human boat, stuck in the mud a mile from any water, with a skeleton still holding the oars. No one knows how it got there. My mother says the swamp moves things when it's angry, and I've stopped arguing with her." },
@@ -592,7 +759,7 @@ P:NPC {
     },
     hello = {
       lines = { { id = "h_default", text = "I know where the ground holds and where it swallows, and I lead the caravans and the new arrivals between Stonard and the roads. More grunts have been lost to the mire than to the trolls, and that is not a joke." } },
-      again = { { id = "h_again", text = "What else do you need to know?" } },
+      again = { { id = "h_again", text = "What else do you need to know? I know every dry path through these reeds, so ask." } },
       choices = {
         { text = "How do you tell firm ground from mire?", next = "ground" },
         { text = "Which road out is safest?", next = "roads" },
@@ -603,6 +770,7 @@ P:NPC {
         { text = "I'm a hunter. My pet doesn't mind mud.", next = "BACK", when = { class = "HUNTER" }, reply = "Your pet doesn't mind mud until it swallows it. Keep it close and on firm ground, friend." },
         { text = "What's your mother like?", next = "ymother" },
         { text = "What's the strangest thing you've found in the swamp?", next = "ystrange" },
+        { text = "What do you mark your paths with?", next = "w8_mark" },
         { text = "Thanks, wayfinder.", next = "END" },
       },
     },
@@ -675,6 +843,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_days = {
+      lines = { { id = "w8_days_a", text = "I carve, stranger, small things in swamp wood, the shapes of animals I remember from Draenor. The talbuk, the great grey beasts of burden, the little birds of the high forests, and I give them to the children of the Harborage so they will know what was lost." } },
+      choices = {
+        { text = "May I see one?", next = "w8_days2" },
+        { text = "That's a kind thing to do.", next = "w8_days2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w8_days2 = {
+      lines = { { id = "w8_days2_a", text = "Here, this one is a talbuk, with the horns curled back. The children laugh at it, because they have never seen one, and I tell them that one day they will, and I try to believe it when I say it." } },
+      choices = {
+        { text = "I hope they do.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     yportal = {
       lines = {
         { id = "ybsosbrokenexile1", text = "Fire, and noise, and the sky turning red. We fled through it because the orcs had already gone, and we thought the new world might be kinder. It was not, at first. The swamp was the first place that let us rest." },
@@ -695,7 +879,7 @@ P:NPC {
     },
     hello = {
       lines = { { id = "h_default", text = "We are the Broken, what remains of a proud people from a world called Draenor. We came through the Dark Portal long ago, and now we hide in this swamp and wait." } },
-      again = { { id = "h_again", text = "Is there more you would ask, stranger?" } },
+      again = { { id = "h_again", text = "Is there more you would ask, stranger? Speak softly, so the mist does not carry it." } },
       choices = {
         { text = "What happened to your people?", next = "people" },
         { text = "What do you wait for?", next = "wait" },
@@ -706,6 +890,7 @@ P:NPC {
         { text = "How do your people live in the swamp?", next = "ylive" },
         { text = "Will you pray with me?", next = "BACK", when = { class = { "PRIEST", "PALADIN" } }, reply = "I would. It has been long since anyone asked. Kneel, and I will say the old words, if I still remember them." },
         { text = "What do you remember of the Dark Portal?", next = "yportal" },
+        { text = "What do you do to pass the days here?", next = "w8_days" },
         { text = "I'll leave you in peace.", next = "END" },
       },
     },

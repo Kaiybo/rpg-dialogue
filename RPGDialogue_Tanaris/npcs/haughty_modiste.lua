@@ -56,7 +56,25 @@ P:NPC {
         { text = "What's wrong with how I dress?", next = "dress" },
         { text = "As a tailor, what's your secret?", next = "tailor", when = { profession = "Tailoring" } },
         { text = "Let me see what you sell.", next = "BUSINESS" },
+        { text = "Surely you have rivals in this trade.", next = "w9_rival" },
         { text = "I'll be going.", next = "END" },
+      },
+    },
+
+    w9_rival = {
+      lines = { { id = "w9_rival_d", text = "Rivals, sweetie? I have imitators, which is a different thing entirely. There's a gnome in Booty Bay selling \"pirate chic\" off a cart, and a goblin in Ratchet who dyes old hats and calls them new, and neither of them would know a good brim if it bit them." } },
+      choices = {
+        { text = "What makes yours better?", next = "w9_rival2" },
+        { text = "A hat is a hat.", next = "w9_rival2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_rival2 = {
+      lines = { { id = "w9_rival2_d", text = "A hat is a hat, he says. Mine are authentic, sweetie, taken from genuine pirates by genuine adventurers, cleaned, blocked and given a story, and the story is what the nobles pay for. My imitators sell cloth, and I sell the idea of danger to people who would faint at the real thing." } },
+      choices = {
+        { text = "That's surprisingly honest of you.", next = "BACK", reply = "Don't spread it about. Honesty is terrible for my image, sweetie." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     hats = {

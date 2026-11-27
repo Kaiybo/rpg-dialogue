@@ -337,7 +337,25 @@ P:NPC {
         { text = "What happened when you tried to talk to them?", next = "talks" },
         { text = "What are the dwarves digging for?", next = "dig" },
         { text = "You'd use their own explosives against them?", next = "blast", when = { questDone = TODO_QUEST("Gann's Reclamation") } },
+        { text = "Who is this Prospector Khazgorm?", next = "khaz" },
+        { text = "Does Thunder Bluff know what's happening here?", next = "bluff" },
+        { text = "What did these hills look like before the dwarves came?", next = "w5_before" },
         { text = "I'll leave you to your road.", next = "END" },
+      },
+    },
+    w5_before = {
+      lines = { { id = "w5_before_l", text = "Green in the hollows, gold on the slopes, with springs where the hills folded together. My grandmother's grandmother is buried on the ridge above Bael Modan. I cannot visit her now without walking past a dwarf with a rifle." } },
+      choices = {
+        { text = "Could there ever be peace with them?", next = "w5_before2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_before2 = {
+      lines = { { id = "w5_before2_l", text = "If they stopped the blasting, I would sit at a fire with them. I told them so, once. They thanked me politely and set off another charge before I had reached the bottom of the hill. I do not know what peace looks like with someone who cannot hear you over their own powder." } },
+      choices = {
+        { text = "If they stop blasting, offer them peace. Grief needn't become war.", next = "BACK", reply = "You are kinder than I have the strength to be today. But I will keep the offer open.", fx = { align = { light = 1 } } },
+        { text = "Drive them out of the hills. They had their chance.", next = "BACK", reply = "I have thought it many nights. And each morning I remember how many of my people that would cost.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     tribe = {
@@ -372,6 +390,44 @@ P:NPC {
         { text = "Burn the machine, but spare the diggers if we can.", next = "BACK", reply = "You have a gentle spirit, and the Earth Mother loves those who spare where they can. Burn the machine, then, and let the diggers run home and tell their masters what they saw.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    khaz = {
+      lines = { { id = "kz_default", text = "The dwarf who leads the excavation at Bael Modan, and the one who laughed at me. He works for the Explorers' League out of Ironforge, and he writes everything down, every blast and every bone, as if writing it makes it his." } },
+      choices = {
+        { text = "What does he write about the bones?", next = "khaz2" },
+        { text = "Dwarves record everything. It's their way.", next = "khaz2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    khaz2 = {
+      lines = { { id = "kz2_default", text = "That they are old, older than tauren, he thinks, and that they might be the bones of the titans' servants. My grandmothers would laugh at that, if they could. He has no idea whose dead he is digging, and he would not care if he did." } },
+      choices = {
+        { text = "Would it change anything, if he knew?", next = "khaz3" },
+        { text = "Something else, Gann.", next = "BACK" },
+      },
+    },
+    khaz3 = {
+      lines = { { id = "kz3_default", text = "Not for him, I think, but it would for me. I walked into his camp hoping a dwarf could be made to understand, and I walked out knowing better. I don't hate them all, {class}, only the ones who dig where they've been asked not to." } },
+      choices = { { text = "That seems fair. Something else.", next = "BACK" } },
+    },
+    bluff = {
+      lines = { { id = "gbl_default", text = "They know. Cairne sent word that he grieves for the burial hills, and that the tauren cannot fight a war with Ironforge over one small tribe's dead while the centaur still raid Mulgore. I understand him, and I walk these roads anyway." } },
+      choices = {
+        { text = "Then you're doing what the High Chieftain can't.", next = "bluff2" },
+        { text = "One tauren alone can't hold back a dwarven dig.", next = "bluff2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bluff2 = {
+      lines = { { id = "gbl2_default", text = "One tauren with help can, and you are help. Cairne does what a chieftain must, and I do what a grandson must, and there is no quarrel between us, only different burdens. When this is done, I will go to the Bluff and tell him the hills are quiet." } },
+      choices = {
+        { text = "I'm tauren. Your grandmothers are my people's dead too.", next = "bluff3", when = { race = "Tauren" } },
+        { text = "I hope you can tell him that soon. Something else.", next = "BACK" },
+      },
+    },
+    bluff3 = {
+      lines = { { id = "gbl3_default", text = "They are, and you honour them by saying so. When you are next at the Bluff, stand on the Elder Rise a moment and remember the small tribe that hunted between here and the Needles. That is all the memorial they will ever have." } },
+      choices = { { text = "I'll remember them. Something else.", next = "BACK" } },
     },
   },
 

@@ -49,7 +49,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Speak, then, the way a warrior should." },
-        { id = "h_again2", text = "Ask, then, but be quick about it." },
+        { id = "h_again2", text = "Ask, then, and don't dress it up. I've no patience left for fine words." },
       },
       choices = {
         { text = "Thrall's law binds the Horde now. I will keep it.", next = "BACK", reply = "Good. I killed for Blackhand once, and I'd rather die for Thrall than do that again.", fx = { align = { order = 1 } } }, -- dp_stance
@@ -60,7 +60,29 @@ P:NPC {
         { text = "What was the Second War like?", next = "war" },
         { text = "My people never fought beside dragons.", next = "xtauren", when = { race = "Tauren" } },
         { text = "Why free them first? Why not leave them chained?", next = "xcaster", when = { class = { "MAGE", "WARLOCK", "PRIEST" } } },
+        { text = "What did the black dragons give the Horde?", next = "w9_gift" },
         { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+
+    w9_gift = {
+      lines = {
+        { id = "w9_gift_d", text = "Promises, mostly, and whispers in the chieftains' ears, and dragon-fire on our side whenever it suited their master. We took it gladly, because we were hungry for any strength, and we never asked what Deathwing wanted for it." },
+        { id = "w9_gift_v1", when = { race = "Orc" }, text = "You know the shape of it, if your elders ever spoke honestly. Promises, whispers and dragon-fire on our side when it suited their master, and we drank it like water, because we were already drunk on the demons' blood." },
+      },
+      choices = {
+        { text = "What did he want for it?", next = "w9_gift2" },
+        { text = "The Horde was desperate.", next = "w9_gift2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_gift2 = {
+      lines = { { id = "w9_gift2_d", text = "Everything, as it turned out, and he took his price from orc and human alike. I was there when we stopped being useful to him, and I watched the drakes turn on us, and I swore I'd see some of that debt paid before I died." } },
+      choices = {
+        { text = "Then pay it. Kill them.", next = "BACK", fx = { align = { honor = -1 } }, reply = "That's the plan. Vengeance is a kind of honour, for an old orc." },
+        { text = "Settle it with honour, not just vengeance.", next = "BACK", fx = { align = { honor = 1 } }, reply = "Honour and vengeance look much the same from a ravine, but I'll think on it." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

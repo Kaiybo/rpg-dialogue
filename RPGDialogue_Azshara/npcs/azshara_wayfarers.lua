@@ -211,6 +211,7 @@ P:NPC {
         { text = "You and Joy don't seem much alike.", next = "joy" },
         { text = "Do you miss Quel'Thalas?", next = "home", when = { faction = "Alliance" } },
         { text = "A dwarf would carve those copies in stone.", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "Which inscription moved you most?", next = "w_moved" },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -276,6 +277,25 @@ P:NPC {
       lines = { { id = "dw_default", text = "And I'd envy you the patience, though not the weight. Stone lasts, I grant you, but it doesn't travel, and the whole point of my work is that someone far away can read what was written here. Perhaps I'll ask the Explorers' League for advice." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "explorers_league" } } } },
     },
+    w_moved = {
+      lines = {
+        { id = "w_moved_default", text = "A child's name, scratched low on a doorframe in the old courts, below a line of grander carving about the Queen's glory. Somebody's daughter had stood there with a knife and written herself into the stone. I copied it three times, which I've never done for anything else." },
+      },
+      choices = {
+        { text = "Why three times?", next = "w_moved2" },
+        { text = "A child's name among the Highborne.", next = "w_moved2" },
+      },
+    },
+    w_moved2 = {
+      lines = {
+        { id = "w_moved2_default", text = "Because I kept getting the last letter wrong, and because I couldn't stop thinking that she must have been punished for it. Joy says I'm sentimental. She's right, but the Highborne were people once, before they were a warning." },
+        { id = "w_moved2_w1", when = { race = "NightElf" }, text = "You'll have your own feelings about the Highborne, I imagine, and better reasons for them than mine. I hope you'll forgive me for pitying one of their children." },
+      },
+      choices = {
+        { text = "Even the proud had children.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Rayan.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -335,6 +355,7 @@ P:NPC {
         { text = "How do I earn the Timbermaw's trust?", next = "trust" },
         { text = "You speak of yourself by name. Why?", next = "name" },
         { text = "I've killed Deadwood for your people.", next = "deadwood", when = { reputation = { faction = "Timbermaw Hold", min = "friendly" } } },
+        { text = "What does Rageroar do when the gate is quiet?", next = "w_quiet" },
         { text = "I'll pass through, then.", next = "END" },
       },
     },
@@ -396,6 +417,25 @@ P:NPC {
     deadwood = {
       lines = { { id = "dw_default", text = "Rageroar smells it on you, the old blood of the sick ones. It is a sad thing to be thanked for, but Rageroar thanks you anyway, because somebody has to do it and it should not always be furbolgs." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    w_quiet = {
+      lines = {
+        { id = "w_quiet_default", text = "Rageroar carves. Small things, outsider, bears and owls and little furbolgs, from the wood that falls in the tunnel. The young ones of the hold come and take them, and Rageroar pretends not to notice, and the young ones pretend he does not know." },
+      },
+      choices = {
+        { text = "Why pretend?", next = "w_quiet2" },
+        { text = "A fierce gatekeeper who carves toys.", next = "w_quiet2" },
+      },
+    },
+    w_quiet2 = {
+      lines = {
+        { id = "w_quiet2_default", text = "Because a gatekeeper must be fearsome, or the satyrs would not stay away. But the young ones must not be afraid of the gate, or they would never learn to guard it. So Rageroar is fearsome and also leaves toys. Both are true." },
+        { id = "w_quiet2_w1", when = { class = "DRUID" }, text = "You walk as the bear walks, outsider. You understand, then, that the fiercest one in the den is often the gentlest with the cubs." },
+      },
+      choices = {
+        { text = "Both can be true.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Rageroar.", next = "BACK" },
+      },
     },
   },
 

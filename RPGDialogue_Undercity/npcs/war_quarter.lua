@@ -32,6 +32,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_visitors = {
+      lines = {
+        { id = "w3_visitors_1", text = "Deathguard, mostly, back from the Bulwark with something they did and can't put down. They sit at the end of the bench and say nothing for an hour, and then they say it all at once, and I listen, because listening is the oldest work there is." },
+      },
+      choices = {
+        { text = "What do they tell you?", next = "w3_tell" },
+        { text = "That must be a heavy thing to carry.", next = "BACK", reply = "It is, and I carry it gladly, since the alternative is that they carry it alone into the next fight." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_tell = {
+      lines = {
+        { id = "w3_tell_1", text = "That's theirs, not mine to repeat. I'll say only that most of them are troubled not by what they killed, but by what they recognised in it, a farmer's coat, a ring, a way of walking." },
+      },
+      choices = {
+        { text = "I understand that. Something else.", next = "BACK", when = { race = "Scourge" }, reply = "I thought you might. Sit at the end of the bench whenever you need it." },
+        { text = "I'm sorry for them. Something else.", next = "BACK" },
+      },
+    },
     dd_deaths = {
       lines = { { id = "dd_deaths_default", text = "The spirit healers would say it is because your work is unfinished, and the Scarlet priests would say it is a curse. I think the Light is less tidy than either of them, and that it simply does not let go of what it once touched." } },
       choices = {
@@ -62,6 +81,7 @@ P:NPC {
         { text = "Does my faith still matter here?", next = "living", when = { class = "PRIEST", race = "Troll" } },
         { text = "I'm ready to learn.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "I stopped waiting for the Light, Aelthalyste. The shadow answered instead.", next = "xorig_shadow", when = { origin = "forsaken_shadow_acolyte" } },
+        { text = "Who comes here, if they aren't priests?", next = "w3_visitors" },
         { text = "Peace to you.", next = "END" },
         { text = "Why does the Light keep sending me back, Aelthalyste?", next = "dd_deaths", when = { deaths = { min = 10 } } },
       },
@@ -187,13 +207,31 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_heal = {
+      lines = {
+        { id = "w3_heal_1", text = "Carefully, child, and with thread as well as prayer. The Light still answers me, but it stings the dead the way salt stings a cut, so I use a little of it and a great deal of needlework, and I hum hymns so the patient won't hear me cursing." },
+      },
+      choices = {
+        { text = "Does it hurt them, the Light?", next = "w3_hurt" },
+        { text = "You hum and curse at once?", next = "BACK", reply = "Only quietly, and only the gentle curses. The Light has heard worse from me, and it still turns up." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_hurt = {
+      lines = {
+        { id = "w3_hurt_1", text = "It burns, and they bear it, because the other choice is to come apart a little more each day. I've had a Deathguard tell me it's the only warmth he's felt since he woke, and I didn't have the heart to tell him that warmth was the Light trying to throw him out." },
+      },
+      choices = {
+        { text = "Perhaps it wasn't. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Father Lazarus, and yes, I know. My mother named me Lazarus long before the plague, and you'd think I'd have taken the hint and stayed buried." },
         { id = "h_living", when = { race = { "Orc", "Tauren", "Troll" } }, text = "One of the Warchief's people, down in our crypts. You're welcome here, though I'm afraid the hymns are rather mournful for living ears." },
       },
       again = {
-        { id = "h_again", text = "Another question? Ask, and I'll try to answer before I lose another finger." },
+        { id = "h_again", text = "Another question? Ask, and I'll try to answer before I lose another finger. I've only nine." },
         { id = "h_again2", text = "Go on, child. I've nothing but time, and a little less of me than yesterday." },
       },
       choices = {
@@ -205,6 +243,7 @@ P:NPC {
         { text = "How do you get on with Father Lankester?", next = "lankester" },
         { text = "You know what follows me, Father. Am I still welcome?", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Train me, Father.", next = "BUSINESS", when = { class = "PRIEST" } },
+        { text = "How do you heal a body that's already dead?", next = "w3_heal" },
         { text = "Goodbye, Father.", next = "END" },
       },
     },
@@ -303,13 +342,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_abernathy = {
+      lines = {
+        { id = "w3_abernathy_1", text = "He sends them by that poor enslaved woman, which is the whole of the insult, and I return each one unopened with a blessing pinned to it. He laughs, and I've no doubt he means me to see him laughing, but the blessing is not for him." },
+      },
+      choices = {
+        { text = "Who is the blessing for, then?", next = "w3_theresa" },
+        { text = "Why not refuse to receive her at all?", next = "BACK", reply = "Because then she would walk back to him having heard no kind word in this city, and I will not allow that. Not while I have breath to give one, which I do not." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_theresa = {
+      lines = {
+        { id = "w3_theresa_1", text = "For Theresa, who stands at my door each time and looks at the altar as if she remembers something about it. I pray for her every evening, by name, and I do not know if any of it reaches her, but the Light has heard stranger petitions from this quarter." },
+      },
+      choices = {
+        { text = "Then keep praying, Father.", next = "BACK", reply = "I shall, without your leave or anyone's.", fx = { align = { light = 1 } } },
+        { text = "Prayer won't break Abernathy's hold. Steel might.", next = "BACK", reply = "Perhaps, and the Dark Lady would not thank either of us for it. Prayer first, child. Steel can wait.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Father Lankester. I teach the Light to the Forsaken who are worthy of it, and I say to anyone who'll listen that we were not cast out of it, but tested." },
         { id = "h_scourge", when = { race = "Scourge", class = "PRIEST" }, text = "A priest of our people. Hold your head up; the Scarlets call us abominations, but the Light still answers us, and it does not answer them any louder." },
       },
       again = {
-        { id = "h_again", text = "Speak. I have a sermon to finish, but it will keep." },
+        { id = "h_again", text = "Speak. I have a sermon to finish, but it will keep, as it has for some years." },
         { id = "h_again2", text = "Consider your next question carefully, child. Idle words are a small sin, but they add up." },
       },
       choices = {
@@ -322,6 +381,7 @@ P:NPC {
         { text = "My spirits answer me as surely as your Light, Father.", next = "loa", when = { race = "Troll" } },
         { text = "Train me, Father.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "I was a squire, Father. I died before I took my oath.", next = "xorig_squire", when = { origin = "forsaken_unsworn_squire" } },
+        { text = "Gerard Abernathy sends you gifts, I hear.", next = "w3_abernathy" },
         { text = "Good day, Father.", next = "END" },
       },
     },

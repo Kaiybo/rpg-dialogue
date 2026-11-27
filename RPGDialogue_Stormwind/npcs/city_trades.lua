@@ -653,7 +653,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Do your spirits care for flowers? I can tell who's courting and who's grieving by what they buy, you know." },
       },
       again = {
-        { id = "h_again", text = "Anything else, dear?" },
+        { id = "h_again", text = "Anything else, dear? Bernard's minding the roses, so I've a moment for the herbs." },
         { id = "h_again2", text = "Go on, I've all day and a lot of daisies." },
       },
       choices = {

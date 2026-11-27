@@ -58,7 +58,7 @@ P:NPC {
         { id = "yh_mage", when = { class = "MAGE" }, text = "A mage, on the cliff below the tower. You will forgive me if I watch your hands. I am Coral Moongale, and I watch everyone's hands near Xylem's door." },
       },
       again = {
-        { id = "h_again", text = "What more would you ask?" },
+        { id = "h_again", text = "What more would you ask? I can watch that tower and talk at once." },
         { id = "h_again2", text = "Speak. The tower will keep while we talk." },
       },
       choices = {
@@ -68,6 +68,7 @@ P:NPC {
         { text = "Who were you before you came here?", next = "ylife" },
         { text = "What would you do if Xylem woke something?", next = "ywoke" },
         { text = "Do you watch the naga too?", next = "ynaga" },
+        { text = "What does the tower look like at night?", next = "w_night" },
         { text = "Keep your watch well.", next = "END" },
       },
     },
@@ -89,6 +90,26 @@ P:NPC {
     ask = {
       lines = { { id = "a_default", text = "I have spoken with his apprentices, which tells me more than he would. Nyrill is honest and a little frightened of his master, and when a student like that stops being frightened, I shall know it is time to climb." } },
       choices = { { text = "Another matter.", next = "BACK" } },
+    },
+    w_night = {
+      lines = {
+        { id = "w_night_default", text = "Beautiful, which is what troubles me. The windows glow violet and blue, and sometimes a light moves from room to room as though something is walking. On the worst nights the whole top floor goes white, like a star, and then nothing, and then the birds go quiet." },
+      },
+      choices = {
+        { text = "Have you told anyone?", next = "w_night2" },
+        { text = "A star in the tower.", next = "w_night2" },
+      },
+    },
+    w_night2 = {
+      lines = {
+        { id = "w_night2_default", text = "I've written to the Sentinels at Talrendis Point. They send back thanks and nothing more. I think they believe a human archmage is a human problem. My grandmother's grandmother believed the same of a certain queen's palace, once." },
+        { id = "w_night2_w1", when = { class = "MAGE" }, text = "You know the arcane. Tell me honestly, when a tower glows white like that, what is being done inside it? I want an answer from someone who knows." },
+      },
+      choices = {
+        { text = "Keep watching. Someone must.", next = "BACK", fx = { align = { order = 1 } }, reply = "I will, until there's nothing left to watch, or no one left to watch it." },
+        { text = "It's Xylem's tower, not yours.", next = "BACK", fx = { align = { order = -1 } }, reply = "It was ours before it was his. That's rather the point." },
+        { text = "Something else, Coral.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -163,6 +184,7 @@ P:NPC {
         { text = "Where did you study before?", next = "ylife" },
         { text = "What happened to the apprentice who met the drake?", next = "ydrake" },
         { text = "Do you think Xylem is a good man?", next = "ygood" },
+        { text = "What's the hardest thing Xylem has asked you to do?", next = "w_hard" },
         { text = "Good luck with your ward.", next = "END" },
       },
     },
@@ -184,6 +206,25 @@ P:NPC {
     lose = {
       lines = { { id = "l_default", text = "I'd rather you hadn't brought that up, though it's true enough. One of us was sent after a shard and met a blue drake instead, and the Archmage still talks about the shard, so I am very careful about which errands I volunteer for." } },
       choices = { { text = "A sensible precaution. Something else.", next = "BACK" } },
+    },
+    w_hard = {
+      lines = {
+        { id = "w_hard_default", text = "Hold a circle for eleven hours while he spoke to something on the other side of it. I don't know what it was. It had a very polite voice, and it asked my name twice, and Xylem told me not to answer. I didn't sleep for a week afterward." },
+      },
+      choices = {
+        { text = "Did you ever find out what it was?", next = "w_hard2" },
+        { text = "Eleven hours is a long time.", next = "w_hard2" },
+      },
+    },
+    w_hard2 = {
+      lines = {
+        { id = "w_hard2_default", text = "I didn't ask, and he didn't say. He gave me a cup of tea the next morning and told me I'd done well, which is the only praise I've ever had from him. I keep thinking that a teacher who praises you for not answering a voice is a teacher you should listen to." },
+        { id = "w_hard2_w1", when = { class = "MAGE" }, text = "You're a mage. If something ever asks your name across a circle, don't answer. That's all I've learned here, and it might be the most important thing." },
+      },
+      choices = {
+        { text = "Never give your name.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Something else, Nyrill.", next = "BACK" },
+      },
     },
   },
   topics = {

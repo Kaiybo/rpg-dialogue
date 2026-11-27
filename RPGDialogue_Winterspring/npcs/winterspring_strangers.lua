@@ -239,7 +239,28 @@ P:NPC {
         { text = "Why 'Raincaller'? There's no rain here.", next = "name" },
         { text = "What should a traveller carry in Winterspring?", next = "advice" },
         { text = "Darnassus is well. The Tree still stands tall.", next = "darnassus", when = { race = "NightElf" } },
+        { text = "What's in the kettle?", next = "w9_kettle" },
         { text = "Goodbye.", next = "END" },
+      },
+    },
+
+    w9_kettle = {
+      lines = {
+        { id = "w9_kettle_d", text = "Icecap, mostly, the pale little flower that grows in the high snows, with a pinch of mountain silversage for warmth. It tastes of frost and honey, and it keeps the cold out of your chest better than any cloak in Starfall." },
+        { id = "w9_kettle_v1", when = { profession = "Herbalism" }, text = "Icecap and a little mountain silversage, which you'll know by the leaf, I expect. Pick the icecap young, before the frost burns the petals brown, and it brews sweeter than anything in Ashenvale." },
+      },
+      choices = {
+        { text = "Where do you find the icecap?", next = "w9_kettle2" },
+        { text = "May I have a cup?", next = "w9_kettle2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_kettle2 = {
+      lines = { { id = "w9_kettle2_d", text = "Along the ridges above the lake, where the snow lies thinnest, though the Winterfall go there too, and lately they are not friendly about sharing. Sit, have a cup, and drink it slowly, because that is half of what makes it work." } },
+      choices = {
+        { text = "Thank you, Natheril.", next = "BACK", reply = "Elune keep you warm. Come back when the cup is empty." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     village = {
@@ -369,7 +390,27 @@ P:NPC {
         { text = "I know what you are, Artorius.", next = "know", when = { class = "HUNTER", questActive = TODO_QUEST("Stave of the Ancients") } },
         { text = "Something about you smells of brimstone.", next = "lock", when = { class = "WARLOCK" } },
         { text = "The Sentinels would want a word with you.", next = "kal", when = { race = "NightElf" } },
+        { text = "You travel this road every day?", next = "road" },
+        { text = "You seem to know the Winterfall well.", next = "winterfall" },
+        { text = "You have very fine manners.", next = "w9_manners" },
         { text = "Good day to you, Artorius.", next = "END" },
+      },
+    },
+
+    w9_manners = {
+      lines = { { id = "w9_manners_d", text = "Why, thank you, friend! I have studied manners in many courts, in many places very far from here, and I have found that a pleasant word opens more doors than a battering ram, and leaves the doors in much better condition." } },
+      choices = {
+        { text = "What courts were those?", next = "w9_manners2" },
+        { text = "Manners can hide a great deal.", next = "w9_manners2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_manners2 = {
+      lines = { { id = "w9_manners2_d", text = "Oh, far courts, very old ones, where the lords smile and the servants burn. You wouldn't know them, friend, and I do hope, for your sake, that you never will. *His smile holds a beat too long.*" } },
+      choices = {
+        { text = "I think I know exactly what you are.", next = "BACK", reply = "Do you? How delightful. Do keep it to yourself a little longer." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     why = {
@@ -407,6 +448,33 @@ P:NPC {
     kal = {
       lines = { { id = "ka_d", text = "Oh, the Sentinels! Fierce women, beautiful bows, and such long memories, which is a pity, because your people remember a great deal about my people, and so little of it is flattering. Run along and tell them, if you like, and see how long it takes them to come this far north." } },
       choices = { { text = "Long enough. Something else.", next = "BACK", fx = { trait = { stern = 1 } } } },
+    },
+    road = {
+      lines = { { id = "rd_default", text = "Every day, from the springs to the gates of Everlook and back, rain or snow or the other sort of snow. I nod to the bruisers at the gate, I wave to the furbolgs on the hill, and I count the travellers who pass me, which is a little hobby of mine." } },
+      choices = {
+        { text = "Why count them?", next = "road2" },
+        { text = "That sounds like a very lonely hobby.", next = "road2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    road2 = {
+      lines = { { id = "rd2_default", text = "Oh, to see who comes back, friend, purely out of interest. You would be amazed how many brave souls go up into the mountains alone and simply never return. I always make a little note, and I always say a little prayer, to someone or other." } },
+      choices = { { text = "That's unsettling. Something else.", next = "BACK" } },
+    },
+    winterfall = {
+      lines = { { id = "wf_default", text = "Well enough to wave to, friend. They have become so energetic of late, so very eager, ever since they began drinking that lovely fiery water from Felwood. I am told someone carries it to them in barrels, and they are ever so grateful." } },
+      choices = {
+        { text = "Someone is poisoning them on purpose.", next = "winterfall2" },
+        { text = "Who carries the barrels?", next = "winterfall2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    winterfall2 = {
+      lines = { { id = "wf2_default", text = "Poisoning is such an ugly word, friend, and I never use ugly words before luncheon. Let us say that someone is helping them become what they were always going to be, a little faster. Donova Snowden at the hot springs would tell you otherwise, but she does fret so." } },
+      choices = {
+        { text = "I'm a druid. I'll see the Winterfall healed.", next = "BACK", reply = "Will you? How very ambitious. Do let me know how it goes, friend, I shall be right here, counting.", when = { class = "DRUID" } },
+        { text = "Something else, Artorius.", next = "BACK" },
+      },
     },
   },
 

@@ -134,6 +134,7 @@ P:NPC {
         { text = "Is the road between Goldshire and Eastvale safe, Antonio?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the beasts on the road trouble you, travelling alone?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What dangers have you seen on the roads, Antonio?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "What's the best thing you've ever sold on this road?", next = "e3_best" },
         { text = "Safe travels.", next = "END" },
       },
     },
@@ -155,6 +156,24 @@ P:NPC {
     shop = {
       lines = { { id = "s_default", text = "A shop sits still, and customers have to come to it. I'd rather go to them, and besides, Farley would charge me rent for a corner of the Lion's Pride." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    e3_best = {
+      lines = {
+        { id = "e3_best_l0", text = "A pair of spectacles to a farmer's widow outside Goldshire who hadn't read her husband's letters in a year for want of eyes. She read me three of them aloud right there by the cart, and I sold her the spectacles for less than they cost me, and I'd do it again." },
+      },
+      choices = {
+        { text = "And the worst thing you've sold?", next = "e3_best2" },
+        { text = "That's a kind heart for a salesman.", next = "BACK" },
+      },
+    },
+    e3_best2 = {
+      lines = {
+        { id = "e3_best2_l0", text = "A lucky charm to a young recruit bound for Redridge, who asked me if it truly worked and I said yes. I've not seen him come back down the road, and I've stopped selling charms since." },
+      },
+      choices = {
+        { text = "It wasn't the charm's fault. Something else.", next = "BACK" },
+        { text = "That's a heavy thing to carry.", next = "BACK" },
+      },
     },
   },
   topics = {

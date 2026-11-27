@@ -32,13 +32,31 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_case = {
+      lines = {
+        { id = "w3_case_1", text = "A Deathguard who came in complaining of a rattle in his chest, which turned out to be a nest of carrion beetles who'd moved in while he stood guard in Brill. I removed them, every one, and he thanked me and went back to the same post, where I expect they've since returned." },
+      },
+      choices = {
+        { text = "Couldn't you have warned him?", next = "w3_warn" },
+        { text = "At least they didn't hurt him.", next = "BACK", reply = "No, they don't hurt. That's rather the problem with the Forsaken, as a physician sees it; nothing tells us when to come in." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_warn = {
+      lines = {
+        { id = "w3_warn_1", text = "I did, and he said the beetles were quieter company than the other guards. As a physician I disapprove, and as a man who has stood his own share of long watches, I find I can't argue the point." },
+      },
+      choices = {
+        { text = "Fair enough. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Doctor Martin Felben. I was a physician in Lordaeron, and now I teach alchemy in the Apothecarium, which is much the same work except that nobody thanks me for it." },
         { id = "h_notalch", when = { ["not"] = { profession = "Alchemy" } }, text = "You're not one of my students, but a doctor never minds a visitor. Mind the floor; it's been mopped, but not with water." },
       },
       again = {
-        { id = "h_again", text = "Another question? I'm in the middle of a distillation, but it'll take an hour whatever I do." },
+        { id = "h_again", text = "Another question? I'm mid-distillation, and it takes an hour whatever I do, so ask away." },
       },
       choices = {
         { text = "Alchemy should heal the Dark Lady's people before it harms anyone.", next = "BACK", reply = "A tidy sentiment. The Royal Apothecaries may not share it, but I do.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -50,6 +68,7 @@ P:NPC {
         { text = "What's in the green flask?", next = "flask" },
         { text = "Can your alchemy help the living, Doctor?", next = "living", when = { race = { "Orc", "Tauren", "Troll" } } },
         { text = "What's the first lesson of alchemy?", next = "lesson", when = { profession = "Alchemy" } },
+        { text = "What's the hardest case you've treated down here?", next = "w3_case" },
         { text = "Good day, Doctor.", next = "END" },
       },
     },
@@ -161,13 +180,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_garden = {
+      lines = {
+        { id = "w3_garden_1", text = "Everything a village needs when the nearest physician is a day's ride off, dear: feverfew for the children, silverleaf for cuts, and a bed of mageroyal that the bees thought was theirs. Folk came from three farms over for her poultices, and she'd never take a copper, only eggs." },
+        { id = "w3_garden_2", when = { race = { "Orc", "Tauren", "Troll" } }, text = "Everything a village needs, dear, with no physician near: feverfew, silverleaf for cuts, and mageroyal the bees thought was theirs. Your own healers would have liked her, I think, because she'd never take coin, only eggs." },
+      },
+      choices = {
+        { text = "Do you still remember her poultices?", next = "w3_poultice" },
+        { text = "She sounds like the heart of the village.", next = "BACK", reply = "She was, and she'd have hated hearing it said, so I'll say it for her now she can't stop me." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_poultice = {
+      lines = {
+        { id = "w3_poultice_1", text = "Every one, dear, and they work as well as ever on the living. Silverleaf pounded with a little honey and bound on a cut, and you'll heal clean, though I can't use it myself any more, more's the pity, since honey does nothing at all for a Forsaken." },
+      },
+      choices = {
+        { text = "I'll try the silverleaf. Something else.", next = "BACK" },
+        { text = "I gather silverleaf myself.", next = "BACK", when = { profession = "Herbalism" }, reply = "Then pick it in the morning, dear, while the dew's on, and it'll keep a week longer." },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Martha Alliestar. I teach herbalism to anyone with the patience for it, and I learned it on a farm near Brill, where my mother kept a garden the whole village came to for remedies." },
         { id = "h_druid", when = { class = "DRUID" }, text = "A druid! Oh, you'll know far more than I do about growing things. Will you look at my peacebloom and tell me if it's happy?" },
       },
       again = {
-        { id = "h_again", text = "Anything else, dear? I've all the time in the world, and nothing to plant it in." },
+        { id = "h_again", text = "Anything else, dear? I've all the time in the world, and the peacebloom doesn't mind a chat." },
       },
       choices = {
         { text = "Herbs should be gathered gently, leaving roots for next season.", next = "BACK", reply = "Bless you. That's how the old herbalists taught it, and they were right.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -179,6 +218,7 @@ P:NPC {
         { text = "You mentioned your late husband.", next = "husband" },
         { text = "What can the living learn from you?", next = "living", when = { race = { "Orc", "Tauren", "Troll" } } },
         { text = "Your peacebloom looks happy enough to me.", next = "druid", when = { class = "DRUID" } },
+        { text = "What did your mother grow in her garden?", next = "w3_garden" },
         { text = "Take care, Martha.", next = "END" },
       },
     },

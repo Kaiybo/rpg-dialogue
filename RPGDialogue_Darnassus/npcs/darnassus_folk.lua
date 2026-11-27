@@ -61,6 +61,7 @@ P:NPC {
         { text = "The bow is our people's weapon. Why choose the blade?", next = "blade", when = { class = "WARRIOR", race = "NightElf" } },
         { text = "I'm ready for one of your far trials.", next = "trials", when = { class = "WARRIOR", minLevel = 30 } },
         { text = "What do you think of human warriors?", next = "humans", when = { race = "Human" } },
+        { text = "What do your students bring back from the trials?", next = "w_back" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -128,6 +129,26 @@ P:NPC {
       lines = { { id = "hu_default", text = "Quick to learn and quick to forget, and braver than they've any right to be with such short lives. The ones who came to Hyjal fought beside us when they could have fled, and I haven't forgotten it." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    w_back = {
+      lines = {
+        { id = "w_back_default", text = "Scars, mostly, and stories they tell badly, and now and then something better. A young warrior came back from Fray Island last spring and could not stop talking about how the Islander had laughed at her for an hour and then bowed to her." },
+      },
+      choices = {
+        { text = "Why would he bow to her?", next = "w_back2" },
+        { text = "Laughter's a strange kind of test.", next = "w_back2" },
+      },
+    },
+    w_back2 = {
+      lines = {
+        { id = "w_back2_default", text = "Because she kept getting up. That is the whole of what I send them out to learn: that the world beyond this tree is full of people who can knock you down, and the only thing worth carrying home is the habit of rising." },
+        { id = "w_back2_w1", when = { class = "WARRIOR" }, text = "You are a warrior already, so you know the habit. Tell me, who was the first to knock you down, and did you thank them?" },
+      },
+      choices = {
+        { text = "Getting up is the real lesson.", next = "BACK", fx = { align = { honor = 1 } }, reply = "It is, and any warrior who forgets it is only a fighter." },
+        { text = "Better not to fall at all.", next = "BACK", fx = { align = { honor = -1 } }, reply = "Then you have not met anyone worth fighting yet. You will." },
+        { text = "Something else, Darnath.", next = "BACK" },
+      },
+    },
   },
 }
 
@@ -168,7 +189,7 @@ P:NPC {
           text = "A hunter, and your companion with you. Let's see what it's ready for, and what you're ready to let it do." },
       },
       again = {
-        { id = "h_again", text = "What else?" },
+        { id = "h_again", text = "What else? Your companion is listening too, you know." },
         { id = "h_again2", text = "Ask; your companion is listening too." },
         { id = "h_again3", text = "Go on. I'll keep scratching behind this one's ears while you think." },
       },
@@ -312,7 +333,7 @@ P:NPC {
           text = "I am Alassin, keeper of the Enclave's stables, and that one at your heel looks as though it's been sleeping on rocks. If you leave it with me, it'll have straw for a change." },
       },
       again = {
-        { id = "h_again", text = "Something else?" },
+        { id = "h_again", text = "Something else? I've a saber waiting on her brushing." },
         { id = "h_again2", text = "What else can I do?" },
         { id = "h_again3", text = "Go on, the sabers aren't due their supper for an hour yet." },
       },
@@ -324,6 +345,7 @@ P:NPC {
         { text = "Your stables are spotless.", next = "spotless" },
         { text = "How long do hunters leave their beasts?", next = "long", when = { class = "HUNTER" } },
         { text = "Would you stable a ram?", next = "ram", when = { race = "Dwarf" } },
+        { text = "What do you feed a nightsaber?", next = "w_feed" },
         { text = "Thank you.", next = "END" },
       },
     },
@@ -393,6 +415,25 @@ P:NPC {
     ram = {
       lines = { { id = "ra_default", text = "I'd stable a ram if a hunter tamed one, though I'd want a wall of good stone for it, and Darnassus hasn't much stone. Your riding rams go to the stables in Ironforge, I'm afraid; mine are for hunters' companions." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    w_feed = {
+      lines = {
+        { id = "w_feed_default", text = "Fresh meat from Jaeana's hook, at dusk, never at dawn, and a great deal of it. A saber who eats in the morning sleeps all day and prowls all night, and the Enclave druids complain of the yowling." },
+      },
+      choices = {
+        { text = "Do the druids' cats eat here too?", next = "w_feed2" },
+        { text = "Jaeana must love your custom.", next = "w_feed2" },
+      },
+    },
+    w_feed2 = {
+      lines = {
+        { id = "w_feed2_default", text = "The druids in cat form? They would never admit it, but I have seen a sleek black one sitting very politely outside the meat store on a cold night, and I have never once turned her away. Neither of us mentions it the next morning." },
+        { id = "w_feed2_w1", when = { class = "DRUID" }, text = "You are of the claw yourself, I think. If you are ever hungry in that shape, the store door is on the left, and I keep the good cuts at the back." },
+      },
+      choices = {
+        { text = "A stable master's discretion.", next = "BACK", fx = { trait = { discreet = 1 } } },
+        { text = "Something else, Alassin.", next = "BACK" },
+      },
     },
   },
 
@@ -612,8 +653,8 @@ P:NPC {
           text = "I am Lairn, a keeper of the vaults, and I notice you looked at the locks before you looked at me. They're very good locks, and I'd rather you didn't test them." },
       },
       again = {
-        { id = "h_again", text = "Anything else?" },
-        { id = "h_again2", text = "What else may I do for you?" },
+        { id = "h_again", text = "Anything else? I can count and listen at the same pace." },
+        { id = "h_again2", text = "Is there some other matter of your account, or shall I close the ledger for now?" },
         { id = "h_again3", text = "Take your time. I'll finish this column while you think." },
       },
       choices = {
@@ -624,6 +665,7 @@ P:NPC {
         { text = "What use is gold to the kaldorei?", next = "gold" },
         { text = "Has anyone ever tried to rob you?", next = "robbed", when = { class = "ROGUE" } },
         { text = "Do you deal with the banks of Ironforge?", next = "ironforge", when = { race = { "Dwarf", "Gnome" } } },
+        { text = "What is the oldest thing in the vaults?", next = "w_oldest" },
         { text = "Thank you.", next = "END" },
       },
     },
@@ -687,6 +729,25 @@ P:NPC {
       lines = { { id = "if_default", text = "By letter, and very carefully, for their bankers count even more slowly than I do, which I had not thought possible. What you leave in Ironforge's vaults you can reach from mine, so long as you're patient." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    w_oldest = {
+      lines = {
+        { id = "w_oldest_default", text = "A small box of carved bone, deposited the night the city opened its doors, by a priestess who has never come back to it. I do not know what is inside, and every year on the same night I check that the seal is unbroken." },
+      },
+      choices = {
+        { text = "Do you know who she was?", next = "w_oldest2" },
+        { text = "You've never been tempted to look?", next = "w_oldest2" },
+      },
+    },
+    w_oldest2 = {
+      lines = {
+        { id = "w_oldest2_default", text = "Her name is in the ledger, and I will not say it, because a banker who speaks of what is in his care is no banker at all. I will only say that the Temple tells me she still lives, in Ashenvale, and that pleases me more than I can explain." },
+      },
+      choices = {
+        { text = "A vault should keep its secrets.", next = "BACK", fx = { align = { order = 1 } }, reply = "It should, and mine shall, for as long as I keep the keys." },
+        { text = "Someone should tell her it's waiting.", next = "BACK", fx = { align = { order = -1 } }, reply = "Perhaps someone will. It will not be me, though I should be glad of it." },
+        { text = "Something else, Lairn.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -734,7 +795,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? Try another bow while you think." },
-        { id = "h_again2", text = "What else?" },
+        { id = "h_again2", text = "What else? Mind the strings on that rack as you lean." },
         { id = "h_again3", text = "Go on, and string that one properly while you ask." },
       },
       choices = {
@@ -745,6 +806,7 @@ P:NPC {
         { text = "You're watching how I hold the bow.", next = "judge" },
         { text = "What arrows for a long hunt?", next = "arrows", when = { class = "HUNTER" } },
         { text = "I'll keep my gun, thanks.", next = "dwarf", when = { race = { "Dwarf", "Gnome" } } },
+        { text = "What's the best bow you ever made?", next = "w_best" },
         { text = "Thank you.", next = "END" },
       },
     },
@@ -812,6 +874,25 @@ P:NPC {
     dwarf = {
       lines = { { id = "dw_default", text = "Then I'll sell you the shot for it and say nothing about the noise, which costs me a great deal. If you ever want to try a bow, the short ash on the left is forgiving, even to a rifleman." } },
       choices = { { text = "Maybe one day, Landria. Something else.", next = "BACK" } },
+    },
+    w_best = {
+      lines = {
+        { id = "w_best_default", text = "A short bow of old ash, for a Sentinel captain at Astranaar, and I took a whole season over the curve. She sent it back a year later with a single crack along the grip and a note saying it had saved her life eleven times and could I please mend it." },
+      },
+      choices = {
+        { text = "Could you?", next = "w_best2" },
+        { text = "Eleven times is a good record.", next = "w_best2" },
+      },
+    },
+    w_best2 = {
+      lines = {
+        { id = "w_best2_default", text = "No. A cracked bow is finished, however much you love it, and I wrote back to say so and made her a new one. She keeps the old one over her bed, I hear, and I am not ashamed to say that pleased me more than any sale." },
+        { id = "w_best2_w1", when = { class = "HUNTER" }, text = "You will know that feeling, hunter: a bow you trust is a friend, and you mourn it when it breaks." },
+      },
+      choices = {
+        { text = "Some tools deserve to be remembered.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Landria.", next = "BACK" },
+      },
     },
   },
 

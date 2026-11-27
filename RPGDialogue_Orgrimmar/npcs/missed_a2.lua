@@ -25,6 +25,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2appr = {
+      lines = { { id = "w2a_default", text = "I have taken six, and not one of them lasted past the first winter. They come to me wanting to make champions' plate, and I set them to rivets for a season, and they go off to Okothos complaining that the old anvil is cracked after all." } },
+      choices = {
+        { text = "What would keep one at your forge?", next = "w2appr2" },
+        { text = "A season of rivets would drive me off too.", next = "w2appr2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2appr2 = {
+      lines = {
+        { id = "w2a2_smith", when = { profession = "Blacksmithing" }, text = "Patience, which you may have, since you have not walked off yet. A smith who can make a thousand rivets that all hold can make a breastplate that holds, and one who cannot, never will, however pretty his hammering." },
+        { id = "w2a2_default", text = "Patience, and nothing else. A smith who can make a thousand rivets that all hold can make a breastplate that holds, and one who cannot never will, however pretty his hammering looks." },
+      },
+      choices = { { text = "Sound teaching, if hard.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_active", when = { questActive = TODO_QUEST("The Old Ways") }, text = "Where is the armor I asked of you? An armorsmith of the old kind would have had it stacked at my feet by now, and he would not have stopped to chat." },
@@ -42,6 +57,7 @@ P:NPC {
         { text = "You'd make peace with no one, then?", next = "xstance" },
         { text = "What was the hardest armor you ever made?", next = "xhardest" },
         { text = "I wear plate as an orc should.", when = { race = "Orc", class = { "WARRIOR", "PALADIN" } }, next = "xorc" },
+        { text = "Do you ever take an apprentice, Aturk?", next = "w2appr" },
         { text = "I'll leave you to your grumbling.", next = "END" },
       },
     },
@@ -146,6 +162,52 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2broken = {
+      lines = { { id = "w2bk_default", text = "It goes into the crucible with the others, and comes out as three new heads by the end of the week. I keep the hafts, though, because a haft that broke tells me where the grunt was holding it wrong, and I cut the next ones to suit." } },
+      choices = {
+        { text = "Do the grunts ever ask for the old axe back?", next = "w2broken2" },
+        { text = "That's a thrifty way to work.", next = "w2broken2" },
+        { text = "Something else, Kelgruk.", next = "BACK" },
+      },
+    },
+    w2broken2 = {
+      lines = {
+        { id = "w2bk2_warrior", when = { class = "WARRIOR" }, text = "Some do, the ones who killed something they're proud of with it. You'd understand that, warrior. For them I take a sliver of the old head and fold it into the new one, and I don't charge extra, so don't tell Borgosh." },
+        { id = "w2bk2_default", text = "Now and then, when they killed something they're proud of with it. For those I fold a sliver of the old head into the new one, and I don't charge extra for it, so don't tell Borgosh." },
+      },
+      choices = { { text = "Your secret's safe with me.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
+    kb_same = {
+      lines = { { id = "kb_same_l", text = "They should, because a grunt who loses his axe in the Barrens should be able to pick up his neighbour's and swing it the same way. Sameness is a virtue in a weapon that a hundred orcs will carry." } },
+      choices = {
+        { text = "So every axe is made to one pattern.", next = "kb_same2" },
+        { text = "A champion wants something different.", next = "kb_same2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kb_same2 = {
+      lines = { { id = "kb_same2_l", text = "One pattern, aye, which I keep on a board beside the forge, cut from the haft of an axe that served a grunt for ten years. Borgosh makes champions' weapons, and I make soldiers' weapons, and the Horde needs far more soldiers." } },
+      choices = {
+        { text = "A plain axe in many hands wins more wars.", next = "BACK", reply = "It does, and I'll say so to Borgosh's face. Don't tell him I said it so plainly, though.", fx = { align = { order = 1 } } },
+        { text = "One great weapon can turn a battle.", next = "BACK", reply = "Sometimes it can, if the right orc carries it. But the right orc dies too, and then you've a hundred grunts with nothing.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kb_boy = {
+      lines = { { id = "kb_boy_l", text = "An orphan from Matron Battlewail's house, sent to me to learn a trade. He works the bellows in the morning and runs off to fight imaginary humans in the afternoon, and I let him, because I did the same at his age." } },
+      choices = {
+        { text = "Will he make a smith?", next = "kb_boy2" },
+        { text = "Battlewail sends you apprentices?", next = "kb_boy2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kb_boy2 = {
+      lines = { { id = "kb_boy2_l", text = "He might, if he learns to show up every day. The matron sends her older ones to the forges and the kennels, because she says a trade is the only inheritance she can give them, and I think she's right." } },
+      choices = {
+        { text = "A good thing to give a child.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_smith", when = { profession = "Blacksmithing" }, text = "Kelgruk Bloodaxe. If you have chosen the weaponsmith's road, then I have a thing or two to show you once Borgosh has had his say, and I will take less time about it." },
@@ -162,6 +224,9 @@ P:NPC {
         { text = "How many axes do you make in a day?", next = "xcount" },
         { text = "Is a weaponsmith's work honourable?", next = "xhonor" },
         { text = "A shaman needs a weapon too. What would you give me?", when = { class = "SHAMAN" }, next = "xshaman" },
+        { text = "Your axes all look the same to me.", next = "kb_same" },
+        { text = "Who's the bellows boy you mentioned?", next = "kb_boy" },
+        { text = "What happens to an axe that comes back broken?", next = "w2broken" },
         { text = "Good forging, Kelgruk.", next = "END" },
       },
     },
@@ -249,6 +314,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2venture = {
+      lines = { { id = "w2v_default", text = "Not near enough for my grunts to reach them, more's the pity. They're stripping the hills in Stonetalon and the Barrens, with machines that chew through a mountain faster than ten orcs with picks, and they pay nothing to anybody for what they take." } },
+      choices = {
+        { text = "Are their machines any good?", next = "w2venture2" },
+        { text = "The Horde should drive them out.", next = "w2venture2" },
+        { text = "Something else, Gorina.", next = "BACK" },
+      },
+    },
+    w2venture2 = {
+      lines = {
+        { id = "w2v2_miner", when = { profession = "Mining" }, text = "Good enough to dig, bad enough to bury their own drivers, from what the miners tell me. You go out there with a pick, {class}, keep clear of the shredders, and if you find a vein they missed, it's yours by right." },
+        { id = "w2v2_default", text = "Good enough to dig and bad enough to bury their own drivers, from what the miners tell me. A pick is slower, but it has never once exploded in anybody's hand." },
+      },
+      choices = { { text = "I'll stick with a pick, then.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Gorina, and I sell what a miner needs to bring ore out of the ground. Makaru teaches the digging next to me, and every forge in this valley eats what the two of us send out into the hills." },
@@ -264,6 +344,7 @@ P:NPC {
         { text = "Is mining honest work for an orc?", next = "xhonest" },
         { text = "You were a miner yourself?", next = "xpast" },
         { text = "I'm a miner. Any rich veins nearby?", when = { profession = "Mining" }, next = "xveins" },
+        { text = "Does the Venture Company dig near Orgrimmar?", next = "w2venture" },
         { text = "Good trading, Gorina.", next = "END" },
       },
     },
@@ -360,12 +441,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2staff = {
+      lines = { { id = "w2s_default", text = "A length of black ironwood a troll brought me from Ashenvale, which I would not ask how she came by. I only shaped it and fitted the iron caps, and a witch doctor from Sen'jin bought it the same day for more than I make in a month of maces." } },
+      choices = {
+        { text = "What did she want with it?", next = "w2staff2" },
+        { text = "So the staves pay better than you admit.", next = "w2staff2" },
+        { text = "Something else, Koru.", next = "BACK" },
+      },
+    },
+    w2staff2 = {
+      lines = {
+        { id = "w2s2_caster", when = { class = { "SHAMAN", "DRUID", "PRIEST", "MAGE", "WARLOCK" } }, text = "She said it would hear the loa better than any other wood, and you would know more about that than I do. To me it was only good hard timber that would also break a skull, and I respect that in a staff." },
+        { id = "w2s2_default", text = "She said it would hear the loa better than any other wood. To me it was only good hard timber that would break a skull as well as any mace, and that much I can respect." },
+      },
+      choices = { { text = "A weapon is a weapon, then.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Koru. I sell maces for those who break bones and staves for those who break other things, and I stand behind both." },
       },
       again = {
-        { id = "h_again", text = "What else, {class}?" },
+        { id = "h_again", text = "What else, {class}? Lift that mace while you think and tell me if it sits right." },
         { id = "h_again2", text = "Speak, or try the weight of something while you think." },
       },
       choices = {
@@ -376,6 +472,7 @@ P:NPC {
         { text = "Do you fight yourself?", next = "xfight" },
         { text = "A paladin's mace is holy work.", when = { class = "PALADIN" }, next = "xpaladin" },
         { text = "I'm a druid. Staves suit me.", when = { class = "DRUID" }, next = "xdruid" },
+        { text = "What is the finest staff you ever sold?", next = "w2staff" },
         { text = "Strength to you, Koru.", next = "END" },
       },
     },
@@ -475,12 +572,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2fit = {
+      lines = {
+        { id = "w2f_tauren", when = { race = "Tauren" }, text = "For your people I need two hides where an orc needs one, and a buckle the size of my fist. I made one for a tauren brave last spring, and when he flexed in it, three of my best stitches went across the shop like arrows." },
+        { id = "w2f_default", text = "Tauren take two hides where an orc takes one, and a troll wants every strap cut longer than seems sensible. The Forsaken are the worst, because there is so little to buckle to, and I have to pad the straps or they slide off their ribs." },
+      },
+      choices = {
+        { text = "Which do you most enjoy fitting?", next = "w2fit2" },
+        { text = "Every body is a puzzle, then.", next = "w2fit2" },
+        { text = "Something else, Kiro.", next = "BACK" },
+      },
+    },
+    w2fit2 = {
+      lines = { { id = "w2f2_default", text = "Orcs, and I make no apology for it, since the harness was made for our backs on the march. But a well-fitted troll is a fine sight, I will admit, and they are the only customers who ever thank me for the scars it shows off." } },
+      choices = { { text = "Pride in your craft is a good thing.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Kiro, and this is Kiro's Harnesses. I make the war harness as our people wore it on the march, leather and buckle and nothing between your enemy and your scars but your own skill." },
       },
       again = {
-        { id = "h_again", text = "What else would you know?" },
+        { id = "h_again", text = "What else, {class}? Hold still while you ask; I am checking that buckle." },
         { id = "h_again2", text = "Ask. My hands can stitch while I listen." },
       },
       choices = {
@@ -490,6 +602,7 @@ P:NPC {
         { text = "How long does a harness take to make?", next = "xlong" },
         { text = "Do you make harnesses for wolves too?", next = "xwolves" },
         { text = "I'm a leatherworker. Any advice?", when = { profession = "Leatherworking" }, next = "xlw" },
+        { text = "Do you fit harnesses for other races?", next = "w2fit" },
         { text = "Farewell, Kiro.", next = "END" },
       },
     },

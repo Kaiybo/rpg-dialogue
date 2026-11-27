@@ -30,6 +30,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_time = {
+      lines = { { id = "w8_time_a", text = "I compose messages for my bottles, I correct King Mukla's table manners, which is hopeless, and I watch the ships go by and decide which ones I would sail home on. The black-sailed ones I would not, because I have had quite enough of pirates." } },
+      choices = {
+        { text = "Do the gorillas listen to your corrections?", next = "w8_time2" },
+        { text = "It sounds lonely, Princess.", next = "w8_time2" },
+        { text = "Something else, Princess.", next = "BACK" },
+      },
+    },
+    w8_time2 = {
+      lines = { { id = "w8_time2_a", text = "The young ones do, a little, and one of them has learned to bow, after a fashion. It is lonely, yes, though a daughter of the plains does not complain, so you will kindly forget I said so, and remember instead that I said something regal." } },
+      choices = {
+        { text = "I'll remember only the regal parts.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -51,6 +67,7 @@ P:NPC {
         { text = "You look like you've had a hard time of it.", next = "captive" },
         { text = "How did you throw bottles all the way to the shore?", next = "bottles" },
         { text = "Mulgore's a long way from here, Princess.", next = "xtauren", when = { race = "Tauren" } },
+        { text = "How do you pass the time on this island?", next = "w8_time" },
         { text = "I'll see what I can do.", next = "END" },
       },
     },

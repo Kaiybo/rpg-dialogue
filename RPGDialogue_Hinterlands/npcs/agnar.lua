@@ -33,6 +33,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_trouble = {
+      lines = {
+        { id = "w2_trouble_l", text = "An old gryphon named Thunderclaw, who outlived his rider an' won't take another. He sits on the high ledge an' screams at the young ones, an' he'll only eat if I bring the meat up myself, in person, at dawn." },
+      },
+      choices = {
+        { text = "Why not let someone else feed him?", next = "w2_trouble2" },
+        { text = "Something else, Agnar.", next = "BACK" },
+      },
+    },
+    w2_trouble2 = {
+      lines = {
+        { id = "w2_trouble2_l", text = "Because he chose me tae grieve at, an' a gryphon's grief is a long thing. His rider fell at Shadra'Alor tae a Vilebranch spear. I'll climb that ledge every mornin' till Thunderclaw decides he's done mournin'." },
+      },
+      choices = {
+        { text = "Something else, Agnar.", next = "BACK" },
+      },
+    },
     dw_spirit = {
       lines = {
         { id = "dw_spirit_default", text = "Think it? We know it. The shamans say every gryphon carries the wind in it, an' the wind remembers the rider who treated it right, so we bury our birds wi' their riders when we can." },
@@ -79,6 +96,7 @@ P:NPC {
         { text = "How do you tame a beast like mine?", next = "hunter", when = { class = "HUNTER" } },
         { text = "Do the Wildhammers think the beasts have spirits, Agnar?", next = "dw_spirit" },
         { text = "We keep rams in Dun Morogh. Is a gryphon much different?", next = "dw_ram", when = { race = "Dwarf" } },
+        { text = "Which beast at the Peak gives you the most trouble?", next = "w2_trouble" },
         { text = "Thanks, Agnar.", next = "END" },
       },
     },

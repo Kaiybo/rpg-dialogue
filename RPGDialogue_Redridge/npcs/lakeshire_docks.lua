@@ -53,6 +53,7 @@ P:NPC {
         { text = "What brings a night elf to Lakeshire?", next = "elf" },
         { text = "Can I help recover the horns?", next = "help", when = { class = "ROGUE" } },
         { text = "You and Lucius know each other?", next = "lucius" },
+        { text = "What do you make of Lakeshire's defences?", next = "e3_lakeshire" },
         { text = "I'll leave you to your watching.", next = "END" },
       },
     },
@@ -119,6 +120,25 @@ P:NPC {
     lucius = {
       lines = { { id = "lu_default", text = "Lucius teaches the young ones to open locks, and he keeps an eye on the docks for me. He's a dwarf with poor manners and good instincts, and I'd trust him with my back sooner than most." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    e3_lakeshire = {
+      lines = {
+        { id = "e3_lakeshire_l0", text = "I make a habit of finding the weak place in any wall, and Lakeshire's walls are mostly weak places. The bridge is half built, the watch is half the size it needs to be, and the Blackrock scouts come down the north ridge on the same paths every third night." },
+        { id = "e3_lakeshire_l1", when = { class = "ROGUE" }, text = "You'll have marked it yourself, coming in: the half-built bridge, the thin watch, and the north ridge path the Blackrock scouts use every third night. A rogue sees a town's back door first, and this one is wide open." },
+      },
+      choices = {
+        { text = "Have you told Marshal Marris about the paths?", next = "e3_lakeshire2" },
+        { text = "A town's walls are its people, not its stones.", next = "BACK" },
+      },
+    },
+    e3_lakeshire2 = {
+      lines = {
+        { id = "e3_lakeshire2_l0", text = "Through Lucius, who tells the Marshal things in a way the Marshal can believe. A night elf in a dark cloak telling a human soldier where his enemies walk is not always heard kindly, however true it may be." },
+      },
+      choices = {
+        { text = "Lucius is a useful friend. Something else.", next = "BACK" },
+        { text = "The Marshal should listen, whoever speaks.", next = "BACK" },
+      },
     },
   },
 
@@ -340,6 +360,7 @@ P:NPC {
         { text = "Does all that hammering on the bridge bother the fish?", next = "bridge" },
         { text = "Try a lure from Vernon Hale. It works for me.", next = "lure", when = { profession = "Fishing" } },
         { text = "In Darnassus we fish by moonlight. Have you tried?", next = "moon", when = { race = "NightElf" } },
+        { text = "Tell me about the one that got away.", next = "e3_trout" },
         { text = "Good luck, Zem.", next = "END" },
       },
     },
@@ -418,6 +439,24 @@ P:NPC {
     moon = {
       lines = { { id = "mo_default", text = "By moonlight? I tried fishing after dark once and Guard Parker sent me home for my own good. Besides, if they won't bite in daylight, I can't think why they'd do me any favours at night." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    e3_trout = {
+      lines = {
+        { id = "e3_trout_l0", text = "Silver all down the side with a spot by the gill like a thumbprint, and it looked at me, friend, it looked right at me, before it went over the edge of the dock. I've seen that thumbprint twice since, in the shallows by the reeds, and I swear it's laughing." },
+      },
+      choices = {
+        { text = "Then it's still out there, waiting for you.", next = "e3_trout2" },
+        { text = "Every fisherman has that fish.", next = "BACK" },
+      },
+    },
+    e3_trout2 = {
+      lines = {
+        { id = "e3_trout2_l0", text = "That's what keeps me coming down here, every morning, when the Marshal says I ought to be carrying planks. One day that thumbprint's going to get hungry at the wrong moment, and then all of Lakeshire will hear about it." },
+      },
+      choices = {
+        { text = "I hope I'm there to see it. Something else.", next = "BACK" },
+        { text = "Carry a plank or two in between.", next = "BACK" },
+      },
     },
   },
 

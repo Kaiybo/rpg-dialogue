@@ -230,6 +230,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_apprentices = {
+      lines = {
+        { id = "w3_apprentices_1", text = "Badly, as apprentices do. They memorise the gestures and forget the reasoning, so their spells work in the classroom and fail in the field, and then they come back with one less arm and ask me why." },
+        { id = "w3_apprentices_2", when = { class = "MAGE" }, text = "Badly, as you very likely did. They memorise the gestures and forget the reasoning, so their spells work in a classroom and fail in a ghoul's face, and I should like to think that you, at least, have since learned the difference." },
+      },
+      choices = {
+        { text = "What do you tell them, when they come back?", next = "w3_tell" },
+        { text = "You could teach them more gently.", next = "BACK", reply = "I could, and they'd die more gently, which is no improvement at all. Precision is the only kindness I offer." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_tell = {
+      lines = {
+        { id = "w3_tell_1", text = "That the world does not stand still for a spell, and nor should the mind casting it. Then I set them the same exercise again, with Deathguard throwing turnips at their heads, which is less dignified than a ghoul but rather more reliable." },
+      },
+      choices = {
+        { text = "Turnips? That's almost funny.", next = "BACK", reply = "It isn't meant to be. The turnips are meant to hurt, and the apprentices learn quickly." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Faith is foolish when it's lazy, and I suspect yours isn't, since the Light makes you pay for every prayer. I'd still trust a spell I can measure over a blessing I can't, but I'll admit you're evidence I can't easily explain away." } },
@@ -271,7 +291,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Something else? Ask it plainly; I have apprentices to correct and little patience left." },
-        { id = "h_again2", text = "Anything further?" },
+        { id = "h_again2", text = "Anything further? Be quick, someone is mangling a frostbolt behind me." },
       },
       choices = {
         { text = "Faith can't be as imprecise as you make out, Anastasia.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -285,6 +305,7 @@ P:NPC {
         { text = "Mages and rogues both deal in secrets, Anastasia.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I'd guess the mages look down on warriors too, Anastasia.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Is faith foolish for the dead, Anastasia?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "How are your apprentices coming along?", next = "w3_apprentices" },
         { text = "Farewell.", next = "END" },
       },
     },

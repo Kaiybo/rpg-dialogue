@@ -56,6 +56,7 @@ P:NPC {
         { text = "Jessir Moonbow is waiting for you.", next = "jessir", when = { questActive = TODO_QUEST("Rescue From Jaedenar") } },
         { text = "I'm a paladin. Who was your friend?", next = "xpala", when = { class = "PALADIN" } },
         { text = "I'm no friend of the Council. I'm here to open that cage.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "How have you kept your strength in here?", next = "w_strength" },
         { text = "Hold on. I'll be back.", next = "END" },
       },
     },
@@ -162,6 +163,25 @@ P:NPC {
       },
       choices = {
         { text = "Right. I'll find the key.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_strength = {
+      lines = {
+        { id = "w_strength_default", text = "By counting. I count the guards, the hours, the drips from the ceiling, and the times the warlock laughs. When I get to a thousand drips, I let myself think about home for exactly as long as it takes to count to a hundred. Then I start again." },
+      },
+      choices = {
+        { text = "Why only to a hundred?", next = "w_strength2" },
+        { text = "That's a hard discipline.", next = "w_strength2" },
+      },
+    },
+    w_strength2 = {
+      lines = {
+        { id = "w_strength2_default", text = "Because if I think about home any longer than that, I start to cry, and they would hear it, and I won't give them that. Trey taught me the counting, of all things. He said paladins do it in long vigils, so the mind has a road to walk." },
+        { id = "w_strength2_w1", when = { class = "PALADIN" }, text = "You'll know the vigil he meant, then. Tell me it really works, when it's longer than a night. I need to believe it does." },
+      },
+      choices = {
+        { text = "Keep counting. I'm coming back.", next = "BACK", fx = { trait = { brave = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

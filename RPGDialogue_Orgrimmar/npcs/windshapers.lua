@@ -236,6 +236,58 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2hard = {
+      lines = {
+        { id = "w2hd_sky", when = { race = "Skyborne" }, text = "You'll laugh, because I suspect you felt it too: the roofs. Everything here has a roof, and I keep glancing up for the sky and finding stone, and the orcs think I'm checking for falling rocks." },
+        { id = "w2hd_default", text = "The roofs, if you'll believe it. Everything here has a roof, and I keep glancing up for the sky and finding stone instead, and the orcs think I'm checking for falling rocks." },
+      },
+      choices = {
+        { text = "Are you, sometimes?", next = "w2hard2" },
+        { text = "A roof keeps out the rain, at least.", next = "w2hard2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2hard2 = {
+      lines = { { id = "w2hd2_default", text = "Only after a grunt told me about the earthquakes, so thank you very much for reminding me. I've started standing near the great door of the hall, where I can see a strip of sky, and Corswyn pretends not to notice." } },
+      choices = { { text = "A sensible place to stand.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
+    ae_corswyn = {
+      lines = { { id = "ae_corswyn_l", text = "Whatever he asks, and he asks more than I expected of a warchief. He wants to know how our shaman speak to the wind, and Corswyn answers carefully, because she says every word we give here is a promise someone will remember." } },
+      choices = {
+        { text = "Does she trust the Warchief?", next = "ae_corswyn2" },
+        { text = "Careful words make sense in a new home.", next = "ae_corswyn2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ae_corswyn2 = {
+      lines = { { id = "ae_corswyn2_l", text = "She trusts that he listens, which she says is the beginning of trust and not the end of it. The Earthen Ring vouched for us to the Horde, and Corswyn means to deserve it, one conversation at a time." } },
+      choices = {
+        { text = "Then she's doing well.", next = "BACK" },
+        { text = "Something else, Aeigelyges.", next = "BACK" },
+      },
+    },
+    ae_camp = {
+      lines = { { id = "ae_camp_l", text = "I did, though I spent only a little time there before Corswyn asked me to come with her. Ayessa Dawnsinger leads the Windshapers from the camp, and the tauren of Mulgore have been kinder to us than we had any right to hope." } },
+      choices = {
+        { text = "Do you miss the camp?", next = "ae_camp2" },
+        { text = "The tauren are generous to strangers.", next = "ae_camp2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ae_camp2 = {
+      lines = { { id = "ae_camp2_l", text = "I miss the open sky over the grass, which is the nearest thing I have found to home. Orgrimmar's sky is a strip between red cliffs, and some mornings I climb as high as the guards allow just to feel the wind properly." } },
+      choices = {
+        { text = "Winds be with you, then.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ae_tauren = {
+      lines = { { id = "ae_tauren_l", text = "They did, and I've wanted to thank one of you properly ever since. Your people gave us land when we had none and asked nothing back but that we honour it, and I mean to." } },
+      choices = {
+        { text = "The Earth Mother welcomes all who honour her.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
@@ -253,6 +305,10 @@ P:NPC {
         { text = "Who was this hall named for?", next = "grom" },
         { text = "Will your people stay on Azeroth?", next = "stay" },
         { text = "It's not only you. The ground is strange.", next = "x_ground", when = { race = "Skyborne" } },
+        { text = "What does Corswyn speak to the Warchief about?", next = "ae_corswyn" },
+        { text = "You came from Camp Gev'rek, in Mulgore?", next = "ae_camp" },
+        { text = "I'm a tauren. My people took yours in, I hear.", next = "ae_tauren", when = { race = "Tauren" } },
+        { text = "What's the hardest thing to get used to here?", next = "w2hard" },
         { text = "Winds be with you.", next = "END" },
       },
     },
@@ -361,7 +417,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Something else? Keep your voice low; the Cleft carries sound." },
-        { id = "h_again2", text = "Ask, then. I've nowhere to be." },
+        { id = "h_again2", text = "Ask, then. I'll keep one eye on the street while you do, if it's all the same to you." },
       },
       choices = {
         { text = "Why the Cleft, really?", next = "why" },
