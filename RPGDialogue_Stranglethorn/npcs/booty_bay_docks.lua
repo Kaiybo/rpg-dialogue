@@ -250,8 +250,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "My favourite repeat shooter, back for more! Pal, you go through shot like a Bloodsail goes through rum, and I love you for it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Buy your powder, pal, pay in full, and keep your trigger finger where I can see it." },
     { id = "g_default", text = "Guns, shot, powder, everything that goes bang, all priced to move! Step right up, pal, and don't touch the hair triggers, because those are a deposit." },
     { id = "g_back", when = { metBefore = true }, text = "My favorite customer's back! You always need more shot, pal, so let's see what you're short of." },
   },
@@ -271,8 +271,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "You pull a raptor off the healer from across the clearing, that's what, and then it comes running at you instead of at somebody squishy. Every warrior I've sold a blunderbuss to has come back for more shot, which is what I call recurring revenue." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "If a gun misfires, the seller should own up to it.", next = "BACK", reply = "Own up? Pal, I put a sign on 'em! No refunds on eyebrows is a disclosure, legally speaking, and I'm proud of it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "If it misfires, blame the buyer's aim; that's business.", next = "BACK", reply = "Heh, I've seen it done, and I've seen the buyers come back with a bigger gun. Bad for repeat business, pal, real bad.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "A warrior should meet the enemy close, steel to steel.", next = "BACK", reply = "Sure, friend, and the raptor gets to meet you close too, along with its six brothers. A rifle on your back never stopped anybody swinging.", fx = { align = { honor = 1 } } },
         { text = "A shot from range is smart fighting. I'll take a rifle.", next = "BACK", reply = "Now you're fightin' smart, pal! A boom from the trees and a sword at the ready, that's a warrior who lives to buy the next box of shot.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -433,8 +433,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're one of the few in this town who knows a bow's worth more than all that noise on the docks." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Back again. The bows are on the rack, friend, and you can choose one without my help." },
     { id = "g_default", text = "Bows, crossbows and arrows, friend. Quiet weapons, for a loud town." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. Still shooting straight, I hope?" },
   },
@@ -452,8 +452,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "A soldier who can loose an arrow can pull a beast off a wounded friend, and I'd argue that matters more than a pretty swing. The old regiments drilled with bows as well as blades, as I understand it, and it never did them any harm." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A hunter should take the shot cleanly, not cripple and chase.", next = "BACK", reply = "That's what a good bow is for, a clean, quiet shot. The gun crowd blows a hole in the beast and calls it sport.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Shoot from cover and never give the beast a chance.", next = "BACK", reply = "Well, I sell the bows, I don't tell folk how to use them. But a hunter who never gives a chance gets careless when he needs one.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "The old drills were right. Every soldier should know the bow.", next = "BACK", reply = "You'd have made a fine sergeant, and the drill masters would have liked you. Every soldier who can draw a bow is one more who comes home.", fx = { align = { order = 1 } } },
         { text = "I trust my blade. Drills are for recruits.", next = "BACK", reply = "Your blade, maybe, but trust it from a distance some time and you'll see what I mean. Drills are for anyone who'd like to keep living.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },

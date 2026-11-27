@@ -1520,8 +1520,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. Your usual seat's free, and I made sure of it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Pay first, if you please. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are! Sit by the fire, {class}, and give us a new battle, because the old grunts have worn out their own." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You can have a bed, because Grom'gol turns away no blood of the Horde. But you will eat at the far end and tell your stories to the wall." },
     { id = "dp_pt_any", when = { party = true }, text = "You bring friends to Grom'gol, good. The jungle eats travellers who walk alone." },
     { id = "g_op_warchief", when = { gossip = { topic = "warchief", stance = "soft" } }, text = "The Commander says you think the Warchief went soft on the humans. Say that by my fire and the old grunts will buy you a drink, while the young ones start a fight, so sit on the end." },
     { id = "g_inn", text = "Come in and sit by the fire, {class}! Out here a fire keeps things away, not cold, and an orc's stew keeps the rest away." },

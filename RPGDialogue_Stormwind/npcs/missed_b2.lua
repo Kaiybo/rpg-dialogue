@@ -15,7 +15,7 @@ P:NPC {
     third = "{name} met Steven Lohan, innkeeper of the Blue Recluse in Stormwind's Mage Quarter.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are! Sit down, and I'll bring the good stuff before the others see." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's a friendly face! Your table's free, and I've asked Joachim to keep a glass polished for you." },
     { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Pay first, if you please. I've learned that much about you." },
     { id = "g_default", text = "Welcome to the Blue Recluse! Find a seat that's staying where it is, friend, and I'll see somebody brings you a drink." },
     { id = "g_back", when = { metBefore = true }, text = "Good to see you again. Your usual table's free, and so far today nobody has enchanted it." },
@@ -205,8 +205,8 @@ P:NPC {
     third = "{name} met Master Wood, a stern old master who keeps watch outside Stormwind's Command Center.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, good day to you. You've always shown proper manners at this door, and I've marked it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. You may pass, since the door is open to all, but I've marked your manners and found them wanting." },
     { id = "g_default", text = "Good day to you. You may approach, provided you remember your manners while you do it." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and you greeted me properly this time, which I shall count as progress." },
   },
@@ -317,8 +317,8 @@ P:NPC {
     third = "{name} met Wilhelm Strang, the mail armour merchant at Limited Immunity in Old Town.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you back! I've a hauberk on the rack that'd sit on your shoulders like it was made for them." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The mail's on the rack, and Osric's plate is across the way, if you'd rather bother him." },
     { id = "g_default", text = "Limited Immunity. The mail's with me and the plate's with Osric, and you're welcome to try the weight of either." },
     { id = "g_back", when = { metBefore = true }, text = "Good to see you back. Any broken links since last time, or have you been lucky?" },
   },
@@ -339,8 +339,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. The links will wait." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A smith should never sell mail with a single weak link.", next = "BACK", reply = "Not a one, friend, and every coat here I've checked link by link.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Hide the rusted rings on the inside; nobody looks there.", next = "BACK", reply = "Somebody does, friend, and it's usually the orc with the axe.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Does Osric agree it's the better half?", next = "osric" },
         { text = "How do you judge good mail?", next = "judge" },
         { text = "Who buys mail these days?", next = "buyers" },

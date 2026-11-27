@@ -363,8 +363,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you, {class}! Go on through; the riders know you and so do I, and that's good enough here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Stay out of the doorway and out of trouble, and I'll not have to write you up." },
     { id = "g_default", text = "Don't stand in the doorway, {class}, there's a rider coming in from the Mine and he won't stop for you." },
     { id = "g_horde", when = { faction = "Horde" }, text = "Horde, in the Hall? Go on before the guards notice you and I have to fill in a report." },
   },
@@ -383,8 +383,8 @@ P:NPC {
         { id = "h_again", text = "Anything else? I've a ledger waiting." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "The League fights for Arathor's honour, not for plunder.", next = "BACK", reply = "That's the spirit of Stromgarde, and I'm glad someone still remembers it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Forget honour; the farms and the gold are what matter here.", next = "BACK", reply = "That's the Defilers' way of thinking, {class}, and we've buried plenty of them.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "How goes the fighting?", next = "fight" },
         { text = "The mill on the ridge looks important.", next = "mill" },
         { text = "Who commands the League here?", next = "xcommand" },
@@ -463,8 +463,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my favourite living visitor. Mind the crates, though I suspect you'd survive whatever's in them." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Do not open the crates, and do not stand so close; some of my samples like you more than I do." },
     { id = "g_default", text = "Mind the crates, {class}, and do not open any of them. Some of what's inside is still deciding whether it's dead." },
     { id = "g_alliance", when = { faction = "Alliance" }, text = "A living specimen, wandering into the Den on its own. How very considerate of you." },
   },
@@ -554,8 +554,8 @@ P:NPC {
   key = "bg_ab_arathi_blacksmith", id = 15063, name = "Arathi Blacksmith", role = "smith", tier = "service",
   communities = { "league_of_arathor" }, temper = { "gruff", "steady" }, values = { "craft", "loyal" },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are, {class}! The forge has stayed hot all day, so bring me whatever's dented." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll mend your steel, since the League needs it, but don't stand near my anvil longer than you must." },
     { id = "g_default", text = "Mind the sparks, {class}. This forge has gone cold three times today, and I'll not let it go cold again." },
     { id = "g_horde", when = { faction = "Horde" }, text = "Get away from my anvil, Horde, before I find out how your skull rings." },
   },
@@ -634,8 +634,8 @@ P:NPC {
   key = "bg_ab_arathi_stablehand", id = 15086, name = "Arathi Stablehand", role = "worker", tier = "service",
   communities = { "league_of_arathor" }, temper = { "nervous", "earnest" }, values = { "duty" },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, it's you! The mares like you, they really do, and they're calmer whenever you're near." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Please stay back from the horses; they've had a hard enough day without you." },
     { id = "g_default", text = "Easy, easy, you'll spook the mares. They've had a hard enough day with all the shouting." },
     { id = "g_horde", when = { faction = "Horde" }, text = "Stay back from the horses! I'll... I'll call the guard, I swear it!" },
   },
@@ -714,8 +714,8 @@ P:NPC {
   key = "bg_ab_forsaken_blacksmith", id = 15064, name = "Forsaken Blacksmith", role = "smith", tier = "service",
   communities = { "defilers" }, temper = { "cold", "sardonic" }, values = { "craft", "loyal" },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You again. The forge is warm and I am not, but I find I mind your company less than most." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll work the Defilers' steel for you, but the quench is cold and so is my opinion of you." },
     { id = "g_default", text = "The forge is warm and I am not. Speak, if you have business with the Defilers' steel." },
     { id = "g_alliance", when = { faction = "Alliance" }, text = "A living thing at my anvil. How quaint. You'll make a fine quenching, I imagine." },
     { id = "yg_0", when = { race = "Scourge" }, text = "Another of the risen. Pull up a stool; the fire won't warm you, but it's company." },
@@ -823,8 +823,8 @@ P:NPC {
   key = "bg_ab_forsaken_stablehand", id = 15087, name = "Forsaken Stablehand", role = "worker", tier = "service",
   communities = { "defilers" }, temper = { "dry", "morbid" }, values = { "duty" },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you again. The horses don't kick you, which I take as a recommendation, since they kick everyone." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Don't stand behind that one; it kicks, and this time I won't be warning you twice." },
     { id = "g_default", text = "Don't stand behind that one, it kicks, and it doesn't feel the need to stop." },
     { id = "g_alliance", when = { faction = "Alliance" }, text = "The horses are dead and so am I, but you're not. Shall we fix that?" },
     { id = "yg_0", when = { race = "Scourge" }, text = "Another of the dead. Good. The horses don't spook at you, and they spook at everything else." },

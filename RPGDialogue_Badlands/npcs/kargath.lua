@@ -1379,8 +1379,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are! Sit down, and I'll bring the good stuff before the others see." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Pay first, if you please. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite guest, back from the wastes! Sit down, friend; your bowl is already on the fire." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll give you a bed, since Kargath turns no warrior away, but don't expect the soft one." },
     { id = "dp_pt_any", when = { party = true }, text = "A war band, then. Kargath welcomes those who come ready to fight, and feeds them well." },
     { id = "g_op_warchief", when = { gossip = { topic = "warchief", stance = "soft" } }, text = "The Warlord says you think Rend's got the right of it. Keep that away from my tables, friend, because the widows of the 109th Division drink here, and they're quicker with a knife than the Warlord." },
     { id = "g_inn", text = "Come in out of the dust and sit, {class}. There's water, there's grog, and there's a bunk nobody's bled on recently, which in an orc camp counts as luxury." },

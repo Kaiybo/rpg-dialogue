@@ -18,8 +18,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You come back, and your beast looks well fed and watered. I like you, {class}, so bring it here to the deep trough." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again, and your beast looks thirsty. I'll care for it, but I won't say a kind word to you." },
     { id = "g_default", text = "Bring the beast into the shade, and let it drink before you do, because out here the beast comes first." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and your beast's still alive, so you're doing something right." },
     { id = "g_noon", when = { timeOfDay = "day" }, text = "The sun's high, so keep the beast out of it, or you'll be carrying it home." },
@@ -118,8 +118,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Still breathing, and still buying from me. I'll let you see the blades I keep under the counter for those who live." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You came back, unfortunately. Buy what you need, and don't haggle, because my patience is thinner than my leather." },
     { id = "g_default", text = "Light armor, sharp weapons, and fair prices, so if you're here to haggle, go and haggle with the buzzards." },
     { id = "g_back", when = { metBefore = true }, text = "You came back, which means the last thing I sold you did its job. Good." },
   },
@@ -142,8 +142,8 @@ P:NPC {
         { id = "ka_default", text = "It's an outpost, not a market, and that suits me, because every soul here needs what I sell. Grawl has the general goods, Greth has the stables, and Shul'kar has the inn, so between us nobody leaves Kargath short." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A good blade sold at a fair price comes back as a customer.", next = "BACK", reply = "Exactly. The dead don't buy twice, so I sell things that keep them alive.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell junk to the doomed ones. They won't be back to complain.", next = "BACK", reply = "How practical of you. I won't do it, but I'll admit the thought is very tidy.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "And the soldiers? Do they buy?", next = "kargath_force" },
         { text = "Why leave Orgrimmar for this?", next = "kargath_why" },
         { text = "Something else.", next = "BACK" },

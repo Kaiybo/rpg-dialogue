@@ -14,8 +14,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again, and holding that bow just the way I showed you. Come and try the new draw I've been stringing." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll string your bow and take your coin, but keep your hands well away from my drying rack." },
     { id = "g_shop", text = "Bows, strings and arrows, all made here, and all made properly. Mind the drying rack behind you." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Let me see how you've been holding that bow, because I can always tell." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Your shoulders have filled out since you were last here, so you'll want a heavier draw, and I happen to have one." },
@@ -45,8 +45,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. I can talk and string a bow at once." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A bowyer should tell a buyer when a draw is too heavy.", next = "BACK", reply = "I always do, even when it costs me the sale. A torn shoulder never made anyone a better shot.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell them the heavy bow anyway. Their shoulder is their problem.", next = "BACK", reply = "And then their arrow flies wide and the worgen have them, which makes it my problem too.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Where does your wood come from?", next = "wood" },
         { text = "Can the dead still draw a bow?", next = "draw" },
         { text = "What should I use against the worgen?", next = "worgen", when = { class = "HUNTER" } },

@@ -577,8 +577,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my favourite face in Old Town! Sit yourself down, love, and I'll bring your usual before the soldiers grab it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. I'll pour you a drink, love, but you can carry it to your own table." },
     { id = "g_drink", text = "What'll it be, love? Ale, wine or something you'll regret?" },
     { id = "g_fl_wink", when = { flirt = true, chance = 0.4 },
       text = "Well, aren't you a sight at the end of a long shift, love. Sit where I can see you, and I'll have your ale there before the soldiers notice I've got favourites." },
@@ -605,8 +605,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Every night, and I keep it from spilling. Your spirits must have it easier, being invisible and not drinking." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A tavern should give an honest measure to every customer.", next = "BACK", reply = "That's how the Pig and Whistle's kept its soldiers for years, love.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Fill the mugs with froth when the soldiers are too drunk to notice.", next = "BACK", reply = "They notice, love, and then they turn the tables over, and I'm the one who mops up.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "You keep this place in good order, Elly. I respect that.", next = "BACK", reply = "Thank you, love. Somebody has to, and Harry's no good at the mopping.", fx = { align = { order = 1 } } },
         { text = "Let them brawl. It's good for the soul.", next = "BACK", reply = "Good for the soul and bad for the chairs. I'll take your word on the soul.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -801,8 +801,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You've a good palate and steady hands, and I'm always glad to teach a real cook." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since cooks are scarce, but I'll not put up with nonsense in my kitchen." },
     { id = "g_cook", text = "I don't get many cooks asking to learn, but I'll teach you if you're ready." },
   },
 
@@ -823,8 +823,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I'm a cook. That's all you need to know. But I've seen orc shamans in battle, and you don't look like them, which is good for my appetite." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A cook learns by burning a few dishes and trying again.", next = "BACK", reply = "That's how I learned, and I've the scars on my hands to show it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Buy a pie from the baker and pretend you made it.", next = "BACK", reply = "Then you'll never cook a thing worth eating, {class}, and the soldiers will know.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Your past is yours, Stephen. I won't pry.", next = "BACK", reply = "Thank you. That's the first kindness I've had about it in a month.", fx = { align = { honor = 1 } } },
         { text = "Everyone has a story. Tell me yours.", next = "BACK", reply = "Mine's a cook's story, and it's long and boring. Have a bowl of stew instead.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -993,8 +993,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back to the Protective Hide. Your hands have got better since last time, and I've a hide worth your trouble." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Mind the drying racks, take your lesson, and then leave me to my work." },
     { id = "g_hide", text = "Welcome to the Protective Hide. Mind the drying racks, they've hides on them older than you." },
   },
 
@@ -1015,8 +1015,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Some do, and those I'm proud of. Others leave for glory, and I wish them well. I'd guess a shaman doesn't stay put either." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Leatherwork is learned by tanning every hide properly, start to finish.", next = "BACK", reply = "Exactly so, and it's why our jerkins last a lifetime in the field.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Skip the tanning; nobody can tell until it rots.", next = "BACK", reply = "They can tell by the smell, {class}, and long before it rots.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'll finish what I start, Simon. That's a promise.", next = "BACK", reply = "Good. I'll hold you to it, and I'll be glad to.", fx = { align = { honor = 1 } } },
         { text = "Adventure calls louder than leather. Let them go.", next = "BACK", reply = "Let them go, then, and I'll wish them well. Just leave me your jerkin on the way out.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },

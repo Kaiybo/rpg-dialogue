@@ -169,8 +169,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my most attentive pupil. Come to the anvil; your last rivets were very nearly acceptable, which from me is high praise." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Stand to the left of the anvil, keep your hands still, and do not touch my tongs without asking." },
     { id = "g_default", text = "Stand to the left of the anvil, if you please. The right is where the scale flies, and I have blinded one pupil already." },
     { id = "g_smith", when = { profession = "Blacksmithing" }, text = "You have a smith's hands, and you hold them away from your sides as a smith does. Show me your hammer, and I shall know the rest." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Good, because the craft is not learned in one visit, whatever the Deathguard seem to believe." },
@@ -199,8 +199,8 @@ P:NPC {
         { id = "h_again3", text = "What else would you know? Ask precisely, and I shall answer the same way." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A smith should never sell a blade he knows is flawed.", next = "BACK", reply = "Never. A flawed blade breaks in a Deathguard's hand at the worst moment, and the shame of it belongs to the smith.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "If it holds until the buyer leaves, it's good enough.", next = "BACK", reply = "Then go and learn the craft in the Undercity, from someone with lower standards. You will not learn it at my anvil.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me your craft.", next = "BUSINESS" },
         { text = "You and Meloche work side by side, I see.", next = "meloche" },
         { text = "A crypt is a strange place for a forge.", next = "crypt" },
@@ -285,8 +285,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You found the path again, and I find I am glad of it. Sit a while, since the wall makes poor company." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. The dust is for sale and the silence is mine, so take the one and leave me the other." },
     { id = "g_default", text = "You have walked a long way to buy a rod. Sit, if you like, since I see few enough people to forget my manners." },
     { id = "g_ench", when = { profession = "Enchanting" }, text = "An enchanter, this far south. Then you have come on purpose, and I shall not waste your time pretending to be surprised." },
     { id = "g_back", when = { metBefore = true }, text = "You found the path a second time, which most do not. The dust has kept, and so have I." },
@@ -315,8 +315,8 @@ P:NPC {
         { id = "h_again3", text = "Ask what you like. The wall has taught me to be patient with questions that get no answer." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "An enchanter should only sell dust he knows is genuine.", next = "BACK", reply = "Agreed. I have seen false dust ruin a good blade, and I would sooner sell nothing at all.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Cut the dust with ash. Who out here would ever know?", next = "BACK", reply = "I would know, and I keep my own company out here. I prefer it to be honest company.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me what you carry.", next = "BUSINESS" },
         { text = "Nobody keeps shop out here by accident.", next = "why" },
         { text = "What do you make of the wall itself?", next = "wall" },
@@ -399,8 +399,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you again. Take the far end of the dock, and I'll tell you where they've been biting this morning." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep your lines clear of mine and mind the third plank, because I'll not warn you twice." },
     { id = "g_default", text = "Fresh fish, if you want it, and nothing else, if you don't. Mind the third plank, it has opinions." },
     { id = "g_fisher", when = { profession = "Fishing" }, text = "You've a rod, and you're eyeing my end of the dock. There's room at the other end, and I'll thank you to cast away from my lines." },
     { id = "g_back", when = { metBefore = true }, text = "You again. The lake hasn't changed, and I've not either, so you know what's for sale." },
@@ -429,8 +429,8 @@ P:NPC {
         { id = "h_again3", text = "What else? I'll answer, if it's about the lake." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A fisherman should own up when his catch is yesterday's.", next = "BACK", reply = "Aye, and I do, which is partly why I sell so little. The hunters' beasts don't mind, but I tell them anyway.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Yesterday's fish looks fresh enough if you keep it wet.", next = "BACK", reply = "It does, right up until someone eats it. I'll keep my small trade small and honest, thanks all the same.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Let me see the catch.", next = "BUSINESS" },
         { text = "That's Fenris Isle out in the mist.", next = "fenris" },
         { text = "This dock has seen better days.", next = "dock" },

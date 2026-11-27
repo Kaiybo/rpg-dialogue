@@ -15,8 +15,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back at the Peak, an' the birds are fair pleased tae see ye! Where are ye bound this time?" },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. The gryphons dinnae care for ye, an' neither do I, so tell me where ye're bound an' be quick." },
     { id = "g_aerie", text = "The wind's off the mountains and the gryphons are keen! Where are ye bound?" },
     { id = "g_back", when = { metBefore = true }, text = "Back at the Peak! The birds were askin' after ye, in their way." },
   },
@@ -237,8 +237,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's yerself! The coal's no' got any cheaper, but I hauled the good bars up first, knowin' ye'd be back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy yer coal an' flux an' go, an' don't moan about the price; I carried it up the mountain." },
     { id = "g_shop", text = "Coal, flux and bars, hauled up the mountain on my own back, near enough. What d'ye need?" },
     { id = "g_back", when = { metBefore = true }, text = "You again. Well, the coal hasn't got any cheaper since ye left." },
   },
@@ -258,8 +258,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Never once, an' I've asked it nicely an' rudely an' every way between, but Fraggar says the earth only answers them that listen first. Ye've the knack o' listenin', by the look o' ye, so mebbe ye could put in a word for a tired old cart on a bad road." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Coal carried up a mountain earns its price, fair and square.", next = "BACK", reply = "It does, an' my back would thank ye for sayin' so, if it could talk.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Water the flux a bit; nobody up here will notice.", next = "BACK", reply = "Every smith at the Peak would notice by the next blade, an' they'd come lookin' for me wi' hammers.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Hard work honours the earth more than any favour, Harggan.", next = "BACK", reply = "Fraggar says the same, an' I suppose he's right. I'll keep askin' anyway.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Next time, just steal a mule from the trolls.", next = "BACK", reply = "Steal a mule from the trolls? Ha! I'd lose an arm an' the mule both. Still, it's a thought.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -455,8 +455,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back! My repeat rate's up another percentage point, and I've re-sorted the dyes by colour since you left." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Please look without touching, because everything's sorted and you unsorted it last time." },
     { id = "g_default", text = "Oh, a customer! Splendid. Thread, vials, flux, dye and fishing poles, all sorted by weight and then by colour." },
     { id = "g_back", when = { metBefore = true }, text = "You came back! That makes you a repeat customer, and my repeat rate just went up by a whole percentage point." },
     { id = "g_craft", when = { profession = { "Tailoring", "Leatherworking", "Blacksmithing", "Engineering", "Alchemy" } }, text = "A crafter, I can tell by the hands! Do look, I have nearly everything, and a list of what I haven't." },
@@ -491,8 +491,8 @@ P:NPC {
         { id = "h_again3", text = "Yes? Ask away, I can talk and take inventory at the same time, within a small margin of error." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Honest measures matter, right down to the last thread.", next = "BACK", reply = "Oh, they do! I measure every spool to the inch, and then again to be sure.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Short the thread an inch; nobody counts the spool.", next = "BACK", reply = "I count the spool, and I keep a list of who's asked me to short them. You're on it now.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "This is a dangerous place for a shop.", next = "danger" },
         { text = "You sell to the Horde and the Alliance alike?", next = "sides" },

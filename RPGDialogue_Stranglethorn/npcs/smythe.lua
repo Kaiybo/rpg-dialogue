@@ -68,8 +68,8 @@ P:NPC {
         { id = "h_again3", text = "Ask away. Nobody will need a witness until the evening ships come in." },
       },
       choices = {
-        { text = "A wager is sacred, whatever the stakes.", next = "BACK", reply = "Exactly so, and that's why I'm paid to watch them. Sacred things need witnesses.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A wager's only binding if you can't slip out.", next = "BACK", reply = "Then you'll never have a witness like me, and you'll never be trusted twice in Booty Bay.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A witness should tell what he saw, even when the Baron frowns.", next = "BACK", reply = "That's the whole of my trade, friend, an honest pair of eyes. The day I lie for the Baron is the day nobody needs me.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Every witness has a price; name yours and grow rich.", next = "BACK", reply = "Oh, they've tried, believe me, with gold and with knives. A bought witness is only worth one wager, and I'd like to last longer.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What's a human doing in a goblin port?", next = "salvage" },
         { text = "A sworn witness? What does that mean here?", next = "work" },
         { text = "Tell me about the people around here.", next = "around" },

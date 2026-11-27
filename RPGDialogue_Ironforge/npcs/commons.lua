@@ -1442,8 +1442,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again! The birds know yer smell by now, an' that's no' a thing I say tae many riders." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ye'll get a gryphon, for I fly anyone who pays. But the birds dinnae care for ye, an' neither do I." },
     { id = "g_ride", text = "Ye look like ye've somewhere tae be. Need one o' my gryphons?" },
     { id = "g_heat", text = "Feel that heat? My gryphons sleep through it like it's a summer's day, an' that's the Great Forge for ye." },
   },

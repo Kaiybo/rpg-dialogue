@@ -2428,8 +2428,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. You're always welcome under this roof." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "There's a bed if you want it, but don't expect a smile with it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There ye are! The Stonefire's no' the same wi'out yer stories, so grab a mug an' tell me the latest." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ye'll get a bed, for I've never turned a soul out intae the cold. But keep yer voice down, an' yer stories tae yerself." },
     { id = "dp_pt_elf", when = { party = { race = "NightElf" } }, text = "Yer tall friend can duck under the beams, I hope. We built this inn fer folk who stand closer tae the ale." },
     { id = "dp_pt_any", when = { party = true }, text = "Brought the whole company, have ye? Good, the Stonefire's at its best when the tables are full and the songs are loud." },
     { id = "dp_rep_if", when = { rep = { faction = "Ironforge", min = "Exalted" } }, text = "There's not a dwarf in the city who'd not stand ye a pint, friend, an' I'll be the first. Sit, sit." },

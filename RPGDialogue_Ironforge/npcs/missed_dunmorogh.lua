@@ -16,8 +16,8 @@ P:NPC {
     third = "{name} met Adlin Pridedrift, who sells general supplies in Anvilmar.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again, {class}! I've been tellin' Nori ye're the best-stocked traveller ever tae walk out o' Anvilmar." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell ye what ye need for the valley, {class}, for I'd no' see anyone freeze. But I'll no' pretend I'm glad tae see ye." },
     { id = "g_default", text = "Welcome tae Anvilmar, {class}! If ye're headed out intae the valley, ye'll want more than ye're carryin', an' I happen tae sell it." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, an' still in one piece, I see. The valley's been kind tae ye, or ye've been quick." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Come in out o' the dark, {g:lad|lass}. The wolves sing loudest at this hour, an' I'd no' be out in it wi'out a torch." },
@@ -40,8 +40,8 @@ P:NPC {
         { id = "h_again_x0", when = { race = "Gnome" }, text = "Need somethin' off the high shelf, friend? Say the word an' I'll fetch the ladder." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A fair price for honest supplies keeps a valley alive.", next = "BACK", reply = "It does, an' every recruit who walks out o' here well fed is a recruit who walks back.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Charge the recruits double. They're too green to know better.", next = "BACK", reply = "They're green, aye, but I'm no' a trogg, so I'll keep my prices as they are.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What do recruits forget most?", next = "forget" },
         { text = "Pridedrift? I know that name.", next = "kin" },
         { text = "The valley looks quiet enough to me.", next = "quiet" },
@@ -312,8 +312,8 @@ P:NPC {
     third = "{name} met Grundel Harkin, the armorer of Anvilmar.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ye're back an' wearin' my mail still, {class}! That's the best word an armorer can hear, an' ye've said it twice now." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll fit ye out, {class}, for a trogg's club hits everybody the same. But I'll no' stand about chattin' while I do it." },
     { id = "g_default", text = "Hold still an' let me look at ye, {class}. Aye, that's what I thought, ye're wearin' less than a trogg's club deserves." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back, so somethin' I sold ye must have held. That's the best advertisement an armorer gets." },
   },
@@ -335,8 +335,8 @@ P:NPC {
         { id = "h_again_x0", when = { class = { "WARRIOR", "PALADIN" } }, text = "Back fer a new buckle, are ye? Let me see the dents first, {class}." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "An armorer should fit a recruit properly, even for a few coppers.", next = "BACK", reply = "Aye, for a poorly fitted shirt's as good as none when the troggs come down.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell the greenhorns whatever's left over. They'll never know.", next = "BACK", reply = "They'll know when the troggs find the gap, {class}, an' so will their mothers.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What does the valley do to armor?", next = "valley" },
         { text = "What should a recruit buy first?", next = "first" },
         { text = "I manage well enough in cloth.", next = "cloth", when = { class = { "MAGE", "PRIEST", "WARLOCK" } } },
@@ -420,8 +420,8 @@ P:NPC {
     third = "{name} met Rybrad Coldbank, the weaponsmith of Anvilmar.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ho there, {class}, back again! Ye swing my steel better than anyone else in Coldridge, an' I tell the recruits so." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ye'll get a blade, {class}, for nobody goes out intae Coldridge empty-handed. Just dinnae come back askin' fer a chat." },
     { id = "g_default", text = "Ho there, {class}! Ye'll no' get far in Coldridge wi' empty hands, so come an' fill them." },
     { id = "g_war", when = { class = "WARRIOR" }, text = "Now there's a pair o' shoulders made fer swingin' somethin' heavy! Come an' heft a few, {g:lad|lass}, an' we'll find the one that fits." },
     { id = "g_back", when = { metBefore = true }, text = "Still got all yer fingers? Then ye've been holdin' it by the right end, an' I'm proud o' ye." },
@@ -442,8 +442,8 @@ P:NPC {
         { id = "h_again_x0", when = { class = "WARRIOR" }, text = "Back tae heft somethin' heavier, are ye? Good, I've a new hammer that wants a strong arm." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A weapon should be sold with an honest word about its balance.", next = "BACK", reply = "Honest words an' honest steel, {g:lad|lass}, an' I've never needed anythin' else.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Talk up every blade. The buyer will learn the truth soon enough.", next = "BACK", reply = "Aye, out in the valley wi' a trogg on top o' them, an' I'll no' have that on my anvil.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Axe or hammer, for a beginner?", next = "choice" },
         { text = "Plain weapons, you say?", next = "plain" },
         { text = "I prefer a staff and a spell.", next = "staff", when = { class = { "MAGE", "PRIEST", "WARLOCK" } } },
@@ -528,8 +528,8 @@ P:NPC {
     third = "{name} met Angus of the dwarven mortar team camped east of the Coldridge Pass.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome at our fire any night you like." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'd not trust you to hold a line, and I'll not pretend otherwise." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ye're back an' no' a scorch on ye again! Ye've a sense for where the shells fall, {class}, an' I like that in a visitor." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Mind where ye stand, {class}, an' dinnae expect me tae shout a warnin' quite as loud as I would for the others." },
     { id = "g_default", text = "Mind where ye stand, {class}! Anythin' past yon dummies is the range, an' the shells cannae tell a friend from a target." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back, an' no' a scorch on ye. Shorty owes me a pint, then." },
   },
@@ -549,8 +549,8 @@ P:NPC {
         { id = "h_again_x0", when = { race = "Dwarf" }, text = "Eh? Speak intae the right ear, {g:lad|lass}, the left's been useless since that wager." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A mortar crew should own up when a shell lands wide.", next = "BACK", reply = "Aye, an' I write every one down, even the one that took the roof off the outhouse.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Blame the wind. Nobody can prove where a shell was aimed.", next = "BACK", reply = "Shorty tried that once, an' the captain had the both of us cleanin' shells fer a week.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What are you shooting at out here?", next = "range" },
         { text = "How do you aim that thing?", next = "aim" },
         { text = "Have you ever fired that mortar in a real fight?", next = "fight" },
@@ -629,8 +629,8 @@ P:NPC {
     third = "{name} met Shorty of the dwarven mortar team camped east of the Coldridge Pass.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Stay clear of the camp, unless you've orders to be here." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ye again, an' standin' upwind this time! Ye learn quick, {class}, an' that's a rare thing round this range." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ye again. Stand where ye like this time, an' if the smoke finds ye, well, I'll no' lose sleep over it." },
     { id = "g_default", text = "Afternoon, {class}. Dinnae touch the shells, dinnae smoke near the powder, an' we'll get along grand." },
     { id = "g_back", when = { metBefore = true }, text = "Ye again. Stand upwind this time, the smoke got ye proper on yer last visit." },
   },
@@ -650,8 +650,8 @@ P:NPC {
         { id = "h_again_x0", when = { race = "Gnome" }, text = "Still no improvements, mind. What else, wee one?" },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A fair contest needs the same powder in every charge.", next = "BACK", reply = "It does, an' I measure every scoop myself so Angus cannae say otherwise.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Slip a little extra powder in your own charge. That's how you win.", next = "BACK", reply = "Aye, an' that's how ye lose an arm, which is why I measure every scoop.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What goes into a mortar shell?", next = "shell" },
         { text = "You keep glancing at the spotter.", next = "klemmy" },
         { text = "Why put up with Angus all these years?", next = "angus" },
@@ -725,8 +725,8 @@ P:NPC {
     third = "{name} met Spotter Klemmy, who calls the shots for the mortar team east of the Coldridge Pass.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've fought well, and the company remembers it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ye've come back tae the range again? Ye're my sort o' company, {class}, for ye've never once looked up when I shouted." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ye're back. If ye hear the whistle gettin' louder, run, an' maybe run a wee bit further than ye'd like." },
     { id = "g_default", text = "Well met, {class}. If ye hear a whistle gettin' louder, dinnae look up, just run." },
     { id = "g_back", when = { metBefore = true }, text = "Ye've come back tae the range? Ye're braver than ye look, or ye've no' been here durin' a volley." },
   },
@@ -746,8 +746,8 @@ P:NPC {
         { id = "h_again_x0", when = { class = "HUNTER" }, text = "Ye're back, {class}. Ye've changed yer mind about spottin'? Nae, I thought not." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A spotter should call the shells true, even when the crew missed.", next = "BACK", reply = "Aye, for a spotter who lies is how the crew ends up shellin' their own tents.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Tell the crew they hit. Happy gunners shoot better anyway.", next = "BACK", reply = "Happy gunners shoot better, aye, right up until they shell the captain's tent.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "They hit you on purpose, you know.", next = "purpose" },
         { text = "What does a spotter watch for?", next = "watch" },
         { text = "How did you come by such sharp eyes?", next = "eyes" },
@@ -825,8 +825,8 @@ P:NPC {
     third = "{name} met Rifleman Middlecamp at the mountaineers' shooting range east of the Coldridge Pass.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'd not trust you to hold a line, and I'll not pretend otherwise." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ye're back. Ye kept quiet behind the line last time, {class}, an' I've no' forgotten it, for it's the highest praise I give." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ye can stand behind the line if ye must, {class}. Keep yer mouth shut, an' keep well clear o' my rifle." },
     { id = "g_default", text = "Keep behind the firin' line, {class}, an' keep yer voice down while a dwarf is takin' aim." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back. If Wheeler's told ye he won yesterday's shoot, he's a liar wi' a loud laugh." },
   },
@@ -846,8 +846,8 @@ P:NPC {
         { id = "h_again_x0", when = { class = "HUNTER" }, text = "Back again, shooter? Mind yer breath while ye talk, it's good practice." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A shooting contest should be won with a steady hand, nothing else.", next = "BACK", reply = "That's the only way I've ever won one, an' it's why Wheeler cannae stand losin' tae me.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Jostle the other shooter's elbow. A win is a win.", next = "BACK", reply = "That's how Wheeler wins, an' it's why I keep a guard on my elbow durin' the shoot.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What's this contest with Wheeler?", next = "contest" },
         { text = "What makes a good shot?", next = "shot" },
         { text = "Shorty says you read when nobody's looking.", next = "reading" },
@@ -923,8 +923,8 @@ P:NPC {
     third = "{name} met Rifleman Wheeler at the mountaineers' shooting range east of the Coldridge Pass.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep your distance, and keep out of the way of real soldiers." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There ye are again, {class}! Ye always cheer when I hit, an' ye'd no' believe how much that annoys Middlecamp." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ha! Ye're back, are ye? Stand well off, {class}, for I'm no' in the mood tae laugh wi' ye today." },
     { id = "g_default", text = "Ha! Come tae watch the finest shot in Dun Morogh, have ye? Stand there, {class}, ye'll get a grand view o' Middlecamp losin'." },
     { id = "g_back", when = { metBefore = true }, text = "There ye are! I've won twice since ye left, an' Middlecamp's sulkin' behind yon tent." },
   },
@@ -946,8 +946,8 @@ P:NPC {
         { id = "h_again_x0", when = { class = "HUNTER" }, text = "Back already? Shot anythin' grand yet, {class}? I'll still have done better." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Win the shoot fair, or the win means nothing.", next = "BACK", reply = "Ha! Spoken like Middlecamp, an' he's no' won a fair one off me yet.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Distract him mid-aim. A clever shot uses every edge.", next = "BACK", reply = "Ha! I'd never do such a thing, {class}, though I'll admit I whistle a fair bit when he's aimin'.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Middlecamp says you pull your shots.", next = "pull" },
         { text = "Is the pass really worth a camp?", next = "pass" },
         { text = "Why did you join the mountaineers?", next = "join" },

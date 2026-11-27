@@ -20,8 +20,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, a depositor whose ledger I enjoy reading. Your vault is in order, as I knew it would be." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Your vault, and promptly. I've double-checked every entry under your name, and I'll do so again." },
     { id = "g_hi", text = "Deposit or withdrawal? Speak clearly, please; the vaults echo." },
     { id = "g_back", when = { metBefore = true }, text = "Your account is in order. Most of the dead left theirs in a shambles, along with everything else." },
     { id = "g_living", when = { ["not"] = { race = "Scourge" } }, text = "A living customer, how refreshing. Your coins are perfectly safe here, and so are you, mostly." },
@@ -213,8 +213,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. The beasts settled when they heard your step, and that's no small compliment from them." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Keep away from the pens; the animals don't like you, and I find I agree with them." },
     { id = "g_hi", text = "Quietly, please; the beasts startle easily down here, and they've never cared for the smell of the dead." },
     { id = "g_back", when = { metBefore = true }, text = "Come for your beast? It's been fed, and it has nearly forgiven me for smelling the way I do." },
   },
@@ -386,8 +386,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You've come back, and on time. Good. Pick up the axe; I've been meaning to correct your grip." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Stand there and wait until I'm ready, which may be some while." },
     { id = "g_hi", text = "Stand up straight. You'd be amazed how many of the dead forget." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more drills? Good; nobody ever practised too much, and the dead can't claim they were tired." },
   },
@@ -405,8 +405,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "I'll drill you harder, because the Alliance will see your Light and call you a traitor to it, and the Scarlets will call you an abomination. Both will come at you first, so you'll need to swing faster than the rest of my students." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "I'll meet the Scarlets face to face and let them strike first.", next = "BACK", reply = "Brave, and possibly foolish. Learn to parry before you test it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "I'll strike the Scarlets before they ever see me coming.", next = "BACK", reply = "They'd do the same to you, and they've had more practice. Drill harder.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'll keep to your drills, Archibald, all of them.", next = "BACK", reply = "Good. I'll know if you skip one, because it shows in the shoulders.", fx = { align = { order = 1 } } },
         { text = "Drills are for recruits. I'll learn on the battlefield.", next = "BACK", reply = "Then you'll learn quickly or not at all. The battlefield's a harsh teacher, and it doesn't repeat itself.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -572,8 +572,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you. I've a fresh plate cooling on the bench that I think you'll want to see." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Wait your turn by the door. The Deathguard's orders come before yours." },
     { id = "g_hi", text = "Stand back from the forge. I can't feel the heat any more, but you can." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Did the steel hold?" },
   },
@@ -593,8 +593,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "I'd forge it for anyone who pays and wears it properly. But you'll want it heavy, I think, because I've heard the Light burns your kind from the inside, and good iron is the one thing that won't burn along with you." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Armour should be forged true, whoever ends up wearing it.", next = "BACK", reply = "Aye. Bad steel fails the man inside it, and that man might be beside you.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Forge it cheap for strangers and save the good iron for friends.", next = "BACK", reply = "Then the strangers will die, and that's on the smith. I'll not do it.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Make it heavy. I mean to stand in front of others.", next = "BACK", reply = "Heavy it is, and you'll stand in front of a great many things wearing it. Good iron for a good purpose.", fx = { align = { honor = 1 } } },
         { text = "Make it light. I'd rather be quick than noble.", next = "BACK", reply = "Light it is, then, though you'll feel every blow. Quick is a fine thing until it isn't.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -759,8 +759,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are! I've found a new seam of tin under the old sewers, and I'd show it to nobody but you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Stay up here in the light, so to speak; the tunnels can do without you." },
     { id = "g_hi", text = "Come to learn to dig? We're all good at being underground in this city." },
     { id = "g_back", when = { metBefore = true }, text = "Back with dirt under your nails? Good, that means you're working." },
   },
@@ -778,8 +778,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "None that I've found, but I'd not say no to you lighting the way. The deep tunnels under the old city haven't been walked since the plague came through, and I'd much rather a holy glow found whatever's down there than my lantern did." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A miner should leave the deep tunnels shored for those who come after.", next = "BACK", reply = "Right enough. I've buried too many lads under unshored rock already.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Take the ore and let the tunnel fall. Nobody else is digging.", next = "BACK", reply = "Somebody always is, sooner or later, and they'll curse your name.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Whatever's down there, the Light should find it first.", next = "BACK", reply = "It should, and I'll follow right behind you. Bring your Light down any time.", fx = { align = { light = 1 } } },
         { text = "Let whatever's down there stay buried. Some things should.", next = "BACK", reply = "Some should, but I'm a miner, and burying is the opposite of my trade. I'll take my chances.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -943,8 +943,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Come in and sit by the dust; I've a reagent I've been saving to show steady hands." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Hands to yourself, please. I've seen what they do to an enchantment." },
     { id = "g_hi", text = "Don't touch the rods; they're charged, and I've no wish to explain your death to anyone." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Show me what you've been enchanting, and don't be shy." },
   },
@@ -964,8 +964,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Contradictory, which is my favourite kind of thing. Holy power and grave dust bound in the same vessel ought to cancel each other out, and if they don't in you, then I'd love to know why, purely for the sake of the craft." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "An enchanter should tell her student every risk before she begins.", next = "BACK", reply = "I do, at length, and they never listen. You may be the first.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Let the student find the dangers out the hard way.", next = "BACK", reply = "They do, generally, and I spend a week cleaning the walls after.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Faith binds what shouldn't bind. That's the Light's work.", next = "BACK", reply = "Perhaps it is, and if so, the Light is a better enchanter than I am. I'm almost jealous.", fx = { align = { light = 1 } } },
         { text = "My will binds it, not the Light. Credit where it's due.", next = "BACK", reply = "Your will, then, and I'll write it down as such. Contradictory and stubborn, my two favourite properties.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -1127,8 +1127,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back quietly, and I didn't hear you on the stair. That's the best greeting I know." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I heard you three corridors away. Say what you want and go back the same way." },
     { id = "g_hi", text = "You walk loudly. Most people do, but you don't have to." },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "Back for more lessons? Good, because the Dark Lady has more work than she has rogues." },
   },
@@ -1146,8 +1146,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "I think the Light is a habit, and habits come with old friends attached. If a knight of the Crusade called you by your old name at the Scarlet Monastery, I'd want to know what you'd do, and so would the Dark Lady." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A rogue should keep faith with the friends who stood by her.", next = "BACK", reply = "Friends are a luxury. Still, the ones I keep, I keep for good.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Old friends are the easiest marks. Use them first.", next = "BACK", reply = "Practical. Remember I'm an old friend of nobody's, then.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'd answer to the Dark Lady first, whatever name they called.", next = "BACK", reply = "A good answer, and the right one to give me. The Dark Lady will hear of it.", fx = { align = { order = 1 } } },
         { text = "I'd answer to my own conscience. Nobody else holds it now.", next = "BACK", reply = "Your conscience is your own, and I respect that. Just make sure it never answers louder than she does.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -1299,8 +1299,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "My favourite customer! I've a new venom in, nastier than the last, and I thought of you at once." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll sell to you, but I'd keep my drink covered while you're browsing." },
     { id = "g_hi", text = "Welcome, welcome! Everything here is deadly, so please do look but don't lick." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Did the last batch do its job? It always does, but I like to hear about it." },
   },
@@ -1316,8 +1316,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "I'd say yes and take your coin, but I suspect the Light would sulk. Still, the Scourge doesn't fight fair, and a holy hammer that leaves a little something behind in the wound would be a lovely thing to see." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A poisoner should label every vial clearly for the buyer.", next = "BACK", reply = "Of course. A mislabelled vial kills the wrong man, and that's poor craftsmanship.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Let them guess what's in the vial. That's half the fun.", next = "BACK", reply = "Ha! Half the fun, and all of the funerals. I'll stick to my labels.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "The Light needs no poison. I fight cleanly.", next = "BACK", reply = "Cleanly, and so the Scourge goes on standing a little longer. I'll respect it, and keep my vials.", fx = { align = { honor = 1 } } },
         { text = "Against the Scourge, any edge is a fair one.", next = "BACK", reply = "Exactly! I'll show you my stock, and we'll make your hammer sing.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -1473,8 +1473,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Sit, and roll up your sleeve; I'll have a look at that shoulder whether you like it or not." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Bandages are on the shelf, and you can wrap your own today." },
     { id = "g_hi", text = "Let me look at you. No, don't argue; let me look." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still in one piece, or near enough. Let me see that arm before something falls off it." },
   },
@@ -1492,8 +1492,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Foolish, no, but careless, perhaps, if you spend yourself on everyone else and forget you can't feel how badly you're hurt. The dead are terrible patients, {class}, and paladins, living or dead, are worse." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A healer should bind the stranger's wound as gladly as a friend's.", next = "BACK", reply = "Quite right. A wound is a wound, and the green doesn't care whose it is.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Bandage your friends first. Strangers can find their own help.", next = "BACK", reply = "Then find your own help, next time you need it. Off with you.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Others come first. I'll bear the burn for them.", next = "BACK", reply = "Bless you, {class}, but come and see me after. I'll stitch whatever the burn leaves behind.", fx = { align = { honor = 1 } } },
         { text = "I'll mend myself first. A fallen healer helps nobody.", next = "BACK", reply = "Good, and it's the first sensible thing a paladin's said in my presence. Sit down.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -1658,8 +1658,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are! The canal's quiet today, and I've saved you the good spot by the sluice." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Fish somewhere else, if you please; the canal's patient, but I'm not." },
     { id = "g_hi", text = "Don't fish in the canals, whatever you do. I've lost three good lines to that muck." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Caught anything that wasn't a boot?" },
   },
@@ -1677,8 +1677,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "I doubt it, because the apothecaries put that green in on purpose and they'd take it badly if anyone cleaned it out. Besides, a canal is patient, like me, and I'd sooner wait for it to clear itself than watch a paladin burn out trying." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A fisherman should throw back what he can't use.", next = "BACK", reply = "Aye, it's good practice. Mind, the canal fish rarely want to go back.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Take every fish you can carry. There are always more.", next = "BACK", reply = "Not in this canal there aren't. The green sees to that.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "If it can be cleansed, it should be, whatever the apothecaries say.", next = "BACK", reply = "Whatever they say? You'd be braver than me, friend. I'll keep fishing in the green.", fx = { align = { order = -1 } } },
         { text = "The canals serve the Dark Lady. I'll leave them alone.", next = "BACK", reply = "They do, and so do the fish, poor things. I'll leave the canals as they are.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },

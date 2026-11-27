@@ -1343,8 +1343,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my favourite guest. The fire's warm and the room's ready." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "There's a bed if you want it, but don't expect a smile with it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You have come home to the fire, friend. The kodo hide is warm and waiting, as the plains wait for the spring rain." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You may rest here, for the Earth Mother turns no one away, but I will not sit with you tonight." },
     { id = "o_warchief_lesser", tags = { "news" }, when = { gossip = { topic = "warchief", stance = "lesser" } },
       text = "Gor'mul told the fire you said Thrall is no Doomhammer, and then he sat with the others for a whole evening. I've never seen him do that, so whatever you said, thank you." },
     { id = "o_peace_war", tags = { "news" }, when = { gossip = { topic = "peace", stance = "war" } },

@@ -14,8 +14,8 @@ P:NPC {
     third = "{name} met Alchemist Mallory, who teaches alchemy from a hillside house east of Stormwind's gates.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Stand by the window and watch; I'll teach you gladly, for you've earned it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but kindly keep away from my flasks." },
     { id = "g_default", text = "Good day to you. Pardon the stirring; it curdles if I stop." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you again. Stand by the window, would you, where the fumes are kinder." },
   },
@@ -33,8 +33,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Somewhat, I'd say, for we both use the elements, but I measure mine, and your spirits might not like measuring." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A potion's worth comes from careful measure, not luck.", next = "BACK", reply = "Precisely. A pinch too much and it curdles, and a pinch too little and it's water.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Water the potions down; nobody measures what they drink.", next = "BACK", reply = "Someone does, eventually, usually halfway through a fight. Not with my name on it.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Careful measurement is wisdom, Mallory. I respect it.", next = "BACK", reply = "That's kind, and rarer than you'd think from someone who talks to the wind. I'll measure out a little respect for the spirits in return.", fx = { align = { order = 1 } } },
         { text = "The spirits don't measure. They just answer.", next = "BACK", reply = "Which is exactly why I'd never let one near my still. An answer without a measure is how you lose your eyebrows.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -213,8 +213,8 @@ P:NPC {
     third = "{name} met Herbalist Pomeroy, who teaches herbalism beside Alchemist Mallory east of Stormwind's gates.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, dear! Come and smell the mint; it's sulking less now that you're here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Wipe your boots, dear, and be brief. I've herbs to tend, and less patience for you." },
     { id = "g_default", text = "Wipe your boots, dear, or don't; the herbs won't mind the mud." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Have you brought me any earthroot, or only questions?" },
   },
@@ -232,8 +232,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I'd say they do, and kindly ones. Every herb grows where it's happy and sulks where it isn't, and my mint sulks worse than my husband." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Take only what the plant can spare, and it'll grow back.", next = "BACK", reply = "That's it exactly, dear. The earthroot will thank you next spring.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Pull up the whole earthroot; there's always more in the next field.", next = "BACK", reply = "There isn't, dear, not if everyone thinks the same. Leave a little in the ground.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "The hills deserve gentle hands, Pomeroy. You have them.", next = "BACK", reply = "That's sweet of you to say, and the mint will be pleased to hear it too. Come by in spring and I'll show you the beds.", fx = { align = { light = 1 } } },
         { text = "Herbs are herbs. Gather them and move on.", next = "BACK", reply = "That's the way of it for most folk, and why the hills keep getting barer. I'll keep humming, and you keep moving.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },

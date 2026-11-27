@@ -16,8 +16,8 @@ P:NPC {
     third = "{name} met Brandon, a boy who fishes the canals with Justin and Roman.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back! Do you want to see the thing I found? It's a secret." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'm not playing with you today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hello again! I kept your spot on the wall, and nobody's even tried to sit in it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. You can fish somewhere else, because there's no room here after all." },
     { id = "g_default", text = "Hello! Are you here to fish too? You can, there's lots of room." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again! Justin's told three more stories since you left." },
   },
@@ -139,8 +139,8 @@ P:NPC {
     third = "{name} met Justin, a boy on the canals with a story about everything.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hello again! You're my favourite grown-up, but don't tell my mum." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Mum says I'm not to talk to you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back! I saved my best secret just for you, and I haven't told Roman or Brandon." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. I'm not telling you any secrets, not even the one about the crocolisks." },
     { id = "g_default", text = "Hey, do you want to know a secret? I know loads, and they're all true." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! I've got a new one, and it's the best one yet." },
   },
@@ -232,8 +232,8 @@ P:NPC {
     third = "{name} met Corbett Schneider, who runs deliveries for the Canal Tailor and Fit Shop.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you, friend! Walk a bit with me, and I'll tell you what Rema's sewing this week." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Forgive me if I don't stop, for I've parcels to carry and no wish to chat." },
     { id = "g_default", text = "Good day, good day! Forgive me if I keep walking, for I've a parcel for Harlan Bagley and a wife who counts the minutes." },
     { id = "g_back", when = { metBefore = true }, text = "Hullo again! I'm on my way home this time, with any luck." },
   },
@@ -342,8 +342,8 @@ P:NPC {
     third = "{name} met Erich Lohan, who drums up custom for the Blue Recluse.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "My dear friend, back again! The Recluse has a seat by the window tonight, and I'll tell Joachim it's yours." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. I'll call the quarter to the Recluse, friend, but I'll not be calling you." },
     { id = "g_default", text = "You there, {class}! You look thirsty, and the Blue Recluse is just up the lane with the best cellar in the quarter!" },
     { id = "g_back", when = { metBefore = true }, text = "My friend, you've come back! Have you been to the Recluse yet, or must I walk you there myself?" },
   },

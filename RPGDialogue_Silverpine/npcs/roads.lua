@@ -425,8 +425,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, the bats perked up when they heard you coming, and so, I'll admit, did I. Where to tonight?" },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. The bats will carry you because that's their work, but they've grumbled about you, and so have I." },
     { id = "g_bats", text = "Don't wave your arms about; the bats think it's a challenge." },
     { id = "g_kback", when = { metBefore = true }, text = "You again. The bats remember you; most of my visitors leave nothing behind worth remembering." },
     { id = "g_knight", when = { timeOfDay = "night" }, text = "Night flights are the best flights, if you ask the bats, and nobody ever does but me." },

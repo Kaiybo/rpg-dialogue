@@ -14,8 +14,8 @@ P:NPC {
     third = "{name} met Doreen Beltis, a Forsaken woman who keeps watch over the Brill graveyard.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You again, {class}. Stand with me by the stones a moment, if you like; you're welcome company among the empty graves." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Mind where you step, and leave the graves alone, because I've no patience for you today." },
     { id = "g_default", text = "Mind where you step, {class}. Half these graves are empty now, and the other half I'd rather you left alone." },
     { id = "g_back", when = { metBefore = true }, text = "You again. The stones haven't changed since you last came, and neither have I." },
   },
@@ -114,8 +114,8 @@ P:NPC {
     third = "{name} met Constance Brisboise, an apprentice clothier selling cloth armour near Brill.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good day, {class}, and welcome back. You've stood out of my light, for once, and I've a bolt of cloth I think you'll like." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. If you've come for cloth, I'll sell it, and if not, stand out of my light." },
     { id = "g_default", text = "Good day, {class}. If you've come for cloth, I have it, and if you've come to stand in my light, I'd ask you to stand somewhere else." },
   },
   notice = {
@@ -128,8 +128,8 @@ P:NPC {
       lines = { { id = "h_default", text = "Constance Brisboise, apprentice clothier, though the master I apprenticed under is two years dead and not the useful kind of dead. I sell robes and gloves that will keep the rain off, and very little else." } },
       again = { { id = "h_again", text = "Anything else? I've hems to finish." }, { id = "h_again2", text = "Go on, then." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A clothier should cut her cloth to fit the customer, not the price.", next = "BACK", reply = "Just so. My master taught me that before he died, and I mean the useful kind of teaching.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Cut the robes short and charge for the full length.", next = "BACK", reply = "And have them flap about the ankles of every mage in Brill? No, I'll cut them true.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What happened to your shop in the capital?", next = "xshop" },
         { text = "Who buys robes in Brill?", next = "xbuyers" },
         { text = "Do you still enjoy the work?", next = "xenjoy" },
@@ -216,8 +216,8 @@ P:NPC {
     third = "{name} met Jamie Nore, a sharp-eared Forsaken who loiters about Brill's town hall.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again, {class}. Lean on the wall beside me, if you like; the magistrate's in fine form today." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Keep your hands where I can see them, and keep your voice down, because I'm listening." },
     { id = "g_default", text = "Quietly, {class}. The magistrate's in a mood, and I'd hate to miss whatever he says next." },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "Ah, one of the light-fingered sort. Keep your hands where I can see them, and I'll keep mine where you can see them." },
   },
@@ -320,8 +320,8 @@ P:NPC {
     third = "{name} met Sahvan Bloodshadow, a Forsaken who walks Brill's streets and pauses at a single grave.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Walk with me again, {class}. I'll not stop for long, but I'm glad of the company on this path." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Walk on, if you must, but I've no wish to talk to you today." },
     { id = "g_default", text = "Walk with me if you must talk, {class}. I don't stop for long, except in one place." },
   },
   start = "hello",
@@ -443,8 +443,8 @@ P:NPC {
     third = "{name} met Thomas Arlento, a Forsaken farmhand living in Brill.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Afternoon, {class}, or evening, it hardly matters. You've a strong back yourself, I think, and it's good to see you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. The Deathguard need a strong back, and I've work to do, so I'll not stand and talk." },
     { id = "g_default", text = "Afternoon, {class}. Or evening; it's hard to tell under these clouds, and I've stopped trying." },
   },
   start = "hello",
@@ -566,8 +566,8 @@ P:NPC {
     third = "{name} met Claire Willower, who points new arrivals in Brill in the right direction.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back to Brill, {class}. You've found your way about without falling in the river, which puts you ahead of most." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. You know where things are by now, so I'll not waste my breath telling you twice." },
     { id = "g_default", text = "Welcome to Brill, {class}. It isn't much, but it's ours, and the Scourge have to come through a great many Deathguard to take it back." },
   },
   start = "hello",
@@ -690,8 +690,8 @@ P:NPC {
     third = "{name} spoke with an Argent Defender keeping watch against the Scourge.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Go on through, friend; I'll not trouble you today." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Move along, and stay out of trouble. I'll know if you don't." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You again, and welcome. The Dawn remembers those who stand against the Scourge, and you've stood well." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Pass if you must, but keep your weapon handy, and don't think I've stopped watching you." },
     { id = "g_default", text = "Hold there. You're not Scourge, so you're welcome to pass, but keep your weapon handy." },
     { id = "g_forsaken", when = { race = "Scourge" }, text = "Forsaken. The Dawn has no quarrel with you, so long as your quarrel is with the Lich King." },
     { id = "g_back", when = { metBefore = true }, text = "Still breathing, or near enough. Good. The line holds a little better with every pair of hands." },
@@ -701,8 +701,8 @@ P:NPC {
     ylife = {
       lines = { { id = "ylife_x", text = "A farmer's son from Hillsbrad. I joined the Lordaeron army too late to save anything. When the Argent Dawn formed, I took their tabard because it was the only banner left that fought the dead and not the living." } },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "The Argent Dawn's discipline is what holds the plague back.", next = "BACK", reply = "It is, and it's why we've lasted where the Crusade has rotted from within. Discipline, and the Light.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Fight the Scourge any way you can, Dawn's rules or no.", next = "BACK", reply = "Any way you can, aye, until your way gets a comrade killed. Our rules exist for a reason.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Do the Scarlets ever try to recruit you?", next = "yscarlet" },
         { text = "Something else.", next = "BACK" },
       },
@@ -809,8 +809,8 @@ P:NPC {
     third = "{name} spoke with a Wickerman Guardian, one of the Forsaken soldiers who guard the Wicker Man at Hallow's End.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've done right by this place, and the watch knows it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm watching you, so keep your hands where I can see them." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You again, and welcome. Stand by the effigy with me tonight, and we'll watch the Wicker Man burn together." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Keep back from the effigy, and don't touch a torch until the Dark Lady gives the word." },
     { id = "g_default", text = "Keep back from the effigy until the burning. The Dark Lady wants it lit properly, not by some fool with a torch." },
     { id = "g_hallows", when = { holiday = "hallowsend" }, text = "Hallow's End, at last. Tonight the Wicker Man burns, and every one of us remembers the day we broke our chains." },
     { id = "g_living", when = { race = "Orc" }, text = "An orc at our festival. Watch and learn what freedom looks like to the dead." },
@@ -820,8 +820,8 @@ P:NPC {
     ylife = {
       lines = { { id = "ylife_x", text = "A watchman in Brill. Every autumn I carried a torch round the town, warding off spirits. Now I guard the Wicker Man so the spirits can have their festival. Funny how it goes." } },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "The Wicker Man must burn at the appointed hour, as the Dark Lady commands.", next = "BACK", reply = "It must. Every one of us broke our chains together, and we burn it together, at the proper time.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Let anyone light the effigy when they please. It's a celebration.", next = "BACK", reply = "It's a remembrance, not a tavern brawl. The Dark Lady will have it done properly, or not at all.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "How did the festival change?", next = "yhallow" },
         { text = "Something else.", next = "BACK" },
       },

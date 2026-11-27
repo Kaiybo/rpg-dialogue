@@ -20,8 +20,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, it's you, love! Come in out of the wind; your beasts always perk up when they hear your step." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Wipe your boots and be quick about it. The animals don't care for you, and frankly, nor do I." },
     { id = "g_default", text = "Wipe your boots, love, the straw's fresh. What can I do for you?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Your beasts have been good as gold, mostly." },
     { id = "g_pet", when = { pet = { type = "Beast" } }, text = "Oh, and who's this? {pet}, is it? Aren't you a handsome one." },
@@ -158,8 +158,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hello, dear, it's good to see you! Did you come over the bridge? Was my husband keeping warm out there?" },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Buy your thread, dear, and go; I've heard enough about you from the watch." },
     { id = "g_default", text = "Hello, dear! Thread, flint, a little something for the road? Have a look." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Did you pass the bridge? Was my Ashlock still standing up straight?" },
   },
@@ -186,8 +186,8 @@ P:NPC {
         { id = "h_again2", text = "Ask away, I'm just restocking." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Folk under siege deserve a fair price more than anyone.", next = "BACK", reply = "That's what I tell myself every time the carts don't come, dear. We're all in this together.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "When the roads close, a clever trader raises prices.", next = "BACK", reply = "A clever one, maybe, but not a neighbourly one. I have to look these people in the eye at chapel.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Let me see your supplies.", next = "BUSINESS" },
         { text = "Tell me about your husband.", next = "husband" },
         { text = "What sells best in Lakeshire?", next = "sells" },
@@ -288,8 +288,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite pupil! Apron on, hands washed, and don't you dare touch Mother's spice jar." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "If you're here to learn, then listen this time. If you're not, out of my kitchen, please." },
     { id = "g_default", text = "Come in, come in! Mind the pot, and don't touch the spice jar, it's my mother's." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more lessons? Good, you've a cook's patience, I can see it." },
   },
@@ -306,8 +306,8 @@ P:NPC {
         { id = "dd_crystal_g_a", text = "You did, and I'll not have you thinking that's a small thing, because a soldier on an empty stomach makes mistakes. Breanna feeds the whole garrison on scraps, and a good pot of goulash is worth three swords on the wall." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A good stew takes its time, and there's no rushing it.", next = "BACK", reply = "Finally, someone who understands! Hours on the fire, and not a minute less.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Drown it in spice, and nobody will notice the meat's off.", next = "BACK", reply = "Out! No, stay, but you're scrubbing pots until you take that back.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Then I'm glad to have fed them.", next = "dd_crystal_g2" },
         { text = "Could you teach me to make it?", next = "dd_crystal_g2" },
       },
@@ -441,8 +441,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You walked all the way out here again. Come in, then, and I'll show you the cuts that save the best of the hide." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since that's what I'm here for, but don't expect me to make it pleasant." },
     { id = "g_default", text = "Long walk out here for a chat. You want to learn to skin, or are you lost?" },
     { id = "g_back", when = { metBefore = true }, text = "You again. Must be serious about skinning, coming all this way twice." },
   },
@@ -466,8 +466,8 @@ P:NPC {
         { id = "h_again2", text = "Ask. I'm listening while I scrape." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A clean kill and a clean cut honour the beast.", next = "BACK", reply = "Aye, and they make a better hide besides. You'll do.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Who cares how it dies? A hide's a hide.", next = "BACK", reply = "The buyers care, when it comes in torn and full of arrow holes. So should you.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Train me in skinning.", next = "BUSINESS", when = { profession = "Skinning" } },
         { text = "Why live all the way out here?", next = "why" },
         { text = "Is it safe, with the orcs so close?", next = "safe" },

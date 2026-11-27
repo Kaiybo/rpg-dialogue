@@ -17,8 +17,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hi! I've been practising being brave, just like you." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Mum says I'm not to talk to you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're back! I've been keeping everyone in line upstairs, just like a real captain would." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. I'm in charge up here, and I say you can't come up." },
     { id = "g_default", text = "I'm in charge upstairs. Mostly." },
     { id = "g_mage", when = { class = "MAGE" }, text = "You're a real mage! Show me something, please?" },
   },
@@ -166,8 +166,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hi! I've been practising being brave, just like you." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'm not playing with you today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back! The Baron's awake, so you can say hello if you're very, very gentle." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Please go away. The Baron doesn't like you, and I don't think I do either." },
     { id = "g_default", text = "Shh, the Baron's asleep. Talk quietly, please." },
     { id = "g_pet", when = { pet = true }, text = "Is your pet friendly with rabbits? Please keep it by the door." },
   },
@@ -279,8 +279,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hello again! You're my favourite grown-up, but don't tell my mum." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'm not playing with you today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're back! Sit down, sit down, because I saved the best bit of the story for you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'm not telling you any stories today, so you needn't sit down." },
     { id = "g_default", text = "Come sit by the fire! I'm in the middle of a story." },
     { id = "g_skyborne", when = { race = "Skyborne" }, text = "You're from the sky! Are you? You are!" },
   },
@@ -403,8 +403,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's you! I told everyone you'd come back, and they didn't believe me!" },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You're mean, and I'm telling." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's you! I counted every day you were gone, and it was a lot, but you came back anyway!" },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You were mean last time, and I counted it, so I'm going to tell someone." },
     { id = "g_default", text = "Forty, forty-one... sorry, I'm counting." },
     { id = "g_warrior", when = { class = { "WARRIOR", "PALADIN" } }, text = "You've got armour! Are you here to guard us?" },
   },
@@ -526,8 +526,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hello again! You're my favourite grown-up, but don't tell my mum." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You're mean, and I'm telling." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Luna, look who it is! She's wagging so hard, and I think that means she missed you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Luna, stay by me. I don't think we like this one very much." },
     { id = "g_default", text = "Luna, sit! Sorry, she likes new people." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "You've got a beast too! Does yours do tricks?" },
   },
@@ -642,8 +642,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back! Do you want to see the thing I found? It's a secret." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Mum says I'm not to talk to you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back. I kept a secret just for you, but you have to promise not to tell anyone." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'm not supposed to talk to strangers, and you're worse than a stranger." },
     { id = "g_default", text = "Hello. I'm not supposed to talk to strangers." },
     { id = "g_human", when = { race = "Human" }, text = "Are you from Stormwind? You look like you might be." },
   },
@@ -752,8 +752,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's one of my best benefactors! Come in, the loaves are still warm and the children are fed." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Bread's bread, and I'll sell it to anyone, but I won't pretend I'm happy to see you." },
     { id = "g_default", text = "Fresh bread, still warm! Every loaf you buy feeds a child." },
     { id = "g_morning", when = { timeOfDay = "dawn" }, text = "Up with the bakers, are you? First batch is just out." },
   },
@@ -766,8 +766,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else, friend? The pie's cooling, so I've a minute." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Bread that feeds an orphan is worth paying full price for.", next = "BACK", reply = "Bless you for it! Every coin in that jar goes upstairs to the little ones.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Charity's just a fine way to dress up a markup.", next = "BACK", reply = "Ha! Maybe so, but the children eat either way, and I'll sleep fine tonight.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Mulgore Spice Bread, in Dalaran?", next = "mulgore" },
         { text = "How many children live here?", next = "children" },
         { text = "When does a baker's day start?", next = "day" },
@@ -861,8 +861,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're back! Mind the cats and come in; the stockpot's on and the prices haven't moved an inch." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "The prices are fixed, and so is my opinion of you. Buy what you need and be on your way." },
     { id = "g_default", text = "Best supplies in the city, and the prices don't move." },
     { id = "g_cook", when = { profession = "Cooking" }, text = "A cook! Mind the cats, and don't touch my stockpot." },
   },
@@ -880,8 +880,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Something else? The soup won't stir itself, and the children won't stop asking about it." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Fixed prices are fair to everyone, rich or poor.", next = "BACK", reply = "That's exactly why I set them, and I'm glad someone finally understands it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Fixed prices are for cooks who can't haggle.", next = "BACK", reply = "Then find a cook who'll haggle with you, and see how her soup tastes.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Mind the cats?", next = "cats" },
         { text = "How do you feed so many children?", next = "feed" },
         { text = "Why won't your prices move?", next = "prices" },

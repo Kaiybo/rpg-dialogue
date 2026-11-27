@@ -15,8 +15,8 @@ P:NPC {
     third = "{name} met Boyle, the zombie who minds a flask in the Apothecarium.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Friend is back! Boyle is still holding the flask very level. Boyle would wave, but he must not." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Please do not come close to Boyle. Last time Boyle nearly spilled. Boyle remembers." },
     { id = "g_default", text = "Boyle is holding the flask, and he must not spill it. You can talk, but please do not bump Boyle." },
     { id = "g_back", when = { metBefore = true }, text = "You came before, and Boyle did not spill it then either." },
   },
@@ -104,8 +104,8 @@ P:NPC {
     third = "{name} met Cedric Stumpel, who wanders the Rogues' Quarter and gives very little away.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are again, quiet as you like. Did you miss me, or only the conversation?" },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Walking loudly again, are we? Is it me you've come to bother, or are you lost?" },
     { id = "g_default", text = "You're walking loudly for this quarter, friend. Was it me you wanted, or only somebody like me?" },
     { id = "g_back", when = { metBefore = true }, text = "The same face twice in one quarter. I shall start to think you're following me." },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "I didn't hear you come up, and I don't say that to many. What does the trade want with old Cedric?" },
@@ -202,8 +202,8 @@ P:NPC {
     third = "{name} met Chloe Curthas, a sharp-tongued spectator at the War Quarter's fighting pit.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back! Good, watch Tyler's feet with me; you're the only one here who listens." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You're back. Did you learn to watch the feet yet, or are you still staring at the blades?" },
     { id = "g_default", text = "If you've come to watch, watch Tyler's feet. Everyone here stares at the blades, and they miss the whole of it." },
     { id = "g_back", when = { metBefore = true }, text = "Back at the rail? Then you've sense, or at least a taste for blood, and either will do." },
     { id = "g_warrior", when = { class = "WARRIOR" }, text = "A warrior. Good, then you can tell Andrew that I'm right about footwork, since he won't hear it from me." },
@@ -303,8 +303,8 @@ P:NPC {
     third = "{name} met Davitt Hickson, who strolls the Undercity with Selina Pickman and Reginald Grimsford.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Our fellow walker returns! Fall in, do; we're going round a third time and could use the conversation." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ah, you again. We're walking the other way today, I think, the far side of the canal." },
     { id = "g_default", text = "Good day to you. Fall in beside us if you like, since we're only walking, and we've been round twice already." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, it's you again. We've done another circuit since, and I can report that nothing has improved." },
     { id = "g_living", when = { ["not"] = { race = "Scourge" } }, text = "A living visitor, in our humble sewer! Selina, Reginald, do come and see, and try not to stare at the breathing." },
@@ -401,8 +401,8 @@ P:NPC {
     third = "{name} met Edrick Killian, who walks the Undercity's inner ring with Mattie Alred.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You again, and good timing. Fall in, Mattie and I were just arguing about the rock in this wall." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep walking on your own, if you please; Mattie and I have our own pace." },
     { id = "g_default", text = "Walk along if you want a word, because Mattie and I don't stop, or we'd never start again." },
     { id = "g_back", when = { metBefore = true }, text = "You again. We've been round the ring a time or two since, and it's the same ring." },
     { id = "g_miner", when = { profession = "Mining" }, text = "That's a pick on your back, and a used one. You'll have met my kinsman Brom, then, and been lectured for your pains." },
@@ -499,8 +499,8 @@ P:NPC {
     third = "{name} met Edward, one of the two fighters in the War Quarter's pit.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'd not trust you to hold a line, and I'll not pretend otherwise." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, it's you. Stand where I can see you and the gate both, and say what you came to say." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I've a gate to watch, and I'd rather not watch you as well." },
     { id = "g_default", text = "Say it quickly, because Brother Malach doesn't wait for conversations to finish before he opens that gate." },
     { id = "g_back", when = { metBefore = true }, text = "You're back between rounds again. You've a knack for the timing, I'll give you that." },
     { id = "g_warrior", when = { class = "WARRIOR" }, text = "You know what this is, by the way you stand. Keep to the edge of the sand, and we'll talk until the gate moves." },
@@ -518,8 +518,8 @@ P:NPC {
     ylife = {
       lines = { { id = "ylife_x", text = "A footman in Lordaeron's army, posted on the walls at Andorhal. Tyler was a deserter from the same garrison. I never told the captains, and he's never let me forget that he owes me." } },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A soldier keeps his oath, even when his friend breaks his.", next = "BACK", reply = "I didn't, and I don't regret it. That's a soldier's trouble, though.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Oaths to a dead king mean nothing. Look after your friends.", next = "BACK", reply = "That's how I've lived since Andorhal, and Tyler's still beside me.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Why didn't you turn him in?", next = "yturnin" },
         { text = "Something else.", next = "BACK" },
       },

@@ -15,8 +15,8 @@ P:NPC {
     third = "{name} spoke with one of the Argent Dawn's sentries at Light's Hope Chapel.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Go on through, friend; I'll not trouble you today." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep an eye open. Mind yourself." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You return, and the Dawn is glad of it. Pass freely, friend; the dead won't take Light's Hope while folk like you stand here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll let you pass, for the Dawn's sake, but I'll be watching you as closely as I watch the dead." },
     { id = "g_default", text = "Light's Hope stands open to all who fight the Scourge, traveller. Come in, and keep your blade ready." },
     { id = "g_back", when = { metBefore = true }, text = "Still alive and still fighting, I see. The Dawn needs more like you." },
   },
@@ -30,8 +30,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I keep watch over Light's Hope Chapel, where the Scourge can't tread, though they test it every night. Stratholme lies to the north and the Plaguewood to the west, and both are full of things that never sleep." } },
       again = { { id = "h_again", text = "What else? I'm on watch." } },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "The Dawn's watch rules keep Light's Hope alive. I'll respect them.", next = "BACK", reply = "Good. One sleeping sentry, and the dead would be inside the walls by morning.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Rules won't stop the Scourge. I fight however I like.", next = "BACK", reply = "Then fight outside the walls, friend, and leave the gate to those who'll keep it.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "What comes at night?", next = "xnight2" },
         { text = "How did you come to the Dawn?", next = "xjoin" },
         { text = "I'm Forsaken. Can I stand on this ground?", next = "xdead", when = { race = "Scourge" } },
@@ -111,8 +111,8 @@ P:NPC {
     third = "{name} met Field Marshal Chambers of the Argent Dawn at Light's Hope Chapel.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've fought well, and the company remembers it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep your distance, and keep out of the way of real soldiers." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you again. The reports speak well of you, and the Dawn needs every capable blade. Come, look at the map with me." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I've read the reports, and I'm not impressed, so keep this brief and keep out of my soldiers' way." },
     { id = "g_default", text = "You've come to fight, I hope, because the Dawn has no use for sightseers. Speak your piece." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Good, the reports say you've been busy, and busy is what we need." },
   },
@@ -126,8 +126,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I am Field Marshal Chambers, and I coordinate the Argent Dawn's forces here in the east, which is a grand way of saying I send good people out to die against the Scourge. The Scourge has more soldiers than we ever will, so every one of ours must count." } },
       again = { { id = "h_again", text = "What else? Be quick." } },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A commander owes his soldiers the truth, however grim.", next = "BACK", reply = "He does, and I've given it to them every morning since Darrowshire fell.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Lie to the troops. Hope wins more battles than truth.", next = "BACK", reply = "False hope gets soldiers killed. I'll give them truth and let them find their own courage.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "How do you choose who to send out?", next = "xchoose" },
         { text = "Who stands with the Dawn here?", next = "xallies" },
         { text = "I'm a paladin of the Silver Hand.", next = "xpal", when = { class = "PALADIN" } },
@@ -207,8 +207,8 @@ P:NPC {
     third = "{name} met Rayne, a druid of the Cenarion Circle at Light's Hope Chapel.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Elune-adore, you have come back to us. The land feels a little lighter when you walk it, friend." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You return. The Circle bids me welcome all who fight the blight, and so I will, though my heart is not in it." },
     { id = "g_default", text = "Ishnu-alah, traveller. You stand at the edge of a wound in the world, and I am here to see that it does not spread." },
     { id = "g_back", when = { metBefore = true }, text = "Elune-adore, you have returned. The land still weeps, but your strength helps it heal." },
   },
@@ -224,8 +224,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I am Rayne of the Cenarion Circle, and I have come to aid the Argent Dawn against the Scourge. The plague is a poison not just to the living but to the land itself, and the Circle cannot stand by while it spreads." } },
       again = { { id = "h_again", text = "What else would you ask, traveller?" } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "We should heal this land honestly, however long it takes.", next = "BACK", reply = "Patience is the oldest of the druid's tools. The land will thank you, though not soon.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Tell the Circle the land is healing, even if it isn't.", next = "BACK", reply = "Comforting lies let a wound fester unseen. I will tell them the truth, however hard.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "How do druids heal a land like this?", next = "xhow" },
         { text = "Do the humans welcome you here?", next = "xhumans" },
         { text = "I'm a druid as well.", next = "xdruid", when = { class = "DRUID" } },
@@ -314,8 +314,8 @@ P:NPC {
     third = "{name} met Craftsman Wilhelm, the Brotherhood of the Light's smith at Light's Hope Chapel.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there's my best customer, back an' breathin'! Come see what I've just tempered, {g:lad|lass}; I blessed it with ye in mind." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ye again. I'll forge for ye, since the Light bids me, but I'll not be blessin' it any harder than I must." },
     { id = "g_default", text = "Welcome, {g:lad|lass}, tae the finest forge in the Plaguelands! Every piece I make is blessed by the Light an' tempered against the Scourge." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, an' still breathin'! My armor must be doin' its job." },
   },
@@ -1200,8 +1200,8 @@ P:NPC {
     third = "{name} met an Argent Medic who treats the plagues of these lands.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's ye, an' still in one piece! Sit down anyway, an' let me look ye over just tae be sure." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ye again. I'll patch ye up, since that's my oath, but I'll not be gentle about it." },
     { id = "g_default", text = "Anything rotting on ye? Ghoul rot, maggot slime? Speak up, I've seen it all." },
   },
   notice = {
@@ -1217,8 +1217,8 @@ P:NPC {
     ylose = {
       lines = { { id = "ylose_x", text = "Aye, more than I'd like. The plague gets into the blood, and some folk turn before I can do a thing. The hardest is when they beg me to finish it before they rise. Should a healer do that, d'ye think?" } },
       choices = {
-        { text = "The Light forgives all who truly seek it.", next = "BACK", reply = "It does, and I pray we're all given the chance to seek.", fx = { align = { light = 1 } } }, -- dp_stance
-        { text = "Some deeds are beyond the Light's forgiveness.", next = "BACK", reply = "Careful, friend. That's a judgment best left to the Light itself.", fx = { align = { light = -1 } } }, -- dp_stance
+        { text = "The Light works through your bandages as much as any prayer.", next = "BACK", reply = "Aye, so it does. I say a prayer wi' every knot, an' not one's gone untied.", fx = { align = { light = 1 } } }, -- dp_stance
+        { text = "Prayers do nothing out here. Only your needle saves anyone.", next = "BACK", reply = "Then ye've not seen what I've seen, but I'll nae argue wi' a patient.", fx = { align = { light = -1 } } }, -- dp_stance
         { text = "Yes. Mercy sometimes means a quick end.", next = "BACK", reply = "Aye. I've done it, twice. I'll nae say more about it.", fx = { align = { light = -1 } } },
         { text = "No. A healer heals, whatever the cost.", next = "BACK", reply = "Spoken like the Light's own. I'll keep tryin', then, to the last breath.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -1319,8 +1319,8 @@ P:NPC {
     third = "{name} spoke with a wounded Argent Dawn soldier at Light's Hope.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome at our fire any night you like." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's you again! Good, I've been lying here too long, and a friendly face makes the bandages itch less." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. I'm resting, friend, and I'd rather not have company while I do it." },
     { id = "g_default", text = "Don't mind me. Just resting a bit before I go back out there." },
   },
   start = "hello",
@@ -1328,8 +1328,8 @@ P:NPC {
     ycomrades = {
       lines = { { id = "ycomrades_x", text = "A squad from Southshore, mostly, and a Forsaken scout named Gerard who knew the Plaguewood paths. The Southshore lads didn't like him. He saved three of them when the abomination came. They like him a bit more now." } },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Gerard kept his word to that squad. That makes him one of us.", next = "BACK", reply = "That's what I told the Southshore lads, and they'll believe it, given time.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Gerard's still Forsaken. Thank him, then never trust him again.", next = "BACK", reply = "Maybe, but he carried me out of the Plaguewood, and I'll not speak against him.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Where is Gerard now?", next = "ygerard" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1445,8 +1445,8 @@ P:NPC {
     third = "{name} spoke with a freed spirit of Darrowshire.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back to see me again! I can feel the light more clearly when you're here, stranger." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'm grateful, truly, but I'd rather face the light alone, if you don't mind." },
     { id = "g_default", text = "I'm free. Oh, Light, I'm free of it. Thank you, stranger, thank you." },
     { id = "g_back", when = { metBefore = true }, text = "Another of us loosed from those things. Bless you for every one." },
   },
@@ -1565,8 +1565,8 @@ P:NPC {
     third = "{name} was haunted for a time by a poltergeist of Darrowshire.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back! At last, someone who listens to me, because no one else ever does." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll mutter at you whether you like it or not, so you may as well stand still for it." },
     { id = "g_default", text = "You can see me. Good. Then you'll listen, because no one else will." },
     { id = "g_back", when = { metBefore = true }, text = "Still here, and so am I. You won't be rid of me that easily." },
   },

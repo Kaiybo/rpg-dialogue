@@ -63,8 +63,8 @@ P:NPC {
         { id = "h_again_done", when = { questDone = Q_REWARD }, text = "Ask what ye like. Anyone who brought Wendel home can have my ear as long as they want it." },
       },
       choices = {
-        { text = "A captain's word should be worth more than gold.", next = "BACK", reply = "Aye, and in Booty Bay it often is, which tells ye how little the gold's worth.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever captain keeps her word only when it pays.", next = "BACK", reply = "Ye'd fit right in on the Blackwater, friend, though I'd not lend ye my ship.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A captain's word to the crew should outweigh any plunder.", next = "BACK", reply = "Aye, and that's why my lads have never once talked of mutiny, {class}. A crew that trusts ye will row through a Bloodsail broadside.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Promise the crew shares, then pay them what you like.", next = "BACK", reply = "That's the Bloodsail way, and it's why their captains sleep with a knife under the pillow. I'd sooner sleep easy, thank ye.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Who are you, Captain, and what's your ship?", next = "who" },
         { text = "Tell me about your crew.", next = "crew" },
         { text = "You seem to sail with the Blackwater Raiders.", next = "raiders" },

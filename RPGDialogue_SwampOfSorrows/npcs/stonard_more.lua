@@ -257,8 +257,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again! The riders lifted their heads when they smelled you, so stand still and let them say hello." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Say where you're flying and keep clear of the riders, because they don't care for you either." },
     { id = "g_default", text = "If you're flying, the riders are dry, or as dry as they get. Where to?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again. The riders know you now, so stand still and let them sniff." },
   },
@@ -434,8 +434,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You return, and you have not been eaten. I find that I am almost pleased, which is rare for me." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Take what you need from my stock and go, before I think of a better use for you." },
     { id = "g_default", text = "I have no time for you. Go away, before I find a use for you." },
     { id = "g_lock", when = { class = "WARLOCK" }, text = "Another warlock. You know just enough to be dangerous, so let's see if you can learn more." },
   },
@@ -451,8 +451,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "I think you're a contradiction with a hammer. Your Light burned the dead when they first rose, and now it lives in one of them, and my books have nothing to say about that, which is rare and annoying." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Even a pact with a demon should be honoured to the letter.", next = "BACK", reply = "Then you understand demons better than most. They keep every word, and they expect the same.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A bargain with a demon is only for fools who keep it.", next = "BACK", reply = "Break one and see what comes to collect. I will not be standing near you when it does.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Contradiction or not, the Light chose me.", next = "BACK", reply = "Chose you, did it? Then it has stranger taste than I thought. I'll be watching.", fx = { align = { light = 1 } } },
         { text = "The Light's just power, like your books. I use it.", next = "BACK", reply = "Power, aye, and you're the first paladin to admit it. We'll get along, I think.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -620,8 +620,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're back, and you came ready to fight instead of talk. Pick up a blade and stand in the mud." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll teach you because the Horde needs warriors, but I'll not waste words on you." },
     { id = "g_default", text = "Want training? Then pick up a blade, because I don't teach talkers, I teach warriors of the Horde." },
     { id = "g_war", when = { class = "WARRIOR" }, text = "A warrior! Stand in the mud and we'll see how your footing is." },
   },
@@ -637,8 +637,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "I train warriors, not paladins, but I'll tell you what I tell them: the mud doesn't care what you pray to. If the Light makes you hard to kill, good, because the Horde needs soldiers who stay standing longer than their enemies." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A warrior earns strength in the mud, swing by swing.", next = "BACK", reply = "Good. Then stop talking about it and show me.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A knife in the back wins faster than any lesson.", next = "BACK", reply = "It wins one fight, and then the Horde has a coward on its hands. I don't teach cowards.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'll stand and fight fair, mud or no mud.", next = "BACK", reply = "Fair, aye, and the mud will make it unfair anyway. Good on you.", fx = { align = { honor = 1 } } },
         { text = "I'll win however I can. The mud doesn't care either.", next = "BACK", reply = "However you can, aye, and that's what I teach. Throw mud in their eyes if there's mud to throw.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },

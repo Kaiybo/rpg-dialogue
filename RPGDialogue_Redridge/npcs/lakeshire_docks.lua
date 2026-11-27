@@ -309,8 +309,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, it's you! Pull up a bit of dock and sit; you're the only one who doesn't tell me to get a proper job." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Shh, and go and fish somewhere else, would you? You scare off the fish and the company both." },
     { id = "g_default", text = "Here fishy fishy... come to papa. Oh, hello there, keep your voice down, you'll scare 'em off." },
     { id = "g_back", when = { metBefore = true }, text = "Nothing biting yet. It'll pick up any minute now, you'll see." },
   },

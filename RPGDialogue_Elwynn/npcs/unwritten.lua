@@ -15,8 +15,8 @@ P:NPC {
     third = "{name} met Rob Bridenbecker, who keeps a homestead west of Goldshire with his family.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are! The children have been watching the road for you all week." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and keep your voice down around the children." },
     { id = "g_default", text = "Afternoon, {class}. If you're lost, Goldshire's just east of here, and if you're thirsty, the well's sweet." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and welcome. The children still talk about you, so mind what you say in front of them." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Late to be walking the lanes, friend. The wolves come close to the fences after dark these days." },
@@ -127,8 +127,8 @@ P:NPC {
     third = "{name} met Kim Bridenbecker, who keeps the Bridenbecker household west of Goldshire.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are! Sit a moment, mind the hens, and I'll keep working while we talk." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Say what you need; I've hens to feed and no time for you." },
     { id = "g_default", text = "Hello there. Mind the hens, they've no sense, and the children have less, so watch your feet." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Sit a moment if you like, though I can't stop working while you do." },
   },
@@ -229,8 +229,8 @@ P:NPC {
     third = "{name} met Ashley Bridenbecker, a girl playing outside her family's house near Goldshire.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back! Do you want to see the thing I found? It's a secret." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'm not playing with you today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back! Halt, who goes there? A real hero, that's who, and I've found something secret to show you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Halt! You're not allowed in, and I'm not playing with you today." },
     { id = "g_default", text = "Halt! Who goes there? Oh, you're a real adventurer, aren't you, and not Bradford in a bucket." },
     { id = "g_back", when = { metBefore = true }, text = "You came back! Did you fight anything? You have to tell me exactly how big it was." },
   },
@@ -333,8 +333,8 @@ P:NPC {
     third = "{name} met Homer Stonefield, who sells fruit outside the barn at the Stonefield farm.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend! Ma set the best of the apples aside, and she says you're to have first pick." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Fruit's priced, and I'll not haggle, especially with someone Ma doesn't like." },
     { id = "g_default", text = "Fresh fruit, straight off Stonefield trees, and not a worm in it that I know of. Have a look, {class}." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more? Good, because Ma says I'm to sell this lot before it turns, and she means it." },
   },
@@ -351,8 +351,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, the fruit's not going anywhere, more's the pity." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A farmer should never hide the bruised fruit under the good.", next = "BACK", reply = "Never, and Ma'd tan my hide if I tried. Stonefield fruit's honest fruit.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Tell folk it's Maclure fruit if a basket turns bad.", next = "BACK", reply = "Ha! Now that's tempting, friend, but Ma says we beat the Maclures fair or not at all.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Tell me about your family.", next = "family" },
         { text = "What's the trouble with the Maclures?", next = "maclures" },
         { text = "Business looks slow.", next = "slow" },
@@ -543,8 +543,8 @@ P:NPC {
     third = "{name} met Stamp Thunderhorn, a tauren who sells food at the Darkmoon Faire.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you return, little one. The grill remembers a friend, and so do I, so sit and eat." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "The food is here for all who pay, and I will serve you. But the Earth Mother asks me to be honest, and I am not glad to see you." },
     { id = "g_default", text = "Welcome, little one. The grill is hot and the food is good, so come and eat before the crowds take it all." },
     { id = "g_back", when = { metBefore = true }, text = "You return, and hungry, I hope. Sit and rest your legs a while." },
   },
@@ -563,8 +563,8 @@ P:NPC {
         { id = "h_again2", text = "Speak, friend. The fire is patient, and so am I." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Food should be sold fairly, for hunger touches everyone.", next = "BACK", reply = "Yes. The Earth Mother feeds the herd without counting, and I try to count kindly.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Faire crowds pay anything; charge them what you like.", next = "BACK", reply = "They might, little one, but the plains taught me that greed spoils faster than meat.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "A tauren this far into human lands?", next = "far" },
         { text = "What's on the grill today?", next = "grill" },
         { text = "Let me see what you're selling.", next = "BUSINESS" },
@@ -749,8 +749,8 @@ P:NPC {
     third = "{name} met one of the gnomish servants who keep the Tower of Azora.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, it's you, how wonderful! I've sorted the shelves by humming frequency, and you can see them before the master does." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Please say what you need quickly, and please, please don't touch anything." },
     { id = "g_default", text = "Oh! A visitor, how unexpected, and please don't touch anything that hums, because most of it is the master's and some of it bites." },
   },
   notice = {
@@ -855,8 +855,8 @@ P:NPC {
     third = "{name} spoke with a Stormwind Guard on the roads of Elwynn.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome here, and I'll tell the others so if they ask." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep an eye open. Mind yourself." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, citizen. Goldshire's a mite safer with you about, and I'll tell the others so." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep a hand on my sword. Stay on the road, and mind yourself." },
     { id = "g_default", text = "Stay on the road, citizen, and keep your blade where I can see it. Elwynn's quieter than most places, but it isn't as quiet as it looks." },
   },
   start = "hello",
@@ -865,8 +865,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I'm posted here by order of the Stormwind Army, to keep the roads safe between the city, Goldshire and the Eastvale. Need directions, or have you trouble to report?" } },
       again = { { id = "h_again", text = "Anything else, citizen? I've a road to watch." } },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "The Guard's laws keep Elwynn quiet, so they should be obeyed.", next = "BACK", reply = "Glad to hear it. Most folk only remember the law when they need a guard.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "With the king gone, the Regent's laws mean nothing.", next = "BACK", reply = "Watch your tongue, citizen. The law stands whether the king's on his throne or not.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "What trouble is there in Elwynn?", next = "trouble" },
         { text = "Can you give me directions?", next = "BUSINESS" },
         { text = "Quiet posting, this road.", next = "posting" },

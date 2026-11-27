@@ -12,8 +12,8 @@ P:NPC {
     third = "{name} met Ariena Stormfeather, Lakeshire's gryphon master.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are! The birds know your step by now, and they've been fussing for a flight all morning." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll fly you, since that's my post, but I'd rather the birds weren't near you longer than they must be." },
     { id = "g_default", text = "Need a gryphon? They're fed, rested and only a little bad-tempered today." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Stormwind, Westfall or somewhere farther this time?" },
   },
@@ -183,8 +183,8 @@ P:NPC {
     third = "{name} met Kimberly Hiett, Lakeshire's overworked fletcher.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You again. I set a few of the straight shafts aside before the watch could grab them, so come and look." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Arrows are priced for the watch, and I'll not bargain with you. Buy or step aside." },
     { id = "g_default", text = "Arrows, bows and quivers. Buy quick, before the watch takes the lot." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more arrows? I can't say I'm surprised, the way the hills are." },
   },
@@ -198,8 +198,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I never am, because the gnolls keep coming. Your lightning saves arrows, so I'm glad to see you." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "The watch should get its arrows first, even if travellers pay more.", next = "BACK", reply = "That's how I sell them. My cousin's on that wall, and every arrow counts.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell to whoever pays most; the watch can fend for itself.", next = "BACK", reply = "The watch is all that stands between this town and the Blackrock. I'll not sell them short.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'll fight beside the watch, Kimberly. Count on me.", next = "BACK", reply = "Good, because the watch needs every hand and every bolt of lightning. I'll keep the arrows coming.", fx = { align = { honor = 1 } } },
         { text = "Make fewer arrows. Let the gnolls come.", next = "BACK", reply = "Fewer arrows and the gnolls are in the square by nightfall. I'll keep at it, thanks.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -360,8 +360,8 @@ P:NPC {
     third = "{name} met Henry Chapal, Lakeshire's precise gunsmith.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you again, eyebrows and all. Come through; I've a new barrel from Ironforge I'd only show a careful hand." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and certainly don't touch the powder. I've heard how you handle things." },
     { id = "g_default", text = "Guns, shot and powder. Handle them gently; they don't forgive mistakes." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and with all your eyebrows. That's encouraging." },
   },
@@ -375,8 +375,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Always, friend, because measured to the grain, it never fails. A shaman's fire might be wilder, but powder's predictable." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A gunsmith should tell a buyer every flaw in the barrel.", next = "BACK", reply = "Every one. A hidden flaw in a gun takes a man's hand off, and I'd not have that on me.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "If it fires once at the counter, sell it.", next = "BACK", reply = "That's how you end up with customers who come back missing fingers. I'll pass.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Predictable is safe, Henry. Measure carefully.", next = "BACK", reply = "Carefully, always, and I've all my fingers to prove it. You'd be surprised how few gunsmiths can say that.", fx = { align = { order = 1 } } },
         { text = "Wild fire wins battles. Let it burn.", next = "BACK", reply = "Wild fire wins battles and loses gunsmiths, friend. I'll keep measuring, thank you.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },

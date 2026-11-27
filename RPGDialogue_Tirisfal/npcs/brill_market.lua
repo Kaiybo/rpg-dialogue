@@ -14,8 +14,8 @@ P:NPC {
     third = "{name} met Abigail Shiel, who sells trade supplies in Brill.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you're back, and before the light goes, for once. Come and see the thread; even you won't find fault with this batch." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Browse quickly, buy what you need, and don't tell me your stitching's improved, because I've seen it." },
     { id = "g_default", text = "Buying or browsing? If it's browsing, browse quickly, because the light's going and I can't see the thread." },
     { id = "g_craft", when = { profession = { "Tailoring", "Leatherworking", "Blacksmithing" } }, text = "A crafter. Good, you'll know what things cost and you won't faint at my prices." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and prices went up in the meantime. Don't look at me like that, because I don't set the cart fares." },
@@ -33,8 +33,8 @@ P:NPC {
     prices = {
       lines = { { id = "pr_default", text = "I keep them fair, which looks sharp to people who remember what things cost before the plague. Every spool on that shelf came up a road with Scarlet scouts on it, and the driver wants paying for his nerve as well as his cart." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A trader should say plainly when her thread is second quality.", next = "BACK", reply = "I do, and loudly, and people still buy it and then complain to me. There's no pleasing crafters.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell the frayed thread at full price. Crafters can't see in this fog.", next = "BACK", reply = "They can't see in the fog, but they see their seams come apart soon enough. I'd hear about it for months.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "And you take your share on top.", next = "prices2" },
         { text = "Something else.", next = "BACK" },
       },
@@ -143,8 +143,8 @@ P:NPC {
     third = "{name} met Mrs. Winters, who keeps the general store in Brill.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are, dear! Come in out of the fog, sit for a moment, and tell me how you've been keeping." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Come in out of the fog, I suppose, since manners are manners, but do be quick about it." },
     { id = "g_default", text = "Come in, dear, come in out of the fog. What can I find for you?" },
     { id = "g_living", when = { race = { "Orc", "Troll", "Tauren" } }, text = "Oh, a living one! You'll want proper food, then, and I keep a little in the back for the Warchief's folk." },
     { id = "g_away", when = { away = 14 }, text = "There you are, {away} gone without a word! I was beginning to think the Crusade had got you." },
@@ -162,8 +162,8 @@ P:NPC {
     send = {
       lines = { { id = "se_default", text = "Well, of course I do, dear. If you want armor you go to my Abe, and if you want leather you go to Eliza Callen, and Abigail Shiel has the thread and vials, though you mustn't let her tell you the price before you've sat down." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A shopkeeper should keep honest weights, even for the dead.", next = "BACK", reply = "Of course, dear. The grave took a great deal from us, but it needn't take our manners or our scales.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "The dead never check the weights. Shave a little off.", next = "BACK", reply = "Shame on you, dear! We may be dead, but we're not barbarians, and I'll not hear that in my shop.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "And if I wanted a weapon?", next = "send2" },
         { text = "Something else.", next = "BACK" },
       },
@@ -272,8 +272,8 @@ P:NPC {
     third = "{name} met Morganus, Brill's stable master.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you again, and quietly too. The beasts lift their heads when you come in, and that's a welcome they don't give many." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Quietly, if you please. The beasts are resting, and they settle better when you aren't standing over them." },
     { id = "g_default", text = "Quietly. The beasts are resting, and so am I, in a manner of speaking." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter. Bring your companion in out of the wet, then; they don't like this fog any more than you do." },
     { id = "g_pet", when = { pet = { type = "Beast" } }, text = "That's {pet}, is it? Good animal, by the look of it. Better than most I get." },

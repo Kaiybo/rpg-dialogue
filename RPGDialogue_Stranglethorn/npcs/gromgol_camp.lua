@@ -21,8 +21,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You again, and your beast was glad to smell you coming, and so am I. Come in; the raptors have stopped hissing at your step." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Your beast is fed and rested. It is a better creature than you, so take it and go." },
     { id = "g_default", text = "Mind the stakes and keep your hands where the raptors can see them, because they bite what surprises them." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Your beast remembers me, even if you have forgotten my name, so come in." },
     { id = "g_alliance", when = { faction = "Alliance" }, text = "You are a long way from your own kind, and the grunts at the gate are watching you. Say what you want and go." },
@@ -144,8 +144,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "My favourite repeat customer, top of the list now, pal, no competition! The gas bags are behavin' and so are you, so we're both havin' a good day." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you, pal. She leaves when she leaves, and frankly I'm hopin' she leaves without ya." },
     { id = "g_x1", when = { timeOfDay = "night" }, text = "Night flight, pal, best view of nothin' you'll ever pay for! She leaves when she leaves, so stay close to the tower." },
     { id = "g_default", text = "Tirisfal Glades, pal, the Undercity line, leaving from the top of the tower whenever the wind and the Cartel agree, which is about twice a day if the gas bags behave!" },
     { id = "g_back", when = { metBefore = true }, text = "My favorite repeat customer! Well, top five, but the list is short and you're on it." },
@@ -288,8 +288,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back, and still carrying my steel with pride. Come, warrior, look over the new edges; I want a fighter's eye on them." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need, and keep your hands off my edges." },
     { id = "g_default", text = "Blades, axes and maces, and each will hold an edge through a troll's skull. Look, but do not touch the edges." },
     { id = "g_back", when = { metBefore = true }, text = "Back, and still in one piece, so the steel I sold you did its work." },
   },
@@ -308,8 +308,8 @@ P:NPC {
         { id = "dd_vharr_b_a", text = "Good, because the Bloodscalp raid our supply lines every week and take heads for their shrines. The Darkspear in this camp say they were kin once, long ago, but kin who takes your head is no kin of yours." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A warrior should win with the strength of his own arm.", next = "BACK", reply = "That is the orc way, and the steel only helps the arm. Trolls who poison their blades fight like cowards, and they die like them too.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Poison your blade; honor won't help you against a troll.", next = "BACK", reply = "Then you fight like a Skullsplitter, and you would be welcome among them. Here, we leave poison to the shadows.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Kin or not, they chose blood. They get blood back.", next = "dd_vharr_b2", fx = { align = { light = -1 } } },
         { text = "If they were kin, maybe some could still be turned.", next = "dd_vharr_b2", fx = { align = { light = 1 } } },
       },
@@ -438,8 +438,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back, and you came back hungry, I can see it. Sit at my fire; the rule still holds, eat first and talk after." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You will eat, because nobody in Grom'gol goes hungry. But you eat at the edge of my fire, and you eat quietly." },
     { id = "g_default", text = "Eat first and talk after, that is the rule at my fire, and nobody in this camp has broken it and kept their supper." },
     { id = "g_back", when = { metBefore = true }, text = "You came back for the stew, I knew it. Everyone comes back for the stew." },
   },
@@ -468,8 +468,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, ask. The stew is not going anywhere, and neither am I." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A cook should share the pot fairly, grunt and chieftain alike.", next = "BACK", reply = "That is my rule, and the Warchief himself would get the same bowl. A grunt who fights on an empty belly is a grunt I have failed.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Save the best cuts for whoever brings you the most meat.", next = "BACK", reply = "That is how goblins cook, for whoever pays. In my camp the best cuts go to the wounded, and that does not change.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me to cook.", next = "BUSINESS" },
         { text = "What's in the stew?", next = "stew" },
         { text = "What's the strangest thing you've cooked here?", next = "strange" },
@@ -568,8 +568,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You again, and with nothing rotted in your pack, I see. You keep your goods the way an orc should, and I respect that." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Tell me the crate, pay, and go, because I have rot to fight and no time for you." },
     { id = "g_default", text = "Thread, flux, vials and salt, and none of it is free. Tell me what you need and I will tell you which crate." },
     { id = "g_back", when = { metBefore = true }, text = "You again. What did you run out of this time?" },
   },
@@ -593,8 +593,8 @@ P:NPC {
         { id = "h_again2", text = "Ask quickly. The damp does not wait." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Count the stores honestly, even when the quartermaster wants more.", next = "BACK", reply = "I count them to the last spool and I say what I count. A lie in the ledger is a grunt with no salt for his wounds.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Skim a little from the crates; nobody counts the rot.", next = "BACK", reply = "I count the rot, and I count the thieves who blame it. Say that again in this camp and you will learn how.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "How do you keep anything dry here?", next = "damp" },
         { text = "Where do your goods come from?", next = "supply" },

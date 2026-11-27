@@ -1430,8 +1430,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. Your usual seat's free, and I made sure of it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Sit where you like, and I'll get to you when I get to you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There ye are! Yer stool by the fire's been waitin', an' so has the Thunderbrew lager." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ye can have a room, for I turn nobody out intae the snow. But ye'll drink quiet tonight, an' keep tae yerself." },
     { id = "g_inn", text = "Grab a mug, find a stool, an' put yer feet near the fire. Ye've earned it, whatever it was." },
     { id = "g_fl_fluster", when = { flirt = true, chance = 0.35 },
       text = "Grab a mug, find a stool, an'... well, ye look very fine this evenin', is what I was goin' tae say, so I'll just go an' fetch the mug." },

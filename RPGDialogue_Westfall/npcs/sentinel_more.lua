@@ -14,8 +14,8 @@ P:NPC {
     third = "{name} met Christopher Hewen, who sells trade goods on Sentinel Hill and keeps an eye on what the militia mends.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you. The militia's bought me out of coarse thread again, but I kept a spool of the fine back for you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Thread, dye, flux and spice, priced as marked. Buy what you need, and be on your way." },
     { id = "g_goods", text = "Thread, dye, flux and spice. If you make things, I've what you need, and if you mend things, I've more of it." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more thread? The militia bought me out of the coarse stuff again, so it'll have to be the fine." },
   },
@@ -31,8 +31,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "The thread sales say so, because folk are patching old clothes instead of sewing new. Your spirits might help them heal, in their way." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "The militia should get fair prices, even while the hill's at war.", next = "BACK", reply = "Especially while it's at war. These folk are mending their own shirts between fights.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "War's good for trade; I'd double every price on the hill.", next = "BACK", reply = "And then the hill would run me off it, quite rightly. Gryan's lot have long memories.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Mending is a kindness. Keep the thread flowing, Christopher.", next = "BACK", reply = "It is, and it keeps me in business, which is a kindness of another sort. I'll keep the spools coming as long as the wagons do.", fx = { align = { light = 1 } } },
         { text = "Mending is weakness. Make something new.", next = "BACK", reply = "New cloth costs coin nobody on this hill has, friend. I've patched Gryan's own cloak four times, and he's never once complained of the wind.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -204,8 +204,8 @@ P:NPC {
     third = "{name} met Gina MacGregor, who sells trade goods on Sentinel Hill and drives a hard bargain for them.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are! William said you'd be back, and for once he was right about something." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. The price is the price, and it's not changing for you." },
     { id = "g_goods", text = "Spices, salt, thread and dye. The price is the price, friend, and it came down the Westfall road to get here." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Buying, or just hoping I'll have changed my prices?" },
   },
@@ -223,8 +223,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "He does, and he'll go broke for it. I charge what the road costs me, and your spirits should understand that." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A trader should charge the same, whether the buyer's rich or poor.", next = "BACK", reply = "That's the MacGregor way. Everyone pays what the road cost, and no more.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Tell them the road's dangerous, and charge for the danger twice.", next = "BACK", reply = "The road is dangerous, friend, but I've the decency to charge for it once.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "A fair price for a dangerous road is honest, Gina.", next = "BACK", reply = "It is, and I'll not apologise for it. The road doesn't care how kind Christopher is.", fx = { align = { honor = 1 } } },
         { text = "Undercut him and take his customers.", next = "BACK", reply = "He's doing that himself, friend. I'd rather he stayed in business so I've someone to complain about.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -383,8 +383,8 @@ P:NPC {
     third = "{name} met Kirk Maxwell, the stable master of Sentinel Hill, who keeps hunters' beasts safe while the hill fights.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. Your beast's been calm all week, which is more than I can say for the others." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Keep your voice low by the stalls, and keep your distance from me. I've heard enough." },
     { id = "g_stable", text = "Easy, now. Keep your voice low near the stalls; half of them came in skittish." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "Bringing someone in, or taking someone out? Either way, they've been well looked after." },
   },
@@ -549,8 +549,8 @@ P:NPC {
     third = "{name} met Mike Miller, who sells bread on Sentinel Hill from flour that has to come all the way from Elwynn.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer, the one who keeps me from feeding everything to the gulls. Come and look." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Bread's on the shelf, fresh yesterday. Buy it if you like, but I'll not pretend I'm glad of you." },
     { id = "g_bread", text = "Fresh this morning, or fresh yesterday. On this hill that counts as fresh." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more? Good, because I bake for two hundred and sell to twenty, and the gulls get the rest." },
   },
@@ -564,8 +564,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "It troubles me every day, because Westfall fed the kingdom once and now Elwynn feeds Westfall. If your earth spirits can wake these fields, I'd bake with their wheat again." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Day-old bread should be sold as day-old, not as fresh.", next = "BACK", reply = "It is, and I say so. Folk out here are grateful for any bread, but they deserve the truth.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Call yesterday's loaf fresh; who on this hill would know?", next = "BACK", reply = "Everyone would, friend, by the second bite. And then they'd buy from the gulls instead.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Then let's help Westfall grow again, Mike.", next = "BACK", reply = "Let's, and I'll bake the first loaf from it myself. That'd be a day to remember.", fx = { align = { light = 1 } } },
         { text = "The fields are dead. Accept it.", next = "BACK", reply = "Maybe, and I'll keep baking with Elwynn flour. But I'll not stop hoping.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -859,8 +859,8 @@ P:NPC {
     third = "{name} met Protector Bialon of the People's Militia, who guards the Defias Traitor at Sentinel Hill.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep your distance, and keep out of the way of real soldiers." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Come and stand by me a while; the prisoner's quieter when you're about." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Keep your distance from the prisoner, and from me. I don't trust your hands near either." },
     { id = "g_default", text = "Stand back from the prisoner, if you please. You can talk to him, but you'll do it where I can see your hands." },
     { id = "g_2", when = { metBefore = true }, text = "You again. He's still here, and so am I." },
     { id = "g_3", when = { questActive = TODO_QUEST("The Defias Brotherhood") }, text = "You're the one Stoutmantle's sending out with him. Then listen; he walks in front, always, and you don't turn your back." },
@@ -886,8 +886,8 @@ P:NPC {
         { id = "hello_again3", text = "Aye?" },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A prisoner should be kept safe until he's tried fairly.", next = "BACK", reply = "That's my duty, and I'll do it, though half the hill would hang him tonight.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Hand the traitor to the farmers and save us the bread.", next = "BACK", reply = "Then we'd be no better than the Defias. He stays under my guard.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Why did he turn on the Defias?", next = "turned" },
         { text = "What was your life before the militia?", next = "before" },
         { text = "A traitor once is a traitor always.", next = "traitor" },
@@ -988,8 +988,8 @@ P:NPC {
     third = "{name} met Protector Weaver, the People's Militia's lookout atop Sentinel Tower.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome at our fire any night you like." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you climbed up again. Come and stand by the rail; the sea looks less lonely with company." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came up here to say, and then take the stairs down. I've a coast to watch." },
     { id = "g_default", text = "You've a head for heights, climbing up here. Mind the edge; the wind comes off the sea without warning." },
     { id = "g_2", when = { metBefore = true }, text = "Back up the stairs again. I saw you on the road an hour ago, by the dust." },
     { id = "g_3", when = { timeOfDay = "night" }, text = "Careful, there's no rail. At night I watch for fires, and there are always fires." },
@@ -1015,8 +1015,8 @@ P:NPC {
         { id = "hello_again3", text = "Aye?" },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A watchman's report should be true, even when it shames him.", next = "BACK", reply = "Aye. I'd rather tell Gryan I missed a fire than pretend there wasn't one.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "If you miss something, just say the fog hid it.", next = "BACK", reply = "The fog's an honest excuse when it's true. I'll not use it when it isn't.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What can you see from up here?", next = "see" },
         { text = "How do you tell friend from foe at that distance?", next = "tell" },
         { text = "Watching won't win Westfall back.", next = "watching" },
@@ -1117,8 +1117,8 @@ P:NPC {
     third = "{name} met Protector Dutfield of the People's Militia, who patrols the foot of Sentinel Tower.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome at our fire any night you like." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Stay clear of the camp, unless you've orders to be here." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ho there, friend! The fence is quiet today, and I'll take some of the credit, and give you the rest." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ho, it's you. Stay clear of the fence line, unless you're here to fight gnolls." },
     { id = "g_default", text = "Ho there! Friend, by the look of you. Good, I've had enough of the other sort for one morning." },
     { id = "g_2", when = { metBefore = true }, text = "You again! Mind the patch by the fence; I've only just finished with a gnoll there." },
     { id = "g_3", when = { timeOfDay = "night" }, text = "Who's that? Step into the torchlight. Ah, it's you. The gnolls like the dark, so I've stopped liking it." },
@@ -1144,8 +1144,8 @@ P:NPC {
         { id = "hello_again3", text = "Aye, ask!" },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "If you swear to hold the fence, you hold it.", next = "BACK", reply = "Exactly that, friend! I swore it to Gryan, and the gnolls have learned it too.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Let the gnolls take a farm or two, if it saves your skin.", next = "BACK", reply = "Not while I've breath, friend. Those farms are somebody's whole life.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "How often do the gnolls come?", next = "often" },
         { text = "How long have you carried a sword?", next = "sword" },
         { text = "Charging every gnoll will get you killed.", next = "charging" },
@@ -1246,8 +1246,8 @@ P:NPC {
     third = "{name} met Protector Gariel of the People's Militia, who keeps the door of Sentinel Tower.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome at our fire any night you like." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. I'd let you past this door without a word, and I don't say that of many." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "State your business plainly. Stoutmantle's time is short, and you've not earned much of it." },
     { id = "g_default", text = "Hold a moment. State your business with the tower, and I'll say whether Stoutmantle has time for it." },
     { id = "g_2", when = { metBefore = true }, text = "You again. Go on in; you've been no trouble yet." },
     { id = "g_3", when = { questActive = TODO_QUEST("Report to Gryan Stoutmantle") }, text = "You've a report for Stoutmantle? He's inside, by the map. Go straight in, and keep it short; he's not slept." },
@@ -1274,8 +1274,8 @@ P:NPC {
         { id = "hello_again3", text = "Yes?" },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A doorkeeper should judge everyone by the same measure.", next = "BACK", reply = "That's the only way I know to do it. Lord or farmhand, they wait the same.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A little coin should get anyone past a door.", next = "BACK", reply = "Not this door, friend. Coin is how the Defias got into half the farms out here.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "How do you judge who gets in?", next = "judge" },
         { text = "You caught the Defias Traitor yourself.", next = "caught" },
         { text = "A farmer has no business judging who sees a commander.", next = "business" },

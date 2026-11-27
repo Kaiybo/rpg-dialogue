@@ -15,8 +15,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you again. Few of my students listen as well as you, and the Light notices it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. I'll do my duty by you, but I'll not pretend my heart is in it." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "The Light asks us to stand between the innocent and the dark, and you've chosen to keep the dark on a leash. I'll not train beside it." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "I can feel what follows you even when it's hidden. Speak, if you must, but don't think a paladin will call that a gift." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've stood with the Brotherhood more than once, and I've not forgotten it. I still pray for your soul each night, whether you want me to or not." },
@@ -43,8 +43,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Something chose you, I think. The Light chooses some and others are chosen differently, and I pray for all of them." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A paladin's strength comes from his oath, faithfully kept.", next = "BACK", reply = "It does. Break the oath, and you'll find the Light grows quiet around you.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "An oath is only words; strength is what matters.", next = "BACK", reply = "Then you've not yet stood in the Light when words were all you had.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Then pray for me too, Brother. I'll gladly take it.", next = "BACK", reply = "Gladly, and every morning, by name. Whatever chose you, I hope it chose well.", fx = { align = { light = 1 } } },
         { text = "I chose myself, Brother. No one chose me.", next = "BACK", reply = "Perhaps you did, and that takes its own kind of courage. I'll pray for you all the same, if you'll allow it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },

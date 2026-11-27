@@ -16,8 +16,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my favourite page of the good column! The Dawn has noted your work again, and I've the stores open for you, friend." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Your entry in my ledger has a rather unfortunate number of crossings-out, so let's keep this brief." },
     { id = "g_default", text = "Argent Dawn stores, Chillwind Camp. If the Dawn knows your name, I've something for you, and if it doesn't yet, I can tell you how to change that." },
     { id = "g_honored", when = { reputation = { faction = "Argent Dawn", min = "honored" } },
       text = "Ah, a name I've written in the good column more than once! The Dawn is grateful, and so is its quartermaster." },
@@ -38,8 +38,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Not in the slightest, for my ledger records names and deeds, not prayers, and it's never once asked whether someone kneels to the Light or to the earth. Some of the soldiers mutter, true, but they muttered about the Forsaken in the Dawn's ranks too, and they've mostly got over that." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Every scourgestone should be counted honestly, every time.", next = "BACK", reply = "Precisely! An honest tally is the backbone of the Dawn, and a crooked one would be its undoing.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A few extra marks in the ledger never hurt anyone.", next = "BACK", reply = "They would hurt me, friend, because I'd find them, and I'd have to write a very stern report.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Deeds should be all that matter. The Dawn has it right.", next = "BACK", reply = "It does, and I'm glad you see it, because the ledger's only as fair as the people who trust it. Bring me Scourgestones and the column will speak for you.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Belief matters, Quartermaster. A ledger can't see a heart.", next = "BACK", reply = "It can't, no, and I've never pretended it could. But a heart is very hard to audit, {class}, and a tally is very easy.", fx = { align = { honor = -1 } } },
         { text = "Something else, Quartermaster.", next = "BACK" },
@@ -240,8 +240,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, a friend with clean hides! You're always welcome at my bench, because you've never once brought me plague." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Set your hides down there and step back, because I'll be checking every inch of them twice." },
     { id = "g_default", text = "Thread, dye and salt for curing, and a few patterns besides. Whatever you skinned out there, show me before you sell it to anyone." },
   },
 
@@ -258,8 +258,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Because I've been working hides for twenty years and never gave it a second thought, until the wolves around here started getting up again after they'd died. If a shaman can tell the clean ones from the tainted, I'd sleep better, and so would my customers." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A plagued hide should be burned, whatever it would fetch.", next = "BACK", reply = "Good. Then you and I will get along, because I burn three a day and sleep the better for it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell plagued hides far away, where no one knows the source.", next = "BACK", reply = "And let some Westfall farmer's children wear the plague? Get away from my bench.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Every beast deserves thanks for its hide, Porter.", next = "BACK", reply = "That's what my old master used to say, and I'd forgotten it until now. Thank you, {class}.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A hide's a hide. Skin it and sell it.", next = "BACK", reply = "It was, before Andorhal. Now I want to know what it was first, and whether it'll stay dead.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },

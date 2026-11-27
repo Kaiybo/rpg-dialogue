@@ -302,8 +302,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Go on through, friend; I'll not trouble you today." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Move along, and stay out of trouble. I'll know if you don't." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ishnu-alah, {class}. The banner of Silverwing has been safer for your presence, and the Sentinels know it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Stand guard or move along, and do not linger near the banner, for I do not trust you with it." },
     { id = "g_default", text = "This room holds the banner of Silverwing, {class}. Stand guard or move along, but do not linger idly." },
     { id = "yg_0", when = { race = "NightElf" }, text = "Ishnu-alah, sister or brother. Stand with me, and Elune will guard our banner." },
   },
@@ -315,8 +315,8 @@ P:NPC {
         { id = "y_y_hist", text = "I was a Sentinel in Ashenvale for four centuries before the Warsong came. I watched them cut the first tree, and I swore that day I would stop them. Shandris chose me to guard this banner, and I have not left it since." },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "Guarding the banner is a sacred duty, held without question.", next = "BACK", reply = "So Shandris teaches, and so we hold it here, night after night.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Leave the banner for an hour; the orcs won't dare.", next = "BACK", reply = "They dare every hour, {class}, which is precisely why the banner is never left.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Four centuries is a long time.", next = "y_long" },
         { text = "Something else.", next = "BACK" },
       },
@@ -427,8 +427,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome here, and I'll tell the others so if they ask." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm watching you, so keep your hands where I can see them." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You come back to the mill. Good, {class}; the banner is safer with you here than with half these grunts." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. If you are not here to guard the banner, you are in my way, so move." },
     { id = "g_default", text = "The banner stays here, {class}. If you are not here to guard it, you are in my way." },
     { id = "yg_0", when = { race = "Tauren" }, text = "Tauren. Stand by the door; the elves will see your size and think twice." },
   },
@@ -440,8 +440,8 @@ P:NPC {
         { id = "y_y_hist", text = "I was a lumberjack for the Warsong before I was a guard. I cut the trees the elves call holy, and I thought nothing of it. Now the elves come for our banner, and I think of the trees more than I used to." },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "Warsong law says nobody leaves their post at the banner.", next = "BACK", reply = "Yes. Grom's people keep their posts, and so will you, here.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Orders are for grunts; real warriors chase the elves.", next = "BACK", reply = "Real warriors who chase the elves come back without the banner. Stay at your post.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Do you regret cutting them?", next = "y_regret" },
         { text = "Something else.", next = "BACK" },
       },

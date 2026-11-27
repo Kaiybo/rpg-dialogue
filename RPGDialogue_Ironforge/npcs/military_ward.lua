@@ -288,8 +288,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's a warrior worth the name. Intae the yard wi' ye, an' let's see what the fightin' has taught ye." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ye'll train, for the hall trains any warrior. But I'll be harder on ye than the rest, an' ye've earned that." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "Brimstone in my yard again. I know what ye are, an' I'll no' have my recruits thinkin' it's welcome here." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "I fought orcs who had warlocks behind 'em, an' I'll no' forget how that went. What d'ye want?" },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "Ye've trained here an' kept yer beasts out o' my yard. I'll no' cheer for ye, but I'll stop growlin'." },
@@ -318,8 +318,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I'd train anyone who can stand straight an' take orders, which most shamans I've met cannae. They want tae stop in the middle o' a charge an' ask the wind its opinion. If ye can keep in line an' save yer chattin' wi' the elements for after the fight, I'll make somethin' o' ye." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A warrior keeps the rules of the yard, even when no one's watching.", next = "BACK", reply = "Aye, an' the ones who don't are the first tae die when the real fightin' starts.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "The yard's for winning. A kick to the knee is still a win.", next = "BACK", reply = "It's a win in the yard, aye, an' a habit that'll get yer whole line killed on the field.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'll keep the line, Kelstrum. Orders first.", next = "BACK", reply = "Good answer, an' ye'll last longer in my yard than most, which isnae sayin' much, but it's a start.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The wind's opinion has saved more lives than your orders.", next = "BACK", reply = "Has it now? Then ye'd best ask it tae fight for ye in my yard, for I'll be askin' ye tae do a hundred swings either way.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -586,8 +586,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my most reliable unit has returned for calibration, and I've marked your file exemplary, which I've only done twice." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Your file has several notes in red ink, I'm afraid, so training will proceed with conversation reduced to the required minimum." },
     { id = "g_spec", text = "Greetings. Please state your class specification and the nature of your inquiry, in that order, for filing purposes." },
     { id = "g_warrior", when = { class = "WARRIOR" }, text = "Ah, a warrior unit returning for calibration, which is excellent, because I've revised the diagrams since your last visit." },
   },
@@ -607,8 +607,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I think any crutch makes a fighter lazy, whether it's a shield, a spell or a talking rock. That said, I've no data on shamans, and a gnome without data is a gnome with an opinion, which is a dangerous thing. Come and spar with me sometime and I'll collect some." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Real skill comes from drills and repetition, not shortcuts.", next = "BACK", reply = "Correct, and drill seven-B exists precisely to remove shortcuts from a fighter's habits.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "If a gadget can do the fighting for you, use the gadget.", next = "BACK", reply = "Then you'll fight exactly as well as the gadget, which in Gnomeregan turned out to be not nearly well enough.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'll spar with you. Discipline should serve the gift.", next = "BACK", reply = "Splendid, I'll fetch my notebook and a spare helmet, and we'll find out together exactly where the gift ends and the crutch begins.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The elements aren't a crutch, Bilban. They're my strength.", next = "BACK", reply = "Then I'd very much like to measure that strength, so do stop by the yard, and I'll bring the calipers and a fire bucket.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -866,8 +866,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there's yer beast, an' there's yerself behind it! Come in, the pair o' ye, for I've missed ye both." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll train ye, for yer beast's done nothin' tae deserve a poor master. Mind ye treat it better than ye treat folk." },
     { id = "g_hunt", text = "If ye're no' a hunter, I cannae help ye wi' trainin'. If ye are, come in an' let's have a look at ye." },
     { id = "g_pet", when = { pet = { type = "Beast" } }, text = "An' who's this, then? Let me see yer beast first; ye can wait." },
   },
@@ -887,8 +887,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They do, an' I've no explanation for it. A wolf'll lie down at a shaman's feet the way it does at a hunter's, an' the hunters dinnae like it one bit. I tell them the beasts know who respects the wild, an' that's no' always the one holdin' the leash." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A hunter should kill clean and waste nothing of the beast.", next = "BACK", reply = "That's the hunter's whole creed, an' Grif Wildheart would tell ye the same in Kharanos.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A trophy's a trophy. Take the head and leave the rest.", next = "BACK", reply = "Then ye're no hunter, just a butcher wi' a bow, an' the wolves will know it before I do.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Respect the wild, and it'll trust you back.", next = "BACK", reply = "That's how I see it. The hunters in my yard could stand tae hear it from a shaman more often.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "The beasts know power. That's all respect ever is.", next = "BACK", reply = "Maybe so, but a wolf that lies down for power is a wolf that'll stand up for more, an' I'd rather have one that stays for trust.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },

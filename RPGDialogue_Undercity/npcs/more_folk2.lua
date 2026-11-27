@@ -18,8 +18,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You again, and you've remembered what I told you, which already puts you ahead of the rest. Come in." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Before you speak, you're wrong, and I'd rather not hear the details today." },
     { id = "g_1", text = "Do not lean on that bench, because everything on it is either mine, volatile, or both." },
     { id = "g_2", when = { profession = "Alchemy" }, text = "An alchemist, by the stains on your fingers. Stand where I can see your hands and we shall find out how badly you were taught." },
     { id = "g_3", when = { metBefore = true }, text = "You again. I had begun a distillation that wants nine minutes of silence, so you may have eight of them." },
@@ -45,8 +45,8 @@ P:NPC {
         { id = "hello_a3", text = "Ask, and be brief about it." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "An alchemist should publish his findings with his own name on them.", next = "BACK", reply = "Yes, and nobody else's. Some of us were robbed of that privilege.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Borrow a rival's notes if he's careless enough to leave them.", next = "BACK", reply = "So you're the sort. I knew there was a sort, and I'll watch my desk.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me what you know of alchemy.", next = "BUSINESS" },
         { text = "How is the teaching divided down here?", next = "ladder" },
         { text = "I heard some of your notes went missing.", next = "notes" },
@@ -142,8 +142,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you! Quick, come in, quick; I've a reaction going and you're the only one who doesn't flinch." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Stand by the scorch mark; it's the safest place in the room for people I don't like." },
     { id = "g_1", text = "Come in, come in, mind the puddle, because it has been eating the floor since Tuesday." },
     { id = "g_2", when = { profession = "Alchemy" }, text = "Another alchemist! Good. Tell me what you can make and I will tell you what you are doing wrong, and we shall both enjoy it." },
     { id = "g_3", when = { metBefore = true }, text = "Back again, and with both eyebrows. You have been ignoring my methods, I can tell." },
@@ -169,8 +169,8 @@ P:NPC {
         { id = "hello_a3", text = "Ask away, and stand a little to the left." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Measure every reagent twice before it goes into the flask.", next = "BACK", reply = "Twice, yes, I keep meaning to, and the wall keeps reminding me.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Pour by eye. Real alchemists don't waste time with scales.", next = "BACK", reply = "That's how I got the scorch mark, and I'm the fast one here.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me what you teach.", next = "BUSINESS" },
         { text = "How do you teach the craft?", next = "method" },
         { text = "That's a large scorch mark behind you.", next = "scorch" },
@@ -257,8 +257,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, you came back. I'm so sorry, I'm glad, I mean. Come and hold the rod; gently, please." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. I'm sorry, but would you mind not touching anything at all today?" },
     { id = "g_1", text = "Oh! Forgive me, I was counting dust, and I've lost the number now, though that's no fault of yours." },
     { id = "g_2", when = { profession = "Enchanting" }, text = "You're an enchanter. I can always tell, because you looked at my rod before you looked at me, and I'm not offended in the least." },
     { id = "g_3", when = { metBefore = true }, text = "Hello again. I've kept your place, in a manner of speaking, though of course nobody else wanted it." },
@@ -284,8 +284,8 @@ P:NPC {
         { id = "hello_a3", text = "Yes? I'll help if I can." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "An enchantment should be gentle with the thing it's put into.", next = "BACK", reply = "Oh, yes. Mistress Crowe says the same, and she's always right.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Force the magic in. The item will hold or it won't.", next = "BACK", reply = "It won't, usually, and then I'll have to apologise to the item.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me what you can.", next = "BUSINESS" },
         { text = "What does a beginner learn first?", next = "craft" },
         { text = "You speak highly of Lavinia Crowe.", next = "crowe" },
@@ -371,8 +371,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. The thread has been dark and willing today. Come and feel the shadoweave before it settles." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Keep your plain cloth far from my table; it spoils the darkness in the weave." },
     { id = "g_1", text = "Lower your voice, if you please. The cloth is listening, and it takes after whatever it hears." },
     { id = "g_2", when = { profession = "Tailoring" }, text = "A tailor. Show me the inside of your cuff. I can learn more from a seam nobody was meant to see than from any fine front." },
     { id = "g_3", when = { class = "PRIEST" }, text = "One who walks in the Shadow, and knows it by name. You may come closer than the others." },
@@ -398,8 +398,8 @@ P:NPC {
         { id = "hello_a3", text = "Go on. I've thread to wax while you talk." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Shadoweave should be sewn with reverence for what it holds.", next = "BACK", reply = "Yes. It's a rite, not a trade, and you understand that.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Shadoweave is only cloth. Stitch it like any other.", next = "BACK", reply = "Only cloth. I'll remember you said that when it unravels in your hands.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me the shadoweave.", next = "BUSINESS" },
         { text = "What is shadoweave, truly?", next = "weave" },
         { text = "You've set your loom very near the temple.", next = "temple" },
@@ -486,8 +486,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you're back. Good. I've two dozen shrouds to finish, and I'd welcome the company." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Shrouds are on the left, coats on the right, and my patience is on the floor." },
     { id = "g_1", text = "Good day to you. Mind the pins on the floor, since I drop more than I used to." },
     { id = "g_2", when = { profession = "Tailoring" }, text = "You sew, by that callus on your finger. Sit, then, and tell me what's given you trouble." },
     { id = "g_3", when = { metBefore = true }, text = "You're back. I've a hem to finish, but I can do that and listen both." },
@@ -513,8 +513,8 @@ P:NPC {
         { id = "hello_a3", text = "Ask, and hand me those shears while you're at it." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A shroud deserves the same care as a lord's coat.", next = "BACK", reply = "It does. The dead wear them longer than any lord wore a coat.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Shrouds are for the grave. Stitch them quick and cheap.", next = "BACK", reply = "Half this city's in its shroud still, and they'll tell you otherwise.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me what you know.", next = "BUSINESS" },
         { text = "What do you sew, mostly?", next = "work" },
         { text = "It seems there's a ladder of tailors here.", next = "guild" },
@@ -599,8 +599,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you came back. There's copper heating, and I've a feeling you'll ruin it less this time." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Take a bar and try. I'll not say anything, and I'll not say anything kind." },
     { id = "g_1", text = "Stand clear of the quench barrel, friend, because it spits." },
     { id = "g_2", when = { profession = "Blacksmithing" }, text = "A smith. I can see it in the forearm, and in the way you looked at my fire before anything else in the room." },
     { id = "g_3", when = { metBefore = true }, text = "Back to the forge, are you? Good. It's dull work, hammering for an audience of one." },
@@ -626,8 +626,8 @@ P:NPC {
         { id = "hello_a3", text = "Ask it. I can talk between heats." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A smith should learn from every bar he spoils.", next = "BACK", reply = "Aye. What did you notice? That's the question, every time.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Spoil the bar and blame the copper. Nobody can tell.", next = "BACK", reply = "The copper can. And so can I, by the colour of it.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me the forge.", next = "BUSINESS" },
         { text = "How do you start a beginner off?", next = "teach" },
         { text = "That's a strange place for a forge.", next = "forge" },
@@ -713,8 +713,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hey, you came back! Come look, I've finished a belt with only one strap in an odd place this time." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Arthur says I'm to be polite, so I'm being polite, but only just." },
     { id = "g_1", text = "Hello! Careful where you sit, since most of these stools have got something drying on them." },
     { id = "g_2", when = { profession = "Leatherworking" }, text = "You work leather! I thought so. Here, feel this hide and tell me whether it's too stiff, because Arthur says it is and I can't tell any more." },
     { id = "g_3", when = { metBefore = true }, text = "Oh, it's you again. Good! I've finished a quiver since you came, and it's nearly the right way up." },
@@ -740,8 +740,8 @@ P:NPC {
         { id = "hello_a3", text = "Ask me anything. Well, anything about leather." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Good leather work should last as long as the wearer.", next = "BACK", reply = "And down here that's a very long time. I'll keep at it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Make it look nice. Nobody checks the stitching underneath.", next = "BACK", reply = "Arthur checks it. Arthur checks everything, and then he sighs at me.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me what you can teach.", next = "BUSINESS" },
         { text = "You use a great deal of oil.", next = "oil" },
         { text = "What's it like learning under Arthur Moore?", next = "arthur" },
@@ -1367,8 +1367,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hhnnuh! Uhn, uhn." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Grrhhn." },
     { id = "g_1", narr = "He lifts one grey hand, slowly, toward the shelf of empty vials.", text = "Uuuhhnn." },
     { id = "g_2", when = { profession = "Alchemy" }, narr = "The groan is brighter than the last, and he pushes a crate of crystal vials an inch toward you.", text = "Hrrnn!" },
     { id = "g_3", when = { metBefore = true }, narr = "He looks at you for some time, and then nods once, as if a ledger had been found and opened.", text = "Uhhn." },
@@ -1394,8 +1394,8 @@ P:NPC {
         { id = "hello_a3", narr = "He tilts his head a little to the left.", text = "Mmmh." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Sell the vials at a fair price, Algernon.", next = "BACK", reply = "Hunh. Uhn.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Charge the alchemists double. They'll never argue with a zombie.", next = "BACK", reply = "Hrrrrnnn.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your vials and reagents.", next = "BUSINESS" },
         { text = "You keep a very tidy shelf, Algernon.", next = "shelf" },
         { text = "Who taught you to keep shop?", next = "who" },
@@ -1482,8 +1482,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, it's you. Come in, you're one of the few who doesn't tread on my grave moss." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Mind my window boxes, and mind your manners, and I might sell you something." },
     { id = "g_1", text = "Good day. Don't touch the hanging bunches, because they're drying and they sulk if they're handled." },
     { id = "g_2", when = { profession = "Herbalism" }, text = "An herbalist. You've green under your nails, which is the only honest reference there is in this trade." },
     { id = "g_3", when = { metBefore = true }, text = "You're back. Martha said you would be. She's insufferable when she's right." },
@@ -1509,8 +1509,8 @@ P:NPC {
         { id = "hello_a3", text = "Ask away." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Sell herbs that are fresh, even if old stock is cheaper.", next = "BACK", reply = "Quite right. Martha would give it away, but I'll at least sell it honestly.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Dry the old herbs and sell them as fresh. Who'll know?", next = "BACK", reply = "Martha would know, and she'd never speak to me again. Neither would I.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Let me see what you sell.", next = "BUSINESS" },
         { text = "You and Martha work side by side.", next = "sisters" },
         { text = "Can anything grow down here?", next = "grow" },
@@ -1597,8 +1597,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Good. I've weighed you out a portion of strange dust myself, exactly, to the grain." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Don't touch the scale. Don't even look at the scale." },
     { id = "g_1", text = "Please don't breathe across the scale, since it's weighing to the grain and you'll cost somebody a copper." },
     { id = "g_2", when = { profession = "Enchanting" }, text = "An enchanter, and one who's short of strange dust, unless I miss my guess. Everyone is, this month." },
     { id = "g_3", when = { metBefore = true }, text = "Ah, it's you. I've kept the accounts square since you were here, as I always do." },
@@ -1624,8 +1624,8 @@ P:NPC {
         { id = "hello_a3", text = "Yes?" },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Weigh the dust exactly, even when nobody is watching.", next = "BACK", reply = "Precisely. Not that Lavinia Crowe would ever notice, but I would.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A grain short here and there won't hurt anybody.", next = "BACK", reply = "It will hurt my scale's reputation, and that's all I have.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your stock.", next = "BUSINESS" },
         { text = "You're very particular about that scale.", next = "scale" },
         { text = "Where does your dust come from?", next = "dust" },
@@ -1712,8 +1712,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. I've a book in that I'd sell to you and nobody else, though I'll still charge you for it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Every book here has a price, and yours has just gone up." },
     { id = "g_1", text = "You may look, and you may buy, but you may not read standing up, because this is a shop and no library." },
     { id = "g_2", when = { class = "MAGE" }, text = "A mage. Your sort always asks to borrow. The answer is no, and I say it now to spare us both the conversation." },
     { id = "g_3", when = { metBefore = true }, text = "You're back. Did you finish the last one, or are you one of those who buys for the spine?" },
@@ -1739,8 +1739,8 @@ P:NPC {
         { id = "hello_a3", text = "Ask it. I can dust while you talk." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Knowledge should be paid for fairly, by whoever wants it.", next = "BACK", reply = "Fairly, and in coin. Exactly my policy, and the Dark Lady's no exception.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Steal the books you want. Knowledge should belong to nobody.", next = "BACK", reply = "Then I'll know your face, and the books won't have you back.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Let me see what you have.", next = "BUSINESS" },
         { text = "Why won't you lend?", next = "lend" },
         { text = "Where do your books come from?", next = "stock" },
@@ -1826,8 +1826,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You again! Come in, I've just heard what Bowen is stitching, and it's going terribly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, you. Thread's there. The price is the price, and no gossip for you today." },
     { id = "g_1", text = "Hello, love. Thread's on the left, dye's on the right, and the gossip's free with either." },
     { id = "g_2", when = { profession = "Tailoring" }, text = "A tailor! Lovely. Whose student are you, then? No, don't say, I'll have it from your thread in a minute." },
     { id = "g_3", when = { metBefore = true }, text = "Back for more? You go through thread like Victor's beginners, and I mean that kindly." },
@@ -1853,8 +1853,8 @@ P:NPC {
         { id = "hello_a3", text = "Ask away. I like a chat." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A dye merchant should keep her customers' secrets to herself.", next = "BACK", reply = "Oh, I do. Mostly. The interesting ones I keep for my friends.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell the gossip with the thread. It's worth more than dye.", next = "BACK", reply = "Ha! You'd do well here, but I'd watch what you told me.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your thread and dyes.", next = "BUSINESS" },
         { text = "You must know every tailor's business.", next = "tailors" },
         { text = "Where do you get dye in a sewer?", next = "dyes" },
@@ -1942,8 +1942,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Armand said you'd be back. I've a new lure, and nothing's bitten it yet, which is promising." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Tackle's there. Don't pull anything out of the canal that ought to stay in." },
     { id = "g_1", text = "Afternoon. Mind your feet on the edge there, since the canal's deeper than it looks and a good deal less pleasant." },
     { id = "g_2", when = { profession = "Fishing" }, text = "A fisher. I can always tell, because you looked at the water before you looked at the stall." },
     { id = "g_3", when = { metBefore = true }, text = "Back again. Did you catch anything, or did you only feed them?" },
@@ -1969,8 +1969,8 @@ P:NPC {
         { id = "hello_a3", text = "Ask away." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Throw back anything from the canal that's still twitching oddly.", next = "BACK", reply = "Wise. Some things in there are better left where they are.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "If it bites the hook, it's yours to keep, whatever it is.", next = "BACK", reply = "You say that until it bites you back. Then you'll learn.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your tackle.", next = "BUSINESS" },
         { text = "Does anyone truly fish in that canal?", next = "canal" },
         { text = "You and Armand share a trade and a name.", next = "armand" },
@@ -2057,8 +2057,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, a friend. I've a new edge here, and I shan't ask what it's for, as usual." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. A knife's a knife, and I'll sell you one, but I'll keep the counter between us." },
     { id = "g_1", text = "Good evening. Do feel free to handle the stock, since a blade ought to be met before it's bought." },
     { id = "g_2", when = { class = "ROGUE" }, text = "Ah, a professional. I'll bring out the second tray, then, which I don't show to the browsers." },
     { id = "g_3", when = { metBefore = true }, text = "Welcome back. I trust the last purchase gave satisfaction, and I shan't ask to whom." },
@@ -2084,8 +2084,8 @@ P:NPC {
         { id = "hello_a3", text = "Yes?" },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A blade merchant should sell only to folk he'd trust.", next = "BACK", reply = "I trust everyone who pays. It's a very pleasant way to live.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell knives to anyone. What they cut is their business.", next = "BACK", reply = "That's my motto, more or less. I keep it quiet, of course.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your blades.", next = "BUSINESS" },
         { text = "You never ask what a blade is for?", next = "ask" },
         { text = "Where does your steel come from?", next = "steel" },
@@ -2171,8 +2171,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You again! Care to throw against me? I'll give you two throws' head start, since I like you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Stand clear of the target board. I don't miss, but I'm in the mood to." },
     { id = "g_1", text = "Step up, step up, and stand to one side of the board, friend, because I miss about once a year and I'm overdue." },
     { id = "g_2", when = { class = { "ROGUE", "WARRIOR" } }, text = "Now there's an arm that's thrown something in anger. Knives or axes? No, let me guess from the shoulder." },
     { id = "g_3", when = { metBefore = true }, text = "You're back! Good. I've had nobody to show off to since you left." },
@@ -2198,8 +2198,8 @@ P:NPC {
         { id = "hello_a3", text = "Ask away. Watch this one first, though." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Win at the target board fairly, or don't bother winning.", next = "BACK", reply = "That's the only way I'd care to. A cheated win doesn't count.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Distract your rival before the throw. It's all part of it.", next = "BACK", reply = "Try it on me and see where the axe lands.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me what you sell.", next = "BUSINESS" },
         { text = "That board has seen hard use.", next = "board" },
         { text = "What makes a good throwing knife?", next = "craft" },
@@ -2287,8 +2287,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, it's you. Good. Hold this bucket of sand while I find you some decent powder." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep away from the powder, and keep away from Graham. He's having a day." },
     { id = "g_1", text = "Good day. If you hear a whistling noise, step behind the pillar, and don't stop to ask me why." },
     { id = "g_2", when = { profession = "Engineering" }, text = "An engineer. Wonderful, another one. Show me your hands. All ten, good, so you've been careful or lucky." },
     { id = "g_3", when = { metBefore = true }, text = "You're back, and nothing's on fire, so it's a good day so far." },
@@ -2314,8 +2314,8 @@ P:NPC {
         { id = "hello_a3", text = "Yes?" },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "An engineer's supplier should warn buyers about unstable stock.", next = "BACK", reply = "I warn everyone. They never listen, which is why the sand bucket's here.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell the unstable powder cheap. Let the buyer find out.", next = "BACK", reply = "They find out quickly, and then they find out the canal's wet.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your parts.", next = "BUSINESS" },
         { text = "You're kin to Graham Van Talen?", next = "graham" },
         { text = "How often does something explode?", next = "blasts" },

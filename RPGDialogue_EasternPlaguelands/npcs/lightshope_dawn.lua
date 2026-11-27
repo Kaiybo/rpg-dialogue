@@ -189,8 +189,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, one o' the Dawn's best, back again! I've counted yer stores twice, as always, an' they're all there waitin' for ye." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ye again. I'll serve ye, since the Dawn says I must, but I'll be countin' everything three times today." },
     { id = "dp_rep_ad_h", when = { rep = { faction = "Argent Dawn", min = "Honored" } }, text = "The Dawn's grateful for your work, and I've put a little something aside in the stores for one of our honoured." },
     { id = "g_default", text = "Quartermaster's stores. If ye're here tae browse, ye can browse wi' yer eyes, because the Dawn's goods are for the Dawn's friends." },
     { id = "g_stranger", when = { reputation = { faction = "Argent Dawn", max = "neutral" } }, text = "I don't know yer face, an' neither does the Dawn yet. Bring in some scourgestones, help the officers, an' come back when they've heard yer name." },
@@ -218,8 +218,8 @@ P:NPC {
           text = "I'll tell ye what I tell every young soldier who brags: the dead don't stay down because ye're proud of yerself. They stay down because ye were careful." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "The Dawn's supplies belong to those who've earned them.", next = "BACK", reply = "Aye, that's the rule, an' I keep it like a dwarf keeps her beard.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Nobody would miss a few crates from stores this big.", next = "BACK", reply = "I would, an' I'd know exactly which crates, an' exactly who to blame.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'm proud of it all the same. I've earned it.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Fair enough. I'll be careful and keep at it.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Something else, Quartermaster.", next = "BACK" },

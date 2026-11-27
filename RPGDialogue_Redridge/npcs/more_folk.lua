@@ -14,8 +14,8 @@ P:NPC {
     third = "{name} met Guard Adams, who keeps the peace around the Lakeshire Inn.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome here, and I'll tell the others so if they ask." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm watching you, so keep your hands where I can see them." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, {class}. You're welcome round the inn any night, and I'll tell the lads on the door as much." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Stay out of the taproom brawls tonight, because I'll be watching you." },
     { id = "g_x1", when = { timeOfDay = "night" }, text = "Inn's still open, {class}, and the taproom's rowdy. Go in by the front, since the back step's where they fall down." },
     { id = "g_default", text = "Keep it civil near the inn, {class}. I've enough trouble with the locals without adding travellers to it." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Well, you've not started a brawl yet, so you're ahead of most." },
@@ -41,8 +41,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, but quickly, mind." },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "The inn's rules keep the peace, so they should be followed.", next = "BACK", reply = "Good, then you'll be the only one in there tonight following them.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "A good brawl clears the air better than any rule.", next = "BACK", reply = "And who mops the blood off the floor afterwards? Not you, friend.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "What trouble do you get at the inn?", next = "inn" },
         { text = "Why not the barricades?", next = "barricades" },
         { text = "How bad are the gnolls?", next = "gnolls" },
@@ -131,8 +131,8 @@ P:NPC {
     third = "{name} met Guard Clarke, who patrols the streets of Lakeshire.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. The streets feel a little safer with you walking them." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm watching you, so keep your hands where I can see them." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Evening, {class}. Lakeshire sleeps a bit easier with you back from the ridge, and so do I." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'd like to know where you're sleeping tonight, and I'll be keeping an eye on you until I do." },
     { id = "g_y1", when = { questActive = TODO_QUEST("Blackrock Menace") }, text = "You're the Marshal's new sword against the Blackrock. Mind the ridge road, and come back by daylight if you can." },
     { id = "g_x1", when = { timeOfDay = "night" }, text = "Evening, {class}. If you're lodging, the inn's that way; if you're not, I'd like to know where you're sleeping." },
     { id = "g_default", text = "Good day, {class}. Lakeshire's glad of visitors, so long as they're the helpful sort." },
@@ -158,8 +158,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. The streets aren't going anywhere." },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "The Marshal's orders hold this town together; they should be obeyed.", next = "BACK", reply = "They should, and they are, mostly. He's all that stands between us and the Blackrock.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Lakeshire would do better without the Marshal's orders.", next = "BACK", reply = "Then you've not seen what's over the ridge. His orders are why Lakeshire's still here.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Smaller than it was?", next = "smaller" },
         { text = "Who should I speak to about work?", next = "work" },
         { text = "The town looks well enough to me.", next = "well" },
@@ -248,8 +248,8 @@ P:NPC {
     third = "{name} met Guard Pearce, who stands at the Lakeshire bridge.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. The streets feel a little safer with you walking them." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Move along, and stay out of trouble. I'll know if you don't." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Cross whenever you like; I'll not ask you for any letter." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Walk where I can see you, and keep walking. I know your face, and not for good reasons." },
     { id = "g_x1", when = { timeOfDay = "night" }, text = "Late to be crossing, {class}. Walk where I can see you, and we'll both be easier." },
     { id = "g_x2", when = { questActive = TODO_QUEST("Messenger to Westfall") }, text = "You've the Magistrate's letter on you. Then I'll not keep you standing here." },
     { id = "g_default", text = "State your business in Lakeshire, {class}, or move along. I'll take either." },
@@ -275,8 +275,8 @@ P:NPC {
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "Checking everyone at the bridge is the right thing to do.", next = "BACK", reply = "It's dull, but it's right. One Blackrock spy across this bridge, and we're all done.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "A guard should wave through anyone who looks honest enough.", next = "BACK", reply = "The ones who look honest are the ones I check twice, friend.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "How do you tell the honest from the rest?", next = "honest" },
         { text = "Do you see many travellers?", next = "travellers" },
         { text = "You'd be better off watching the hills.", next = "hills" },
@@ -365,8 +365,8 @@ P:NPC {
     third = "{name} met Bridge Worker Alex, one of the quieter hands on Foreman Oslow's crew.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, you're back. Good, because you're the only one who brings iron instead of advice." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick. Oslow says I'm to be civil to you, and I'm trying." },
     { id = "g_x1", when = { questActive = TODO_QUEST("The Everstill Bridge") }, text = "You're the one fetching iron for Oslow. Good. We're down to bent nails and what Dmitri can beg." },
     { id = "g_default", text = "Mind the stones, {class}. They're heavier than they look." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and still standing, I see." },
@@ -481,8 +481,8 @@ P:NPC {
     third = "{name} met Bridge Worker Matthew, who mixes the mortar on the Everstill Bridge.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, it's you. That's the best thing that's happened on this bridge all week, which isn't saying much." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Say what you need; I've a stone to set and no wish to talk." },
     { id = "g_x1", when = { questDone = TODO_QUEST("The Lost Tools") }, text = "You're the one who brought Oslow's tools up out of the lake. That's a week's work saved, and I don't say that about much." },
     { id = "g_x2", when = { questActive = TODO_QUEST("The Everstill Bridge") }, text = "Any sign of that iron? I ask because the sky's asked me twice already today." },
     { id = "g_default", text = "Rain's coming. You can smell it on the lake, if you know how." },
@@ -596,8 +596,8 @@ P:NPC {
     third = "{name} met Guard Ashlock, who patrols the bridge between Lakeshire and its gryphon roost.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome here, and I'll tell the others so if they ask." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "State your business quickly, and then be on your way." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's that step I know. Welcome back, {class}; the planks by the middle post are behaving, for once." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "State your business and cross quickly. I knew your step before I turned, and I didn't like it." },
     { id = "g_default", text = "Good day, {class}. Mind the planks by the middle post, as they've worked loose again, and welcome to Lakeshire." },
     { id = "g_2", when = { metBefore = true }, text = "You again. I knew the step before I turned round." },
     { id = "g_3", when = { timeOfDay = "night" }, text = "Evening. Yes, I'm wearing the scarf, and if you've come from the supply shop you can tell her so." },
@@ -623,8 +623,8 @@ P:NPC {
         { id = "hello_again3", text = "Yes, {class}?" },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "A guard keeps his post, even when nobody's watching.", next = "BACK", reply = "Aye, that's the job. Lindsay says I'd stand here through a flood, and she's likely right.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Nobody would notice if you slipped home to Lindsay for an hour.", next = "BACK", reply = "The gnolls would notice, friend. I'll see her at the end of my watch.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "How many times a day do you cross this?", next = "cross" },
         { text = "Your wife keeps the supply shop.", next = "wife" },
         { text = "Fifty yards seems a small thing to guard.", next = "small" },
@@ -717,8 +717,8 @@ P:NPC {
     third = "{name} met Amy Davenport, the tradeswoman of Lakeshire.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good day, friend! I've been watching for the flux you like, and there's a fresh bundle under the salt." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Prices are on the slate, and they're not moving. Buy what you need, please." },
     { id = "g_default", text = "Good day! Thread, flux, dye, salt and spice, and if you can't see it, ask, because it's likely under something." },
     { id = "g_2", when = { metBefore = true }, text = "Back again? You've used up that last lot quickly. Good, that's how I like my customers." },
     { id = "g_3", when = { questActive = TODO_QUEST("The Everstill Bridge") }, text = "If it's iron you're after, I've none, and neither has anyone else in town. Ask the gnolls, and ask them firmly." },
@@ -744,8 +744,8 @@ P:NPC {
         { id = "hello_again3", text = "Yes, ask away, by all means." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A fair trader keeps the same prices whether the carts come or not.", next = "BACK", reply = "That's my rule, and it's a hard one with the roads like this. But folk remember.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Mark everything up when the carts are late; nobody can shop elsewhere.", next = "BACK", reply = "Nobody can now, but the carts will come again, and people remember who fleeced them.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your goods.", next = "BUSINESS" },
         { text = "How do you get stock with the bridge down?", next = "stock" },
         { text = "Who are your best customers?", next = "customers" },
@@ -839,8 +839,8 @@ P:NPC {
     third = "{name} met Franklin Hamar, who sells tailoring supplies in the Lakeshire Inn.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are! Sit down, mind the linen, and let me look at that hem before we talk business." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look at the cloth if you must, but don't handle the silk. I've heard enough to keep my best bolts out of your reach." },
     { id = "g_default", text = "Come in, sit down, and mind the bolt of linen on the chair. Franklin Hamar, cloth and thread, at your service." },
     { id = "g_2", when = { metBefore = true }, text = "Ah, there you are. That cloak's holding up, I'm pleased to see, though the hem could do with a stitch." },
   },
@@ -865,8 +865,8 @@ P:NPC {
         { id = "hello_again3", text = "Yes, friend?" },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Good cloth should be sold for what it is, never more.", next = "BACK", reply = "Quite right. A tailor who calls linen silk deserves to wear burlap for life.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Call it Stormwind silk and charge accordingly.", next = "BACK", reply = "Oh, dear me, no. My customers know their cloth, and my name is on every bolt.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your cloth and thread.", next = "BUSINESS" },
         { text = "Why sell from an inn?", next = "inn" },
         { text = "What does Lakeshire wear, these days?", next = "wear" },
@@ -960,8 +960,8 @@ P:NPC {
     third = "{name} met Gloria Femmel, who sells cooking supplies in the Lakeshire Inn.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are, and still too thin! Sit down; I've the good salt out for someone who'll actually use it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell you your spices, since it's my trade, but don't expect me to fuss over you." },
     { id = "g_default", text = "There you are, and thin as a rail! Gloria Femmel, cooking supplies. Sit down, and tell me what you've been eating on the road." },
     { id = "g_2", when = { metBefore = true }, text = "Back again, and no fatter. What did I tell you about salting your meat?" },
   },
@@ -986,8 +986,8 @@ P:NPC {
         { id = "hello_again3", text = "Yes? Speak up over the taproom." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Good salt and spice should never be cut with sand.", next = "BACK", reply = "Never, not in this kitchen. Anyone who'd do that to a cook ought to eat it themselves.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A little sand in the salt never hurt anyone's profit.", next = "BACK", reply = "It's hurt a few teeth, though! Sherman would never let me hear the end of it.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "Are you kin to Sherman, the butcher?", next = "sherman" },
         { text = "What does Lakeshire eat, with the roads closed?", next = "eat" },
@@ -1081,8 +1081,8 @@ P:NPC {
     third = "{name} met Clyde Ranthal, who sells leatherworking supplies in Redridge.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Afternoon. You again, and you came for the conversation, which makes you the only one who does." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell you curing salt, since that's my trade. The conversation's not on offer today." },
     { id = "g_default", text = "Afternoon. Clyde Ranthal, leatherworking supplies. Don't mind the smell; after a week you'll not notice it, and after a month you'll miss it." },
     { id = "g_2", when = { metBefore = true }, text = "Back again. That'll be for more curing salt, or you've come for the conversation, and nobody comes for that." },
   },
@@ -1107,8 +1107,8 @@ P:NPC {
         { id = "hello_again3", text = "Yes, I'm listening." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A hide should be sold as it was cured, flaws and all.", next = "BACK", reply = "That's how Wilma taught me, and she'd know if I didn't. She always knows.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Rub a bit of oil on a bad hide, and it sells fine.", next = "BACK", reply = "It sells once. The second time, folk come back with the hide and a question.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "Wilma Ranthal is your kin.", next = "wilma" },
         { text = "What hides come out of Redridge?", next = "hides" },

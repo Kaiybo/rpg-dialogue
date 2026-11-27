@@ -1991,8 +1991,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are! Sit down, and I'll bring the good stuff before the others see." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Pay first, if you please. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you! Come in, come in, the driest room's yours if you want it, and the corner hardly leaks at all." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Shut the door, then. There's a bed, and the corner leaks, and that's about all the welcome I've got for you." },
     { id = "dp_pt_any", when = { party = true }, text = "A whole party at once! Sit down, all of you, and if any of you have come from Tarren Mill, keep it quiet." },
     { id = "o_hand_keep", tags = { "news" }, when = { gossip = { topic = "silver_hand", stance = { "keep", "restore" } } },
       text = "The Marshal says you'd see the Silver Hand raised again. The old knights in the corner heard it too, and two of them have polished their gauntlets since, which they haven't done in years." },

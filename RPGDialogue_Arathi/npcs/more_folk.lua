@@ -720,8 +720,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're back, and the League's heard of what you did in the Basin. I've kept the good kit back for you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Show your marks and take your kit, and spare me the stories." },
     { id = "g_default", text = "League kit for League soldiers. Show me your marks and we'll talk." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? The Basin's been busy, by the look of you." },
     { id = "g_rep", when = { reputation = { faction = "League of Arathor", min = "revered" } }, text = "I keep the best of it back for soldiers like you, and you've earned every piece." },
@@ -746,8 +746,8 @@ P:NPC {
         { id = "pt_human", when = { race = "Human" }, text = "It's a ring of tents under a cliff, and it's the last ground in the Highlands that flies Stromgarde's colours. Every human kingdom began in these hills, friend, so I don't much like seeing them reduced to this." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "League rewards should go to those who fought for them.", next = "BACK", reply = "Exactly, and that's why I keep careful records of every mark.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Forge a few marks. The League will never know.", next = "BACK", reply = "The League will know, soldier, and so will I, and I'll see you stripped of your rank.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Who keeps the camp fed and shod?", next = "pointe_folk" },
         { text = "A cliff at your back is no bad thing.", next = "pointe_cliff" },
         { text = "Something else.", next = "BACK" },
@@ -900,8 +900,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you again. The Defilers think highly of you, and I have the ledger to prove it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Marks first, and the rest of our conversation will be very short." },
     { id = "g_default", text = "Marks first, questions after. That is the order of things." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you again. Let me guess: more marks, and fewer limbs." },
     { id = "g_rep", when = { reputation = { faction = "The Defilers", min = "revered" } }, text = "The Defilers think well of you. I have the paperwork to prove it." },
@@ -925,8 +925,8 @@ P:NPC {
         { id = "hf_default", text = "It is loud, it smells of buzzard, and the orcs sharpen their axes at all hours. Still, Gor'mul keeps his walls manned and Drum Fel keeps his people busy, and I have worked in worse-run places that had roofs." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "The Defilers' rewards should go only to those who earned them.", next = "BACK", reply = "Quite. The ledger never lies, and neither do I, which is a rare thing among the dead.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Forge a few marks. The paperwork is easy to fudge.", next = "BACK", reply = "How amusing, since I keep the paperwork myself, and I assure you it will not be fudged by either of us.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Do the orcs make room for your kind?", next = "hammerfall_orcs" },
         { text = "Who else answers to the Undercity here?", next = "hammerfall_dead" },
         { text = "Something else.", next = "BACK" },
@@ -1060,8 +1060,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again, and I can smell that you've been cooking. Good, come and show me what you've learned." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll teach you, since it's my trade, but you'll not get any of my secrets." },
     { id = "g_default", text = "You want to learn to cook, or you want to stand there smelling my fire?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Good. The fire is hot and the buzzards are plucked." },
     { id = "g_cook", when = { profession = "Cooking" }, text = "A cook! Come, I will show you what a buzzard is good for." },
@@ -1086,8 +1086,8 @@ P:NPC {
         { id = "et_default", text = "Gor'mul's grunts, the wyvern riders who come through with Urda, and the dead ones from the Undercity who sit and do not eat. Innkeeper Adegwa sends her guests to me when her own pot runs low, and I send the thirsty ones back to her." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A cook should use only good, fresh meat for the warriors.", next = "BACK", reply = "Yes. A warrior fed on rotten meat fights like rotten meat, and the Horde deserves better.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Old meat is still meat. Warriors won't taste the difference.", next = "BACK", reply = "They will taste it on the battlefield, when their bellies turn, and they will curse your name.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "And Uttnar? He sells meat too.", next = "eaters_uttnar" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1219,8 +1219,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You again. I saved the good cuts, the ones with fat on them. For you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Buy meat, or go. I have no words for you today." },
     { id = "g_default", text = "Meat. You want some, or not?" },
     { id = "g_back", when = { metBefore = true }, text = "You again. Still hungry? Good. Buy." },
     { id = "g_forsaken", when = { race = "Scourge" }, text = "The dead buy meat too, I have learned. I do not ask what for." },
@@ -1244,8 +1244,8 @@ P:NPC {
         { id = "wr_default", text = "They eat like wolves, and Gor'mul's grunts eat most of all, because he drills them until they drop. A fort that is fed does not grumble, so I count my work as part of the watch." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A butcher should sell honest meat at an honest price.", next = "BACK", reply = "Yes. Meat is meat, and I do not cheat my people. That is not the orc way.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell the Forsaken the spoiled cuts. They won't notice.", next = "BACK", reply = "They notice, and they complain, and I do not need their whining, so no.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Do the Forsaken buy from you as well?", next = "warriors_dead" },
         { text = "An army marches on its butcher.", next = "warriors_pride" },
         { text = "Something else.", next = "BACK" },
@@ -1566,8 +1566,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer! I've a fresh load just in over the Thandol Span, and you get first pick." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. You'll pay full price, and I'll not be hearing any haggling." },
     { id = "g_default", text = "Thread, flux, vials and dye, friend, and every bit of it carried over the Thandol Span on my own mule." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more? I thought you might be, since there's no one else to buy from." },
     { id = "g_craft", when = { profession = { "Tailoring", "Blacksmithing", "Leatherworking", "Alchemy", "Engineering" } }, text = "A craftsman! Then you'll appreciate a tradesman who keeps the right goods dry." },
@@ -1597,8 +1597,8 @@ P:NPC {
         { id = "h_again3", text = "Yes? I've the afternoon, and you've the look of a customer." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A trader should sell dry goods honestly, and say when they're damp.", next = "BACK", reply = "Exactly, friend, and that's why my mule carries a tarpaulin and my name carries weight.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell the damp flux at full price. Nobody else is selling here.", next = "BACK", reply = "They'd buy it once, and then they'd hang my mule from the wall, and rightly.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "What makes a tradesman superior?", next = "superior" },
         { text = "It's a long road to bring goods up here.", next = "road" },
@@ -1703,8 +1703,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hello again. I've a new batch of curing salt in, and I kept the finest of it back for you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. The racks are full, and so is my patience. Buy, or leave." },
     { id = "g_default", text = "Salt, thread and dye for the leather trade. Have a look, and mind the drying racks behind you." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again. The racks are full today, so I hope you've come to buy and not to sell." },
     { id = "g_lw", when = { profession = "Leatherworking" }, text = "A leatherworker, by your hands. Good, I'll not need to explain what curing salt is for." },
@@ -1734,8 +1734,8 @@ P:NPC {
         { id = "h_again3", text = "Aye? Ask away." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A tanner should be honest about how well a hide was cured.", next = "BACK", reply = "Aye. A badly cured hide will rot on your back, and I'll not sell such a thing.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Rush the curing and sell the hides fast. Profit's profit.", next = "BACK", reply = "Then you'll sell a rotten jerkin once, and nobody will buy from you again.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "What hides do the Highlands give you?", next = "hides" },
         { text = "A soldiers' camp must go through a lot of leather.", next = "camp" },
@@ -1830,8 +1830,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again, an' welcome! I've a crate o' vials in that's clean as a priest's conscience an' twice as clear." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Buy yer vials an' dinnae drop any on the way out, for I'll no' replace them." },
     { id = "g_default", text = "Vials, flasks an' all an alchemist needs, {g:lad|lass}! Step up, they'll no' bite." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, are ye? Good, I've fresh vials in, an' not a crack in the crate." },
     { id = "g_alch", when = { profession = "Alchemy" }, text = "An alchemist! Now there's a customer who knows a good flask from a bad one." },
@@ -1864,8 +1864,8 @@ P:NPC {
         { id = "h_again3", text = "Aye? Speak up over the wind." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "An alchemist should sell sound glass, without hidden cracks.", next = "BACK", reply = "Aye, for a cracked vial's worse than nae vial, an' it'll leak on yer best boots.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell the cracked vials cheap. Let the buyer beware.", next = "BACK", reply = "Let the buyer beware o' ye, more like, for I'll no' have that in my shop.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "A Strongbrew, selling empty bottles?", next = "name" },
         { text = "Who needs potions most in this camp?", next = "camp" },
@@ -1969,8 +1969,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You return, and you forgot nothing this time. I am almost disappointed, but I am glad to see you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Buy what you forgot, and do not waste my time with talk." },
     { id = "g_default", text = "Food, water, rope and bags. Tell me what you forgot, and I will sell it to you." },
     { id = "g_back", when = { metBefore = true }, text = "You are back, so you forgot something else. It is always so." },
     { id = "g_orc", when = { race = "Orc" }, text = "Throm-ka, warrior. Check your pack before you march, and buy what is missing." },
@@ -2000,8 +2000,8 @@ P:NPC {
         { id = "h_again3", text = "More questions? Good, a warrior who asks lives longer." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A trader of the Horde sells fair to every warrior.", next = "BACK", reply = "Yes. That is the way of the Horde, and that is my way.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell high to the humans who wander in. They deserve it.", next = "BACK", reply = "Humans do not wander into Hammerfall, and if they do, they do not live to shop.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your goods.", next = "BUSINESS" },
         { text = "What do warriors forget most?", next = "forget" },
         { text = "You've kept stores in other camps.", next = "camps" },
@@ -2105,8 +2105,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You return, and your bow has held. That pleases me, for it is my work in your hands." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Look, do not touch, and do not insult my bows by haggling." },
     { id = "g_default", text = "Bows and arrows. Every one is strung by my hand and shot by my hand before it is sold." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Has the string held? Show me." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter. Good. Let me see how you hold a bow before I sell you one." },
@@ -2138,8 +2138,8 @@ P:NPC {
         { id = "h_again3", text = "Speak, then." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A bow should be sold only when its maker trusts it.", next = "BACK", reply = "That is so. I shoot every bow I sell, for my name goes with it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell the warped bows. Hunters can fix them themselves.", next = "BACK", reply = "Then they are not my bows, and you are not a hunter I would sell to.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your bows.", next = "BUSINESS" },
         { text = "What makes a good bow in the Highlands?", next = "make" },
         { text = "The warriors here laugh at bows?", next = "laugh" },
@@ -2235,8 +2235,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back so soon, mon? Good, I been savin' a spool of the good thread, de kind dat don't snap in de rain." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it be you. De prices be what dey be, so don't go haggling wit' Jun'ha today." },
     { id = "g_default", text = "Thread, dye and needles. If you tore it, I can sell you what mends it." },
     { id = "g_back", when = { metBefore = true }, text = "Back so soon? Either you sew fast or you tear fast." },
     { id = "g_tailor", when = { profession = "Tailoring" }, text = "A tailor! At last, someone in this fort who will not ask me what a bolt is." },
@@ -2268,8 +2268,8 @@ P:NPC {
         { id = "h_again3", text = "Yes? Ask before I lose count of this hem." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A good tailor should mend what's torn, not just sell new.", next = "BACK", reply = "Ya, mon, dat be true. A good stitch saves more den it costs, and dat be wisdom.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell them new cloth every time. Mending earns nothing.", next = "BACK", reply = "Ha! You be thinkin' like a goblin, mon, but Jun'ha got more pride dan dat.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "You mend the fort's banners yourself?", next = "banners" },
         { text = "Where does good cloth come from, out here?", next = "cloth" },
@@ -2364,8 +2364,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ha, you again! Good. I have a fresh batch of thread, and I kept the strongest for you, because you pay fair." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Look, do not touch, and pay before you go. That is all." },
     { id = "g_default", text = "Salt, thread and dye for the leather trade! Come and look, and do not mind the smell, it is the smell of work." },
     { id = "g_back", when = { metBefore = true }, text = "Ha, you again! Good. Did you bring me hides, or only coin? I take both." },
     { id = "g_lw", when = { profession = "Leatherworking" }, text = "A leatherworker! Come, come, feel this thread and tell me it is not the best you have pulled." },
@@ -2397,8 +2397,8 @@ P:NPC {
         { id = "h_again3", text = "More? Good, the vats can wait a little." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A leatherworker should pay hunters a fair price for hides.", next = "BACK", reply = "Ha! Good. I pay fair, and the hunters bring me the best. That is good business.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Pay the hunters as little as you can. They'll sell anyway.", next = "BACK", reply = "Then they sell to someone else, and I am left with no hides and no trade.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "What hides come out of these hills?", next = "hides" },
         { text = "You waste nothing, I hear.", next = "waste" },

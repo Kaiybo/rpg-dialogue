@@ -179,8 +179,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There ye are! Yer stall's swept, an' the rams have been askin' after ye in their way, which is mostly chewin' my apron." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Leave yer beast if ye must, but I'll be checkin' it's been treated kindly." },
     { id = "g_stable", text = "Come in, come in, an' shut the gate behind ye, for the rams think every open gate is an invitation tae the loch." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! I've a stall swept an' a bucket full, so whoever ye're leavin' wi' me will eat better than ye do." },
   },

@@ -12,8 +12,8 @@ P:NPC {
     third = "{name} met Felicia Maline, Darkshire's gryphon master.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again, and the birds know your step by now. They settle when you're near, which is more than they do for most." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "The gryphons don't like you, and I've learned to trust their judgement. Pay your fare and climb on." },
     { id = "g_default", text = "Flying out? I don't blame you. The birds are always glad to leave, too." },
     { id = "g_back", when = { metBefore = true }, text = "Back in Duskwood? You're braver than most, or you've a short memory." },
   },
@@ -186,8 +186,8 @@ P:NPC {
     third = "{name} met Gavin Gnarltree, Darkshire's grim weaponsmith.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Still alive, and you came back to tell me so. Come in; there's nobody in Darkshire whose blade I'd rather keep sharp." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Steel's on the rack. Buy it or don't, and spare me the talk while you decide." },
     { id = "g_default", text = "Steel, sharpened. You'll want it in this wood." },
     { id = "g_back", when = { metBefore = true }, text = "Still alive? Then the blade's done its job, or you've done yours." },
   },
@@ -202,8 +202,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Nothing I sell, I'm sorry to say, though a shaman's lightning might keep the dead at bay a little longer." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A blade should be sold for what it is, not what it promises.", next = "BACK", reply = "That's why I tell every buyer no sword is enough for these woods. They buy one anyway, but at least they know.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Tell them the blade's blessed; frightened folk pay more.", next = "BACK", reply = "Frightened folk who trust a lie end up in Tranquil Gardens. I'll not have their ghosts blaming my forge.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Then I'll fight with honest steel and lightning both.", next = "BACK", reply = "Then you'll last longer than most, and I'll sell you the steel to do it with. The lightning's your business.", fx = { align = { honor = 1 } } },
         { text = "If nothing's ever enough, there's no point bothering.", next = "BACK", reply = "Then don't bother, and see how long you last. I'll keep selling to the ones who do.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },

@@ -16,8 +16,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There ye are again! The birds have missed ye, I swear, an' I've saved the steadiest one for the flight out o' this blight." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ye want a bird? Fine, I'll give ye one, but I'll not pretend it's a pleasure to see ye back." },
     { id = "g_default", text = "Need a bird out of this blighted country? I don't blame ye, and by the forge, the gryphons don't either." },
     { id = "g_xhand", when = { origin = "dwarf_silver_hand" }, text = "Took the oath back home in Ironforge, did you? Good on you, lad or lass, and the Dawn could use a dozen more like you, so mind you come back out of this country in one piece." },
     { id = "g_horde", when = { faction = "Horde" }, text = "My birds won't take you, friend, but Georgia's bats will. She's just over there, and she doesn't bite, though her bats might." },
@@ -221,8 +221,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you again. The bats like you, living one, and so do I, which is a stranger thing to say than you'd think." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. The bats will carry you, because I tell them to, though I've half a mind to tell them to drop you." },
     { id = "g_default", text = "The bats are fed and ready, if you're Horde. If you're not, the dwarf is over there." },
     { id = "g_alliance", when = { faction = "Alliance" }, text = "My bats won't carry you, living one, but Khaelyn's gryphons will. I'll still answer a question, if you've one worth asking." },
   },
@@ -415,8 +415,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. You're always welcome under this roof." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll rent you a room, but there'll be no trouble in my house tonight." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, thank the Light, you've come back safe! Sit down, dear, I've kept the soup warm just in case." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You're back. I'll feed you, because nobody goes hungry under this roof, but I'll not be fussing over you." },
     { id = "g_default", text = "Come in and sit down, you look half frozen. The soup's hot, and nothing dead gets past these walls." },
     { id = "g_back", when = { metBefore = true }, text = "You came back! I always worry, you know, when people walk out that gate." },
     { id = "g_away", when = { away = 14 }, text = "You came back, and after {away} away too! I always worry when people walk out that gate, and you were gone so long." },
@@ -670,8 +670,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my favourite crafter! The crate from Chillwind came through last night, and I put aside the best spools for you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Take what you need, and pay for every spool, because I've not forgotten what you wasted last time." },
     { id = "g_default", text = "Thread, flux, vials and cloth, all hauled in from Chillwind past the Scourge. Take what you need, and don't waste it, because every crate costs some wagon driver a week of nightmares." },
   },
 
@@ -688,8 +688,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Coin's coin, and the Dawn needs every copper to keep its knights in thread and bandages. I'll admit I counted yours twice, but that's habit, not prejudice, and I'd do the same to a dwarf." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Every spool that survived the road deserves an honest price.", next = "BACK", reply = "Good, because two caravan drivers died bringing this lot in, and I won't cheat their memory.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Supplies this scarce? You could charge triple, and folk would pay.", next = "BACK", reply = "They would, and the Dawn would lose good crafters to debt. I'd rather lose the coin.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Count it all you like. Honest coin is honest coin.", next = "BACK", reply = "Honest it is, and I'll count it once more just for luck. Thank you, {class}.", fx = { align = { honor = 1 } } },
         { text = "Count it again and I'll take my coin elsewhere.", next = "BACK", reply = "Elsewhere's a long walk from here, friend. Once is plenty, I promise.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },

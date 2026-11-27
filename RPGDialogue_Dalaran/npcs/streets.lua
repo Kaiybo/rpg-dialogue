@@ -15,8 +15,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's yerself again! Come in, {g:lad|lass}, there's somethin' on the humming shelf I've been savin' to show ye." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ye again. I'll sell ye what's on the shelves, but don't expect a story to go with it." },
     { id = "o_kirintor_neutral", tags = { "news" }, when = { gossip = { topic = "kirin_tor", stance = "neutral" } },
       text = "Word up from the Citadel is ye told Modera that knowledge shouldnae wear a tabard. Good! Neither should antiques, an' I'll sell 'em tae anyone who pays." },
     { id = "g_default", text = "Antiques, old an' odd, {g:lad|lass}. Look all ye like, but mind yer beard near the humming shelf." },
@@ -35,8 +35,8 @@ P:NPC {
     dd_atrexis = {
       lines = { { id = "dd_atrexis_default", text = "Some of it, I reckon, the old bones an' grave-goods especially. A necromancer raisin' an army under the Kirin Tor's noses will stir up anything that remembers bein' dead, an' I've a crate of burial urns from the old cemeteries that rattled every night for a month." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Old things should go to those who'll respect their history.", next = "BACK", reply = "Aye, that's how I see it too, an' it's why I ask where they're goin' before I sell.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "An antique's only worth what some fool will pay.", next = "BACK", reply = "Ha! There's truth in that, {g:lad|lass}, but I'll not have ye callin' my customers fools.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Then perhaps you shouldn't sell grave-goods, Brammold.", next = "BACK", reply = "Perhaps I shouldn't, an' perhaps I'll think on it, though the margins are awful temptin'. Ye've a conscience on ye, friend.", fx = { align = { light = 1 } } },
         { text = "Quiet urns fetch a better price. You owe me a cut.", next = "BACK", reply = "Ha! A cut, says the hero. I'll stand ye a drink, an' that's the most ye'll get from a Deepmine.", fx = { align = { light = -1 } } },
         { text = "Something else, Brammold.", next = "BACK" },
@@ -165,8 +165,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are! Beepo's been sulking since you left, at roughly ninety percent confidence, so do say hello." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. I'd ask you to hold a spring, but I've run the numbers and I'd rather not." },
     { id = "g_default", text = "Hello! Watch your feet; there's a cat under them, probably, at roughly a seventy percent likelihood." },
     { id = "g_gnome", when = { race = "Gnome" }, text = "Oh, a fellow gnome! Come in, and step over Beepo; he won't move." },
     { id = "g_back", when = { metBefore = true }, text = "You again! Good, you can hold this spring while I find out why it's sulking." },
@@ -336,8 +336,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you again. Zara's been watching the door all week, and I suspect she was waiting for you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep off the fresh paving, say what you need, and then be on your way." },
     { id = "g_default", text = "Good day. Mind the fresh paving." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the street's had two new stretches of paving in that time. Mind them, please, for they're still fresh." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Word is you've been kind to someone in the city. These streets are coming back slowly, and a kind word helps them along." },

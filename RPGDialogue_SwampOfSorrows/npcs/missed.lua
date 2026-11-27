@@ -15,8 +15,8 @@ P:NPC {
     third = "{name} met Grunt Tharlak, one of the two grunts guarding the human spy in Stonard.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Go on through, friend; I'll not trouble you today." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "State your business quickly, and then be on your way." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you, {class}. Go on through; you have earned that much from me, and the prisoner can glare at someone else." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. State your business and keep well away from the prisoner, or I will put you out of the gate myself." },
     { id = "g_default", text = "Stand back from the prisoner, {class}. He is not to be touched until the Commander's questioner comes, and I will not be the grunt who lets it happen." },
     { id = "g_back", when = { metBefore = true }, text = "You again. The human still breathes and I still stand here, so nothing has changed." },
   },
@@ -37,8 +37,8 @@ P:NPC {
         { id = "h_again2", text = "Speak. My eyes stay on the human." },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "The prisoner must wait for the Commander's questioner, as ordered.", next = "BACK", reply = "Yes, and that is why I stand here in the mud instead of doing it myself.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Why wait for a questioner? Make the human talk now.", next = "BACK", reply = "Because the Commander said wait, and a grunt who forgets his orders is no grunt at all.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Who is the prisoner?", next = "prisoner" },
         { text = "You sound tired of guard duty.", next = "duty" },
         { text = "What does Stonard fight out there?", next = "fight" },
@@ -105,8 +105,8 @@ P:NPC {
     third = "{name} met Grunt Zuul, the quieter of the two grunts guarding the human spy in Stonard.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've done right by this place, and the watch knows it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Move along, and stay out of trouble. I'll know if you don't." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, {class}. You have done right by Stonard, and the watch remembers it, even if I say little." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I remember you. Stay on your side of the post and out of trouble, because I will know if you don't." },
     { id = "g_default", text = "You may look at the prisoner, {class}, but you will come no closer than that post." },
     { id = "g_back", when = { metBefore = true }, text = "I remember you. The rule is the same as before, and so is the post." },
   },
@@ -123,8 +123,8 @@ P:NPC {
         { id = "ygruntzuul1", text = "Nowhere. I was born in this swamp, to orcs who hid from the humans' camps. My mother taught me to sit in the reeds for a day without moving, so the patrols would pass. That is why I watch so well." },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "Stonard stands because its grunts keep the watch without complaint.", next = "BACK", reply = "It does. A wall of orcs is only as strong as the one who stays awake.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "A real warrior follows his own judgment, not a watch rota.", next = "BACK", reply = "Then go and judge things out in the swamp, {class}, far from my post.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Do you miss anything of that life?", next = "ymiss" },
         { text = "Something else.", next = "BACK" },
       },

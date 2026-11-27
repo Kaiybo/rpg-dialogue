@@ -167,8 +167,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. Ask what's on your mind, not what you think I want to hear." },
       },
       choices = {
-        { text = "The Light forgives even warlocks, in time.", next = "BACK", reply = "The Light, perhaps. I am only a man, and I am slower about it.", fx = { align = { light = 1 } } }, -- dp_stance
-        { text = "Some sins the Light should never forgive.", next = "BACK", reply = "Careful. I said much the same once, and the Light taught me humility for it.", fx = { align = { light = -1 } } }, -- dp_stance
+        { text = "Even a warlock can find his way back to the Light.", next = "BACK", reply = "The Light may welcome him home. I am only a man, and slower to forgive.", fx = { align = { light = 1 } } }, -- dp_stance
+        { text = "The Light should turn its back on demon-callers forever.", next = "BACK", reply = "Careful. I once said the same, and the Light humbled me for it.", fx = { align = { light = -1 } } }, -- dp_stance
         { text = "Train me.", next = "BUSINESS", when = { class = "PALADIN" } },
         { text = "What is the Tome of Divinity?", next = "tome", when = { class = "PALADIN" } },
         { text = "What's the hardest part of the oath?", next = "oath" },

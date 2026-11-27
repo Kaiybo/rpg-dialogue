@@ -19,8 +19,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. You're always welcome under this roof." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Sit where you like, and I'll get to you when I get to you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again, an' yer stool's right where ye left it. I'll admit I'm glad o' the company." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Sit if ye must, but keep out o' the way o' the staff." },
     { id = "g_default", text = "Welcome. Sit anywhere ye like, but don't be blockin' our way." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Yer stool's where ye left it, more or less." },
     { id = "g_drunk", when = { drunk = true }, text = "Ye've had plenty already, by the walk on ye. Sit down before ye fall down, an' I'll bring water." },

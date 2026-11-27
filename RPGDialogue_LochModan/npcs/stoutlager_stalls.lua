@@ -15,8 +15,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There ye are! I've tucked the bits ye always forget under the counter, for I knew ye'd be back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Buy what ye need an' dinnae dawdle, for there's folk waitin'." },
     { id = "g_default", text = "I'm Yanni Stoutheart, an' I sell general supplies, so if ye need it on the road, I've likely got it under this counter somewhere." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Let me guess: ye ran out o' somethin' ye swore ye had plenty of." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, were ye? Then yer pack's half empty, an' I'm glad tae see ye." },
@@ -45,8 +45,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. I'm only countin' nails, an' I've lost my place already." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "I'd always tell you if you'd given me too much change.", next = "BACK", reply = "I know ye would, an' that's why ye're always welcome at this counter.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A shopkeeper who can't count deserves to be shortchanged.", next = "BACK", reply = "Then it's lucky I can count, an' quick, so keep yer coins where I can see them.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "What do travellers always forget?", next = "forget" },
         { text = "What's the gossip at the inn?", next = "gossip" },
@@ -124,8 +124,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You again, an' welcome. I've a fresh crate o' flux in, an' I put the best of it aside for ye." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Buy yer goods an' go, for I've nae patience for ye today." },
     { id = "g_default", text = "I'm Drac Roughcut, an' I sell trade goods. If ye're makin' somethin', I've likely got the bit ye're missin'." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Good, for I've restocked the flux an' I'd like somebody tae buy it." },
   },
@@ -152,8 +152,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, then, but be quick about it, for there's a crate o' vials on the step that wants bringin' in before it rains." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A crafter's only as good as the honest goods they're sold.", next = "BACK", reply = "Aye, so dinnae let anyone tell ye otherwise. Rotten flux makes rotten work.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell the damp flux. Most crafters won't know it's spoiled.", next = "BACK", reply = "Most of them will, an' they'll tell everyone in Thelsamar by sundown.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your stock.", next = "BUSINESS" },
         { text = "Where do your goods come from?", next = "goods" },
         { text = "Who buys the most from you?", next = "buyers" },
@@ -251,8 +251,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again, an' still wi' all yer fingers! That's my favourite kind o' customer." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Buy yer shot, an' dinnae point anythin' at me on the way out." },
     { id = "g_default", text = "I'm Vrok Blunderblast, an' I sell guns an' shot, an' aye, the name's earned. Come in, an' don't touch anythin' that's pointed at ye." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more shot already? Ye've been busy, an' I like a busy customer." },
   },
@@ -280,8 +280,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask, an' mind ye stand clear o' the bench while ye do." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Every gun should be sold with a fair warning about its kick.", next = "BACK", reply = "Aye, an' that's why my customers have all their teeth, mostly.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Let the customer learn about the kick the hard way.", next = "BACK", reply = "Ha! That's how I earned my name, an' I'd no' wish it on anyone else.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Let me see your wares.", next = "BUSINESS" },
         { text = "How did you earn the name Blunderblast?", next = "name" },
         { text = "Why guns, and not bows?", next = "guns" },
@@ -361,8 +361,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, come in, come in! I've a new bolt o' Stormwind blue, an' I thought o' ye the minute it came off the cart." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Buy yer thread, an' mind the bolts on yer way out." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Ye're late, but come in. I cannae match colours by candle, mind, so dinnae ask me tae." },
     { id = "g_gnome", when = { race = "Gnome" }, text = "I'm Rann Flamespinner. Come in, wee friend, an' I'll show ye where I keep the short-cut patterns, for I had a gnome customer who taught me tae stock them." },
     { id = "g_default", text = "I'm Rann Flamespinner, an' I sell thread an' dye an' patterns. Come in, friend, an' mind ye don't tread on the bolts." },
@@ -393,8 +393,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. I'll keep spinnin' while ye think." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A tailor should never pass off another's pattern as their own.", next = "BACK", reply = "Aye, that's right. Every pattern I sell has the maker's name stitched in the corner.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Copy a rival's pattern and sell it as your own.", next = "BACK", reply = "Then ye'll sell it once, an' every tailor in Khaz Modan will know yer name after.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Let me see your supplies.", next = "BUSINESS" },
         { text = "Why 'Flamespinner'?", next = "name" },
         { text = "Who does tailoring in a mining town?", next = "who" },

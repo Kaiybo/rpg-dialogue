@@ -62,8 +62,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, but keep one ear on the stairs." },
       },
       choices = {
-        { text = "The Council of Pyrewood deserves no mercy.", next = "BACK", reply = "They'll receive none from me. You understand the work, I see.", fx = { align = { light = -1 } } }, -- dp_stance
-        { text = "The Pyrewood folk are cursed, not wicked.", next = "BACK", reply = "Perhaps, but the curse doesn't care, and neither can I.", fx = { align = { light = 1 } } }, -- dp_stance
+        { text = "Kill every one of the Council and let nothing be spared.", next = "BACK", reply = "Nothing will be. The Light spared nobody in Lordaeron, and I've no intention of being kinder than the Light.", fx = { align = { light = -1 } } }, -- dp_stance
+        { text = "Some of Pyrewood's villagers never asked for this curse.", next = "BACK", reply = "No, they didn't, and it changes nothing about what they become when night falls. Pity them afterward, if you must.", fx = { align = { light = 1 } } }, -- dp_stance
         { text = "Who are the Pyrewood Council?", next = "council" },
         { text = "What does Arugal want with this village?", next = "arugal" },
         { text = "You look like you've been waiting here a long while.", next = "waiting" },

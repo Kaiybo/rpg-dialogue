@@ -14,8 +14,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite, back for more! Sit down, love, I kept a bowl of the good stew warm in case you came by." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. I'll feed you, because I feed everyone, but don't expect me to smile while I ladle it." },
     { id = "g_bread", text = "Bread's fresh, ale's cold, and the stew's whatever the hunters brought in. What'll it be?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again, love? Good, you looked thin last time." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and I'll wager you didn't eat a proper meal the whole time. Sit down, I'll find you something." },
@@ -36,8 +36,8 @@ P:NPC {
     dd_cages = {
       lines = { { id = "dc_default", text = "They were, and some of them still are, though they'll mend. The youngest won't talk about the Shroud at all; he only eats and stares at the river, so I keep his bowl full and don't ask him anything." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A soldier who can't pay should still get fed.", next = "BACK", reply = "That's what I tell the quartermaster every week, love, and he hates hearing it as much as you'd think.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "If they can't pay, they can go hungry like anyone else.", next = "BACK", reply = "Then you've never watched a hungry boy pick up a sword, love. I have, and I'll not do it again.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Is there anything they need?", next = "dd_cages2" },
         { text = "Something else.", next = "BACK" },
       },

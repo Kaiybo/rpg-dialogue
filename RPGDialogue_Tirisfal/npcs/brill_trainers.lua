@@ -169,8 +169,8 @@ P:NPC {
     third = "{name} met Cain Firesong, who trains mages at the Gallows' End in Brill.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my best student, and you've not singed Renee's tablecloth once. Sit, sit; I've a lesson I've been saving for you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Stand back from the table, keep your fire to yourself, and listen without interrupting me." },
     { id = "g_mage", when = { class = "MAGE" }, text = "A mage! Sit down, sit down, and mind Innkeeper Renee's tablecloth, she's very particular after last time." },
     { id = "g_other", when = { ["not"] = { class = "MAGE" } }, text = "You're not one of mine, but you may watch, provided you stand well back. My students have enthusiasm, and not all of it aims where they mean it to." },
     { id = "g_anastasia", when = { questActive = TODO_QUEST("Speak with Anastasia") }, text = "Anastasia Hartwell is waiting in the Undercity's Magic Quarter, so go, and give her my regards, and don't tell her about the tablecloth." },
@@ -188,8 +188,8 @@ P:NPC {
     pupils = {
       lines = { { id = "pu_default", text = "They have, and I point to each one with pride. That long scorch is a girl from Deathknell who had never held a flame before, and the round one is a clerk who sneezed halfway through the incantation, and both of them are in the Undercity now, doing well." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A mage should never use his art to cheat the unlearned.", next = "BACK", reply = "No, that's how Dalaran's lot behaved, and look where their wisdom got Lordaeron. You're better than them.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Magic is power. Use it to take what the weak can't keep.", next = "BACK", reply = "Spoken like a Kirin Tor archmage, and I mean that as an insult. Get out of my sight for a while.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What does Renee say about her ceiling?", next = "pupils2" },
         { text = "Something else.", next = "BACK" },
       },
@@ -373,8 +373,8 @@ P:NPC {
     third = "{name} met Marion Call, who trains rogues at the Gallows' End in Brill.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are, and I didn't hear you on the stairs at all. Come and sit; you've earned a harder lesson." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "There you are. I heard you on the stairs, again, and I heard what you've been up to besides." },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "There you are. I heard you on the stairs, which we'll work on." },
     { id = "g_other", when = { ["not"] = { class = "ROGUE" } }, text = "You've walked into the wrong corner, friend, but sit if you like. I don't bite, and I only listen when it's worth it." },
     { id = "g_mennet", when = { questActive = TODO_QUEST("Mennet Carkad") }, text = "Mennet Carkad waits in the Undercity's Rogues' Quarter. He'll find you before you find him, so don't worry about the finding." },
@@ -392,8 +392,8 @@ P:NPC {
     corner = {
       lines = { { id = "co_default", text = "I chose it with care. From here I can see the door, the stairs and the cellar hatch, and Renee's lamp doesn't reach me unless she trims the wick, which she does on purpose when she thinks I've been listening too long." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A rogue's word to her own guild should hold, whatever else she does.", next = "BACK", reply = "Good. The trade only works because we trust each other a little, and the little matters.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A rogue lies to everyone, her own guild most of all.", next = "BACK", reply = "Then the guild will find out, and we're very good at finding out. Think on it.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "The innkeeper keeps an eye on you, then.", next = "corner2" },
         { text = "Something else.", next = "BACK" },
       },
@@ -502,8 +502,8 @@ P:NPC {
     third = "{name} met Faruza, Brill's herbalism trainer.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you've come back, and your boots are clean this time. Come and let me smell your satchel; I'm sure it's in fine order." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Wipe your boots, and then tell me what you've torn up by the roots since you were here last." },
     { id = "g_default", text = "Wipe your boots, please; you've brought half of the cemetery in on them." },
     { id = "g_herb", when = { profession = "Herbalism" }, text = "An herbalist! Let me smell your satchel: peacebloom, earthroot, and something at the bottom that's gone off." },
   },
@@ -522,8 +522,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. Plants don't mind waiting." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "An herbalist should leave the blighted patches to heal.", next = "BACK", reply = "Yes, exactly. Every plant in Tirisfal is sick, and they need time, the same as any patient.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Strip the blighted patches bare. They'll never recover anyway.", next = "BACK", reply = "You'd say that of us Forsaken too, I suppose. The plants recover, if you let them, and so do we.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me herbalism.", next = "BUSINESS" },
         { text = "What grows in Tirisfal?", next = "grows" },
         { text = "Do the apothecaries buy from you?", next = "apoth" },

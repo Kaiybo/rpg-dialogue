@@ -17,8 +17,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are, and I didn't even have to threaten anyone to keep your stool tonight. Sit; you've earned the seat beside mine." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You found me again. I'll take your coin and teach the lesson, and I'll keep my eyes on your hands the whole time." },
     { id = "g_flirt", when = { flirt = true, chance = 0.4 }, text = "You came in, found the exits, and then found me. I'll take that as a compliment, since most people never get past the exits." },
     { id = "g_flirt_warm", when = { flirt = true, npcFlagBefore = "flirt_warm" }, text = "There you are. I kept the stool beside mine empty all evening, which in the Salty Sailor took two threats and a bribe." },
     { id = "g_flirt_cool", when = { flirt = true, npcFlagBefore = "flirt_declined", chance = 0.5 }, text = "Good evening to you. It's business only at this table now, as you asked, and I'm a man who keeps to terms." },
@@ -47,8 +47,8 @@ P:NPC {
     flirt = {
       lines = { { id = "fl_default", text = "Because you're better company than the door, and the door has been my closest friend for years. I don't say that to many people in this tavern, so if you'd share a bottle some quiet night, I'd teach you how to lose a tail on the docks, and you could teach me whatever you like." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Even a thief keeps faith with the people he works with.", next = "BACK", reply = "Especially a thief, because nobody else will. The Baron tolerates me because I keep my word, and that's the only reason.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "There's no honour among thieves, only better thieves.", next = "BACK", reply = "Then you'll be a lonely thief, and lonely thieves get sold out first. Still, you'll learn something from me either way.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'd like that, Strom. You pick the night.", next = "flirt_warm", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "flirt_warm" } } } },
         { text = "One rogue to another, I'd sooner rob you than court you.", next = "flirt_rogue", when = { class = "ROGUE" },
           fx = { affinity = 1, trait = { witty = 1 }, npcFlag = { set = { "flirt_warm" } } } },

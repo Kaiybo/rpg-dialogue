@@ -15,8 +15,8 @@ P:NPC {
     third = "{name} met Delia Verana, a Forsaken who lived in Tarren Mill before it fell and lives there still.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again, {class}. Sit on my steps a moment, if you like; they're still mine, whatever the Deathguard say." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Mind the fences, and don't sit on my steps, because those are still mine." },
     { id = "g_default", text = "Welcome to Tarren Mill, {class}. Mind the fences; I built that one, and it's the only thing in town that hasn't fallen down." },
   },
   start = "hello",
@@ -145,8 +145,8 @@ P:NPC {
     third = "{name} met Vinna Wayne, a Forsaken who works around Tarren Mill.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You again, {class}, and I'm glad of it. You'd carry a bucket if I asked, I think, which is more than most around here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Out of the way, {class}. I've buckets to carry, and I've no time to waste on you." },
     { id = "g_default", text = "Out of the way, {class}, unless you'd like to carry one of these. No? Then out of the way." },
   },
   start = "hello",
@@ -484,8 +484,8 @@ P:NPC {
     third = "{name} met Caretaker Smithers, who tends the Southshore graveyard.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good day to you again, {class}. It's good to see a face I don't have to dig a grave for." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Mind the fresh ground, and keep moving, because the dead need their peace and I need mine." },
     { id = "g_default", text = "Good day to you, {class}. Mind the fresh ground, please; the dead deserve a little peace." },
   },
   start = "hello",
@@ -614,8 +614,8 @@ P:NPC {
     third = "{name} met the Southshore crier, who brings warnings of assassins to the town.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, thank the Light, it's you again! If anyone can help warn Southshore, it's you, {class}." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again? I've no time for you, because there are assassins on the road and I've got to reach the guards!" },
     { id = "g_default", text = "Hear ye, hear ye! Oh, Light, give me a moment to breathe, {class}, because assassins are on their way to Southshore!" },
   },
   start = "hello",
@@ -741,8 +741,8 @@ P:NPC {
     third = "{name} met a tailor selling cloth in Hillsbrad Fields.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, it's you, {class}. Come into the shade; I've a shirt half done that would fit you well." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you want, and then I'd thank you to move along from my table." },
     { id = "g_default", text = "Looking for cloth, {class}? I've shirts and robes for honest work, and a few for less honest work, if you don't ask questions." },
   },
   start = "hello",
@@ -751,8 +751,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I sew for the farms of Hillsbrad Fields, mostly work shirts and the odd wedding dress, though there haven't been many weddings since the plague." } },
       again = { { id = "h_again", text = "Anything else? I've a seam to finish." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A tailor should sew a farmhand's shirt as well as a lord's.", next = "BACK", reply = "I always have. A farmhand's shirt does more honest work than any lord's coat in Lordaeron.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Use the cheap thread on the farmhands. They'll never notice.", next = "BACK", reply = "They notice when it tears halfway through harvest, and then they don't come back. I need every one of them.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Less honest work? What do you mean?", next = "xhonest" },
         { text = "Who taught you the trade?", next = "xtaught" },
         { text = "I sew a little myself.", next = "xsew", when = { class = "MAGE" } },
@@ -874,8 +874,8 @@ P:NPC {
     third = "{name} met Dillord Copperpinch, a Smokywood Pastures goblin selling food at the Horde entrance to Alterac Valley.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hey, it's my frostbitten pal again! Get over here by the stove, friend, and warm up while I tally your order." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Look, I'll sell to ya, 'cause cold soldiers pay, but cash first and no complainin' about mountain prices." },
     { id = "g_default", text = "Hey, pal, you look frozen! Hot food, warm drinks, and a price that'll warm ya even faster, 'cause I'm practically givin' it away." },
   },
   start = "hello",
@@ -884,8 +884,8 @@ P:NPC {
       lines = { { id = "h_default", text = "Dillord Copperpinch, Smokywood Pastures, mountain branch. Soldiers come out of that valley half frozen and starving, and a goblin with a stove is a goblin with a customer base." } },
       again = { { id = "h_again", text = "Anything else, buddy? My fingers are freezin' here." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Charge the soldiers fair. They're freezing for a cause.", next = "BACK", reply = "Fair? Pal, I hauled this stove up a mountain, so fair's relative, but I'm hearin' ya.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Freezing soldiers will pay anything for hot cider. Charge triple.", next = "BACK", reply = "Now you're talkin' like a Smokywood partner! Just don't say it so loud near the Frostwolves.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What did you bet, to lose this badly?", next = "xbet" },
         { text = "Do the orcs give you trouble?", next = "xorcs" },
         { text = "Mirvyna says she's your competitor.", next = "xmirv" },
@@ -996,8 +996,8 @@ P:NPC {
     third = "{name} met Mirvyna Jinglepocket, a goblin selling food at the Alliance entrance to Alterac Valley.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ding-a-ling, it's my sweetheart regular! Come up to the stove, love, and warm yourself while I fetch your pie." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. I'll ring the bell anyway, sweetheart, but coin up front, and no sob stories about the snow." },
     { id = "g_default", text = "Ding-a-ling, sweetheart! Hot pies, cold ale, and a warm smile at no extra charge, which is the only free thing on this stall." },
   },
   start = "hello",
@@ -1006,8 +1006,8 @@ P:NPC {
       lines = { { id = "h_default", text = "Mirvyna Jinglepocket, Smokywood Pastures, valley concession. The Stormpike dwarves eat like starved bears, and I've the only stove on this side of the mountain." } },
       again = { { id = "h_again", text = "Anything else? Bell's gettin' cold." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "The Stormpikes deserve honest pies for honest coin.", next = "BACK", reply = "Honest pies, aye, and honest prices, give or take the mountain surcharge. A girl's got overhead.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Water the ale. The Stormpikes are too cold to taste it.", next = "BACK", reply = "Ha! You've never met a thirsty dwarf, sweetheart. They'd know, and they'd take the stall apart.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What's selling best this winter?", next = "xsell" },
         { text = "Isn't a war a strange place for a pie stall?", next = "xwar" },
         { text = "You'll sell to anyone, won't you?", next = "xanyone" },
@@ -1235,8 +1235,8 @@ P:NPC {
     third = "{name} met an assassin of Ravenholdt in the hills of Alterac.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Go on through, friend; I'll not trouble you today." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm watching you, so keep your hands where I can see them." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You again, and quieter this time. Pass, {class}, and Ravenholdt will remember you kindly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You walk loudly, and you walked loudly last time too. Pass if you must, but Ravenholdt is listening." },
     { id = "g_default", text = "You walk loudly, {class}. Ravenholdt hears everything that comes up this road." },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "One of us, or near enough. You may pass, but quietly." },
   },
@@ -1246,8 +1246,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I guard the road to the manor. Lord Ravenholdt receives only those he chooses, and I decide whether he's chosen you." } },
       again = { { id = "h_again", text = "Speak quickly." } },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "A guild without rules is just a band of cutthroats.", next = "BACK", reply = "Exactly. Ravenholdt endures because its rules are kept, every one of them, in silence.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "A true rogue answers to no guild, only to his own blade.", next = "BACK", reply = "Then you'll find the road down from Ravenholdt shorter than you think. Mind your step.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Who is Lord Ravenholdt?", next = "xlord" },
         { text = "Why do you hunt the Syndicate?", next = "xsyndicate" },
         { text = "I'm a rogue. Does that earn me anything?", next = "xrogue", when = { class = "ROGUE" } },
@@ -1356,8 +1356,8 @@ P:NPC {
     third = "{name} met a Stormpike battleguard guarding the Alliance road into Alterac Valley.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. The streets feel a little safer with you walking them." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "State your business quickly, and then be on your way." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Aye, it's ye again, {g:lad|lass}. Ye've done right by the Stormpike, so pass, an' may yer hammer strike true." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Halt there. I ken yer face, an' I dinnae like it, so ye'll wait for my say before ye pass." },
     { id = "g_default", text = "Halt there, {g:lad|lass}. This cave leads to Stormpike country, and nae one passes without the Stormpike's say." },
   },
   start = "hello",
@@ -1366,8 +1366,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I keep this cave for Vanndar Stormpike. On the far side is the valley, Dun Baldar and the Frostwolves, and ye'll want a stout heart before ye go through." } },
       again = { { id = "h_again", text = "Aye? What else?" } },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "Vanndar's orders are law in this valley, and I'll follow them.", next = "BACK", reply = "Good, {g:lad|lass}. In the valley, orders are what keeps a dwarf alive, an' the Frostwolves are waitin'.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "I'll fight the Frostwolves my own way, not Vanndar's.", next = "BACK", reply = "Ye'll fight them dead, then. The valley's nae place for a lone wolf, an' that's nae a joke.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "What's Dun Baldar like?", next = "xbaldar" },
         { text = "Have you fought the Frostwolves yourself?", next = "xfought" },
         { text = "I'm a dwarf too. I'd join you.", next = "xjoin", when = { race = "Dwarf" } },
@@ -1494,8 +1494,8 @@ P:NPC {
     third = "{name} met a veteran Frostwolf legionnaire in the snows of Alterac.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've fought well, and the company remembers it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Stay clear of the camp, unless you've orders to be here." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Throm-ka, {class}. You came back to the valley, and the Frostwolves have not forgotten your blade." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Fight the Stormpike if you must, but stay out of my way while you do it." },
     { id = "g_default", text = "Throm-ka, {class}. The valley is cold, but the fighting keeps us warm." },
   },
   start = "hello",
@@ -1504,8 +1504,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I've fought the Stormpike since they first came into the valley. My blade has seen more dwarves than my mother has seen grandchildren." } },
       again = { { id = "h_again", text = "Something else, warrior?" } },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A Frostwolf fights the Stormpike face to face.", next = "BACK", reply = "Lok'tar! That is how our clan has always fought, and how we will win this valley.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Ambush the Stormpike in the passes. Victory is what matters.", next = "BACK", reply = "Victory matters, but a victory without honour shames the clan. Drek'Thar would not approve.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Why do the Frostwolves fight for this valley?", next = "xwhy" },
         { text = "Tell me of Drek'Thar.", next = "xdrek" },
         { text = "I am Horde. Tell me how to help.", next = "xhelp", when = { faction = "Horde" } },
@@ -1740,8 +1740,8 @@ P:NPC {
     third = "{name} met Captain Armando Ossex of the Stormpike Guard at the gates of Alterac Valley.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome at our fire any night you like." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'd not trust you to hold a line, and I'll not pretend otherwise." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you again. Vanndar needs blades like yours, and I'll tell him so if he asks." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. State your business and keep it short, because I've no patience for you today." },
     { id = "g_default", text = "Halt and state your business. If it's the valley, Vanndar needs every blade he can get." },
     { id = "g_horde", when = { faction = "Horde" }, text = "You're a long way from the Frostwolves' side, and I'd advise you to keep walking." },
   },
@@ -1755,8 +1755,8 @@ P:NPC {
       lines = { { id = "h_default", text = "Captain Armando Ossex, Stormpike Guard. I hold this cave so the Horde doesn't come through it, and so our reinforcements can." } },
       again = { { id = "h_again", text = "Something else, soldier?" } },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A soldier keeps faith with his captain, whatever the cost.", next = "BACK", reply = "Good. That's what wins valleys and saves lives. Remember it when the Frostwolves charge.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "I serve Vanndar until a better offer comes along.", next = "BACK", reply = "Then don't let him hear you say it. The Stormpike don't take kindly to sellswords.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Tell me about Vanndar Stormpike.", next = "xvann" },
         { text = "You don't look like you miss Southshore.", next = "xsouth" },
         { text = "I'm Horde, Captain. I'm only passing.", next = "xhorde", when = { faction = "Horde" } },
@@ -1847,8 +1847,8 @@ P:NPC {
     third = "{name} spoke with a Hillsbrad foreman at the Azurelode Mine.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you. You've done right by us before, so stand where you like and keep the dead away." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Either grab a pick or get out of the way, because we've ore to haul and no time for you." },
     { id = "g_default", text = "If you're not here to dig, you're in the way. Unless you're here to guard; then stand over there." },
     { id = "g_horde", when = { faction = "Horde" }, text = "Forsaken! To arms, lads, the dead are at the mine again!" },
   },

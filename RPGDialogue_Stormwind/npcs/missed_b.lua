@@ -15,8 +15,8 @@ P:NPC {
     third = "{name} met Karlee Chaddis, a Stormwind mother on a long walk to the Mage Quarter with her two children.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, it's you, how lovely! Gil, Paige, say hello to our friend, and stop pulling at my skirt." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Come along, children, we've a long way still to walk." },
     { id = "g_default", text = "Good day to you. Forgive us if we don't stop long, because if I stand still Gil will start asking how far it is again." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, hello again! We're still walking, as you can see, and it's still not far." },
   },
@@ -124,8 +124,8 @@ P:NPC {
     third = "{name} met Paige Chaddis, a little girl walking Stormwind with her mother and brother.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back! Do you want to see the thing I found? It's a secret." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Mum says I'm not to talk to you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's you! When we get to Fizzles, you can pet him too, if you're gentle like me." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. You can't pet Fizzles, because you're not gentle enough." },
     { id = "g_default", text = "Hello! We're going to see Fizzles, and Mommy says I can pet him if I'm gentle." },
     { id = "g_back", when = { metBefore = true }, text = "It's you again! We haven't got to Fizzles yet, because Gil walks too slow." },
   },
@@ -244,8 +244,8 @@ P:NPC {
     third = "{name} met Lisan Pierce, a young mage who debates spellcraft with her friends below the Wizard's Sanctum.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you're back. Sit by me; you're the only one who's ever agreed it ought to be a spell." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. We've a great deal to argue about, and none of it concerns you." },
     { id = "g_default", text = "Oh, hello. You haven't come to settle the argument, have you, because Suzanne has already offered that job to three strangers this week." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and no, we haven't agreed on anything yet, although I'm closer to being right than I was." },
   },
@@ -353,8 +353,8 @@ P:NPC {
     third = "{name} met Suzanne, a young mage who keeps the peace in a long argument below the Wizard's Sanctum.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, how nice to see you again! Sit down, and you can help me keep the peace." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. I'm trying to keep the peace here, so do please keep moving." },
     { id = "g_default", text = "Hello there! Sit down if you like, and if you have an opinion about spells and potions, please keep it to yourself until they've finished shouting." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. You've missed nothing, I promise you, because we're exactly where you left us." },
   },

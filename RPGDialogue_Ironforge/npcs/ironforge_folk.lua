@@ -18,8 +18,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's yerself. The Light walks wi' ye these days, I can see it plain, an' I'm proud tae have had a hand in yer trainin'." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll teach ye, for the Light is no' mine tae withhold. But I'll be watchin' what ye do wi' it, every step." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "Stop there. I can smell the fel on ye from across the hall, an' I'll no' have it near my initiates." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "My brothers bled tae close the Dark Portal, an' here ye stand wi' the same filth on yer hands. Speak quick." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "Ye've stood in this hall a dozen times an' never once fouled it. I'll no' call ye friend, but I'll hear ye out." },
@@ -41,8 +41,8 @@ P:NPC {
         { id = "opn_crusade_q", text = "Some o' the Silver Hand's own went over tae the Scarlet Crusade after Uther fell, an' I trained alongside one or two. They burn the dead an' a fair few o' the livin' with 'em, by the stories comin' south, so tell me what ye make o' them." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A paladin who breaks his oath should lose the right to the Light.", next = "BACK", reply = "Aye, an' many have, for the Light doesnae answer a liar for long.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Oaths bend in war. The Light understands what has to be done.", next = "BACK", reply = "The Light understands, aye, but it doesnae forget, an' neither should ye.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Someone has to hold Lordaeron. At least they're fighting.", next = "opn_crusade_r_admire", fx = { align = { order = 1 }, opinion = { scarlet_crusade = "admire" } } },
         { text = "They're zealots, and they shame the Light.", next = "opn_crusade_r_hate", fx = { affinity = 1, align = { order = -1 }, opinion = { scarlet_crusade = "hate" } } },
         { text = "I pity them. Grief made them that way.", next = "opn_crusade_r_pity", fx = { trait = { kind = 1 }, opinion = { scarlet_crusade = "pity" } } },

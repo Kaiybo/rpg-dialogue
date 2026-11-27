@@ -16,8 +16,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "The bats remember you, friend, and so do I. I've saved you the steadiest one in the roost." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "The bats don't like you much, and neither do I. Name your perch and keep your hands off their wings." },
     { id = "g_default", text = "The bats are hungry and restless, which means they're ready to fly. Where to?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again. The bats remember you, which is either a compliment or a warning." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away}, are you? The bats remembered you before I did, and I'd rather not dwell on what that says about me." },
@@ -213,8 +213,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, a student who actually listens. Come in, then; I've a harder lesson today and I'd rather waste it on you than anyone else." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. The door is still behind you, and I'd thought you'd learned to find it." },
     { id = "g_default", text = "If you've come to learn, then listen. If you've come to waste my time, the door is behind you." },
     { id = "g_back", when = { metBefore = true }, text = "So, you've come back down to the sewers and the candlelight. Tell me your spellwork has grown sharper since last time." },
   },
@@ -234,8 +234,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Faith is foolish when it's lazy, and I suspect yours isn't, since the Light makes you pay for every prayer. I'd still trust a spell I can measure over a blessing I can't, but I'll admit you're evidence I can't easily explain away." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Arcane power should be studied with discipline and respect.", next = "BACK", reply = "Correct, and you'd be surprised how rare that answer is in this city.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Power is power. I'll take whatever shortcut gets me there.", next = "BACK", reply = "And the Kirin Tor buried a good many students who thought the same.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Some things can't be measured. The Light is one of them.", next = "BACK", reply = "Perhaps not, though I'll keep trying, because that's what scholars are for. You're a stubborn sort of evidence.", fx = { align = { light = 1 } } },
         { text = "Call it will, not faith, and you'll understand it better.", next = "BACK", reply = "Will, not faith? Now that's a definition I could almost work with. Do go on.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -392,8 +392,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, it's you! Come closer, I've a new tincture that only made the last tester's ears fall off." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Stay on that side of the table; I've a few things here that would like to meet you." },
     { id = "g_default", text = "Don't touch anything on the tables. Some of it bites, and some of it does worse." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Still alive, I see, which means you've been careful." },
     { id = "g_xcult", when = { origin = "forsaken_cult_remnant" }, text = "Cult of the Damned, before you died? Then you know more about plague than half my apprentices, and I'll expect you to stop pretending otherwise while you're in my Apothecarium." },

@@ -574,8 +574,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "The riders lift their heads when you come, {class}, and that's more welcome than most get. Climb up, and fly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. The riders will carry you, but they snapped at you last time, and I didn't stop them." },
     { id = "g_default", text = "If you're flying, say where, and if you're not, stand out of the shade, because the riders want it and they don't care whose blood you carry." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and the riders remember your smell. Don't take that as a compliment, {class}; they remember a dead coyote's smell too." },
   },
@@ -754,8 +754,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back for water, and still alive, so you listened to me. I'll fill your skins from the cool barrel, {class}." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy your water and get out of my shade, because I have nothing else to say to you." },
     { id = "g_default", text = "Waterskins, bandages and food that won't spoil in the heat are what a warrior needs out here, so buy them. The jerky's coyote, but nobody's died of it yet that I know of." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more water? Good, because the ones who don't come back for water don't come back at all." },
   },
@@ -773,8 +773,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Less than most, which suits me. You don't eat much, you don't drink much and you heal yourself, so you're the cheapest soldier in Kargath to keep, and I like you better for it than I like the Light." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Water should go to whoever needs it most, coin or not.", next = "BACK", reply = "Then you've never had to choose between two dying grunts. I give where I can.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "In the Badlands, water is worth whatever you can squeeze for it.", next = "BACK", reply = "Hmph. A goblin would agree, and I don't sell to goblins.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'll take only what I need. Supplies belong to the outpost.", next = "BACK", reply = "That's what I like to hear, and what I'll write in my ledger. Kargath thanks you.", fx = { align = { order = 1 } } },
         { text = "I'll take what I please. I've earned it.", next = "BACK", reply = "Earned it, have you? Then show me the ledger that says so, and I'll hand it over.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },

@@ -16,8 +16,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again, and dry! My birds have been asking for you, or at least they've stopped biting when I say your name." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll put you on a bird, but don't expect me to pick the gentle one." },
     { id = "g_default", text = "Looking for a gryphon out of this swamp? I can't blame you; even the birds won't land in the mud if they can help it." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and dry, while my poor birds haven't been dry since spring." },
   },
@@ -207,8 +207,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again, an' yer barrel's dry! Somebody's been listenin' tae me, an' I'll no' forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Buy yer shot an' oil, an' dinnae come back complainin' about rust." },
     { id = "g_default", text = "Guns, an' shot for them, an' oil, for ye'll need plenty o' that in this swamp." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Is yer barrel still dry? I'll wager it isnae." },
   },
@@ -226,8 +226,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I'd be grateful if it did, though I'll admit I'd feel daft thankin' a puddle. The old Ironforge smiths say water an' steel are enemies by nature, an' I've no reason tae doubt them in this swamp. If ye can make peace between them, I'll name a rifle after ye." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A gunsmith should sell oil with every gun in this swamp.", next = "BACK", reply = "Aye, an' I tell every customer so, for a rusted gun is worse than nae gun at all.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Let them buy oil later. More profit for you that way.", next = "BACK", reply = "Aye, an' they'd come back cursin' my name wi' a seized trigger. No, thank ye.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Oil your rifles properly. That's the dwarven way.", next = "BACK", reply = "Now that's a dwarf talkin', or near enough. Oil an' rags an' a bit o' stubbornness, an' a rifle will outlast any swamp.", fx = { align = { order = 1 } } },
         { text = "I'll make peace with the water. Old feuds can end.", next = "BACK", reply = "Make peace wi' the water? I'll believe that when I see a barrel that doesnae rust. Ye're welcome tae try, though.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -397,8 +397,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again! I've a fresh loaf and a fresh keg in, and I kept them on separate shelves just for you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Bread or powder, choose, and then be on your way." },
     { id = "g_default", text = "Bread or blasting powder? I sell both, and I keep them on separate shelves." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Did that powder stay dry? I sealed the jar myself." },
   },
@@ -416,8 +416,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Not yet, but I'd stock them if I knew what they were, and a good waterproof cloak seems likely, given the weather. The gnomes passing through keep asking whether your totems could power their gadgets, and I've learned not to answer gnomes' questions." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A merchant should sell powder only to those who know its dangers.", next = "BACK", reply = "That's sense, friend, and I ask every buyer, for I've no wish to rebuild the shop.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell powder to anyone with coin. What happens next isn't your affair.", next = "BACK", reply = "It is when they light it in my doorway, and I've seen that happen once.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Totems aren't gadgets. Tell the gnomes that from me.", next = "BACK", reply = "I'll tell them, for all the good it'll do. Last week one asked me for a totem with a crank on it, and I didn't know what to say.", fx = { align = { honor = 1 } } },
         { text = "Sell the gnomes whatever they think works, Neal.", next = "BACK", reply = "That's my policy, mostly, and it keeps the shelves moving. Nobody's blown the shop up yet, though one of them came close with a teakettle.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -588,8 +588,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my most discreet client returns. Sit, and I'll fetch the stock I keep for those who don't ask questions." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Buy what you need and leave quietly, as I'd prefer we hadn't met." },
     { id = "g_default", text = "Come in, come in, and close the door behind you. The draft is bad for business." },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "Ah, a professional. Sit down, and let's discuss your needs quietly." },
   },
@@ -607,8 +607,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Perhaps nothing, and perhaps something no one else in Menethil carries. Certain Wildhammer charms come through here, carried by people who'd rather not be asked where they got them. I don't ask, and I suggest you don't either." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Even a poisoner's trade has its rules of honour.", next = "BACK", reply = "How refreshing. There are rules, friend, and I keep them, which is why I'm still alive.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "The only rule worth keeping is not getting caught.", next = "BACK", reply = "Spoken like a professional, though I'd keep that sort of talk out of Menethil's hearing.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'll not buy what's stolen, Samor.", next = "BACK", reply = "A principled buyer, how refreshing. Then you'll want to buy elsewhere, for I couldn't swear to the history of half my shelf.", fx = { align = { honor = 1 } } },
         { text = "I won't ask. Show me what you've got.", next = "BACK", reply = "A buyer after my own heart. I'll show you the good jars, then, and we'll both forget we ever spoke.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },

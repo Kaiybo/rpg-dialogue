@@ -186,8 +186,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Och, it's yerself! I'll take a wee bit longer off my feet if it means a chat wi' ye before Hearthglen." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ye again. I'm only restin' my feet, and I'd rather they did it in peace, so make it short." },
     { id = "g_default", text = "Haven't got long, {class}; I'm only here tae rest my feet before Hearthglen. Still, sit if ye like." },
     { id = "g_back", when = { metBefore = true }, text = "Still here, aye. My feet had more complaints than I thought." },
   },

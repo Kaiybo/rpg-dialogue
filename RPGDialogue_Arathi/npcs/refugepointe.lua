@@ -403,8 +403,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back at the Pointe, and the birds are glad of you. I've a fresh gryphon saddled, so name your destination." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll put you on a gryphon, but I'll not be wishing you a smooth flight." },
     { id = "g_default", text = "Need a gryphon? They're fed and fresh, and the weather's holding for now, though I wouldn't swear to it past noon." },
     { id = "g_back", when = { metBefore = true }, text = "Back at the Pointe. Where shall it be this time?" },
   },
@@ -586,8 +586,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again, and in one piece! I've a bit more stock since the last wagon, and I've kept some back for you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Buy what you need, and don't complain about the weevils." },
     { id = "g_default", text = "Rope, bread, flasks and thread, and not much of any of it, so buy what you need before the soldiers do. The bread's three days old, but the weevils haven't found it yet, so it's practically fresh." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. I've a bit more stock since the last wagon, but don't get excited." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and I've had three wagons and one ambush since. Buy something before the soldiers clear me out again." },
@@ -606,8 +606,8 @@ P:NPC {
     dd_northfold = {
       lines = { { id = "dd_northfold_default", text = "Robbing them, then selling our own flour back to us through some smiling middleman for twice what it cost. They're Alterac's nobility gone to seed, and they'd sell the walls of Stromgarde if they could carry them." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "In a besieged camp, prices should stay fair for everyone.", next = "BACK", reply = "That's right, and I keep them so, for there's no one else to buy from.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Charge what the market will bear. They've nowhere else to go.", next = "BACK", reply = "They've nowhere else to go, so they'd burn my wagon instead, and I'd not blame them.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Then they'll get nothing more from Refuge Pointe. I'll see to it.", next = "BACK", reply = "I'll hold you to that, and I'll know if you don't, because I count. Thank you, {class}.", fx = { align = { order = 1 } } },
         { text = "Can't blame a man for knowing a good market when he sees one.", next = "BACK", reply = "I can blame him, and I do, every evening when I tally up. Mind you don't start admiring them out loud.", fx = { align = { order = -1 } } },
         { text = "Something else, Vikki.", next = "BACK" },

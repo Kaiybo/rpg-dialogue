@@ -106,8 +106,8 @@ P:NPC {
     third = "{name} met Olthran Craghelm, who sells plate armor at Craghelm's Plate and Chain in Ironforge.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again! I can see my plate's been stoppin' axes on ye, an' there's no better advertisement for Craghelm's." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell ye plate, for an orc's axe doesnae care whose chest it hits. I care a wee bit less than usual, mind." },
     { id = "g_default", text = "Welcome tae Craghelm's! If ye want somethin' between yerself an' an orc's axe, ye've come tae the right counter." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Show me the dents, then, for I like tae see what my plate's been stoppin'." },
   },
@@ -129,8 +129,8 @@ P:NPC {
         { id = "h_again_x0", when = { class = { "WARRIOR", "PALADIN" } }, text = "Back again! Show me the dents, {class}, an' I'll tell ye what they mean." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Plate should be proofed against a real axe before it's sold.", next = "BACK", reply = "Every piece in this shop's taken a swing from my own arm, an' that's how it'll stay.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Proofing is a waste of good steel. Just polish it.", next = "BACK", reply = "Polish never stopped an axe yet, an' I'll no' send a dwarf tae the Wetlands in a shiny coffin.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your plate.", next = "BUSINESS" },
         { text = "What's the test of good plate?", next = "test" },
         { text = "The gnome nearby says plate is for those who can't dodge.", next = "liss" },
@@ -206,8 +206,8 @@ P:NPC {
     third = "{name} met Prynne, a quiet gnome with a throwing knife who keeps to Stoneblade's in the Forlorn Cavern.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Third step again, and this time I'll admit I was hoping it was you. Come in, then; Hjoldir's in a mood, but I'm not." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I heard you on the first step, which tells me you weren't trying to be quiet, and I'm not sure that's a compliment." },
     { id = "g_default", text = "You're standing in my light, and there isn't much of it down here to begin with. Were you after the shopkeeper, or did you just want to look at a gnome?" },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "I didn't hear you until the third step, which is better than most. Come in, then, and keep your hands where I can admire them." },
     { id = "g_back", when = { metBefore = true }, text = "You again. I'd say I'm surprised, but I saw you coming down the tunnel." },
@@ -307,8 +307,8 @@ P:NPC {
     third = "{name} met Ransin Donner, a dwarf in the Forlorn Cavern who keeps a baby murloc for company.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Murky, look who it is! He's been gurglin' at the door all week, an' now I know who he was waitin' for." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Murky's happy tae see ye, for he's happy tae see anyone. I'm a wee bit more particular than he is." },
     { id = "g_default", text = "Hello there! Don't mind the wee fella, for he only gurgles like that when he's pleased tae see someone." },
     { id = "g_back", when = { metBefore = true }, text = "Look, Murky, it's our friend back again! He's been askin' after ye, in his way." },
   },
@@ -407,8 +407,8 @@ P:NPC {
     third = "{name} met Rotgath Stonebeard, a grey-bearded apprentice blacksmith at the Great Forge.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ye're back! I've been savin' my straightest nail tae show ye, for ye're the only one who doesnae laugh at it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's yerself. Groum says I'm tae be polite, so I'll be polite, but I'll keep my hammer between us." },
     { id = "g_default", text = "Hello, friend! Mind the sparks, for I've no' quite got the knack o' sendin' them all the one way yet." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back! Come an' look, I've made a nail that's nearly straight." },
   },

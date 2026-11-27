@@ -15,8 +15,8 @@ P:NPC {
     third = "{name} met Protector Dorana of the People's Militia, who patrols the road to Saldean's Farm.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'd not trust you to hold a line, and I'll not pretend otherwise." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing, {class}. Walk with me a while; the road's shorter beside someone I trust." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Walk your own way, {class}. I'd not trust you at my back on this road." },
     { id = "g_default", text = "Keep walking if you're going my way, {class}. I don't stop on this road, and neither should you." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Walk with me a stretch, then, but keep your eyes on the fields." },
   },
@@ -33,8 +33,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listening, but I'm not stopping." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A patrol should keep to its route, even when it's dull.", next = "BACK", reply = "That's how the Saldeans sleep at night. I keep my route, every hour of it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Cut the route short; nobody checks the far fields.", next = "BACK", reply = "The Defias do, friend. They check every field I skip.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What's the danger on this road?", next = "danger" },
         { text = "How are the Saldeans holding up?", next = "saldeans" },
         { text = "Those scarecrows give me the creeps.", next = "scarecrows" },
@@ -112,8 +112,8 @@ P:NPC {
     third = "{name} met Protector Korelor of the People's Militia, who patrols the road to the Molsen farm.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've fought well, and the company remembers it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, {class}. You've done good work out past the Molsen fence, and I've not forgotten it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you need and move on. I've a long road and no patience left for you." },
     { id = "g_default", text = "Hold up, {class}. This road runs out to the Molsen place, and there's nothing out there but trouble now." },
     { id = "g_back", when = { metBefore = true }, text = "Back on my road, are you? Fine, but don't wander past the Molsen fence without good reason." },
   },
@@ -130,8 +130,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. The road isn't going anywhere." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A protector stands by his oath, even far from Stormwind's eyes.", next = "BACK", reply = "Aye, though some days I wonder who's watching. It doesn't matter; I'm here.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Out here, an oath is only worth what someone enforces.", next = "BACK", reply = "Nobody enforces mine but me, friend. That's rather the point of it.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What happened to the Molsens?", next = "molsens" },
         { text = "Why walk to an empty farm?", next = "why" },
         { text = "Did you know the Molsens well?", next = "xknew" },
@@ -204,8 +204,8 @@ P:NPC {
     third = "{name} met Protector Deni of the People's Militia, who guards the mill on Sentinel Hill.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you again! The mill's turning, the children are fed, and you're back, so it's a good day." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say. I've people behind me to guard, and I'd rather keep my eyes on the road." },
     { id = "g_default", text = "Welcome to Sentinel Hill, {class}. The mill's behind me, and so are the people who depend on it, so mind your manners." },
     { id = "g_back", when = { metBefore = true }, text = "Good to see you again. The mill's still turning, which is something to be thankful for out here." },
   },
@@ -218,8 +218,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask. It's a quiet hour." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A promise made to Westfall's families should never be broken.", next = "BACK", reply = "No, it shouldn't. Half the folk at this mill have been let down by Stormwind once already.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Promise the farmers anything; it keeps them working.", next = "BACK", reply = "They've had enough empty promises, friend. Not from me, and not at this mill.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Why would the Defias burn a mill?", next = "burn" },
         { text = "How do the refugees here get by?", next = "refugees" },
         { text = "What was Moonbrook like before?", next = "xmoonbrook" },
@@ -301,8 +301,8 @@ P:NPC {
     third = "{name} met Protector Leick of the People's Militia, who guards the lumber at the foot of Sentinel Hill.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome at our fire any night you like." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep your distance, and keep out of the way of real soldiers." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again! The woodpile's still here, I'm proud to say, and so are you, which is better." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep away from my woodpile, and keep out of the way of the real soldiers." },
     { id = "g_default", text = "Afternoon, {class}. Welcome to the most important woodpile in all of Westfall, or so they tell me." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? The wood's still here, I'm proud to report." },
   },
@@ -315,8 +315,8 @@ P:NPC {
         { id = "h_again2", text = "Ask away. The wood doesn't talk back much." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Guarding wood is still a duty, and it deserves doing right.", next = "BACK", reply = "Thank you! Somebody finally said it. Without this wood, there's no palisade.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "I'd help myself to a few planks; nobody would notice.", next = "BACK", reply = "Gryan would, friend. He counts them, and I swear he counts them twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Why guard lumber?", next = "lumber" },
         { text = "Where does the wood come from?", next = "source" },
         { text = "What's your best woodpile joke?", next = "xjoke" },
@@ -467,8 +467,8 @@ P:NPC {
     third = "{name} spoke with one of the lumberjacks of Westfall.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, it's you. Mind the logs, and stay a moment; a friendly face is rarer than shade out here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Mind the logs, and mind your distance. I've heard enough about you to keep clear." },
     { id = "g_default", text = "Mind the logs, friend, they roll if you look at them crossways. Not much else out here does any rolling, save the dust." },
   },
   start = "hello",

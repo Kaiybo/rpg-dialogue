@@ -722,8 +722,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Gale's greetings! Come in and mind the dye pots; you're one of the few students who ever does." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business, and leave my surname out of it. My patience with you is thin today." },
     { id = "g_default", text = "Gale's greetings, friend. Mind the dye pots, they're everywhere." },
     { id = "g_tailor", when = { profession = { "Tailoring" } }, text = "A fellow tailor! Come in; you'll forgive the mess, you'll have one just like it." },
   },
@@ -741,8 +741,8 @@ P:NPC {
     dd_belathaan = {
       lines = { { id = "db_default", text = "A little. He bought his robes from me, plain blue-grey and never anything showy, because he said a man going to talk of peace shouldn't look as though he'd come to win. I made the last one he wore, and I've wondered since whether they buried him in it." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A tailor's skill comes from honest hours at the loom.", next = "BACK", reply = "Hours and pricked fingers, yes, and you'll have plenty of both with me.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Copy a master's pattern and sell it as your own.", next = "BACK", reply = "People do, and the master always knows, believe me, because I've been that master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "He was brave to go. Someone had to try for peace.", next = "BACK", reply = "That's what I tell myself when I pass his empty chair at the hall. It helps, a little.", fx = { align = { light = 1 } } },
         { text = "Talking to Lorthuna was folly, and he paid for it.", next = "BACK", reply = "Perhaps, but don't say it where the Supreme Magister can hear. He sent him, and he hasn't forgiven himself.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -838,8 +838,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, it's you again! Come here, because I've saved up a whole list of new questions for you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. I've no questions for you today, and I'd rather you didn't ask me any." },
     { id = "g_default", text = "Oh, hello! You're new, aren't you? I'd remember that face." },
     { id = "g_stranger", when = { ["not"] = { race = "Skyborne" } }, text = "Another one from below the clouds! Come here, I've questions." },
   },
@@ -1005,8 +1005,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you back on my pier. The skycutter's running to time, and I'm glad you'll be aboard." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. The skycutter leaves when it leaves, and I'd thank you not to trouble my crew." },
     { id = "g_default", text = "Eastern dock, for Dalaran. The next skycutter isn't far off." },
     { id = "g_horde", when = { faction = "Horde" }, text = "This is the Dalaran pier, friend. Yours is the western dock." },
   },

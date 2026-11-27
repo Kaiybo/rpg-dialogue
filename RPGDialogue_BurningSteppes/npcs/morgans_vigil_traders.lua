@@ -20,8 +20,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are, and back from the Steppes again! I've put your stool by the window, the one that isn't scorched." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. I'll pour you a drink, since I pour for everyone, but I'll not keep count of whether you come back." },
     { id = "g_default", text = "Sit, if you can find a stool that isn't scorched, and have something to drink before the ash gets in your throat." },
     { id = "g_back", when = { metBefore = true }, text = "You made it back! I always keep count of who comes back from the Steppes, and I'm glad to put another mark by your name." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "You can see the mountain glowing from here at night, so I keep my back to it and my lantern lit." },
@@ -41,8 +41,8 @@ P:NPC {
         { id = "dd_gc_party1", text = "A Firegut helmet, and he swears it improves the flavour. The whole Vigil had the first proper night off since I got here, singing and burning ogre banners, and Marshal Maxwell even pretended not to notice. You ought to have stayed for it." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Every soldier at the Vigil should eat, whether they can pay or not.", next = "BACK", reply = "That's what I tell Marshal Maxwell, and he grumbles, but he hasn't stopped me yet.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Charge the soldiers double. Where else will they drink out here?", next = "BACK", reply = "I could, and they'd pay it, and then they'd stop coming back. I'd rather keep my customers alive.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Let them celebrate. They've earned a night off.", next = "BACK", reply = "That's what I said, and the marshal didn't argue, which is as near as he comes to agreeing.", fx = { align = { order = -1 } } },
         { text = "One night is fine. The Blackrock orcs won't rest.", next = "BACK", reply = "No, they won't, and the watch knew it. They drank in shifts, if you can believe it.", fx = { align = { order = 1 } } },
         { text = "Something else, Gabrielle.", next = "BACK" },

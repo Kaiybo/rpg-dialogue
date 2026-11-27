@@ -15,8 +15,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ha, back at the anvil, are ye? Good, for ye've the arms for it now, an' I've a fine bit o' work waitin'." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Ye'll get yer lesson, since it's my trade, but ye'll get no kind words wi' it, an' mind the tongs." },
     { id = "g_apron", text = "Want tae be a smith, eh? Grab an apron an' a hammer." },
     { id = "g_smith", when = { profession = "Blacksmithing" }, text = "Soot under the nails, steel in yer bones. Ye've come tae learn, aye?" },
   },
@@ -218,8 +218,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There ye are! I've kept a sack o' the good coal aside, the stuff I'd nae sell tae the Bazaar crowd." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's yerself. Coal's coal an' flux is flux; buy what ye need an' don't dawdle." },
     { id = "g_bazaar", text = "Don't let the Bazaar fool ye; I've got it cheaper an' better." },
     { id = "g_smith", when = { profession = "Blacksmithing" }, text = "Flux, coal an' stone, aye? Ye've the look o' someone runnin' low." },
   },
@@ -239,8 +239,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Some o' the old-timers grumble about orc magic, but no' me. Ye're one o' ours, an' ye buy from the right shop, which matters more." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A fair price is what keeps a smith's customers comin' back.", next = "BACK", reply = "Aye, an' that's why I'm cheaper than the Bazaar, an' prouder of it besides.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell cheap coal as good coal; most smiths cannae tell.", next = "BACK", reply = "Every smith can tell, the moment it fails tae take the heat, an' they'll come lookin' for ye.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'll always buy honest dwarven goods, Kaita.", next = "BACK", reply = "That's the spirit! Ye'll find nae better goods west o' Dun Morogh.", fx = { align = { honor = 1 } } },
         { text = "The Trade District has bargains too. You're too proud.", next = "BACK", reply = "Bargains, aye, an' half o' them break in a month. Proud I am, an' rightly so.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -416,8 +416,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, it's you, wonderful! I was just calculating something and you're exactly the variable I hoped would walk in." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. You. I'll teach you, since the guild requires it, but I'm counting my tools before you leave." },
     { id = "g_sum", text = "Fourteen plus seven, carry the two... oh, yes?" },
     { id = "g_eng", when = { profession = "Engineering" }, text = "Twenty-one, there, done! And an engineer, too. What can I teach you?" },
   },
@@ -437,8 +437,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Everything can be measured, given enough instruments. If your spirits have rules, I'd like to know them. If they don't, I'd like to know why." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Good engineering means checking every sum twice before you build.", next = "BACK", reply = "Three times, ideally, which is why I still have both my eyebrows.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "If it works, who cares whose blueprint I copied?", next = "BACK", reply = "The fellow whose blueprint it was, and the fellow standing beside it when it explodes.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Measure what you can, Lilliam. Respect what you can't.", next = "BACK", reply = "Oh, that's very sensible, and very frustrating. I'll respect it, provisionally, until I find a better instrument.", fx = { align = { order = 1 } } },
         { text = "Spirits don't follow rules. Let some mysteries be.", next = "BACK", reply = "Mysteries are just measurements nobody's finished yet! But all right, I'll leave the spirits alone, for now.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -628,8 +628,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, it's ye. Well, ye've nae interrupted me for nothin' yet, so come in an' tell me how the seams are lookin'." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach ye what ye need, an' then ye can leave me tae my thoughts o' home." },
     { id = "g_interrupt", text = "Ye interrupted me, so ye'd better have a blasted good reason." },
     { id = "g_miner", when = { profession = "Mining" }, text = "Pick still sharp? Then ye've a better reason than most." },
     { id = "g_camp", when = { questActive = TODO_QUEST("Camping 101: Mining") }, text = "Done yer campin' lesson, have ye? Let's hear how ye managed." },
@@ -650,8 +650,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I miss it every day. I came tae help rebuild Stormwind an' teach miners, an' when I've taught enough I'll go home, where the rock has some backbone." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A miner earns his ore with honest sweat an' a sharp pick.", next = "BACK", reply = "Aye, an' every vein I ever worked in Dun Morogh taught me the same.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Why dig when ye can buy another miner's claim off him cheap?", next = "BACK", reply = "Because his claim'll run dry, an' ye'll have nae idea where tae dig next.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Finish the work properly, Gelman, then go home with honour.", next = "BACK", reply = "Aye, that's the plan, an' I'll leave 'em a few good miners tae show for it.", fx = { align = { order = 1 } } },
         { text = "Go home now. Stormwind can dig its own mines.", next = "BACK", reply = "They'd collapse half the hills inside a year, an' I'd never hear the end o' it. I'll finish first.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },

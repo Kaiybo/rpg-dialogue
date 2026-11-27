@@ -15,8 +15,8 @@ P:NPC {
     third = "{name} met Eric, a boy at the Eastvale Logging Camp who means to be a logger.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's you! I told everyone you'd come back, and they didn't believe me!" },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Go away. I don't like you very much." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's you! I told everyone you'd come back and fight the wolves, and they didn't believe me!" },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Go away. I don't like you, and I'm going to get my own axe so I don't need you." },
     { id = "g_default", text = "Hello! Are you here to help with the wolves? Everybody who comes with a sword is here about the wolves." },
     { id = "g_back", when = { metBefore = true }, text = "You came back! Did you get any wolves? How many?" },
   },
@@ -113,8 +113,8 @@ P:NPC {
     third = "{name} met Jay, a boy at the Eastvale Logging Camp who loves the stable horses.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back! Do you want to see the thing I found? It's a secret." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Go away. I don't like you very much." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back! I found a horseshoe by the stables, and I'll show you, but it's a secret." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Go away. The horses don't like you, and I don't either." },
     { id = "g_default", text = "Hello. Did you come on a horse? I didn't hear one, and I always listen for them." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again. The chestnut mare had her shoes done since you were here, and she didn't like it one bit." },
   },
@@ -208,8 +208,8 @@ P:NPC {
     third = "{name} met Kevin, a restless boy kept indoors at the Eastvale Logging Camp.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back! Do you want to see the thing I found? It's a secret." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Mum says I'm not to talk to you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back! Come here, I've got a plan for sneaking out, and you're in it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Mum says I'm not to talk to you, and for once I'll do as she says." },
     { id = "g_default", text = "Did you come in from outside? What's it like out there today? We aren't allowed." },
     { id = "g_back", when = { metBefore = true }, text = "It's you! Are the wolves gone yet? Please say the wolves are gone." },
   },
@@ -306,8 +306,8 @@ P:NPC {
     third = "{name} met Kyle, a careful boy kept indoors at the Eastvale Logging Camp.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hi! I've been practising being brave, just like you." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You're mean, and I'm telling." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hi! I've been practising being brave about staying inside, like you're brave outside." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You're mean, and I'm telling, and you still have to wipe your feet." },
     { id = "g_default", text = "Hello. Wipe your feet, please, because we get the blame for the mud whoever brings it in." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again. Kevin's still here, in case you wondered, and so that's one more day I've managed." },
   },
@@ -401,8 +401,8 @@ P:NPC {
     third = "{name} met Solomon, the eldest of the children at the Eastvale Logging Camp.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back! Do you want to see the thing I found? It's a secret." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You're mean, and I'm telling." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back. I've been keeping watch, and I've a secret about the camp I'll only tell you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You're not welcome in my camp, and I'm telling Marshal Haggard." },
     { id = "g_default", text = "Good day. If you've business in the camp, Marshal Haggard's house is the one with the porch, and I can show you." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, then. Nothing's got past me since you left, if you were wondering." },
   },
@@ -499,8 +499,8 @@ P:NPC {
     third = "{name} met Morley Eberlein, the clothier in the Tower of Azora.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my favourite customer, and wearing something tolerable at last! Do come in; I've a bolt I think suits you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need, and please don't touch the grey bolt on your way out." },
     { id = "g_default", text = "You've climbed four flights for a clothier, so you must be in earnest. Do come in, and don't touch the grey bolt." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you've returned, and wearing the same thing, I see. We must talk about that." },
   },
@@ -519,8 +519,8 @@ P:NPC {
         { id = "h_again2", text = "Do go on. I can pin and listen." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Fine cloth should be priced by its quality, not its customer.", next = "BACK", reply = "Quite so. I charge the Archmage's servants the same as anyone, even when they spill tea on it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Charge the rich ones more; they'll think it's better.", next = "BACK", reply = "They often do think that, which is rather sad. I'd still rather not take advantage of it.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What enemies does a robe have here?", next = "enemies" },
         { text = "What's it like dressing Theocritus?", next = "theo" },
         { text = "What do you sell?", next = "sell" },

@@ -465,8 +465,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, one o' the Guard's finest! I've counted the good racks twice this mornin', an' they're open tae ye." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll sell ye what yer standin' allows an' no' a buckle more, an' I'll count it twice after ye've gone." },
     { id = "g_default", text = "Stores are open, soldier, though what I'll sell ye depends on what the Guard thinks o' ye." },
     { id = "g_honored", when = { reputation = { faction = "Stormpike Guard", min = "revered" } }, text = "Ah, one o' the Guard's best! Come, the good racks are open tae ye." },
   },
@@ -1646,8 +1646,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "A friend of the clan returns. Drek'Thar's people speak well of you, and my stores are open to you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I sell what the clan allows you and nothing more, and the clan does not allow you much." },
     { id = "g_default", text = "You want supplies? Then you should have earned the clan's trust first." },
     { id = "g_honored", when = { reputation = { faction = "Frostwolf Clan", min = "revered" } }, text = "A friend of the clan. My stores are open to you." },
   },
@@ -4237,8 +4237,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome here, and I'll tell the others so if they ask." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "State your business quickly, and then be on your way." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back in Coldtooth, friend! Mind the low beams, an' I'll tell the others ye're welcome down here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Say yer business quick an' get out o' my mine, before I count ye among the kobold leavings." },
     { id = "g_default", text = "Coldtooth's ours for now, lad, an' I mean tae keep it that way." },
     { id = "g_back", when = { metBefore = true }, text = "Back in the mine, are ye? Mind the low beams." },
     { id = "g_enemy", when = { faction = "Horde" }, text = "A Frostwolf in my mine! Ye'll leave it in a cart, then." },
@@ -4253,8 +4253,8 @@ P:NPC {
         { id = "y_y_who", text = "I was a miner in Dun Morogh before the Guard came north. Grew up in the shafts near Gol'Bolar, an' when Vanndar called for dwarves who knew the dark, I put down my pick an' picked up an axe. Well, I brought the pick too." },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "The mine should be worked by the Guard's rules, not greed.", next = "BACK", reply = "Aye, that's how Vanndar wants it, an' it's how I run Coldtooth.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Forget the Guard's rules; dig wherever the best ore is.", next = "BACK", reply = "An' bring the roof down on all of us? There's rules in a mine for a reason, friend.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Do you miss Dun Morogh?", next = "y_miss" },
         { text = "Something else.", next = "BACK" },
       },
@@ -4363,8 +4363,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back for another, eh? I knew ye had good taste, an' there's a fresh barrel o' Thunderbrew just tapped." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll pour ye a pint, since it's my trade, but drink it by the door an' no' at my counter." },
     { id = "g_default", text = "Come in out o' the snow, lad! A Thunderbrew pint'll warm ye better than any fire." },
     { id = "g_back", when = { metBefore = true }, text = "Back for another, eh? I knew ye had good taste." },
     { id = "g_enemy", when = { faction = "Horde" }, text = "A Frostwolf at my counter? Well, I'll no' serve ye, but I'll no' throw the first mug either." },
@@ -4379,8 +4379,8 @@ P:NPC {
         { id = "y_y_family", text = "Thunderbrews have brewed in Kharanos since before Ironforge had a king worth toastin'. My cousins keep the big brewery, an' I drew the short straw an' came up here. Or the long straw, dependin' on how ye see it." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A pint should be poured full, even in a war.", next = "BACK", reply = "Aye, an' a Thunderbrew pint always is. My da would rise from his grave otherwise.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Thin the ale; soldiers up here will drink anything.", next = "BACK", reply = "Thin a Thunderbrew? Ye'd have half the Guard after ye, an' the other half after me.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Are you kin to Lana?", next = "y_lana" },
         { text = "Something else.", next = "BACK" },
       },
@@ -4489,8 +4489,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'd not trust you to hold a line, and I'll not pretend otherwise." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back on the walls, an' glad I am o' it. Stand here by me, friend, for I trust yer eyes." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Report if ye must, but keep it short an' keep off my walls, for I've no use for ye." },
     { id = "g_default", text = "Report, soldier, an' keep it short. The walls need watchin'." },
     { id = "g_back", when = { metBefore = true }, text = "Back on the walls? Good, I could use another pair o' eyes." },
     { id = "g_enemy", when = { faction = "Horde" }, text = "Horde, on Dun Baldar's walls. That's a mistake ye'll no' make twice." },
@@ -4505,8 +4505,8 @@ P:NPC {
         { id = "y_y_who", text = "I was a guard in Ironforge for twenty years before the Stormpike called. I've walked the walls o' the Great Forge an' the walls o' Dun Baldar, an' I'll tell ye, Dun Baldar's colder." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A soldier keeps their post, even when nobody's watching.", next = "BACK", reply = "Aye, an' that's the kind o' soldier I want beside me on these walls at midnight.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sleep at your post if nobody's watching; who'll know?", next = "BACK", reply = "The Frostwolves'll know, an' they'll come over the wall while ye snore.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Do you miss Ironforge?", next = "y_miss" },
         { text = "Something else.", next = "BACK" },
       },
@@ -4615,8 +4615,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ishnu-alah, friend. The grove remembers your footsteps kindly, and the weary trees stand a little straighter." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You return, and the grove grows quiet. Speak your business, and walk softly while you do." },
     { id = "g_default", text = "Ishnu-alah. The trees here are weary, traveler, and so are we." },
     { id = "g_back", when = { metBefore = true }, text = "You return. The grove remembers your footsteps." },
     { id = "g_enemy", when = { faction = "Horde" }, text = "The Horde comes to the grove. Nature will not shelter you here." },
@@ -4631,8 +4631,8 @@ P:NPC {
         { id = "y_y_who", text = "I came from Ashenvale with Arch Druid Renferal, because the Stormpike asked for druids to stand against the Frostwolf shamans. The dwarves are strange allies, loud and smoky, but they have treated the grove with respect." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Nature should be defended, never turned into a weapon of war.", next = "BACK", reply = "Then you understand the grove's sorrow better than most who come here with axes.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Burn the Frostwolf woods; war has no room for scruples.", next = "BACK", reply = "Fire does not choose sides, and the forest will remember who lit it long after the war is done.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What does Renferal hope to do?", next = "y_ren" },
         { text = "Something else.", next = "BACK" },
       },
@@ -4741,8 +4741,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, ye're back. The north bunker holds, an' I rest easier knowin' ye're on this side o' the wall." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. The north bunker holds wi'out ye, so say yer piece an' step away from the General." },
     { id = "g_default", text = "Soldier. The north bunker holds, an' so do I." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good. Every sword helps." },
     { id = "g_enemy", when = { faction = "Horde" }, text = "Horde. Ye'll get no closer tae the General than this." },
@@ -4757,8 +4757,8 @@ P:NPC {
         { id = "y_y_bunker", text = "Thick stone, narrow doors, an' a fire that never goes out. The north bunker covers the approach tae Vanndar's hall, an' as long as it stands, the wolves must come through four marshals tae reach him." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A marshal's oath to the General should never bend.", next = "BACK", reply = "It doesnae, an' it hasnae bent since the day I swore it tae Vanndar.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Oaths are fine until the Horde is at the door.", next = "BACK", reply = "That's exactly when they matter most, friend, an' ye'd best learn it before then.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Has the bunker ever been breached?", next = "y_breach" },
         { text = "Something else.", next = "BACK" },
       },
@@ -4867,8 +4867,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome at our fire any night you like." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again! The south bunker's standin' firm, an' it's soldiers like you who keep it so." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. The south bunker doesnae need yer help, an' the General doesnae need yer company." },
     { id = "g_default", text = "Soldier. The south bunker holds, an' so do I." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good. Every sword helps." },
     { id = "g_enemy", when = { faction = "Horde" }, text = "Horde. Ye'll get no closer tae the General than this." },
@@ -4883,8 +4883,8 @@ P:NPC {
         { id = "y_y_bunker", text = "Thick stone, narrow doors, an' a fire that never goes out. The south bunker covers the approach tae Vanndar's hall, an' as long as it stands, the wolves must come through four marshals tae reach him." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Dun Baldar holds while the Guard keeps faith with each other.", next = "BACK", reply = "Aye, faith an' stone, an' we've plenty o' both at Dun Baldar.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Let the north bunker fall if it saves the south.", next = "BACK", reply = "An' who d'ye think stands in the north bunker? Our own kin, friend. Mind yer tongue.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Has the bunker ever been breached?", next = "y_breach" },
         { text = "Something else.", next = "BACK" },
       },
@@ -4993,8 +4993,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ho there, friend! The gryphons send their regards, an' so do I, an' the good supplies are on the left." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Ye'll get yer supplies, but no Wildhammer smile today, an' ye know fine why." },
     { id = "g_default", text = "Ho there! Supplies for the Guard, an' a Wildhammer smile for free." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, friend! The gryphons send their regards." },
     { id = "g_enemy", when = { faction = "Horde" }, text = "Horde, in the bunker? My hammer'll send ye home quick." },
@@ -5009,8 +5009,8 @@ P:NPC {
         { id = "y_y_aerie", text = "I'm from Aerie Peak in the Hinterlands, where the gryphons nest. The Stormpike needed someone who knew how tae keep gryphon riders fed, an' Wing Commander Vipore put my name forward. I've nae forgiven him." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Supplies should go first to those who bled for them.", next = "BACK", reply = "Aye, an' that's how I hand them out, Bronzebeard or Wildhammer or otherwise.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Slip a crate aside; the Bronzebeards will never miss it.", next = "BACK", reply = "Ha! They'd miss it, an' they'd blame a Wildhammer, which means me. No' a chance.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Do you miss Aerie Peak?", next = "y_miss" },
         { text = "Something else.", next = "BACK" },
       },
@@ -5119,8 +5119,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again! I've rope an' thread an' all the wee things ye forgot last time, I'll wager." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll sell ye yer rope an' thread, but I'll no' pretend I'm glad tae see ye at my stall." },
     { id = "g_default", text = "Welcome tae my stall, friend. What can I get ye?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! I've restocked since ye left." },
     { id = "g_enemy", when = { faction = "Horde" }, text = "A Frostwolf at my stall? I'll no' sell tae the Horde, so move along." },
@@ -5135,8 +5135,8 @@ P:NPC {
         { id = "y_y_hist", text = "My family keeps a trading post in Ironforge, an' I'm the youngest daughter. Svalbrad's my cousin, an' when the Guard needed traders, we both came. He brought the trade goods; I brought everythin' else." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A soldier's supplies should be sold fairly, war or no war.", next = "BACK", reply = "That's the Farmountain way, friend, an' my brother Svalbrad'll tell ye the same.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Soldiers can't shop elsewhere, so charge them what you like.", next = "BACK", reply = "An' have the Guard think the Farmountains are thieves? I'd sooner close the stall.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Do you ever go home?", next = "y_home" },
         { text = "Something else.", next = "BACK" },
       },
@@ -5245,8 +5245,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again, an' welcome! I've cloth an' leather fresh up from Ironforge, an' ye can have first look." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Take yer cloth an' leather an' be off, an' don't go tellin' Jonivera I was civil." },
     { id = "g_default", text = "Welcome tae my stall, friend. What can I get ye?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! I've restocked since ye left." },
     { id = "g_enemy", when = { faction = "Horde" }, text = "A Frostwolf at my stall? I'll no' sell tae the Horde, so move along." },
@@ -5261,8 +5261,8 @@ P:NPC {
         { id = "y_y_hist", text = "My cousin Jonivera an' I came up together. Our family's traded in Ironforge for generations, an' when the Guard called for merchants, we drew lots. I lost, so here I am." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Good cloth and leather deserve an honest weight and price.", next = "BACK", reply = "They do, an' I weigh mine on Jonivera's scales, which are honest tae the ounce.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell the moth-eaten bolts to the green recruits.", next = "BACK", reply = "An' then they freeze in the pass wi' holes in their cloaks. No' on my conscience.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Do you ever go home?", next = "y_home" },
         { text = "Something else.", next = "BACK" },
       },
@@ -5371,8 +5371,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again! Reagents for the mages an' somethin' less polite for you, if ye're that sort, eh?" },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Reagents or poison, take what ye came for an' go, an' keep yer hands off the wee black jars." },
     { id = "g_default", text = "Welcome tae my stall, friend. What can I get ye?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! I've restocked since ye left." },
     { id = "g_enemy", when = { faction = "Horde" }, text = "A Frostwolf at my stall? I'll no' sell tae the Horde, so move along." },
@@ -5387,8 +5387,8 @@ P:NPC {
         { id = "y_y_hist", text = "I was an alchemist's apprentice in Ironforge, but I blew up the master's table twice an' he sent me off tae the Guard. Said I'd do less harm sellin' reagents than mixin' them. He wasnae wrong." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Poison should be used on the enemy, and only the enemy.", next = "BACK", reply = "Aye, that's the only rule I sell it under, an' I watch who I sell it tae.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A drop of poison in a rival's ale solves a lot.", next = "BACK", reply = "An' it'd be my poison they traced it back tae. Get away from my stall.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Do you ever go home?", next = "y_home" },
         { text = "Something else.", next = "BACK" },
       },
@@ -5497,8 +5497,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again! The forges are hot an' the coal's dry, an' every sack o' flux I've got is the good stuff." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. The coal's the coal an' the price is the price, so buy what ye need an' let me get back tae work." },
     { id = "g_default", text = "Welcome tae my stall, friend. What can I get ye?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! I've restocked since ye left." },
     { id = "g_enemy", when = { faction = "Horde" }, text = "A Frostwolf at my stall? I'll no' sell tae the Horde, so move along." },
@@ -5513,8 +5513,8 @@ P:NPC {
         { id = "y_y_hist", text = "I'm a Thunderbrew, same as Brogus, but I never took tae brewin'. I took tae the forge instead, an' the family's still nae forgiven me. When Murgot came north tae smith for the Guard, I came wi' him tae keep his coal stocked." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Honest coal and honest flux make blades that don't break.", next = "BACK", reply = "Aye, an' a blade that breaks in the valley gets a dwarf killed. I'll sell nothin' less.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Mix slag in with the coal; it all burns the same.", next = "BACK", reply = "It doesnae, an' every smith in the Guard would know it by the first heat.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Do you ever go home?", next = "y_home" },
         { text = "Something else.", next = "BACK" },
       },
@@ -5623,8 +5623,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've fought well, and the company remembers it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'd not trust you to hold a line, and I'll not pretend otherwise." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you! Stonehearth's still standing, at roughly ninety percent, and I like those odds better with you here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. The outpost holds, no thanks to you, so please keep your distance from my spell circle." },
     { id = "g_default", text = "Soldier. Stonehearth Outpost holds, and I mean to keep it that way." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good, we could use the help." },
     { id = "g_enemy", when = { faction = "Horde" }, text = "Horde. You're a long way from Frostwolf Keep, and you won't get any closer." },
@@ -5639,8 +5639,8 @@ P:NPC {
         { id = "y_y_hist", text = "I'm from Gnomeregan, originally. When the city fell, I joined the Ironforge regulars because I had nowhere else to put my anger. Vanndar took me on for Alterac because I can read a map faster than any dwarf in the Guard." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "An officer should keep every promise made to the troops.", next = "BACK", reply = "I try, I really do, though I promised them warm boots and that's gone rather poorly.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Promise the troops anything; most won't live to collect.", next = "BACK", reply = "That's a horrible thing to say, and I'll thank you not to say it near my soldiers.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Do you regret it?", next = "y_regret" },
         { text = "Something else.", next = "BACK" },
       },
@@ -5749,8 +5749,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep your distance, and keep out of the way of real soldiers." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you again, soldier. Stonehearth holds, and it holds better when you're on the line with us." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll take your report, but stay out of the way of the soldiers who actually hold this outpost." },
     { id = "g_default", text = "Soldier. Stonehearth Outpost holds, and I mean to keep it that way." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good, we could use the help." },
     { id = "g_enemy", when = { faction = "Horde" }, text = "Horde. You're a long way from Frostwolf Keep, and you won't get any closer." },
@@ -5765,8 +5765,8 @@ P:NPC {
         { id = "y_y_hist", text = "I was a soldier of Lordaeron before the Plague took the kingdom from under us. When the Stormpike asked for men who knew Alterac, I came. These mountains were once ours too, after a fashion." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "We're guests in this valley; we should honour the Stormpike's trust.", next = "BACK", reply = "Well said. The dwarves didn't have to let Stormwind men stand beside them, and I don't forget it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Let the dwarves bleed for their own valley first.", next = "BACK", reply = "Then go home to Stormwind and say that in the Pig and Whistle, not here.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Do you regret it?", next = "y_regret" },
         { text = "Something else.", next = "BACK" },
       },
@@ -5875,8 +5875,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep your distance, and keep out of the way of real soldiers." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ishnu-alah. You return, and Icewing holds; I am glad to see you on the path again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Icewing holds without your help, so keep to the path and away from my patrol." },
     { id = "g_default", text = "Soldier. Icewing Bunker holds, and I mean to keep it that way." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good, we could use the help." },
     { id = "g_enemy", when = { faction = "Horde" }, text = "Horde. You're a long way from Frostwolf Keep, and you won't get any closer." },
@@ -5891,8 +5891,8 @@ P:NPC {
         { id = "y_y_hist", text = "I came from Ashenvale, where the Warsong cut our forests. When word came that the same Horde fought for Alterac, I asked the Sentinels to send me. The Stormpike were surprised to see an elf in their ranks, but they have not complained of my bow." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A patrol is only as good as the truth of its reports.", next = "BACK", reply = "So the Sentinels taught me, long before I ever saw this cold valley.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Report the path clear and get back to the fire.", next = "BACK", reply = "And when the Frostwolves come up that path, whose fault would it be? Not mine.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Do you regret it?", next = "y_regret" },
         { text = "Something else.", next = "BACK" },
       },
@@ -6001,8 +6001,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep your distance, and keep out of the way of real soldiers." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again! Good, because the ground north of the bunker's crawling, and I'd rather have you than not." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Stonehearth Bunker holds, and it doesn't need you, so stay south of my patrol." },
     { id = "g_default", text = "Soldier. Stonehearth Bunker holds, and I mean to keep it that way." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good, we could use the help." },
     { id = "g_enemy", when = { faction = "Horde" }, text = "Horde. You're a long way from Frostwolf Keep, and you won't get any closer." },
@@ -6017,8 +6017,8 @@ P:NPC {
         { id = "y_y_hist", text = "Stromgarde born, Stormpike sworn. When Stromgarde's walls started falling to ogres and the Syndicate, I went looking for a war I could actually win. Alterac seemed as good a place as any, and colder." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A good soldier takes a fair share of the cold watches.", next = "BACK", reply = "That's right, and you'd be surprised how many try to dodge the midnight shift.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Bribe someone for the warm shift; everyone does it.", next = "BACK", reply = "Not in my patrol they don't, and I'll know if you try.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Do you regret it?", next = "y_regret" },
         { text = "Something else.", next = "BACK" },
       },
@@ -6127,8 +6127,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'd not trust you to hold a line, and I'll not pretend otherwise." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ho, it's you! Ready tae hit the wolves again? I've been waitin' for a proper raidin' partner." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'd raid wi' a pack o' frostwolves before I'd raid wi' you, so stay out o' my way." },
     { id = "g_default", text = "Ho, soldier! Ready tae hit the wolves where it hurts?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good, there's always another raid." },
     { id = "g_enemy", when = { faction = "Horde" }, text = "A Frostwolf! Commandos, tae me!" },
@@ -6143,8 +6143,8 @@ P:NPC {
         { id = "y_y_long", text = "Not long, if I'm honest. I came up from the Ironforge barracks this spring, an' I've only been on three raids. The veterans say I'll stop shakin' after the fifth." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Raid their soldiers, but leave the wolf pups alone.", next = "BACK", reply = "Aye, there's no glory in the other, an' I'd no' look Vanndar in the eye after.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Burn the kennels, pups and all; it'll break their spirit.", next = "BACK", reply = "It'd break somethin' in me, friend, an' I'm no' about tae let it.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What was the hardest raid?", next = "y_hard" },
         { text = "Something else.", next = "BACK" },
       },
@@ -6253,8 +6253,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'd not trust you to hold a line, and I'll not pretend otherwise." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again, an' still breathin'! Come on, there's always another raid, an' I want ye on it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I've seen ye raid, an' I'd sooner go out alone than wi' ye at my back." },
     { id = "g_default", text = "Ho, soldier! Ready tae hit the wolves where it hurts?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good, there's always another raid." },
     { id = "g_enemy", when = { faction = "Horde" }, text = "A Frostwolf! Commandos, tae me!" },
@@ -6269,8 +6269,8 @@ P:NPC {
         { id = "y_y_long", text = "Two seasons. Long enough tae know the wolf trails better than the roads, an' tae stop countin' the raids." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Never leave a wounded comrade behind in the snow.", next = "BACK", reply = "Never. I've carried three out o' the pass on my own back, an' I'd do it again.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A wounded comrade slows the raid; leave them.", next = "BACK", reply = "Then pray ye're never the one bleedin' in the snow, friend.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What was the hardest raid?", next = "y_hard" },
         { text = "Something else.", next = "BACK" },
       },
@@ -6379,8 +6379,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've fought well, and the company remembers it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Stay clear of the camp, unless you've orders to be here." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there ye are. I've seen enough raids tae know a good soldier, an' you're one o' the good ones." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Twenty raids in this valley, an' I've never trusted anyone less." },
     { id = "g_default", text = "Ho, soldier! Ready tae hit the wolves where it hurts?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good, there's always another raid." },
     { id = "g_enemy", when = { faction = "Horde" }, text = "A Frostwolf! Commandos, tae me!" },
@@ -6395,8 +6395,8 @@ P:NPC {
         { id = "y_y_long", text = "Six seasons. I was on the raid that burned the Frostwolf stables the first time, an' I'm nae proud o' everything we did that night." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Fight the Frostwolves openly, and they'll respect you for it.", next = "BACK", reply = "They will, an' oddly enough I respect them back. It's a strange war, this.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Wear their colours and strike from inside their lines.", next = "BACK", reply = "It's dishonest, an' a fair way tae get shot by yer own side. I'll no' do it.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What was the hardest raid?", next = "y_hard" },
         { text = "Something else.", next = "BACK" },
       },
@@ -6505,8 +6505,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep your distance, and keep out of the way of real soldiers." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Well met again, champion o' the Guard! The others look tae you now, an' so do I." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. A champion's earned the right tae choose his company, an' I'd no' choose you." },
     { id = "g_default", text = "Ho, soldier! Ready tae hit the wolves where it hurts?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good, there's always another raid." },
     { id = "g_enemy", when = { faction = "Horde" }, text = "A Frostwolf! Commandos, tae me!" },
@@ -6521,8 +6521,8 @@ P:NPC {
         { id = "y_y_long", text = "Longer than most o' the Guard's been in the valley. I led the first commandos over the Field o' Strife, an' Vanndar still sends for me when he wants somethin' done quiet." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A victory means nothing if it's won dishonestly.", next = "BACK", reply = "True enough, an' I've a scar or two from learnin' that the hard way.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Nobody asks how you won, only that you did.", next = "BACK", reply = "I ask, friend, every time, an' so does every dwarf who ever looked up tae me.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What was the hardest raid?", next = "y_hard" },
         { text = "Something else.", next = "BACK" },
       },
@@ -6631,8 +6631,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You return, and I'm glad of it! I've news for you, and I'd rather give it to you than anyone." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I shall announce the Guard's news, as is my duty, but I'd much prefer to announce your departure." },
     { id = "g_default", text = "Hear ye, soldier! The Guard has news, and I am the one to share it." },
     { id = "g_back", when = { metBefore = true }, text = "You return! There is always more news." },
     { id = "g_enemy", when = { faction = "Horde" }, text = "Horde, in our lines! I shall announce your arrival, and your departure." },
@@ -6647,8 +6647,8 @@ P:NPC {
         { id = "y_y_who", text = "I was a town crier in Southshore before the war. When the Stormpike came through, recruiting, they needed someone with a loud voice and a good memory. I have both, and very little sense, so I volunteered." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A herald should cry the news true, good or bad.", next = "BACK", reply = "Just so. A herald who lies is worse than no herald at all.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Cry victory every hour; it's good for morale.", next = "BACK", reply = "And when the troops see the Horde on the hill, they'll never believe me again.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Do you miss Southshore?", next = "y_miss" },
         { text = "Something else.", next = "BACK" },
       },
@@ -6757,8 +6757,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've done right by this place, and the watch knows it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm watching you, so keep your hands where I can see them." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back in the deep, an' welcome! The troggs have missed ye, an' so have I, if I'm honest." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Irondeep's ours an' it doesnae need you, so watch for troggs, an' then watch for me." },
     { id = "g_default", text = "Irondeep's ours, for now. Watch for troggs." },
     { id = "g_back", when = { metBefore = true }, text = "Back in the deep, are ye? The troggs have missed ye." },
     { id = "g_enemy", when = { faction = "Horde" }, text = "A Frostwolf in Irondeep? The troggs'll be glad o' the company." },
@@ -6773,8 +6773,8 @@ P:NPC {
         { id = "y_y_who", text = "I was with the Stormpike Expedition when we first found Irondeep. We dug the first shaft, an' we found the troggs the same day. I lost two friends in that first week, an' I swore I'd nae lose the mine too." },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "The Guard's orders say hold the mine, so we hold it.", next = "BACK", reply = "Aye, orders are orders, an' these ones keep the forges o' Dun Baldar fed.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Orders be hanged; take the ore and go home.", next = "BACK", reply = "An' let the Frostwolves have Irondeep? Over my body, an' likely yers too.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Who were your friends?", next = "y_friends" },
         { text = "Something else.", next = "BACK" },
       },
@@ -6883,8 +6883,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Again you come to me, and again I am glad to send you back. The valley will not keep you yet." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You come to me once more. I will send you back, for that is my charge, but the Light is quiet when you are near." },
     { id = "g_default", text = "You have fallen, but your battle is not yet done. Rest a moment, and I will send you back." },
     { id = "g_back", when = { metBefore = true }, text = "Again you come to me. The valley is hungry, it seems." },
     { id = "g_enemy", when = { faction = "Horde" }, text = "You are not one of mine, wandering spirit. Seek your own guide." },
@@ -7006,8 +7006,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome at our fire any night you like." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You come back, and you are still fighting. Good, {class}; the Frostwolves need warriors like you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. The clan has heard of you, and nothing good, so fight or go, but do not waste my time." },
     { id = "g_default", text = "You are here to fight, or you are here to die. Either way, you are welcome." },
     { id = "g_back", when = { metBefore = true }, text = "You come back. Good. The graveyard is full enough." },
     { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance. The graveyard has room for one more." },
@@ -7022,8 +7022,8 @@ P:NPC {
         { id = "y_y_who", text = "I fought in the Second War, under Doomhammer, and I was taken in the end like most of the Horde. When Thrall freed us, I came to the Frostwolves, because they were the only clan that had kept the old ways." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A Frostwolf should meet the enemy face to face.", next = "BACK", reply = "Yes. Durotan's clan has always met its enemies openly, and we always will.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Attack the dwarves while they sleep; victory is victory.", next = "BACK", reply = "That is how the old Horde fought, with demon blood in its veins, and we are not that Horde.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What were the old ways?", next = "y_old" },
         { text = "Something else.", next = "BACK" },
       },
@@ -7132,8 +7132,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome at our fire any night you like." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'd not trust you to hold a line, and I'll not pretend otherwise." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You return to East Frostwolf Tower, and I am glad. Stand with me, and the tower stands with us." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. The tower stands without you, so say what you came to say and get off my battlements." },
     { id = "g_default", text = "Warrior. East Frostwolf Tower stands, and so do I." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Good. Every axe matters." },
     { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance. You will not reach Drek'Thar." },
@@ -7148,8 +7148,8 @@ P:NPC {
         { id = "y_y_tower", text = "East Tower looks down the eastern slope, toward the Frostwolf Relief Hut. If the dwarves come by the eastern trail, I am the first to see them." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A warmaster should die with the tower rather than abandon it.", next = "BACK", reply = "That is the oath I took, and I will keep it to the last stone.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "When the tower falls, run and live to fight again.", next = "BACK", reply = "Some call that wisdom, but I could never look Drek'Thar in the eye again.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Who built the towers?", next = "y_built" },
         { text = "Something else.", next = "BACK" },
       },
@@ -7258,8 +7258,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've fought well, and the company remembers it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You come back to the west tower. Good, because the Stormpike have been testing the gate all morning." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. The west tower has trouble enough without you, so say your piece and be gone." },
     { id = "g_default", text = "Warrior. West Frostwolf Tower stands, and so do I." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Good. Every axe matters." },
     { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance. You will not reach Drek'Thar." },
@@ -7274,8 +7274,8 @@ P:NPC {
         { id = "y_y_tower", text = "West Tower watches the western cliffs. The dwarves think the cliffs protect our flank. They are wrong; the cliffs only hide them until it is too late." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "The towers stand because each warrior trusts the next.", next = "BACK", reply = "Yes. One coward on the wall and the whole tower falls, so we keep faith.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Trust nobody on the wall; look after yourself first.", next = "BACK", reply = "Then you will die alone on the wall, and nobody will carry your body home.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Who built the towers?", next = "y_built" },
         { text = "Something else.", next = "BACK" },
       },
@@ -7384,8 +7384,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've fought well, and the company remembers it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You return to Iceblood. The cold is bitter up here, but I am glad to see a warrior I can trust." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Iceblood is cold enough without your company, so speak quickly and go." },
     { id = "g_default", text = "Warrior. Iceblood Tower stands, and so do I." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Good. Every axe matters." },
     { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance. You will not reach Drek'Thar." },
@@ -7400,8 +7400,8 @@ P:NPC {
         { id = "y_y_tower", text = "Iceblood stands at the heart of the valley, beside the garrison. It is the first tower the dwarves reach, and the last one they forget." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Iceblood should be held with honour, not with cruelty.", next = "BACK", reply = "That is Thrall's way, and Drek'Thar's, and I will keep it here.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Hang captured dwarves from the tower to warn the rest.", next = "BACK", reply = "That is Blackrock work, not Frostwolf. Never say it here again.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Who built the towers?", next = "y_built" },
         { text = "Something else.", next = "BACK" },
       },
@@ -7510,8 +7510,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome at our fire any night you like." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You come back to Tower Point. Good, because I need every axe, and yours is one I trust." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Tower Point does not need you, so stay off the stairs and out of my way." },
     { id = "g_default", text = "Warrior. Tower Point stands, and so do I." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Good. Every axe matters." },
     { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance. You will not reach Drek'Thar." },
@@ -7526,8 +7526,8 @@ P:NPC {
         { id = "y_y_tower", text = "Tower Point watches the road to the Frostwolf Graveyard. When it falls, the dwarves can bring their dead back closer to our village, and that is a shame I will not allow." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Let both sides carry away their wounded in peace.", next = "BACK", reply = "That is an old custom, and a good one, though the dwarves rarely remember it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Strike them while they carry their wounded away.", next = "BACK", reply = "There is no honour in that, and the ancestors would turn their backs on us.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Who built the towers?", next = "y_built" },
         { text = "Something else.", next = "BACK" },
       },
@@ -7636,8 +7636,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You return, and the forge is hot. I am glad to sell good iron to a warrior the clan trusts." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I will sell you supplies because the clan needs its smiths, not because I want your coin." },
     { id = "g_default", text = "You need supplies? I have them, if you have the coin." },
     { id = "g_back", when = { metBefore = true }, text = "You return. I have restocked since you left." },
     { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance? I do not sell to the enemy. Leave." },
@@ -7652,8 +7652,8 @@ P:NPC {
         { id = "y_y_hist", text = "I was apprenticed to Regzar the smith when I was young. My hands were too slow for the anvil, he said, but quick enough for counting. So now I sell him his iron, and he complains about my prices." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Good iron for good warriors, sold at an honest price.", next = "BACK", reply = "Yes. A Frostwolf smith does not cheat the clan, and I do not cheat you.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell the cracked bars to the young grunts; they won't know.", next = "BACK", reply = "They will know when the blade breaks in battle, and so will I. Never.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Do you miss fighting?", next = "y_fight" },
         { text = "Something else.", next = "BACK" },
       },
@@ -7762,8 +7762,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You come back! Good, I have rope and torches and furs, and all of it is yours for honest coin." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Buy what you need quickly, because I would rather stand in the snow than stand here with you." },
     { id = "g_default", text = "You need supplies? I have them, if you have the coin." },
     { id = "g_back", when = { metBefore = true }, text = "You return. I have restocked since you left." },
     { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance? I do not sell to the enemy. Leave." },
@@ -7778,8 +7778,8 @@ P:NPC {
         { id = "y_y_hist", text = "I was a hunter, once, before a Stormpike arrow found my knee. Drek'Thar said the clan needed traders as much as hunters, so I took the stall. My knee still aches in the cold, which here is always." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Every warrior should pay the same, whatever their rank.", next = "BACK", reply = "That is fair, and it is how I run my stall, from grunt to warmaster.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Charge the officers less; they'll remember you for it.", next = "BACK", reply = "Then the grunts would pay for it, and they are the ones who bleed. No.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Do you miss fighting?", next = "y_fight" },
         { text = "Something else.", next = "BACK" },
       },
@@ -7888,8 +7888,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You return, and hungry, I see. Sit by the fire and eat; the clan feeds those who fight for it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I will feed you, because nobody starves in a Frostwolf camp, but eat it away from my fire." },
     { id = "g_default", text = "You need supplies? I have them, if you have the coin." },
     { id = "g_back", when = { metBefore = true }, text = "You return. I have restocked since you left." },
     { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance? I do not sell to the enemy. Leave." },
@@ -7904,8 +7904,8 @@ P:NPC {
         { id = "y_y_hist", text = "My mother cooked for the clan during the exile, when there was barely anything to cook. She taught me that a full belly is a strong arm. When she died, I took her pot and her stall." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "The clan should share its food, even in the hard winters.", next = "BACK", reply = "Yes. That is the Frostwolf way, and it kept us alive through our exile in these mountains.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Keep the best meat for yourself; winters are long.", next = "BACK", reply = "Winters are long, and the clan that hoards does not see spring. Think on it.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Do you miss fighting?", next = "y_fight" },
         { text = "Something else.", next = "BACK" },
       },
@@ -8014,8 +8014,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You come back, and alive. Good; either my poisons did their work or you did yours. Come and see what I have." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Take your reagents and go, and keep your hands well away from the poisons." },
     { id = "g_default", text = "You need supplies? I have them, if you have the coin." },
     { id = "g_back", when = { metBefore = true }, text = "You return. I have restocked since you left." },
     { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance? I do not sell to the enemy. Leave." },
@@ -8030,8 +8030,8 @@ P:NPC {
         { id = "y_y_hist", text = "I learned herbs from the shamans, and poisons from a Darkspear trader who passed through years ago. The shamans did not approve. But the clan needed both, and I was the one who listened to both teachers." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Poison belongs on blades aimed at the enemy, not at friends.", next = "BACK", reply = "That is my rule. I sell death, but I choose who it is for.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A little poison in a rival's drink settles any quarrel.", next = "BACK", reply = "Then you will settle nothing in my camp, because I will be watching you.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Do you miss fighting?", next = "y_fight" },
         { text = "Something else.", next = "BACK" },
       },
@@ -8140,8 +8140,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You return! I have cloth, leather and thread up from Orgrimmar, and I would rather sell it to you than anyone." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I sell trade goods, not friendship, and you will get only the first from me." },
     { id = "g_default", text = "You need supplies? I have them, if you have the coin." },
     { id = "g_back", when = { metBefore = true }, text = "You return. I have restocked since you left." },
     { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance? I do not sell to the enemy. Leave." },
@@ -8156,8 +8156,8 @@ P:NPC {
         { id = "y_y_hist", text = "I was a tanner in the exile, and a good one. When the clan began trading with Orgrimmar, Drek'Thar put me in charge of the stall, because I could tell a good hide from a bad one by smell alone." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Trade goods should be weighed honestly, even out here.", next = "BACK", reply = "Out here most of all, where the clan cannot afford to be cheated.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Short the weight; nobody brings scales to the front.", next = "BACK", reply = "I bring scales, and so does every honest trader in the clan. Go away.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Do you miss fighting?", next = "y_fight" },
         { text = "Something else.", next = "BACK" },
       },
@@ -8266,8 +8266,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome here, and I'll tell the others so if they ask." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "State your business quickly, and then be on your way." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You come back to the deep! Good, the troggs are restless, and I would rather have you here than not." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Irondeep is ours and I do not need you, so watch your step and watch for troggs." },
     { id = "g_default", text = "Irondeep is ours. Watch your step, the troggs are hungry." },
     { id = "g_back", when = { metBefore = true }, text = "You come back to the deep. Good." },
     { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance, in the mine? The troggs will thank me for the meal." },
@@ -8282,8 +8282,8 @@ P:NPC {
         { id = "y_y_who", text = "I was a miner in the internment camps, before Thrall freed us. The humans made us dig, and I learned the stone better than I ever wanted. Now I dig for the clan, and I choose my own tunnels." },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "Hold the mine as Drek'Thar commands, and the clan eats.", next = "BACK", reply = "Yes. The ore buys the clan its winter, so we hold it as ordered.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Forget the orders; take the ore and keep it yourself.", next = "BACK", reply = "Then you are a thief, not a Frostwolf, and the troggs can have you.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Do you hate the humans for it?", next = "y_hate" },
         { text = "Something else.", next = "BACK" },
       },
@@ -8392,8 +8392,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Go on through, friend; I'll not trouble you today." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "State your business quickly, and then be on your way." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again! The kobolds missed you and I did not, so stand here and help me guard the ore." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Coldtooth is ours and the ore is not for you, so keep your hands where my blades can see them." },
     { id = "g_default", text = "Coldtooth is ours. Do not touch the ore." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? The kobolds missed you." },
     { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance! My blades are quick, dwarf-friend." },
@@ -8408,8 +8408,8 @@ P:NPC {
         { id = "y_y_who", text = "I grew up in Frostwolf Village, the daughter of a wolf handler. My father wanted me to raise wolves, but I wanted to fight. He gave me two knives on my coming of age and said, if you must fight, fight fast." },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "Nobody touches the ore without the clan's leave.", next = "BACK", reply = "Good. You learn the rules of Coldtooth faster than most grunts.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "A handful of ore for myself won't hurt the clan.", next = "BACK", reply = "A handful, then another, and then the clan goes hungry. Touch it and lose the hand.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Does your father still raise wolves?", next = "y_father" },
         { text = "Something else.", next = "BACK" },
       },
@@ -8518,8 +8518,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've fought well, and the company remembers it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Stay clear of the camp, unless you've orders to be here." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Friend come back! Grummus very happy, and now we go smash dwarfs together, yes?" },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Grummus not like you. You go away now, or maybe Grummus forget you on same side." },
     { id = "g_default", text = "Grummus see friend! Friend want to fight dwarfs with Grummus?" },
     { id = "g_back", when = { metBefore = true }, text = "Friend come back! Grummus happy." },
     { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance! Grummus smash!" },
@@ -8534,8 +8534,8 @@ P:NPC {
         { id = "y_y_serve", text = "Grummus serve Dark Lady, and Dark Lady say help orcs, so Grummus help orcs. Commander tell Grummus where to stand. Grummus stand there very hard." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Fight the dwarves fair, Grummus, face to face.", next = "BACK", reply = "Grummus always fight face to face! Grummus not know other way, but this way good way.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Hit the dwarves from behind; they'll never see it.", next = "BACK", reply = "Grummus think about it... no. Thrall say Horde fight with honor, so Grummus fight from front.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Do you like the orcs?", next = "y_orcs" },
         { text = "Something else.", next = "BACK" },
       },
@@ -8644,8 +8644,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've fought well, and the company remembers it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep your distance, and keep out of the way of real soldiers." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You return, and I find I appreciate it, which is rare for me now. Report, if you have anything for me." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. The cold makes me impatient and you make me more so, so report and be gone." },
     { id = "g_default", text = "Ah, a living soldier. Report, and be brief; the cold makes me impatient." },
     { id = "g_back", when = { metBefore = true }, text = "You return. I appreciate that." },
     { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance. You have the look of my old regiment, and that will not save you." },
@@ -8660,8 +8660,8 @@ P:NPC {
         { id = "y_y_reg", text = "I served in the Alterac Foothills garrison under Lordaeron's banner. We watched this very valley for Perenolde's traitors. Now I watch it again, for the Horde, which my old captain would have found very funny or very terrible." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A soldier's word should outlast even death.", next = "BACK", reply = "Mine has, though most of the men I gave it to have not. Still, I keep it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Your old regiment is the enemy now; betray them freely.", next = "BACK", reply = "I need not betray them. They betrayed me when they ran from what I had become.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What happened to your captain?", next = "y_cap" },
         { text = "Something else.", next = "BACK" },
       },
@@ -8770,8 +8770,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome at our fire any night you like." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep your distance, and keep out of the way of real soldiers." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You come back! Good, there are more raids to make, and I want you beside me when we hit the dwarves." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I would rather raid alone than with you, so stay out of my way." },
     { id = "g_default", text = "Warrior! Ready to tear through the dwarves?" },
     { id = "g_back", when = { metBefore = true }, text = "You come back. Good. More raids to make." },
     { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance! Reavers, to me!" },
@@ -8786,8 +8786,8 @@ P:NPC {
         { id = "y_y_who", text = "I was born in the exile, in a cave above Frostwolf Village, during the worst winter the elders remember. My mother said I came out screaming and never stopped. The reavers seemed the right place for me." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Raid the dwarves' soldiers, not their wounded.", next = "BACK", reply = "Yes. A wounded dwarf is no threat, and there is no honour in finishing him.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Leave no dwarf breathing, wounded or not.", next = "BACK", reply = "Then you fight as the Blackrock did, and the clan will not thank you for it.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What makes a reaver different?", next = "y_diff" },
         { text = "Something else.", next = "BACK" },
       },
@@ -8896,8 +8896,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again! That mine'll fly the Stormpike banner soon, an' you'll be there tae help hang it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll take the mine back wi'out yer help, so keep well out o' my way." },
     { id = "g_default", text = "Soldier. That mine will fly the Stormpike banner again soon, mark me." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good, there's always more rock tae take." },
     { id = "g_enemy", when = { faction = "Horde" }, text = "Horde! The mine's no place for the likes o' you." },
@@ -8912,8 +8912,8 @@ P:NPC {
         { id = "y_y_long", text = "Two winters I've fought for these tunnels, an' I've the scars tae show for both." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Retake the mine in open battle, not by collapsing the tunnels.", next = "BACK", reply = "Aye, there's ore in those tunnels we'll want after, an' honour in the fightin' besides.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Collapse the tunnels on the Frostwolves and be done with it.", next = "BACK", reply = "An' bury the ore wi' them? That's no' clever, an' it's no' honourable either.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Who taught you to fight in the tunnels?", next = "y_teach" },
         { text = "Something else.", next = "BACK" },
       },
@@ -9031,8 +9031,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've fought well, and the company remembers it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep your distance, and keep out of the way of real soldiers." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's yerself again. I've taken that mine twice already, an' I'd like you wi' me for the third." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I've taken that mine twice wi' better company than you, an' I'll take it again wi'out ye." },
     { id = "g_default", text = "Soldier. That mine will fly the Stormpike banner again soon, mark me." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good, there's always more rock tae take." },
     { id = "g_enemy", when = { faction = "Horde" }, text = "Horde! The mine's no place for the likes o' you." },
@@ -9047,8 +9047,8 @@ P:NPC {
         { id = "y_y_long", text = "Five winters now. I've lost count o' the times this mine's changed hands, but I've nae lost count o' the friends it cost." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Captured Frostwolves should be treated fairly, as the Guard wants.", next = "BACK", reply = "Aye, Vanndar's strict on that, an' rightly. We're no' the Dark Iron.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Captured Frostwolves deserve whatever we give them.", next = "BACK", reply = "We give them a cell an' a crust an' nae more, because that's the Guard's way.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Who taught you to fight in the tunnels?", next = "y_teach" },
         { text = "Something else.", next = "BACK" },
       },
@@ -9166,8 +9166,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've fought well, and the company remembers it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Well met, friend! When the banner goes up over Coldtooth, I want you standin' right beside me." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. A champion's banner flies over honest company, an' that's no' you." },
     { id = "g_default", text = "Soldier. That mine will fly the Stormpike banner again soon, mark me." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good, there's always more rock tae take." },
     { id = "g_enemy", when = { faction = "Horde" }, text = "Horde! The mine's no place for the likes o' you." },
@@ -9182,8 +9182,8 @@ P:NPC {
         { id = "y_y_long", text = "Since the first shaft was cut, near enough. Vanndar pinned a champion's badge on me after I held the mouth alone through a whole night." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A banner raised by deceit isn't worth raising.", next = "BACK", reply = "Aye, it'd shame the mine an' everyone in it. We'll take it straight or no' at all.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Fly a Frostwolf banner, lure them out, then strike.", next = "BACK", reply = "A dirty trick, an' nobody would trust a flag in this valley again. Nor would we.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Who taught you to fight in the tunnels?", next = "y_teach" },
         { text = "Something else.", next = "BACK" },
       },
@@ -9301,8 +9301,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'd not trust you to hold a line, and I'll not pretend otherwise." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You come back. Good; the mine will be ours again soon, and I would like you there when it is." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. The mine will be ours again without your help, so stay away from my maps." },
     { id = "g_default", text = "Warrior. The mines will be ours again soon." },
     { id = "g_back", when = { metBefore = true }, text = "You come back. Good, there is always more rock to take." },
     { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance! The mine is no place for you." },
@@ -9317,8 +9317,8 @@ P:NPC {
         { id = "y_y_long", text = "Two winters. Long enough to learn the tunnels in the dark, not long enough to stop hating them." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A surveyor's map must show the truth, even the bad tunnels.", next = "BACK", reply = "Yes. A false map has killed more grunts than any dwarf's axe.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Draw a false map and let the Stormpike find it.", next = "BACK", reply = "Clever, perhaps, but if our own grunts found it first, we would be burying them. No.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What keeps you going back down?", next = "y_teach" },
         { text = "Something else.", next = "BACK" },
       },
@@ -9436,8 +9436,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep your distance, and keep out of the way of real soldiers." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You return. I have surveyed this mine many times, and it always goes better with you here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I have surveyed this mine for years, and I do not need you underfoot while I work." },
     { id = "g_default", text = "Warrior. The mines will be ours again soon." },
     { id = "g_back", when = { metBefore = true }, text = "You come back. Good, there is always more rock to take." },
     { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance! The mine is no place for you." },
@@ -9452,8 +9452,8 @@ P:NPC {
         { id = "y_y_long", text = "Five winters. I have buried more brothers in that mine than I have pulled ore from it." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "The ore belongs to the whole clan, not whoever digs it.", next = "BACK", reply = "That is so, and it is why I count every cart for Drek'Thar.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Whoever finds a rich seam should keep quiet and keep it.", next = "BACK", reply = "Then you will find a rich seam and a short life. The clan does not forgive that.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What keeps you going back down?", next = "y_teach" },
         { text = "Something else.", next = "BACK" },
       },
@@ -9571,8 +9571,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You come back! Good; a champion should have champions beside him, and you are one." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. A champion of the clan chooses who stands with him, and I do not choose you." },
     { id = "g_default", text = "Warrior. The mines will be ours again soon." },
     { id = "g_back", when = { metBefore = true }, text = "You come back. Good, there is always more rock to take." },
     { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance! The mine is no place for you." },
@@ -9587,8 +9587,8 @@ P:NPC {
         { id = "y_y_long", text = "Since Thrall first spoke of the valley in my hearing. Drek'Thar named me champion after I brought back a Stormpike banner from the deepest shaft." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Win the mine back with strength, not with tricks.", next = "BACK", reply = "Yes. Strength is the Frostwolf way, and tricks are for those who have none.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Foul the dwarves' water barrels in the mine.", next = "BACK", reply = "That would shame Durotan's name. Speak it again and I will not be so patient.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What keeps you going back down?", next = "y_teach" },
         { text = "Something else.", next = "BACK" },
       },
@@ -9706,8 +9706,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Stay clear of the camp, unless you've orders to be here." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You come back. Good; there is always more rock to take in Irondeep, and more dwarves to take it from." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Raid Irondeep with someone else, because I will not have you at my back." },
     { id = "g_default", text = "Warrior. The mines will be ours again soon." },
     { id = "g_back", when = { metBefore = true }, text = "You come back. Good, there is always more rock to take." },
     { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance! The mine is no place for you." },
@@ -9722,8 +9722,8 @@ P:NPC {
         { id = "y_y_long", text = "Two winters. Long enough to learn the tunnels in the dark, not long enough to stop hating them." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Let the dwarves retreat if they give up the mine.", next = "BACK", reply = "Yes. If they leave, they live. That is how a Frostwolf takes a mine.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Cut the dwarves down even as they surrender.", next = "BACK", reply = "Then you are no better than the troggs, and the troggs, at least, know no better.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What keeps you going back down?", next = "y_teach" },
         { text = "Something else.", next = "BACK" },
       },
@@ -9841,8 +9841,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome at our fire any night you like." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'd not trust you to hold a line, and I'll not pretend otherwise." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You return to Irondeep! Good; the troggs are thick in the lower shafts, and I want your axe beside mine." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I have raided Irondeep many times, and I will raid it again without you." },
     { id = "g_default", text = "Warrior. The mines will be ours again soon." },
     { id = "g_back", when = { metBefore = true }, text = "You come back. Good, there is always more rock to take." },
     { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance! The mine is no place for you." },
@@ -9857,8 +9857,8 @@ P:NPC {
         { id = "y_y_long", text = "Five winters. I have buried more brothers in that mine than I have pulled ore from it." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "The ore we take feeds the clan, not our own purses.", next = "BACK", reply = "Yes. I have never kept a single nugget, and I never will.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Pocket a few nuggets; the clan has plenty.", next = "BACK", reply = "The clan has plenty because nobody pockets them. Keep your hands out of the carts.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What keeps you going back down?", next = "y_teach" },
         { text = "Something else.", next = "BACK" },
       },
@@ -9976,8 +9976,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep your distance, and keep out of the way of real soldiers." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You come back! The clan sings of Irondeep, and I would have you in the next song beside me." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. The clan sings no songs of you, and I will not raid beside someone who has earned none." },
     { id = "g_default", text = "Warrior. The mines will be ours again soon." },
     { id = "g_back", when = { metBefore = true }, text = "You come back. Good, there is always more rock to take." },
     { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance! The mine is no place for you." },
@@ -9992,8 +9992,8 @@ P:NPC {
         { id = "y_y_long", text = "Since Thrall first spoke of the valley in my hearing. Drek'Thar named me champion after I brought back a Stormpike banner from the deepest shaft." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Songs should be sung only of deeds truly done.", next = "BACK", reply = "Yes. A false song shames the singer and the one it is sung for.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Boast of more kills than you made; nobody counts.", next = "BACK", reply = "The ancestors count, and they are not impressed by liars.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What keeps you going back down?", next = "y_teach" },
         { text = "Something else.", next = "BACK" },
       },
@@ -10111,8 +10111,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good tae see ye still standin'! Come an' stand wi' us a while; there's always more rock tae take." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Say what ye came tae say, an' leave us tae our surveyin'." },
     { id = "g_default", text = "Soldier. That mine will fly the Stormpike banner again soon, mark me." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good, there's always more rock tae take." },
     { id = "g_enemy", when = { faction = "Horde" }, text = "Horde! The mine's no place for the likes o' you." },
@@ -10127,8 +10127,8 @@ P:NPC {
         { id = "y_y_long", text = "Two winters I've fought for these tunnels, an' I've the scars tae show for both." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A survey should mark every weak beam, honest and true.", next = "BACK", reply = "Aye, an' I mark them all, for a dwarf who lies about a beam buries his kin.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Skip the weak beams; the miners will figure it out.", next = "BACK", reply = "They'll figure it out when the roof comes down on them. Get away wi' ye.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Who taught you to fight in the tunnels?", next = "y_teach" },
         { text = "Something else.", next = "BACK" },
       },
@@ -10246,8 +10246,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Stay clear of the camp, unless you've orders to be here." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's yerself. Come an' look at the new shaft wi' me; it's the finest seam in Alterac." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Stay clear o' the camp unless ye've orders tae be here, an' I doubt ye have." },
     { id = "g_default", text = "Soldier. That mine will fly the Stormpike banner again soon, mark me." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good, there's always more rock tae take." },
     { id = "g_enemy", when = { faction = "Horde" }, text = "Horde! The mine's no place for the likes o' you." },
@@ -10262,8 +10262,8 @@ P:NPC {
         { id = "y_y_long", text = "Five winters now. I've lost count o' the times this mine's changed hands, but I've nae lost count o' the friends it cost." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Irondeep's ore should go to the Guard's forges, every nugget.", next = "BACK", reply = "Aye, an' it does, under my count. The Guard's armour comes out o' this hole.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell a cart of ore to the goblins on the side.", next = "BACK", reply = "Tae the goblins, who'd sell it tae the Horde by supper? Ye've some nerve.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Who taught you to fight in the tunnels?", next = "y_teach" },
         { text = "Something else.", next = "BACK" },
       },
@@ -10381,8 +10381,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'd not trust you to hold a line, and I'll not pretend otherwise." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Well met again! We could use a few more o' your sort in the deep, an' I'm glad tae see ye." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'd no' trust ye tae hold a lantern in the deep, an' I'll no' pretend otherwise." },
     { id = "g_default", text = "Soldier. That mine will fly the Stormpike banner again soon, mark me." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good, there's always more rock tae take." },
     { id = "g_enemy", when = { faction = "Horde" }, text = "Horde! The mine's no place for the likes o' you." },
@@ -10397,8 +10397,8 @@ P:NPC {
         { id = "y_y_long", text = "Since the first shaft was cut, near enough. Vanndar pinned a champion's badge on me after I held the mouth alone through a whole night." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Claim the mine back in a fair fight, and keep it.", next = "BACK", reply = "Aye, that's the way, an' what's won fair stays won.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Bribe the troggs to turn on the Frostwolves for us.", next = "BACK", reply = "Bribe a trogg? Ye'd be bargainin' wi' somethin' that eats its own. No' a chance.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Who taught you to fight in the tunnels?", next = "y_teach" },
         { text = "Something else.", next = "BACK" },
       },
@@ -10516,8 +10516,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Again you come to me, warrior, and the ancestors are glad to see you. Rest, and I will send you back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You return to me. I will send you back, as the ancestors ask, but they do not speak warmly of you." },
     { id = "g_default", text = "You have fallen, warrior, but the ancestors are not finished with you. Rest, and I will send you back." },
     { id = "g_back", when = { metBefore = true }, text = "Again you come to me. The valley is hungry." },
     { id = "g_enemy", when = { faction = "Alliance" }, text = "You are not one of mine, wandering spirit. Seek your own guide." },

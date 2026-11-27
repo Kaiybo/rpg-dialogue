@@ -14,8 +14,8 @@ P:NPC {
     third = "{name} spoke with one of the Wildhammer sentries of Aerie Peak.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've done right by this place, and the watch knows it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm watching you, so keep your hands where I can see them." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's yerself! Pass, friend, an' welcome; ye've done right by the Peak, an' the watch knows it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm watchin' ye, so keep yer hands where I can see them, sweet talk or no." },
     { id = "g_default", text = "Halt there, stranger, an' say who ye are. The Hinterlands are thick wi' trolls, an' they've learned tae talk sweet when it suits them." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, it's yerself again! Pass, then, an' mind the gryphon droppings." },
   },
@@ -34,8 +34,8 @@ P:NPC {
         { id = "xh_again2", text = "Still here? Then keep yer eyes on the treeline while we talk." },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "Aerie Peak's rules keep the trolls out and the riders safe.", next = "BACK", reply = "Aye, they do, an' it's a rare stranger who says so tae a sentry's face.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "The Wildhammer never cared for rules, so why should I?", next = "BACK", reply = "We care for our own, stranger, an' if ye break one on my watch, ye'll learn how much.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "How often do the trolls attack?", next = "trolls" },
         { text = "Why do Wildhammer live up here?", next = "why" },
         { text = "Your tattoos are striking.", next = "tattoos" },
@@ -104,8 +104,8 @@ P:NPC {
     third = "{name} found Homing Robot OOX-09/HL, a crashed robot chicken in the Hinterlands.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Bzzt! Friendly biological entity confirmed. Hope levels rising to their highest recorded value." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Beep. Unfriendly biological entity detected. Please state your business quickly, and please do not step on me." },
     { id = "g_default", text = "Beep! Unknown biological entity detected. Please identify yourself, or at minimum, please do not step on me." },
     { id = "g_back", when = { metBefore = true }, text = "Bzzt! Biological entity recognized. Hope levels rising by twelve percent." },
   },
@@ -191,8 +191,8 @@ P:NPC {
     third = "{name} listened to a Revantusk drummer in the village by the sea.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ya come back, mon! Sit, sit, de drum been waitin' for you, an' so have I." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it be you. De drum don't play for you today, so say what you need an' go." },
     { id = "g_default", text = "Ya hear dat? Da drum be talkin', mon. Sit and listen a while." },
     { id = "g_alliance", when = { faction = "Alliance" }, text = "Da drum don't play for da Alliance. Move along." },
   },

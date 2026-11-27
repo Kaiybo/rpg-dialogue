@@ -16,8 +16,8 @@ P:NPC {
     third = "{name} found Drull, an orc warrior held captive by the Syndicate in Durnholde Keep.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'd not trust you to hold a line, and I'll not pretend otherwise." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back again, {class}. My people will hear your name before I am done telling this story, and they will honour it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Speak if you must, but I have not forgotten how you behaved, and these walls have taught me patience with no one." },
     { id = "g_default", text = "You are no Syndicate dog. Speak quickly, {class}, before Jailor Eston comes back with his keys and his whip." },
     { id = "g_back", when = { metBefore = true }, text = "You came back. Good, for a warrior who returns is worth ten who promise." },
     { id = "g_free", when = { questDone = TODO_QUEST("The Rescue") }, text = "Lok'tar, {class}! I breathe free air because of you, and I will not forget whose hand opened the lock." },
@@ -42,8 +42,8 @@ P:NPC {
         { id = "h_again2", text = "Speak, {class}." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A warrior keeps his word even to his jailors.", next = "BACK", reply = "Then you are a truer orc than most I have known, {class}. Even here, a word given is a blade we still carry.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Lie to the jailors, and smile while you do it.", next = "BACK", reply = "Perhaps that frees a body, but it does not free the spirit. I will escape these walls with my honour, or not at all.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Who holds you here?", next = "jailor" },
         { text = "What was your party sent to find?", next = "sent" },
         { text = "This keep was an internment camp once.", next = "camp" },
@@ -88,8 +88,8 @@ P:NPC {
     third = "{name} found Tog'thar, an orc warrior held captive by the Syndicate in Durnholde Keep.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'd not trust you to hold a line, and I'll not pretend otherwise." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You again, and Marlgen is far down the hall. Sit by the bars, {class}, and I'll tell you what I've counted since last time." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Marlgen passes in two hundred breaths, and I'd rather spend them listening for him than talking to you." },
     { id = "g_default", text = "A new face, and no mask on it. Come closer, {class}, and keep your voice below the wind." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Marlgen passes every two hundred breaths, so we have a little time." },
     { id = "g_free", when = { questDone = TODO_QUEST("The Rescue") }, text = "Throm-ka, {class}. I had counted on dying in those chains, and I am glad to have counted wrong." },
@@ -112,8 +112,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, {class}." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Even caged, an orc fights fair or not at all.", next = "BACK", reply = "So I was taught, and so I still believe, though the shadow casters did not return the courtesy.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Strangle the jailor in his sleep. Honour is for free orcs.", next = "BACK", reply = "I have thought it, every night, and I am ashamed of how much I have thought it. Do not tempt me.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "How were you taken?", next = "taken" },
         { text = "What have you learned from in here?", next = "learned" },
         { text = "Krusk still waits for you in Tarren Mill.", next = "krusk" },
@@ -330,8 +330,8 @@ P:NPC {
     third = "{name} met Warden Belamoore, the Kirin Tor mage who commands the Lordamere Internment Camp.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Go on through, friend; I'll not trouble you today." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "State your business quickly, and then be on your way." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You again, and I find I've moved you from the persistent list to the trusted one. That is a rare promotion, so do try to keep it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. You remain off my visitors' list, and I have added a second note beneath your name that you would not enjoy reading." },
     { id = "g_default", text = "This is a prison of the Kirin Tor, and you are not on my list of visitors. Explain yourself, and do it concisely." },
     { id = "g_back", when = { metBefore = true }, text = "You again. You are still not on my list, but I have made a note that you are persistent." },
   },
@@ -352,8 +352,8 @@ P:NPC {
         { id = "h_again2", text = "Continue, but briefly." },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "The Kirin Tor's law keeps Dalaran's prisoners where they belong.", next = "BACK", reply = "Precisely, and it keeps them fed and catalogued, which is more than their own kind would do for them.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "A prison like this is just Dalaran's cruelty with better manners.", next = "BACK", reply = "An interesting opinion, and I've written it down. I'd keep it out of earshot of the guards, if I were you.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Who are your prisoners?", next = "prisoners" },
         { text = "What were they after in Dalaran?", next = "after" },
         { text = "A prison camp in these hills has an ugly history.", next = "history" },
@@ -437,8 +437,8 @@ P:NPC {
     third = "{name} met Bro'kin, a goblin alchemy supplier perched on the wall of the Ruins of Alterac.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hey, it's my favourite climber! Three times past the ogres now, pal, which makes you practically a shareholder in this stall." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you again. Look, I'll sell to ya, 'cause a sale's a sale, but every copper's up front and I'm watchin' the edge." },
     { id = "g_default", text = "Well, look at that, a customer who made it up the ramp! You're already my favourite, pal, so step right up and mind the edge." },
     { id = "g_back", when = { metBefore = true }, text = "Back through the ogres a second time? Now that's brand loyalty, friend, and I respect it." },
   },
@@ -457,8 +457,8 @@ P:NPC {
         { id = "h_again2", text = "Keep talking, pal, I got all day and no neighbours." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "An honest goblin weighs his reagents fair, even up on this wall.", next = "BACK", reply = "Hey, I do! Mostly 'cause anybody who climbs past ogres to buy from me is the kind who comes back to complain.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Up here you can charge whatever you like. Who else is selling?", next = "BACK", reply = "Now that's thinkin', pal! Mind you, I already do, so it's nice to hear you agree with my pricin' model.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Why set up shop above a city of ogres?", next = "why" },
         { text = "What do you sell that's worth the climb?", next = "stock" },
         { text = "Don't the ogres ever come up here?", next = "ogres" },
@@ -552,8 +552,8 @@ P:NPC {
     third = "{name} found Rizz Loosebolt, a gnome engineer caged by ogres in Slaughter Hollow, still open for business.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back! My circumstances have improved by roughly eleven percent just from seeing a friendly face, which is a lot for a cage." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. I'm still in the cage, and you're still not a key, so I suppose we'll just have to be civil about this." },
     { id = "g_default", text = "Oh, thank goodness, somebody who isn't an ogre! You wouldn't happen to have a key, or a crowbar, or failing that, some coin for a few blasting caps?" },
     { id = "g_back", when = { metBefore = true }, text = "You came back! I'm still in the cage, as you can see, so my circumstances have improved by exactly zero percent." },
   },
@@ -572,8 +572,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm not going anywhere, obviously." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A tinker should tell you when a blasting cap might misfire.", next = "BACK", reply = "Absolutely, and these misfire about four percent of the time, which I tell everyone, even the ogres.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell the ogres the faulty caps and let them blow up.", next = "BACK", reply = "That's either very wicked or very clever, and I've been doing it for weeks, so I hope it's clever.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "How did the ogres catch you?", next = "caught" },
         { text = "Can't I just let you out?", next = "out" },
         { text = "You're still selling, in there?", next = "selling" },
@@ -658,8 +658,8 @@ P:NPC {
     third = "{name} met Rousch, a lone dwarf who keeps his own counsel south of Dun Garok.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Aye, it's ye again. Sit a moment if ye like, for ye're about the only one who comes here wantin' nothin' from me." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ye again. I've nae side tae offer ye, nae patience either, so say what ye came tae say an' be off." },
     { id = "g_default", text = "Aye? I'm nae buyin', nae sellin' an' nae recruitin', so if ye want talk, keep it short." },
     { id = "g_back", when = { metBefore = true }, text = "Ye again. I've still nae side tae offer ye, if that's what ye came for." },
   },
@@ -769,8 +769,8 @@ P:NPC {
     third = "{name} met the ghost of Tamra Stormpike, still standing her watch inside Dun Garok.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ye've come back tae me again. I'd near forgotten what it was like tae have a friend stop by the hall, an' I'm glad of it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ye again. Ye may pass, since ye're nae one o' the dead, but I'll keep this rifle pointed where it is." },
     { id = "g_default", text = "Who goes there? Ah, ye're nae one o' the dead, so ye may pass, though ye'll forgive me if I dinnae lower the rifle." },
     { id = "g_back", when = { metBefore = true }, text = "Ye've come again. Few do, an' fewer speak tae me when they see what I am." },
   },
@@ -791,8 +791,8 @@ P:NPC {
         { id = "h_again2", text = "Aye? What else?" },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A Stormpike's oath holds even after death.", next = "BACK", reply = "Aye, it does, an' that's why I'm still standin' here. I swore tae hold this hall, an' I've nae been relieved.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Your oath died with you. Nobody holds a ghost to her post.", next = "BACK", reply = "Mebbe nae one holds me, but I hold mysel', an' I'll nae hear Dun Garok called forsaken by me.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "How did you fall?", next = "fall" },
         { text = "Why do you stay?", next = "stay" },
         { text = "Tell me about your rifle.", next = "rifle" },

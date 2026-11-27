@@ -56,8 +56,8 @@ P:NPC {
         { id = "h_again2", text = "Do go on. I'm listening, and so, I expect, is someone else." },
       },
       choices = {
-        { text = "A rogue's loyalty is to coin, nothing more.", next = "BACK", reply = "Honest, at least. I'll keep that in mind when you name your price.", fx = { align = { honor = -1 } } }, -- dp_stance
-        { text = "Even a rogue owes loyalty to the Dark Lady.", next = "BACK", reply = "Spoken like a true servant. The Lady would be pleased, and so am I, almost.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A rogue sells loyalty to whoever pays, and nothing more.", next = "BACK", reply = "Refreshing. I'll remember the price when your loyalty comes up for sale.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A rogue's first loyalty belongs to the Dark Lady.", next = "BACK", reply = "Correct, and the Lady's ears will hear that you said so. Most of them are mine.", fx = { align = { honor = 1 } } }, -- dp_stance
         { text = "What are the Deathstalkers?", next = "deathstalkers" },
         { text = "What happens to people who ignore your summons?", next = "summons" },
         { text = "Andron Gant seems to know a great many people.", next = "andron", when = { questDone = TODO_QUEST("The Deathstalkers") } },

@@ -1685,8 +1685,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Lok'tar, friend! The riders know you now, and so do I. Climb up, and I'll send you home on the strongest one." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. The riders will carry you because you wear the Horde's colours, but I will not pretend to like it." },
     { id = "g_default", text = "Lok'tar, {class}. Do you need a rider, or are you lost?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again. The riders are rested, and so am I, almost, though I still cough up black every morning from the ash." },
   },

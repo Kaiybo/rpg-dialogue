@@ -11,8 +11,8 @@ P:NPC {
     third = "{name} met Antonio Perelli, a talkative peddler who walks Elwynn's roads.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "My friend, we meet again on the road! Come, I've new things in the pack, and you shall have first look." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I sell to everyone on the road, even you, but I'll not pretend I'm happy about it." },
     { id = "g_default", text = "Ah, a customer on the open road! Come, come, I carry a little of everything." },
     { id = "g_back", when = { metBefore = true }, text = "We meet again! The road is long, but it keeps bringing me back to good customers." },
   },
@@ -27,8 +27,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I've seen gnolls, kobolds, bandits, and a murloc that stole my boot. Your spirits might warn you, but I'll do it cheaper." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A peddler's good name travels farther than his cart.", next = "BACK", reply = "Ah, so true! Every inn from Goldshire to Eastvale knows that Perelli sells honestly.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell and move on; nobody on the road sees you twice.", next = "BACK", reply = "Ha! But I see them every week, friend, and the road has a long memory.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "A wise traveller listens. Tell me everything, Antonio.", next = "BACK", reply = "Now there's a customer after my own heart! Sit a moment and I'll tell you about the murloc, the boot, and the long chase that followed, free of charge.", fx = { align = { order = 1 } } },
         { text = "I'll find the dangers myself. That's adventure.", next = "BACK", reply = "Adventure, is it? That's what the last fellow called it, right before he came back without his eyebrows and bought a hat from me.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },

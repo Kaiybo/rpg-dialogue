@@ -185,8 +185,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, then, for my ears still work, even if nothing else does." },
       },
       choices = {
-        { text = "Warlocks should be hanged, every last one.", next = "BACK", reply = "Aye, that's what we said in the war, and we hanged a few. It never brought back the dead.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Not every warlock is Gul'dan's creature.", next = "BACK", reply = "Perhaps not, but I've yet to meet the other kind, and my eyes are poor for looking.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "Every warlock in Elwynn should answer to the Guard.", next = "BACK", reply = "Aye, and to a rope, in my day. We hanged a few after the war, and it never brought back the dead.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "A warlock who harms no one should be left alone.", next = "BACK", reply = "Perhaps, but I've yet to meet one who harmed no one, and my eyes are poor for looking.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "I've fought a good many Defias, Marshal.", next = "dd_haggard_def", when = { killed = { name = "Defias", min = 40 } } },
 
         { text = "What happened to your badge?", next = "jack" },

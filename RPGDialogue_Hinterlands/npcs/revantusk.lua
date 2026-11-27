@@ -1905,8 +1905,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You again, and quiet for once! Good, the fish are biting. Where are you flying today?" },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep your voice down, pick a destination, and get on the wind rider before I lose what patience I have." },
     { id = "g_default", text = "Quiet! You'll scare the fish, and an orc's patience is a short rope. Fine, what do you want, a wind rider?" },
     { id = "g_back", when = { metBefore = true }, text = "You again, and still no grouper. Where are you flying today?" },
   },

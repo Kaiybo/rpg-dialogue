@@ -15,8 +15,8 @@ P:NPC {
     third = "{name} met Al'tabim the All-Seeing, a seer of the Zandalar on Yojamba Isle.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You return, as I saw you would, and de threads around you shine brighter dan before. Sit, friend of de Zandalar, and we will speak." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I saw you comin', and I hoped de vision was wrong. Speak your business and go, stranger." },
     { id = "g_default", text = "I saw you comin' across de water, stranger, long before your boat touched de sand. Sit, and let us talk of Hakkar." },
     { id = "g_back", when = { metBefore = true }, text = "You return, as I knew you would. De threads of your fate still run toward Zul'Gurub." },
   },
@@ -122,8 +122,8 @@ P:NPC {
     third = "{name} met Falthir the Sightless, a blind Zandalar trader on Yojamba Isle.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, dat step I know well, and I am glad of it. Sit by old Falthir, friend, and tell me what you carried out of Zul'Gurub." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I know dat step, and I wish I did not. Say what you carry, and keep your hands where I can hear dem." },
     { id = "g_default", text = "Ah, footsteps I do not know, and dey smell of salt and jungle. Come, sit, and tell old Falthir what you carry." },
     { id = "g_back", when = { metBefore = true }, text = "I know dat step! You came back, and you walk heavier, which means you have been fightin'." },
   },
@@ -137,8 +137,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I am Falthir, and I have no eyes, but my fingers know more about de old Gurubashi work than most scholars' eyes ever will. Bring me what you find in Zul'Gurub, and I will tell you what it is and what it is worth." } },
       again = { { id = "h_again", text = "What else, stranger? Falthir is listenin'." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Relics should go to those who honour them, not the highest bidder.", next = "BACK", reply = "Dis is de old way, and de Zandalar still keep it. A Gurubashi charm in a goblin's shop is a sad thing, mon.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell Hakkar's trinkets to the goblins; gold is gold.", next = "BACK", reply = "Gold is gold, yes, until de trinket wakes up in some fool's pocket. Falthir has felt what sleeps in dat work, and he does not sell it.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "How did you lose your sight?", next = "sight" },
         { text = "What sort of things come out of Zul'Gurub?", next = "relics" },
         { text = "You can't really know an object by touch.", next = "touch" },
@@ -237,8 +237,8 @@ P:NPC {
     third = "{name} met Rin'wosho, the Zandalar Tribe's trader on Yojamba Isle.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my favourite friend of de tribe returns! De Zandalar speak well of you, and Rin'wosho always listens to what de Zandalar say." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. De tribe tells me who has earned what, stranger, and today dey have told me nothin' good about you." },
     { id = "g_default", text = "Welcome, welcome! De Zandalar reward dose who fight Hakkar, and Rin'wosho is de one who hands out de rewards, so you want to be friends with me." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, friend of de Zandalar! Let me see how much de tribe trusts you now." },
   },
@@ -252,8 +252,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I am Rin'wosho, and I keep de tribe's goods, de armor and charms de Zandalar give to dose who prove demselves in Zul'Gurub. De more you do for us, de more I can open my chests for you." } },
       again = { { id = "h_again", text = "Yes, friend? What else?" } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Rewards should go to those who truly fought, not the boastful.", next = "BACK", reply = "Yes, yes, dis is why Rin'wosho counts de blood, not de words. Many come here tellin' big stories, and few bring back de proof.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Flatter the trader and the chests open wider.", next = "BACK", reply = "Ha! Many have tried, friend, and Rin'wosho enjoys every word. But de chests open for Hakkar's dead, not for sweet talk.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "How do I earn the tribe's trust?", next = "trust" },
         { text = "Where do the Zandalar come from?", next = "home" },
         { text = "So it's a bribe to fight your war.", next = "bribe" },
@@ -334,8 +334,8 @@ P:NPC {
     third = "{name} spoke with one of the Zandalar enforcers on Yojamba Isle.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Go on through, friend; I'll not trouble you today." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Move along, and stay out of trouble. I'll know if you don't." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You again, and Molthor speaks your name with respect. Walk Yojamba freely, friend, and my spear stays at my side." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. One wrong step on dis sand, stranger, and you will be swimmin' home." },
     { id = "g_default", text = "You stand on Zandalar ground now. Behave, and you will leave on your own feet." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Molthor says you are useful, so I will not throw you in de sea today." },
   },
@@ -349,8 +349,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I keep de peace on Yojamba, and I keep de Gurubashi spies off dis island. De priests of Hakkar would love to cut de throats of de ones who came here to stop dem." } },
       again = { { id = "h_again", text = "Speak, if you must." } },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "Yojamba stands because the Zandalar keep strict order here.", next = "BACK", reply = "Yes. Without order, de Gurubashi spies would be sharpenin' knives in our tents by nightfall.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Rules don't win wars; fighters do, however they please.", next = "BACK", reply = "Fighters who please demselves die alone in de jungle, stranger. Here, we fight together, or we do not fight at all.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Do Gurubashi spies really come here?", next = "spies" },
         { text = "You look like you've fought in the city.", next = "city" },
         { text = "Why should outsiders trust the Zandalar?", next = "trust" },
@@ -431,8 +431,8 @@ P:NPC {
     third = "{name} spoke with one of the Zandalar headshrinkers on Yojamba Isle.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. The streets feel a little safer with you walking them." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm watching you, so keep your hands where I can see them." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Still got your head, and still on my side of de fire, heh. I like you, stranger, and I do not say dat to many heads." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Still got your head, I see. Keep walkin' like dat, stranger, and we will see how long it stays on." },
     { id = "g_default", text = "Heh, a fresh head walkin' around on its own legs. Do not worry, stranger, I only shrink de ones dat earn it." },
     { id = "g_back", when = { metBefore = true }, text = "You still have your head, I see. Good, keep it dat way." },
   },
@@ -446,8 +446,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I am a headshrinker of de Zandalar, and I guard dis camp with de old magic, de kind dat makes a Gurubashi spy think twice. De heads on my belt are all Hakkar's servants, and dey do not complain anymore." } },
       again = { { id = "h_again", text = "Yes? Speak up, de heads are listenin'." } },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "Old magic needs discipline, or it eats the one who uses it.", next = "BACK", reply = "Heh, now dere's a head with sense in it. Every witch doctor of Hakkar's who forgot dat is hangin' on my belt.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Magic should run wild and free, not be bound by priests.", next = "BACK", reply = "Wild and free, says de fresh head. Dat is what Hakkar's priests said too, right before dey gave him de whole tribe.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Why shrink heads at all?", next = "why" },
         { text = "What do you know of the Hakkari priests?", next = "priests" },
         { text = "That's a barbaric practice.", next = "barbaric" },
@@ -528,8 +528,8 @@ P:NPC {
     third = "{name} met Short John Mithril, the goblin who throws treasure into the Gurubashi Arena.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Arr, my favourite survivor, back for another round in the pit! Kid, you're better for business than the chest is." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you, kid. Jump in the pit if ya like, but I'll be cheerin' for the other fella." },
     { id = "g_default", text = "Arr, a fresh contender! Ya look like you'd fight for a chest of gold, and that's my favourite kind of customer." },
     { id = "g_back", when = { metBefore = true }, text = "You survived the last one, eh, kid? Then you're a regular, and regulars get my best showmanship." },
   },
@@ -623,8 +623,8 @@ P:NPC {
     third = "{name} met \"Sea Wolf\" MacKinley, an old sailor and gambler of Booty Bay.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ahoy, me trusted matey! There's nobody in Booty Bay I'd sooner send after a debt, and that's high praise from an old sea wolf." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ye again. I've jobs for them as keep their word, matey, and I'm not yet sure ye're one of them." },
     { id = "g_default", text = "Ahoy, matey! Ye've a look about ye of someone who can do a job and keep his mouth shut, and I've got just the job." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Good, good, there's always another debt to collect in this town." },
   },
@@ -718,8 +718,8 @@ P:NPC {
     third = "{name} met \"Shaky\" Phillipe, the jumpiest man in Booty Bay.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, it's you, thank goodness, a friendly face for once! You can come up behind me any time, really, well, nearly any time." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh no, it's you again. Please, whatever you want, say it from over there, and don't make any sudden moves." },
     { id = "g_default", text = "Oh! Oh, you startled me, please don't come up behind a fellow like that, my heart can't take much more of this town." },
     { id = "g_back", when = { metBefore = true }, text = "You again! You're not here for MacKinley, are you? Please say you're not here for MacKinley." },
   },
@@ -1087,8 +1087,8 @@ P:NPC {
     third = "{name} met a Drunken Bruiser celebrating in Booty Bay.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Go on through, friend; I'll not trouble you today." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Move along, and stay out of trouble. I'll know if you don't." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Heyyy, it's my best pal in the whole cove! I remember you this time, I'm almost sure, and you're one of the good ones." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You! I remember you, and I don't think I like you, and I got a club that agrees with me." },
     { id = "g_default", text = "Heyyy, friend! You look like a friend. Are you a friend? Because I got a club for the other kind." },
     { id = "g_back", when = { metBefore = true }, text = "You again! I remember you. I think. Did I owe you money?" },
   },
@@ -1098,8 +1098,8 @@ P:NPC {
       lines = { { id = "h_default", text = "Festival night, pal! The boss says we're off duty till the fireworks stop, so I'm making the most of it." } },
       again = { { id = "h_again", text = "What? Oh, you're still here. Good, good. What was I saying?" } },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "Off duty or not, a bruiser should keep the peace tonight.", next = "BACK", reply = "Keep the peace? Pal, I am the peace, I'm just keepin' it real loose tonight. The boss'll have me back on the gate in the mornin'.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "It's festival night; let the cove go wild for once.", next = "BACK", reply = "Now you're talkin', pal! Fireworks, rum and nobody tellin' me where to stand, that's how a festival oughta be.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Shouldn't a bruiser be keeping the peace?", next = "peace" },
         { text = "What are you celebrating, exactly?", next = "celebrate" },
         { text = "How long have you worked for the Baron?", next = "xyears" },
@@ -1197,8 +1197,8 @@ P:NPC {
     third = "{name} met the ghost of Gremnik Rizzlesprang, a goblin wizard and smuggler of Booty Bay.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back to visit old Gremnik again? You're my favourite mourner, pal, and frankly my only one, but I'm touched all the same." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. I'd haunt you, pal, but I'm saving my strength for the Baron." },
     { id = "g_default", text = "Oh, you can see me? Wonderful. Nobody's looked me in the eye in ages, and I've got so much to complain about." },
     { id = "g_back", when = { metBefore = true }, text = "Back to visit old Gremnik? I'm touched. Well, I'd be touched if I had anything to touch with." },
   },
@@ -1329,8 +1329,8 @@ P:NPC {
     third = "{name} did business with Landro Longshot, a goblin broker of Booty Bay.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "My favourite client! Boys, step aside, because this one gets the good chair, so to speak." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The boys will be watchin' you closely, friend, and so will I." },
     { id = "g_default", text = "Friend! Come in close, the boys won't bite. Landro Longshot, and I deal in the rare and the remarkable." },
     { id = "g_back", when = { metBefore = true }, text = "A returning customer! You see, boys? Quality attracts quality." },
   },
@@ -1461,8 +1461,8 @@ P:NPC {
     third = "{name} met a Rebel Watchman guarding the Rebel Camp in northern Stranglethorn.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. The streets feel a little safer with you walking them." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Move along, and stay out of trouble. I'll know if you don't." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You again, and welcome. Lieutenant Doren's inside, and the lads at the fire speak well of you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. State your business, and keep your hands where I can see them." },
     { id = "g_default", text = "Halt there. You're not a troll and you're not a panther, so I suppose you can pass." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Lieutenant Doren's inside if you've business with him." },
     { id = "g_horde", when = { faction = "Horde" }, text = "Keep your hands where I can see them. We've trouble enough from the jungle without the Horde at our gate." },
@@ -1473,8 +1473,8 @@ P:NPC {
       lines = { { id = "h_default", text = "We keep watch day and night here, because the Kurzen trolls and the jungle beasts both like a stray soldier for supper." } },
       again = { { id = "h_again", text = "Anything else? Quick, I'm meant to be watching the tree line." } },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "Lieutenant Doren's discipline is all that keeps this camp alive.", next = "BACK", reply = "Aye, and some of the lads grumble, but they're alive to grumble. Kurzen's men ran wild once he lost his grip, and look at them now.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "You'd do better as free men, without a lieutenant's orders.", next = "BACK", reply = "Free men in this jungle are dead men, stranger. We left Kurzen's orders, not orders altogether.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Why do they call this the Rebel Camp?", next = "rebels" },
         { text = "Who are the Kurzen?", next = "kurzen" },
         { text = "Where did you serve before this?", next = "xpast" },
@@ -1587,8 +1587,8 @@ P:NPC {
     third = "{name} bought fireworks, or nearly did, from Ziggle Sparks in Booty Bay.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back for more boom, pal, my best customer of the festival! Stand right there; nothing's gone off early since you showed up, so you're my lucky charm." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Stand back from the cart, pal, further, further, and keep your torch to yourself." },
     { id = "g_default", text = "Step right up! Rockets, crackers, sparklers, and nothing in my stock has exploded early in, oh, days!" },
     { id = "g_back", when = { metBefore = true }, text = "Back for more boom? Nice! Mind the cart, it's a little warm." },
   },
@@ -1598,8 +1598,8 @@ P:NPC {
       lines = { { id = "h_default", text = "Ziggle Sparks, holiday fireworks, the finest in Booty Bay. When there's a festival, there's a sky to fill, and I fill it!" } },
       again = { { id = "h_again", text = "Anything else? I've got a fuse burning somewhere, I'm sure of it." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Sell safe fireworks, even if the big ones make more money.", next = "BACK", reply = "Safe-ish, pal, I sell safe-ish! But you're right, a customer with no hands can't light the next one.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Who cares if one goes off early? It's part of the show.", next = "BACK", reply = "Ha! That's the spirit, pal, a little surprise keeps the crowd on its toes. Just not my toes, please.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Are these things safe?", next = "safe" },
         { text = "What happened to your eyebrows?", next = "brows" },
         { text = "Where do you buy your powder?", next = "xpowder" },
@@ -1713,8 +1713,8 @@ P:NPC {
     third = "{name} spoke with one of the Zandalari who serve the Hand of Rastakhan on Yojamba Isle.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome here, and I'll tell the others so if they ask." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm watching you, so keep your hands where I can see them." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You return to Molthor's fire, and de Hand speaks of you with favour. Stand with us, friend, and be welcome here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You return. De Hand allows you here, stranger, so I allow you here, and dat is all." },
     { id = "g_default", text = "De Zandalarian trolls have traveled far and suffered much to reach dis place, stranger, but to do nothing is to invite our doom." },
   },
   notice = {
@@ -1726,8 +1726,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I serve Molthor, who is de Hand of King Rastakhan, and I guard his fire while he gathers blades against de Soulflayer. If you have come to help, speak to de Hand, and if you have come to stare, stare quickly." } },
       again = { { id = "h_again", text = "You have more to say? Say it, and den let me return to my watch." } },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "Every blade against Hakkar should answer to the Hand.", next = "BACK", reply = "Yes. Scattered tribes fell to de Soulflayer once already, so dis time we stand under one command.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Let each tribe fight Hakkar in its own way.", next = "BACK", reply = "Each tribe its own way is how de Gurubashi fell, stranger. Molthor will not let it happen again.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "What is the Soulflayer?", next = "hakkar" },
         { text = "Why do the Zandalar fight other trolls?", next = "gurubashi" },
         { text = "Who is Molthor?", next = "xmolthor" },

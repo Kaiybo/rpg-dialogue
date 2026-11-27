@@ -16,8 +16,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Out of the lantern light, there's a good student. You've the look of someone who's been practising, and I like it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You're standing under the lantern again. I'd half hoped somebody would mistake you for a mark." },
     { id = "g_default", text = "Don't stand under the lantern. It makes you look like a mark, and you're not a mark, are you?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and you came in quieter this time. I noticed, even if nobody else did." },
   },
@@ -41,8 +41,8 @@ P:NPC {
         { id = "h_again", text = "Something else? Ask quietly; the walls here have ears, and most of them are mine." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A good thief takes only from those who can afford the loss.", next = "BACK", reply = "Sentimental, but it keeps the guards from looking too hard. I approve.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A purse is a purse. Whose belt it hangs from doesn't matter.", next = "BACK", reply = "And that's how the poor cutpurses end up hanging next to it.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "So you were a cutpurse.", next = "purse" },
         { text = "What's the first lesson?", next = "lesson" },
         { text = "Train me.", next = "BUSINESS", when = { class = "ROGUE" } },
@@ -165,8 +165,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. I counted the doors and then I counted you, and I was glad of the second sum." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Hands where I can see them, and stay near the door you came in by. You know why." },
     { id = "g_default", text = "Good evening. State your business, and kindly keep your hands visible while you do." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. I trust you've been practising, since I'll know if you haven't." },
     { id = "g_stealth", when = { stealthed = true }, text = "You came in by the left-hand arch, three steps behind the guard. Do sit down; I saw you before you'd decided to come." },
@@ -190,8 +190,8 @@ P:NPC {
         { id = "h_again2", text = "Continue. I am listening, and also watching the door behind you, so don't take offence if I don't look at you." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "An assassin keeps a contract once he's taken the coin.", next = "BACK", reply = "Quite so. A broken contract is a mark on the man who broke it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "If a better offer comes along, the first contract can wait.", next = "BACK", reply = "Then you'll find your name on someone's contract before long.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Who was the nobleman?", next = "noble" },
         { text = "The Dark Lady must have work for rogues.", next = "service" },
         { text = "Why do you keep looking at the doors?", next = "doors" },
