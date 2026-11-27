@@ -19,6 +19,44 @@ commands.help = function()
   printList(L.HELP_HEADER, L.HELP_LINES)
 end
 
+
+-- /rpgd blocked: what the game blocked us from doing (the "blocked from an action" popup).
+-- Always listening; keeps the last 10 with the call stack. "/rpgd blocked log" toggles the
+-- game's taint log (Logs/taint.log after a /reload or logout). "/rpgd blocked clear" empties.
+local blocked = {}
+do
+  local f = CreateFrame("Frame")
+  f:RegisterEvent("ADDON_ACTION_BLOCKED")
+  f:RegisterEvent("ADDON_ACTION_FORBIDDEN")
+  f:SetScript("OnEvent", function(_, event, addon, func)
+    if addon ~= "RPGDialogue" then return end
+    local stack = debugstack and debugstack(3, 12, 0) or ""
+    table.insert(blocked, 1, { event = event, func = tostring(func), when = date and date("%H:%M:%S") or "",
+      combat = InCombatLockdown and InCombatLockdown() and true or false, stack = stack })
+    if #blocked > 10 then blocked[#blocked] = nil end
+    ns.Print(("|cffff6060Blocked:|r %s (%s). Type /rpgd blocked for details."):format(tostring(func), event))
+  end)
+end
+
+commands.blocked = function(args)
+  if args[1] == "clear" then blocked = {}; ns.Print("Blocked list cleared."); return end
+  if args[1] == "log" then
+    local on = GetCVar and GetCVar("taintLog") or "0"
+    local new = (on == "0") and "1" or "0"
+    if SetCVar then SetCVar("taintLog", new) end
+    ns.Print("Taint log " .. (new == "1" and "ON: reproduce it, then /reload; see WoW/_classic_/Logs/taint.log." or "OFF."))
+    return
+  end
+  if #blocked == 0 then
+    ns.Print("Nothing blocked since login. Use /rpgd blocked log to turn on the game's taint log.")
+    return
+  end
+  for i, b in ipairs(blocked) do
+    ns.Print(("%d. [%s] %s: %s%s"):format(i, b.when, b.event, b.func, b.combat and " (in combat)" or ""))
+    for line in b.stack:gmatch("[^\n]+") do ns.Print("    " .. line) end
+  end
+end
+
 commands.kin = function() if ns.Kin then ns.Kin.Print() end end
 commands.version = function() ns.Print(L.VERSION_SHORT:format(ns.VERSION)) end
 
