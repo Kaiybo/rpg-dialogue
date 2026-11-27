@@ -121,6 +121,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_solomon = {
+      lines = { { id = "d6_solomon_a", text = "He sits in the town hall and writes letters, lots and lots of letters, to the king, I think, and then he looks out of the window and sighs. Mama says he's trying to get soldiers to come and help, and I asked if I could help, and he gave me a sweet." } },
+      choices = {
+        { text = "Did he ever let you help?", next = "d6_solomon2" },
+        { text = "A sweet is a good wage for helping.", next = "d6_solomon2" },
+        { text = "Tell me something else.", next = "BACK" },
+      },
+    },
+    d6_solomon2 = {
+      lines = { { id = "d6_solomon2_a", text = "I carried a letter to the gryphon lady once, all by myself, and she let me pet the gryphon, and it smelled like feathers and fish. Mister Solomon said I was the best courier in Lakeshire, but I think he says that to everybody." } },
+      choices = {
+        { text = "I think he meant it, Madison.", next = "BACK", fx = { affinity = 1 } },
+        { text = "What else do you know?", next = "BACK" },
+      },
+    },
+    d6_flower = {
+      lines = { { id = "d6_flower_a", text = "Dandelions, because when they're old you can blow on them and make a wish, and I've made a hundred wishes. Erin says that's too many and they'll get used up, but I don't think wishes work like that." } },
+      choices = {
+        { text = "I can turn into a bear, you know.", next = "d6_flower2", when = { class = "DRUID" } },
+        { text = "What do you wish for?", next = "d6_flower2" },
+        { text = "Wishes don't get used up.", next = "d6_flower2" },
+      },
+    },
+    d6_flower2 = {
+      lines = {
+        { id = "d6_flower2_a", text = "That the bridge gets fixed, so Mama's cousin can come and visit, and that the gnolls go away, and a pony. The pony's the one I wish for most, but don't tell Mama, because she says ponies eat too much." },
+        { id = "d6_flower2_druid", when = { class = "DRUID" }, text = "You can not! Can you? Do it, do it now, please, and then I'll wish on a dandelion that you'll stay a bear forever so I can ride you to the docks. No, wait, you'd better not stay a bear, because then you couldn't talk to me." },
+      },
+      choices = {
+        { text = "I hope your wishes come true.", next = "BACK" },
+        { text = "What else would you like to tell me?", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "I'm Madison, and I'm going to the docks to look at the fish, and then I'm going back to the fields to look at the flowers. Mama says I'm not allowed past the bridge because of the gnolls." },
@@ -135,6 +169,8 @@ P:NPC {
         { text = "Do you have any friends to play with?", next = "xfriends" },
         { text = "I'm a gnome. Am I the littlest adventurer?", next = "BACK", when = { race = "Gnome" }, reply = "You're even littler than my cousin Tommy! But you've got a sword, so you're the littlest and bravest adventurer." },
         { text = "Who's your mama?", next = "ymama" },
+        { text = "What does Mister Solomon do all day?", next = "d6_solomon" },
+        { text = "What's your favourite flower?", next = "d6_flower" },
         { text = "Run along home, now.", next = "END" },
       },
     },
@@ -331,6 +367,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_erin = {
+      lines = { { id = "d6_erin_a", text = "Very bossy, but a good bossy, like Marshal Marris. She makes us line up and say yes sir, and then she charges at me with a broom, and I have to fall down and say I'm defeated." } },
+      choices = {
+        { text = "I'm a warrior. I'd make you captain.", next = "d6_erin2", when = { class = "WARRIOR" } },
+        { text = "Do you ever win, as the gnoll?", next = "d6_erin2" },
+        { text = "That's a lot of falling down.", next = "d6_erin2" },
+      },
+    },
+    d6_erin2 = {
+      lines = {
+        { id = "d6_erin2_a", text = "Once, when Erin tripped over the broom, and I didn't know what to do, so I just stood there growling. Then her mama called her in, so I don't know if it counts." },
+        { id = "d6_erin2_war", when = { class = "WARRIOR" }, text = "Really? A real warrior said so? Then I'm going to tell Erin, and she'll have to be the gnoll for once, and I'll charge at her with the broom like you would. Do warriors shout something when they charge?" },
+      },
+      choices = {
+        { text = "It counts, Hannah.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Ask me something else.", next = "BACK" },
+      },
+    },
+    d6_carve = {
+      lines = { { id = "d6_carve_a", text = "Fish, mostly, little wooden ones, and he sells them at the inn to people who want to remember the lake. He made me a gnoll once, so I'd know what I was pretending to be, but it came out looking like a dog with a hat." } },
+      choices = {
+        { text = "Do you still have the gnoll?", next = "d6_carve2" },
+        { text = "A dog with a hat sounds friendlier.", next = "d6_carve2" },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    d6_carve2 = {
+      lines = { { id = "d6_carve2_a", text = "It's under my pillow, so the real gnolls know I've got one of their own on my side. Papa says he'll carve me an orc next, but Mama says no, not after what happened on the west wall, so I think it'll be another fish." } },
+      choices = {
+        { text = "Your papa sounds very kind.", next = "BACK" },
+        { text = "What else do you want to tell me?", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", text = "I'm Hannah, and I always play the gnoll because Erin always wants to be the captain, and somebody has to lose. I don't mind, really, because gnolls get to hide in the best places." } },
       again = { { id = "h_again", text = "Do you want to ask me something else? I'm good at answers when Erin isn't listening." } },
@@ -342,6 +412,8 @@ P:NPC {
         { text = "Would you like to be the captain one day?", next = "xcaptain" },
         { text = "I'm a hunter. My pet can teach you a growl.", next = "BACK", when = { class = "HUNTER" }, reply = "Really? Grrr! Was that good? Erin will never find me if I can growl like a real animal!" },
         { text = "What does your family do?", next = "yfamily" },
+        { text = "What's Erin like as a captain?", next = "d6_erin" },
+        { text = "What does your papa carve?", next = "d6_carve" },
         { text = "Good hiding, Hannah.", next = "END" },
       },
     },

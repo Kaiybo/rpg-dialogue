@@ -724,7 +724,45 @@ P:NPC {
         { text = "How did you come to the Silver Hand?", next = "yhand" },
         { text = "What do you think of Hammerfall?", next = "yhammerfall" },
         { text = "Ride with me, then, a little way.", next = "BACK", when = { class = "PALADIN" }, reply = "Gladly. It's been long since I rode beside a brother of the Order. The Light shines a little brighter on the road today." },
+        { text = "What do the Dabyrie farmers make of your patrol?", next = "lv_farm" },
+        { text = "Does Stromgarde still have a king?", next = "lv_king" },
         { text = "Ride safely, Lieutenant.", next = "END" },
+      },
+    },
+    lv_farm = {
+      lines = {
+        { id = "lv_farm_1", text = "They wave, and they bring water for the horses, and some of them weep when we pass, which I find harder than any battle. The Dabyries have held their farm through two wars and the Syndicate, and they will not leave it for a third." },
+      },
+      choices = {
+        { text = "Then your patrol is what keeps them there.", next = "lv_keep" },
+        { text = "Weeping farmers are a sign of hard times.", next = "BACK" },
+      },
+    },
+    lv_keep = {
+      lines = {
+        { id = "lv_keep_1", text = "I hope so, for there is little else I can offer them. Each time we ride out I count the fences still standing, and each time there are fewer, but the Dabyries rebuild them, and so I keep riding." },
+      },
+      choices = {
+        { text = "That's the Light at work, I think.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Fences and lances. Something else.", next = "BACK" },
+      },
+    },
+    lv_king = {
+      lines = {
+        { id = "lv_king_1", text = "Lord Trollbane is gone, and Prince Galen holds what he can of the keep against the Syndicate and the ogres. I serve Stromgarde, and I serve the Light, and I will leave the question of crowns to those with time for it." },
+      },
+      choices = {
+        { text = "You don't sound fond of Galen.", next = "lv_galen" },
+        { text = "I'm a paladin. The Light needs no crown.", next = "lv_galen", when = { class = "PALADIN" } },
+      },
+    },
+    lv_galen = {
+      lines = {
+        { id = "lv_galen_1", text = "I am fond of Stromgarde, and Galen is its prince, and that will have to be enough. The keep is half in ruins and half in Syndicate hands, so whoever holds it holds a great deal of trouble." },
+      },
+      choices = {
+        { text = "A prince of ruins. That's a heavy crown.", next = "BACK" },
+        { text = "Something else, Lieutenant.", next = "BACK" },
       },
     },
     threat = {

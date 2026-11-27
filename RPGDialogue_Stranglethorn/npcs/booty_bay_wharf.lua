@@ -1005,6 +1005,54 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d6_odd = {
+      lines = { { id = "d6_odd_a", text = "A ship's figurehead, friend, a mermaid with half her face gone, pulled off the reef after a storm. It sat behind the counter for thirty days and watched me while I worked, and I'll admit I didn't mind the company." } },
+      choices = {
+        { text = "Who bought a mermaid with half a face?", next = "d6_odd2" },
+        { text = "You sound sorry to see her go.", next = "d6_odd2" },
+        { text = "Something else, Graves.", next = "BACK" },
+      },
+    },
+    d6_odd2 = {
+      lines = { { id = "d6_odd2_a", text = "An orc captain, of all people, who said a ship without a face gets lost at sea. He paid twice what she was worth and didn't haggle, which made him the most sentimental buyer I've had in eleven years." } },
+      choices = {
+        { text = "Does anyone ever come back for their things?", next = "d6_odd3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d6_odd3 = {
+      lines = { { id = "d6_odd3_a", text = "Widows, sometimes, after the thirty days are up, and they find out what the Cartel thinks a wedding ring is worth. I tell them the price and then I tell them the next bid closes slowly, and they usually understand me, friend." } },
+      choices = {
+        { text = "That's kinder than the Cartel would like.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d6_peace = {
+      lines = { { id = "d6_peace_a", text = "They stand at the door and they're paid by the Baron to look bored, friend, which they're very good at. Nobody draws steel in Booty Bay's auction house, because the Bruisers remember faces and the Baron remembers debts." } },
+      choices = {
+        { text = "Has nobody ever tried?", next = "d6_peace2" },
+        { text = "Does Stormwind coin spend the same as Horde gold?", next = "d6_peace2", when = { faction = "Alliance" } },
+        { text = "Something else, Graves.", next = "BACK" },
+      },
+    },
+    d6_peace2 = {
+      lines = {
+        { id = "d6_peace2_a", text = "Once, a dwarf and an orc over a mace that neither of them could afford. The Bruisers carried them both out and the Cartel fined them both, and the mace sold the next week to a gnome who'd been standing behind them the whole time." },
+        { id = "d6_peace2_ally", when = { faction = "Alliance" }, text = "Gold is gold, friend, and the scales don't know whose face is stamped on it. The Cartel takes its cut in whatever you bring and changes it on the boardwalk, and the money-changers take a cut of their own, which is how this town stays standing." },
+      },
+      choices = {
+        { text = "The Cartel profits whichever side wins.", next = "d6_peace3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d6_peace3 = {
+      lines = { { id = "d6_peace3_a", text = "The Cartel profits whether anyone wins or not, friend, and that's the whole trick of it. Wars end and kings die, but somebody always has to sell what's left behind, and that somebody is usually standing behind this counter." } },
+      choices = {
+        { text = "A grim way to see the world.", next = "BACK", fx = { learn = { "steamwheedle" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -1020,6 +1068,8 @@ P:NPC {
         { text = "Why is the cut so steep here?", next = "cut" },
         { text = "Where do your lots come from?", next = "salvage" },
         { text = "You look gloomy, Graves.", next = "gloom" },
+        { text = "What's the oddest lot you've ever sold?", next = "d6_odd" },
+        { text = "Do the Bruisers keep the peace in here?", next = "d6_peace" },
         { text = "Nothing today. Good day, Graves.", next = "END" },
       },
     },

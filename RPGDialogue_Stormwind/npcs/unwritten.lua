@@ -459,6 +459,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_push = {
+      lines = { { id = "d6_push_a", text = "South, soldier, past Tanaris and into Silithus, where the Cenarion Circle says something is stirring under the sand. I'm not told more than that, and I don't need to be, because an army that's fed and armed can march anywhere it's sent." } },
+      choices = {
+        { text = "What's stirring in Silithus?", next = "d6_push2" },
+        { text = "Marching blind into a desert is bad soldiering.", next = "d6_push2" },
+        { text = "Back to the matter at hand.", next = "BACK" },
+      },
+    },
+    d6_push2 = {
+      lines = { { id = "d6_push2_a", text = "Insects the size of horses, the reports say, and a great wall the night elves sealed long ago that isn't as sealed as it was. The high command calls it a threat to all of Kalimdor, and when Ironforge and Stormwind agree on a threat, I take it seriously." } },
+      choices = {
+        { text = "Then I'd better start hauling crates.", next = "BACK", fx = { learn = { "cenarion_circle" } } },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    d6_tally = {
+      lines = { { id = "d6_tally_a", text = "The dwarves are ahead on metal, as you'd expect, and we're ahead on linen, and nobody's ahead on enough. The Horde's collecting in Orgrimmar too, I'm told, and I'll not have it said that orcs fed their army better than Stormwind did." } },
+      choices = {
+        { text = "I mine. How much ore do you need?", next = "d6_tally2", when = { profession = "Mining" } },
+        { text = "A race against the Horde, then.", next = "d6_tally2" },
+        { text = "Something else, Sergeant.", next = "BACK" },
+      },
+    },
+    d6_tally2 = {
+      lines = {
+        { id = "d6_tally2_a", text = "A race we'll win, if every adventurer who passes this gate brings me one stack of something useful. Count it in crates and not in glory, soldier, because nobody remembers the glory of a man who starved on the march." },
+        { id = "d6_tally2_mine", when = { profession = "Mining" }, text = "More than you've got, and that's not a complaint. Copper and iron are what the collectors want most, bar after bar, so take what you dig to Ironforge and tell them Maclure sent you." },
+      },
+      choices = {
+        { text = "You'll have my stack, Sergeant.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Understood. Anything else?", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", text = "Master Sergeant Maclure, war effort recruitment. The Alliance is gathering supplies for a great push, and every citizen who can carry a crate is asked to help." } },
       again = {
@@ -471,6 +505,8 @@ P:NPC {
         { text = "Why should I give up my goods?", next = "why" },
         { text = "I'd rather fight than haul crates, Sergeant.", next = "fight", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Ironforge collects and Stormwind recruits? Odd arrangement.", next = "ironforge", when = { race = "Dwarf" } },
+        { text = "Where is this great push headed?", next = "d6_push" },
+        { text = "How is the collecting going?", next = "d6_tally" },
         { text = "I'll think about it.", next = "END" },
       },
     },
@@ -1216,6 +1252,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_lamb = {
+      lines = { { id = "d6_lamb_a", text = "They make nothing of us, which is the point of drinking at the Slaughtered Lamb. The barkeep pours and looks at the wall, and the patrons have their own reasons for not wanting to be seen, so nobody asks why the cellar door is warm." } },
+      choices = {
+        { text = "A tavern of people who don't ask questions.", next = "d6_lamb2" },
+        { text = "Does anyone ever wander down by mistake?", next = "d6_lamb2" },
+        { text = "Let's speak of other things.", next = "BACK" },
+      },
+    },
+    d6_lamb2 = {
+      lines = { { id = "d6_lamb2_a", text = "A drunk, now and then, looking for the privy, and he meets Zggi on the stairs and decides he's had enough to drink for one lifetime. It's the most effective temperance sermon in Stormwind, and the Church gets none of the credit." } },
+      choices = {
+        { text = "That's almost a public service.", next = "BACK" },
+        { text = "Ask me what you will. Anything else?", next = "BACK" },
+      },
+    },
+    d6_guards = {
+      lines = { { id = "d6_guards_a", text = "They know, and they look the other way, because someone above them told them to. The city learned in two wars what fel can do, and there are men in the Keep who'd rather have it studied under a tavern than learned from orcs on a battlefield." } },
+      choices = {
+        { text = "The Sanctum would call this reckless.", next = "d6_guards2", when = { class = "MAGE" } },
+        { text = "So the crown tolerates you.", next = "d6_guards2" },
+        { text = "That's enough on the guards.", next = "BACK" },
+      },
+    },
+    d6_guards2 = {
+      lines = {
+        { id = "d6_guards2_a", text = "Tolerates, yes, the way a man tolerates a dog he isn't sure of, with one hand near a stick. I don't mind, because a crown that watches us is a crown that knows we're useful, and usefulness is the only protection anyone down here has." },
+        { id = "d6_guards2_mage", when = { class = "MAGE" }, text = "The Sanctum calls everything reckless that it didn't think of first. Your Kirin Tor once let a man named Kel'Thuzad study necromancy in their own towers, so forgive me if I don't take my lectures on caution from mages." },
+      },
+      choices = {
+        { text = "Fair point, and a cold one.", next = "BACK", fx = { learn = { "dalaran" } } },
+        { text = "Something else, Porena.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", text = "I'm Porena, an acolyte of the circle that meets beneath the Slaughtered Lamb. We study what the Church would rather we didn't, and the guards above are kind enough to look the other way." } },
       again = {
@@ -1228,6 +1298,8 @@ P:NPC {
         { text = "How did you join the circle?", next = "x_join" },
         { text = "I'm a warlock. I know the doors downstairs.", next = "x_lock", when = { class = "WARLOCK" } },
         { text = "The Light would see you burn for this.", next = "x_priest", when = { class = "PRIEST" } },
+        { text = "What do the drinkers upstairs make of you?", next = "d6_lamb" },
+        { text = "Do the city guards know you're down here?", next = "d6_guards" },
         { text = "I'll leave you to your studies.", next = "END" },
       },
     },

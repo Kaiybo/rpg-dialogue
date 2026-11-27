@@ -49,6 +49,8 @@ P:NPC {
         { text = "What's in the stew?", next = "stew" },
         { text = "How do the Stonemaul feel about the Horde?", next = "horde" },
         { text = "The Theramore spies were watching your inn, Logok?", next = "dd_spies", when = { questDone = TODO_QUEST("Theramore Spies") } },
+        { text = "Who comes to your inn the most?", next = "guests" },
+        { text = "What was the old village like, before the dragons?", next = "village" },
         { text = "Farewell, Logok.", next = "END" },
       },
     },
@@ -97,6 +99,33 @@ P:NPC {
         { text = "Stay with the Horde. Stronger together.", next = "BACK", reply = "Logok thinks so too, because Horde brings meat and Logok cooks it. Overlord will be glad small friend says so.", fx = { align = { order = 1 } } },
         { text = "The Stonemaul should stand on their own.", next = "BACK", reply = "Young ogres would like small friend very much, Logok thinks. But dragons are big, and Logok would rather cook for many than bury a few.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    guests = {
+      lines = { { id = "gu_default", text = "Ogres, every night, because ogres are always hungry, and orcs from the Horde who come to watch the Theramore humans. And the wyvern master, who eats very slowly and says Logok's stew is the best thing in the whole swamp, which Logok knows already." } },
+      choices = {
+        { text = "Do the ogres and orcs ever fight in here?", next = "guests2" },
+        { text = "Every inn needs a guest who praises the stew.", next = "guests2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    guests2 = {
+      lines = { { id = "gu2_default", text = "Sometimes, but Logok sits on whoever starts it, and then they stop. Overlord Mok'Morokk says the inn is a place for eating, not smashing, and the overlord is very big, so everybody listens. Then they eat more stew, because sitting makes them hungry." } },
+      choices = { { text = "Logok the peacekeeper. Something else.", next = "BACK" } },
+    },
+    village = {
+      lines = { { id = "vg_default", text = "Bigger, and drier, and full of Stonemaul, with a big fire in the middle where Logok's mother cooked. Then the black dragons came down from their cave and burned it, and the Stonemaul had to leave, and now Logok cooks here in the bog." } },
+      choices = {
+        { text = "Does anyone go back there?", next = "village2" },
+        { text = "The black dragons have a lot to answer for.", next = "village2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    village2 = {
+      lines = { { id = "vg2_default", text = "The overlord sends ogres to fight the dragons sometimes, and they come back burned, and Logok gives them extra stew. Logok wants to go back one day and light the big fire again. Then Logok will be Little Logok in the old village, and maybe Logok will understand the joke." } },
+      choices = {
+        { text = "I'll fight the dragons for the Stonemaul.", next = "BACK", reply = "Small friend is brave! Logok will save you the biggest bowl when you come back.", when = { faction = "Horde" } },
+        { text = "I hope you light it again. Something else.", next = "BACK" },
       },
     },
   },

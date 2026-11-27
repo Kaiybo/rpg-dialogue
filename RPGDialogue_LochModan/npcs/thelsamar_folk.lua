@@ -270,7 +270,45 @@ P:NPC {
         { text = "Why does Jern keep you in town?", next = "jern" },
         { text = "What's the League after, really?", next = "league" },
         { text = "My people remember the ancient world.", next = "xnelf", when = { race = "NightElf" } },
+        { text = "What's the hardest part of running the post?", next = "tq_post" },
+        { text = "Have you dug at Ironband's Excavation?", next = "tq_ironband" },
         { text = "Good luck with the post, Torren.", next = "END" },
+      },
+    },
+    tq_post = {
+      lines = {
+        { id = "tq_post_1", text = "Readin' the letters people leave unsealed, an' tryin' no' tae. Half o' them are from miners who've lost their work tae the troggs, an' the other half are from wives tellin' them tae come home." },
+      },
+      choices = {
+        { text = "That's a sad sort of post.", next = "tq_sad" },
+        { text = "You read the letters?", next = "BACK", reply = "No' on purpose, but the wind does turn the pages." },
+      },
+    },
+    tq_sad = {
+      lines = {
+        { id = "tq_sad_1", text = "It is, an' it's why I'd sooner be down a hole. At least a hole tells ye somethin' honest about the world, an' doesnae ask ye tae carry it tae Ironforge." },
+      },
+      choices = {
+        { text = "I'd rather be in a hole too.", next = "BACK" },
+        { text = "Something else, Torren.", next = "BACK" },
+      },
+    },
+    tq_ironband = {
+      lines = {
+        { id = "tq_ironband_1", text = "Once, before Jern sent me back tae the post, an' I've no' stopped thinkin' about it. Prospector Ironband's found somethin' old in the stone there, an' the Dark Irons want it as much as he does." },
+      },
+      choices = {
+        { text = "What did he find?", next = "tq_find" },
+        { text = "I'm a dwarf. The titans' work fascinates me.", next = "tq_find", when = { race = "Dwarf" } },
+      },
+    },
+    tq_find = {
+      lines = {
+        { id = "tq_find_1", text = "Carvings that look like nothin' I've seen, deeper than any dwarven work. Ironband thinks the titans left them, an' if he's right, it's the biggest find in Khaz Modan since Uldaman." },
+      },
+      choices = {
+        { text = "Then I'll visit Ironband.", next = "BACK", fx = { learn = { "explorers_league" } } },
+        { text = "The titans in Loch Modan? Remarkable.", next = "BACK" },
       },
     },
 

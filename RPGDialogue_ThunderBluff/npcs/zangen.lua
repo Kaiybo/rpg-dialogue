@@ -52,7 +52,39 @@ P:NPC {
         { text = "Who is Rau Cliffrunner?", next = "rau" },
         { text = "The fire seems to speak to you, Zangen.", next = "speak", when = { class = { "DRUID", "SHAMAN" } } },
         { text = "How can I help?", next = "BUSINESS" },
+        { text = "What do you ask the ancestors for?", next = "ancestors" },
+        { text = "The fire seems to be the heart of the rise.", next = "heart" },
         { text = "Earth Mother watch over you.", next = "END" },
+      },
+    },
+    ancestors = {
+      lines = { { id = "ancestors_d", text = "Only that they remember us, {class}, as we remember them. A tauren who is forgotten by his ancestors walks alone in the dark, and I would not wish that on anyone, not even the Grimtotem." } },
+      choices = {
+        { text = "Do they ever answer?", next = "ancestors_answer" },
+        { text = "That's a kind prayer.", next = "BACK", reply = "It is the oldest one I know. My grandmother taught it to me." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ancestors_answer = {
+      lines = { { id = "ancestors_answer_d", text = "In their way, yes. The fire burns brighter on some nights than others, and on those nights I feel them standing close behind me, and I know they have heard." } },
+      choices = {
+        { text = "Then they're listening tonight.", next = "BACK", reply = "Perhaps. The fire is bright, and you are here, which is a good sign." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    heart = {
+      lines = { { id = "heart_d", text = "It is, in a way. The braves come here before they go out, and the elders come here when they have something to think through, and the young come here simply to watch the flames." } },
+      choices = {
+        { text = "And you tend it for them all.", next = "heart_tend" },
+        { text = "I've seen braves leaving offerings.", next = "BACK", reply = "You have sharp eyes. They leave a little of what they carry, so the fire will carry it with them." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    heart_tend = {
+      lines = { { id = "heart_tend_d", text = "I tend it for the ancestors, and the living come because the ancestors are here. It is not my fire, {class}, but I am glad to be the one who keeps it burning." } },
+      choices = {
+        { text = "Then you do the ancestors a great service.", next = "BACK" },
+        { text = "Let me ask about something else.", next = "BACK" },
       },
     },
     fire = {

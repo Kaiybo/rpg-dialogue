@@ -40,6 +40,8 @@ P:NPC {
         { text = "Who keeps the sickness strong?", next = "names" },
         { text = "You are lonely out here.", next = "lonely" },
         { text = "A druid grieves with you, Krolg.", next = "druid", when = { class = "DRUID" } },
+        { text = "Krolg's hut is well hidden. How do you live?", next = "hut" },
+        { text = "Are there other furbolgs still free of the sickness?", next = "others" },
         { text = "Stay hidden, Krolg, and stay well.", next = "END" },
       },
     },
@@ -79,6 +81,33 @@ P:NPC {
     druid = {
       lines = { { id = "dr_default", text = "The tree-speakers were friends to the furbolgs before any other of the tall folk. It was one of yours, old Dartol, who made the rod so that he could sit at our fires, and Krolg is glad it still makes friends." } },
       choices = { { text = "So am I. Something else, Krolg.", next = "BACK" } },
+    },
+    hut = {
+      lines = { { id = "ht_default", text = "Krolg gathers honey from the trees the Foulweald do not watch, and fishes in the stream before the sour water reaches it. He moves the fire every moon, so that the smoke does not show the same place twice, and he sleeps lightly." } },
+      choices = {
+        { text = "That sounds like a hard life.", next = "hut2" },
+        { text = "You've learned to hunt your own people's habits.", next = "hut2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hut2 = {
+      lines = { { id = "ht2_default", text = "It is hard, but it is Krolg's own. Before the badness, the Foulweald shared everything, the honey and the fish and the songs. Now Krolg shares only with the fire, and with the elf woman's friends, when they come." } },
+      choices = { { text = "Then I'm glad I came. Something else.", next = "BACK" } },
+    },
+    others = {
+      lines = { { id = "ot_default", text = "Krolg has heard of the Timbermaw, far to the north in the mountains, who keep their hearts clean behind their hold. They do not trust the tall folk, and they do not trust furbolgs from other tribes, but they have not breathed the sickness." } },
+      choices = {
+        { text = "Could you go to them?", next = "others2" },
+        { text = "Then the furbolgs aren't lost, not all of them.", next = "others2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    others2 = {
+      lines = { { id = "ot2_default", text = "Krolg could try, but the way is through the green weeping forest, where the demons walk. And Krolg would not leave the frightened ones of the Foulweald alone with Bloodtooth. When the badness is broken here, maybe, Krolg will go north and sing with the Timbermaw." } },
+      choices = {
+        { text = "I'm a night elf. My people wronged yours, I think.", next = "BACK", reply = "Some of the tall folk, maybe. But the elf woman sent you, and you came. Krolg remembers kindness longer than wrongs.", when = { race = "NightElf" } },
+        { text = "Something else, Krolg.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -124,6 +153,8 @@ P:NPC {
         { text = "Let me tend your wounds.", next = "wounds" },
         { text = "Illiyana is waiting at the Shrine for you.", next = "illiyana" },
         { text = "A druid's healing may still reach you.", next = "druid", when = { class = "DRUID" } },
+        { text = "What were these woods like, before the satyrs came?", next = "before" },
+        { text = "Is there anything you would have me do, besides the Branch?", next = "wish" },
         { text = "Rest now. I will find him.", next = "END" },
       },
     },
@@ -153,6 +184,33 @@ P:NPC {
     druid = {
       lines = { { id = "d_default", text = "I feel it, like sun through leaves, and it takes the pain away. It will not hold me here, child of the grove, but it lets me go gently, and that is a great gift." } },
       choices = { { text = "Go gently, then. Something else.", next = "BACK" } },
+    },
+    before = {
+      lines = { { id = "bf_default", text = "Green all the way down to the roots, and loud with birds. Illiyana and I would race the deer from the shrine to the lake and back, and the Sentinels would pretend not to see us. The satyrs were only a story then, something old and far away." } },
+      choices = {
+        { text = "When did they come back?", next = "before2" },
+        { text = "It sounds like a beautiful place.", next = "before2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    before2 = {
+      lines = { { id = "bf2_default", text = "Slowly, and then all at once, after the fires in the north and the demons in the far forest. They took the ruins at Xavian and Satyrnaar, and now they fill them with their laughter. Remember the forest as it was, kind one, so that someone does." } },
+      choices = { { text = "I'll remember. Something else.", next = "BACK" } },
+    },
+    wish = {
+      lines = { { id = "ws_default", text = "Only that you look after Illiyana when I am gone, a little, from a distance. She will be angry and she will be reckless, and she will not want anyone's help. Help her anyway." } },
+      choices = {
+        { text = "I promise I'll look in on her.", next = "wish2" },
+        { text = "She has the strength to carry this.", next = "wish2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wish2 = {
+      lines = { { id = "ws2_default", text = "Thank you. She is stronger than she knows, and softer than she shows, and she will need someone to remind her of both. Tell her I said the deer were faster this spring, and she will know what I mean." } },
+      choices = {
+        { text = "I'm a druid. Your father's forest will remember you.", next = "BACK", reply = "Then I shall not be wholly gone. That is a sweet thing to hear at the end.", when = { class = "DRUID" } },
+        { text = "I'll tell her. Something else.", next = "BACK" },
+      },
     },
   },
   topics = {

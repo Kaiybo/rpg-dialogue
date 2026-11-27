@@ -48,6 +48,8 @@ P:NPC {
         { text = "What do you work with now?", next = "chitin" },
         { text = "Will you teach me your craft?", next = "teach", when = { profession = "Leatherworking" } },
         { text = "Let me see your patterns.", next = "BUSINESS" },
+        { text = "What was your work like, at Southwind?", next = "work" },
+        { text = "The Cenarion Hold seems a long way from your home.", next = "hold" },
         { text = "Rest well, Aendel.", next = "END" },
       },
     },
@@ -92,6 +94,33 @@ P:NPC {
     teach = {
       lines = { { id = "t_default", text = "Gladly, if the Circle trusts you, for they guard my patterns as jealously as I once did. Earn their friendship, and my work is yours to learn." } },
       choices = { { text = "I'll earn it.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    work = {
+      lines = { { id = "wk_default", text = "Armour for the Sentinels at the edge of the desert, light enough to run in and tough enough to stop a scorpid's tail. I tanned with the old methods, bark and ash and patience, and I would not let a piece leave my bench until I had worn it myself for a day." } },
+      choices = {
+        { text = "Do you still wear your own work?", next = "work2" },
+        { text = "Patience like that is rare among the living.", next = "work2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    work2 = {
+      lines = { { id = "wk2_default", text = "The dead feel nothing, so I cannot test it as I did. Instead I ask the scouts of the Hold to wear what I make and come back to tell me where it rubbed. They are very patient with a ghost who asks about their shoulders." } },
+      choices = { { text = "That's a good arrangement. Something else.", next = "BACK" } },
+    },
+    hold = {
+      lines = { { id = "hd_default", text = "It is, and it is not. When I lived, there was no Hold, only the sands and our watchtowers. Now the druids have built walls where the Sentinels once stood, and I find I am glad of them. They watch the Scarab Wall as we did, and with less hope of being left in peace." } },
+      choices = {
+        { text = "What lies behind the Scarab Wall?", next = "hold2" },
+        { text = "The Circle seems determined to stay.", next = "hold2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hold2 = {
+      lines = { { id = "hd2_default", text = "Ahn'Qiraj, and the things that sleep beneath it. My people sealed them away a long time ago, and the silithid are only the smallest of them. If the druids have come back to watch the wall, I think they know something is stirring, and they are right to be afraid." } },
+      choices = {
+        { text = "I'm a druid. The Circle won't let the wall fall.", next = "BACK", reply = "Then guard it well, child. Southwind was a watch post too, and we thought the same.", when = { class = "DRUID" } },
+        { text = "Something else, Aendel.", next = "BACK" },
+      },
     },
   },
 

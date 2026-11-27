@@ -623,6 +623,51 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    jek_led1 = {
+      lines = {
+        { id = "jek_led1_1", text = "The bindings are older, yes, for I brought them from the Undercity, where good leather is easier to find than good clerks. The pages are new, and every one of them is a raid, a mine taken, or a clansman's name with a debt beside it." },
+      },
+      choices = {
+        { text = "What kind of debt?", next = "jek_led2" },
+        { text = "Something else, quartermaster.", next = "BACK" },
+      },
+    },
+    jek_led2 = {
+      lines = {
+        { id = "jek_led2_1", text = "Service owed and service paid, which is the only currency the Frostwolves respect. A warrior who has carried back a Stormpike banner is owed a great deal, and one who has only drunk the clan's grog is owed nothing at all." },
+      },
+      choices = {
+        { text = "And the orcs trust your sums?", next = "jek_led3" },
+        { text = "I'd hate to be in the second column.", next = "jek_led3" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    jek_led3 = {
+      lines = {
+        { id = "jek_led3_1", text = "Drek'Thar checks them himself, once each moon, with one of his wolves sniffing at the pages. The old shaman is blind, so he has me read him every line aloud, and he has never once caught me in an error, for there have been none." },
+      },
+      choices = {
+        { text = "An accurate clerk, then. Something else.", next = "BACK" },
+      },
+    },
+    jek_sto1 = {
+      lines = {
+        { id = "jek_sto1_1", text = "Thanthaldis Snowgleam, a high elf, keeps the dwarves' stores on the far side of the valley. We have never met, but I have read his requisitions when the clan took them off a dead courier, and his hand is very neat." },
+      },
+      choices = {
+        { text = "You admire your enemy's handwriting?", next = "jek_sto2" },
+        { text = "I've met Snowgleam. He's as careful as you.", next = "jek_sto2", when = { faction = "Alliance" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jek_sto2 = {
+      lines = {
+        { id = "jek_sto2_1", text = "I admire anyone who keeps an honest column in a war, and his are honest, which is more than I can say for half the Undercity's. If the valley ever falls quiet, I should like to compare ledgers with him, though I expect he would decline." },
+      },
+      choices = {
+        { text = "He would, I think. Back to other matters.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -643,6 +688,8 @@ P:NPC {
         { text = "How do I earn the clan's regard?", next = "regard" },
         { text = "Who else keeps this camp?", next = "camp" },
         { text = "What does the Dark Lady want with this valley?", next = "lady", when = { race = "Scourge" } },
+        { text = "Your ledgers look older than the war in the valley.", next = "jek_led1" },
+        { text = "The Stormpike have a quartermaster too, I suppose.", next = "jek_sto1" },
         { text = "Another time.", next = "END" },
       },
     },

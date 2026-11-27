@@ -246,6 +246,8 @@ P:NPC {
         { text = "You and Vartrus seem different.", next = "brothers" },
         { text = "What do you remember of Hyjal?", next = "hyjal" },
         { text = "My people still remember the Ancients, Hastat.", next = "kal", when = { race = "NightElf" } },
+        { text = "What does an Ancient see in Felwood now?", next = "sees" },
+        { text = "Do the Deadwood furbolgs ever come near you?", next = "deadwood" },
         { text = "I'll let you rest, Ancient.", next = "END" },
       },
     },
@@ -288,6 +290,33 @@ P:NPC {
       choices = {
         { text = "I'll bow too, then, and teach the young to.", next = "BACK", reply = "Do not teach them to bow. Teach them why, and they will find their own way of showing it.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Our people must look forward, not only back.", next = "BACK", reply = "True, small one, so long as you remember that the road behind you is how you got here.", fx = { align = { order = -1 } } },
+      },
+    },
+    sees = {
+      lines = { { id = "se_default", text = "Hm. Rot, small one, rot that does not belong to any season. The trees here used to drop their leaves and grow them again, hm, like breathing. Now they hold their dead leaves all year, and nothing new comes, and the streams run the colour of an old bruise." } },
+      choices = {
+        { text = "Can nothing be done for them?", next = "sees2" },
+        { text = "The druids at the Emerald Sanctuary are trying.", next = "sees2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sees2 = {
+      lines = { { id = "se2_default", text = "Hm, hm. The young druids at the sanctuary plant and cleanse and plant again, and they think in years. I think in centuries, and so I know they will not see the end of it. But a seed planted by someone who will not see the tree is the best kind of seed." } },
+      choices = { { text = "That's a hopeful thought. Something else.", next = "BACK" } },
+    },
+    deadwood = {
+      lines = { { id = "dw_default", text = "Hm. They come, and they look at me, and they go away again, for I am very large and very old and they are only mad, not foolish. Once they were the friends of the Ancients. Now they do not remember that, and I remember it for them, which is a sad thing to carry." } },
+      choices = {
+        { text = "Do you blame them?", next = "deadwood2" },
+        { text = "The Timbermaw to the north kept their minds.", next = "deadwood2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    deadwood2 = {
+      lines = { { id = "dw2_default", text = "Hm, no. They drank from the water as the trees did, and the water was poisoned, and they went the way the water took them. The Timbermaw dug deep and drank from deeper springs, hm, and so they kept themselves. It was luck as much as wisdom, I think, though the Timbermaw would not like to hear it." } },
+      choices = {
+        { text = "I'm a hunter. I'll mind the Deadwood on the paths.", next = "BACK", reply = "Hm. Good. Shoot them cleanly if you must, small one. They have suffered enough without suffering slowly.", when = { class = "HUNTER" } },
+        { text = "Something else, Hastat.", next = "BACK" },
       },
     },
   },

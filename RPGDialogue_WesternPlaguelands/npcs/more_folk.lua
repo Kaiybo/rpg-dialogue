@@ -801,6 +801,46 @@ P:NPC {
 
   start = "hello",
   nodes = {
+
+    mf_ferry = {
+      lines = { { id = "mff_1", text = "When the boatman's sober, aye, and he rows folk across from the near shore for a copper each. I've nae seen him for a while, mind, and I've a crate of Ironforge steel waiting on some dock that I'd dearly like to hammer." } },
+      choices = {
+        { text = "Nobody's rowed that boat in years, Magnus.", next = "mf_ferry2" },
+        { text = "Where does your iron come from?", next = "mf_iron" },
+        { text = "Let's leave the boatman be.", next = "BACK" },
+      },
+    },
+    mf_ferry2 = {
+      lines = { { id = "mff2_1", text = "Years? Ach, ye've been listening to the fishermen, and they'd tell ye the lake was full of mermaids. The boatman's slow, that's all, and so is the post, and so is everything on this island since the sickness came to the big house." } },
+      choices = {
+        { text = "Slow. Aye, I'll grant you that.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    mf_iron = {
+      lines = { { id = "mfi_1", text = "It came by cart from Andorhal, along with the grain, and a fine lot it was. Then the carts stopped coming, and I've been working the same bar of iron so long I know every grain of it by name." } },
+      choices = {
+        { text = "I'm a miner. There's good ore in these hills still.", next = "BACK", when = { profession = "Mining" }, reply = "Is there now? Then bring me some, {g:lad|lass}, and we'll see if this forge remembers how to draw." },
+        { text = "Andorhal's grain did more harm than good.", next = "BACK", reply = "So the fishwives say, and I'll nae argue with a fishwife. Ye'd lose an ear doing it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mf_robes = {
+      lines = { { id = "mfr_1", text = "Still? Aye, they would be; they've no sense of when a welcome's worn out. They call themselves scholars, but they keep a list of every family on the island, and nae scholar I ever met needed one of those." } },
+      choices = {
+        { text = "Did anyone in town stand against them?", next = "mf_robes2" },
+        { text = "A list like that is for a harvest of people.", next = "mf_robes2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mf_robes2 = {
+      lines = { { id = "mfr2_1", text = "The Sarkhoffs did, Eva and her man Lucien, who lived down by the water and studied things I'd nae understand. Eva told me plain to stop selling iron up the hill, and I should have listened to her sooner than I did." } },
+      choices = {
+        { text = "Then I'll go and find Eva Sarkhoff.", next = "BACK", reply = "Do. Tell her the smith sends his regards, and that he stopped, in the end." },
+        { text = "You stopped. That counts for something.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Magnus Frostwake, smith. I came up from Ironforge to shoe Lord Barov's horses and stayed for the lake air, and I've a fair wee forge here, though the coals have been stubborn of late." },
@@ -820,6 +860,8 @@ P:NPC {
         { text = "What do you make of the Barovs?", next = "barovs" },
         { text = "The Great Forge still burns. Ironforge stands.", next = "home", when = { race = "Dwarf" } },
         { text = "Where did you learn these designs?", next = "designs", when = { profession = "Blacksmithing" } },
+        { text = "Is the ferry still running to the shore?", next = "mf_ferry" },
+        { text = "Those robed fellows are still about under the keep.", next = "mf_robes" },
         { text = "Good trading, Magnus.", next = "END" },
       },
     },

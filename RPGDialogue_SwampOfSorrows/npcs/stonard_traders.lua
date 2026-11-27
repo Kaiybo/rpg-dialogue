@@ -30,6 +30,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    thu_kar1 = {
+      lines = {
+        { id = "thu_kar1_1", text = "Rivals? He cooks one pot of stew a day for the great hall and thinks he's fed the Horde, while I feed everyone else from dawn to dark. We get on well enough, so long as nobody asks either of us whose bread is better." },
+      },
+      choices = {
+        { text = "Whose bread is better?", next = "thu_kar2" },
+        { text = "Something else, Thultash.", next = "BACK" },
+      },
+    },
+    thu_kar2 = {
+      lines = {
+        { id = "thu_kar2_1", text = "Mine, obviously, though his is softer, and he'll tell you softness is the whole point of bread. I say bread in a swamp has to be hard enough to survive the damp, and we've been having that argument since the garrison's first winter." },
+      },
+      choices = {
+        { text = "I'll try both and decide.", next = "thu_kar3" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    thu_kar3 = {
+      lines = {
+        { id = "thu_kar3_1", text = "Do, and don't tell either of us what you decided, because one of us will sulk for a week. I'd rather not know, if I'm honest, since I'm fairly sure it's him." },
+      },
+      choices = {
+        { text = "Your secret's safe. Something else.", next = "BACK" },
+      },
+    },
+    thu_store1 = {
+      lines = {
+        { id = "thu_store1_1", text = "Hardtack, salted crocolisk, and enough grog to keep the garrison from mutiny for a week. I didn't say where it is, and you didn't ask, which is the only way a secret store stays secret in Stonard." },
+      },
+      choices = {
+        { text = "Has it ever saved the garrison?", next = "thu_store2" },
+        { text = "I'd have done the same, quartermaster.", next = "thu_store2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    thu_store2 = {
+      lines = {
+        { id = "thu_store2_1", text = "Twice, when the caravan from Grom'gol was cut off in the jungle for a month. The grunts never knew how close they came to eating their own boots, and Commander Ruag only thanked me once, which from him is a speech." },
+      },
+      choices = {
+        { text = "A well-kept secret, then. Something else.", next = "BACK" },
+      },
+    },
     dd_surplus = {
       lines = {
         { id = "dd_surplus_1",
@@ -66,6 +110,8 @@ P:NPC {
         { text = "Where does all this food come from?", next = "supply" },
         { text = "Why does Tok'Kar blame you for the drinking?", next = "drink" },
         { text = "What's good to eat out here?", next = "eats" },
+        { text = "Karakul and you seem to be rivals.", next = "thu_kar1" },
+        { text = "What do you keep in the hidden store?", next = "thu_store1" },
         { text = "Farewell, Thultash.", next = "END" },
       },
     },
@@ -155,6 +201,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    thz_ank1 = {
+      lines = {
+        { id = "thz_ank1_1", text = "For coming back, mostly, since the swamp kills shamans as easily as anyone else, and the ankh lets the spirits send them back. Haromm buys a dozen at a time for his students, and he looks at them the way a father looks at a broken toy." },
+      },
+      choices = {
+        { text = "Haromm worries for his students.", next = "thz_ank2" },
+        { text = "I'm a shaman. I've needed a few.", next = "thz_ank2", when = { class = "SHAMAN" } },
+        { text = "Something else, Thultazor.", next = "BACK" },
+      },
+    },
+    thz_ank2 = {
+      lines = {
+        { id = "thz_ank2_1", text = "He does, and he never says it, which is how you know it's true. He tells them the water is patient, and then he comes to my stall and buys more ankhs than any patient teacher should need." },
+      },
+      choices = {
+        { text = "He knows what the swamp is.", next = "thz_ank3" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    thz_ank3 = {
+      lines = {
+        { id = "thz_ank3_1", text = "He knows better than any of us, for he listens to the water and it tells him things. I only sell the ankhs and keep them dry, and that's as close to the spirits as I want to get." },
+      },
+      choices = {
+        { text = "A sensible distance. Something else.", next = "BACK" },
+      },
+    },
+    thz_st1 = {
+      lines = {
+        { id = "thz_st1_1", text = "Once, by a murloc, if you can believe it, who came up from the Misty Reed in the night and carried off a crate of wax candles. What a fish wants with candles I'll never know, and I'm not going to ask it." },
+      },
+      choices = {
+        { text = "Did you get them back?", next = "thz_st2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    thz_st2 = {
+      lines = {
+        { id = "thz_st2_1", text = "A grunt on the beach patrol found the crate a week later, half buried in the mud, with every candle gone. Tok'Kar swore the murlocs had eaten them, and I'm still not sure he was joking." },
+      },
+      choices = {
+        { text = "Murlocs eat stranger things. Back to other matters.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -175,6 +265,8 @@ P:NPC {
         { text = "How do you keep anything dry out here?", next = "damp" },
         { text = "You and Rartar sell the same vials, don't you?", next = "rartar" },
         { text = "Who buys reagents in a place like this?", next = "customers" },
+        { text = "What do the shamans here use all those ankhs for?", next = "thz_ank1" },
+        { text = "Have you ever had a shipment stolen?", next = "thz_st1" },
         { text = "Good day.", next = "END" },
       },
     },
@@ -262,6 +354,51 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    har_axe1 = {
+      lines = {
+        { id = "har_axe1_1", text = "More than most grunts will see in a year, which is why it's still on the rack. I forged it for a Dreadmaul ogre's neck, and every warrior who walks past touches the haft and sighs, and then buys a falchion instead." },
+      },
+      choices = {
+        { text = "Has anyone ever lifted it?", next = "har_axe2" },
+        { text = "Something else, Hartash.", next = "BACK" },
+      },
+    },
+    har_axe2 = {
+      lines = {
+        { id = "har_axe2_1", text = "One, a tauren who came through on the way to the Blasted Lands, and she swung it once over her head and set it back down as if it were a stick. She didn't buy it either, said it was too light, and I've never got over that." },
+      },
+      choices = {
+        { text = "Too light?", next = "har_axe3" },
+        { text = "A tauren would say that.", next = "har_axe3" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    har_axe3 = {
+      lines = {
+        { id = "har_axe3_1", text = "Too light, and she said it kindly, which was worse. I've been meaning to forge a heavier one ever since, but I'd need twice the iron and a customer twice her size, and there's neither in Stonard." },
+      },
+      choices = {
+        { text = "Keep the forge hot for her. Something else.", next = "BACK" },
+      },
+    },
+    har_gri1 = {
+      lines = {
+        { id = "har_gri1_1", text = "We get on like an axe and a shield, which is to say we spend all day hitting each other. He tells grunts my blades are no use without his mail, and I tell them his mail is no use against my blades, and between us we sell twice as much." },
+      },
+      choices = {
+        { text = "That's clever business.", next = "har_gri2" },
+        { text = "I'd rather have the blade.", next = "har_gri2", when = { class = { "WARRIOR", "ROGUE" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    har_gri2 = {
+      lines = {
+        { id = "har_gri2_1", text = "It's not clever, it's just true, and a grunt needs both if he means to come home. Grimnal and I share a pot of grog every night after the stalls close, and we've never once agreed on anything, which is why we're still friends." },
+      },
+      choices = {
+        { text = "Long may it last. Back to other matters.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_dd_murlocs", when = { killed = { name = "Marsh", min = 40 } },
@@ -284,6 +421,8 @@ P:NPC {
         { text = "Does the rust really get that bad?", next = "rust" },
         { text = "Who are you arming against out here?", next = "ogres" },
         { text = "Do the warrior recruits buy from you?", next = "recruits" },
+        { text = "What does a Great Axe like that cost?", next = "har_axe1" },
+        { text = "Grimnal sells the armour. Do you two get on?", next = "har_gri1" },
         { text = "Farewell.", next = "END" },
       },
     },

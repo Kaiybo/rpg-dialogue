@@ -1341,6 +1341,53 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d2_sleep = {
+      lines = {
+        { id = "d2_sleep_1", text = "On a mat by Master Gerard's door, where I can hear him call. I sleep when there are no parcels, and I wake when there is a parcel, and I do not dream, or if I do, I am not told about it." },
+      },
+      choices = {
+        { text = "Do you ever feel cold?", next = "d2_sleep2" },
+        { text = "That's no way to rest.", next = "d2_sleep2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_sleep2 = {
+      lines = {
+        { id = "d2_sleep2_1", text = "Sometimes the stone is cold, and I lie on my other side. Father Lankester gave me a blanket once, and Master Gerard took it away, but I remember that it was warm, and I keep remembering it." },
+      },
+      choices = {
+        { text = "Hold on to that memory.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_guards = {
+      lines = {
+        { id = "d2_guards_1", text = "They stopped me once and took my arm, and I did not speak, because I was not told to. Now they nod when I pass, and one of them said good morning, and I said good morning back, because it seemed like the right word." },
+      },
+      choices = {
+        { text = "It was the right word.", next = "d2_guards2" },
+        { text = "Did Gerard teach you that?", next = "d2_guards2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_guards2 = {
+      lines = {
+        { id = "d2_guards2_1", text = "I do not know where it came from. It was there when I needed it, like the bread in the kitchen I remember, and I think there may be other words like it, somewhere behind the pain." },
+      },
+      choices = {
+        { text = "Maybe there are.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_light = {
+      lines = {
+        { id = "d2_light_1", text = "Light is a word Father Lankester uses, and he says it is not for us here. If you put your hand on the scar, I will stand still, because you have not told me not to." },
+      },
+      choices = {
+        { text = "I'll not do it without your leave.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Theresa. I carry things from Master Gerard to Father Lankester, and from Father Lankester back to Master Gerard. That is what I am for." },
@@ -1357,6 +1404,9 @@ P:NPC {
         { text = "Who is Father Lankester?", next = "th_lankester" },
         { text = "Do you want to be free, Theresa?", next = "th_free" },
         { text = "Let me look at that scar.", next = "BACK", when = { class = "PRIEST" }, reply = "Master Gerard says only he may look at it. But you may look a little, if you are quick." },
+        { text = "Where do you sleep, Theresa?", next = "d2_sleep" },
+        { text = "The guards on the bridge know you now.", next = "d2_guards" },
+        { text = "The Light could heal what he cut.", next = "d2_light", when = { class = "PALADIN" } },
         { text = "Go on with your errand, Theresa.", next = "END" },
       },
     },

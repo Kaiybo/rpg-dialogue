@@ -955,6 +955,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_broken = {
+      lines = { { id = "d6_broken_a", text = "It goes to the smiths in the Dwarven District with a tag on it, saying whose it was and what broke it. I read every tag before it goes, and ye learn a great deal about a battle from what it did to the plate." } },
+      choices = {
+        { text = "What have the tags taught you?", next = "d6_broken2" },
+        { text = "I wear plate. What should I look for?", next = "d6_broken2", when = { class = "WARRIOR" } },
+        { text = "On to other matters, Sergeant Major.", next = "BACK" },
+      },
+    },
+    d6_broken2 = {
+      lines = {
+        { id = "d6_broken2_a", text = "That Alterac's cold cracks a seam faster than any axe, and that the Frostwolf aim for the knee. I've written to the smiths to say so, and they've thickened the greaves, and fewer knights come back limping than did last winter." },
+        { id = "d6_broken2_war", when = { class = "WARRIOR" }, text = "The rivets, {g:lad|lass}, before the plate. Plate fails slow and rivets fail sudden, and a pauldron that comes loose mid-swing will kill ye quicker than any blade, so check them every night, even when ye're tired." },
+      },
+      choices = {
+        { text = "That's knowledge earned the hard way.", next = "BACK" },
+        { text = "Something else I'd ask.", next = "BACK" },
+      },
+    },
+    d6_smith = {
+      lines = { { id = "d6_smith_a", text = "Ironforge forges for weight and Stormwind forges for show, and that's nae as unkind as it sounds. A human knight wants to be seen on the field and a dwarf wants to walk off it, and the best armour in this hall does both." } },
+      choices = {
+        { text = "Which matters more, in the end?", next = "d6_smith2" },
+        { text = "Spoken like a dwarf.", next = "d6_smith2" },
+        { text = "Let's turn to something else.", next = "BACK" },
+      },
+    },
+    d6_smith2 = {
+      lines = { { id = "d6_smith2_a", text = "Walking off it, every time, though I'd not say so to a Stormwind smith in his own forge. But a soldier who's seen leads others, so I let the humans gild the edges and I make certain there's good dwarven steel under the gilt." } },
+      choices = {
+        { text = "Gilt over good steel. A fair bargain.", next = "BACK" },
+        { text = "Anything else in this hall worth knowing?", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "hello_1", text = "Sergeant Major Clate, armour quartermaster. Every piece in this hall was made for an officer of the Alliance and is sold only to one, and I've held that line against dukes' sons and worse." },
@@ -975,6 +1009,8 @@ P:NPC {
         { text = "I've begun to earn rank. What comes first?", next = "first", when = { pvpRank = { min = 1 } } },
         { text = "A dwarf, keeping Stormwind's armoury?", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Who else serves in this hall?", next = "hall" },
+        { text = "What happens to armour that comes back broken?", next = "d6_broken" },
+        { text = "How does Ironforge smithing differ from Stormwind's?", next = "d6_smith" },
         { text = "Good day, Sergeant Major.", next = "END" },
       },
     },
@@ -1077,6 +1113,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_odd = {
+      lines = { { id = "d6_odd_a", text = "A knight-captain wanted a sword that was also a spyglass, for seeing the enemy and then stabbing him with the same object. I drew up three designs, and every one of them was a worse sword and a worse spyglass, which I put in my report with a diagram." } },
+      choices = {
+        { text = "Did he buy one anyway?", next = "d6_odd2" },
+        { text = "Some ideas are better left on paper.", next = "d6_odd2" },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    d6_odd2 = {
+      lines = { { id = "d6_odd2_a", text = "He bought a good sword and a separate spyglass, at a combined weight four percent less than my best prototype, and he wrote to thank me. I keep the letter pinned above the test frame as evidence that officers can be reasoned with, given numbers." } },
+      choices = {
+        { text = "Numbers win arguments, then.", next = "BACK" },
+        { text = "On to another subject.", next = "BACK" },
+      },
+    },
+    d6_bows = {
+      lines = { { id = "d6_bows_a", text = "Exquisite, and impossible to improve, which offends me professionally. The kaldorei grow the wood to the shape they want over decades, so there's no glue and no seam, and every time I've tried to add a sight to one the Sentinels have asked me to stop." } },
+      choices = {
+        { text = "I'm a hunter. Which rifle would you choose?", next = "d6_bows2", when = { class = "HUNTER" } },
+        { text = "Grown over decades? That's patience.", next = "d6_bows2" },
+        { text = "Let's leave the bows there.", next = "BACK" },
+      },
+    },
+    d6_bows2 = {
+      lines = {
+        { id = "d6_bows2_a", text = "Patience is the one thing I can't put into a mechanism, which is why my people build rifles instead. A good dwarven barrel with a gnomish sight is the finest thing in this hall, if you ask me, and no Sentinel has ever asked me." },
+        { id = "d6_bows2_hunter", when = { class = "HUNTER" }, text = "A dwarven barrel, a gnomish sight and a stock cut to your own shoulder, and I'd measure that shoulder myself. Ignore anything with engraving on it, because engraving adds weight and the beasts don't care how pretty the gun is." },
+      },
+      choices = {
+        { text = "I'll remember the shoulder fitting.", next = "BACK" },
+        { text = "Anything else, Lieutenant?", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "hello_1", text = "Lieutenant Jackspring, weapons quartermaster. Everything on these racks was made for an officer and tested by me personally, within the limits of my reach, which I've extended with a very good stepladder." },
@@ -1097,6 +1167,8 @@ P:NPC {
         { text = "What should a newly ranked soldier save for?", next = "save", when = { pvpRank = { min = 1 } } },
         { text = "How did one of us end up in this hall?", next = "gnome", when = { race = "Gnome" } },
         { text = "Tell me about the repeating crossbow.", next = "crossbow", when = { profession = "Engineering" } },
+        { text = "What's the oddest weapon an officer's asked for?", next = "d6_odd" },
+        { text = "How do the Darnassian bows compare?", next = "d6_bows" },
         { text = "Good day, Lieutenant.", next = "END" },
       },
     },
@@ -1199,6 +1271,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_pot = {
+      lines = { { id = "d6_pot_a", text = "Tea! Proper tea, from a shop in the Trade District that gets it off the Menethil boats, and I brew it stronger than the officers like. A cup of it after the battlegrounds does more for a knight's nerves than any medal I could pin on him." } },
+      choices = {
+        { text = "Do the officers actually drink it?", next = "d6_pot2" },
+        { text = "A gnome with a tea habit. I like it.", next = "d6_pot2" },
+        { text = "Let's change the subject.", next = "BACK" },
+      },
+    },
+    d6_pot2 = {
+      lines = { { id = "d6_pot2_a", text = "Clate does, without a word, every afternoon at four. Jackspring takes his with a measured quantity of sugar, and Skyshadow drinks it standing up and says it tastes of leaves, which it is, so I've decided she's paying it a compliment." } },
+      choices = {
+        { text = "Tea at four. It sounds like a home here.", next = "BACK", fx = { affinity = 1 } },
+        { text = "What else, Biggins?", next = "BACK" },
+      },
+    },
+    d6_cloak = {
+      lines = { { id = "d6_cloak_a", text = "Wool for the sergeants and something better as you climb, with the lion of Stormwind or the Alliance crest worked in. A cloak's a soldier's blanket, tent and flag, all at once, and the best ones I stock have all three in mind." } },
+      choices = {
+        { text = "A cloak's mostly for hiding in, if you ask me.", next = "d6_cloak2", when = { class = "ROGUE" } },
+        { text = "Why does a cloak matter to an officer?", next = "d6_cloak2" },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    d6_cloak2 = {
+      lines = {
+        { id = "d6_cloak2_a", text = "Because the men behind him see his back, not his face, and a good cloak is the last thing a frightened footman sees going into the fight. I've watched a whole company straighten up because their knight's cloak was clean, and you can't buy that with steel." },
+        { id = "d6_cloak2_rogue", when = { class = "ROGUE" }, text = "Ha! Mine aren't, I'm afraid, they're meant to be seen, with a crest on the back the size of a dinner plate. Go to Osborne's people in Old Town for the hiding sort, and tell them Biggins sent you, though I doubt they'll admit they know me." },
+      },
+      choices = {
+        { text = "Clean cloaks and straight backs.", next = "BACK" },
+        { text = "On to something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "hello_1", text = "Master Sergeant Biggins, accessories. Clate will tell you armour wins wars and Jackspring will tell you weapons do, and I say it's the tabard that tells a frightened recruit which way to run, so who's really doing the work?" },
@@ -1219,6 +1325,8 @@ P:NPC {
         { text = "What's my first insignia worth having?", next = "insignia", when = { pvpRank = { min = 1 } } },
         { text = "Do you miss Gnomeregan, Biggins?", next = "miss", when = { race = "Gnome" } },
         { text = "What goes on upstairs in this hall?", next = "lounge" },
+        { text = "What's in the pot you've always got on?", next = "d6_pot" },
+        { text = "Tell me about the cloaks.", next = "d6_cloak" },
         { text = "Good day, Master Sergeant.", next = "END" },
       },
     },
@@ -1321,6 +1429,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_miss = {
+      lines = { { id = "d6_miss_a", text = "Every hour, though I have learned to stand still with it. I miss the sound of the leaves above Astranaar at night, and here the only sound at night is the bells, and the bells are very sure of themselves." } },
+      choices = {
+        { text = "Ishnu-alah, Sergeant Major. The forest remembers you.", next = "d6_miss2", when = { race = "NightElf" } },
+        { text = "Will you go back when your service ends?", next = "d6_miss2" },
+        { text = "I'll not press you on it.", next = "BACK" },
+      },
+    },
+    d6_miss2 = {
+      lines = {
+        { id = "d6_miss2_a", text = "When Tyrande releases me, and not before. The orcs still cut at the edge of the forest, and the Silverwing still answer them, and I would rather be among the trees with a glaive than in this hall with a title." },
+        { id = "d6_miss2_ne", when = { race = "NightElf" }, text = "Ishnu-alah, {g:brother|sister}, and you are kind to say it. Tell the trees of Ashenvale, when you see them, that one of their Sentinels stands among stone and has not forgotten them." },
+      },
+      choices = {
+        { text = "May Elune bring you home soon.", next = "BACK", fx = { learn = { "sentinels" } } },
+        { text = "Something else, Sergeant Major.", next = "BACK" },
+      },
+    },
+    d6_humans = {
+      lines = { { id = "d6_humans_a", text = "That they are brave and very loud, and that they forget quickly, which may be how they stay brave. Your footmen will march into a battle that killed their fathers, singing, and my sisters do not understand how." } },
+      choices = {
+        { text = "Short lives make for bold soldiers.", next = "d6_humans2" },
+        { text = "Do you understand it?", next = "d6_humans2" },
+        { text = "Let's leave it there.", next = "BACK" },
+      },
+    },
+    d6_humans2 = {
+      lines = { { id = "d6_humans2_a", text = "I am beginning to. A people who have only a few decades cannot afford to spend one of them mourning, so they mourn quickly and march on, and there is a kind of wisdom in it that my own people have perhaps lost." } },
+      choices = {
+        { text = "That's a generous thing to admit.", next = "BACK" },
+        { text = "Something else I'd ask.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "hello_1", text = "I am Sergeant Major Skyshadow, of the Sentinels, and now of the Alliance's officers. I was sent here to learn how the younger races make war together, and to be seen learning it." },
@@ -1341,6 +1483,8 @@ P:NPC {
         { text = "I've fought at Warsong Gulch. Is that your war?", next = "warsong", when = { pvpRank = { min = 1 } } },
         { text = "Why does a Sentinel wear a human rank?", next = "rank", when = { race = "NightElf" } },
         { text = "Who else keeps this hall?", next = "others" },
+        { text = "Do you miss Ashenvale?", next = "d6_miss" },
+        { text = "What do the Sentinels think of human soldiers?", next = "d6_humans" },
         { text = "Elune light your path.", next = "END" },
       },
     },
@@ -1592,6 +1736,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_hammon = {
+      lines = { { id = "d6_hammon_a", text = "Everything I know about standing, which turns out to be most of the job. He taught me never to lock my knees, never to look bored when a general passes, and never to look interested when a noble does, and I've only failed at the last one twice." } },
+      choices = {
+        { text = "What happened the two times?", next = "d6_hammon2" },
+        { text = "He sounds a fine teacher.", next = "d6_hammon2" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    d6_hammon2 = {
+      lines = { { id = "d6_hammon2_a", text = "A duke's son asked me where the officers' lounge was, and I told him, and then I asked him where he'd served. He hadn't, and he complained, and Hammon told the duke's man that I'd been asking on his orders, which wasn't true and which I've never forgotten." } },
+      choices = {
+        { text = "Hammon looks after his own.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Quine.", next = "BACK" },
+      },
+    },
+    d6_alterac = {
+      lines = { { id = "d6_alterac_a", text = "That it's colder than anywhere they've ever been, and that the Stormpike dwarves and the Frostwolf orcs have been fighting over it so long that the snow itself seems to take sides. One knight told me he lost two toes and won a mine, and he said it like it was a fair trade." } },
+      choices = {
+        { text = "I'm from Dun Morogh. Ask me about snow.", next = "d6_alterac2", when = { race = "Dwarf" } },
+        { text = "Two toes for a mine. Was it a fair trade?", next = "d6_alterac2" },
+        { text = "War stories are rarely as grand as they sound.", next = "d6_alterac2" },
+      },
+    },
+    d6_alterac2 = {
+      lines = {
+        { id = "d6_alterac2_a", text = "He thought so, and he's a Knight-Captain now, so the Alliance thought so too. I wrote it in my book under Alterac, between the wolves and the avalanches, and I underlined the toes." },
+        { id = "d6_alterac2_dwarf", when = { race = "Dwarf" }, text = "Would you? Then tell me what kind of snow is worst, because the officers just say cold, and I'm certain there's more to it than that. Wait, let me get my pencil out, and go slowly." },
+      },
+      choices = {
+        { text = "Wet snow is worst. It soaks through everything.", next = "BACK" },
+        { text = "Let's leave Alterac for now.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "hello_1", text = "Guard Quine, door watch, Champions' Hall. Hammon has the left side and I have the right, and between us we see every officer in the Alliance sooner or later. I've met more heroes than a bard has, and I've not left Old Town in two years." },
@@ -1611,6 +1789,8 @@ P:NPC {
         { text = "I'll tell you about the battlegrounds.", next = "tell", when = { pvpRank = { min = 1 } } },
         { text = "I've seen a good deal of the world. Ask me something.", next = "ask", when = { minLevel = 40 } },
         { text = "Who's inside the hall today?", next = "inside" },
+        { text = "Has Hammon taught you much?", next = "d6_hammon" },
+        { text = "What do officers say about Alterac Valley?", next = "d6_alterac" },
         { text = "Good day, Quine.", next = "END" },
       },
     },
@@ -1715,6 +1895,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_best = {
+      lines = { { id = "d6_best_a", text = "A grey-haired footman came in to collect his sergeant's stripe, thirty years after he'd first put on a tabard. The young knights stood up when he walked through, every one of them, and nobody had told them to." } },
+      choices = {
+        { text = "Thirty years to earn a stripe?", next = "d6_best2" },
+        { text = "That's the kind of thing that keeps you here.", next = "d6_best2" },
+        { text = "Something else, Hammon.", next = "BACK" },
+      },
+    },
+    d6_best2 = {
+      lines = { { id = "d6_best2_a", text = "Thirty years of carrying a spear in Redridge and Westfall and never once being noticed, until the battlegrounds counted what he'd done. That's what this hall's for, as I see it, and I'll stand at its door till my knees give out to see it happen once more." } },
+      choices = {
+        { text = "May your knees hold, Hammon.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Let's talk of other things.", next = "BACK" },
+      },
+    },
+    d6_partners = {
+      lines = { { id = "d6_partners_a", text = "Four of them, and every one moved on to something better, which is the point of training a man. One went to the Night Watch in Duskwood, one to the barracks as an instructor, and one married a baker in Goldshire and never looked back, which I count as a success too." } },
+      choices = {
+        { text = "And the fourth?", next = "d6_partners2" },
+        { text = "Any advice for a paladin on the road?", next = "d6_partners2", when = { class = "PALADIN" } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    d6_partners2 = {
+      lines = {
+        { id = "d6_partners2_a", text = "The fourth went to Lakeshire when the orcs came down out of the Burning Steppes, and he didn't come back. Quine's the fifth, and I'll see that he outlives me, if I have to stand in front of him to do it." },
+        { id = "d6_partners2_pal", when = { class = "PALADIN" }, text = "Same as I gave all four, friend: sleep when you can, eat when you can, and never trust a road that's quiet in Duskwood. The Light will mind your soul, but your feet are your own affair, so keep your boots dry." },
+      },
+      choices = {
+        { text = "I'm sorry about your partner.", next = "BACK" },
+        { text = "Something else I'd ask.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "hello_1", text = "Guard Hammon, senior watch, Champions' Hall. I've had this door since the hall was founded, and I've trained four partners at it. Quine's the fifth, and he asks more questions than the other four put together." },
@@ -1734,6 +1948,8 @@ P:NPC {
         { text = "What's the trick in the knees?", next = "knees", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "I started on the Trade District gate.", next = "gate", when = { origin = "human_city_guard" } },
         { text = "What trouble does this door ever see?", next = "trouble" },
+        { text = "What's the best thing you've seen at this door?", next = "d6_best" },
+        { text = "Tell me about the partners you've trained.", next = "d6_partners" },
         { text = "Good day, Hammon.", next = "END" },
       },
     },
@@ -2087,6 +2303,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_house = {
+      lines = { { id = "d6_house_a", text = "A dark ale brewed for us out in Goldshire, which the footmen call Pig's Revenge, for reasons that become clear on the morning after. The officers drink something finer, and then they come back down to the dark ale by midnight, every one of them." } },
+      choices = {
+        { text = "Got anything from Thunderbrew?", next = "d6_house2", when = { race = "Dwarf" } },
+        { text = "Why do they always come back to the cheap stuff?", next = "d6_house2" },
+        { text = "I'll take your word on the ale.", next = "d6_house2" },
+      },
+    },
+    d6_house2 = {
+      lines = {
+        { id = "d6_house2_a", text = "Because it's what they drank as recruits, before anybody saluted them, friend. A knight-captain who's had a hard week wants to be twenty again for an hour, and the dark ale's the cheapest way I know to sell him that." },
+        { id = "d6_house2_dwarf", when = { race = "Dwarf" }, text = "A keg, sometimes, when the Ironforge carts come through, and it never lasts past the second night. Dashel drinks half of it himself and calls it keeping the peace, and I've never once found the nerve to argue with him." },
+      },
+      choices = {
+        { text = "A sound bit of business, Reese.", next = "BACK" },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    d6_oldtown = {
+      lines = { { id = "d6_oldtown_a", text = "It burned in the First War with the rest of the city, friend, and it was the last quarter they rebuilt, being full of soldiers and nobody important. The stonemasons did good work on it, and then the nobles wouldn't pay them, and you'll know what came of that." } },
+      choices = {
+        { text = "The Defias came of it.", next = "d6_oldtown2" },
+        { text = "You don't sound angry at the masons.", next = "d6_oldtown2" },
+        { text = "Let's not dwell on it.", next = "BACK" },
+      },
+    },
+    d6_oldtown2 = {
+      lines = { { id = "d6_oldtown2_a", text = "The Defias did, and I'll not defend a single thing they've done since. But half the men who built these walls drank at my bar while they built them, and I poured for them on credit when the nobles didn't pay, and I still don't count that a debt." } },
+      choices = {
+        { text = "You remember them kindly.", next = "BACK", fx = { learn = { "stonemasons" } } },
+        { text = "Pour me something, and tell me more later.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "hello_1", text = "Reese Langston, and this is the Pig and Whistle, the soldiers' own tavern. The barracks are next door and the Champions' Hall is round the corner, so I pour for recruits and knight-captains at the same bar, and they're all thirsty the same way." },
@@ -2105,6 +2355,8 @@ P:NPC {
         { text = "What do the soldiers say about the fronts?", next = "fronts", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Some of your patrons aren't soldiers at all.", next = "si7", when = { class = "ROGUE" } },
         { text = "How long have the Langstons had this place?", next = "langstons" },
+        { text = "What's the house drink here?", next = "d6_house" },
+        { text = "Old Town must have seen some hard days.", next = "d6_oldtown" },
         { text = "Good night, Reese.", next = "END" },
       },
     },
@@ -3029,6 +3281,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_forge = {
+      lines = { { id = "d6_forge_a", text = "Smiths in the Dwarven District, for the heads, and a woodworker by the canals for the hafts, who chooses ash for the young and oak for the old. I fit them together myself in the back room, and I say a short prayer over each one, which the smiths think is a waste of daylight." } },
+      choices = {
+        { text = "Do you think the prayer matters?", next = "d6_forge2" },
+        { text = "Ash for the young and oak for the old?", next = "d6_forge2" },
+        { text = "On to other matters.", next = "BACK" },
+      },
+    },
+    d6_forge2 = {
+      lines = { { id = "d6_forge2_a", text = "Ash is lighter and forgives a tired arm, and oak is heavier and wants a strong one, though the old priests insist on it anyway. As for the prayer, I don't know that the Light hears it, but I know I sell a mace more carefully for having said it." } },
+      choices = {
+        { text = "That's honest of you, Gregory.", next = "BACK" },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    d6_orphans = {
+      lines = { { id = "d6_orphans_a", text = "Matron Nightingale keeps it, and she keeps more children every year than the year before. The wars took the parents and the Plague took the cousins, and the little ones come in from Westfall and Lordaeron both with nothing but a name." } },
+      choices = {
+        { text = "Do the priests help her?", next = "d6_orphans2", when = { class = "PRIEST" } },
+        { text = "What becomes of them when they're grown?", next = "d6_orphans2" },
+        { text = "Hard to hear. Let's move on.", next = "BACK" },
+      },
+    },
+    d6_orphans2 = {
+      lines = {
+        { id = "d6_orphans2_a", text = "Apprenticeships, when the matron can find them, and the barracks, when she can't. I've taken two boys into the back room to learn the hafting trade, and one of them is better at it than I am, which I'm told is how it should be." },
+        { id = "d6_orphans2_priest", when = { class = "PRIEST" }, text = "The novices carry meals over twice a day, and Brother Cassius sits with the sick ones, but there are never enough hands. If you've an hour after your prayers, friend, the matron would rather have you than a sermon." },
+      },
+      choices = {
+        { text = "That's the Light's work, plainly done.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "hello_1", text = "Gregory Ardus, and the shop is called Just Maces, though I've sold staves for years and never changed the sign. The Cathedral is across the square, and most of what I sell goes through its doors." },
@@ -3048,6 +3334,8 @@ P:NPC {
         { text = "A weapon is a weapon, whatever the Church says.", next = "weapon" },
         { text = "What do you hear in the square?", next = "square" },
         { text = "Which hammer would you give a young paladin?", next = "hammer", when = { class = "PALADIN" } },
+        { text = "Who forges your maces?", next = "d6_forge" },
+        { text = "Tell me about the orphanage across the way.", next = "d6_orphans" },
         { text = "Light be with you, Gregory.", next = "END" },
       },
     },
@@ -3529,6 +3817,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_shaw = {
+      lines = { { id = "d6_shaw_a", text = "He thinks it's adequate, which from Master Shaw is a parade. He's never once told me what a vial was used for, and I've never once asked, and that silence is the most honest arrangement I've had with any man." } },
+      choices = {
+        { text = "Doesn't the not knowing trouble you?", next = "d6_shaw2" },
+        { text = "I'm one of his. I won't ask either.", next = "d6_shaw2", when = { class = "ROGUE" } },
+        { text = "Let's leave Master Shaw be.", next = "BACK" },
+      },
+    },
+    d6_shaw2 = {
+      lines = {
+        { id = "d6_shaw2_a", text = "Some nights, when the heralds cry a death in the square and I wonder. Then I remember the Defias who poisoned a well in Westfall, and I decide I'd rather know the crown has a worse vial than they do." },
+        { id = "d6_shaw2_rogue", when = { class = "ROGUE" }, text = "Good, then you'll last. The ones who ask are the ones Osborne has to retrain, and the ones who tell are the ones I never see again, and I'd like to go on seeing you." },
+      },
+      choices = {
+        { text = "A cold comfort, but a comfort.", next = "BACK", fx = { learn = { "defias" } } },
+        { text = "Something else, Sloan.", next = "BACK" },
+      },
+    },
+    d6_plants = {
+      lines = { { id = "d6_plants_a", text = "Less than you'd think, since Elwynn's a gentle forest and its plants want to heal you. Earthroot and peacebloom are no use to me, so the strong stuff comes from the swamps and the Barrens, through merchants who don't like being asked where they've been." } },
+      choices = {
+        { text = "So the gentlest forest makes the worst poisons.", next = "d6_plants2" },
+        { text = "Which merchants?", next = "d6_plants2" },
+        { text = "On to something else.", next = "BACK" },
+      },
+    },
+    d6_plants2 = {
+      lines = { { id = "d6_plants2_a", text = "The worst, yes, and I like it that way, because it keeps amateurs from brewing in their kitchens. As for the merchants, you'll find one or two at the docks in Menethil and a gnome in the canals who sells me deathweed, and that's as many names as you'll get today." } },
+      choices = {
+        { text = "More than I expected you to give.", next = "BACK" },
+        { text = "Fair enough. Anything else?", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "hello_1", text = "Sloan McCoy. I keep the vials and what goes in them for Master Shaw's people. I sell to those who've a reason to be in this building, and you're in this building, so we'll assume the best." },
@@ -3549,6 +3871,8 @@ P:NPC {
         { text = "Poison is a coward's weapon.", next = "coward" },
         { text = "Who else in the city deals in this?", next = "jasper" },
         { text = "What should I never mix?", next = "mix", when = { class = "ROGUE" } },
+        { text = "What does Master Shaw think of your work?", next = "d6_shaw" },
+        { text = "What do you brew from Elwynn's plants?", next = "d6_plants" },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -4048,6 +4372,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_quarter = {
+      lines = { { id = "d6_quarter_a", text = "Loud, bright and occasionally on fire, dear, though never our shop, touch wood. A student turned my cat into a sheep last spring for a dare, and it came back as a cat after an hour, but it's never once forgiven me." } },
+      choices = {
+        { text = "My kin treat you well, I hope.", next = "d6_quarter2", when = { race = "NightElf" } },
+        { text = "Why does your cat blame you?", next = "d6_quarter2" },
+        { text = "Mages ought to be fined for that.", next = "d6_quarter2" },
+      },
+    },
+    d6_quarter2 = {
+      lines = {
+        { id = "d6_quarter2_a", text = "Because I laughed, and cats remember who laughed. The student's tutor came round with an apology and a tin of fish, which the cat ate, and then it went and sat on Lilyssia's lap instead of mine, so I suppose that was the verdict." },
+        { id = "d6_quarter2_ne", when = { race = "NightElf" }, text = "Better than my own kin do, honestly, and they're far more patient with my bookkeeping. Lilyssia calls me her little storm, which I gather is a compliment where you're from, though I've never quite been brave enough to ask." },
+      },
+      choices = {
+        { text = "The cat chose well.", next = "BACK" },
+        { text = "Something else, Maria.", next = "BACK" },
+      },
+    },
+    d6_buyers = {
+      lines = { { id = "d6_buyers_a", text = "The Cathedral, for healing draughts by the crate, and the barracks, for the same, and the mages, for things I don't ask about. The priests always pay on time and the mages always pay in full, and the barracks pay eventually, after a great deal of paperwork." } },
+      choices = {
+        { text = "Which of them is the worst to deal with?", next = "d6_buyers2" },
+        { text = "You keep good books, I take it.", next = "d6_buyers2" },
+        { text = "Let's move on.", next = "BACK" },
+      },
+    },
+    d6_buyers2 = {
+      lines = { { id = "d6_buyers2_a", text = "The barracks, because the quartermaster wants a discount for patriotism and I give him one for promptness, and we've never yet agreed which of us is being generous. I keep the books for the whole shop, and if the elves did it, we'd be paid in leaves and good wishes." } },
+      choices = {
+        { text = "Then it's lucky they have you.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "hello_1", text = "Maria Lumere! Lilyssia Nightbreeze teaches alchemy here, Tel'Athir is learning to teach it, and Eldraeith sells the herbs. I sell the glass and do the haggling, since the elves think arguing over a price is beneath them." },
@@ -4067,6 +4425,8 @@ P:NPC {
         { text = "Night elves have no business running a Stormwind shop.", next = "business" },
         { text = "What are alchemists short of?", next = "short" },
         { text = "What should a beginner brew first?", next = "brew", when = { profession = "Alchemy" } },
+        { text = "What's it like working in the Mage Quarter?", next = "d6_quarter" },
+        { text = "Who buys the most from this shop?", next = "d6_buyers" },
         { text = "Good day, Maria.", next = "END" },
       },
     },

@@ -369,6 +369,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_sort = {
+      lines = { { id = "d6_sort_a", text = "Volunteers from the Cathedral, mostly, and a pair of old seamstresses from the canals who'll work for tea. They sort by weave and weight, and they burn anything with lice in it, which is more of it than you'd like to know." } },
+      choices = {
+        { text = "Burn it? Isn't that a waste?", next = "d6_sort2" },
+        { text = "Two old seamstresses doing the crown's work.", next = "d6_sort2" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    d6_sort2 = {
+      lines = { { id = "d6_sort2_a", text = "It's a waste, and so is a ward full of fever, and I know which one the Cathedral would rather have. The moths take another tenth every summer, so I hang cedar from the rafters and count the bolts every morning before anyone else is up." } },
+      choices = {
+        { text = "You care about this more than most clerks would.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Cedar and counting. Anything else?", next = "BACK" },
+      },
+    },
+    d6_refugee = {
+      lines = { { id = "d6_refugee_a", text = "Crowded, friend, and cold in winter. Families from Westfall who lost their farms share rooms with families from Lordaeron who lost their whole kingdom, and they've each a reason to think the other has it easier." } },
+      choices = {
+        { text = "The Cathedral's infirmary needs more than bandages, then.", next = "d6_refugee2", when = { class = "PALADIN" } },
+        { text = "Does the crown do anything for them?", next = "d6_refugee2" },
+        { text = "A hard place to be poor. Something else.", next = "BACK" },
+      },
+    },
+    d6_refugee2 = {
+      lines = {
+        { id = "d6_refugee2_a", text = "The crown sends me, and the blankets, and a soup kitchen the priests run on the Cathedral steps. It isn't enough, and I don't say it is, but a blanket in winter is the difference between a cough and a funeral." },
+        { id = "d6_refugee2_pal", when = { class = "PALADIN" }, text = "It does, and the Silver Hand's brothers help where they can, carrying soup and sitting with the sick. If you've a day to spare, the priests on the Cathedral steps would be glad of a pair of hands that can lift a pot and say a blessing." },
+      },
+      choices = {
+        { text = "I'll bring what cloth I can.", next = "BACK" },
+        { text = "Let's leave it there for now.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "Stormwind is rebuilding its stocks of cloth for textiles and bandages, and I'm the man the crown set to gathering it. Your donation would help the city immensely, and earn you the respect of its people as well." },
@@ -384,6 +418,8 @@ P:NPC {
         { text = "Where does it all go?", next = "where" },
         { text = "Charity's for those who can't fend for themselves.", next = "charity" },
         { text = "I'm a tailor. Cloth is my living, Clavicus.", next = "tailor", when = { profession = "Tailoring" } },
+        { text = "Who sorts all these donations?", next = "d6_sort" },
+        { text = "What are the refugee houses like?", next = "d6_refugee" },
         { text = "Not today.", next = "END" },
       },
     },
@@ -612,6 +648,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_milton = {
+      lines = { { id = "d6_milton_a", text = "Exact, which is the kindest word I have for it. Milton can tell you the shelf of any book in the Keep without looking, and he can also tell you who last breathed on it, which is less useful but very hard to argue with." } },
+      choices = {
+        { text = "Do you two ever disagree?", next = "d6_milton2" },
+        { text = "He sounds a little terrifying.", next = "d6_milton2" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    d6_milton2 = {
+      lines = { { id = "d6_milton2_a", text = "Only about whether a book belongs to the catalogue or to the shelf, which sounds like nothing and has lasted us four years. He thinks a book exists once it's written down, and I think it exists once it's put back, and the truth is somewhere in the reading room." } },
+      choices = {
+        { text = "I'll be careful to put books back, then.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Donyal.", next = "BACK" },
+      },
+    },
+    d6_readers = {
+      lines = { { id = "d6_readers_a", text = "Clerics from the Cathedral, tutors for noble children, and the occasional mage who's been sent across from the Sanctum to look something up and resents the walk. The nobles themselves come rarely, and they borrow far more than they return." } },
+      choices = {
+        { text = "Are there any nobles who do return books?", next = "d6_readers2" },
+        { text = "Does the Sanctum ever borrow from you?", next = "d6_readers2", when = { class = "MAGE" } },
+        { text = "Let's move on.", next = "BACK" },
+      },
+    },
+    d6_readers2 = {
+      lines = {
+        { id = "d6_readers2_a", text = "One, I'll grant, and it surprised me. Lady Prestor takes the genealogies of the old houses, the ones of Stormwind and Lordaeron both, and she returns every one on the day it's due, which is more than the young Prince's tutors manage." },
+        { id = "d6_readers2_mage", when = { class = "MAGE" }, text = "They do, and they return our histories with notes in the margins about where the histories are wrong. I've asked them to write on a separate page, and they've asked me whether I'd prefer the history to stay wrong, and so we go on." },
+      },
+      choices = {
+        { text = "Interesting reading for a court lady.", next = "BACK", fx = { learn = { "prestor" } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "Donyal Tovald, one of the library's stewards; Milton Sheaf keeps the catalogue, and I keep the shelves in order, which is the harder job by far. Is there something I can find for you?" },
@@ -628,6 +698,8 @@ P:NPC {
         { text = "Libraries are for scholars, not common folk.", next = "common" },
         { text = "Is there anything here on Lordaeron's families?", next = "lordaeron", when = { race = "Human" } },
         { text = "Does the library keep any spellbooks?", next = "spellbooks", when = { class = { "MAGE", "WARLOCK", "PRIEST" } } },
+        { text = "What's Milton Sheaf like to work beside?", next = "d6_milton" },
+        { text = "Who reads in the library most?", next = "d6_readers" },
         { text = "I'll let you get back to your shelves.", next = "END" },
       },
     },

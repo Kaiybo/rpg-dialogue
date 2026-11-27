@@ -49,6 +49,8 @@ P:NPC {
         { text = "What is enchanting, truly?", next = "art" },
         { text = "Where did an orc learn this?", next = "learned" },
         { text = "Train me.", next = "BUSINESS", when = { profession = "Enchanting" } },
+        { text = "Kulwia sells your students their rods, she says.", next = "kulwia" },
+        { text = "What do your students go on to?", next = "students" },
         { text = "I'll climb back down. Farewell.", next = "END" },
       },
     },
@@ -103,6 +105,39 @@ P:NPC {
         { text = "Some knowledge stains whoever learns it.", next = "BACK", reply = "Then you'll never learn from me, and that's your choice to make. I won't argue it again; I've had that argument for twenty years.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    kulwia = {
+      lines = { { id = "kw_default", text = "She does, and she overcharges for them slightly, and I let her, because she has to carry them up from Thunder Bluff and I do not. She thinks I dislike her. I dislike everyone a little, and her rather less than most." } },
+      choices = {
+        { text = "Have you ever told her that?", next = "kulwia2" },
+        { text = "That's almost a compliment, for you.", next = "kulwia2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kulwia2 = {
+      lines = { { id = "kw2_default", text = "No, and you won't either. A trainer who is liked gets visitors, and visitors bring questions that are not about enchanting. The ledge is quiet because I have made it unpleasant to reach. Leave it that way." } },
+      choices = {
+        { text = "Not a word. Something else.", next = "BACK" },
+      },
+    },
+    students = {
+      lines = { { id = "sd_default", text = "Some go to Orgrimmar, to the enchanters in the Drag, once they've outgrown what a ledge can teach. Some go to war and enchant their friends' weapons in tents. And one or two stay on the mountain and mend cloaks for the braves, which is the least glorious and most useful of the three." } },
+      choices = {
+        { text = "Which do you hope for?", next = "students2" },
+        { text = "Useful matters more than glorious.", next = "students2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    students2 = {
+      lines = { { id = "sd2_default", text = "I hope for none of them. I hope only that they bind carefully, and that they never once reach for the kind of power the old warlocks wanted. I have trained thirty students on this ledge, and none of them has. I count that my only boast." } },
+      choices = {
+        { text = "I'm a warlock. Some of us bind carefully too.", next = "students3", when = { class = "WARLOCK" } },
+        { text = "A good boast. Something else.", next = "BACK" },
+      },
+    },
+    students3 = {
+      lines = { { id = "sd3_default", text = "Some, perhaps, and I have watched the rest. I will teach you enchanting, if you climb for it, and I will watch your hands while I do. Do not take it as an insult, because it is the same care I give the stones." } },
+      choices = { { text = "Fair. Something else.", next = "BACK" } },
     },
   },
 

@@ -32,6 +32,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_home = {
+      lines = {
+        { id = "d2_home_1", text = "Always. The Plaguelands lie a day's ride east, and every week my people count more of the Scourge's dead walking out of Andorhal and Stratholme. The Bulwark holds them for now, but holding is not the same as winning." },
+      },
+      choices = {
+        { text = "What do your agents see there?", next = "d2_home2" },
+        { text = "The Bulwark seems strong enough.", next = "d2_home2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_home2 = {
+      lines = {
+        { id = "d2_home2_1", text = "Necromancers coming and going from the school at Caer Darrow, and cultists with fresh faces recruited from the living. The Cult of the Damned is as busy in Lordaeron as it is in the Barrens, and I send the Dark Lady a list every week of who they've taken." },
+      },
+      choices = {
+        { text = "A long list, I'd imagine.", next = "BACK", reply = "Long enough that I've stopped reading the names aloud. I still read them." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_bad = {
+      lines = {
+        { id = "d2_bad_1", text = "Expectation is a luxury, {class}, and I'd rather report what is than what I hope for. Every hopeful report I ever read in life came before a disaster, and the last of them came before the plague." },
+      },
+      choices = {
+        { text = "Which report was that?", next = "d2_bad2" },
+        { text = "A grim outlook.", next = "d2_bad2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_bad2 = {
+      lines = {
+        { id = "d2_bad2_1", text = "That the grain from Andorhal was safe, signed by a magistrate who had looked at it and seen nothing wrong. I was a clerk who filed that report, and I've filed my own reports very differently ever since." },
+      },
+      choices = {
+        { text = "You couldn't have known.", next = "BACK", reply = "No one could, and that is the lesson. Assume the grain is poisoned, and you'll be wrong less often." },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    d2_voice = {
+      lines = {
+        { id = "d2_voice_1", text = "No, and anyone who says they do should be reported at once. What I hear is the silence where he was, and I listen to it every night, because the day it changes is the day I'll need to send my last report." },
+      },
+      choices = {
+        { text = "Then listen for us both.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Andrew Brownell. The Dark Lady has eyes on the Scourge wherever it reaches, and some of those eyes report to me, which is why I seldom have good news for anyone." },
@@ -51,6 +98,9 @@ P:NPC {
         { text = "Who is Amnennar the Coldbringer?", next = "amnennar" },
         { text = "Who reports to you out there?", next = "agents" },
         { text = "My people have fought the quilboar for generations.", next = "tauren", when = { race = "Tauren" } },
+        { text = "Is the Scourge stirring closer to home?", next = "d2_home" },
+        { text = "You don't seem to expect good news ever.", next = "d2_bad" },
+        { text = "Do you still hear him, Brownell, in the quiet?", next = "d2_voice", when = { race = "Scourge" } },
         { text = "I'll leave you to your report.", next = "END" },
       },
     },
@@ -2678,6 +2728,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_odd = {
+      lines = {
+        { id = "d2_odd_1", text = "A deathstalker who deposits a single sealed jar every month and withdraws the one from the month before. I don't know what's in them, and I've been very firmly advised by Ophelia not to guess aloud." },
+      },
+      choices = {
+        { text = "Have you guessed quietly?", next = "d2_odd2" },
+        { text = "Discretion is part of the trade.", next = "d2_odd2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_odd2 = {
+      lines = {
+        { id = "d2_odd2_1", text = "Every month, and each guess is worse than the last. The jars are always exactly the same weight, which is the part that keeps me awake, or would, if I slept." },
+      },
+      choices = {
+        { text = "Best not to know.", next = "BACK" },
+        { text = "Ask you something else, Randolph.", next = "BACK" },
+      },
+    },
+    d2_thieves = {
+      lines = {
+        { id = "d2_thieves_1", text = "It would be, if the vault were where you think it is. The counter is here, but the boxes are kept somewhere considerably deeper and better guarded, and the Rogues' Quarter is on excellent terms with us because many of them bank here." },
+      },
+      choices = {
+        { text = "Thieves trust a bank?", next = "d2_thieves2" },
+        { text = "Clever arrangement.", next = "d2_thieves2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_thieves2 = {
+      lines = {
+        { id = "d2_thieves2_1", text = "More than honest folk do, since they know exactly how hard a vault is to rob. A thief who's tried once becomes our most loyal customer, and we've two or three of those who still send William a card on the anniversary." },
+      },
+      choices = {
+        { text = "A card?", next = "BACK", reply = "Unsigned, naturally. William keeps them in a drawer and pretends not to be touched." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_rogue = {
+      lines = {
+        { id = "d2_rogue_1", text = "I'm certain you could get into a vault, my friend, though perhaps not ours. Do feel free to try, so long as you'll let us know how far you got, because William pays very well for that kind of information." },
+      },
+      choices = {
+        { text = "Then I'll keep my secrets.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Randolph Montague, banker, at your service. There are four of us Montagues at this counter, and I am the one who doesn't mind being asked questions, so the others send the talkative customers down to me." },
@@ -2694,6 +2791,9 @@ P:NPC {
         { text = "What do the Forsaken keep in a bank?", next = "keep" },
         { text = "Does trade still reach the Undercity?", next = "trade" },
         { text = "How's the Horde's credit, between cities?", next = "living", when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "Who's your strangest depositor?", next = "d2_odd" },
+        { text = "A vault beside the Rogues' Quarter seems unwise.", next = "d2_thieves" },
+        { text = "I could get into that vault, you know.", next = "d2_rogue", when = { class = "ROGUE" } },
         { text = "That'll be all.", next = "END" },
       },
     },
@@ -2915,6 +3015,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_strange = {
+      lines = {
+        { id = "d2_strange_1", text = "A little white cap that glows in the dark, from a bed by the Apothecarium drains. It glows a pale green, like the lamps along the canals, and I've never been sure if that's a good thing or a very bad one." },
+      },
+      choices = {
+        { text = "Did you sell it?", next = "d2_strange2" },
+        { text = "That sounds like the Apothecarium's doing.", next = "d2_strange2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_strange2 = {
+      lines = {
+        { id = "d2_strange2_1", text = "No, an apothecary came and took the whole bed away in a jar, and gave me a silver for my trouble. He said they were very interesting, in a voice that meant they weren't for eating, and I've not grown anything near those drains since." },
+      },
+      choices = {
+        { text = "Wise choice, Tawny.", next = "BACK" },
+        { text = "Ask you something else.", next = "BACK" },
+      },
+    },
+    d2_buyers = {
+      lines = {
+        { id = "d2_buyers_1", text = "The troll who comes on the zeppelin every week, first of all, who says my red caps taste like home. Then Innkeeper Norman, for his stew, and Eunice Burch, who buys a handful each time and says they're for her students to practise on." },
+      },
+      choices = {
+        { text = "What does the troll do with them?", next = "d2_buyers2" },
+        { text = "Eunice sounds like a good customer.", next = "d2_buyers2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_buyers2 = {
+      lines = {
+        { id = "d2_buyers2_1", text = "He dries them and grinds them and burns them, I think, for some kind of ceremony, because he once asked me if they'd been grown in the dark with proper respect. I told him I sang to them, and he seemed to think that was respectful enough." },
+      },
+      choices = {
+        { text = "I'd say it was.", next = "BACK", reply = "So would I, though the mushrooms have never said." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_glades = {
+      lines = {
+        { id = "d2_glades_1", text = "Never, because the sun's no good for my kind of growing and the Scarlets shoot at anything that bends in a field. Ask Martine down at the water, though, because she gathers in the Glades and sends me the odd puffball when she finds one." },
+      },
+      choices = {
+        { text = "I'll ask her.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Tawny Grisette. I walk the Trade Quarter with my basket, and I sell what grows in the quiet parts of the city. They're good mushrooms, and I raised every one of them from a speck." },
@@ -2934,6 +3081,9 @@ P:NPC {
         { text = "Why do you wander, when others keep stalls?", next = "wander" },
         { text = "Morley Bates says yours are prettier than his.", next = "morley", when = { heardLine = "uc_bates.o_default" } },
         { text = "The earth here is sick. Do they mind?", next = "sick", when = { class = { "DRUID", "SHAMAN" } } },
+        { text = "What's the strangest thing you've grown?", next = "d2_strange" },
+        { text = "Who buys the most from your basket?", next = "d2_buyers" },
+        { text = "Do you ever forage up in the Glades?", next = "d2_glades", when = { profession = "Herbalism" } },
         { text = "Good growing, Tawny.", next = "END" },
       },
     },

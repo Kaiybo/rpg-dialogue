@@ -30,6 +30,50 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    tha_zuul1 = {
+      lines = {
+        { id = "tha_zuul1_1", text = "Zuul speaks less than I do, if you can believe it, and he watches the human like a wolf watches a rabbit. He has served at Stonard longer than me, and he says that the waiting is the battle, which I do not understand yet." },
+      },
+      choices = {
+        { text = "What does he mean by that?", next = "tha_zuul2" },
+        { text = "Something else, Tharlak.", next = "BACK" },
+      },
+    },
+    tha_zuul2 = {
+      lines = {
+        { id = "tha_zuul2_1", text = "That a grunt who can stand still is worth more than one who can only charge, he says. He sat in the humans' camps for years before Thrall freed us, and he learned patience from the wrong end of a human spear." },
+      },
+      choices = {
+        { text = "Then he knows more about prisoners than anyone.", next = "tha_zuul3" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    tha_zuul3 = {
+      lines = {
+        { id = "tha_zuul3_1", text = "He does, and he treats the human better than the humans treated him, which shames me when I want to shout at Marksen. I try to learn from it, though my fists do not always listen." },
+      },
+      choices = {
+        { text = "That's a hard lesson to learn. Something else.", next = "BACK" },
+      },
+    },
+    tha_hunt1 = {
+      lines = {
+        { id = "tha_hunt1_1", text = "The hunters go out after the crocolisks and the jaguars, and they come back with meat and stories while I stand here with my axe getting rusty. I want the stories, {class}, more than the meat." },
+      },
+      choices = {
+        { text = "What stories do they tell?", next = "tha_hunt2" },
+        { text = "I'm a hunter. The marsh is no holiday.", next = "tha_hunt2", when = { class = "HUNTER" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tha_hunt2 = {
+      lines = {
+        { id = "tha_hunt2_1", text = "Of the great crocolisks in the Sorrowmurk, as long as a longboat, and of the green dragons at the temple that no hunter dares to bring down. I do not believe half of them, but I would like to see which half is true." },
+      },
+      choices = {
+        { text = "One day you'll get your hunt. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Tharlak. Zuul and I were given this human to watch, and so I watch him, though I would sooner be in the marsh with the hunters than standing over a spy who whines." } },
       again = {
@@ -43,6 +87,8 @@ P:NPC {
         { text = "You sound tired of guard duty.", next = "duty" },
         { text = "What does Stonard fight out there?", next = "fight" },
         { text = "Why not simply kill the spy?", next = "kill", when = { class = { "WARRIOR", "ROGUE", "HUNTER" } } },
+        { text = "Tell me about Zuul.", next = "tha_zuul1" },
+        { text = "You said you'd sooner be hunting in the marsh.", next = "tha_hunt1" },
         { text = "Hold your post, grunt.", next = "END" },
       },
     },

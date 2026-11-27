@@ -229,6 +229,72 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_where = {
+      lines = {
+        { id = "d2_where_1", text = "In the hills toward Alterac, where Dalaran's wizards camped before they withdrew behind their dome. They left a few of their bound servants behind, and those wander the slopes still, doing the last thing they were told to do until something breaks them." },
+      },
+      choices = {
+        { text = "What were they told to do?", next = "d2_where2" },
+        { text = "Abandoned servants. That sounds familiar.", next = "d2_where2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_where2 = {
+      lines = {
+        { id = "d2_where2_1", text = "Guard, mostly, and guard nothing in particular now, which I find rather sad if I let myself think about it. The Magus says that is exactly what makes them useful, since a mind with only one order left in it is a very clean thing to study." },
+      },
+      choices = {
+        { text = "Clean, or empty?", next = "d2_where3" },
+        { text = "Voidglare has a way with words.", next = "d2_where3" },
+      },
+    },
+    d2_where3 = {
+      lines = {
+        { id = "d2_where3_1", text = "Empty, I'd say, but I'm only the assistant, and assistants who disagree in front of the notes tend to find themselves fetching bracers in the snow. I did fetch them in the snow, come to think of it, so perhaps I've already disagreed." },
+      },
+      choices = {
+        { text = "I'll not tell him.", next = "BACK" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    d2_before = {
+      lines = {
+        { id = "d2_before_1", text = "I kept records for a magistrate in Hillsbrad, which explains the title, since the Magus thinks 'Keeper' sounds more learned than 'clerk.' I've no magic of my own at all, only a very tidy hand and a memory for where things were put." },
+      },
+      choices = {
+        { text = "A clerk among wizards.", next = "d2_before2" },
+        { text = "Do you miss the magistrate's office?", next = "d2_before2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_before2 = {
+      lines = {
+        { id = "d2_before2_1", text = "I miss the order of it. Every deed in a drawer and every drawer labelled, and the worst thing that happened in a week was a boundary dispute between two farmers over a hedge, both of whom are now walking about the Mill without a care for hedges." },
+      },
+      choices = {
+        { text = "Some peace in that, perhaps.", next = "BACK", reply = "Perhaps. Though one of them still glares at the other in the street, so not entirely." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_mill = {
+      lines = {
+        { id = "d2_mill_1", text = "It's close to Dalaran and far from Brill, which is what the Magus wanted, since Brill has apothecaries who ask what you're doing. High Executor Darthalia asks too, but she can be satisfied with a report, and I write very good reports." },
+      },
+      choices = {
+        { text = "What do your reports say?", next = "d2_mill2" },
+        { text = "Darthalia's no fool.", next = "d2_mill2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_mill2 = {
+      lines = {
+        { id = "d2_mill2_1", text = "That the Magus studies the defences of Dalaran on behalf of the Dark Lady, which is true, and that the work is progressing, which is also true if you are generous about the word. I leave out the part where he talks about the Kirin Tor admitting him at last." },
+      },
+      choices = {
+        { text = "Wise of you to leave that out.", next = "BACK" },
+        { text = "Ask you something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -251,6 +317,9 @@ P:NPC {
         { text = "Working for Voidglare can't be easy.", next = "magus" },
         { text = "What was that about your timing?", next = "timing", when = { heardLine = "hb_belvaril.h_bracers_done" } },
         { text = "I've bound a creature or two myself.", next = "lock", when = { class = "WARLOCK" } },
+        { text = "Where do you find these elementals?", next = "d2_where" },
+        { text = "What did you do, before Voidglare?", next = "d2_before" },
+        { text = "Tarren Mill seems an odd place for this research.", next = "d2_mill" },
         { text = "Good day, Keeper.", next = "END" },
       },
     },

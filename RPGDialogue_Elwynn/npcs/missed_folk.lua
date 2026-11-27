@@ -190,6 +190,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_buyers = {
+      lines = { { id = "d6_buyers_a", text = "All sorts, dear, and the cats decide which of them goes home happy. A lady from Stormwind came last month in a carriage and the tabby wouldn't come out from under the stove for her, and the next day a farmer's girl from Goldshire took him home in her apron." } },
+      choices = {
+        { text = "The cats choose their owners, then.", next = "d6_buyers2" },
+        { text = "My beast would like to meet your cats.", next = "d6_buyers2", when = { class = "HUNTER" } },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    d6_buyers2 = {
+      lines = {
+        { id = "d6_buyers2_a", text = "Of course they do, dear, they always have, and anyone who thinks otherwise has never owned one. I only take the coin and pour the tea, and I write down where each one has gone, so I can send a card at midwinter." },
+        { id = "d6_buyers2_hunter", when = { class = "HUNTER" }, text = "Oh, no, dear, please leave it outside the gate, there's a good hunter. The bombay would never forgive me, and the old ginger would go up the chimney and not come down till spring, and I'd have to talk him down with sardines again." },
+      },
+      choices = {
+        { text = "A card at midwinter. That's sweet.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Donni.", next = "BACK" },
+      },
+    },
+    d6_wolves = {
+      lines = { { id = "d6_wolves_a", text = "They come sniffing round the fence in winter, dear, but a wolf's no match for seventeen cats on a rooftop all hissing at once. I once watched a big grey prowler turn tail and run from the cornish rex, who weighs less than a loaf of bread." } },
+      choices = {
+        { text = "Surely you worry for them at night?", next = "d6_wolves2" },
+        { text = "A loaf of bread chasing a wolf. Brave cat.", next = "d6_wolves2" },
+        { text = "Let's leave the wolves.", next = "BACK" },
+      },
+    },
+    d6_wolves2 = {
+      lines = { { id = "d6_wolves2_a", text = "Every night, dear, which is why they all come in at dusk and I count them on the hearth. I lost one to the woods three years ago, a little silver tabby, and I still leave a saucer by the door in case she remembers the way home." } },
+      choices = {
+        { text = "I hope she finds her way back.", next = "BACK" },
+        { text = "Something else to ask you.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "hello_1", text = "I'm Donni, dear, and these are my babies. That's the bombay on the windowsill, the cornish rex is under the stove, the tabby's wherever she pleases, and the orange one doesn't have a name because he's never answered to any." },
@@ -210,6 +244,8 @@ P:NPC {
         { text = "There's a small gravestone outside your door.", next = "stone" },
         { text = "How do you keep so many beasts so calm?", next = "calm", when = { class = "HUNTER" } },
         { text = "A gnome could build you a self-filling milk dish.", next = "dish", when = { race = "Gnome" } },
+        { text = "Who comes all this way to buy a kitten?", next = "d6_buyers" },
+        { text = "Do the forest wolves ever bother the cats?", next = "d6_wolves" },
         { text = "Goodbye, Donni.", next = "END" },
       },
     },
@@ -312,6 +348,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_eastvale = {
+      lines = { { id = "d6_eastvale_a", text = "Quiet, at least between the axes, and the air smells of cut pine all day, which I find agrees with me. Marshal Haggard keeps the camp, and Rallic Finn makes bows two doors down, and between us we're very nearly a village." } },
+      choices = {
+        { text = "Is the camp safe this far from Goldshire?", next = "d6_eastvale2" },
+        { text = "A tailor, a bowyer and a marshal. Quite a village.", next = "d6_eastvale2" },
+        { text = "Let us move to another subject.", next = "BACK" },
+      },
+    },
+    d6_eastvale2 = {
+      lines = { { id = "d6_eastvale2_a", text = "Safe enough, though Marshal Haggard says the prowlers and bears in the woods grow bolder every season. He posts a notice for anyone who will thin them, and I mend the coats of those who answer it, which keeps me busier than I expected." } },
+      choices = {
+        { text = "Then I'll see the Marshal's notice.", next = "BACK", fx = { learn = { "eastvale" } } },
+        { text = "Something else, Eldrin.", next = "BACK" },
+      },
+    },
+    d6_finest = {
+      lines = { { id = "d6_finest_a", text = "A christening gown for a logger's daughter, in plain white linen with a single row of tiny stitches at the hem. It took me a fortnight, because I unpicked it twice, and the logger cried when he saw it, which is the only review I've ever kept." } },
+      choices = {
+        { text = "Can you line my robes against the cold?", next = "d6_finest2", when = { class = "MAGE" } },
+        { text = "Why unpick it twice?", next = "d6_finest2" },
+        { text = "Plain work done perfectly. I see.", next = "d6_finest2" },
+      },
+    },
+    d6_finest2 = {
+      lines = {
+        { id = "d6_finest2_a", text = "The first time, a stitch was crooked, and the second, the stitches were even but I was not happy, and that is reason enough. A child wears a christening gown for an hour and a family keeps it for a hundred years, so it ought to be worth keeping." },
+        { id = "d6_finest2_mage", when = { class = "MAGE" }, text = "I can, with a layer of wool between the silk and the lining, and I can do it without spoiling the drape, which your Stormwind tailors never manage. Mages always come to me shivering and insisting they aren't, so you'll forgive me for having anticipated you." },
+      },
+      choices = {
+        { text = "That's a craftsman's answer.", next = "BACK" },
+        { text = "Something else I'd ask.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "hello_1", text = "I am Eldrin, and I teach the tailor's craft, from the first hem to a lined cloak. I keep house here at Eastvale because the air is clean, the rent is nothing, and the loggers go through shirts at a rate you would not believe." },
@@ -332,6 +402,8 @@ P:NPC {
         { text = "Sam Sarsaparilla sent me about a camp.", next = "camping", when = { questActive = TODO_QUEST("Camping 101: Tailoring") } },
         { text = "Where does good cloth come from, this far out?", next = "cloth", when = { profession = "Tailoring" } },
         { text = "What does a tailor make for someone in plate?", next = "plate", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "What's Eastvale like to live in?", next = "d6_eastvale" },
+        { text = "What's the finest thing you've ever sewn?", next = "d6_finest" },
         { text = "Good day, Eldrin.", next = "END" },
       },
     },
@@ -433,6 +505,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_catch = {
+      lines = { { id = "d6_catch_a", text = "The Lion's Pride, every morning, for the stew and the fried plates, and Innkeeper Farley haggles like his own money's at stake, which it is. The rest goes to travellers, and to anyone cooking over a campfire who doesn't fancy another night of boar." } },
+      choices = {
+        { text = "What's the best way to cook longjaw snapper?", next = "d6_catch2", when = { profession = "Cooking" } },
+        { text = "Does Farley pay you fairly?", next = "d6_catch2" },
+        { text = "Boar every night does wear thin.", next = "d6_catch2" },
+      },
+    },
+    d6_catch2 = {
+      lines = {
+        { id = "d6_catch2_a", text = "Fair enough, and on time, which matters more than a copper either way. He's never once short-changed me, and he's never once said a kind word about my fish, and I've decided those two things are related." },
+        { id = "d6_catch2_cook", when = { profession = "Cooking" }, text = "Slow, over a low fire, with the skin on, so it doesn't fall apart on you. Longjaw's an ugly fish and a sweet one, and a bit of salt and a squeeze of something sour is all it wants; don't drown it in sauce like the inn does." },
+      },
+      choices = {
+        { text = "I'll remember that.", next = "BACK" },
+        { text = "Something else, Jason.", next = "BACK" },
+      },
+    },
+    d6_night = {
+      lines = { { id = "d6_night_a", text = "Still as glass, mostly, and then you hear the murlocs singing on the east shore, if you can call it singing. Lee Brown says it's how they call each other in for the night, and I say it's how they tell each other where my nets are." } },
+      choices = {
+        { text = "Have you ever seen them come this far?", next = "d6_night2" },
+        { text = "Lee Brown might be right.", next = "d6_night2" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    d6_night2 = {
+      lines = { { id = "d6_night2_a", text = "Once, last autumn, three of them on the far end of this very pier, poking at the buckets. I threw a bucket at them and they threw it back, and I've wondered ever since whether that was a fight or a game to them." } },
+      choices = {
+        { text = "Murlocs with a sense of fair play.", next = "BACK", fx = { learn = { "murlocs_east" } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "hello_1", text = "Jason Mathers, fishmonger. I net this lake at dawn and sell what I take by noon, to Goldshire's inn and to whoever walks down the path. It was a quiet trade until the murlocs moved onto the east shore and took to the same waters." },
@@ -452,6 +558,8 @@ P:NPC {
         { text = "What's biting in Crystal Lake?", next = "biting", when = { profession = "Fishing" } },
         { text = "How are the nets holding up now?", next = "nets", when = { questDone = TODO_QUEST("A Net Disaster") } },
         { text = "What's this work you spoke of?", next = "work", when = { class = { "WARRIOR", "PALADIN", "HUNTER", "ROGUE" } } },
+        { text = "Who buys most of your catch?", next = "d6_catch" },
+        { text = "What's the lake like after dark?", next = "d6_night" },
         { text = "Good day, Jason.", next = "END" },
       },
     },
@@ -553,6 +661,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_thin = {
+      lines = { { id = "d6_thin_a", text = "It is. A dozen guards for a road that wants forty, because the rest went north with the army or east to Redridge. Deputy Rainer posts bounties so that adventurers do the work the men can't." } },
+      choices = {
+        { text = "And does it work?", next = "d6_thin2" },
+        { text = "So we're the garrison's missing men.", next = "d6_thin2" },
+        { text = "On to something else.", next = "BACK" },
+      },
+    },
+    d6_thin2 = {
+      lines = { { id = "d6_thin2_a", text = "Well enough, when the adventurers stay. Most leave for Westfall within the month, and the gnolls come back the week after, so I keep the racks full for whoever's next." } },
+      choices = {
+        { text = "Then I'll stay a while longer.", next = "BACK", fx = { learn = { "riverpaw" } } },
+        { text = "Something else, Quartermaster.", next = "BACK" },
+      },
+    },
+    d6_order = {
+      lines = { { id = "d6_order_a", text = "Oil every blade on the first of the week, count every blade at the end of each day. A sword that's missing is a sword in a gnoll's hand, and I'd sooner be the one who notices." } },
+      choices = {
+        { text = "Have any gone missing?", next = "d6_order2" },
+        { text = "Do you stock anything for a dwarf's hand?", next = "d6_order2", when = { race = "Dwarf" } },
+        { text = "Let's leave it there.", next = "BACK" },
+      },
+    },
+    d6_order2 = {
+      lines = {
+        { id = "d6_order2_a", text = "Two, since spring. One turned up in the river, and the other turned up in Hogger's camp, and the guard who'd signed for it is cleaning the stables until midsummer." },
+        { id = "d6_order2_dwarf", when = { race = "Dwarf" }, text = "Axes and hammers, Ironforge pattern, three on the left rack. They were sent for a dwarven company that never came, and they're the best steel in this room." },
+      },
+      choices = {
+        { text = "The stables seem a fair punishment.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "hello_1", text = "Quartermaster Hicks, weapons, Westbrook Garrison. This post holds the west road against the Riverpaw gnolls and whatever comes over from Westfall, and every blade the guards carry out of that door was through my hands first." },
@@ -573,6 +715,8 @@ P:NPC {
         { text = "What would you carry against gnolls?", next = "gnolls", when = { class = { "WARRIOR", "PALADIN", "ROGUE" } } },
         { text = "Would the garrison buy blades from me?", next = "buy", when = { profession = "Blacksmithing" } },
         { text = "Hogger's finished. I thought you'd want to know.", next = "hogger", when = { questDone = TODO_QUEST("Wanted: \"Hogger\"") } },
+        { text = "This garrison seems thin on men.", next = "d6_thin" },
+        { text = "How do you keep the blades in order?", next = "d6_order" },
         { text = "Carry on, Quartermaster.", next = "END" },
       },
     },
@@ -676,6 +820,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_worst = {
+      lines = { { id = "d6_worst_a", text = "A young guard with his shield split clean in two by a gnoll's axe, and not a scratch on him, because he'd strapped it properly. I keep the halves on the wall behind the counter, and the recruits laugh at them until I tell them why they're there." } },
+      choices = {
+        { text = "That's a lesson worth hanging up.", next = "d6_worst2" },
+        { text = "I'm a paladin. Would you fit my shield properly?", next = "d6_worst2", when = { class = "PALADIN" } },
+        { text = "On to something else.", next = "BACK" },
+      },
+    },
+    d6_worst2 = {
+      lines = {
+        { id = "d6_worst2_a", text = "It's the only cheerful thing in this room, if you ask me, and nobody does. The lad's still on the road, and he comes in every month to look at those halves and touch the wood, and I don't say a word when he does." },
+        { id = "d6_worst2_pal", when = { class = "PALADIN" }, text = "I would, and I'll do it now, and I'll do it again next month when you've let the straps go slack. Paladins lean into a blow instead of away from it, so you'll want the upper strap tighter than most, or you'll be wearing the shield on your elbow by the second gnoll." },
+      },
+      choices = {
+        { text = "You're more cheerful than you let on.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Hudson.", next = "BACK" },
+      },
+    },
+    d6_rainer = {
+      lines = { { id = "d6_rainer_a", text = "He's a good deputy with too much road and too few men, and he knows it, and he still gets up every morning and posts another bounty. He tells me I'm too gloomy, and I tell him he's too hopeful, and between us we're about right." } },
+      choices = {
+        { text = "Does he ever take your warnings?", next = "d6_rainer2" },
+        { text = "You two balance each other.", next = "d6_rainer2" },
+        { text = "Let's talk of other things.", next = "BACK" },
+      },
+    },
+    d6_rainer2 = {
+      lines = { { id = "d6_rainer2_a", text = "When it matters. I told him Hogger was more than a big gnoll, and he laughed, and then he posted the bounty the next week. I don't say I told him so, because he'd stop listening, and then where would we be?" } },
+      choices = {
+        { text = "That's wisdom, not gloom.", next = "BACK", fx = { learn = { "hogger" } } },
+        { text = "Something else I'd ask.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "hello_1", text = "Quartermaster Hudson, armour and shields. We're a dozen guards holding a road with gnolls on one side and thieves on the other, and Stormwind's forgotten we're here. So I make sure that what we've got at least fits, because it's all that's between us and the end." },
@@ -696,6 +874,8 @@ P:NPC {
         { text = "What should I wear on the Westfall road?", next = "road", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "I'm new to this. What do I need first?", next = "first", when = { maxLevel = 10 } },
         { text = "How do you get on with Hicks?", next = "hicks" },
+        { text = "What's the worst you've seen come back through that door?", next = "d6_worst" },
+        { text = "What do you make of Deputy Rainer?", next = "d6_rainer" },
         { text = "Stay safe, Quartermaster.", next = "END" },
       },
     },
@@ -798,6 +978,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_bargain = {
+      lines = { { id = "d6_bargain_a", text = "Gently, friend, and with a pot of tea on, because a hunter who's been in the woods for a week wants to sit down more than he wants to haggle. I pay a fair rate for clean hides and a poor one for butchered ones, and I tell them why, every time." } },
+      choices = {
+        { text = "Soft-soled boots? I'll take a pair of those.", next = "d6_bargain2", when = { class = "ROGUE" } },
+        { text = "Do they listen to you?", next = "d6_bargain2" },
+        { text = "Tea and honesty. A good method.", next = "d6_bargain2" },
+      },
+    },
+    d6_bargain2 = {
+      lines = {
+        { id = "d6_bargain2_a", text = "The good ones do, and they come back with better hides the next time. The others go to Goldshire and get less for the same hide, and then they come back to me anyway, a little humbler, and I pour them a second cup." },
+        { id = "d6_bargain2_rogue", when = { class = "ROGUE" }, text = "I thought you might, by the way you came in without my hearing the door. Doubled sole, boar leather, waxed at the seams, and I'll not ask what you need them quiet for, because the scouts never tell me either." },
+      },
+      choices = {
+        { text = "You're a patient merchant, Veldan.", next = "BACK" },
+        { text = "Something else, friend.", next = "BACK" },
+      },
+    },
+    d6_west = {
+      lines = { { id = "d6_west_a", text = "That it's worse every month, and the farmers who are left have given up on Stormwind and started guarding themselves. There's a man named Stoutmantle gathering them at Sentinel Hill, I hear, and calling it a People's Militia." } },
+      choices = {
+        { text = "Good on them for standing up.", next = "d6_west2" },
+        { text = "A militia of farmers won't hold for long.", next = "d6_west2" },
+        { text = "Let's leave Westfall.", next = "BACK" },
+      },
+    },
+    d6_west2 = {
+      lines = { { id = "d6_west2_a", text = "Maybe not, but they've nowhere else to stand. A militiaman came through last month to buy leather for twenty jerkins and paid me half in coin and half in promises, and I took the promises, because I'd want someone to take mine." } },
+      choices = {
+        { text = "That's generous of you.", next = "BACK", fx = { learn = { "people_militia" } } },
+        { text = "Something else to ask.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "hello_1", text = "Veldan Lightfoot, leather armour. The garrison lets me keep a corner because the scouts won't wear mail, and because I pay my rent in mended belts. Hicks and Hudson handle the iron, and I look after everyone who has to move quietly." },
@@ -818,6 +1032,8 @@ P:NPC {
         { text = "What do the garrison's scouts wear?", next = "scouts", when = { class = { "ROGUE", "HUNTER", "DRUID" } } },
         { text = "Would you buy hides or finished work?", next = "hides", when = { profession = { "Leatherworking", "Skinning" } } },
         { text = "What are Hicks and Hudson like to share a room with?", next = "neighbours" },
+        { text = "How do you bargain with the hunters?", next = "d6_bargain" },
+        { text = "What do the travellers say about Westfall?", next = "d6_west" },
         { text = "Good day, Veldan.", next = "END" },
       },
     },

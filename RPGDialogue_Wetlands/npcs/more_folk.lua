@@ -286,7 +286,54 @@ P:NPC {
         { text = "How does the damp treat your stock?", next = "damp" },
         { text = "What sells to crafters in a port?", next = "craft", when = { profession = { "Tailoring", "Blacksmithing", "Alchemy", "Leatherworking", "Engineering" } } },
         { text = "What's the best bargain you ever made?", next = "bargain" },
+        { text = "Does the Dark Iron trouble at Dun Modr reach your table?", next = "kp_inland" },
+        { text = "That spice box smells of somewhere far warmer than here.", next = "kp_spice" },
         { text = "Good day, Kersok.", next = "END" },
+      },
+    },
+    kp_inland = {
+      lines = {
+        { id = "kp_inland_1", text = "It reaches my purse, which is where it hurts most. The Dark Irons hold Dun Modr at the Thandol Span, so every crate bound for Ironforge either goes round by sea or doesnae go at all." },
+      },
+      choices = {
+        { text = "Someone must be holding the line against them.", next = "kp_span" },
+        { text = "Anything come off the boats the harbor never sees?", next = "kp_smug", when = { class = "ROGUE" } },
+        { text = "Then the sea route must be crowded.", next = "BACK", reply = "Crowded an' dear, an' I pay the difference out o' my own pocket." },
+      },
+    },
+    kp_span = {
+      lines = {
+        { id = "kp_span_1", text = "Longbraid the Grim an' his company are dug in on the near side o' the Span, an' Ormer Ironbraid is out there too, payin' the Dark Irons back for his kin. Brave dwarves, the lot o' them, an' they buy my flux tae patch their mail, so I wish them every luck." },
+      },
+      choices = {
+        { text = "I'll look for Longbraid on the north road.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Brave dwarves, and good customers besides.", next = "BACK" },
+      },
+    },
+    kp_smug = {
+      lines = {
+        { id = "kp_smug_1", text = "Ye've the look o' someone who'd ken where tae ask. No' at my table, friend, for First Mate Fitzsimmons counts every crate twice, an' I'd sooner keep my good name than make a quick silver." },
+      },
+      choices = {
+        { text = "Fair enough. Let's talk of something else.", next = "BACK" },
+      },
+    },
+    kp_spice = {
+      lines = {
+        { id = "kp_spice_1", text = "It's come further than ye or I ever will. The goblins at Booty Bay buy it off the jungle traders, the Theramore captains buy it off the goblins, an' I buy it off the captains, so by the time it reaches Menethil it's paid three tolls." },
+      },
+      choices = {
+        { text = "Three tolls, and you still turn a profit?", next = "kp_toll" },
+        { text = "I'd rather not know what the goblins charged.", next = "BACK", reply = "Nor would I, friend, an' I've seen the invoice." },
+      },
+    },
+    kp_toll = {
+      lines = {
+        { id = "kp_toll_1", text = "A wee one, aye, because the cooks in this town will pay anythin' tae make salt fish taste o' somethin' else. Innkeeper Helbrek buys a pouch a week for his stew, an' swears it's the only reason the sailors eat it." },
+      },
+      choices = {
+        { text = "Then I'll try Helbrek's stew before I judge it.", next = "BACK" },
+        { text = "Spice for stew. Something else, then.", next = "BACK" },
       },
     },
     ships = {
@@ -385,7 +432,46 @@ P:NPC {
         { text = "You don't sound fond of the Wetlands.", next = "fond" },
         { text = "What should a newcomer watch for out there?", next = "advice", when = { maxLevel = 29 } },
         { text = "What's the one thing nobody thinks to buy?", next = "nobody" },
+        { text = "Is the shop a family business?", next = "gr_family" },
+        { text = "The Mosshide gnolls must be bad for the supply carts.", next = "gr_gnolls" },
         { text = "Good day, Gruham.", next = "END" },
+      },
+    },
+    gr_family = {
+      lines = {
+        { id = "gr_family_1", text = "It is, for my wife Derina keeps the books, an' she's better at it than I'll ever be. Our lad Gimlok is meant tae be helpin' as well, but he's usually down on the beach wi' his pockets full o' crabs." },
+      },
+      choices = {
+        { text = "Crabs in his pockets? He sounds like a born explorer.", next = "gr_gimlok" },
+        { text = "A shop kept by kin is a shop you can trust.", next = "BACK", reply = "So Derina tells the customers, an' she's no' wrong." },
+      },
+    },
+    gr_gimlok = {
+      lines = {
+        { id = "gr_gimlok_1", text = "Born trouble, more like, though I'd no' change him. He wants tae go out past the wall an' see the murlocs for himself, an' every time he says it Derina goes white an' I buy another lock for the gate." },
+      },
+      choices = {
+        { text = "I'll keep an eye out for him near the water.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Every child wants to see the monsters. Something else.", next = "BACK" },
+      },
+    },
+    gr_gnolls = {
+      lines = {
+        { id = "gr_gnolls_1", text = "Bad enough that I've stopped sendin' carts tae the crossroads. The Mosshide have the hills east o' the road, an' they'll take a sack o' flour as gladly as a traveller's purse, so now I make folk carry their own." },
+      },
+      choices = {
+        { text = "What do the gnolls want with flour?", next = "gr_mosshide" },
+        { text = "I've fought gnolls in Elwynn. They're cowards in a pack.", next = "gr_mosshide", when = { race = "Human" } },
+        { text = "Then I'll pack light and walk fast.", next = "BACK", reply = "Pack light, aye, but no' so light ye starve." },
+      },
+    },
+    gr_mosshide = {
+      lines = {
+        { id = "gr_mosshide_1", text = "Same thing anyone does, they eat it, an' they're hungry because the Dragonmaw push them off the good ground. A hungry gnoll is a bold gnoll, an' the guards at the keep say they've seen them closer tae the harbor this season than ever before." },
+      },
+      choices = {
+        { text = "Hungry and bold. That's a bad mix.", next = "BACK" },
+        { text = "I'll mention it to the guards. Something else.", next = "BACK" },
       },
     },
     marsh = {
@@ -484,7 +570,46 @@ P:NPC {
         { text = "How do you find the dwarves and humans here?", next = "folk" },
         { text = "I gather herbs. Where should I look?", next = "herbs", when = { profession = { "Alchemy", "Herbalism" } } },
         { text = "What do you miss about Kalimdor?", next = "miss" },
+        { text = "Do you know Telurinon, the other kaldorei herbalist here?", next = "dw_tel" },
+        { text = "What is the marsh teaching you that Ashenvale could not?", next = "dw_learn" },
         { text = "Farewell, Dewin.", next = "END" },
+      },
+    },
+    dw_tel = {
+      lines = {
+        { id = "dw_tel_1", text = "I do, and we are glad of each other, for two kaldorei in a dwarven harbor have a great deal to say. Telurinon teaches the gathering and I sell what the gathering becomes, so the herbalists of Menethil pass from his hands to mine." },
+      },
+      choices = {
+        { text = "Do you agree on how the marsh should be treated?", next = "dw_tel_differ" },
+        { text = "You must miss speaking Darnassian.", next = "BACK", reply = "I speak it with Telurinon each evening, and it eases the heart." },
+      },
+    },
+    dw_tel_differ = {
+      lines = {
+        { id = "dw_tel_differ_1", text = "Mostly, though he is stricter than I am. He would have every herbalist leave three plants for each one taken, and I tell him the dwarves have barely learned to leave one, so we must be patient with them." },
+      },
+      choices = {
+        { text = "Three for one sounds wise to me.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Patience with dwarves is a long road.", next = "BACK" },
+      },
+    },
+    dw_learn = {
+      lines = {
+        { id = "dw_learn_1", text = "Ashenvale grows slowly, under ancient shade, and it remembers everything. This marsh floods and drowns and grows again in a single season, and it has taught me that some things flourish because they forget." },
+      },
+      choices = {
+        { text = "That's a strange lesson for a night elf.", next = "dw_forget" },
+        { text = "My people have a long memory too.", next = "dw_forget", when = { race = "NightElf" } },
+        { text = "A pretty thought. Let's speak of something else.", next = "BACK" },
+      },
+    },
+    dw_forget = {
+      lines = {
+        { id = "dw_forget_1", text = "It is, and I have not finished learning it. The bloodthistle and the kingsblood that grow by Saltspray Glen are fiercer than any I knew at home, and I think it is because each season they must fight the water for their place." },
+      },
+      choices = {
+        { text = "I'll look for kingsblood near Saltspray Glen.", next = "BACK" },
+        { text = "Fierce herbs for a fierce place.", next = "BACK" },
       },
     },
     grows = {
@@ -582,7 +707,46 @@ P:NPC {
         { text = "What have the Dragonmaw been carrying?", next = "orcs" },
         { text = "What would you carry into the marsh?", next = "carry", when = { class = { "WARRIOR", "PALADIN", "ROGUE", "HUNTER" } } },
         { text = "What do you forge when the orders are done?", next = "own" },
+        { text = "Do you and Murndan Derth trade, or compete?", next = "bd_murndan" },
+        { text = "What would you forge, given proper steel and dry air?", next = "bd_dream" },
         { text = "Good day, Brak.", next = "END" },
+      },
+    },
+    bd_murndan = {
+      lines = {
+        { id = "bd_murndan_1", text = "Bit o' both, an' we're civil about it. Murndan sells guns an' I sell blades, so we argue only over which a mountaineer should carry, an' over whose turn it is tae buy the ale at Helbrek's." },
+      },
+      choices = {
+        { text = "And which should a mountaineer carry?", next = "bd_which" },
+        { text = "Two smiths sharing ale. That sounds peaceful enough.", next = "BACK", reply = "Peaceful till the bill comes." },
+      },
+    },
+    bd_which = {
+      lines = {
+        { id = "bd_which_1", text = "Both, if he's any sense, for a gun's a fine thing till the powder gets wet, an' in Menethil the powder's always wet. Then it's my axe he'll be reachin' for, an' Murndan kens it, though he'll no' say so." },
+      },
+      choices = {
+        { text = "Steel never misfires. I'll remember that.", next = "BACK" },
+        { text = "I'll carry both, then. Something else.", next = "BACK" },
+      },
+    },
+    bd_dream = {
+      lines = {
+        { id = "bd_dream_1", text = "A proper greataxe, the kind they forge in the Great Forge wi' a clean quench an' a week tae temper. Here I make heavy, honest work, but I've no' made a beautiful blade since I left the mountain." },
+      },
+      choices = {
+        { text = "Heavy and honest is what keeps people alive.", next = "bd_honest" },
+        { text = "I've worked the Great Forge myself.", next = "bd_honest", when = { profession = "Blacksmithing" } },
+        { text = "You'll go back to Ironforge one day.", next = "BACK", reply = "Maybe, when the road's open an' the Dark Irons are off the Span." },
+      },
+    },
+    bd_honest = {
+      lines = {
+        { id = "bd_honest_1", text = "Aye, it does, an' I tell myself that every mornin' when I scrape the rust off. Captain Stoutfist's men are alive because their blades didnae snap on a Dragonmaw shield, an' that's worth more than any pretty thing." },
+      },
+      choices = {
+        { text = "That's a smith's pride worth having.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Brak.", next = "BACK" },
       },
     },
     rust = {
@@ -685,7 +849,46 @@ P:NPC {
         { text = "Why a cart, and not a shop?", next = "cart" },
         { text = "What should a tailor make for this weather?", next = "tailor", when = { profession = "Tailoring" } },
         { text = "What colours sell in a port?", next = "colours" },
+        { text = "Do you miss Gnomeregan's workshops?", next = "jp_home" },
+        { text = "You must see everyone who leaves town.", next = "jp_watch" },
         { text = "Goodbye, Jennabink.", next = "END" },
+      },
+    },
+    jp_home = {
+      lines = {
+        { id = "jp_home_1", text = "Every single day, honestly, and especially the thread spinners on the third level, which could do forty yards a minute without a single knot. I came out with a needle case, two bolts of silk and the clothes I was wearing, and that was a lucky escape compared to most." },
+      },
+      choices = {
+        { text = "Why come all the way to Menethil?", next = "jp_why" },
+        { text = "Forty yards a minute? I'd like to see that.", next = "BACK", reply = "So would I, but Thermaplugg's lot are sitting on it now." },
+      },
+    },
+    jp_why = {
+      lines = {
+        { id = "jp_why_1", text = "Ironforge was packed with refugees, and every one of them was a tinker or a tailor, so the market for thread was, frankly, saturated. Menethil had no tailoring cart at all and a great deal of weather, which is a very promising combination for business." },
+      },
+      choices = {
+        { text = "A clever reckoning. I'm impressed.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Weather as a business plan. Something else.", next = "BACK" },
+      },
+    },
+    jp_watch = {
+      lines = {
+        { id = "jp_watch_1", text = "I do, and I could tell you who's going to come back soaked by the shoes they're wearing. The Explorers' League people are the worst, for they're all off to Whelgar's dig in their good coats, and they come back with mud to the elbows." },
+      },
+      choices = {
+        { text = "What's at Whelgar's Excavation?", next = "jp_whelgar" },
+        { text = "I've been to the dig myself. It's raptor country now.", next = "jp_whelgar", when = { minLevel = 22 } },
+        { text = "My boots will survive. Something else.", next = "BACK" },
+      },
+    },
+    jp_whelgar = {
+      lines = {
+        { id = "jp_whelgar_1", text = "Old dwarven ruins, I'm told, and Prospector Whelgar thinks they're terribly important, but lately it's mostly raptors. Archaeologist Flagongut comes in to buy patches for his tents, and he talks the whole time about how he isn't worried." },
+      },
+      choices = {
+        { text = "Someone should help Flagongut, then.", next = "BACK" },
+        { text = "Patching tents for frightened scholars. Good trade.", next = "BACK" },
       },
     },
     dry = {
@@ -784,7 +987,46 @@ P:NPC {
         { text = "Aren't you worried, out here alone?", next = "worry" },
         { text = "What fails first in this damp?", next = "fail", when = { profession = "Engineering" } },
         { text = "What's the experiment on the tent peg?", next = "peg" },
+        { text = "What are you testing at the moment?", next = "fs_test" },
+        { text = "Do you sell much to Neal Allen in town?", next = "fs_neal" },
         { text = "Goodbye, Fradd.", next = "END" },
+      },
+    },
+    fs_test = {
+      lines = {
+        { id = "fs_test_1", text = "Copper tubes, mainly, wrapped in three different oils, and so far the whale oil is winning by eleven percent. I also have a flash powder in a waxed pouch on that stump, and I'd stand on this side of me, if I were you." },
+      },
+      choices = {
+        { text = "What happens if the powder gets damp?", next = "fs_powder" },
+        { text = "I'll stay on this side, then.", next = "BACK", reply = "Very sensible, and statistically you'll keep your eyebrows." },
+      },
+    },
+    fs_powder = {
+      lines = {
+        { id = "fs_powder_1", text = "Nothing, which is the problem, because then it dries out and goes all at once a week later. Wenna says I should test somewhere further from the tent, and she is right, though I keep forgetting until it goes off." },
+      },
+      choices = {
+        { text = "Wenna sounds like a patient friend.", next = "BACK" },
+        { text = "Further from the tent. I agree with Wenna.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    fs_neal = {
+      lines = {
+        { id = "fs_neal_1", text = "Some, when he runs short, though he does keep his powder in sealed jars, which is excellent practice and frankly a little dull. He sends gnomes to me when they come in asking odd questions, which I take as a compliment." },
+      },
+      choices = {
+        { text = "Does he think you're mad, out here?", next = "fs_mad" },
+        { text = "I've an engineer's question myself.", next = "fs_mad", when = { profession = "Engineering" } },
+        { text = "He sounds careful. Something else.", next = "BACK" },
+      },
+    },
+    fs_mad = {
+      lines = {
+        { id = "fs_mad_1", text = "Almost certainly, but he buys my whale-oiled tubing, so his opinion and his purse are in disagreement. Out here a part has to survive the marsh, and that's worth more to an engineer than a clean bench in town." },
+      },
+      choices = {
+        { text = "Data from the field. I can respect that.", next = "BACK" },
+        { text = "Survival as a test bench. Let's move on.", next = "BACK" },
       },
     },
     why = {
@@ -881,7 +1123,46 @@ P:NPC {
         { text = "Tell me about your neighbour.", next = "fradd" },
         { text = "You watch the road closely.", next = "road" },
         { text = "Where do your patterns come from?", next = "patterns", when = { profession = "Tailoring" } },
+        { text = "Who buys fine patterns out here in the marsh?", next = "ws_buyers" },
+        { text = "Have you seen trouble from the Dragonmaw on the road?", next = "ws_orcs" },
         { text = "Good day, Wenna.", next = "END" },
+      },
+    },
+    ws_buyers = {
+      lines = {
+        { id = "ws_buyers_1", text = "More than ye'd think, for every tailor bound for Ironforge or the harbor walks past this rise. Jennabink Powerseam sends me the ones wi' deep pockets, an' I send her the ones who only want a needle." },
+      },
+      choices = {
+        { text = "You and Jennabink are friends, then?", next = "ws_jenna" },
+        { text = "Clever, letting the road bring the customers.", next = "BACK", reply = "Aye, the road does the walkin' an' I do the sellin'." },
+      },
+    },
+    ws_jenna = {
+      lines = {
+        { id = "ws_jenna_1", text = "Friendly rivals, which is the best kind in trade. She's a gnome an' thinks every stitch should be measured, an' I'm a dwarf an' think it should be felt, so between us we've the whole craft covered." },
+      },
+      choices = {
+        { text = "Measured or felt, I'd buy from either.", next = "BACK" },
+        { text = "That's a good partnership. Something else.", next = "BACK" },
+      },
+    },
+    ws_orcs = {
+      lines = {
+        { id = "ws_orcs_1", text = "I've seen them from up here, aye, columns o' them movin' along the ridge toward Dun Algaz. They've no' bothered the camp, for Fradd's experiments make enough noise tae frighten anyone off." },
+      },
+      choices = {
+        { text = "Where are the Dragonmaw headed?", next = "ws_where" },
+        { text = "I'm hunting Dragonmaw. Where do they gather?", next = "ws_where", when = { class = { "WARRIOR", "PALADIN", "HUNTER" } } },
+        { text = "Fradd's noise as a defence. I like it.", next = "BACK" },
+      },
+    },
+    ws_where = {
+      lines = {
+        { id = "ws_where_1", text = "Toward the Angerfang camp an' the old tunnels at Algaz, as far as I can tell. Mountaineer Thar at the station there would ken better, an' if ye're goin' that way, take more arrows than ye think ye need." },
+      },
+      choices = {
+        { text = "I'll find Mountaineer Thar, then.", next = "BACK" },
+        { text = "Good advice. Let's talk of something else.", next = "BACK" },
       },
     },
     camp = {
@@ -984,7 +1265,46 @@ P:NPC {
         { text = "Where do the herbs come from?", next = "herbs" },
         { text = "I brew my own. What do you pay for stock?", next = "alch", when = { profession = { "Alchemy", "Herbalism" } } },
         { text = "What's your best seller?", next = "seller" },
+        { text = "How many customers come down this road in a day?", next = "kx_traffic" },
+        { text = "Who do you buy your bottles from?", next = "kx_bottles" },
         { text = "See you around, Kixxle.", next = "END" },
+      },
+    },
+    kx_traffic = {
+      lines = {
+        { id = "kx_traffic_1", text = "On a good day? Six, maybe seven, and every one of 'em is bleeding, which is great for margins and lousy for conversation. Dwarves on the way to Dun Modr, orcs on the way to who-knows-where, and once a gnome who'd been bitten by somethin' he refused to name." },
+      },
+      choices = {
+        { text = "Orcs come by here too?", next = "kx_orcs" },
+        { text = "Seven bleeding customers a day. That's a living.", next = "BACK", reply = "It's a livin', pal, and nobody else wants it." },
+      },
+    },
+    kx_orcs = {
+      lines = {
+        { id = "kx_orcs_1", text = "Now and then, Horde scouts headed north, and they pay in silver same as anyone, so I don't ask about their business. The Dragonmaw are another story, though, because they don't pay at all, and I keep a little somethin' under the counter for them." },
+      },
+      choices = {
+        { text = "A neutral trader who still picks his enemies.", next = "BACK" },
+        { text = "Smart goblin. Something else.", next = "BACK" },
+      },
+    },
+    kx_bottles = {
+      lines = {
+        { id = "kx_bottles_1", text = "Glass comes up from Booty Bay, cork comes off the Menethil boats, and the stuff inside, well, that's a trade secret, buddy. Let's just say I know which bog plants'll fix a wound and which'll make you see your grandmother." },
+      },
+      choices = {
+        { text = "I'm an alchemist. Your secret's not so secret.", next = "kx_secret", when = { profession = "Alchemy" } },
+        { text = "Which plants make you see your grandmother?", next = "kx_secret" },
+        { text = "Keep your secrets. Something else.", next = "BACK" },
+      },
+    },
+    kx_secret = {
+      lines = {
+        { id = "kx_secret_1", text = "Ha, fair enough, you got me, it's mostly kingsblood and liferoot like everybody else, plus a pinch of somethin' to make it taste worse. Customers trust a potion that tastes bad, that's the real secret, and that one I'm givin' you for free." },
+      },
+      choices = {
+        { text = "Bad taste as a selling point. Clever.", next = "BACK" },
+        { text = "I'll remember that one. Let's move on.", next = "BACK" },
       },
     },
     road = {
@@ -1086,7 +1406,46 @@ P:NPC {
         { text = "What do hunters shoot at out there?", next = "marsh" },
         { text = "Who buys the most from you?", next = "guard" },
         { text = "How do I keep a bow alive in the marsh?", next = "keep" },
+        { text = "Who in town knows the marsh best?", next = "nt_who" },
+        { text = "What wood do you use, with no forest nearby?", next = "nt_wood" },
         { text = "Farewell, Naela.", next = "END" },
+      },
+    },
+    nt_who = {
+      lines = {
+        { id = "nt_who_1", text = "Karl Boran, without question, for he's been hunting crocolisks out there longer than I've been making bows. He'll tell you where the young ones nest and where the old ones wait, and he's usually right about both." },
+      },
+      choices = {
+        { text = "Does he buy his bows from you?", next = "nt_karl" },
+        { text = "I'll find Karl before I go wading.", next = "BACK", reply = "Do, and buy him a drink, for he'll talk more freely." },
+      },
+    },
+    nt_karl = {
+      lines = {
+        { id = "nt_karl_1", text = "He does, a light bow with a waxed string, and he comes back every month to have it restrung and to tell me Edwina's bows are too heavy. I've never once asked him to say it, but I don't stop him either." },
+      },
+      choices = {
+        { text = "You and Edwina keep each other honest.", next = "BACK" },
+        { text = "Light bows for a wading hunter. Noted.", next = "BACK" },
+      },
+    },
+    nt_wood = {
+      lines = {
+        { id = "nt_wood_1", text = "Most of it comes from the Arathi Highlands, over the Span, or it did until the Dark Irons took the road. Now I buy ash from the elven ships out of Auberdine, and it's better wood, though it costs me twice as much." },
+      },
+      choices = {
+        { text = "Kaldorei wood in a human bow. That's fitting.", next = "nt_elven" },
+        { text = "Ashenvale ash makes the finest bows.", next = "nt_elven", when = { race = "NightElf" } },
+        { text = "I'd pay for the better wood. Something else.", next = "BACK" },
+      },
+    },
+    nt_elven = {
+      lines = {
+        { id = "nt_elven_1", text = "The elven sailors say so too, and they charge accordingly. It bends further before it breaks and doesn't swell in the damp, so if the Span never reopens I'll not miss Arathi timber much." },
+      },
+      choices = {
+        { text = "That's a fine trade for you, then.", next = "BACK" },
+        { text = "I'll take an elven bow. Let's move on.", next = "BACK" },
       },
     },
     damp = {
@@ -1183,7 +1542,46 @@ P:NPC {
         { text = "Has the town ever needed your arrows on the wall?", next = "wall" },
         { text = "Naela says a wading hunter wants something light.", next = "naela" },
         { text = "What arrowhead should I carry out there?", next = "heads" },
+        { text = "Where do you get your feathers?", next = "em_feathers" },
+        { text = "What's the hardest beast to bring down out there?", next = "em_beast" },
         { text = "Farewell, Edwina.", next = "END" },
+      },
+    },
+    em_feathers = {
+      lines = {
+        { id = "em_feathers_1", text = "Gulls from the harbor and owls when I can get them, and the raptor feathers that come back with the hunters from the excavation. Raptor fletching flies straighter than anything else I've found, so I pay well for it." },
+      },
+      choices = {
+        { text = "I could bring you raptor feathers.", next = "em_raptor" },
+        { text = "Gull feathers seem a poor second.", next = "BACK", reply = "They are, and I use them only on the cheap sheaves." },
+      },
+    },
+    em_raptor = {
+      lines = {
+        { id = "em_raptor_1", text = "Bring me clean ones, uncrushed, and I'll be glad of them. The raptors around Whelgar's Excavation have been growing bolder, so there's no shortage of hunters going after them, only of hunters who come back with their feathers whole." },
+      },
+      choices = {
+        { text = "Clean and uncrushed. I'll be careful.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Raptors at the dig, then. Something else.", next = "BACK" },
+      },
+    },
+    em_beast = {
+      lines = {
+        { id = "em_beast_1", text = "The mottled crocolisks, the big ones at the water's edge, because their hide turns a light arrow like a shield. That's why I build heavy, and that's what Naela will never admit when she's arguing with me." },
+      },
+      choices = {
+        { text = "A heavy bow for a thick hide. That makes sense.", next = "em_croc" },
+        { text = "I'm a hunter. My pet will take the crocolisks.", next = "em_croc", when = { class = "HUNTER" } },
+        { text = "I'll keep clear of the water, then.", next = "BACK" },
+      },
+    },
+    em_croc = {
+      lines = {
+        { id = "em_croc_1", text = "Aim behind the foreleg, where the hide thins, and don't stand where it can reach you once it turns. Karl Boran will pay for their skins, too, so a hunter who aims well can make a decent living off them." },
+      },
+      choices = {
+        { text = "Behind the foreleg. I'll remember.", next = "BACK" },
+        { text = "Good advice. Let's speak of something else.", next = "BACK" },
       },
     },
     heavy = {
@@ -1279,7 +1677,46 @@ P:NPC {
         { text = "You must see a lot of travellers.", next = "travellers" },
         { text = "Does the town trust a man who sells to mages?", next = "trust" },
         { text = "What do casters forget to buy?", next = "forget" },
+        { text = "What brought you to Menethil, of all places?", next = "fa_why" },
+        { text = "Do the mages here study anything in particular?", next = "fa_mages" },
         { text = "Farewell, Falkan.", next = "END" },
+      },
+    },
+    fa_why = {
+      lines = {
+        { id = "fa_why_1", text = "A position, if I'm honest, for there was no reagent seller in the harbor and a great many casters passing through on their way to Kalimdor. I came up from Stormwind expecting to stay a season, and that was some years ago now." },
+      },
+      choices = {
+        { text = "Stormwind must seem very dry by comparison.", next = "fa_storm" },
+        { text = "A harbor full of mages is a good market.", next = "BACK", reply = "It is, though they all want everything at once." },
+      },
+    },
+    fa_storm = {
+      lines = {
+        { id = "fa_storm_1", text = "Very, and I think of its candle shops fondly whenever my wicks won't light. Still, Stormwind has a dozen reagent sellers and Menethil has one, so here I am needed, and that counts for something." },
+      },
+      choices = {
+        { text = "Being needed is worth a lot.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Falkan.", next = "BACK" },
+      },
+    },
+    fa_mages = {
+      lines = {
+        { id = "fa_mages_1", text = "Mostly they study how to get to Theramore quickly, though a few go out to see the fire elementals the Dark Irons have bound near the Span. Rhag Garmason, the dwarf in the keep, has been asking every mage he can find about them." },
+      },
+      choices = {
+        { text = "Bound fire elementals? That sounds dangerous.", next = "fa_elem" },
+        { text = "I'm a mage myself. What does Rhag want?", next = "fa_elem", when = { class = "MAGE" } },
+        { text = "I'll leave the elementals to the mages.", next = "BACK" },
+      },
+    },
+    fa_elem = {
+      lines = {
+        { id = "fa_elem_1", text = "It is, and the Dark Irons seem to have a talent for it. Rhag wants their bindings studied and broken, and he's been buying my sulphur and asking me what I know, which is nothing, though I keep hoping a clever mage will tell me." },
+      },
+      choices = {
+        { text = "I'll speak to Rhag Garmason.", next = "BACK" },
+        { text = "Dark Iron magic. Let's leave it there.", next = "BACK" },
       },
     },
     dry = {
@@ -1376,7 +1813,46 @@ P:NPC {
         { text = "You've a fine ship, Captain.", next = "ship" },
         { text = "Any trouble on these waters?", next = "trouble" },
         { text = "What do you make of your passengers?", next = "passengers" },
+        { text = "What are your orders, holding a harbor at anchor?", next = "bt_orders" },
+        { text = "You must know Captain Stoutfist well.", next = "bt_stoutfist" },
         { text = "Fair winds, Captain.", next = "END" },
+      },
+    },
+    bt_orders = {
+      lines = {
+        { id = "bt_orders_1", text = "To guard Menethil from the sea, for the Dragonmaw hold the hills and the Dark Irons hold the Span, and the harbor is the only door left open. If the keep falls, this ship gets the townsfolk off, and I'd rather not have to." },
+      },
+      choices = {
+        { text = "The harbor's only way out is the sea, then.", next = "bt_door" },
+        { text = "I'd hope it never comes to that.", next = "BACK", reply = "So do I, every morning, and I sleep easier for saying it." },
+      },
+    },
+    bt_door = {
+      lines = {
+        { id = "bt_door_1", text = "For anyone going north, aye, unless they want to fight their way through Dun Modr. That's why the Lady Mehley and the Auberdine boat run full, and why Fitzsimmons counts every crate like it's gold." },
+      },
+      choices = {
+        { text = "Then the boats are the lifeline here.", next = "BACK" },
+        { text = "Understood. Let's talk of something else.", next = "BACK" },
+      },
+    },
+    bt_stoutfist = {
+      lines = {
+        { id = "bt_stoutfist_1", text = "Well enough to know he's got more trouble than soldiers. He holds the keep with a handful of guards and whatever adventurers he can talk into helping, and he never complains about it, which worries me more than if he did." },
+      },
+      choices = {
+        { text = "I could offer him my help.", next = "bt_help" },
+        { text = "I'm a soldier. I'll report to the keep.", next = "bt_help", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "A quiet captain is a stubborn one.", next = "BACK" },
+      },
+    },
+    bt_help = {
+      lines = {
+        { id = "bt_help_1", text = "Then you'd be welcome, for he needs every blade. Speak to him or to Valstag Ironjaw in the keep, and they'll find you work against the Dragonmaw or the murlocs, whichever's biting hardest that week." },
+      },
+      choices = {
+        { text = "I'll find Valstag Ironjaw.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Captain.", next = "BACK" },
       },
     },
     crossing = {
@@ -1469,7 +1945,45 @@ P:NPC {
         { text = "You must know everyone who comes through.", next = "faces" },
         { text = "It's a damp place to stand all day.", next = "damp" },
         { text = "What's the strangest thing you've seen board?", next = "strange" },
+        { text = "Have you ever been to Theramore yourself?", next = "al_been" },
+        { text = "What do people do while they wait?", next = "al_waiting" },
         { text = "Thanks, Adam.", next = "END" },
+      },
+    },
+    al_been = {
+      lines = {
+        { id = "al_been_1", text = "Once, years back, and I was sick for the whole crossing and couldn't wait to be home. Theramore's a fine stone city on an island, all banners and soldiers, but I like knowing where I'll sleep each night." },
+      },
+      choices = {
+        { text = "You prefer the pier to the sea, then.", next = "al_pier" },
+        { text = "A stone city on an island sounds splendid.", next = "BACK", reply = "It is, if you can keep your breakfast down getting there." },
+      },
+    },
+    al_pier = {
+      lines = {
+        { id = "al_pier_1", text = "I do, for the pier stays still and the sea doesn't. I get to see everyone who goes and everyone who comes back, and that's travel enough for me, if you take my meaning." },
+      },
+      choices = {
+        { text = "I take it. That's a kind of travel too.", next = "BACK" },
+        { text = "Fair enough. Something else, then.", next = "BACK" },
+      },
+    },
+    al_waiting = {
+      lines = {
+        { id = "al_waiting_1", text = "Most of them go up to the Deepwater and drink with Helbrek, which is why they miss the boat. The sensible ones sit on the crates and watch the water, and the impatient ones ask me every quarter hour if she's coming." },
+      },
+      choices = {
+        { text = "Is she coming?", next = "al_coming", repeatable = true },
+        { text = "I'll sit on a crate, then.", next = "BACK" },
+      },
+    },
+    al_coming = {
+      lines = {
+        { id = "al_coming_1", text = "Ha, she'll come when she comes, friend, and not a moment before, for the captain answers to the tide and not to me. When you see her sails off the point, you've time for one more drink, and no more than one." },
+      },
+      choices = {
+        { text = "One drink, then. Thank you, Adam.", next = "BACK" },
+        { text = "Something else while I wait.", next = "BACK" },
       },
     },
     wait = {
@@ -1562,7 +2076,46 @@ P:NPC {
         { text = "Adam says you'd charge for directions.", next = "charge" },
         { text = "How do you find working alongside night elves?", next = "elves" },
         { text = "What's the heaviest thing you've loaded?", next = "heavy" },
+        { text = "Who pays your wages?", next = "dp_wages" },
+        { text = "Are the docks safe at night?", next = "dp_night" },
         { text = "Thanks, Don.", next = "END" },
+      },
+    },
+    dp_wages = {
+      lines = {
+        { id = "dp_wages_1", text = "The harbor does, through First Mate Fitzsimmons, and he pays on time, which is more than I can say for the captains. Every ship that ties up owes the dock a fee, and some of them argue it like it's coming out of their own teeth." },
+      },
+      choices = {
+        { text = "Fitzsimmons sounds like a fair man.", next = "dp_fitz" },
+        { text = "Every port's the same with dock fees.", next = "BACK", reply = "Maybe, but I only have to listen to this one." },
+      },
+    },
+    dp_fitz = {
+      lines = {
+        { id = "dp_fitz_1", text = "Fair and tired, mostly, for he's got the whole harbor's ledger and the captain's ear. If there's a crate missing, he'll know it before I do, and he'll know who was standing nearest when it went." },
+      },
+      choices = {
+        { text = "I'll keep my hands off the crates.", next = "BACK" },
+        { text = "Sounds like a hard man to fool. Something else.", next = "BACK" },
+      },
+    },
+    dp_night = {
+      lines = {
+        { id = "dp_night_1", text = "Safer than the beach, anyway, for the murlocs come up out of the bay after dark and the guards can't watch every pier. I've seen their eyes in the water more than once, and I don't load cargo after sunset any more." },
+      },
+      choices = {
+        { text = "Murlocs on the docks? That's bold of them.", next = "dp_murloc" },
+        { text = "I've cleared murlocs from beaches before.", next = "dp_murloc", when = { minLevel = 20 } },
+        { text = "I'll stay off the docks after dark.", next = "BACK" },
+      },
+    },
+    dp_murloc = {
+      lines = {
+        { id = "dp_murloc_1", text = "Bold and hungry, and the fishermen say there's more of them up the coast at the Bluegill Marsh than anyone's ever counted. Captain Stoutfist keeps saying he'll clear them out, but he's got the orcs to worry about first." },
+      },
+      choices = {
+        { text = "Someone else should clear the Bluegills, then.", next = "BACK" },
+        { text = "Murlocs and orcs. Something else.", next = "BACK" },
       },
     },
     auberdine = {
@@ -1656,7 +2209,46 @@ P:NPC {
         { text = "Who else keeps this bench warm?", next = "bench" },
         { text = "You don't seem troubled by any of it.", next = "content" },
         { text = "What's the ale like here?", next = "ale" },
+        { text = "Does anyone in town still ask your advice on engineering?", next = "hm_advice" },
+        { text = "Junder Brokk keeps an eye on you, I hear.", next = "hm_junder" },
         { text = "Enjoy your ale, Hargin.", next = "END" },
+      },
+    },
+    hm_advice = {
+      lines = {
+        { id = "hm_advice_1", text = "Now an' then, for Neal Allen down the way comes in when his sealed jars crack an' he cannae work out why. I tell him it's the damp, an' it's always the damp, an' he buys me an ale for sayin' what he already knew." },
+      },
+      choices = {
+        { text = "Has the sea wall ever asked you?", next = "hm_wall" },
+        { text = "An engineer with a good ear is never wasted.", next = "BACK", reply = "Kind o' ye, though my ear's mostly on the ale now." },
+      },
+    },
+    hm_wall = {
+      lines = {
+        { id = "hm_wall_1", text = "Captain Stoutfist asked me once, an' I told him the wall needs footings deeper than the mud, which is about a dwarf's height down. He thanked me an' never asked again, an' I cannae say I blame him, for it's a terrible job." },
+      },
+      choices = {
+        { text = "Junder's been mending it with Loch Modan stone.", next = "BACK" },
+        { text = "Deep footings or nothing. Something else.", next = "BACK" },
+      },
+    },
+    hm_junder = {
+      lines = {
+        { id = "hm_junder_1", text = "He does, the great stone-hauler, an' he thinks I dinnae notice. He walks me home every night an' pretends he's goin' the same way, though his room's on the other side o' the harbor." },
+      },
+      choices = {
+        { text = "He's a good friend to have.", next = "hm_friend" },
+        { text = "I'm a dwarf. We look after our own.", next = "hm_friend", when = { race = "Dwarf" } },
+        { text = "He sounds like a patient man.", next = "BACK" },
+      },
+    },
+    hm_friend = {
+      lines = {
+        { id = "hm_friend_1", text = "Aye, he is, an' I'd no' tell him so for a barrel o' Thunderbrew. We came from the same country under the mountains, an' when ye're far from home, ye hold tight tae whoever remembers it the same way." },
+      },
+      choices = {
+        { text = "Then don't tell him, but keep him close.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Hargin.", next = "BACK" },
       },
     },
     gate = {
@@ -1749,7 +2341,46 @@ P:NPC {
         { text = "What's the road from Loch Modan like these days?", next = "road" },
         { text = "You keep one eye on the door.", next = "door" },
         { text = "What's the worst part of the marsh road?", next = "worst" },
+        { text = "Where does the wall stone come from?", next = "jb_stone" },
+        { text = "What do you make of Captain Stoutfist?", next = "jb_captain" },
         { text = "Good evening, Junder.", next = "END" },
+      },
+    },
+    jb_stone = {
+      lines = {
+        { id = "jb_stone_1", text = "Loch Modan, from the quarries near the Stonewrought Dam, an' it's hauled down through the Algaz Gate on carts. It's good grey stone that laughs at the damp, an' it'd better, for there's nothin' in the Wetlands but mud." },
+      },
+      choices = {
+        { text = "The Algaz road is dangerous now.", next = "jb_road" },
+        { text = "Loch Modan stone in a human harbor. That's a fine thing.", next = "BACK", reply = "It's the best thing in this town, an' I'll say so." },
+      },
+    },
+    jb_road = {
+      lines = {
+        { id = "jb_road_1", text = "It is, wi' the Dragonmaw on the ridges an' the troggs in the tunnels, so I've no' brought a cart down since spring. The mountaineers at Algaz Station do what they can, but they've their own walls tae watch." },
+      },
+      choices = {
+        { text = "Then the wall's waiting on safer roads.", next = "BACK" },
+        { text = "I'll clear the road if I can. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    jb_captain = {
+      lines = {
+        { id = "jb_captain_1", text = "A good soldier wi' too few men, an' he kens it. He'll stand on that wall in the rain an' watch the hills all night, an' I've seen him do it, so I'll no' hear a word against him." },
+      },
+      choices = {
+        { text = "His men are spread thin.", next = "jb_men" },
+        { text = "I'm a soldier too. I'd stand watch with him.", next = "jb_men", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "I'll not say a word against him, then.", next = "BACK" },
+      },
+    },
+    jb_men = {
+      lines = {
+        { id = "jb_men_1", text = "Thin as old mortar. Half the guard are walkin' the wall an' the other half are sleepin' in their boots, an' if ye've a strong arm, he'll find a use for it before ye've finished askin'." },
+      },
+      choices = {
+        { text = "I'll offer him my arm, then.", next = "BACK" },
+        { text = "Spread thin. Let's talk of something else.", next = "BACK" },
       },
     },
     hargin = {
@@ -1842,7 +2473,46 @@ P:NPC {
         { text = "What do the soldiers upstairs think of you?", next = "soldiers" },
         { text = "Does anything ever happen down here?", next = "happen" },
         { text = "What's the oldest thing down here?", next = "oldest" },
+        { text = "Who comes down to the stores, besides you?", next = "mw_visitors" },
+        { text = "What's the powder for, in a soggy keep?", next = "mw_powder" },
         { text = "I'll leave you to it, Murphy.", next = "END" },
+      },
+    },
+    mw_visitors = {
+      lines = {
+        { id = "mw_visitors_1", text = "Timothy Clark, mostly, running messages and asking me what the guards eat, and the quartermaster once a week, which is when I look very busy. Now and then a soldier comes down to dry his boots by my lamp." },
+      },
+      choices = {
+        { text = "You've a soft spot for Timothy, I think.", next = "mw_timothy" },
+        { text = "You look busy right now, too.", next = "BACK", reply = "That's the trick of it, isn't it, and nobody's caught me yet." },
+      },
+    },
+    mw_timothy = {
+      lines = {
+        { id = "mw_timothy_1", text = "Maybe I do, for he wants to be a guard so badly it hurts to watch. I tell him the stores are the best post in the keep, and he looks at me like I've said something wicked." },
+      },
+      choices = {
+        { text = "He'll understand when he's older.", next = "BACK" },
+        { text = "Let him have his dreams. Something else.", next = "BACK" },
+      },
+    },
+    mw_powder = {
+      lines = {
+        { id = "mw_powder_1", text = "The cannon on the wall, and the guards' rifles, and it's the reason this cellar matters at all. Wet powder is no powder, so I keep it in tarred barrels on the high shelf, and I check it every morning, honestly I do." },
+      },
+      choices = {
+        { text = "The keep would fall without dry powder.", next = "mw_matter" },
+        { text = "I'm an engineer. Your barrels need better seals.", next = "mw_matter", when = { profession = "Engineering" } },
+        { text = "Every morning? Really?", next = "BACK", reply = "Most mornings. I'll swear to most." },
+      },
+    },
+    mw_matter = {
+      lines = {
+        { id = "mw_matter_1", text = "That's what I keep telling them, though they still call me the cellar rat upstairs. If the Dragonmaw ever come over that wall, it's my barrels that'll stop them, and then we'll see who's laughing." },
+      },
+      choices = {
+        { text = "You're more important than they think.", next = "BACK", fx = { affinity = 1 } },
+        { text = "The cellar rat with the powder. Something else.", next = "BACK" },
       },
     },
     quiet = {
@@ -1935,7 +2605,46 @@ P:NPC {
         { text = "Guard duty here looks cold and wet.", next = "wet" },
         { text = "Who's the best soldier in the harbor?", next = "best" },
         { text = "What would you do first, as a guard?", next = "firstday" },
+        { text = "What's the watch rota like?", next = "tc_rota" },
+        { text = "Have you ever been outside the walls?", next = "tc_outside" },
         { text = "Good luck, Timothy.", next = "END" },
+      },
+    },
+    tc_rota = {
+      lines = {
+        { id = "tc_rota_1", text = "Four posts on the wall, two at the gate, one on the docks, and one in the tower, and they change at every bell. I know who's on each, and I know who sleeps on his, but I'm not going to say who, because that would be telling." },
+      },
+      choices = {
+        { text = "You'd make a good sergeant one day.", next = "tc_sergeant" },
+        { text = "Who sleeps on his post?", next = "BACK", reply = "I said I wouldn't tell, and I won't, not even you." },
+      },
+    },
+    tc_sergeant = {
+      lines = {
+        { id = "tc_sergeant_1", text = "Do you think so? Valstag Ironjaw says a sergeant has to shout, and I'm not very loud yet, but I've been practising on the gulls. They don't listen either, so it's good training." },
+      },
+      choices = {
+        { text = "Keep practising. The gulls are a tough crowd.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Valstag's right about the shouting. Something else.", next = "BACK" },
+      },
+    },
+    tc_outside = {
+      lines = {
+        { id = "tc_outside_1", text = "Only as far as the crossroads once, carrying a letter, and I ran the whole way back. There were gnoll tracks on the road, and I didn't see any gnolls, but I'm sure they saw me." },
+      },
+      choices = {
+        { text = "That was brave of you.", next = "tc_brave" },
+        { text = "I've fought gnolls. They're not so fearsome.", next = "tc_brave", when = { class = { "WARRIOR", "PALADIN", "HUNTER" } } },
+        { text = "Running was the right choice.", next = "BACK" },
+      },
+    },
+    tc_brave = {
+      lines = {
+        { id = "tc_brave_1", text = "It didn't feel brave, it felt like being very fast. The captain said I'd done well to deliver the letter, and that's the closest I've come to being a guard, so I keep it in my head like a medal." },
+      },
+      choices = {
+        { text = "One day you'll have a real one.", next = "BACK" },
+        { text = "Hold on to it. Something else.", next = "BACK" },
       },
     },
     why = {
@@ -2031,7 +2740,46 @@ P:NPC {
         { text = "You're still cooking for two.", next = "cooking" },
         { text = "What do you brew for the harbor?", next = "brew" },
         { text = "Which marsh herbs are worth gathering?", next = "herbs", when = { profession = { "Herbalism", "Alchemy" } } },
+        { text = "What do the neighbours say about Ardin?", next = "cg_neighbours" },
+        { text = "How did you two meet?", next = "cg_met" },
         { text = "Take heart, Caitlin.", next = "END" },
+      },
+    },
+    cg_neighbours = {
+      lines = {
+        { id = "cg_neighbours_1", text = "Brahnmar next door says Ardin will turn up when he's hungry, and Harold Riggs says he's probably talking to a fish. They mean it kindly, I think, but it's not much comfort when the soup goes cold." },
+      },
+      choices = {
+        { text = "They know him well, it seems.", next = "cg_known" },
+        { text = "Kind words or not, I'll look for him.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    cg_known = {
+      lines = {
+        { id = "cg_known_1", text = "Everyone in the harbor knows Ardin, for he's the one who stops in the street to look at a weed between the cobbles. He once spent a whole afternoon on the pier counting barnacles, and Adam Lind still teases him about it." },
+      },
+      choices = {
+        { text = "He sounds like a gentle soul.", next = "BACK" },
+        { text = "Counting barnacles. Let's talk of something else.", next = "BACK" },
+      },
+    },
+    cg_met = {
+      lines = {
+        { id = "cg_met_1", text = "Over a potion, of all things, for he brought me a root I'd never seen and asked what it was good for. I told him it was poison, and he said he'd thought so, but he wanted to hear me say it." },
+      },
+      choices = {
+        { text = "That's a strange way to court someone.", next = "cg_court" },
+        { text = "An alchemist's romance. I like it.", next = "cg_court", when = { profession = "Alchemy" } },
+        { text = "A root and a question. That's sweet.", next = "BACK" },
+      },
+    },
+    cg_court = {
+      lines = {
+        { id = "cg_court_1", text = "It was, but it worked, didn't it? He's brought me every odd plant in the Wetlands since then, and I've a shelf of them that nobody else in Lordaeron could name, so I'd like him back to bring me more." },
+      },
+      choices = {
+        { text = "He'll come back with his arms full.", next = "BACK" },
+        { text = "Something else, Caitlin.", next = "BACK" },
       },
     },
     ardin = {

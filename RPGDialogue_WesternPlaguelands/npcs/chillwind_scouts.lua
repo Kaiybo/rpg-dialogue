@@ -201,6 +201,46 @@ P:NPC {
 
   start = "hello",
   nodes = {
+
+    ai_rumour = {
+      lines = { { id = "air_1", text = "A Scarlet deserter in a Southshore taproom, three ales in an' weepin' about the things he'd seen at Hearthglen. He said the mage's workshop was locked an' sealed the day they hanged him, an' nobody's been let in since." } },
+      choices = {
+        { text = "A deserter's word isn't worth much.", next = "ai_rumour2" },
+        { text = "I'm a mage. Enchanting a bow isn't simple work.", next = "ai_magecraft", when = { class = "MAGE" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ai_rumour2 = {
+      lines = { { id = "air2_1", text = "Normally I'd agree wi' ye, but he drew me the workshop on a napkin, door an' window an' all, an' a liar doesnae draw that steady. Besides, Weldon Barov in the camp here says his family heard the same tale years back." } },
+      choices = {
+        { text = "Weldon Barov trades in rumours, I hear.", next = "BACK", reply = "Aye, an' in deeds an' land an' anythin' else wi' a Barov name on it. Mind him, an' mind his brother at the Bulwark more." },
+        { text = "Then the workshop's worth a look.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ai_magecraft = {
+      lines = { { id = "aim_1", text = "So I'm told, an' that's half why the tale caught me. A mage who could put a charm in a bowstring that holds through a winter's damp would be worth more than a dozen Scarlet captains, an' they hanged him like a horse thief." } },
+      choices = {
+        { text = "If the charms held, his notes will be there too.", next = "BACK", reply = "That's my hope, {class}. I cannae read them, but I know folk in Ironforge who'd pay tae try." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ai_trade = {
+      lines = { { id = "ait_1", text = "Ha! Ye've a sharp eye. I'm no' a soldier, I'm a dealer in fine things, bows an' blades an' the odd clockwork toy, an' I go where the rumours of good craft take me." } },
+      choices = {
+        { text = "Does Valorfist mind a trader in his camp?", next = "ai_trade2" },
+        { text = "Dealers usually stay where it's safe.", next = "ai_trade2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ai_trade2 = {
+      lines = { { id = "ait2_1", text = "Valorfist minds anybody who isnae holdin' a sword the right way round, so I keep out o' his sight. The gryphon master, Bibilfaz, is better company, an' he'll fly ye tae Ironforge if yer boots give out like mine." } },
+      choices = {
+        { text = "I'll keep Bibilfaz in mind.", next = "BACK" },
+        { text = "Your boots will carry you. Dwarves don't quit.", next = "BACK", reply = "No' often, an' never wi' a prize at the end o' the road.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     dd_scarlet = {
       lines = {
         { id = "dd_scarlet_1",
@@ -228,6 +268,8 @@ P:NPC {
         { text = "What do you want with the weapons?", next = "want" },
         { text = "Hearthglen is crawling with Scarlets.", next = "hearthglen" },
         { text = "What do you make of Chillwind Camp?", next = "camp" },
+        { text = "Who told you about this murdered mage?", next = "ai_rumour" },
+        { text = "You don't walk like a soldier.", next = "ai_trade" },
         { text = "Safe travels, Alexia.", next = "END" },
       },
     },

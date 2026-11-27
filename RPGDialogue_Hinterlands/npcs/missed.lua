@@ -237,7 +237,45 @@ P:NPC {
         { text = "Do the trolls and wolves leave you alone?", next = "safe" },
         { text = "Who is Gigget to you?", next = "y_gigget" },
         { text = "Did you leave Gnomeregan in time?", next = "y_gnomer" },
+        { text = "Who buys engineering parts in troll country?", next = "rz_who" },
+        { text = "What do you make of the high elves at Quel'Danil?", next = "rz_elves" },
         { text = "Let me see your parts.", next = "END" },
+      },
+    },
+    rz_who = {
+      lines = {
+        { id = "rz_who_1", text = "The Wildhammer, for their gryphon harnesses, the high elves at the lodge, for their traps, and the odd Horde engineer from the Revantusk, who pays in silver and doesn't ask where I got the parts. That's about a sixty-forty split, Alliance to Horde, give or take." },
+      },
+      choices = {
+        { text = "You sell to both sides?", next = "rz_both" },
+        { text = "I'm an engineer. Gryphon harnesses sound fascinating.", next = "rz_both", when = { profession = "Engineering" } },
+      },
+    },
+    rz_both = {
+      lines = {
+        { id = "rz_both_1", text = "Absolutely, for a spring doesn't care who winds it. Gigget does the books and says neutrality is a forty-percent improvement in sales, which I can't argue with, because she's usually right." },
+      },
+      choices = {
+        { text = "Gigget's a good business partner.", next = "BACK" },
+        { text = "Something else, Ruppo.", next = "BACK" },
+      },
+    },
+    rz_elves = {
+      lines = {
+        { id = "rz_elves_1", text = "Very polite, very tall and very suspicious of anything that ticks. Jalinde Summerdrake came over once to ask if my camp was making noise on purpose, and I told her yes, because the noise frightens the wolves, and she seemed satisfied." },
+      },
+      choices = {
+        { text = "Do they buy from you?", next = "rz_buy" },
+        { text = "Noise frightens the wolves. Clever.", next = "BACK" },
+      },
+    },
+    rz_buy = {
+      lines = {
+        { id = "rz_buy_1", text = "Traps, mostly, for the trolls in the hills, and they always ask if the springs are quiet. I've made them a model that's eighty percent silent, which they seem to find acceptable, though I'm still working on the other twenty." },
+      },
+      choices = {
+        { text = "Eighty percent is good.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, then.", next = "BACK" },
       },
     },
     why = {

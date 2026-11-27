@@ -753,6 +753,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_ring = {
+      lines = { { id = "d6_ring_a", text = "It does speak, if you know how to hear it. Good plate rings long and clean under the hammer, and plate with a crack inside it rings dead and short, like a warrior who has been hit too many times and will not say so." } },
+      choices = {
+        { text = "What do you do with the dead ones?", next = "d6_ring2" },
+        { text = "So that is why you tap them twice.", next = "d6_ring2" },
+        { text = "Something else, Krakk.", next = "BACK" },
+      },
+    },
+    d6_ring2 = {
+      lines = { { id = "d6_ring2_a", text = "They go back to Orgrimmar on the zeppelin to be melted down, and I pay the goblin to carry them both ways. The zeppelin's rattling cracks one piece in ten on the way here, and I have told Squibby so, and he has told me to buy a softer crate." } },
+      choices = {
+        { text = "Every crack you catch is a grunt who lives.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d6_bare = {
+      lines = { { id = "d6_bare_a", text = "They wear bone, paint and their own speed, and they are hard to hit because of it. But I have seen what an axe does to a troll who trusted his speed, and I have never yet seen a troll outrun one that was already falling." } },
+      choices = {
+        { text = "Would you put mail on a troll?", next = "d6_bare2" },
+        { text = "The Darkspear move better without your iron.", next = "d6_bare2", when = { race = "Troll" } },
+        { text = "Enough of trolls. Something else.", next = "BACK" },
+      },
+    },
+    d6_bare2 = {
+      lines = {
+        { id = "d6_bare2_a", text = "I tried, once, with Kin'weelay, and he laughed until he had to sit down. The Darkspear take a leather jerkin from Brawn and a helm from me, and nothing more, and I have stopped arguing with them about it." },
+        { id = "d6_bare2_troll", when = { race = "Troll" }, text = "Kin'weelay told me the same, and then he laughed until he had to sit down. Take a helm at least, troll, because the Skullsplitter aim for the head, and speed does not help a skull that is already split." },
+      },
+      choices = {
+        { text = "A helm, then. I'll think on it.", next = "BACK" },
+        { text = "Something else, armorer.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "hello_1", text = "I am Krakk, and I sell mail and plate to those with the strength to carry it. Hragran will tell you that iron cooks a warrior in this heat, and he tells you that because he sells leather." },
@@ -773,6 +807,8 @@ P:NPC {
         { text = "How do you keep iron from rusting here?", next = "rust", when = { profession = "Blacksmithing" } },
         { text = "What would you put on a warrior bound for the troll ruins?", next = "ruins", when = { class = "WARRIOR" } },
         { text = "Who in this camp wears your work?", next = "wears" },
+        { text = "You listen to every breastplate as if it spoke.", next = "d6_ring" },
+        { text = "The Bloodscalp wear hardly any armour at all.", next = "d6_bare" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -875,6 +911,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_wet = {
+      lines = { { id = "d6_wet_a", text = "It rots in a week if you let it, and the mould gets into the grain and never comes out. I cure everything with Nerrist's salt and hang it over a smoking fire of green wood, and the hides come out smelling like a burned village, but they last." } },
+      choices = {
+        { text = "My hides crack when they dry. What am I doing wrong?", next = "d6_wet2", when = { profession = "Leatherworking" } },
+        { text = "Did you learn that smoking trick here?", next = "d6_wet2" },
+        { text = "Something else, Brawn.", next = "BACK" },
+      },
+    },
+    d6_wet2 = {
+      lines = {
+        { id = "d6_wet2_a", text = "From the Darkspear, and I do not say that often. They rub the inside with the oil of a palm nut before the smoke, so the leather stays soft, and I have not found a better way, though I have looked." },
+        { id = "d6_wet2_lw", when = { profession = "Leatherworking" }, text = "You are drying them in the sun, like a peon, and the sun here cooks the skin before the inside has dried. Hang them in the shade over smoke, and rub the inside with palm oil the way the Darkspear do, and they will stop cracking." },
+      },
+      choices = {
+        { text = "Palm oil and smoke. I'll remember it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d6_skins = {
+      lines = { { id = "d6_skins_a", text = "They peel the heads for trophies and sell the rest to the goblins at Booty Bay, and the goblins sell it back to us at three times the price. I have bought tiger hide that a human shot, and I have hated every stitch I put through it." } },
+      choices = {
+        { text = "Good hide is good hide, whoever shot it.", next = "d6_skins2" },
+        { text = "Why not hunt the tigers yourself?", next = "d6_skins2" },
+        { text = "Something else, Brawn.", next = "BACK" },
+      },
+    },
+    d6_skins2 = {
+      lines = { { id = "d6_skins2_a", text = "Because a trainer who leaves his bench to hunt is not teaching, and the Horde needs leatherworkers more than it needs one more hunter. Kragg's students bring me what they can, and when they bring me too little, I buy from the goblins and say nothing kind about it." } },
+      choices = {
+        { text = "Then I'll bring you hides when I'm out there.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "hello_1", text = "I am Brawn, and I teach the working of leather. We have only a small foothold on this coast, but a warrior fights in what I teach others to make, and one day that will carry us further than this wall." },
@@ -895,6 +965,8 @@ P:NPC {
         { text = "What should I make from tiger and raptor?", next = "make", when = { profession = "Leatherworking" } },
         { text = "Were you in the camps, Brawn?", next = "orc", when = { race = "Orc" } },
         { text = "Do the trolls of the camp work leather your way?", next = "trolls" },
+        { text = "Leather must rot fast in this wet jungle.", next = "d6_wet" },
+        { text = "What do Nesingwary's hunters do with their skins?", next = "d6_skins" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -997,6 +1069,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_herbs = {
+      lines = { { id = "d6_herbs_a", text = "Kingsblood, liferoot, khadgar's whisker if you're lucky, and purple lotus if you're very lucky and a little stupid. The lotus grows round the old troll stones inland, pal, and the trolls who live in those stones don't like visitors with sacks." } },
+      choices = {
+        { text = "My potions keep clouding. Any advice?", next = "d6_herbs2", when = { profession = "Alchemy" } },
+        { text = "Purple lotus sounds worth a few trolls.", next = "d6_herbs2" },
+        { text = "Something else, Jaxin.", next = "BACK" },
+      },
+    },
+    d6_herbs2 = {
+      lines = {
+        { id = "d6_herbs2_a", text = "Worth it to you, maybe, since you're the one gettin' speared, and worth it to me, since I'm the one buyin'. Bring it fresh, though, because lotus starts to brown in a day in this heat, and brown lotus makes a potion that tastes like a boot." },
+        { id = "d6_herbs2_alc", when = { profession = "Alchemy" }, text = "You're usin' the harbor water, ain't ya? Everybody does once, and it's full of salt and worse, and the salt clouds the flask every time. Boil rainwater and let it cool, and that'll cost ya nothin', which is the last free thing you'll get from me." },
+      },
+      choices = {
+        { text = "Fresh lotus, boiled water. Got it.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d6_both = {
+      lines = { { id = "d6_both_a", text = "Same recipes, same fees, different hours, pal. The Horde gets mornings and the Alliance gets afternoons, on account of the time an orc and a dwarf both reached for the last vial of the same reagent on my stairs." } },
+      choices = {
+        { text = "What happened on the stairs?", next = "d6_both2" },
+        { text = "I'd guess the dwarf lost.", next = "d6_both2" },
+        { text = "Something else, Jaxin.", next = "BACK" },
+      },
+    },
+    d6_both2 = {
+      lines = { { id = "d6_both2_a", text = "Nobody lost but me, friend, because they knocked the vial off the landing and it took the railing with it. The Bruisers came up, the Baron's men billed me for the railing, and now I keep a sand timer on the bench and a schedule on the door." } },
+      choices = {
+        { text = "Booty Bay bills everyone for everything.", next = "BACK", fx = { learn = { "steamwheedle" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "hello_1", text = "Jaxin Chong, alchemy trainer, Boucher's Cauldron, top level, mind the stairs. I teach the mixing, the measuring and the not dying, and I charge for all three because all three cost me something to learn." },
@@ -1016,6 +1122,8 @@ P:NPC {
         { text = "You overcharge for knowledge anyone could find.", next = "charge" },
         { text = "What sells best off your bench?", next = "sells", when = { profession = "Alchemy" } },
         { text = "I could supply you herbs directly.", next = "supply", when = { profession = "Herbalism" } },
+        { text = "What grows out there that's worth the risk?", next = "d6_herbs" },
+        { text = "Do you teach Horde and Alliance the same recipes?", next = "d6_both" },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -1117,6 +1225,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_mith = {
+      lines = { { id = "d6_mith_a", text = "Because it is light enough to fight in and hard enough to trust, and no other metal gives you both. Iron is heavy and honest, and truesilver is beautiful and difficult, but mithril forgives a good smith and punishes a lazy one, which is what an Order wants." } },
+      choices = {
+        { text = "I wear plate every day. What makes mithril better?", next = "d6_mith2", when = { class = "WARRIOR" } },
+        { text = "Where does Booty Bay get its mithril?", next = "d6_mith2" },
+        { text = "Something else, McGavan.", next = "BACK" },
+      },
+    },
+    d6_mith2 = {
+      lines = {
+        { id = "d6_mith2_a", text = "From miners who come down from the Badlands and the Hinterlands with packs on their backs, and from goblins who buy from those miners and sell to me. The goblins add a third to the price for carrying it, and I pay it, because a smith without ore is only a man with a hammer." },
+        { id = "d6_mith2_war", when = { class = "WARRIOR" }, text = "You'll feel it at the end of a long fight, when your arms would drop iron but can still lift mithril. It turns a blade nearly as well as steel twice its weight, and a warrior who isn't tired is a warrior who sees the next blow coming." },
+      },
+      choices = {
+        { text = "Light and hard both. I see the appeal.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d6_horde = {
+      lines = { { id = "d6_horde_a", text = "The Order takes smiths, and steel has no banner. Galvan has taught an orc and a dwarf at the same anvil, and he shouted at both of them equally, which he would tell you is the only fairness that matters." } },
+      choices = {
+        { text = "That can't sit well with everyone in the Order.", next = "d6_horde2" },
+        { text = "Booty Bay is a fair place to keep such a rule.", next = "d6_horde2" },
+        { text = "Something else, McGavan.", next = "BACK" },
+      },
+    },
+    d6_horde2 = {
+      lines = { { id = "d6_horde2_a", text = "It doesn't, and some have left over it. But a breastplate saves whoever is wearing it, and I'd rather send home a smith who makes good armour for the wrong side than one who makes bad armour for the right one." } },
+      choices = {
+        { text = "That's an honest view of the trade.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "hello_1", text = "I am McGavan, of the Mithril Order. We are armorsmiths, a small company and a strict one, and my part is to stand in this port and decide who is worth sending on to our master in the jungle." },
@@ -1135,6 +1277,8 @@ P:NPC {
         { text = "I work a forge. Would the Order have me?", next = "have", when = { profession = "Blacksmithing" } },
         { text = "I've met Galvan. He's as loud as you said.", next = "met", when = { questDone = TODO_QUEST("The Mithril Order") } },
         { text = "Why wait for smiths in Booty Bay?", next = "port" },
+        { text = "Why mithril, of all the metals?", next = "d6_mith" },
+        { text = "Does the Order take smiths of the Horde?", next = "d6_horde" },
         { text = "Good day, McGavan.", next = "END" },
       },
     },
@@ -1235,6 +1379,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_fish = {
+      lines = { { id = "d6_fish_a", text = "Jang buys up the spares at a fair rate, pal, and the taverns fry 'em by the barrel, and for a week after the contest you can't get a meal in this town that wasn't speckled. The winner's forty go on display, then they go in a pot, because the Baron don't waste nothin'." } },
+      choices = {
+        { text = "Any tips for an angler entering Sunday?", next = "d6_fish2", when = { profession = "Fishing" } },
+        { text = "Are they actually any good to eat?", next = "d6_fish2" },
+        { text = "Something else, Riggle.", next = "BACK" },
+      },
+    },
+    d6_fish2 = {
+      lines = {
+        { id = "d6_fish2_a", text = "Best fish on the coast, champ, sweet and firm, and that's not the announcer talkin', that's my stomach. A cook who knows the trade grills 'em with a little lime off the jungle trees, and I've seen hard men weep over that plate." },
+        { id = "d6_fish2_fish", when = { profession = "Fishing" }, text = "Scout your spot Saturday, keep your line light and your bait fresh, and don't fight the crowd for the big schools, since half of 'em are tangled with the fella next to 'em. A quiet school off a rock nobody likes is worth three crowded ones." },
+      },
+      choices = {
+        { text = "Now I'm hungry. Something else.", next = "BACK" },
+        { text = "I'll remember that on Sunday.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    d6_coast = {
+      lines = { { id = "d6_coast_a", text = "Murlocs on the beaches, sharks off the reefs and Bloodsail on the Wild Shore, pal, and every one of 'em adds a little excitement to the proceedings. The crowd loves a contestant who comes back with forty fish and a murloc still hangin' off one boot." } },
+      choices = {
+        { text = "Has anyone been badly hurt?", next = "d6_coast2" },
+        { text = "You're selling danger as entertainment.", next = "d6_coast2" },
+        { text = "Something else, Riggle.", next = "BACK" },
+      },
+    },
+    d6_coast2 = {
+      lines = { { id = "d6_coast2_a", text = "Bitten, stung, robbed and dunked, sure, but the Baron's Bruisers walk the nearest beaches on contest day, and the healers at the inn keep the bandages warm. Nobody's gone missin' on my watch that didn't turn up later in a tavern, and I aim to keep it that way." } },
+      choices = {
+        { text = "Good to know someone is watching the beaches.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "hello_1", text = "Riggle Bassbait, Fishmaster to Baron Revilgaz's own Booty Bay! Every Sunday afternoon the call goes up along the whole coast, and the first angler to slap forty Speckled Tastyfish on this dock is the Master Angler, with a prize to prove it." },
@@ -1252,6 +1430,8 @@ P:NPC {
         { text = "Where do the Tastyfish school?", next = "school", when = { profession = "Fishing" } },
         { text = "I won your tournament. What now?", next = "won", when = { questDone = TODO_QUEST("Master Angler") } },
         { text = "Why does the Baron pay for a fishing contest?", next = "baron" },
+        { text = "What happens to all those Tastyfish afterwards?", next = "d6_fish" },
+        { text = "The coast is full of murlocs and sharks.", next = "d6_coast" },
         { text = "I'll see you Sunday, maybe.", next = "END" },
       },
     },
@@ -1353,6 +1533,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_capt = {
+      lines = { { id = "d6_capt_a", text = "Three captains, friend, Keelhaul, Stillwater and Fleet Master Firallon over the both of them, and each one thinks the others are stealing from him, which they are. I mend all three captains' coats and I make very sure nobody sees whose I mend first." } },
+      choices = {
+        { text = "Which of them frightens you most?", next = "d6_capt2" },
+        { text = "I could slip you out past the guards tonight.", next = "d6_capt2", when = { class = "ROGUE" } },
+        { text = "Something else, Crosby.", next = "BACK" },
+      },
+    },
+    d6_capt2 = {
+      lines = {
+        { id = "d6_capt2_a", text = "Firallon, and it isn't close. Keelhaul shouts and Stillwater sulks, but Firallon is polite to me, and a pirate who is polite to his tailor is a pirate who has already decided what to do with him later." },
+        { id = "d6_capt2_rogue", when = { class = "ROGUE" }, text = "Oh, don't, don't say it so loudly! If you got me out tonight they'd know by dawn, and Fleet Master Firallon would come looking for whoever sold them thread, and I'm the only one who does. Ask me again when their ships are on the bottom of the bay." },
+      },
+      choices = {
+        { text = "Then I'll see what I can do about their ships.", next = "BACK", fx = { learn = { "bloodsail" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d6_sew = {
+      lines = { { id = "d6_sew_a", text = "A shroud, friend, for a man they pulled out of the water. Sailors sew their dead into a hammock and put the last stitch through the nose, to be certain, and the captain made me do it because I was the only one aboard with a needle." } },
+      choices = {
+        { text = "That must have been a hard thing to do.", next = "d6_sew2" },
+        { text = "Through the nose? Pirates are grim folk.", next = "d6_sew2" },
+        { text = "Something else, Crosby.", next = "BACK" },
+      },
+    },
+    d6_sew2 = {
+      lines = { { id = "d6_sew2_a", text = "It was, and it wasn't even a pirate; it was one of the merchant's crew I came in with. I knew his name, and none of the Bloodsail did, so I said it over him when they let him go over the side, and that's the bravest thing I've done in this camp." } },
+      choices = {
+        { text = "That was brave, Crosby. I mean it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "hello_1", text = "Crosby's the name. They call me Cowardly, and I've decided to take it as a description of my business methods, which are cautious. I sell thread, cloth and patterns to anyone, and I mend sails for the Bloodsail so that they go on letting me." },
@@ -1373,6 +1587,8 @@ P:NPC {
         { text = "What patterns did you keep back?", next = "patterns", when = { profession = "Tailoring" } },
         { text = "I'm looking into the Bloodsail for Booty Bay.", next = "spy", when = { questActive = TODO_QUEST("The Bloodsail Buccaneers") } },
         { text = "Have you thought of escaping?", next = "escape" },
+        { text = "Who gives the orders in this camp?", next = "d6_capt" },
+        { text = "What's the worst thing you've had to sew?", next = "d6_sew" },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -1475,6 +1691,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_ogre = {
+      lines = { { id = "d6_ogre_a", text = "That they're extremely regular, which nobody expects! They wake at noon, they fight each other until supper, and their magi sit in a ring by the stones muttering spells, and I've noted a forty percent rise in muttering whenever anything near the mound catches fire." } },
+      choices = {
+        { text = "Have you ever tested anything on them?", next = "d6_ogre2" },
+        { text = "Mekkatorque would want you home, not watching ogres.", next = "d6_ogre2", when = { race = "Gnome" } },
+        { text = "Something else, Knaz.", next = "BACK" },
+      },
+    },
+    d6_ogre2 = {
+      lines = {
+        { id = "d6_ogre2_a", text = "Only accidentally, and I've written each accident up very carefully, so it counts as science. A rocket boot went down the hill on day sixty and an ogre wore the rest of it for a week, and I must say he seemed very proud of it." },
+        { id = "d6_ogre2_gnome", when = { race = "Gnome" }, text = "The High Tinker has ten thousand of us to worry about, and one gnome on a hill is a very small percentage of his problem! I send my notes to Tinker Town with Gnaz's caravans, so I'm contributing, only from a safe and scenic distance." },
+      },
+      choices = {
+        { text = "An ogre in a rocket boot. Of course.", next = "BACK", fx = { learn = { "mosh_ogg" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d6_lift = {
+      lines = { { id = "d6_lift_a", text = "A rope, a pulley and a counterweight of my own design, which works eighty-seven percent of the time! Gnaz sends crates up from Booty Bay with whoever's going this way, and the thirteen percent of crates that fall are mostly tinned fish, which bounces." } },
+      choices = {
+        { text = "Who buys from you way out here?", next = "d6_lift2" },
+        { text = "Eighty-seven percent isn't a number I'd trust.", next = "d6_lift2" },
+        { text = "Something else, Knaz.", next = "BACK" },
+      },
+    },
+    d6_lift2 = {
+      lines = { { id = "d6_lift2_a", text = "Nesingwary's hunters buy shot and powder, and the soldiers at the rebel camp buy flares, and once a very lost orc bought a whole crate of fuses without asking what they were for. Everybody who comes up here needs something to go bang, so business is steady!" } },
+      choices = {
+        { text = "That orc must have had an interesting week.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "hello_1", text = "Knaz Blunderflame, engineering supplies, field office! I sell parts, powder and one or two schematics of my own devising, and I chose this hill because nothing I test up here can damage anything that belongs to anyone I like." },
@@ -1495,6 +1745,8 @@ P:NPC {
         { text = "What schematics won't a shop insure?", next = "schematics", when = { profession = "Engineering" } },
         { text = "Why aren't you in Ironforge with the rest of us?", next = "ironforge", when = { race = "Gnome" } },
         { text = "Are you kin to Gnaz Blunderflame, in Booty Bay?", next = "gnaz" },
+        { text = "What have you learned about the Mosh'Ogg?", next = "d6_ogre" },
+        { text = "How do you get supplies up this hill?", next = "d6_lift" },
         { text = "I'll find my own way down.", next = "END" },
       },
     },
@@ -1596,6 +1848,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_kurzen = {
+      lines = { { id = "d6_kurzen_a", text = "We came south with him to fight the trolls, and somewhere in the jungle he stopped being the man who'd led us. He started talking of an empire of his own, and the men who stayed with him started looking at us like strangers, so we walked out with Lieutenant Doren and made this camp." } },
+      choices = {
+        { text = "Can Kurzen's men still be saved?", next = "d6_kurzen2" },
+        { text = "You did right to walk away.", next = "d6_kurzen2" },
+        { text = "Something else, Corporal.", next = "BACK" },
+      },
+    },
+    d6_kurzen2 = {
+      lines = { { id = "d6_kurzen2_a", text = "Some of them shared my fire for years, and I'd like to believe it. The lieutenant thinks Kurzen's got something more than orders holding them, some trick of his medicine men, and if that's so then the men over the hill aren't wholly to blame for what they've become." } },
+      choices = {
+        { text = "Then I'll keep that in mind when I meet them.", next = "BACK", fx = { learn = { "kurzen" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d6_home = {
+      lines = { { id = "d6_home_a", text = "Twice a season, in hard biscuit and orders, so it remembers us that much. Letters go up by the Booty Bay boats when a man has the coin, and they come back slower, and most of the lads have stopped waiting at the gate for them." } },
+      choices = {
+        { text = "Does Brother Nimetz look after the men's spirits?", next = "d6_home2", when = { class = "PRIEST" } },
+        { text = "Who keeps the men going, then?", next = "d6_home2" },
+        { text = "Something else, Corporal.", next = "BACK" },
+      },
+    },
+    d6_home2 = {
+      lines = {
+        { id = "d6_home2_a", text = "The lieutenant does, and Sergeant Yohwa, and Brother Nimetz when a man needs more than a kind word. And supper does too, which is why I took it so hard when the pot broke, since a cold camp is a camp that starts thinking about home." },
+        { id = "d6_home2_priest", when = { class = "PRIEST" }, text = "He does his best, and he's tired, same as the rest of us. He prays with the men who've lost friends to Kurzen's lot, and he blesses my kettle every morning, which I've noticed hasn't stopped me burning the porridge." },
+      },
+      choices = {
+        { text = "A hot meal is its own kind of prayer.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "hello_1", text = "Corporal Kaleb, and I feed this camp, or I did. I'd a mechanical cooking pot from a goblin named Krazek, a marvel of a thing that stewed and stirred on its own, and it's broken, and I'm back to a kettle over a fire like my grandmother." },
@@ -1614,6 +1900,8 @@ P:NPC {
         { text = "A cook is wasted in a place like this.", next = "wasted" },
         { text = "What would you make of jungle game, with a good pot?", next = "game", when = { profession = "Cooking" } },
         { text = "How's the pot working since Krazek mended it?", next = "mended", when = { questDone = TODO_QUEST("Return to Corporal Kaleb") } },
+        { text = "What happened with Colonel Kurzen?", next = "d6_kurzen" },
+        { text = "Does Stormwind remember you're out here?", next = "d6_home" },
         { text = "Carry on, Corporal.", next = "END" },
       },
     },

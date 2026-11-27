@@ -369,6 +369,8 @@ P:NPC {
         { text = "I know what you are, Artorius.", next = "know", when = { class = "HUNTER", questActive = TODO_QUEST("Stave of the Ancients") } },
         { text = "Something about you smells of brimstone.", next = "lock", when = { class = "WARLOCK" } },
         { text = "The Sentinels would want a word with you.", next = "kal", when = { race = "NightElf" } },
+        { text = "You travel this road every day?", next = "road" },
+        { text = "You seem to know the Winterfall well.", next = "winterfall" },
         { text = "Good day to you, Artorius.", next = "END" },
       },
     },
@@ -407,6 +409,33 @@ P:NPC {
     kal = {
       lines = { { id = "ka_d", text = "Oh, the Sentinels! Fierce women, beautiful bows, and such long memories, which is a pity, because your people remember a great deal about my people, and so little of it is flattering. Run along and tell them, if you like, and see how long it takes them to come this far north." } },
       choices = { { text = "Long enough. Something else.", next = "BACK", fx = { trait = { stern = 1 } } } },
+    },
+    road = {
+      lines = { { id = "rd_default", text = "Every day, from the springs to the gates of Everlook and back, rain or snow or the other sort of snow. I nod to the bruisers at the gate, I wave to the furbolgs on the hill, and I count the travellers who pass me, which is a little hobby of mine." } },
+      choices = {
+        { text = "Why count them?", next = "road2" },
+        { text = "That sounds like a very lonely hobby.", next = "road2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    road2 = {
+      lines = { { id = "rd2_default", text = "Oh, to see who comes back, friend, purely out of interest. You would be amazed how many brave souls go up into the mountains alone and simply never return. I always make a little note, and I always say a little prayer, to someone or other." } },
+      choices = { { text = "That's unsettling. Something else.", next = "BACK" } },
+    },
+    winterfall = {
+      lines = { { id = "wf_default", text = "Well enough to wave to, friend. They have become so energetic of late, so very eager, ever since they began drinking that lovely fiery water from Felwood. I am told someone carries it to them in barrels, and they are ever so grateful." } },
+      choices = {
+        { text = "Someone is poisoning them on purpose.", next = "winterfall2" },
+        { text = "Who carries the barrels?", next = "winterfall2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    winterfall2 = {
+      lines = { { id = "wf2_default", text = "Poisoning is such an ugly word, friend, and I never use ugly words before luncheon. Let us say that someone is helping them become what they were always going to be, a little faster. Donova Snowden at the hot springs would tell you otherwise, but she does fret so." } },
+      choices = {
+        { text = "I'm a druid. I'll see the Winterfall healed.", next = "BACK", reply = "Will you? How very ambitious. Do let me know how it goes, friend, I shall be right here, counting.", when = { class = "DRUID" } },
+        { text = "Something else, Artorius.", next = "BACK" },
+      },
     },
   },
 

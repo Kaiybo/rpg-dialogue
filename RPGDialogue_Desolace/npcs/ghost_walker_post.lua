@@ -432,7 +432,54 @@ P:NPC {
         { text = "Who trades with you out here?", next = "traders" },
         { text = "What's worth taking in Desolace?", next = "worth" },
         { text = "Show me your goods.", next = "BUSINESS" },
+        { text = "What do you hear of the Kodo Graveyard?", next = "kodo" },
+        { text = "Ghost Walker Post is a grim name for a camp.", next = "gname" },
+        { text = "Your braves look at me as if I'm one of the ghosts.", next = "forsaken_g", when = { race = "Scourge" } },
         { text = "Farewell, Kireena.", next = "END" },
+      },
+    },
+    kodo = {
+      lines = { { id = "kodo_d", text = "That the old kodo still walk there to die, and that a goblin called Smeed Scrabblescrew has set up north of it to round up the ones that aren't quite done. He pays in coin and kodo bone, and I pay him for the bone, so we get along well enough." } },
+      choices = {
+        { text = "What good is kodo bone to you?", next = "kodo_bone" },
+        { text = "A goblin profiting from dying kodo. Of course.", next = "BACK", reply = "He'd call it a service, and so would I, when the bone comes in cheap." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kodo_bone = {
+      lines = { { id = "kodo_bone_d", text = "Needles, hooks, handles and buttons, and powder for the alchemists who come through on their way to Maraudon. The braves won't touch it themselves, because they say the graveyard bones belong to the Earth Mother, so I'm the one who buys and the one who sells." } },
+      choices = {
+        { text = "Someone has to do the work nobody likes.", next = "BACK", reply = "That's what I tell myself, and it's even true some days." },
+        { text = "Another question, then.", next = "BACK" },
+      },
+    },
+    gname = {
+      lines = { { id = "gname_d", text = "It's an honest one, though. On cold nights you can see shapes walking out on the plain between here and the graveyard, and the braves won't chase them, and I don't blame them." } },
+      choices = {
+        { text = "Are the braves afraid of them?", next = "gname_braves" },
+        { text = "I've seen worse than ghosts in Desolace.", next = "gname_worse" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gname_braves = {
+      lines = { { id = "gname_braves_d", text = "They're careful, which is different. Maurin Bonesplitter will tell you the real danger lives in Thunder Axe Fortress, where the Burning Blade call up demons, and a brave can fight a demon but not a mist." } },
+      choices = {
+        { text = "The Burning Blade are worse than any ghost.", next = "BACK", reply = "Far worse. I won't buy anything they've touched, and I've turned away good coin to say so." },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    gname_worse = {
+      lines = { { id = "gname_worse_d", text = "So has everyone at this post, and that's why we don't talk about the ghosts much. Between the centaur raids and the demons at Mannoroc Coven, a quiet shape on the plain is the least of anyone's worries." } },
+      choices = {
+        { text = "Then I'll worry about the demons first.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forsaken_g = {
+      lines = { { id = "forsaken_g_d", text = "Some of them do, and you'll forgive them for it. They've seen what walks out on that plain at night, so a dead man at my counter in daylight takes a moment to get used to." } },
+      choices = {
+        { text = "I'm the kind that pays in coin.", next = "BACK", reply = "Then you're the kind I'm glad to see, whatever the braves think." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

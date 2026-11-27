@@ -45,6 +45,8 @@ P:NPC {
         { text = "Why sell wrapping paper out here?", next = "paper" },
         { text = "How did you end up with a goblin partner?", next = "xaphod" },
         { text = "Show me your wares.", next = "BUSINESS" },
+        { text = "Plenty of travellers pass on this road, I'd guess.", next = "road" },
+        { text = "What did the old voodoo teach you on the islands?", next = "voodoo" },
         { text = "Farewell, mystic.", next = "END" },
       },
     },
@@ -109,6 +111,33 @@ P:NPC {
       },
       choices = {
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    road = {
+      lines = { { id = "rd_default", text = "Every kind, mon! Horde braves going up to Sun Rock, druids going up to the Peak, goblins from the Crag who pretend not to be goblins from the Crag. Everybody stops for Tuu'li, because everybody wants to hear their road has a happy ending." } },
+      choices = {
+        { text = "Even the Venture Company goblins?", next = "road2" },
+        { text = "Night elves stop at a troll's stall?", next = "road2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    road2 = {
+      lines = { { id = "rd2_default", text = "The goblins buy the most paper, mon, for presents to their bosses, and the night elves buy the most vials and pretend they didn't see the troll who sold them. Tuu'li tells them all de same fortune, and dey all leave smiling. Peace through commerce, Xaphod calls it." } },
+      choices = { { text = "Peace through commerce. Something else.", next = "BACK" } },
+    },
+    voodoo = {
+      lines = { { id = "vd_default", text = "Enough to know de loa are real, mon, and to know Tuu'li is not de one they talk to. My grandmother could hear de spirits like you hear de wind. I can hear dem like you hear somebody talking in de next hut, a word here and dere." } },
+      choices = {
+        { text = "So you do hear something, sometimes?", next = "voodoo2" },
+        { text = "Then your fortunes aren't all a trick.", next = "voodoo2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    voodoo2 = {
+      lines = { { id = "vd2_default", text = "Sometimes, mon, and those times I don't charge. Once I told a tauren brave not to go down de Webwinder dat day, and I don't know why I said it. He listened, and de next day he came back and bought every vial I had. I still don't know why." } },
+      choices = {
+        { text = "I'm Darkspear. Bwonsamdi hears more than you'd think.", next = "BACK", reply = "Hush, cousin, don't say his name so loud on a mountain. Tuu'li still has to sleep tonight.", when = { race = "Troll" } },
+        { text = "Something else, Tuu'li.", next = "BACK" },
       },
     },
   },

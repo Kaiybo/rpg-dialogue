@@ -152,6 +152,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_catch = {
+      lines = { { id = "d6_catch_a", text = "Fish, mostly little ones, and a boot, and once Brandon caught a whole sword, except it was only the handle part. Roman says the fish taste like the canal, and my mum says not to eat them at all, so we throw them back and pretend we're giving them a second chance." } },
+      choices = {
+        { text = "A sword handle? Whose was it?", next = "d6_catch2" },
+        { text = "Your mum's right about the canal fish.", next = "d6_catch2" },
+        { text = "Tell me something else.", next = "BACK" },
+      },
+    },
+    d6_catch2 = {
+      lines = { { id = "d6_catch2_a", text = "A knight's, probably, who dropped it fighting a crocolisk, or maybe a Defias who threw it away so the guards wouldn't catch him. My cousin says it's just rust, but my cousin also said there aren't crocolisks, so I don't think he knows everything after all." } },
+      choices = {
+        { text = "Keep it safe. It might be important.", next = "BACK", fx = { affinity = 1 } },
+        { text = "What else do you know?", next = "BACK" },
+      },
+    },
+    d6_scary = {
+      lines = { { id = "d6_scary_a", text = "The cellar under the Slaughtered Lamb, in the Mage Quarter, because there are warlocks down there who talk to demons, and my cousin says you can smell the brimstone from the street. Roman dared me to go in once and I would have, except my shoe came untied." } },
+      choices = {
+        { text = "I'm a warlock, actually.", next = "d6_scary2", when = { class = "WARLOCK" } },
+        { text = "Your shoe came untied. Of course it did.", next = "d6_scary2" },
+        { text = "Wise to keep out of there.", next = "d6_scary2" },
+      },
+    },
+    d6_scary2 = {
+      lines = {
+        { id = "d6_scary2_a", text = "It did, honestly, and by the time I tied it a guard was looking at us. Next time I'll go in, or at least I'll go as far as the stairs and look down, and then I'll tell everybody I saw an imp, which I probably will." },
+        { id = "d6_scary2_wl", when = { class = "WARLOCK" }, text = "You are not! Are you? Have you got an imp, is it here, can it hear me, and does it really eat candles like my cousin says? Don't tell Roman I asked, he'll say I was scared, and I'm not, I'm only standing a bit further back now." },
+      },
+      choices = {
+        { text = "Stay on the right side of that door, Justin.", next = "BACK" },
+        { text = "Any other stories?", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "I'm Justin, and I know everything about Stormwind, because my cousin's in the guard and he tells me. Did you know there are crocolisks in this canal, right under where we're sitting?" },
@@ -167,6 +201,8 @@ P:NPC {
         { text = "What does your cousin in the guard really do?", next = "x_cousin" },
         { text = "A good story's worth more than a true one.", next = "x_stance" },
         { text = "I'm a guard's friend. Tell me a real secret.", next = "x_rogue", when = { class = "ROGUE" } },
+        { text = "What do you actually catch in the canals?", next = "d6_catch" },
+        { text = "What's the scariest place in Stormwind?", next = "d6_scary" },
         { text = "Keep fishing, Justin.", next = "END" },
       },
     },

@@ -236,6 +236,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    zen_pile1 = {
+      lines = {
+        { id = "zen_pile1_1", text = "I do, a mountain of them, because the cult ordered for a congregation it hasn't got any more. Lorthuna wanted every faithful soul in grey, and the faithful have been dying faster than I can cut cloth for them." },
+      },
+      choices = {
+        { text = "What will you do with them?", next = "zen_pile2" },
+        { text = "Something else, Brother.", next = "BACK" },
+      },
+    },
+    zen_pile2 = {
+      lines = {
+        { id = "zen_pile2_1", text = "Sell them to anyone who'll pay, mostly travellers who want a warm cloak and don't mind the colour. I've unpicked the cult's sigil from a few dozen, and the cloth underneath is honest wool, whatever the wearer was." },
+      },
+      choices = {
+        { text = "Then you're unmaking the cult, stitch by stitch.", next = "zen_pile3" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    zen_pile3 = {
+      lines = {
+        { id = "zen_pile3_1", text = "That's a kind way to put it, and kinder than I deserve. I'd like to think so, though, and I'll be humming it to myself the next time I pull a thread out." },
+      },
+      choices = {
+        { text = "Hum away. Something else.", next = "BACK" },
+      },
+    },
+    zen_pk1 = {
+      lines = {
+        { id = "zen_pk1_1", text = "They know, and they leave me be, because I've told them more about the cult's camps than any prisoner they've taken. A tailor measures everyone, friend, and you'd be surprised what people say while you're pinning their hem." },
+      },
+      choices = {
+        { text = "So you're an informer.", next = "zen_pk2" },
+        { text = "That took courage.", next = "zen_pk2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    zen_pk2 = {
+      lines = {
+        { id = "zen_pk2_1", text = "I'm a man who'd like to live to an old age, which isn't quite the same thing. If the cult ever finds out, I'll need a better hiding place than a bush, so I'd be grateful if you kept it to yourself." },
+      },
+      choices = {
+        { text = "I'll keep quiet. Back to other matters.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Go on, I can see you deciding whether to run me through, and I'd hardly blame you. But not every one of us in grey is a zealot, whatever the ones shouting about the Windlord on the road would have you think. I'm a tailor, that's all, in a very well-made robe." },
@@ -251,6 +295,8 @@ P:NPC {
         { text = "What trade do you ply for the cult?", next = "trade" },
         { text = "What do you make of Lorthuna?", next = "lorthuna" },
         { text = "I wore the grey robes too, Zendraas.", next = "xalaketh", when = { origin = "skyborne_former_alaketh" } },
+        { text = "You keep a pile of unsold robes.", next = "zen_pile1" },
+        { text = "Do the Peacekeepers know you're out here?", next = "zen_pk1" },
         { text = "Farewell, Brother.", next = "END" },
       },
     },
@@ -352,6 +398,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    raa_spot1 = {
+      lines = {
+        { id = "raa_spot1_1", text = "Anywhere with a rock at your back and the wind in your face, because that way the smoke goes behind you and nothing sneaks up from in front. There's a hollow past Shen'dar Village that's perfect, if the ursera haven't claimed it." },
+      },
+      choices = {
+        { text = "And if they have?", next = "raa_spot2" },
+        { text = "Something else, Raan.", next = "BACK" },
+      },
+    },
+    raa_spot2 = {
+      lines = {
+        { id = "raa_spot2_1", text = "Then you move on, quickly and quietly, and you thank the winds you smelled them before they smelled you. An ursera won't follow you far from its den, but it'll follow you far enough to make you sorry." },
+      },
+      choices = {
+        { text = "Good advice. Is there a third rule?", next = "raa_spot3" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    raa_spot3 = {
+      lines = {
+        { id = "raa_spot3_1", text = "Always leave the place cleaner than you found it, because the next camper might be you, coming back tired. My old teacher said that, and I've never once regretted following it." },
+      },
+      choices = {
+        { text = "I'll remember all three. Something else.", next = "BACK" },
+      },
+    },
+    raa_boot1 = {
+      lines = {
+        { id = "raa_boot1_1", text = "Far for a Skyborne, which isn't saying much, since none of us can walk off the edge of the island. I've been from Thendal to Valanaar and back a dozen times, and out into Shadowgale Forest, where I met a strange little hermit who wouldn't stop talking about gears." },
+      },
+      choices = {
+        { text = "A hermit in Shadowgale?", next = "raa_boot2" },
+        { text = "That hermit sounds like a gnome.", next = "raa_boot2", when = { race = "Gnome" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    raa_boot2 = {
+      lines = {
+        { id = "raa_boot2_1", text = "Small, loud, and not one of us, though how he came to a floating island he'd never say. He sold me a tinderbox that sparks on the first try, and I've been half in love with him ever since." },
+      },
+      choices = {
+        { text = "I'll look for him. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_dd_queen", when = { questDone = TODO_QUEST("The Cirrusfly Queen") },
@@ -373,6 +463,8 @@ P:NPC {
         { text = "Why are so many young ones leaving the grove?", next = "restless" },
         { text = "What's the road ahead like?", next = "road" },
         { text = "I've made camp in stranger places than this.", next = "xoutsider", when = { ["not"] = { race = "Skyborne" } } },
+        { text = "Where's the best spot to camp on this road?", next = "raa_spot1" },
+        { text = "You've travelled far, by the look of your boots.", next = "raa_boot1" },
         { text = "Winds be with you, Raan.", next = "END" },
       },
     },

@@ -24,6 +24,38 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+
+    ns_cmd = {
+      lines = { { id = "nsc_1", text = "The Kirin Tor mages in the tower, on paper, and Watch Commander Netherwane on the wall, which is where it counts. The mages decide what we guard, and the commander decides how many of us die doing it." } },
+      choices = {
+        { text = "Do the mages and the commander agree?", next = "ns_cmd2" },
+        { text = "Sounds like the mages get the easier half.", next = "ns_cmd2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ns_cmd2 = {
+      lines = { { id = "nsc2_1", text = "They agree the Portal must be watched, and they argue about everything else, mostly supplies. Quartermaster Lungertz sits between them with his ledger, and I'd not trade places with him for a year's leave." } },
+      choices = {
+        { text = "I'll mind my manners around Lungertz.", next = "BACK", reply = "Do, because he remembers every favour and every slight, and he's in charge of the boots." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ns_beasts = {
+      lines = { { id = "nsb_1", text = "Half-mad is generous, friend. The hyenas, the boars and the basilisks all drank from this land after the fel soaked in, and they came out bigger and meaner than anything back in Redridge." } },
+      choices = {
+        { text = "Does anyone at the Keep make use of them?", next = "ns_beasts2" },
+        { text = "I'm a hunter. Those boars would make fierce companions.", next = "BACK", when = { class = "HUNTER" }, reply = "Fierce, aye, if you don't mind one that might turn on you at supper. Better you than me, friend." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ns_beasts2 = {
+      lines = { { id = "nsb2_1", text = "The bloodmages do, Lynnore and Drazial, who pay for hearts and brains and teeth and brew them into tonics. The lads who've drunk them swear they work, and I believe them, but I've seen what's left on the table after, and I'll stick to ale." } },
+      choices = {
+        { text = "Then I'll go and see the bloodmages.", next = "BACK" },
+        { text = "Ale it is, then.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "We hold Nethergarde for the Alliance and the mages, and we keep watch on the Dark Portal in case anything ever tries to come through it again. Most days it's ogres and dust, and most nights it's worse." } },
       again = { { id = "h_again", text = "Anything else? I'm due back on the wall." } },
@@ -37,6 +69,8 @@ P:NPC {
         { text = "Have you fought the Dreadmaul?", next = "xogres" },
         { text = "What do you do to stay awake on watch?", next = "xawake" },
         { text = "I'm an orc. Does that worry you?", next = "BACK", when = { race = "Orc" }, reply = "Aye, it worries me, but I'll say this: you're the first orc to talk to me instead of charging. I'll take that as a good sign." },
+        { text = "Who actually gives the orders at Nethergarde?", next = "ns_cmd" },
+        { text = "The beasts out in the dust look half-mad.", next = "ns_beasts" },
         { text = "Stay sharp, soldier.", next = "END" },
       },
     },
@@ -239,6 +273,38 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+
+    nc_blood = {
+      lines = { { id = "ncb_1", text = "They take what the hunters bring in from the beasts and render it down into draughts that make a soldier stronger, or quicker, or harder to kill. I treat the men who drink them, and I've learned to tell by their eyes which draught they took." } },
+      choices = {
+        { text = "Do the draughts do harm?", next = "nc_blood2" },
+        { text = "I'm a warlock. The fel here doesn't frighten me.", next = "nc_blood2", when = { class = "WARLOCK" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    nc_blood2 = {
+      lines = { { id = "ncb2_1", text = "Not that I can prove, which is why I keep my peace. But this land is soaked in demon magic, child, and whatever runs in these beasts' blood runs in the soldiers' after, and the Light alone knows what it will do to them in ten years." } },
+      choices = {
+        { text = "Then watch them closely. You're their best ward.", next = "BACK", fx = { affinity = 1 } },
+        { text = "A soldier who lives now worries about ten years later.", next = "BACK", reply = "That's what the bloodmages say, and on the worst nights I can't fault them." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    nc_sleep = {
+      lines = { { id = "ncs_1", text = "Is it so plain? The infirmary keeps its own hours, child, and the Dreadmaul like to raid at dusk, so my nights begin when everyone else's end. I sleep in the chapel between patients, when the Light allows it." } },
+      choices = {
+        { text = "Who helps you in the infirmary?", next = "nc_sleep2" },
+        { text = "The garrison's lucky to have you.", next = "nc_sleep2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    nc_sleep2 = {
+      lines = { { id = "ncs2_1", text = "The soldiers themselves, mostly, who hold each other down while I set the bones, and write letters home for the ones who can't. A boy from Lakeshire writes the best of them, and I've begun to think he missed his calling." } },
+      choices = {
+        { text = "I'll say a prayer for your patients.", next = "BACK", reply = "Thank you, child. The Light hears every voice, but it does seem to hear more of them." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I tend the wounded of Nethergarde, and I pray over the Portal each night, for whatever good it does. This land was torn by demon magic, and you can feel it in the soil and the air." } },
       again = { { id = "h_again", text = "What else troubles you, child?" } },
@@ -252,6 +318,8 @@ P:NPC {
         { text = "Do the mages and the clergy get along?", next = "xmages" },
         { text = "Who sent you here?", next = "xsent" },
         { text = "I'm a paladin. Put me to work.", next = "BACK", when = { class = "PALADIN" }, reply = "Gladly, and the Light be thanked for you. The infirmary is past the armoury, and every cot in it is full." },
+        { text = "What do the bloodmages do in their tower?", next = "nc_blood" },
+        { text = "You look as if you haven't slept in days.", next = "nc_sleep" },
         { text = "Light be with you.", next = "END" },
       },
     },
@@ -336,6 +404,37 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+
+    nf_shaft = {
+      lines = { { id = "nfs_1", text = "The lower shaft, where the seam runs deepest and the rock's rotten with old fel. The timbers there swell and split twice as fast as they should, and I've got half the timber I need, so I'm shoring a mountain with toothpicks." } },
+      choices = {
+        { text = "Why is timber so short?", next = "nf_shaft2" },
+        { text = "I'm a miner. I could look at those supports.", next = "BACK", when = { profession = "Mining" }, reply = "Could you? Then go down and tell me what you see, and if you come back up saying it's fine, I'll know you're lying." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    nf_shaft2 = {
+      lines = { { id = "nfs2_1", text = "Because nothing grows in this dust taller than a thornbush, so every beam comes down the road from Stormwind, and every load gets counted twice by Quartermaster Lungertz before I see a splinter of it. He's not a bad man, but he's a careful one, and careful's slow." } },
+      choices = {
+        { text = "Careful keeps the Keep standing too.", next = "BACK", reply = "So he tells me, every time, in exactly those words." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    nf_carts = {
+      lines = { { id = "nfc_1", text = "Have to, or the Dreadmaul take the lot. They come down from their hold to the north and wait in the rocks by the road, and an ogre can tip a full cart with one hand and eat the mule with the other." } },
+      choices = {
+        { text = "Where do the carts go?", next = "nf_carts2" },
+        { text = "Ogres who steal ore must want it for something.", next = "nf_carts2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    nf_carts2 = {
+      lines = { { id = "nfc2_1", text = "Up to the Keep's smiths, and some to the Garrison Armory on the old road, where the soldiers swap broken blades for whole ones. As for the ogres, they beat the iron into clubs, badly, and I've had my own ore swung at my head, which is a special kind of insult." } },
+      choices = {
+        { text = "Then I'll thin out a few of those clubs.", next = "BACK", reply = "Do, and bring me back the iron if it's not too bent. Waste not.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I keep the Nethergarde mines working, which means iron for the armory and stone for the walls, and as few dead miners as I can manage. The Keep doesn't run on prayer, whatever the clerics tell you." } },
       again = { { id = "h_again", text = "Quick now, the carts are backing up." } },
@@ -347,6 +446,8 @@ P:NPC {
         { text = "What do you think of the clerics?", next = "xclerics" },
         { text = "How did you become foreman?", next = "xrise" },
         { text = "I'm a dwarf, and I know a mine when I see one.", next = "BACK", when = { race = "Dwarf" }, reply = "Then you know this one's poor rock and bad air. I could use a dwarf's eye on the supports, if you've an hour." },
+        { text = "Which part of the mine gives you the most grief?", next = "nf_shaft" },
+        { text = "Your ore carts go out under heavy guard.", next = "nf_carts" },
         { text = "I'll get out of your way.", next = "END" },
       },
     },

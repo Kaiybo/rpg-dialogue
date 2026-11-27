@@ -47,6 +47,8 @@ P:NPC {
         { text = "Why is the Brigade in Silithus at all?", next = "why" },
         { text = "How many recruits actually come back?", next = "back" },
         { text = "You make the desert sound like a grave.", next = "grave" },
+        { text = "How do ye bear the heat, rifleman?", next = "heat" },
+        { text = "What's the Brigade's camp like?", next = "brigade" },
         { text = "I'll be off.", next = "END" },
       },
     },
@@ -90,6 +92,33 @@ P:NPC {
     grave = {
       lines = { { id = "gr_default", text = "Aye, well, it's buried a few kingdoms already, from what the Circle says. I'm a dwarf, so I'm fond of things underground, but I'd sooner they were ale cellars than whatever's under these dunes." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    heat = {
+      lines = { { id = "ht_default", text = "Badly, and I'll thank ye not to tell the marshal. A dwarf's built for a cold mountain and a warm tunnel, not for standing in a furnace with a rifle that gets too hot to hold by noon. I wet my beard every hour and pretend it's Dun Morogh snow." } },
+      choices = {
+        { text = "Does it work?", next = "heat2" },
+        { text = "Ironforge must miss its riflemen.", next = "heat2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    heat2 = {
+      lines = { { id = "ht2_default", text = "Not in the least, but it gives a dwarf something to do with his hands besides fanning himself like a noble lady. The Circle's druids walk about in this as if it were a spring morning, and I've half a mind to ask them their secret." } },
+      choices = {
+        { text = "I'm a dwarf. I'll wet my beard too.", next = "BACK", reply = "Ha! Then we'll be the two soggiest beards in Silithus, and proud of it.", when = { race = "Dwarf" } },
+        { text = "Something else, Torrig.", next = "BACK" },
+      },
+    },
+    brigade = {
+      lines = { { id = "bg_default", text = "Tents, sand, and the marshal shouting, mostly. Captain Blackanvil runs the soldiers on field duty, and Janela Stouthammer keeps the blades sharp, and the rest of us carry crystals and watch the Horde watching us from their own camp across the dunes." } },
+      choices = {
+        { text = "Do the two camps ever come to blows?", next = "brigade2" },
+        { text = "It sounds a cheerless posting.", next = "brigade2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    brigade2 = {
+      lines = { { id = "bg2_default", text = "Out on the sands, aye, over a crystal now and then, and nobody writes it down. In the Hold, the Circle won't have it, so we glare at the orcs over our ale and they glare back over theirs. It's cheerless, but it's dry, which out here counts as a luxury." } },
+      choices = { { text = "Dry is something. Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -142,6 +171,8 @@ P:NPC {
         { text = "What does the Legion want in this desert?", next = "why" },
         { text = "What have you seen out on the sands?", next = "seen" },
         { text = "The Alliance is gathering too, now.", next = "rivals" },
+        { text = "How do you scout in open sand with no cover?", next = "scout" },
+        { text = "General Kirika. What kind of leader is she?", next = "kirika" },
         { text = "Lok'tar.", next = "END" },
       },
     },
@@ -174,6 +205,40 @@ P:NPC {
         { text = "Then we strike their gatherers before they catch up.", next = "BACK", reply = "Ha! Kirika will like you. But we strike in the open, where the Circle cannot say we broke their peace.", fx = { align = { honor = -1 } } },
         { text = "We beat them by gathering more, not by ambush.", next = "BACK", reply = "Honourable, and the Circle would agree. Gather fast, then, and let the dwarves eat our dust.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    scout = {
+      lines = { { id = "sc_default", text = "At night, low, and slow. The bugs hunt by the sound of footsteps in the sand, so I walk on the rocks when I can and lie still when I can't. A scout who runs in Silithus is a scout the hive finds by morning." } },
+      choices = {
+        { text = "What do you watch for, out there?", next = "scout2" },
+        { text = "Lying still among silithid takes nerve.", next = "scout2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    scout2 = {
+      lines = { { id = "sc2_default", text = "The cult's camps, which move, and the hives, which grow, and the dwarves, who march to the crystals like they own the sand. Last week I counted a new tent at the Twilight's camp to the north, and new robes going in and out of it." } },
+      choices = {
+        { text = "Does Kirika know?", next = "scout3" },
+        { text = "Something else, Bloodfist.", next = "BACK" },
+      },
+    },
+    scout3 = {
+      lines = { { id = "sc3_default", text = "She knows, and so do the druids, because I told both. Kirika wants the silithyst first and the cult second, and the Circle wants it the other way round. I scout for both of them and let them argue about it over the map." } },
+      choices = { { text = "Wise of you. Something else.", next = "BACK" } },
+    },
+    kirika = {
+      lines = { { id = "kr_default", text = "Hard and fair. She does not waste words or grunts, and she remembers the name of every warrior she sends out who does not come back. The dwarves fear her, and that is how it should be." } },
+      choices = {
+        { text = "Do the grunts love her?", next = "kirika2" },
+        { text = "Fear is a poor thing to build a peace on.", next = "kirika2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kirika2 = {
+      lines = { { id = "kr2_default", text = "They follow her, which is better. Love is for a chieftain in Orgrimmar who sends you gifts. In Silithus you want a general who will stand in the sand next to you, and Kirika stands there every day, in the worst of the heat." } },
+      choices = {
+        { text = "I'm an orc. I'd follow a general like that.", next = "BACK", reply = "Then go to her camp and prove it. Lok'tar, warrior.", when = { race = "Orc" } },
+        { text = "Something else, then.", next = "BACK" },
       },
     },
   },

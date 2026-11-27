@@ -612,6 +612,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_help = {
+      lines = { { id = "d6_help_a", text = "That it's coming, {class}, which is what they've said every week since the bridge went. Magistrate Solomon writes a letter a day to the city, and the couriers carry them off over my head, and the answers come back thinner than the letters." } },
+      choices = {
+        { text = "Do the priests here keep the town's spirits up?", next = "d6_help2", when = { class = "PRIEST" } },
+        { text = "Do you think it'll ever come?", next = "d6_help2" },
+        { text = "Stormwind has a lot of towns to answer.", next = "d6_help2" },
+      },
+    },
+    d6_help2 = {
+      lines = {
+        { id = "d6_help2_a", text = "Some of it will, a few soldiers and a wagon of grain, and the rest we'll do ourselves. Lakeshire's been holding on its own for a long while now, and I've stopped looking up at the gryphons hoping they'll be carrying an army." },
+        { id = "d6_help2_priest", when = { class = "PRIEST" }, text = "There's only the one chapel, and the folk who go there pray for the bridge and the boys at Stonewatch in the same breath. Sit with them a while if you can spare it; a fresh face from the city is worth more to them than another sermon." },
+      },
+      choices = {
+        { text = "Then the town's lucky to have you.", next = "BACK", fx = { learn = { "magistrate_solomon" } } },
+        { text = "Let me ask you something else.", next = "BACK" },
+      },
+    },
+    d6_night = {
+      lines = { { id = "d6_night_a", text = "Murlocs, poaching the fishermen's lines along the south shore, and you can hear them splashing if the wind drops. Further off, on the ridges, there are gnoll fires, and I count them every night the way some men count sheep." } },
+      choices = {
+        { text = "How many fires, lately?", next = "d6_night2" },
+        { text = "Counting gnoll fires can't help you sleep.", next = "d6_night2" },
+        { text = "Let's leave the night be.", next = "BACK" },
+      },
+    },
+    d6_night2 = {
+      lines = { { id = "d6_night2_a", text = "Eleven last night, up from seven at harvest, so there are more of them than there were. I tell the Marshal the count every morning, and he writes it down without saying anything, which tells me he's counting too." } },
+      choices = {
+        { text = "Eleven fires. I'll keep that in mind.", next = "BACK", fx = { learn = { "redridge_gnolls" } } },
+        { text = "Something else, Ashlock.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "hello_1", text = "Guard Ashlock, bridge watch. I walk from the Lakeshire bank to the gryphon post and back again, and Pearce stands at the town end, so between the two of us this is the best guarded fifty yards in Redridge." },
@@ -631,6 +665,8 @@ P:NPC {
         { text = "The gryphons don't mind you walking beneath them?", next = "gryphons", when = { class = "HUNTER" } },
         { text = "I'm going after Corporal Keeshan.", next = "keeshan", when = { questActive = TODO_QUEST("Missing In Action") } },
         { text = "Who uses the gryphon roost most?", next = "roost" },
+        { text = "What do the couriers say of help from Stormwind?", next = "d6_help" },
+        { text = "What's out on the water at night?", next = "d6_night" },
         { text = "Good day, Ashlock.", next = "END" },
       },
     },
@@ -733,6 +769,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_runout = {
+      lines = { { id = "d6_runout_a", text = "Thread, always thread, because every soldier in town tears something every day and nobody thinks to buy it until it's gone. After that it's nails and lamp oil, and then it's patience, which I don't stock." } },
+      choices = {
+        { text = "I need flux. Have you any left?", next = "d6_runout2", when = { profession = "Blacksmithing" } },
+        { text = "What do folk do when the thread's gone?", next = "d6_runout2" },
+        { text = "Patience should come by gryphon too.", next = "d6_runout2" },
+      },
+    },
+    d6_runout2 = {
+      lines = {
+        { id = "d6_runout2_a", text = "They unpick old clothes for the thread and mend the new ones with it, and Franklin at the inn charges them a copper to show them how. I don't begrudge him, since a town that can mend its own coats is a town that doesn't freeze." },
+        { id = "d6_runout2_bs", when = { profession = "Blacksmithing" }, text = "Two sacks, and Verner Osgood's had his eye on both of them since Tuesday, so you'd best be quick and polite. I'll sell to whoever's at the counter first, and Verner's slow on the stairs, but don't tell him I said so." },
+      },
+      choices = {
+        { text = "A town that mends its own coats. I like that.", next = "BACK" },
+        { text = "Something else, Amy.", next = "BACK" },
+      },
+    },
+    d6_fall = {
+      lines = { { id = "d6_fall_a", text = "I don't intend to find out, but if I had to, it'd be Darkshire, since my cousin keeps a shop there. Mind, Darkshire has worse things in its woods than gnolls, so I'd be trading one trouble for another and paying for the cart besides." } },
+      choices = {
+        { text = "Duskwood's no safer, I've heard.", next = "d6_fall2" },
+        { text = "So you'll stay, whatever comes.", next = "d6_fall2" },
+        { text = "On to something else.", next = "BACK" },
+      },
+    },
+    d6_fall2 = {
+      lines = { { id = "d6_fall2_a", text = "I'll stay, because a stall's only worth what the town around it is worth, and this town's worth a good deal. Besides, the bridge is coming back, and I mean to be standing here selling rope to the first wagon across it." } },
+      choices = {
+        { text = "That's the right sort of stubbornness.", next = "BACK", fx = { learn = { "everstill_bridge" } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "hello_1", text = "Amy Davenport, and I sell what the trades need to keep working. Everything on this stall came in by gryphon or up the lake road, so every item's a small miracle and priced like one, I'm afraid." },
@@ -753,6 +823,8 @@ P:NPC {
         { text = "Is there good work for a crafter in Lakeshire?", next = "work", when = { profession = { "Tailoring", "Leatherworking" } } },
         { text = "Oslow has his iron now. The bridge is moving.", next = "bridge", when = { questDone = TODO_QUEST("The Everstill Bridge") } },
         { text = "You know every craftsman in town, then.", next = "crafts" },
+        { text = "What runs out first when the carts don't come?", next = "d6_runout" },
+        { text = "Where would you go if Lakeshire fell?", next = "d6_fall" },
         { text = "Good day, Amy.", next = "END" },
       },
     },
@@ -854,6 +926,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_shop = {
+      lines = { { id = "d6_shop_a", text = "Small and bright, with a window onto the water and a bell over the door that rang like a chapel. I had the finest linen in Redridge on the shelves, and fishermen's wives came in to finger it and buy a spool of thread, which kept me humble." } },
+      choices = {
+        { text = "Do you miss it?", next = "d6_shop2" },
+        { text = "I'm a tailor too. How did you lose it?", next = "d6_shop2", when = { profession = "Tailoring" } },
+        { text = "Something else, Franklin.", next = "BACK" },
+      },
+    },
+    d6_shop2 = {
+      lines = {
+        { id = "d6_shop2_a", text = "The bell, mostly, and the light in the afternoons. But the inn's warmer, and Brianna's fire is better than mine ever was, and I sell twice what I sold by the lake, so I've decided not to be sentimental about it." },
+        { id = "d6_shop2_tail", when = { profession = "Tailoring" }, text = "Not to fire or gnolls, friend, only to the roads closing, which is a duller way to lose a shop. When the bolts stopped coming and the customers stopped walking that far, I carried what was left up to the inn, and I've never had better light to sew by." },
+      },
+      choices = {
+        { text = "The inn suits you, I think.", next = "BACK" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    d6_mend = {
+      lines = { { id = "d6_mend_a", text = "A guard's cloak with an orc arrow still through it, which he wouldn't let me pull out because it was his luck. I sewed round it, and he wears it to this day with the fletching sticking out of his shoulder like a feather in a cap." } },
+      choices = {
+        { text = "Did his luck hold?", next = "d6_mend2" },
+        { text = "Soldiers keep strange charms.", next = "d6_mend2" },
+        { text = "On to other things.", next = "BACK" },
+      },
+    },
+    d6_mend2 = {
+      lines = { { id = "d6_mend2_a", text = "So far, and he's been up to the Stonewatch road twice since and come back both times. I've three other soldiers asking whether I can sew an arrow into theirs, and I've told them they'll have to get shot first, which seems to have cooled their interest." } },
+      choices = {
+        { text = "That's a sound policy.", next = "BACK", fx = { learn = { "stonewatch_keep" } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "hello_1", text = "Franklin Hamar, tailoring supplies. I had a shop on the lakefront once, and when custom thinned I moved my bolts to Brianna's inn, where every traveller in Redridge passes my table sooner or later." },
@@ -874,6 +980,8 @@ P:NPC {
         { text = "What would you make, with my skill?", next = "make", when = { profession = "Tailoring" } },
         { text = "Do you carry anything in my size?", next = "size", when = { race = "Gnome" } },
         { text = "You must overhear a good deal from that chair.", next = "overhear" },
+        { text = "What was your old shop on the lakefront like?", next = "d6_shop" },
+        { text = "What's the strangest thing you've mended?", next = "d6_mend" },
         { text = "Good day, Franklin.", next = "END" },
       },
     },
@@ -975,6 +1083,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_best = {
+      lines = { { id = "d6_best_a", text = "Boar shoulder rubbed with salt and pepper and a little sage, cooked so slow it falls off the bone. Sherman says the sage spoils it, and he says it with his mouth full every single time, dear." } },
+      choices = {
+        { text = "Got anything with real heat in it?", next = "d6_best2", when = { race = "Dwarf" } },
+        { text = "Does Sherman ever admit you're right?", next = "d6_best2" },
+        { text = "That sounds worth the wait.", next = "d6_best2" },
+      },
+    },
+    d6_best2 = {
+      lines = {
+        { id = "d6_best2_a", text = "Never, and I'd be worried if he did. Femmels don't admit things, we just keep eating, and that's how I know I've won." },
+        { id = "d6_best2_dwarf", when = { race = "Dwarf" }, text = "Oh, a dwarf, I should have known! I've a jar of red pepper from the south that I keep for your kind and for nobody else, because the last human who tried it cried in front of the whole taproom." },
+      },
+      choices = {
+        { text = "I'll take the red pepper, then.", next = "BACK" },
+        { text = "Something else, Gloria.", next = "BACK" },
+      },
+    },
+    d6_spice = {
+      lines = { { id = "d6_spice_a", text = "Pepper and cinnamon, which come from the south by ship and then by gryphon, and cost more per ounce than silver by the time they reach my table. Salt's easy, since there's a lick in the hills, but the gnolls have started sitting on it." } },
+      choices = {
+        { text = "Gnolls sitting on the salt lick?", next = "d6_spice2" },
+        { text = "Spice worth more than silver. Remarkable.", next = "d6_spice2" },
+        { text = "Let's talk about other things.", next = "BACK" },
+      },
+    },
+    d6_spice2 = {
+      lines = { { id = "d6_spice2_a", text = "Their beasts lick it and they camp beside it, dear, and nobody's brave enough to argue with a gnoll over salt. If someone ever cleared them off that hill, I'd fill a cart and salt every ham in Lakeshire for free, and I'd say so to the Marshal's face." } },
+      choices = {
+        { text = "Then I'll see about those gnolls.", next = "BACK", fx = { learn = { "redridge_gnolls" } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "hello_1", text = "Gloria Femmel, and I sell what goes into the pot before the meat does. Sherman has the butcher's stall, Chef Breanna has the kitchen, and I've got the salt, the spice and the flour, without which the other two would be serving boiled boar." },
@@ -995,6 +1137,8 @@ P:NPC {
         { text = "What's worth cooking in Redridge?", next = "cooking", when = { profession = "Cooking" } },
         { text = "I gathered the makings of Breanna's goulash.", next = "goulash", when = { questDone = TODO_QUEST("Redridge Goulash") } },
         { text = "What do you make of the inn's kitchen?", next = "kitchen" },
+        { text = "What's the best thing you cook yourself?", next = "d6_best" },
+        { text = "Which spices are hardest to get out here?", next = "d6_spice" },
         { text = "Good day, Gloria.", next = "END" },
       },
     },
@@ -1096,6 +1240,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_dye = {
+      lines = { { id = "d6_dye_a", text = "Oak galls and iron filings, steeped in vinegar for a month, and it takes a hide as black as a worg's back. Wilma swears it's the iron that does it, and I swear it's the waiting, and we've never settled it." } },
+      choices = {
+        { text = "My beast's hide is darker than any dye.", next = "d6_dye2", when = { class = "HUNTER" } },
+        { text = "Why does anyone want black leather?", next = "d6_dye2" },
+        { text = "A month's a long time to wait for colour.", next = "d6_dye2" },
+      },
+    },
+    d6_dye2 = {
+      lines = {
+        { id = "d6_dye2_a", text = "Because it hides the stains, mostly, and soldiers want boots that look clean even when they aren't. The guard buys it by the jar, and Dorin Songblade wants it for the straps on his plate, so it never sits on the shelf long." },
+        { id = "d6_dye2_hunter", when = { class = "HUNTER" }, text = "It is, and it's a handsome beast, and I'll ask you kindly to keep it off my drying racks. The last hunter's cat ate half a boar hide before Wilma chased it out, and she's not forgiven the cat or the hunter." },
+      },
+      choices = {
+        { text = "Practical leather for a practical town.", next = "BACK" },
+        { text = "Something else, Clyde.", next = "BACK" },
+      },
+    },
+    d6_war = {
+      lines = { { id = "d6_war_a", text = "Good for business and bad for everything else, which I don't like saying. Every soldier needs boots and straps and a scabbard, and every one who comes back from the Blackrock needs them again, and I'd trade the whole season's coin for a quiet year." } },
+      choices = {
+        { text = "Does Wilma feel the same?", next = "d6_war2" },
+        { text = "It's honest work, whatever the reason.", next = "d6_war2" },
+        { text = "On to another subject.", next = "BACK" },
+      },
+    },
+    d6_war2 = {
+      lines = { { id = "d6_war2_a", text = "Wilma says a quiet year would bore her silly, and she lives where she can see the orcs from her door, so she's earned the right to say it. I worry about her every night, and she sends me notes saying the hides are good and nothing else." } },
+      choices = {
+        { text = "She sounds tougher than most soldiers.", next = "BACK", fx = { learn = { "blackrock" } } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "hello_1", text = "Clyde Ranthal. Wilma takes the hides off, and I sell what you need to turn a hide into something you'd wear, which is salt, thread, dye and a great deal of patience." },
@@ -1116,6 +1294,8 @@ P:NPC {
         { text = "What's worth making from Redridge hides?", next = "making", when = { profession = { "Leatherworking", "Skinning" } } },
         { text = "Do the hunters here sell to you?", next = "hunters", when = { class = "HUNTER" } },
         { text = "How do you keep leather from rotting by a lake?", next = "damp" },
+        { text = "Tell me about that black dye of yours.", next = "d6_dye" },
+        { text = "Does the war make for good business?", next = "d6_war" },
         { text = "Good day, Clyde.", next = "END" },
       },
     },

@@ -48,7 +48,45 @@ P:NPC {
         { text = "Have you heard of Windsor's hammer?", next = "ironfoe" },
         { text = "What does the heat do to a blade?", next = "heat" },
         { text = "How did a Stormwind smith end up here?", next = "past" },
+        { text = "Who keeps the Vigil supplied?", next = "fs_supply" },
+        { text = "What breaks most often up here?", next = "fs_breaks" },
         { text = "Later, Felder.", next = "END" },
+      },
+    },
+    fs_supply = {
+      lines = {
+        { id = "fs_supply_1", text = "Borgus Stoutarm's gryphons, when the weather allows, and the long road through Redridge when it doesn't. Marshal Maxwell sends for steel every week, and I get about half of what he asks for." },
+      },
+      choices = {
+        { text = "Half isn't enough for a war.", next = "fs_half" },
+        { text = "Gryphons carrying steel? That's a heavy load.", next = "BACK", reply = "It is, and Borgus tells me every time." },
+      },
+    },
+    fs_half = {
+      lines = {
+        { id = "fs_half_1", text = "It isn't, and I tell him so, and he tells me to make do. So I melt down every broken blade and every dented helm, and I make them into something new, which is the only way to keep the Vigil armed." },
+      },
+      choices = {
+        { text = "A smith who wastes nothing.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Felder.", next = "BACK" },
+      },
+    },
+    fs_breaks = {
+      lines = {
+        { id = "fs_breaks_1", text = "Shields, by a long road, for the Blackrock hit hard and the Firegut ogres hit harder. I've seen a shield split in two by one blow, and the soldier behind it walked away, which is the best a shield can do." },
+      },
+      choices = {
+        { text = "I fight with a shield. Any advice?", next = "fs_shield", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "The Firegut ogres sound dangerous.", next = "fs_shield" },
+      },
+    },
+    fs_shield = {
+      lines = {
+        { id = "fs_shield_1", text = "Angle it, don't block flat, for a blow that slides off does less harm than one that lands square. Oralius will tell you the same, and he's taken more ogre clubs than any man in the Vigil." },
+      },
+      choices = {
+        { text = "Angle it. I'll remember that.", next = "BACK" },
+        { text = "Something else, then.", next = "BACK" },
       },
     },
     blackrock = {
@@ -155,7 +193,45 @@ P:NPC {
         { text = "How do you get on with the goblins here?", next = "goblins" },
         { text = "You bake with the ground's heat?", next = "oven" },
         { text = "Who comes through Flame Crest?", next = "visitors" },
+        { text = "What do the goblins here trade?", next = "gu_goblins" },
+        { text = "How did you come to Flame Crest?", next = "gu_came" },
         { text = "I'll be off.", next = "END" },
+      },
+    },
+    gu_goblins = {
+      lines = {
+        { id = "gu_goblins_1", text = "Everything, from scrap to sausages, and they charge for the air if they think they can get away with it. Gorzeeki Wildeyes sells beetles, and I don't ask what for, and the others sell anything they can find in the Blackrock ruins." },
+      },
+      choices = {
+        { text = "Beetles? Why beetles?", next = "gu_beetle" },
+        { text = "Goblins will sell anything.", next = "BACK", reply = "They will, and they'll call it a bargain." },
+      },
+    },
+    gu_beetle = {
+      lines = {
+        { id = "gu_beetle_1", text = "He says they are good luck, or good food, or good for something, depending on the day. I tried one once, and it tasted like ash and smoke, which is what everything tastes like up here." },
+      },
+      choices = {
+        { text = "Ash and smoke for every meal.", next = "BACK" },
+        { text = "Something else, Gruna.", next = "BACK" },
+      },
+    },
+    gu_came = {
+      lines = {
+        { id = "gu_came_1", text = "I came with the Horde scouts who watch Blackrock Spire, and I stayed because they needed bread more than another warrior. My bread is plain, but it is hot, and a hot meal is worth a great deal when the ash is falling." },
+      },
+      choices = {
+        { text = "The scouts watch the Spire?", next = "gu_spire" },
+        { text = "I'm an orc. Your bread tastes like home.", next = "gu_spire", when = { race = "Orc" } },
+      },
+    },
+    gu_spire = {
+      lines = {
+        { id = "gu_spire_1", text = "Day and night, for the Blackrock orcs are the shame of our people, and someone must watch them. Mathredis Firestar says the Spire holds more than orcs, and I believe him, though I do not ask what." },
+      },
+      choices = {
+        { text = "More than orcs? That's worrying.", next = "BACK", fx = { learn = { "blackrock_spire" } } },
+        { text = "Something else, then.", next = "BACK" },
       },
     },
     blackrock = {

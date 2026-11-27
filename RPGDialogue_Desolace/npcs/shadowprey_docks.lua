@@ -239,7 +239,47 @@ P:NPC {
         { text = "What's the news on the coast?", next = "news" },
         { text = "Who should I talk to here?", next = "people" },
         { text = "Make this inn my home.", next = "BUSINESS" },
+        { text = "Your kitchen smells of fish and something stranger.", next = "pot" },
+        { text = "What brings travellers this far into Desolace?", next = "travel" },
+        { text = "The spirits are restless here. Do your guests feel it?", next = "restless", when = { class = "SHAMAN" } },
         { text = "Farewell, Sikewa.", next = "END" },
+      },
+    },
+    pot = {
+      lines = { { id = "pot_d", text = "That's the troll fishermen's catch in a plains stew, friend, with sage that the caravans bring down from Mulgore. My mother would not know whether to scold me or ask for a bowl, and the Darkspear eat it as if it were their own grandmother's." } },
+      choices = {
+        { text = "Where do the fishermen cast their nets?", next = "pot_nets" },
+        { text = "A tauren cooking for trolls. That's the Horde for you.", next = "BACK", reply = "That's Shadowprey, anyway. Out here we eat together or we don't eat." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pot_nets = {
+      lines = { { id = "pot_nets_d", text = "Along the coast and out past the docks, but never near Ranazjar Isle to the north. The Slitherblade naga took that island, and a boat that drifts too close comes back empty, if it comes back at all." } },
+      choices = {
+        { text = "The naga go unchallenged?", next = "BACK", reply = "For now. Taiga Wisemane says they're watching us as much as we're watching them, and I believe her." },
+        { text = "I'll keep clear of that island. Something else.", next = "BACK" },
+      },
+    },
+    travel = {
+      lines = { { id = "travel_d", text = "Maraudon, mostly, and the centaur war, and a few who came to look at the Kodo Graveyard and go home with a story. Desolace doesn't draw anyone who has a better place to be, so I treat everyone who walks in as if they had nowhere else." } },
+      choices = {
+        { text = "What do they say about Maraudon?", next = "travel_maraudon" },
+        { text = "Nobody comes here for the scenery.", next = "BACK", reply = "Not twice, no. But they come back for the stew, and I'll take that." },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    travel_maraudon = {
+      lines = { { id = "travel_maraudon_d", text = "The ones who come back talk of caverns full of glowing crystal and water poisoned purple, and of something enormous made of stone deep at the bottom. The centaur say it's a holy place, and I've noticed the ones who go in rarely argue with them afterward." } },
+      choices = {
+        { text = "I'd like to see it for myself.", next = "BACK", reply = "Then eat first and sleep here after. I'd like to see you come back for breakfast." },
+        { text = "Back to other matters.", next = "BACK" },
+      },
+    },
+    restless = {
+      lines = { { id = "restless_d", text = "They do, though most of them don't know the name for it. The trolls make offerings at the water's edge every night, and the travellers from the Kodo Graveyard come in with a look as if something walked beside them the whole way down." } },
+      choices = {
+        { text = "Desolace has too many unquiet dead.", next = "BACK", reply = "It does, and nobody's sung for most of them. Maybe you could, {class}." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

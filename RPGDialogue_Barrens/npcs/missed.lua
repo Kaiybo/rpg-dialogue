@@ -42,6 +42,8 @@ P:NPC {
         { text = "Aren't you afraid, alone among the quilboar?", next = "alone" },
         { text = "You said hope. What do you hope for?", next = "hope" },
         { text = "What must I do to hear the water?", next = "task", when = { class = "SHAMAN" } },
+        { text = "How do you live up here, with no water to hand?", next = "live" },
+        { text = "Islen Waterseer sends you her shaman. You know her well?", next = "islen" },
         { text = "I'll go back down the hill.", next = "END" },
       },
     },
@@ -81,6 +83,33 @@ P:NPC {
     task2 = {
       lines = { { id = "t2_default", text = "Because each has kept itself pure with ruin all around it, and you need to taste what that's like before Islen sends you to water that hasn't. Bring them all back to her, and don't spill any on the road." } },
       choices = { { text = "I'll carry them carefully. Something else.", next = "BACK" } },
+    },
+    live = {
+      lines = { { id = "lv_default", text = "Carefully. I catch the rain in skins when it comes, I drink from the old well below when it doesn't, and I eat what the plainstriders don't. A shaman who wants to learn water should learn first how little of it a body truly needs." } },
+      choices = {
+        { text = "That sounds like penance more than study.", next = "live2" },
+        { text = "And when the well runs dry?", next = "live2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    live2 = {
+      lines = { { id = "lv2_default", text = "It hasn't in all my years here, and I don't think it will, because something below keeps it filled. Call it penance if you like. I spent my youth in the camps drinking whatever the humans poured, and up here, every mouthful is mine." } },
+      choices = { { text = "Every mouthful yours. Something else.", next = "BACK" } },
+    },
+    islen = {
+      lines = { { id = "il_default", text = "Well enough to argue with. She sits by the sea and listens, and I sit on a dry hill and wait, and we both think we've found the truer path. She's tauren, so she's patient with me, and I'm orc, so I'm not patient with anyone." } },
+      choices = {
+        { text = "Which of you is right?", next = "islen2" },
+        { text = "Patience is a kind of water too.", next = "islen2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    islen2 = {
+      lines = { { id = "il2_default", text = "Both of us, which is why the spirits send the young ones from her shore to my hill and back again. The sea shows you how much water there is, and the dust shows you what it's worth, and you need to know both before the totem means anything." } },
+      choices = {
+        { text = "I'm a shaman. I'll carry both lessons, Brine.", next = "BACK", reply = "Then carry them carefully, {class}, and don't spill either one.", when = { class = "SHAMAN" } },
+        { text = "Something else, then.", next = "BACK" },
+      },
     },
   },
   topics = {

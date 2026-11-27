@@ -259,6 +259,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_class = {
+      lines = { { id = "d6_class_a", text = "Andi, who likes statues, and Geoff, who wants to hit everything with a stick, and Jimmy and Twain, who just want to go home. I'm the only one who's written down everything Miss Danna's said, so they'll all want to copy me later, and I'll let them, probably." } },
+      choices = {
+        { text = "What's Miss Danna like?", next = "d6_class2" },
+        { text = "Make them ask nicely first.", next = "d6_class2" },
+        { text = "Ask me something else.", next = "BACK" },
+      },
+    },
+    d6_class2 = {
+      lines = { { id = "d6_class2_a", text = "She knows the name of every statue and every street, and she never says a question is silly, even Geoff's. She told us her own teacher died in the First War when the old city burned, and that's why she makes us learn it properly, so it's remembered by somebody." } },
+      choices = {
+        { text = "That's a good reason to teach.", next = "BACK", fx = { affinity = 1 } },
+        { text = "What else are you curious about?", next = "BACK" },
+      },
+    },
+    d6_grow = {
+      lines = { { id = "d6_grow_a", text = "A scholar in the Royal Library, so I can read everything, or a priest, so I can find out what the Light really is. Miss Danna says I can be both, because the priests read all the time, but nobody's told me what the Light feels like yet." } },
+      choices = {
+        { text = "I'm a paladin. Ask me what the Light feels like.", next = "d6_grow2", when = { class = "PALADIN" } },
+        { text = "Some say it feels like warmth.", next = "d6_grow2" },
+        { text = "You'll find out one day.", next = "d6_grow2" },
+      },
+    },
+    d6_grow2 = {
+      lines = {
+        { id = "d6_grow2_a", text = "That's what everybody says, and it's either true or they're all copying each other. When I'm a priest I'll write it down properly, so the next girl who asks gets a real answer." },
+        { id = "d6_grow2_pal", when = { class = "PALADIN" }, text = "Really? Is it warm, or bright, or is it like when you know the answer before the teacher finishes asking? Say it slowly so I can remember it for my report, because a real paladin's worth more than three statues." },
+      },
+      choices = {
+        { text = "Write it down well, Pat.", next = "BACK" },
+        { text = "What else would you like to ask?", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "I'm Pat, and I'm in Miss Danna's class. We're seeing the whole city today, and I've got to give a report on one of the heroes in the Valley, and I haven't decided which one." },
@@ -274,6 +308,8 @@ P:NPC {
         { text = "What would you ask a real hero?", next = "x_ask" },
         { text = "Heroes who never came back aren't worth a report.", next = "x_stance" },
         { text = "I've been to Ironforge. The gryphon riders are real.", next = "x_dwarf", when = { race = "Dwarf" } },
+        { text = "Who else is in Miss Danna's class?", next = "d6_class" },
+        { text = "What do you want to be when you're grown?", next = "d6_grow" },
         { text = "Good luck with your report.", next = "END" },
       },
     },

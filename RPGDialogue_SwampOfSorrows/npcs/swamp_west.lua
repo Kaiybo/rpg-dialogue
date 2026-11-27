@@ -470,6 +470,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    mas_mag1 = {
+      lines = {
+        { id = "mas_mag1_1", text = "Magtoor is kind, and he remembers more than the rest of us, which is a heavy thing to carry. He keeps the Harborage together with songs and patience, and I keep it clothed, and that is a fair division of what we have left." },
+      },
+      choices = {
+        { text = "What does he remember?", next = "mas_mag2" },
+        { text = "Something else, Masat.", next = "BACK" },
+      },
+    },
+    mas_mag2 = {
+      lines = {
+        { id = "mas_mag2_1", text = "The old home, before the orcs, before the change that made us what we are now. He tells it to us in pieces, a little each night, and I stitch while he talks, so that my hands remember even when my head does not." },
+      },
+      choices = {
+        { text = "Then your work carries his stories.", next = "mas_mag3" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    mas_mag3 = {
+      lines = {
+        { id = "mas_mag3_1", text = "Yes, I think every pattern I cut has a little of them in it. You will not see it, and the orcs who buy from me will not see it, but I know it is there, and that is enough." },
+      },
+      choices = {
+        { text = "I'm glad you have that. Something else.", next = "BACK" },
+      },
+    },
+    mas_lost1 = {
+      lines = {
+        { id = "mas_lost1_1", text = "They do, and some of them were our own once, before they forgot themselves entirely. They walk the swamp with nothing in their eyes, and they strike at anyone who comes near, even those who knew their names." },
+      },
+      choices = {
+        { text = "Can they be brought back?", next = "mas_lost2" },
+        { text = "I've had to fight them in the marsh.", next = "mas_lost2", when = { minLevel = 35 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mas_lost2 = {
+      lines = {
+        { id = "mas_lost2_1", text = "Magtoor believes so, and he leaves food at the edge of the camp for them every night. I do not believe it, but I do not tell him so, and some mornings the food is gone, though it may only be the crocolisks." },
+      },
+      choices = {
+        { text = "Let him keep hoping. Back to other matters.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_dd_crystals", when = { questDone = TODO_QUEST("Draenethyst Crystals") },
@@ -490,6 +534,8 @@ P:NPC {
         { text = "Where do the green scales come from?", next = "scales" },
         { text = "Where did you learn the craft?", next = "learned" },
         { text = "How do you trade, out here?", next = "trade" },
+        { text = "Magtoor speaks well of your hands.", next = "mas_mag1" },
+        { text = "The Lost Ones walk close to the Harborage.", next = "mas_lost1" },
         { text = "Not today.", next = "END" },
       },
     },

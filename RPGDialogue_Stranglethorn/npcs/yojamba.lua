@@ -253,6 +253,40 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d6_molthor = {
+      lines = { { id = "d6_molthor_a", text = "Molthor is de Hand of Rastakhan, and I am his servitor, so on dis isle de Hand commands. But de Hand is soft with prisoners and slow with heads, and when de king reads my report he will know who did de work." } },
+      choices = {
+        { text = "You and Molthor don't agree much.", next = "d6_molthor2" },
+        { text = "I am Darkspear. The Zandalar are my elders too.", next = "d6_molthor2", when = { race = "Troll" } },
+        { text = "Something else, Exzhal.", next = "BACK" },
+      },
+    },
+    d6_molthor2 = {
+      lines = {
+        { id = "d6_molthor2_a", text = "We agree dat Hakkar must fall, and dat is enough for an army. Molthor wants de outsiders to love us, and I want dem to fear us a little, and between de two of us dey come back with heads, so de king is served either way." },
+        { id = "d6_molthor2_troll", when = { race = "Troll" }, text = "Elders, yes, and elders expect respect, young Darkspear. Molthor would tell you dat your tribe is welcome here, and he would mean it, and I would tell you dat welcome is earned one priest's head at a time." },
+      },
+      choices = {
+        { text = "Then I'll earn it.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d6_priests = {
+      lines = { { id = "d6_priests_a", text = "Jeklik of de bat, Venoxis of de snake, Mar'li of de spider, Thekal of de tiger and Arlokk of de panther. Each one bound his own loa to de Soulflayer, and each one must die before de god himself can be reached." } },
+      choices = {
+        { text = "Which of them is the worst?", next = "d6_priests2" },
+        { text = "Five priests and a god. That's a war.", next = "d6_priests2" },
+        { text = "Something else, Exzhal.", next = "BACK" },
+      },
+    },
+    d6_priests2 = {
+      lines = { { id = "d6_priests2_a", text = "None of de five, outsider, but Jin'do de Hexxer, who is no high priest at all. He is de one who sang Hakkar back into dis world, and de priests only follow where he led, so when you find him, his head is de one de king wants most." } },
+      choices = {
+        { text = "Jin'do the Hexxer. I'll remember the name.", next = "BACK", fx = { learn = { "hakkar" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -272,6 +306,8 @@ P:NPC {
         { text = "What is King Rastakhan like?", next = "king" },
         { text = "You speak very highly of yourself.", next = "pride" },
         { text = "Do the Zandalar look down on the Darkspear?", next = "darkspear", when = { race = "Troll" } },
+        { text = "Who leads here, you or Molthor?", next = "d6_molthor" },
+        { text = "Tell me about the high priests of Zul'Gurub.", next = "d6_priests" },
         { text = "I will go.", next = "END" },
       },
     },
@@ -367,6 +403,48 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d6_elix3 = {
+      lines = { { id = "d6_elix3_a", text = "He sleeps for a day and wakes up thinking he can wrestle a tiger, and sometimes he tries. Zanza's strength does not leave a body gently, so de Zandalar drink one, fight, and rest, and we laugh at de outsiders who do it de other way." } },
+      choices = {
+        { text = "I'll be one of the careful outsiders.", next = "BACK" },
+        { text = "Let us speak of something else.", next = "BACK" },
+      },
+    },
+    d6_elix = {
+      lines = { { id = "d6_elix_a", text = "De potion is only water and herbs until de prayer is spoken over it, and den it carries a little of Zanza's strength. Rin'wosho sells dem, and I bless dem, and neither of us takes credit for what de loa does." } },
+      choices = {
+        { text = "Is it safe for an outsider to drink?", next = "d6_elix2" },
+        { text = "It sounds like alchemy with a prayer on top.", next = "d6_elix2" },
+        { text = "Something else, Vinchaxa.", next = "BACK" },
+      },
+    },
+    d6_elix2 = {
+      lines = { { id = "d6_elix2_a", text = "Safe enough, for Zanza does not ask whose mouth de elixir goes into, only dat it is used against Hakkar. Do not drink two at once, though, for de spirit's strength is a heavy thing to carry, and I have seen a strong orc fall over from it." } },
+      choices = {
+        { text = "One at a time, then.", next = "BACK" },
+        { text = "What happens to someone who drinks two?", next = "d6_elix3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d6_fall = {
+      lines = { { id = "d6_fall_a", text = "It fell when its priests called up Hakkar and de god began to eat its own people. De Atal'ai who served him were driven out, and de tribes who were left could not forgive each other, so de empire broke into de Skullsplitter, de Bloodscalp and de rest, all fighting over de stones." } },
+      choices = {
+        { text = "And the Darkspear?", next = "d6_fall2" },
+        { text = "My people were driven out in that breaking.", next = "d6_fall2", when = { race = "Troll" } },
+        { text = "Something else, Vinchaxa.", next = "BACK" },
+      },
+    },
+    d6_fall2 = {
+      lines = {
+        { id = "d6_fall2_a", text = "Driven off by de bigger tribes, and dey went to de islands and found a new road with de orcs. Some of my people call dat shameful, and I call it wise, for de Darkspear are still alive and free, which is more dan de Gurubashi can say." },
+        { id = "d6_fall2_troll", when = { race = "Troll" }, text = "Driven out, yes, and you went to de islands and found de orcs, and you are still alive and free. De Gurubashi who stayed are now kneeling to Hakkar, so tell me, young Darkspear, which tribe chose better?" },
+      },
+      choices = {
+        { text = "The Darkspear chose better.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -385,6 +463,8 @@ P:NPC {
         { text = "Why do you want the old coins?", next = "coins" },
         { text = "What happens to a bijou on the altar?", next = "bijou" },
         { text = "May an outsider pray at your altar?", next = "pray", when = { class = { "PRIEST", "SHAMAN", "DRUID" } } },
+        { text = "How does Zanza's blessing get into a potion?", next = "d6_elix" },
+        { text = "How did the Gurubashi Empire fall?", next = "d6_fall" },
         { text = "I'll come back with coins.", next = "END" },
       },
     },
@@ -471,6 +551,56 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d6_only3 = {
+      lines = { { id = "d6_only3_a", text = "Falthir de Sightless sees to de rogues and druids, and he sees more blind dan Exzhal does with two eyes. Maywiki of Zuldazar sees to de hunters and shamans, and she talks to de spirits so much dat I have stopped trying to talk to her." } },
+      choices = {
+        { text = "A blind servitor who sees more. Interesting.", next = "BACK" },
+        { text = "Enough of them. Something else.", next = "BACK" },
+      },
+    },
+    d6_fought = {
+      lines = { { id = "d6_fought_a", text = "At de gates and a little past dem, with de first party Molthor sent. De Gurubashi berserkers do not stop when dey should be dead, and dat is de first lesson of dat city, so hit dem twice and den once more." } },
+      choices = {
+        { text = "What should a warrior fear most in there?", next = "d6_fought2" },
+        { text = "I've fought Bloodscalp and Skullsplitter already.", next = "d6_fought2", when = { class = "WARRIOR" } },
+        { text = "Something else, Jin'rokh.", next = "BACK" },
+      },
+    },
+    d6_fought2 = {
+      lines = {
+        { id = "d6_fought2_a", text = "Bloodlord Mandokir, de Gurubashi's champion, who rides a great raptor named Ohgan. He watches de fight and picks one to kill, and when he kills, he grows stronger, so do not stand where he is looking." },
+        { id = "d6_fought2_war", when = { class = "WARRIOR" }, text = "Den you know dey are fast and dey are many, and dat is good. But in de city you meet Bloodlord Mandokir, who rides a great raptor named Ohgan and grows stronger with every kill, and he is not a jungle tribe; he is de whole empire's champion." },
+      },
+      choices = {
+        { text = "What happens if he kills one of us?", next = "d6_fought3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d6_fought3 = {
+      lines = { { id = "d6_fought3_a", text = "De spirit rises and de priests' magic keeps it near, and a healer may call it back, if de healer is quick. Kill de raptor first if you can, because Mandokir mourns his beast, and a grieving troll fights badly." } },
+      choices = {
+        { text = "Kill the raptor first. Understood.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d6_only = {
+      lines = { { id = "d6_only_a", text = "Because I deal in mail and plate, and de others go to dose who know deir craft. Al'tabim de All-Seeing serves de mages and priests and warlocks, and Falthir and Maywiki see to de rest, and none of us steal from de others." } },
+      choices = {
+        { text = "What makes a warrior worthy in your eyes?", next = "d6_only2" },
+        { text = "So everyone fights for the Zandalar in their own way.", next = "d6_only2" },
+        { text = "Who are Falthir and Maywiki?", next = "d6_only3" },
+        { text = "Something else, Jin'rokh.", next = "BACK" },
+      },
+    },
+    d6_only2 = {
+      lines = { { id = "d6_only2_a", text = "Dat he comes back, again and again, and brings de pieces with him. De ones who fall once and do not return were never warriors, only brave, and bravery is cheap in dis jungle." } },
+      choices = {
+        { text = "Strength alone wins wars. The rest is talk.", next = "BACK", reply = "Strength wins de fight in front of you, and dat is enough for me. Let de priests talk of what comes after.", fx = { align = { order = -1 } } },
+        { text = "Strength without discipline gets warriors killed.", next = "BACK", reply = "Hmph, you sound like Molthor, but you are not wrong. De berserkers of de city are strong, and dey are dead, and discipline is why.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -491,6 +621,8 @@ P:NPC {
         { text = "Who is Mugamba?", next = "mugamba" },
         { text = "What is a dire troll?", next = "dire" },
         { text = "What armor does the tribe make for my kind?", next = "armor", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "Have you fought inside Zul'Gurub yourself?", next = "d6_fought" },
+        { text = "Why only warriors and paladins?", next = "d6_only" },
         { text = "I'll bring you what you want.", next = "END" },
       },
     },

@@ -748,6 +748,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    mel_alv1 = {
+      lines = {
+        { id = "mel_alv1_1", text = "He is, because he won't stay in bed, and an orchard man with a wound in his side has no business up a ladder. Aamelia ties him to the bedpost with a sheet when she goes to market, I'm told, and I don't ask whether that's a joke." },
+      },
+      choices = {
+        { text = "Will he mend?", next = "mel_alv2" },
+        { text = "Something else, Melasa.", next = "BACK" },
+      },
+    },
+    mel_alv2 = {
+      lines = {
+        { id = "mel_alv2_1", text = "He will, if he'll let it, and he's let it a little more since the bandits were dealt with. Anger tears at stitches as surely as a ladder does, and he was carrying a great deal of it." },
+      },
+      choices = {
+        { text = "Then rest is the medicine.", next = "mel_alv3" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    mel_alv3 = {
+      lines = {
+        { id = "mel_alv3_1", text = "Rest, and someone else picking his apples for a season, which is the part he can't bear. If you're in Windfield Orchard, tell him Melasa says the trees will wait, and watch his face when you do." },
+      },
+      choices = {
+        { text = "I'll tell him. Something else.", next = "BACK" },
+      },
+    },
+    mel_lin1 = {
+      lines = {
+        { id = "mel_lin1_1", text = "Othesia Evengale sells me her offcuts, and every refugee who comes in off the fallen places gives me whatever cloth they've carried. I wash it and boil it and cut it into strips, and it all ends up wrapped round somebody's arm." },
+      },
+      choices = {
+        { text = "Refugees give it freely?", next = "mel_lin2" },
+        { text = "I've cloth to spare for your bandages.", next = "mel_lin2", when = { profession = "Tailoring" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mel_lin2 = {
+      lines = {
+        { id = "mel_lin2_1", text = "More freely than you'd think, because they've seen what happens when there isn't any. A woman from Ban'aethal gave me her wedding shawl last month, and I've kept it folded in the drawer and not had the heart to cut it." },
+      },
+      choices = {
+        { text = "Keep it there. Something else.", next = "BACK" },
+      },
+    },
     -- Deeds pass: the player keeps dying.
     dd_deaths = {
       lines = { { id = "dd_default", text = "And I'm glad of it, but don't lean on it. Every time you come back you're a little more careless, and careless people are the ones who end up on my table with a wound the spirits can't reach in time. Learn to bind your own, and you'll need them less." } },
@@ -777,6 +821,8 @@ P:NPC {
         { text = "How do your people heal, without priests?", next = "healing" },
         { text = "What should I always carry?", next = "kit" },
         { text = "I've bandaged a few people myself.", next = "xfa", when = { profession = { "First Aid" } } },
+        { text = "Alvarion Windfield seems to be your hardest case.", next = "mel_alv1" },
+        { text = "Where do you get your linen?", next = "mel_lin1" },
         { text = "Farewell, Melasa.", next = "END" },
       },
     },

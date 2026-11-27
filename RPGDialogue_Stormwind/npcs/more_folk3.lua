@@ -1883,6 +1883,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_dye = {
+      lines = { { id = "d6_dye_a", text = "Blue from a dyer in the canals who won't tell me his recipe, and red from madder grown out past Goldshire. Gold is the dear one, because it's thread and not dye, and a guild that wants gold trim had better have something in its coffers besides ambition." } },
+      choices = {
+        { text = "Ironforge guilds want their clan colours, surely.", next = "d6_dye2", when = { race = "Dwarf" } },
+        { text = "What colour do you refuse to sell?", next = "d6_dye2" },
+        { text = "Never mind the dyes.", next = "BACK" },
+      },
+    },
+    d6_dye2 = {
+      lines = {
+        { id = "d6_dye2_a", text = "Defias red, with a mask on it, and I've had a young fool ask. I told him the Stockade would give him a tabard for free, and that it came with a room." },
+        { id = "d6_dye2_dwarf", when = { race = "Dwarf" }, text = "They do, and they argue over the shade of a clan's green the way other folk argue over an inheritance. A Bronzebeard company stood at this counter for an hour over two bolts I'd swear were the same, and in the end they bought both." },
+      },
+      choices = {
+        { text = "Good answer for the would-be bandit.", next = "BACK", fx = { learn = { "defias" } } },
+        { text = "Something else, Rebecca.", next = "BACK" },
+      },
+    },
+    d6_best = {
+      lines = { { id = "d6_best_a", text = "A small company of healers who wanted a white field and a single green leaf, nothing else. They sent me a letter from Arathi a year later to say the tabards had washed clean every time, and I kept the letter, which I don't do." } },
+      choices = {
+        { text = "Simple designs last longest.", next = "d6_best2" },
+        { text = "Do you hear from many guilds after?", next = "d6_best2" },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    d6_best2 = {
+      lines = { { id = "d6_best2_a", text = "Some, when they want more tabards or when they've disbanded and want to sell the old ones back, which I never buy. Aldwin keeps a book of every charter he's signed, and every year he marks the ones that have gone quiet, and every year he looks a little sadder doing it." } },
+      choices = {
+        { text = "I hope my guild stays in his good column.", next = "BACK" },
+        { text = "On to other things.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "hello_1", text = "Rebecca Laughlin. Aldwin signs the charters and I dress the guilds that come of them. I've made tabards for companies that went on to great things and for some that broke up at the door, and I could tell which would be which." },
@@ -1902,6 +1936,8 @@ P:NPC {
         { text = "Guilds are only sellswords with a flag.", next = "flag" },
         { text = "What do the colours mean?", next = "colours" },
         { text = "What would you put on my guild's tabard?", next = "mine", when = { guild = true } },
+        { text = "Where do you get your dyes?", next = "d6_dye" },
+        { text = "Which crest have you liked best?", next = "d6_best" },
         { text = "Good day, Rebecca.", next = "END" },
       },
     },

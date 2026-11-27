@@ -40,6 +40,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_accept = {
+      lines = {
+        { id = "d2_accept_1", text = "Some tolerate it and most avoid it. The apothecaries call us relics, and Father Lankester's priests think we're hiding behind the Light to keep from facing what we are, and the Dark Lady permits it, which is all the acceptance I require." },
+      },
+      choices = {
+        { text = "Why does she permit it?", next = "d2_accept2" },
+        { text = "Being tolerated isn't so bad.", next = "d2_accept2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_accept2 = {
+      lines = {
+        { id = "d2_accept2_1", text = "Because a Forsaken who can mend a wound with the Light is worth ten who cannot, and she is practical before she is anything else. I don't flatter myself that she approves of the Light, only that she approves of soldiers who don't fall down." },
+      },
+      choices = {
+        { text = "That's honest of you.", next = "BACK" },
+        { text = "Ask you something else, Garen.", next = "BACK" },
+      },
+    },
+    d2_students = {
+      lines = {
+        { id = "d2_students_1", text = "Eleven, this season, and three of them will stay. The rest find that the pain is more than they can bear, or that the faith they remember was only habit, and they go to the priests or the warlocks instead." },
+      },
+      choices = {
+        { text = "And the three who stay?", next = "d2_students2" },
+        { text = "Eleven is more than I'd expect.", next = "d2_students2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_students2 = {
+      lines = {
+        { id = "d2_students2_1", text = "I'll send them west to Danitha Morr at Bandarion Keep, where they'll learn to fight beside the Deathguard. The Light needs to be used against something, and in Tirisfal there's never a shortage of things to use it on." },
+      },
+      choices = {
+        { text = "The Scarlets, you mean.", next = "BACK", reply = "The Scarlets, and the Scourge, and sometimes our own despair. The Light doesn't much mind which." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_priest = {
+      lines = {
+        { id = "d2_priest_1", text = "It does, because your priests take the Light and turn it inward, toward shadow and the mind, and mine take it outward, into a hammer and a shield. We're two hands of the same body, I suppose, and neither one is cleaner than the other." },
+      },
+      choices = {
+        { text = "A generous view.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
@@ -58,6 +105,9 @@ P:NPC {
         { text = "Who leads the Forsaken paladins?", next = "keep" },
         { text = "I'd like to train in the ways of the Light.", next = "BUSINESS", when = { class = "PALADIN" } },
         { text = "I served the Scarlet Crusade, once.", next = "xscarlet", when = { origin = "forsaken_scarlet_turned" } },
+        { text = "Do the other Forsaken accept what you teach?", next = "d2_accept" },
+        { text = "How many students do you have?", next = "d2_students" },
+        { text = "The Light answers our priests differently.", next = "d2_priest", when = { class = "PRIEST" } },
         { text = "Light keep you, Garen.", next = "END" },
       },
     },

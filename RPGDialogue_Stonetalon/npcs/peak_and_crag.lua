@@ -53,6 +53,8 @@ P:NPC {
         { text = "Why throwing knives?", next = "knives" },
         { text = "What's the trouble below?", next = "trouble" },
         { text = "Let me see your supplies.", next = "BUSINESS" },
+        { text = "Hippogryphs carry everything up here?", next = "hippo" },
+        { text = "Keeper Albagorm. What's he like?", next = "keeper" },
         { text = "Elune keep you, Chylina.", next = "END" },
       },
     },
@@ -117,6 +119,33 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    hippo = {
+      lines = { { id = "hg_default", text = "Everything that can't climb, from flour to arrowheads, and they complain about every sack. The flight master at the Peak flies them in from Astranaar, and on windy days half the bread arrives as crumbs. I sell the crumbs to the druids, who never notice." } },
+      choices = {
+        { text = "Does the wind ever ground them?", next = "hippo2" },
+        { text = "Crumbs to the druids. That's shameless.", next = "hippo2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hippo2 = {
+      lines = { { id = "hg2_default", text = "Often, in spring, and then the Peak eats what's in the storeroom and the Sentinels go hunting. Shameless, perhaps, but a druid who's been in the Dream three days doesn't care whether his bread is whole. I give them extra honey to make up for it." } },
+      choices = { { text = "Extra honey. Fair enough. Something else.", next = "BACK" } },
+    },
+    keeper = {
+      lines = { { id = "kp_default", text = "Old, and kind, and much harder to move than the mountain he keeps. Keeper Albagorm is an ancient, and he speaks slowly, and the druids hang on every word. I asked him once what he thought of the goblins, and he answered me three days later." } },
+      choices = {
+        { text = "What did he say?", next = "keeper2" },
+        { text = "An ancient has all the time in the world.", next = "keeper2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    keeper2 = {
+      lines = { { id = "kp2_default", text = "He said that goblins are like a fire in summer grass, quick and loud, and gone long before the roots notice. Then he asked me for water. I think he's right about the roots, but I'm not a root, and I'd like them gone sooner." } },
+      choices = {
+        { text = "I'm a druid. I'll speak with the Keeper myself.", next = "BACK", reply = "Then bring water, and clear your afternoon. Maybe your week.", when = { class = "DRUID" } },
+        { text = "Something else, Chylina.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -172,6 +201,8 @@ P:NPC {
         { text = "Does cloth really stop a blade?", next = "blade" },
         { text = "Why sell up here?", next = "why" },
         { text = "Let me see your armour.", next = "BUSINESS" },
+        { text = "Who buys your cloth, besides the priestesses?", next = "buyers" },
+        { text = "Darnassus sends cloth this far?", next = "darnassus" },
         { text = "Farewell, Illyanie.", next = "END" },
       },
     },
@@ -226,6 +257,40 @@ P:NPC {
       choices = {
         { text = "A sensible trade.", next = "BACK", fx = { trait = { practical = 1 } } },
         { text = "Farewell, Illyanie.", next = "END" },
+      },
+    },
+    buyers = {
+      lines = { { id = "by_default", text = "Gaxim's lot, down at the Crag, which surprised me. He's a gnome mage with more pockets than sense, and he wears through a robe every fortnight from crawling into goblin machines. I've stopped selling him the pretty ones." } },
+      choices = {
+        { text = "What does he do in the goblin machines?", next = "buyers2" },
+        { text = "A mage crawling into shredders. That's bravery of a kind.", next = "buyers2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    buyers2 = {
+      lines = { { id = "by2_default", text = "Takes them apart, so he says, to learn how to stop them. Mostly he comes back singed and delighted. Kaela Shadowspear keeps him in check, and buys his robes for him when he forgets, which is more often than not." } },
+      choices = {
+        { text = "Then Kaela must be a patient woman.", next = "buyers3" },
+        { text = "Something else, Illyanie.", next = "BACK" },
+      },
+    },
+    buyers3 = {
+      lines = { { id = "by3_default", text = "Kaela is a Sentinel, which means she's patient until the moment she isn't. I sold her a cloak once and she asked for the hem taken up so it wouldn't catch on a glaive. That's the most practical thing anyone has ever said to me on this mountain." } },
+      choices = { { text = "Practical Sentinels. Something else.", next = "BACK" } },
+    },
+    darnassus = {
+      lines = { { id = "dn_default", text = "It does, by way of Auberdine and Astranaar, and it costs three times what it did in Darnassus by the time it gets here. The weavers there make it fine and thin, for a city under Teldrassil's leaves, not for a mountain where the wind takes your skin off." } },
+      choices = {
+        { text = "Then why buy it at all?", next = "darnassus2" },
+        { text = "Fine and thin has its place, surely.", next = "darnassus2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    darnassus2 = {
+      lines = { { id = "dn2_default", text = "Because the priestesses like to look like priestesses, and I like to be paid. I line it with my mountain wool, and then it's pretty and useful both, which is the only kind of thing I want my name on." } },
+      choices = {
+        { text = "I'm a priest. Pretty and useful suits me.", next = "BACK", reply = "Then you'll be my favourite customer today. Let me see your hems.", when = { class = "PRIEST" } },
+        { text = "Something else, then.", next = "BACK" },
       },
     },
   },
@@ -569,6 +634,8 @@ P:NPC {
         { text = "What creatures do you tend?", next = "xcreatures" },
         { text = "Who taught you healing?", next = "xteach" },
         { text = "A fellow druid offers aid.", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Do you work with the Keeper here?", next = "keeper" },
+        { text = "That hawk with smoke in its lungs. Will it fly again?", next = "hawk" },
         { text = "I'll leave you to your work.", next = "END" },
       },
     },
@@ -623,6 +690,33 @@ P:NPC {
       },
       choices = {
         { text = "I'll help where I can.", next = "BACK", reply = "Elune bless you, friend.", fx = { affinity = 1 } },
+      },
+    },
+    keeper = {
+      lines = { { id = "kr_default", text = "I serve beneath him, as all of us at the Peak do. Keeper Albagorm watches over the mountain as a whole, and I watch over the small things that fall through the cracks of his watching. He says both are needed, and I hope he means it." } },
+      choices = {
+        { text = "Does he tell you what to do?", next = "keeper2" },
+        { text = "Small things matter as much as mountains.", next = "keeper2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    keeper2 = {
+      lines = { { id = "kr2_default", text = "Rarely. He asks me, now and then, which creatures came up the slope that day, and I tell him, and he listens to the whole list. When I mention a creature I couldn't save, he is quiet for a long time. That is all the counsel I need." } },
+      choices = { { text = "That's good counsel. Something else.", next = "BACK" } },
+    },
+    hawk = {
+      lines = { { id = "hk_default", text = "I think so, given time. I've kept her in a cool place out of the wind, and I give her water with crushed silverleaf in it, which a druid in Moonglade taught me eases the breath. She tried her wings this morning and fell, and then she tried again." } },
+      choices = {
+        { text = "Then she has courage.", next = "hawk2" },
+        { text = "Silverleaf in water? I'd not have known.", next = "hawk2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hawk2 = {
+      lines = { { id = "hk2_default", text = "Every creature here has courage, or it would not have climbed out of the fire. When she flies, I will take her to the edge of the Peak and let her go over the vale, so she can see that it is growing back. I think she would want to know." } },
+      choices = {
+        { text = "I'm a hunter. My companion would understand that.", next = "BACK", reply = "Then you know already what I mean. Look after it, as it looks after you.", when = { class = "HUNTER" } },
+        { text = "I hope she flies soon. Something else.", next = "BACK" },
       },
     },
   },

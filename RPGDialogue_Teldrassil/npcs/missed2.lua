@@ -266,7 +266,54 @@ P:NPC {
         { text = "You ought to be resting in Dolanaar.", next = "rest" },
         { text = "What do you guard out here?", next = "guard" },
         { text = "Elune's grace will see you mended.", next = "priest", when = { class = "PRIEST" } },
+        { text = "Who else patrols this stretch?", next = "sh_others" },
+        { text = "What do you know of the Gnarlpine?", next = "sh_gnarl" },
         { text = "Hold your post, Sentinel.", next = "END" },
+      },
+    },
+    sh_others = {
+      lines = {
+        { id = "sh_others_1", text = "Sentinel Kyra Starsong watches the road nearer Dolanaar, and the huntresses come through at dusk. While my arm mends, they have taken some of my ground, which I would mind less if they did not tell me so every evening." },
+      },
+      choices = {
+        { text = "They're only helping.", next = "sh_help" },
+        { text = "I'd mind it too.", next = "BACK", reply = "Then you understand me, and I am grateful." },
+      },
+    },
+    sh_help = {
+      lines = {
+        { id = "sh_help_1", text = "I know, and that is why it stings. A Sentinel guards her own ground, and I will have mine back as soon as I can grip a glaive with both hands again." },
+      },
+      choices = {
+        { text = "You'll be back soon.", next = "sh_soon" },
+        { text = "Patience is part of a Sentinel's duty.", next = "BACK" },
+      },
+    },
+    sh_soon = {
+      lines = {
+        { id = "sh_soon_1", text = "I hope so, and I hope the Gnarlpine wait for me. Corithras Moonrage in Dolanaar says they will not, and he is likely right, so I keep my good arm ready." },
+      },
+      choices = {
+        { text = "One good arm is enough.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Sentinel.", next = "BACK" },
+      },
+    },
+    sh_gnarl = {
+      lines = {
+        { id = "sh_gnarl_1", text = "They were a peaceful people once, and they lived in the shade of the tree without trouble. Now they attack anything that walks the road, and there is a sickness in their eyes that I have not seen before." },
+      },
+      choices = {
+        { text = "A sickness? What causes it?", next = "sh_sick" },
+        { text = "I'm a druid. The Enclave studies this.", next = "sh_sick", when = { class = "DRUID" } },
+      },
+    },
+    sh_sick = {
+      lines = {
+        { id = "sh_sick_1", text = "I do not know, but the druids say it comes from the roots, or from something that drinks from the water there. Until they learn more, I will keep the road clear, and I will not let the Gnarlpine reach Dolanaar." },
+      },
+      choices = {
+        { text = "I'll keep the road clear too.", next = "BACK", fx = { learn = { "furbolgs" } } },
+        { text = "Something else, Sentinel.", next = "BACK" },
       },
     },
     wound = {

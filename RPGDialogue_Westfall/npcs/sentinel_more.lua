@@ -1397,6 +1397,54 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d6_jango = {
+      lines = { { id = "d6_jango_a", text = "Kobolds, mostly, and a great heap of tailings by the entrance that the rain has been washing downhill for years. The Jangolode was worked hard before the farms failed, and the slag is bad, but there isn't enough of it to poison half a province." } },
+      choices = {
+        { text = "And the Gold Coast Quarry?", next = "d6_jango2" },
+        { text = "So the mines alone don't explain it.", next = "d6_jango2" },
+        { text = "Let's turn to something else.", next = "BACK" },
+      },
+    },
+    d6_jango2 = {
+      lines = { { id = "d6_jango2_a", text = "The quarry's full of Defias now, cutting stone for something, and their dust is in every well along the coast road. Worse than the Jangolode, but still not enough, which is why I keep looking toward Moonbrook." } },
+      choices = {
+        { text = "What would prove it was Moonbrook?", next = "d6_jango3" },
+        { text = "Something else, Alba.", next = "BACK" },
+      },
+    },
+    d6_jango3 = {
+      lines = { { id = "d6_jango3_a", text = "Water from the stream below the village, tested against water from above it. If the poison doubles between the two, then whatever is under Moonbrook is pouring it out, and then I'll have something to put in front of Stoutmantle." } },
+      choices = {
+        { text = "Then I'll help you get that water.", next = "BACK", fx = { learn = { "deadmines" } } },
+        { text = "Let's talk of other things.", next = "BACK" },
+      },
+    },
+    d6_help = {
+      lines = { { id = "d6_help_a", text = "The innkeeper, who lends me this table, and Sprite Jumpsprocket, who sells me powder and asks too many questions. The farmers help most of all, though they don't know it, because they bring me jars of water from wells I'd never find alone." } },
+      choices = {
+        { text = "The druids could cleanse this land.", next = "d6_help2", when = { class = "DRUID" } },
+        { text = "Do the farmers trust you?", next = "d6_help2" },
+        { text = "A gnome with too many questions sounds right.", next = "d6_help2" },
+      },
+    },
+    d6_help2 = {
+      lines = {
+        { id = "d6_help2_a", text = "Some do, now, since the paladins' prayers didn't help their children and my advice about the wells did. Others think I'm a witch with glass jars, and I can't blame them, since that's more or less what I look like from a field away." },
+        { id = "d6_help2_druid", when = { class = "DRUID" }, text = "In time, perhaps, but not while the poison is still flowing; you'd be washing a wound with the knife still in it. Help me find the source first, and then bring your circle, and the land will remember both of us kindly." },
+      },
+      choices = {
+        { text = "What do you tell the ones who don't trust you?", next = "d6_help3" },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    d6_help3 = {
+      lines = { { id = "d6_help3_a", text = "Nothing; I boil their water for them and hand it back, and I let them see their children stop coughing. People forgive a great deal of strangeness in someone who's useful, and Westfall has had very few useful strangers lately." } },
+      choices = {
+        { text = "That's a patient kind of kindness.", next = "BACK", fx = { affinity = 1 } },
+        { text = "On to another matter.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "Alba Fairmoon. I came to Westfall because the crops are failing in a way that drought doesn't explain. Something is in the ground here, and I mean to find out what." },
@@ -1426,6 +1474,8 @@ P:NPC {
         { text = "Why does an elf care about Westfall's farms?", next = "why" },
         { text = "What happens if you're right?", next = "stakes" },
         { text = "Can I help?", next = "BUSINESS" },
+        { text = "What did you find at the Jangolode Mine?", next = "d6_jango" },
+        { text = "Who on the hill helps with your work?", next = "d6_help" },
         { text = "I'll leave you to your vials.", next = "END" },
       },
     },

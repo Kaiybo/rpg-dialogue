@@ -331,7 +331,45 @@ P:NPC {
         { text = "A Forsaken doctor? Who were you before?", next = "past" },
         { text = "Why does the Horde need you?", next = "need" },
         { text = "Do you heal the Forsaken differently?", next = "forsaken" },
+        { text = "Who assists you here?", next = "gv_assist" },
+        { text = "What's the worst wound you see in Arathi?", next = "gv_worst" },
         { text = "Goodbye, Doctor.", next = "END" },
+      },
+    },
+    gv_assist = {
+      lines = {
+        { id = "gv_assist_1", text = "Whoever passes my examination and is foolish enough to stay. I've had orcs, trolls and one very gentle tauren, and the tauren was the best of them, for he never once flinched at the smell." },
+      },
+      choices = {
+        { text = "Why was the tauren best?", next = "gv_tauren" },
+        { text = "Orcs and trolls in a Forsaken surgery. Unusual.", next = "BACK", reply = "Necessary. The Horde bleeds in every colour." },
+      },
+    },
+    gv_tauren = {
+      lines = {
+        { id = "gv_tauren_1", text = "Steady hands and no squeamishness about the dead, which the living find hard around me. He went back to Thunder Bluff to teach, and I miss him more than I would admit to any of my students." },
+      },
+      choices = {
+        { text = "You just admitted it to me.", next = "BACK", fx = { affinity = 1 } },
+        { text = "A good student is hard to lose. Something else.", next = "BACK" },
+      },
+    },
+    gv_worst = {
+      lines = {
+        { id = "gv_worst_1", text = "Ogre clubs, for they don't cut, they crush, and a crushed limb is a puzzle even I can't always solve. The Boulderfist in the southern hills send me a grunt a week, and half of them I can save." },
+      },
+      choices = {
+        { text = "And the other half?", next = "gv_half" },
+        { text = "I'm a healer. Crush wounds are hard to mend.", next = "gv_half", when = { class = { "PRIEST", "SHAMAN", "DRUID" } } },
+      },
+    },
+    gv_half = {
+      lines = {
+        { id = "gv_half_1", text = "The other half go to the Spirit Healer, and I write their names in a book I keep under the table. I was a surgeon before the plague, and I have kept such a book ever since, though the Dark Lady's apothecaries think it sentimental." },
+      },
+      choices = {
+        { text = "It's not sentimental. It's honourable.", next = "BACK" },
+        { text = "A book of names. Something else, Doctor.", next = "BACK" },
       },
     },
 
@@ -429,7 +467,63 @@ P:NPC {
         { text = "Let me see your meat.", next = "BUSINESS" },
         { text = "Where does it come from?", next = "meat" },
         { text = "How do the soldiers eat?", next = "soldiers" },
+        { text = "Who's the hungriest soldier in camp?", next = "nd_hungry" },
+        { text = "What would you cook, given a proper kitchen?", next = "nd_kitchen" },
         { text = "Thanks, Narj.", next = "END" },
+      },
+    },
+    nd_hungry = {
+      lines = {
+        { id = "nd_hungry_1", text = "Sergeant Maclear, without a doubt, for he eats like a dwarf an' fights like two. He comes in every mornin' for a slab o' boar an' tells me it's the best thing in the Highlands, which is the only reason I put up wi' his bill." },
+      },
+      choices = {
+        { text = "He owes you money?", next = "nd_owe" },
+        { text = "A sergeant who praises the cook is wise.", next = "BACK", reply = "Wise an' fed, which is the best kind o' sergeant." },
+      },
+    },
+    nd_owe = {
+      lines = {
+        { id = "nd_owe_1", text = "The whole camp owes me money, for the League pays me late an' the soldiers eat on credit. I've a slate behind the counter wi' more names than the muster roll, an' I've stopped readin' it." },
+      },
+      choices = {
+        { text = "Will they ever pay?", next = "nd_pay" },
+        { text = "Food on credit. You're generous, Narj.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    nd_pay = {
+      lines = {
+        { id = "nd_pay_1", text = "When the war's won, they say, an' I say I'll be dead by then, an' they laugh. But a hungry soldier cannae fight, an' I'd sooner feed them than watch the ogres take the wall." },
+      },
+      choices = {
+        { text = "That's a good man's choice.", next = "BACK" },
+        { text = "Something else, Narj.", next = "BACK" },
+      },
+    },
+    nd_kitchen = {
+      lines = {
+        { id = "nd_kitchen_1", text = "A proper dwarven roast, a whole ram on a spit wi' Dun Morogh herbs, an' a barrel o' Thunderbrew tae wash it down. Instead I've a fire pit, a cleaver an' a great deal o' raptor." },
+      },
+      choices = {
+        { text = "I'm a cook. Raptor can be good, done right.", next = "nd_raptor", when = { profession = "Cooking" } },
+        { text = "Raptor can't be that bad.", next = "nd_raptor" },
+      },
+    },
+    nd_raptor = {
+      lines = {
+        { id = "nd_raptor_1", text = "It can, for it tastes like an old boot, but I've learned a trick wi' it. Soak it overnight in vinegar an' salt, an' then fry it hot an' fast, an' it tastes like a slightly younger boot." },
+      },
+      choices = {
+        { text = "A younger boot. That's progress.", next = "nd_boot" },
+        { text = "I'll stick to boar, I think.", next = "BACK" },
+      },
+    },
+    nd_boot = {
+      lines = {
+        { id = "nd_boot_1", text = "It is, an' the soldiers eat it without complainin', which is the best a cook can ask for out here. Bring me a fresh boar from the hills, mind, an' I'll show ye what a real cook can do." },
+      },
+      choices = {
+        { text = "I'll bring you a boar.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Narj.", next = "BACK" },
       },
     },
     meat = {
@@ -495,7 +589,64 @@ P:NPC {
         { text = "I need to stable my pet.", next = "BUSINESS" },
         { text = "How did you get those bites?", next = "bites" },
         { text = "Does Hammerfall mean anything to you?", next = "hammerfall" },
+        { text = "How do you train a wolf?", next = "th_train" },
+        { text = "What do the wolves think of the Forsaken?", next = "th_forsaken" },
         { text = "Farewell, Tharlidun.", next = "END" },
+      },
+    },
+    th_train = {
+      lines = {
+        { id = "th_train_1", text = "With patience and meat, and a willingness to be bitten. A wolf does not obey, it agrees, and once it agrees, it will follow you through fire. My wolves have carried riders from here to the Barrens and back." },
+      },
+      choices = {
+        { text = "To the Barrens? That's a long ride.", next = "th_ride" },
+        { text = "I'm a hunter. I know the price of trust.", next = "th_ride", when = { class = "HUNTER" } },
+        { text = "Patience and meat. That's simple enough.", next = "BACK" },
+      },
+    },
+    th_ride = {
+      lines = {
+        { id = "th_ride_1", text = "It is, and a wolf can do it without stopping to eat, if the rider is light and the wolf is willing. The best of mine, Grey Tooth, carried a message from Hammerfall to Orgrimmar in four days once, and he came back as if he had only been for a walk." },
+      },
+      choices = {
+        { text = "Grey Tooth sounds like a fine wolf.", next = "th_grey" },
+        { text = "Four days to Orgrimmar. Remarkable.", next = "BACK" },
+      },
+    },
+    th_grey = {
+      lines = {
+        { id = "th_grey_1", text = "He is the finest, and he knows it, and he will not let any other wolf eat before him. He is old now, but I keep him in the best kennel, by the wall, where the cages used to be." },
+      },
+      choices = {
+        { text = "He's earned his place.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Tharlidun.", next = "BACK" },
+      },
+    },
+    th_forsaken = {
+      lines = {
+        { id = "th_forsaken_1", text = "They do not like them, and I do not blame them, for the Forsaken smell of death and the wolves know it. But Doctor Victor comes to see them when they are sick, and they let him near, which is more than I expected." },
+      },
+      choices = {
+        { text = "The doctor treats wolves too?", next = "th_doctor" },
+        { text = "I'm Forsaken. The wolves don't like me either.", next = "th_doctor", when = { race = "Scourge" } },
+      },
+    },
+    th_doctor = {
+      lines = {
+        { id = "th_doctor_1", text = "He says a body is a body, whether it walks on two legs or four. He sewed up a wolf's leg after an ogre broke it, and the wolf is running again, so I do not argue with him about the smell." },
+      },
+      choices = {
+        { text = "He's a good doctor, then.", next = "th_good" },
+        { text = "A body is a body. That's wise.", next = "BACK" },
+      },
+    },
+    th_good = {
+      lines = {
+        { id = "th_good_1", text = "The best in Arathi, though he would not say so. The orcs here did not trust him at first, but now they go to him before the shaman, and he is the only Forsaken I would trust with my wolves." },
+      },
+      choices = {
+        { text = "High praise from you.", next = "BACK" },
+        { text = "Something else, then.", next = "BACK" },
       },
     },
     bites = {
@@ -562,7 +713,63 @@ P:NPC {
         { text = "Show me your goods.", next = "BUSINESS" },
         { text = "How do the goods get here?", next = "supply" },
         { text = "Who buys the most?", next = "buyers" },
+        { text = "Who's your best customer?", next = "ke_best" },
+        { text = "Does trade suffer from the fighting?", next = "ke_fight" },
         { text = "Goodbye, Keena.", next = "END" },
+      },
+    },
+    ke_best = {
+      lines = {
+        { id = "ke_best_1", text = "Tunkk, for he buys salt by the sack and pays on the day, which is more than I can say for the warriors. Jun'ha's second, for thread, and then the Forsaken from Horde Trauma, who buy linen for their bandages." },
+      },
+      choices = {
+        { text = "The Forsaken buy linen?", next = "ke_linen" },
+        { text = "Tunkk pays on the day. A rare customer.", next = "BACK", reply = "Rare and loud, but I'll take loud if it pays." },
+      },
+    },
+    ke_linen = {
+      lines = {
+        { id = "ke_linen_1", text = "By the bolt, for Doctor Victor teaches the grunts to bandage, and they practise on each other. I sell him more linen than I sell anyone else, and he never once asks for a better price." },
+      },
+      choices = {
+        { text = "A doctor who doesn't haggle.", next = "ke_doc" },
+        { text = "Bandages keep the fort alive.", next = "BACK" },
+      },
+    },
+    ke_doc = {
+      lines = {
+        { id = "ke_doc_1", text = "He says haggling is a waste of time, and he has better uses for it, like saving lives. I do not argue, for his coin is good, and I like a customer who knows what he wants." },
+      },
+      choices = {
+        { text = "A good customer is a good friend.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Keena.", next = "BACK" },
+      },
+    },
+    ke_fight = {
+      lines = {
+        { id = "ke_fight_1", text = "Every crate costs more when it's been shot at, and every one that reaches me has been. The Stromgarde riders watch the road from the Foothills, and the Syndicate rob anyone they can catch, so I charge what it costs, and nobody can complain." },
+      },
+      choices = {
+        { text = "The Syndicate rob Horde caravans too?", next = "ke_syndicate" },
+        { text = "I'm Horde. I'll escort your caravans.", next = "ke_syndicate", when = { faction = "Horde" } },
+      },
+    },
+    ke_syndicate = {
+      lines = {
+        { id = "ke_syndicate_1", text = "They rob everyone, Horde and Alliance alike, for they care only for coin. They hide in the farms around Northfold, and Drum Fel would pay well for anyone who could clear them out." },
+      },
+      choices = {
+        { text = "Then I'll speak to Drum Fel.", next = "ke_drum" },
+        { text = "Bandits who rob everyone. Something else.", next = "BACK" },
+      },
+    },
+    ke_drum = {
+      lines = {
+        { id = "ke_drum_1", text = "Do, and tell him Keena sent you, so he knows I've been helping. He's a hard orc to please, but he pays for results, and I like an orc who pays." },
+      },
+      choices = {
+        { text = "I'll tell him.", next = "BACK" },
+        { text = "Something else, then.", next = "BACK" },
       },
     },
     supply = {

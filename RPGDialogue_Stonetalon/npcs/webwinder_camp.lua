@@ -222,6 +222,8 @@ P:NPC {
         { text = "Why are the treants corrupted?", next = "treants", when = { any = { { questActive = TODO_QUEST("Wounded Ancients") }, { questDone = TODO_QUEST("Enraged Spirits") } } } },
         { text = "I know Thenysil in Astranaar.", next = "thenysil", when = { questDone = TODO_QUEST("On Guard in Stonetalon") } },
         { text = "What do you need?", next = "BUSINESS" },
+        { text = "Sun Rock is close. Do the Sentinels watch the Horde here?", next = "sunrock" },
+        { text = "What does Elune's eye see in this valley?", next = "elune" },
         { text = "Elune keep you, Kaela.", next = "END" },
       },
     },
@@ -293,6 +295,33 @@ P:NPC {
         { text = "I'll tell her.", next = "BACK", fx = { affinity = 2 } },
         { text = "Goodbye, Kaela.", next = "END" },
       },
+    },
+    sunrock = {
+      lines = { { id = "sr_default", text = "We watch them, and they watch us, and so far neither has drawn a bow. Their tauren care for the mountain as we do, and their braves fight the Venture Company harder than any Sentinel. It troubles me to admire an enemy I was sent to watch." } },
+      choices = {
+        { text = "Maybe they aren't enemies here.", next = "sunrock2" },
+        { text = "The orcs still cut Ashenvale's trees.", next = "sunrock2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sunrock2 = {
+      lines = { { id = "sr2_default", text = "In Ashenvale, yes, and I have buried friends there because of it. Here, the goblins are the axe and the Horde only another hand against them. I report what I see to Astranaar and let wiser heads decide what it means, {class}." } },
+      choices = {
+        { text = "I'm a night elf. Our wars don't follow us everywhere.", next = "BACK", reply = "Perhaps not, sister of the forest, though in my experience they follow us further than we'd like.", when = { race = "NightElf" } },
+        { text = "Something else, Kaela.", next = "BACK" },
+      },
+    },
+    elune = {
+      lines = { { id = "el_default", text = "Smoke, mostly, and a forest learning how to breathe through it. On clear nights the moon lights the Charred Vale silver, and you can see where the new shoots have come up through the ash. Those are the nights I can believe the priestesses." } },
+      choices = {
+        { text = "And on the other nights?", next = "elune2" },
+        { text = "The new shoots are a good sign.", next = "elune2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    elune2 = {
+      lines = { { id = "el2_default", text = "On the other nights I sharpen my glaive and listen for goblin shredders. Elune is patient, and I try to be, but she has had ten thousand years to practise. I have only had a few centuries, and they were mostly spent in Ashenvale." } },
+      choices = { { text = "Only a few centuries. Something else.", next = "BACK" } },
     },
   },
 

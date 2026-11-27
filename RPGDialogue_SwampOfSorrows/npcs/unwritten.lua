@@ -367,6 +367,50 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    exp_tow1 = {
+      lines = {
+        { id = "exp_tow1_1", text = "I have never been up close, and I never will, for every scout who tried came back with nothing to say. From the ridge it is a black spire with no lights in it, and yet the crows will not fly over it, which is all I need to know." },
+      },
+      choices = {
+        { text = "Do you report it to the Commander?", next = "exp_tow2" },
+        { text = "Something else, scout.", next = "BACK" },
+      },
+    },
+    exp_tow2 = {
+      lines = {
+        { id = "exp_tow2_1", text = "Every season, the same report, that the tower stands and nothing comes out of it. Commander Ruag reads it and says nothing, but he has never once ordered a patrol up that road, and I think he has read the same old reports I have." },
+      },
+      choices = {
+        { text = "Wise of him.", next = "exp_tow3" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    exp_tow3 = {
+      lines = {
+        { id = "exp_tow3_1", text = "Wise, or afraid, and in that place I am not sure there is a difference. I will go anywhere in this swamp for the garrison, but I will not go up that road, and I have told him so to his face." },
+      },
+      choices = {
+        { text = "Some roads are better left. Something else.", next = "BACK" },
+      },
+    },
+    exp_rock1 = {
+      lines = {
+        { id = "exp_rock1_1", text = "I go round them, through the reeds on the south side, where the ogres do not bother to look because they think nothing could walk there. It is wet and it stinks, but I have walked worse, and the Dreadmaul are loud enough to hear from far off." },
+      },
+      choices = {
+        { text = "What are they doing in Rockard?", next = "exp_rock2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    exp_rock2 = {
+      lines = {
+        { id = "exp_rock2_1", text = "Building, if you can believe it, stacking the old stones of the Horde's town into walls of their own. My father helped raise that town in the old days, and I watch ogres pile up his work like a child's blocks." },
+      },
+      choices = {
+        { text = "That must burn.", next = "BACK" },
+        { text = "One day the Horde will take it back.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I walk the swamp's edges for the garrison, from the Blasted Lands' red border to the Deadwind Pass. Somebody has to know what's out there before it comes knocking on our gates." } },
       again = { { id = "h_again", text = "Anything else? I leave at dusk." } },
@@ -380,6 +424,8 @@ P:NPC {
         { text = "Have you met the Broken?", next = "xbroken" },
         { text = "Why do you keep walking?", next = "xwhy" },
         { text = "I'm a Darkspear, and I'll look at those carvings.", next = "BACK", when = { race = "Troll" }, reply = "Ha! Thank you, troll. Bring back a drawing, and I will buy you a drink of whatever the swamp hasn't spoiled." },
+        { text = "What does the tower in the pass look like up close?", next = "exp_tow1" },
+        { text = "How do you get past the ogres at Rockard?", next = "exp_rock1" },
         { text = "Safe travels.", next = "END" },
       },
     },
@@ -464,6 +510,50 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    car_mov1 = {
+      lines = {
+        { id = "car_mov1_1", text = "The Misty Reed shore, where the sea and the swamp argue every spring and neither wins. A sandbar that was there in winter is a channel in summer, and the murlocs build their huts wherever the water lets them." },
+      },
+      choices = {
+        { text = "How do you keep up with it?", next = "car_mov2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    car_mov2 = {
+      lines = {
+        { id = "car_mov2_1", text = "I draw the shore in charcoal, not ink, so I can wipe it off and draw it again. Grug taught me that, said only a fool inks a coastline, and I have been grateful for it every year since." },
+      },
+      choices = {
+        { text = "Charcoal maps for a changing land.", next = "car_mov3" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    car_mov3 = {
+      lines = {
+        { id = "car_mov3_1", text = "Exactly, and ink for the things that do not change, like Stonard and the road and the sunken temple. Those I draw dark and hard, because if any of them moves, the map will be the least of our troubles." },
+      },
+      choices = {
+        { text = "A fair rule. Something else.", next = "BACK" },
+      },
+    },
+    car_grug1 = {
+      lines = {
+        { id = "car_grug1_1", text = "A legend to the young ones, and an old fool with ink on his tusks to those of us who knew him. He mapped half of Khaz Modan for the Horde in the Second War, and he never once got lost, or never once admitted it." },
+      },
+      choices = {
+        { text = "What became of him?", next = "car_grug2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    car_grug2 = {
+      lines = {
+        { id = "car_grug2_1", text = "The camps, like most of the old Horde, and he never came out of them. The night before the humans took him, he gave me his charcoal and told me to draw this swamp so well that no orc would ever be lost in it, and I am still trying." },
+      },
+      choices = {
+        { text = "Then you honour him with every map.", next = "BACK" },
+        { text = "Back to other matters.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I make the maps that tell Stonard where the swamp ends and the dangers begin, which is harder than it sounds when the water moves every spring. Every scout who comes back tells me something, and I put it down before they forget it." } },
       again = { { id = "h_again", text = "Yes, yes, what else?" } },
@@ -475,6 +565,8 @@ P:NPC {
         { text = "Who was the old raider who taught you?", next = "xraider" },
         { text = "Do scouts ever lie to you?", next = "xlie" },
         { text = "I'm a gnome, and I adore a good map.", next = "BACK", when = { race = "Gnome" }, reply = "Hmph. Then look, but do not touch, and do not tell me how a gnome would draw it better." },
+        { text = "Which part of the swamp moves the most?", next = "car_mov1" },
+        { text = "Old Grug the Ink sounds like a legend.", next = "car_grug1" },
         { text = "I'll leave you to it.", next = "END" },
       },
     },

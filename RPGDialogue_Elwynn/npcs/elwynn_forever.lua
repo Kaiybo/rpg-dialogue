@@ -485,6 +485,48 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d6_dry3 = {
+      lines = { { id = "d6_dry3_a", text = "A bowyer out at Eastvale, Rallic Finn, who fletches better than any dwarf I know, an' I'll deny I said it. I take the bullets from the mountain an' the arrows from the forest, an' that way I've a friend in both an' an argument with neither." } },
+      choices = {
+        { text = "Wise of you to keep both friends.", next = "BACK" },
+        { text = "On to something else, Nordun.", next = "BACK" },
+      },
+    },
+    d6_ale = {
+      lines = { { id = "d6_ale_a", text = "Thin as a gnome's excuse, friend, an' served cold besides, as if the cold might hide it. The Lion's Pride pours a decent enough mug for humans, but I've had a Thunderbrew stout that could stand a spoon up, an' that's what I measure by." } },
+      choices = {
+        { text = "Humans have their own fine brews.", next = "d6_ale2" },
+        { text = "You must ration what you brought from home.", next = "d6_ale2" },
+        { text = "Let's leave the ale be.", next = "BACK" },
+      },
+    },
+    d6_ale2 = {
+      lines = { { id = "d6_ale2_a", text = "Two barrels came down with me on the cart, an' there's half of one left, so aye, I ration it like a miser. Mind, the innkeeper's taken to askin' me for a taste, so I reckon Goldshire's ale may improve yet, if I'm here long enough." } },
+      choices = {
+        { text = "A dwarf improving the local ale. Good.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Ask ye something else, then.", next = "BACK" },
+      },
+    },
+    d6_dry = {
+      lines = { { id = "d6_dry_a", text = "Oil, an' a wax cloth, an' never leavin' the powder where the dew can find it. Elwynn's a damp wee forest of a mornin', an' I've seen a human hunter's blunderbuss go off sideways for want of a dry flask." } },
+      choices = {
+        { text = "Can a warrior make use of a gun?", next = "d6_dry2", when = { class = "WARRIOR" } },
+        { text = "What about bows in the damp?", next = "d6_dry2" },
+        { text = "Sideways? Was anyone hurt?", next = "d6_dry2" },
+      },
+    },
+    d6_dry2 = {
+      lines = {
+        { id = "d6_dry2_a", text = "A bow's worse, if ye ask me, for the string goes slack an' the wood swells, an' then ye're shootin' at a wolf an' hittin' a fence. The fellow with the blunderbuss lost his eyebrows an' his pride, an' then he bought a bow off me, which I'll admit I didn't argue." },
+        { id = "d6_dry2_war", when = { class = "WARRIOR" }, text = "Ye can, an' ye should, for pullin' a beast off yer friends before it reaches 'em. Ye'll not be the best shot in the valley, but a gun doesn't care who's holdin' it, an' a wolf that's been shot comes runnin' at the one who did it." },
+      },
+      choices = {
+        { text = "Then I'll take care with my powder.", next = "BACK" },
+        { text = "Where do your arrows come from?", next = "d6_dry3" },
+        { text = "Something else, Nordun.", next = "BACK" },
+      },
+    },
+
     hello = {
       hub = true,
       lines = {
@@ -505,6 +547,8 @@ P:NPC {
         { text = "Why sell out here and not in Ironforge?", next = "road" },
         { text = "Who buys guns in Goldshire?", next = "buyers" },
         { text = "Let me see your wares.", next = "BUSINESS" },
+        { text = "What's wrong with Elwynn's ale, then?", next = "d6_ale" },
+        { text = "How do you keep a gun dry out here?", next = "d6_dry" },
         { text = "Not today, Nordun.", next = "END" },
       },
     },
@@ -758,6 +802,54 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d6_vine = {
+      lines = { { id = "d6_vine_a", text = "Oh, lovely things, peacebloom along the rows and silverleaf by the stones, but I don't go up there now. Milly Osworth's grapes are up there, and the bandits have been camping among the vines and eating them, and she's beside herself about it." } },
+      choices = {
+        { text = "Who's Milly Osworth?", next = "d6_vine2" },
+        { text = "Bandits eating grapes. That's almost funny.", next = "d6_vine2" },
+        { text = "Let's talk about other things.", next = "BACK" },
+      },
+    },
+    d6_vine2 = {
+      lines = { { id = "d6_vine2_a", text = "She keeps the Abbey's vineyard and makes the wine the brothers aren't supposed to like as much as they do. She stands by the road with her hands on her hips and asks every new recruit to go and fetch her harvest back, and somebody always does." } },
+      choices = {
+        { text = "Maybe I'll be the one who does.", next = "d6_vine3" },
+        { text = "Why don't the guards clear them out?", next = "d6_vine3" },
+      },
+    },
+    d6_vine3 = {
+      lines = { { id = "d6_vine3_a", text = "Deputy Willem says the bandits are thick as weeds up there and his men are needed at the mine, so it falls to the young ones. If you do go, bring me back a sprig of the silverleaf by the far wall, would you? It's the best in the valley, and I haven't seen it since spring." } },
+      choices = {
+        { text = "I'll bring you a sprig if I can.", next = "BACK", fx = { learn = { "defias" } } },
+        { text = "Something else, Nancy.", next = "BACK" },
+      },
+    },
+    d6_abbey = {
+      lines = { { id = "d6_abbey_a", text = "Poultices, mostly, for the recruits who come back from the kobold mine with cuts all over them. The priests can heal a wound with the Light, but they say it's kinder to save the Light for the bad ones and use a bit of peacebloom for the rest." } },
+      choices = {
+        { text = "I heal with the Light. Why bother with herbs?", next = "d6_abbey2", when = { class = "PRIEST" } },
+        { text = "How do you make a poultice?", next = "d6_abbey2" },
+        { text = "So the herbs spare the priests' strength.", next = "d6_abbey2" },
+      },
+    },
+    d6_abbey2 = {
+      lines = {
+        { id = "d6_abbey2_a", text = "You crush the peacebloom with a little earthroot and a drop of water, and you wrap it in clean linen, and you tell the recruit to stop picking at it. That last part's the hardest, and none of them ever listen." },
+        { id = "d6_abbey2_priest", when = { class = "PRIEST" }, text = "Because you get tired, dear, even if you won't say so, and Brother Paxton says a priest who's spent all his Light on scraped knees has nothing left when someone's really hurt. A bit of peacebloom does for the knees, and you can keep yourself for the rest." },
+      },
+      choices = {
+        { text = "Do the brothers ever come to you for teaching?", next = "d6_abbey3" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    d6_abbey3 = {
+      lines = { { id = "d6_abbey3_a", text = "The young novices do, when Brother Sammuel lets them out of the training yard, and I show them which leaf is which. One of them ate a whole handful of mageroyal to see what would happen, and nothing did, except he was very sorry about it afterwards." } },
+      choices = {
+        { text = "Some lessons are learned the hard way.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+
     hello = {
       hub = true,
       lines = {
@@ -776,6 +868,8 @@ P:NPC {
         { text = "How do I pick without ruining the plant?", next = "picking" },
         { text = "Do the plants really talk to you?", next = "druid", when = { class = "DRUID" } },
         { text = "Teach me herbalism.", next = "BUSINESS" },
+        { text = "Does anything grow up by the vineyard?", next = "d6_vine" },
+        { text = "What do the Abbey's priests want herbs for?", next = "d6_abbey" },
         { text = "Good day, Nancy.", next = "END" },
       },
     },
@@ -865,6 +959,54 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d6_sell = {
+      lines = { { id = "d6_sell_a", text = "Down to Goldshire in a cart, mostly, to the armourers and the traders at the inn. The rest go to the Abbey, for boots for the recruits, and the brothers pay in bread and blessings, which I've never once complained about." } },
+      choices = {
+        { text = "My hides keep tearing at the belly. Why?", next = "d6_sell2", when = { profession = "Skinning" } },
+        { text = "Do you ever sell in Stormwind?", next = "d6_sell2" },
+        { text = "Bread and blessings is a fair price.", next = "d6_sell2" },
+      },
+    },
+    d6_sell2 = {
+      lines = {
+        { id = "d6_sell2_a", text = "Once a season, when there's enough to make the trip worth it, and the city tanners pay better than Goldshire does. But it's a long walk with a heavy cart and the city's loud, so I don't hurry back." },
+        { id = "d6_sell2_skin", when = { profession = "Skinning" }, text = "You're cutting too deep where the hide's thinnest, that's all. The belly wants a shallow blade and a slow hand, and if you pull while you cut, it'll tear every time, so let the knife do the work." },
+      },
+      choices = {
+        { text = "What do the city tanners want most?", next = "d6_sell3" },
+        { text = "Ask you something else.", next = "BACK" },
+      },
+    },
+    d6_sell3 = {
+      lines = { { id = "d6_sell3_a", text = "Clean wolf hides with no holes in them, which is why I'm hard on the young ones about the knife. A tanner in the city will pay double for a hide that's whole, and he'll know at a glance whether you rushed it." } },
+      choices = {
+        { text = "Then I'll take my time with the knife.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Riley.", next = "BACK" },
+      },
+    },
+    d6_bold = {
+      lines = { { id = "d6_bold_a", text = "They are, and Eagan says it's because they've come over from across the border where they've had no one to fear. A wolf that isn't afraid of people is a wolf that comes to the door, and we've had two at ours this month." } },
+      choices = {
+        { text = "What did you do about the ones at the door?", next = "d6_bold2" },
+        { text = "Hungry beasts make bold beasts.", next = "d6_bold2" },
+        { text = "Let's move on.", next = "BACK" },
+      },
+    },
+    d6_bold2 = {
+      lines = { { id = "d6_bold2_a", text = "Eagan shot one and I skinned it, which is how the Peltskinners deal with most things. The other ran off into the trees toward the kobold mine, and I'll not follow it there, because the kobolds are worse than the wolves." } },
+      choices = {
+        { text = "What's wrong with the kobold mine?", next = "d6_bold3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d6_bold3 = {
+      lines = { { id = "d6_bold3_a", text = "It's full of them, with candles on their heads and picks in their hands, and they've driven the miners out. Deputy Willem sends the recruits in to thin them, and the recruits come back with candle wax in their hair and no idea what they've been fighting for." } },
+      choices = {
+        { text = "Candles on their heads. I've heard the saying.", next = "BACK", fx = { learn = { "kobolds" } } },
+        { text = "Ask you something else, Riley.", next = "BACK" },
+      },
+    },
+
     hello = {
       hub = true,
       lines = {
@@ -883,6 +1025,8 @@ P:NPC {
         { text = "What makes a good skinner?", next = "craft" },
         { text = "What's worth skinning in Northshire?", next = "beasts" },
         { text = "Train me.", next = "BUSINESS" },
+        { text = "Where do your hides go, once they're tanned?", next = "d6_sell" },
+        { text = "The wolves here are bolder than they should be.", next = "d6_bold" },
         { text = "Take care, Riley.", next = "END" },
       },
     },

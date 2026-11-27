@@ -154,6 +154,71 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_beasts = {
+      lines = {
+        { id = "d2_beasts_1", text = "Wolves from Orgrimmar, mostly, which the orcs ride and insist on calling mounts, and the hunters' pets, which are everything from a bear to a crab the size of a cart. The bats belong to the bat handler, and I don't go near them, nor they me." },
+      },
+      choices = {
+        { text = "You don't care for the bats?", next = "d2_beasts2" },
+        { text = "A crab the size of a cart?", next = "d2_beasts2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_beasts2 = {
+      lines = {
+        { id = "d2_beasts2_1", text = "A bat isn't a stable animal, it's a temper with wings, and it doesn't want grooming or kindness. Give me a beast that wants a hand on its neck and a word in the dark, and I'll keep it happy for as long as you like." },
+      },
+      choices = {
+        { text = "Do the wolves let you near?", next = "d2_beasts3" },
+        { text = "You miss the horses.", next = "d2_beasts3" },
+      },
+    },
+    d2_beasts3 = {
+      lines = {
+        { id = "d2_beasts3_1", text = "After a fashion. A wolf is a proud thing and won't be handled like a cob, so I set the meat down and step back and let it decide, and most nights it decides I'm part of the furniture, which suits me well enough." },
+      },
+      choices = {
+        { text = "A sensible arrangement.", next = "BACK" },
+        { text = "Ask you something else, Theodore.", next = "BACK" },
+      },
+    },
+    d2_town = {
+      lines = {
+        { id = "d2_town_1", text = "It was, and these stalls kept the miller's draught horses when the mill still turned. Southshore's just down the road, and I used to sell them colts every spring, and now their militia shoots at anything that comes from this direction." },
+      },
+      choices = {
+        { text = "Does that trouble you?", next = "d2_town2" },
+        { text = "The world's turned over since then.", next = "d2_town2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_town2 = {
+      lines = {
+        { id = "d2_town2_1", text = "It troubles me less than it should. The people who bought my colts are the same people who'd have burned me in a barn after I rose, and High Executor Darthalia at least lets me keep my stable." },
+      },
+      choices = {
+        { text = "A fair trade, of sorts.", next = "d2_town3" },
+        { text = "Darthalia keeps a tidy town.", next = "d2_town3" },
+      },
+    },
+    d2_town3 = {
+      lines = {
+        { id = "d2_town3_1", text = "Of sorts. She asked me once if I'd breed horses again for the Deathguard, if anyone could find me a mare that wasn't dead or Alliance, and I said yes before she'd finished asking." },
+      },
+      choices = {
+        { text = "I hope someone finds you one.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_pet = {
+      lines = {
+        { id = "d2_pet_1", text = "Animals know who'll treat them right, living or not, and yours has a good nose for it. Bring it back any time, and I'll see it gets the warm corner, away from the draught off the hills." },
+      },
+      choices = {
+        { text = "Thank you, Theodore.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -168,6 +233,9 @@ P:NPC {
         { text = "I'd like to stable my pet.", next = "BUSINESS" },
         { text = "A better stable? Tell me.", next = "past" },
         { text = "Do the beasts fear the Forsaken?", next = "fear" },
+        { text = "What beasts do you stable here?", next = "d2_beasts" },
+        { text = "Tarren Mill was a human town once.", next = "d2_town" },
+        { text = "My beast took to you quickly.", next = "d2_pet", when = { class = "HUNTER" } },
         { text = "Good day, Theodore.", next = "END" },
       },
     },
@@ -227,6 +295,62 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_orcs = {
+      lines = {
+        { id = "d2_orcs_1", text = "Cold and quiet, and it smells of the apothecaries. Krusk keeps to himself and grieves for his brothers in Durnholde, and the rest of us sharpen and wait, because the Forsaken do not like orcs wandering about their town after dark." },
+      },
+      choices = {
+        { text = "Krusk grieves?", next = "d2_orcs2" },
+        { text = "You don't seem to mind the waiting.", next = "d2_orcs2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_orcs2 = {
+      lines = {
+        { id = "d2_orcs2_1", text = "He came back alone from Durnholde, and an orc who comes back alone carries every brother he left behind. I tell him they may still live, because the Syndicate keep prisoners, but he only grunts and goes on sharpening." },
+      },
+      choices = {
+        { text = "They may yet live.", next = "BACK", reply = "Then prove it to him, and I will sell you any axe on this rack." },
+        { text = "Ask you something else, Ott.", next = "BACK" },
+      },
+    },
+    d2_steel = {
+      lines = {
+        { id = "d2_steel_1", text = "From Azurelode, when the Horde holds the mine, and from the carts out of the Undercity when it does not. The human iron of Hillsbrad is good, better than Durotar's, though I would only say so to someone who is not from Durotar." },
+      },
+      choices = {
+        { text = "Who holds Azurelode now?", next = "d2_steel2" },
+        { text = "Your secret is safe.", next = "d2_steel2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_steel2 = {
+      lines = {
+        { id = "d2_steel2_1", text = "It changes with the season. The Southshore miners dig it by day and our people raid it by night, and the ore goes north or south depending on who was awake last, which is a poor way to run a forge." },
+      },
+      choices = {
+        { text = "Then the Horde should hold it properly.", next = "d2_steel3" },
+        { text = "Both sides must be tired of it.", next = "d2_steel3" },
+      },
+    },
+    d2_steel3 = {
+      lines = {
+        { id = "d2_steel3_1", text = "Darthalia would hold it if she had the soldiers, but her Deathguard are spread from the Mill to the Sepulcher. Until Orgrimmar sends more blades than mine, the mine will go on changing hands like a coin in a game of bones." },
+      },
+      choices = {
+        { text = "Then sell more blades.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_axe = {
+      lines = {
+        { id = "d2_axe_1", text = "Ha! This one, with the double bit, made for a warrior's two hands and not a Forsaken's one. Swing it slow at first, because it will pull you round if you let it." },
+      },
+      choices = {
+        { text = "Let me see the rest.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -243,6 +367,9 @@ P:NPC {
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "Why is an orc in Tarren Mill?", next = "why" },
         { text = "What do you think of the Forsaken?", next = "forsaken" },
+        { text = "How do the orcs here find Tarren Mill?", next = "d2_orcs" },
+        { text = "Where does your steel come from?", next = "d2_steel" },
+        { text = "Show me the heaviest axe you've got.", next = "d2_axe", when = { class = "WARRIOR" } },
         { text = "Farewell, Ott.", next = "END" },
       },
     },
@@ -305,6 +432,81 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_routes = {
+      lines = {
+        { id = "d2_routes_1", text = "South to Menethil over the marshes and on to Ironforge, and east to Aerie Peak when the Wildhammer will have us. The birds know the routes better than I do, which is a good thing, because I've never once been up there myself." },
+      },
+      choices = {
+        { text = "You've never flown?", next = "d2_routes2" },
+        { text = "The birds do the hard part, then.", next = "d2_routes2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_routes2 = {
+      lines = {
+        { id = "d2_routes2_1", text = "Not once, and I don't intend to. I've seen too many riders come down shaking after a storm over the Arathi hills, and I'd rather keep my feet on the roost and my head out of the clouds." },
+      },
+      choices = {
+        { text = "A gryphon master who won't fly.", next = "BACK", reply = "A cook needn't eat everything she makes, love. Somebody's got to stay on the ground." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_care = {
+      lines = {
+        { id = "d2_care_1", text = "Fish, a great deal of it, which is one thing Southshore's never short of. Hal McAllister keeps back the worst of his catch for me, and the birds eat better than half the militia, though I'd not say so where the militia can hear." },
+      },
+      choices = {
+        { text = "What else do they need?", next = "d2_care2" },
+        { text = "Lucky birds.", next = "d2_care2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_care2 = {
+      lines = {
+        { id = "d2_care2_1", text = "Their feathers combed after rain, their talons trimmed, and someone to talk to them when the bats are up. A gryphon that's frightened will fly off and not come back for a week, so I sit with them on the bad nights and sing whatever comes into my head." },
+      },
+      choices = {
+        { text = "What do you sing?", next = "d2_care3" },
+        { text = "That's rather sweet.", next = "d2_care3" },
+      },
+    },
+    d2_care3 = {
+      lines = {
+        { id = "d2_care3_1", text = "Old Lordaeron harvest songs, mostly, which my mother sang. The birds don't care about the words, but they like a low voice, and it keeps me from looking north every five minutes." },
+      },
+      choices = {
+        { text = "I hope the bats stay home tonight.", next = "BACK" },
+        { text = "Ask you something else, Darla.", next = "BACK" },
+      },
+    },
+    d2_wild = {
+      lines = {
+        { id = "d2_wild_1", text = "Now and then, a rider from Aerie Peak with his hair in braids and his beard full of feathers, who looks over my birds as if he's checking I haven't been beating them. They're proud folk, the Wildhammer, and they never let you forget whose gryphons these were." },
+      },
+      choices = {
+        { text = "Do you get along with them?", next = "d2_wild2" },
+        { text = "Sounds like a hard inspection.", next = "d2_wild2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_wild2 = {
+      lines = {
+        { id = "d2_wild2_1", text = "Well enough, once they've seen the roost. The last one shared a flask with me and told me the birds were in better shape than his own, which I'll be telling people about until I'm grey." },
+      },
+      choices = {
+        { text = "Deserved praise.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_dwarf = {
+      lines = {
+        { id = "d2_dwarf_1", text = "Then you'll know not to kick, and not to pull at the feathers, and to lean into the turns. I can always tell a dwarf who's flown before, because they climb on without being asked and start talking to the bird straight away." },
+      },
+      choices = {
+        { text = "The bird likes to hear its name.", next = "BACK", reply = "So they do. This one's Stormcloud, if you want to start." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -319,6 +521,10 @@ P:NPC {
         { text = "I need a flight.", next = "BUSINESS" },
         { text = "What do you watch for in the north?", next = "north" },
         { text = "How did a human get gryphons?", next = "birds" },
+        { text = "Where do your gryphons fly?", next = "d2_routes" },
+        { text = "How do you care for birds like these?", next = "d2_care" },
+        { text = "Do the Wildhammer still come by?", next = "d2_wild" },
+        { text = "I've ridden a gryphon or two in my time.", next = "d2_dwarf", when = { race = "Dwarf" } },
         { text = "Thanks, Darla.", next = "END" },
       },
     },
@@ -372,6 +578,62 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_feed = {
+      lines = {
+        { id = "d2_feed_1", text = "Hay from the Hillsbrad Fields, when Farmer Ray can spare it, and oats off the ship when he can't. Farmer Ray's been sending less every month because his hands keep leaving, and I don't like to ask him why, because I think I know." },
+      },
+      choices = {
+        { text = "The dead from the Mill?", next = "d2_feed2" },
+        { text = "Ray's farm sounds like it's struggling.", next = "d2_feed2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_feed2 = {
+      lines = {
+        { id = "d2_feed2_1", text = "That's what everyone says, but nobody says it loudly, because then they'd have to do something about it. I give the horses a bit less and tell them it's for their figures, and I don't think they believe me." },
+      },
+      choices = {
+        { text = "Horses are smarter than they look.", next = "BACK", reply = "They are! Smarter than me, some days, and they know it too." },
+        { text = "Ask you something else, Wesley.", next = "BACK" },
+      },
+    },
+    d2_thief = {
+      lines = {
+        { id = "d2_thief_1", text = "Once, a man in a black mask, in the middle of the night, who wanted the Magistrate's grey. I hid in the hayloft and threw a bucket at him, and he ran off, and I didn't come down until morning." },
+      },
+      choices = {
+        { text = "You threw a bucket at the Syndicate?", next = "d2_thief2" },
+        { text = "That was brave of you.", next = "d2_thief2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_thief2 = {
+      lines = {
+        { id = "d2_thief2_1", text = "I didn't know it was the Syndicate until afterwards, or I'd have stayed in the hayloft and kept the bucket. Magistrate Maleb was very kind about it and said I'd saved the horse, but I think I mostly saved the bucket's dignity." },
+      },
+      choices = {
+        { text = "Did he catch the thief?", next = "d2_thief3" },
+        { text = "You saved the horse. That counts.", next = "d2_thief3" },
+      },
+    },
+    d2_thief3 = {
+      lines = {
+        { id = "d2_thief3_1", text = "No, the man got clean away up the hill toward Alterac. The Marshal put a lamp over the stable door after that, and I sleep with the bucket now, just in case." },
+      },
+      choices = {
+        { text = "Keep the bucket handy.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_horde = {
+      lines = {
+        { id = "d2_horde_1", text = "You're not? Oh, good. I mean, I believed you, but it's nice to hear it said. The horses are all quite gentle, and so am I, and none of us would be any trouble at all." },
+      },
+      choices = {
+        { text = "I'll take your word on that.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -386,6 +648,9 @@ P:NPC {
         { text = "I'd like to stable a pet.", next = "BUSINESS" },
         { text = "Why so jumpy, Wesley?", next = "jumpy" },
         { text = "How long have you kept the stables?", next = "job" },
+        { text = "What do you feed the horses?", next = "d2_feed" },
+        { text = "Has anyone ever tried to steal from you?", next = "d2_thief" },
+        { text = "I'm not here to hurt anything, Wesley.", next = "d2_horde", when = { faction = "Horde" } },
         { text = "Goodbye, Wesley.", next = "END" },
       },
     },
@@ -445,6 +710,62 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_regulars = {
+      lines = {
+        { id = "d2_regulars_1", text = "Hal McAllister at the corner table, who smells of fish and doesn't care, and Bront the butcher, who plays draughts with him and loses. Loremaster Dibbs comes in for tea and stays for the arguments, and Marshal Redpath comes in when he can't sleep, which is most nights." },
+      },
+      choices = {
+        { text = "What does the Marshal drink?", next = "d2_regulars2" },
+        { text = "Sounds like a friendly crowd.", next = "d2_regulars2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_regulars2 = {
+      lines = {
+        { id = "d2_regulars2_1", text = "Milk, love, warm, with honey in it, because his stomach's gone sour from worry. Don't you tell a soul, mind, because the soldiers think he drinks Southshore Stout like a hero, and I'd not take that from them." },
+      },
+      choices = {
+        { text = "I'll keep his secret.", next = "BACK" },
+        { text = "Ask you something else, Neema.", next = "BACK" },
+      },
+    },
+    d2_stories = {
+      lines = {
+        { id = "d2_stories_1", text = "They do, and I've a jar for the coins I never get. The best one this month was from a lad who swore he saw the Syndicate hauling a boat up onto Sofera's Naze, which is a good way from any water." },
+      },
+      choices = {
+        { text = "Do you believe him?", next = "d2_stories2" },
+        { text = "Soldiers do love a tall tale.", next = "d2_stories2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_stories2 = {
+      lines = {
+        { id = "d2_stories2_1", text = "I believe he saw something, and that he's had a few since. But I told the Lieutenant, because Farren Orinelle likes to know what the lads are saying, and two days later she sent a patrol up there." },
+      },
+      choices = {
+        { text = "And what did they find?", next = "d2_stories3" },
+        { text = "You're a better scout than most.", next = "d2_stories3" },
+      },
+    },
+    d2_stories3 = {
+      lines = {
+        { id = "d2_stories3_1", text = "A camp, and a fight, and no boat, so he's still telling the story but now he tells it as though he planned the patrol himself. That's soldiers for you, love, and I wouldn't change a one of them." },
+      },
+      choices = {
+        { text = "Nor would I.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_ale = {
+      lines = {
+        { id = "d2_ale_1", text = "Southshore Stout, love, and if you've had Thunderbrew it'll seem a bit thin to you, but Brewmeister Bilger will fight you over that. Try a mug, and tell me honestly, because nobody else in this town will." },
+      },
+      choices = {
+        { text = "I'll try a mug.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -461,6 +782,9 @@ P:NPC {
         { text = "What have you got?", next = "BUSINESS" },
         { text = "What's the gossip in town?", next = "gossip" },
         { text = "Is it hard work, keeping this place fed?", next = "work" },
+        { text = "Who are your regulars?", next = "d2_regulars" },
+        { text = "The soldiers tip in stories, you said.", next = "d2_stories" },
+        { text = "Any decent ale in this house?", next = "d2_ale", when = { race = "Dwarf" } },
         { text = "Thanks, Neema.", next = "END" },
       },
     },

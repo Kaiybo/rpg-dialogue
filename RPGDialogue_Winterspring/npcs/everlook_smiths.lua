@@ -55,6 +55,8 @@ P:NPC {
         { text = "What do you think of Seril and Lilith?", next = "rivals" },
         { text = "What does an axesmith learn?", next = "learn", when = { profession = "Blacksmithing" } },
         { text = "How does a troll end up in Everlook?", next = "everlook" },
+        { text = "Who is Malyfous, that he needs three smiths?", next = "malyfous" },
+        { text = "Do you miss the jungle, up here in the snow?", next = "snow" },
         { text = "Later, Kilram.", next = "END" },
       },
     },
@@ -99,6 +101,33 @@ P:NPC {
     everlook = {
       lines = { { id = "ev_default", text = "Da goblins pay good, mon, and dey don't care what color your skin be. Kilram come north for one winter to make a fortune, and dat was a long time ago, and da fortune still be comin'." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    malyfous = {
+      lines = { { id = "ml_default", text = "Malyfous Darkhammer, a Dark Iron dwarf who left his people and came up here to sell da best armor and da best materials in de north. He work for any who pay, mon, and he take orders from de Argent folk in de Plaguelands dat would make a smaller smith cry." } },
+      choices = {
+        { text = "A Dark Iron who left Thaurissan's people?", next = "malyfous2" },
+        { text = "Then Everlook's forge does real work.", next = "malyfous2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    malyfous2 = {
+      lines = { { id = "ml2_default", text = "Dat's what he say, and Kilram believe him, because nobody sane would come to Winterspring by choice unless dey be running from something worse. He hate de Blackrock clan near as much as I hate Vosh'gajin. We get along fine, mon." } },
+      choices = { { text = "Shared enemies make good friends. Something else.", next = "BACK" } },
+    },
+    snow = {
+      lines = { { id = "sn_default", text = "Every morning, mon, when I wake up and my beard be frozen to de pillow. But de snow be good for one thing: it quench a hot axe head better dan any water in Stranglethorn. Da steel come out hard and clean, and Kilram never make better axes dan he make here." } },
+      choices = {
+        { text = "Is that why you stayed?", next = "snow2" },
+        { text = "A troll who likes snow. I've seen everything now.", next = "snow2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    snow2 = {
+      lines = { { id = "sn2_default", text = "Kilram never said he like it, mon, he said it be good for axes. Dat be different. One day when Vosh'gajin be dead and de axes be sold, Kilram go back south where de sun be warm. Until den, de snow and me, we have an arrangement." } },
+      choices = {
+        { text = "I'm Darkspear. The sun misses you too, cousin.", next = "BACK", reply = "Ha! Den you tell de sun Kilram be coming, mon, just not yet.", when = { race = "Troll" } },
+        { text = "Something else, Kilram.", next = "BACK" },
+      },
     },
   },
 
@@ -328,6 +357,8 @@ P:NPC {
         { text = "Why the hammer over the sword or axe?", next = "hammer" },
         { text = "How does a Forsaken end up in Everlook?", next = "everlook" },
         { text = "Do you dance in Undercity too?", next = "uc", when = { race = "Scourge" } },
+        { text = "What's Seril Scourgebane like, from where you stand?", next = "seril" },
+        { text = "Who were you, before the grave?", next = "before" },
         { text = "I'll keep my distance.", next = "END" },
       },
     },
@@ -365,6 +396,40 @@ P:NPC {
     uc = {
       lines = { { id = "uc_default", text = "Never. The Apothecarium would want to measure my knees, and the Royal Guard would write me up for loitering. Down there everyone shuffles, darling, and I'll take the cold up here over the shuffle." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    seril = {
+      lines = { { id = "lssr_default", text = "Seril is a living man who has spent his whole life killing the dead, and now he has to share a forge with one, and he takes it very well, considering. He glares, I smile, and every so often he asks my opinion on a temper, and I give it, and I'm right." } },
+      choices = {
+        { text = "Does he ever threaten you?", next = "seril2" },
+        { text = "You enjoy needling him.", next = "seril2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    seril2 = {
+      lines = { { id = "lssr2_default", text = "Never, darling, which is what makes it such fun. He hates the Scourge with every bone he has, and I hate them with every bone I have left, and we've both decided that's enough to go on. I'd almost call him a friend, though if you tell him, I'll deny it and then hit you." } },
+      choices = {
+        { text = "Mortal enemies make strange forge-mates.", next = "seril3" },
+        { text = "Something else, Lilith.", next = "BACK" },
+      },
+    },
+    seril3 = {
+      lines = { { id = "lssr3_default", text = "They do, and Kilram makes it a set of three. A paladin's man, a troll and a dead woman, all sweating over the same coals for goblin coin. If the Light has a sense of humour, darling, I'm sure it laughs at us every morning." } },
+      choices = { { text = "I'm sure it does. Something else.", next = "BACK" } },
+    },
+    before = {
+      lines = { { id = "bf_default", text = "Somebody's daughter in a town that doesn't exist any more, with a forge-master father who wouldn't let her touch the hammer because it wasn't proper. I picked it up the week after I woke, darling, and I've not put it down since. I like to think it annoys him, wherever he is." } },
+      choices = {
+        { text = "Do you remember the town?", next = "before2" },
+        { text = "Death gave you the hammer, then.", next = "before2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    before2 = {
+      lines = { { id = "bf2_default", text = "The smell of it, a little, and the sound of the forge on a cold morning, which is half the reason I came somewhere cold. The rest is gone, and I don't mourn it. The Crusade burned what the plague left, and I've no wish to go back and count the ashes." } },
+      choices = {
+        { text = "I'm Forsaken. Some memories are better buried.", next = "BACK", reply = "Exactly so, darling. We've buried enough to know which ones stay down.", when = { race = "Scourge" } },
+        { text = "Something else, then.", next = "BACK" },
+      },
     },
   },
 

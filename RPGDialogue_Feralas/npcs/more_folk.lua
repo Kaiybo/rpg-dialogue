@@ -49,7 +49,61 @@ P:NPC {
         { text = "What does enchanting ask of those who learn it?", next = "art" },
         { text = "This seems a lonely place to teach.", next = "island" },
         { text = "Magic should be wielded, not sewn into boots.", next = "wield" },
+        { text = "The Highborne once ruled Eldre'Thalas, across the water.", next = "eldre" },
+        { text = "How does Feathermoon fare these days?", next = "fmoon" },
+        { text = "Mages say your craft is only ours, sewn small.", next = "mage_jab", when = { class = "MAGE" } },
         { text = "Farewell.", next = "END" },
+      },
+    },
+    eldre = {
+      lines = { { id = "eldre_d", text = "They did, and some of them still do, shut up behind their walls in the forest with magic they would not give up even after it broke the world. Every enchanter on this isle can see those ruins on a clear day, and I think that is a good thing for a student." } },
+      choices = {
+        { text = "A warning in stone, then.", next = "eldre_lesson" },
+        { text = "Why would anyone stay behind those walls?", next = "eldre_why" },
+        { text = "Let us speak of something else.", next = "BACK" },
+      },
+    },
+    eldre_lesson = {
+      lines = { { id = "eldre_lesson_d", text = "Yes, and a patient one. The Highborne did not fall because they lacked skill, for they had more of it than any of us; they fell because they never once asked whether they should stop, and that question is the first thing I teach." } },
+      choices = {
+        { text = "Restraint is a hard lesson for the gifted.", next = "BACK", reply = "The hardest, and the gifted learn it last. I have stopped expecting otherwise." },
+        { text = "I'll remember that. Something else.", next = "BACK" },
+      },
+    },
+    eldre_why = {
+      lines = { { id = "eldre_why_d", text = "Hunger, I think, though they would call it preservation. Shandris's scouts say the ogres of the Gordunni have pushed into the outer courts, and still the ones within will not come out, because what they guard matters more to them than their own lives." } },
+      choices = {
+        { text = "Then the ogres may do our work for us.", next = "BACK", reply = "Perhaps, though I would not trust an ogre with anything so dangerous." },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    fmoon = {
+      lines = { { id = "fmoon_d", text = "General Feathermoon keeps the stronghold as a Sentinel keeps a watchfire, and nothing comes ashore that she does not hear of. The Grimtotem hold the east and the ogres the forest, so the hippogryphs never rest and neither, I suspect, does she." } },
+      choices = {
+        { text = "What does an enchanter do for the Sentinels?", next = "fmoon_work" },
+        { text = "It's a hard posting for the Sentinels.", next = "fmoon_hard" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fmoon_work = {
+      lines = { { id = "fmoon_work_d", text = "Less than you might think, and more than they notice. A glaive that never dulls or a boot that never slips on wet stone has saved more of Shandris's Sentinels than any grand enchantment, and I would rather be useful than admired." } },
+      choices = {
+        { text = "Quiet work for a quiet island.", next = "BACK", reply = "Exactly so, and you begin to understand why I chose it." },
+        { text = "I have other questions.", next = "BACK" },
+      },
+    },
+    fmoon_hard = {
+      lines = { { id = "fmoon_hard_d", text = "It is, and they would not thank you for saying so. Our sisters came here because the Horde's camp to the east and the Grimtotem beyond it would take this coast if we left it, and so we do not leave it." } },
+      choices = {
+        { text = "Then I'm glad you stand here.", next = "BACK" },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    mage_jab = {
+      lines = { { id = "mage_jab_d", text = "Some of them say so, and they say it while wearing robes that I or someone like me has bound. A mage casts a spell and it is gone in a breath, but an enchantment stays with its bearer for years, and I know which of the two I would rather answer for." } },
+      choices = {
+        { text = "Fair enough. You've made your point.", next = "BACK", reply = "Then you have learned more than most of your order do in a season." },
+        { text = "Something else, then.", next = "BACK" },
       },
     },
     art = {
@@ -2050,7 +2104,54 @@ P:NPC {
         { text = "Those are yeti hides on your frames.", next = "yeti" },
         { text = "A hide is a hide. The beast is past caring.", next = "respect" },
         { text = "What is the hardest hide to work?", next = "hardest", when = { profession = { "Leatherworking", "Skinning" } } },
+        { text = "Who keeps Camp Mojache standing?", next = "mojache" },
+        { text = "The Woodpaw gnolls must bring you ruined pelts.", next = "woodpaw" },
+        { text = "I take my own kills. What should I keep from them?", next = "hunter_kill", when = { class = "HUNTER" } },
         { text = "Walk with the Earth Mother.", next = "END" },
+      },
+    },
+    mojache = {
+      lines = { { id = "mojache_d", text = "Krueg Skullsplitter leads us, and he is an orc who listens before he strikes, which is rarer than it ought to be. Shyrka Wolfrunner keeps the wind riders, and Innkeeper Greul keeps everyone else fed, and between them this camp has held against the ogres longer than anyone in Orgrimmar expected." } },
+      choices = {
+        { text = "The ogres trouble you here?", next = "mojache_ogres" },
+        { text = "An orc who listens is worth following.", next = "BACK", reply = "He is, and I have told him so, which embarrassed us both." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mojache_ogres = {
+      lines = { { id = "mojache_ogres_d", text = "The Gordunni come out of the hills to the north and west, and they are bolder every season since they took the outer courts of the old elven city. Krueg sends the young ones after their camps, and some of them bring back ogre hide, which is thick and foul and very nearly unworkable." } },
+      choices = {
+        { text = "Very nearly is not quite never.", next = "BACK", reply = "Spoken like a leatherworker, and you are right. I have made a belt of it once, and I will not make another." },
+        { text = "Let us speak of other things.", next = "BACK" },
+      },
+    },
+    woodpaw = {
+      lines = { { id = "woodpaw_d", text = "They do, for a gnoll skins with whatever edge it has to hand and tears more than it cuts. The Woodpaw hold the hills south of the camp, and when the braves bring me what the gnolls left of a beast, I can tell how hungry the pack was by how badly it was done." } },
+      choices = {
+        { text = "Can anything be saved from such a hide?", next = "woodpaw_save" },
+        { text = "You read a pelt like a tracker reads ground.", next = "woodpaw_read" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    woodpaw_save = {
+      lines = { { id = "woodpaw_save_d", text = "Strips and scraps, for lacing and patching, and nothing more. I keep them anyway, because a hide that was wasted once should not be wasted twice, and the young ones need something to practise their stitches on." } },
+      choices = {
+        { text = "Nothing wasted. That's the old way.", next = "BACK", reply = "It is, and the oldest ways are usually the ones that kept us alive." },
+        { text = "Another question, then.", next = "BACK" },
+      },
+    },
+    woodpaw_read = {
+      lines = { { id = "woodpaw_read_d", text = "Every leatherworker who lasts learns to, for the hide tells you how the beast lived and how it died. A clean cut means a hunter who respected it, and I have refused work from those whose hides told me otherwise." } },
+      choices = {
+        { text = "Then I'll make sure my cuts are clean.", next = "BACK", reply = "Do, and bring me what you take. I will tell you the truth about it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hunter_kill = {
+      lines = { { id = "hunter_kill_d", text = "Keep the whole hide whenever you can carry it, for a skinner in the field always cuts too small. And thank the beast before you take your knife to it, {class}, since your companion is watching how you treat its kind." } },
+      choices = {
+        { text = "My pet's never complained.", next = "BACK", reply = "Beasts rarely do. That is why we must remember for them." },
+        { text = "I'll remember. Something else.", next = "BACK" },
       },
     },
     here = {

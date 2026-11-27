@@ -226,6 +226,53 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d2_errands = {
+      lines = {
+        { id = "d2_errands_1", text = "Everywhere a message can be carried, and a great many places where it needn't be. She takes my letters to the Magic Quarter, my laundry to the canals and my insults to Father Lankester, and she has never once been late or asked me why." },
+      },
+      choices = {
+        { text = "Does anyone stop her?", next = "d2_errands2" },
+        { text = "You use her like a footman.", next = "d2_errands2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_errands2 = {
+      lines = {
+        { id = "d2_errands2_1", text = "The royal guards stopped her once on the bridge, because a living woman walking alone in the Undercity is either lost or a spy. She stood there in silence until they sent for me, and I've never enjoyed explaining anything so much in my life." },
+      },
+      choices = {
+        { text = "And they let her go?", next = "BACK", reply = "They did, and now they nod to her on the bridge, which she doesn't notice. I notice for her." },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    d2_society = {
+      lines = {
+        { id = "d2_society_1", text = "Of course they do, since nothing in this city happens without the Apothecarium sniffing at it. One of Faranell's chemists came to watch Theresa for an afternoon and took notes, and asked whether the method could be done to a hundred at once." },
+      },
+      choices = {
+        { text = "And could it?", next = "d2_society2" },
+        { text = "That's an ugly question.", next = "d2_society2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_society2 = {
+      lines = {
+        { id = "d2_society2_1", text = "Not by me, and I told him so, because I'm an artist and not a factory. They have their own plans for the living, and theirs involve barrels, and I find it all rather crude by comparison." },
+      },
+      choices = {
+        { text = "Crude, coming from you.", next = "BACK", reply = "I know. I enjoy being the refined one for once." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_human = {
+      lines = {
+        { id = "d2_human_1", text = "She looks at everyone like that, and it means nothing, I assure you. There's no one left in there to know you, only the habit of looking, which I've kept because it unsettles people so nicely." },
+      },
+      choices = {
+        { text = "I don't believe you.", next = "BACK", reply = "Nobody does, the first time. Come back in a month and see whether she remembers your face." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Gerard Abernathy. The woman with the empty eyes is Theresa, and she is mine in a way that no spell of the ordinary sort could make her, because she will stay so whether I'm attending to her or not." },
@@ -240,6 +287,9 @@ P:NPC {
         { text = "Father Lankester doesn't care for you.", next = "lankester" },
         { text = "A dominated mind always slips free. How?", next = "priest", when = { class = { "PRIEST", "WARLOCK" } } },
         { text = "This is vile, Abernathy.", next = "vile" },
+        { text = "Where do you send her, on these errands?", next = "d2_errands" },
+        { text = "Does the Royal Apothecary Society know of this?", next = "d2_society" },
+        { text = "She looked at me just now as if she knew me.", next = "d2_human", when = { race = "Human" } },
         { text = "I've seen enough.", next = "END" },
       },
     },

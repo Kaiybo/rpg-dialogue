@@ -1229,7 +1229,54 @@ P:NPC {
         { text = "Who do you answer to?", next = "master" },
         { text = "How does Teldrassil fare?", next = "tree" },
         { text = "Are you a Sentinel too?", next = "sentinel" },
+        { text = "What do you guard against, in a city of elves?", next = "dp_against" },
+        { text = "Do you remember the forest before the tree?", next = "dp_before" },
         { text = "I'll leave you to your grove.", next = "END" },
+      },
+    },
+    dp_against = {
+      lines = {
+        { id = "dp_against_1", text = "Hmmm, against haste, mostly, little one, and against those who would break a branch to save a few steps. Fire too, though no one has brought fire into the Enclave in my keeping, and I mean to keep it so." },
+      },
+      choices = {
+        { text = "Haste is an enemy?", next = "dp_haste" },
+        { text = "I'd never bring fire here.", next = "BACK", reply = "Hmmm, good. Then we shall be friends, slowly." },
+      },
+    },
+    dp_haste = {
+      lines = {
+        { id = "dp_haste_1", text = "Hmmm, yes, for haste breaks more than any axe. The young elves run across the moss and crush the seedlings, and the outlanders run faster still, and I must stand very still and very large in their way." },
+      },
+      choices = {
+        { text = "Standing still as a defence. That's very treant.", next = "dp_still" },
+        { text = "I'll walk more slowly here.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    dp_still = {
+      lines = {
+        { id = "dp_still_1", text = "Hmmm, it is the only defence I know, and it has served me well. Even the Arch Druid walks around me, though he is often in a hurry these days, and I do not know why." },
+      },
+      choices = {
+        { text = "Fandral Staghelm is in a hurry?", next = "BACK", reply = "Hmmm, he is always in a hurry, little one, for a druid." },
+        { text = "Something else, old one.", next = "BACK" },
+      },
+    },
+    dp_before = {
+      lines = {
+        { id = "dp_before_1", text = "Hmmm, no, for I was only a sapling when the druids raised this great tree, and I remember only the sea and the roots. But the older ancients remember Nordrassil, and they say this tree is younger and more restless." },
+      },
+      choices = {
+        { text = "Restless? In what way?", next = "dp_rest" },
+        { text = "I'm a druid. I feel it too.", next = "dp_rest", when = { class = "DRUID" } },
+      },
+    },
+    dp_rest = {
+      lines = {
+        { id = "dp_rest_1", text = "Hmmm, its roots do not sleep as deeply as they should, and there are creatures in the lower boughs that I do not like. The Gnarlpine furbolgs were gentle once, and now they are not, and I do not know why." },
+      },
+      choices = {
+        { text = "The Gnarlpine have gone mad?", next = "BACK", fx = { learn = { "furbolgs" } } },
+        { text = "A restless tree. That's worrying. Something else.", next = "BACK" },
       },
     },
     what = {

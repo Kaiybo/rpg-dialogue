@@ -197,6 +197,8 @@ P:NPC {
         { text = "What does the mountain give a crafter?", next = "mountain" },
         { text = "I'm no crafter. Should I learn something?", next = "learn", when = { maxLevel = 30 } },
         { text = "Show me your supplies.", next = "BUSINESS" },
+        { text = "Who else trades here on Sun Rock?", next = "neighbours" },
+        { text = "The Venture Company must make your work harder.", next = "venture" },
         { text = "Earth Mother keep you.", next = "END" },
       },
     },
@@ -272,6 +274,33 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    neighbours = {
+      lines = { { id = "nb_default", text = "Krond the butcher, who is loud enough to be heard in Thunder Bluff, and Borand, who makes bows and says very little. Gereck keeps the beasts, and Jayka keeps the inn. We are few, so we lean on one another the way tent poles do." } },
+      choices = {
+        { text = "An orc butcher and an orc bowyer among tauren?", next = "neighbours2" },
+        { text = "A small camp needs every pole.", next = "neighbours2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    neighbours2 = {
+      lines = { { id = "nb2_default", text = "The Horde sent who it could spare, and Maggran Earthbinder took them gladly. Krond teases us about thanking the beasts, and then I see him lower his head over a goat when he thinks nobody is looking. We are learning one another." } },
+      choices = { { text = "That's good to hear. Something else.", next = "BACK" } },
+    },
+    venture = {
+      lines = { { id = "vn_default", text = "It does. They cut the old trees at Windshear Crag faster than any forest could grow them back, and the wood I would have bought for rods goes into their mills instead. The traders from Thunder Bluff must come by Talondeep Path now, because the goblins watch the other roads." } },
+      choices = {
+        { text = "Does Sun Rock fight them?", next = "venture2" },
+        { text = "The goblins only see coin in a tree.", next = "venture2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    venture2 = {
+      lines = { { id = "vn2_default", text = "Maggran sends braves when he can, and the night elves at the Peak fight them too, in their own way. It is strange to share an enemy with the Sentinels and not a single word, but the mountain does not care which of us saves it." } },
+      choices = {
+        { text = "I'm an enchanter. I'll look for good wood on the way.", next = "BACK", reply = "Then bring me ash from above the tree line, and I will turn it into rods for Hgarth's students.", when = { profession = "Enchanting" } },
+        { text = "Something else, Kulwia.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -329,6 +358,8 @@ P:NPC {
         { text = "What's this about the tauren?", next = "tauren" },
         { text = "Any harpy on the menu?", next = "harpy" },
         { text = "Let me see what you've got.", next = "BUSINESS" },
+        { text = "How did an orc butcher end up on a tauren mountain?", next = "how" },
+        { text = "Mirkfallon Lake. What's it like down there?", next = "lake" },
         { text = "I'm not hungry. Farewell.", next = "END" },
       },
     },
@@ -383,6 +414,44 @@ P:NPC {
         { text = "Fair. I won't bring you any.", next = "BACK", fx = { affinity = 1 } },
         { text = "Farewell, Krond.", next = "END" },
       },
+    },
+    how = {
+      lines = { { id = "hw_default", text = "Walked, mostly. I cooked for a warband in the Barrens until my knees went, and the warchief's people said Sun Rock needed someone who could feed braves on what the mountain gives. Nobody said the mountain gives mostly goat." } },
+      choices = {
+        { text = "Do you miss the warband?", next = "how2" },
+        { text = "A camp can't fight hungry.", next = "how2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    how2 = {
+      lines = { { id = "hw2_default", text = "I miss the noise of it, and the stories round the fire, but I don't miss the marching. Up here the braves come back with goats and tales about harpies, and Maggran lets me sit in when they talk about the Venture Company. It's a warband, just a slower one." } },
+      choices = {
+        { text = "And the tauren? Do they eat your cooking?", next = "how3" },
+        { text = "Something else, Krond.", next = "BACK" },
+      },
+    },
+    how3 = {
+      lines = { { id = "hw3_default", text = "They eat it, and they thank the goat first, and then they ask for seconds, so I've stopped minding the thanking. Tammra Windfield says I have a tauren's heart in an orc's belly, which I think was a compliment." } },
+      choices = { { text = "It sounds like one. Something else.", next = "BACK" } },
+    },
+    lake = {
+      lines = { { id = "lk_default", text = "Pretty, cold and full of fish that bite back. The quail nest in the reeds by the shore, and the Venture Company has started dumping something from their mills into the streams that run toward it. The fish taste of oil now, and I won't sell them." } },
+      choices = {
+        { text = "Has anyone told Maggran about the streams?", next = "lake2" },
+        { text = "Oil in the water poisons everything downstream.", next = "lake2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lake2 = {
+      lines = { { id = "lk2_default", text = "I told him the day I tasted it, and he went very quiet, which with Maggran means he's angry. He's sent word to the druids, and I'm told the night elves at the Peak are just as unhappy, which is the first thing we've agreed on." } },
+      choices = {
+        { text = "I'm tauren. The water's sacred to us.", next = "lake3", when = { race = "Tauren" } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    lake3 = {
+      lines = { { id = "lk3_default", text = "So Kulwia tells me, and so I'm learning. Go and see Maggran, then, and tell him a tauren wants the streams clean as badly as an orc wants his fish. Between the two of us, maybe he'll send more braves." } },
+      choices = { { text = "I'll speak to him. Something else.", next = "BACK" } },
     },
   },
 
@@ -440,6 +509,8 @@ P:NPC {
         { text = "What makes a good bow up here?", next = "wood" },
         { text = "Who buys from you?", next = "buyers" },
         { text = "Let me see your stock.", next = "BUSINESS" },
+        { text = "What makes a harpy hard to shoot?", next = "harpies" },
+        { text = "You said there's no smith here. Why not?", next = "smith" },
         { text = "Farewell, Borand.", next = "END" },
       },
     },
@@ -492,6 +563,44 @@ P:NPC {
         { text = "Serves them right.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Farewell, Borand.", next = "END" },
       },
+    },
+    harpies = {
+      lines = { { id = "hp_default", text = "They don't fly straight, for one, and they scream just before they dive, which makes a young archer flinch. The Bloodfury hold the Charred Vale and the cliffs to the south, and they're cleverer than they look, which isn't saying much." } },
+      choices = {
+        { text = "How do you teach someone not to flinch?", next = "harpies2" },
+        { text = "Clever enough to wait for the scream?", next = "harpies2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    harpies2 = {
+      lines = { { id = "hp2_default", text = "You don't teach it, you wear it out of them. I take the young braves to the rocks above the camp and let them get screamed at until it's just noise, and then they shoot. The ones who still flinch after a week go back to the axe." } },
+      choices = {
+        { text = "I'm a hunter. The scream doesn't bother me.", next = "harpies3", when = { class = "HUNTER" } },
+        { text = "Something else, Borand.", next = "BACK" },
+      },
+    },
+    harpies3 = {
+      lines = { { id = "hp3_default", text = "Good, then aim low, because they always drop a little before they strike. Take a bundle of my heavy arrows if you're going into the vale, and bring back any of their feathers that aren't too bloody. They fletch well, which is the one useful thing about a harpy." } },
+      choices = { { text = "Aim low. Something else.", next = "BACK" } },
+    },
+    smith = {
+      lines = { { id = "sm_default", text = "Because no smith worth his anvil wants to haul it up a mountain, and the tauren here never needed one. Iron comes up from Thunder Bluff when there's room on the kodo, and I make do with leather and wood and a lot of cursing." } },
+      choices = {
+        { text = "So you mend armour by cursing at it?", next = "smith2" },
+        { text = "A bowyer who mends armour is a rare thing.", next = "smith2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    smith2 = {
+      lines = { { id = "sm2_default", text = "Cursing and rivets, and the rivets do most of it. A grunt from the Barrens once walked up here with his chest plate split down the front, and I sewed it back together with kodo leather and wire. He's still alive, so I call it a success, though it looked terrible." } },
+      choices = {
+        { text = "Alive and terrible beats dead and handsome.", next = "smith3" },
+        { text = "Something else, Borand.", next = "BACK" },
+      },
+    },
+    smith3 = {
+      lines = { { id = "sm3_default", text = "That's what I told him, and he laughed and paid double. If the Horde ever sends a real smith up here, I'll gladly go back to bows and nothing else. Until then, bring me whatever's broken, and don't expect it pretty." } },
+      choices = { { text = "Not pretty. Something else.", next = "BACK" } },
     },
   },
 

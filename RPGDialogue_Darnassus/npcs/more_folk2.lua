@@ -187,7 +187,45 @@ P:NPC {
         { text = "Has anyone ever cheated the house?", next = "cheat" },
         { text = "What's my craft's work fetching, of late?", next = "xcraft", when = { profession = { "Enchanting", "Alchemy", "Tailoring", "Leatherworking" } } },
         { text = "I can read a ledger from any side.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "How long have you kept the house's columns?", next = "go_long" },
+        { text = "Do Tolon and Cazarez ever trouble your counting?", next = "go_others" },
         { text = "I'll leave you to your columns.", next = "END" },
+      },
+    },
+    go_long = {
+      lines = {
+        { id = "go_long_1", text = "Since the house opened, which was soon after the tree was raised. The figures have changed a great deal, for now we sell to dwarves and humans, but the method has not." },
+      },
+      choices = {
+        { text = "What has changed in the figures?", next = "go_changed" },
+        { text = "A long service. Your columns must be very full.", next = "BACK", reply = "Very full, and very orderly." },
+      },
+    },
+    go_changed = {
+      lines = {
+        { id = "go_changed_1", text = "Linen and iron, which we never sold before, and far less moonwell water, which we once sold every day. The outlanders want what they carry home, and the kaldorei buy less than they did, for many have gone to Ashenvale and Darkshore." },
+      },
+      choices = {
+        { text = "Fewer elves in Darnassus, then?", next = "BACK", reply = "Fewer, and more outlanders, and the columns show both." },
+        { text = "Something else, Golothas.", next = "BACK" },
+      },
+    },
+    go_others = {
+      lines = {
+        { id = "go_others_1", text = "Tolon troubles no one, for he speaks only when a quarrel requires it. Cazarez troubles everyone, for he talks to every buyer for an hour and then forgets to write down what they paid." },
+      },
+      choices = {
+        { text = "And you correct his columns?", next = "go_correct" },
+        { text = "I'm a rogue. I'd guess he forgets on purpose.", next = "go_correct", when = { class = "ROGUE" } },
+      },
+    },
+    go_correct = {
+      lines = {
+        { id = "go_correct_1", text = "I do, every evening, and he thanks me for it as if I had given him a gift. I do not mind, for his talk brings in buyers and my columns keep them, and the house prospers from both." },
+      },
+      choices = {
+        { text = "A good partnership, then.", next = "BACK" },
+        { text = "Something else, Golothas.", next = "BACK" },
       },
     },
     count = {
@@ -310,7 +348,45 @@ P:NPC {
         { text = "You're not like the other two.", next = "other" },
         { text = "Ironforge does have a river of fire.", next = "xdwarf", when = { race = { "Dwarf", "Gnome" } } },
         { text = "Have you ever left the tree?", next = "left" },
+        { text = "What have you learned about the dwarves?", next = "cz_dwarves" },
+        { text = "Do the Sentinels ever sell through the house?", next = "cz_sentinels" },
         { text = "Until next time, Cazarez.", next = "END" },
+      },
+    },
+    cz_dwarves = {
+      lines = {
+        { id = "cz_dwarves_1", text = "That they love stone and ale and argument, and that they will argue about the price of a gem for an hour and then buy it gladly. I like them very much, though Golothas finds them exhausting." },
+      },
+      choices = {
+        { text = "And the humans?", next = "cz_humans" },
+        { text = "I'm a dwarf. We argue because we care.", next = "cz_humans", when = { race = "Dwarf" } },
+      },
+    },
+    cz_humans = {
+      lines = {
+        { id = "cz_humans_1", text = "The humans are quicker and less patient, and they always want to know what a thing is worth in Stormwind. I have begun to keep a list of Stormwind prices, so that I can tell them, and they are always surprised." },
+      },
+      choices = {
+        { text = "Clever of you.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Cazarez.", next = "BACK" },
+      },
+    },
+    cz_sentinels = {
+      lines = {
+        { id = "cz_sentinels_1", text = "Rarely, for they are too busy guarding the forests, but now and then a huntress sells a pelt or a fang she has no use for. The pelts from Ashenvale fetch the most, for the outlanders like to say they own something from the war." },
+      },
+      choices = {
+        { text = "What war?", next = "cz_war" },
+        { text = "Ashenvale pelts sound like fine goods.", next = "BACK" },
+      },
+    },
+    cz_war = {
+      lines = {
+        { id = "cz_war_1", text = "The orcs in Ashenvale, cutting the forest for their camps and their machines. The Sentinels fight them every day, and the pelts they bring home have often been taken from the wolves the orcs ride." },
+      },
+      choices = {
+        { text = "That's a grim trophy.", next = "BACK", fx = { learn = { "warsong" } } },
+        { text = "Something else, Cazarez.", next = "BACK" },
       },
     },
     collect = {
@@ -699,7 +775,45 @@ P:NPC {
         { text = "Who made these, if not you?", next = "made" },
         { text = "What should a beginner carry?", next = "xyoung", when = { maxLevel = 20 } },
         { text = "What's simplest for someone who isn't a fighter?", next = "xpriest", when = { class = { "PRIEST", "DRUID", "MAGE", "WARLOCK" } } },
+        { text = "Who on the terrace sells the finest blades?", next = "ki_finest" },
+        { text = "Do outlanders buy differently than kaldorei?", next = "ki_outlanders" },
         { text = "Good day, Kieran.", next = "END" },
+      },
+    },
+    ki_finest = {
+      lines = {
+        { id = "ki_finest_1", text = "Merelyssa, for blades, and she'll tell you so herself, and Glorandiir for axes, though he sells few of them here. Ealyshia's two-handed swords are the grandest, but they take a strong arm, and most of my customers prefer something lighter." },
+      },
+      choices = {
+        { text = "Glorandiir sells few axes?", next = "ki_axes" },
+        { text = "You know your rivals well.", next = "BACK", reply = "They're my neighbours, and I like them, so I should." },
+      },
+    },
+    ki_axes = {
+      lines = {
+        { id = "ki_axes_1", text = "The kaldorei have never been fond of axes, for they remember the woodcutters and what they did to the forest. Glorandiir sells mostly to dwarves and to the Sentinels, who use them only on what has to be cut." },
+      },
+      choices = {
+        { text = "A weapon with a bad history.", next = "BACK" },
+        { text = "Something else, Kieran.", next = "BACK" },
+      },
+    },
+    ki_outlanders = {
+      lines = {
+        { id = "ki_outlanders_1", text = "They buy heavier, for they're used to fighting things that hit hard, and they always ask if a blade has been blessed. The kaldorei buy lighter and never ask, for they assume the blessing comes with the elf who wields it." },
+      },
+      choices = {
+        { text = "Do you bless your blades?", next = "ki_bless" },
+        { text = "I'm a paladin. A blessing helps.", next = "ki_bless", when = { class = "PALADIN" } },
+      },
+    },
+    ki_bless = {
+      lines = {
+        { id = "ki_bless_1", text = "I do not, but the priestesses of the Temple will, if you ask them kindly and bring an offering. I tell the outlanders that, and they go off to the Temple happier than if I had blessed the blade myself." },
+      },
+      choices = {
+        { text = "Send them to the Temple. Sensible.", next = "BACK" },
+        { text = "Something else, Kieran.", next = "BACK" },
       },
     },
     rivals = {
@@ -822,7 +936,45 @@ P:NPC {
         { text = "Is throwing a serious art, or a sport?", next = "sport" },
         { text = "How do I balance my own knives?", next = "xrogue", when = { class = { "ROGUE", "WARRIOR", "HUNTER" } } },
         { text = "Dwarves throw hammers. It's true.", next = "xdwarf", when = { race = "Dwarf" } },
+        { text = "Who are your best customers?", next = "tu_customers" },
+        { text = "Do the Sentinels ever practise with you?", next = "tu_sentinels" },
         { text = "Throw true, Turian.", next = "END" },
+      },
+    },
+    tu_customers = {
+      lines = {
+        { id = "tu_customers_1", text = "The young rogues from Anishar's training, and the hunters who want a quick weapon for close quarters. And now and then a dwarf, who always asks if I have hammers, and then buys a throwing axe instead." },
+      },
+      choices = {
+        { text = "Anishar sends you students?", next = "tu_anishar" },
+        { text = "Dwarves and throwing axes. That fits.", next = "BACK" },
+      },
+    },
+    tu_anishar = {
+      lines = {
+        { id = "tu_anishar_1", text = "He does, for he says a rogue who can throw a knife is a rogue who can get away. I teach them to hit the knot on the far wall, and the ones who can are welcome back, and the ones who can't buy more knives." },
+      },
+      choices = {
+        { text = "A good business model.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Turian.", next = "BACK" },
+      },
+    },
+    tu_sentinels = {
+      lines = {
+        { id = "tu_sentinels_1", text = "Sometimes, at the end of the day, when the terrace is quiet, and they throw their glaives and I throw my knives. They always win, for a glaive is a terrible weapon, but they let me try, and I learn something every time." },
+      },
+      choices = {
+        { text = "What have you learned from them?", next = "tu_learn" },
+        { text = "I'm a night elf. I've seen the glaive at work.", next = "tu_learn", when = { race = "NightElf" } },
+      },
+    },
+    tu_learn = {
+      lines = {
+        { id = "tu_learn_1", text = "That balance is everything, and that the throw begins in the hip and not the arm. Sentinel Dalia Sunblade showed me that, and I have been a better thrower since, though I will never be as good as she is." },
+      },
+      choices = {
+        { text = "Balance and the hip. I'll remember.", next = "BACK" },
+        { text = "Something else, Turian.", next = "BACK" },
       },
     },
     knot = {
@@ -1080,7 +1232,45 @@ P:NPC {
         { text = "How do you and Andrus divide the trade?", next = "andrus" },
         { text = "Which mace would the Temple choose for me?", next = "xpriest", when = { class = "PRIEST" } },
         { text = "Our paladins carry the hammer as holy.", next = "xpala", when = { class = "PALADIN" } },
+        { text = "Do the druids buy your staves?", next = "my_druids" },
+        { text = "What do the priestesses fight, with a mace?", next = "my_fight" },
         { text = "Elune light your way, Mythidan.", next = "END" },
+      },
+    },
+    my_druids = {
+      lines = {
+        { id = "my_druids_1", text = "Some do, though most go to Andrus, who sells staves carved from fallen branches of the great tree. I sell the working staff, the kind a druid leans on when he walks, and a druid walks a great deal." },
+      },
+      choices = {
+        { text = "Fallen branches of Teldrassil?", next = "my_branches" },
+        { text = "A walking staff is a quiet weapon.", next = "BACK" },
+      },
+    },
+    my_branches = {
+      lines = {
+        { id = "my_branches_1", text = "Only those the tree lets fall, for it is forbidden to cut from it. Andrus gathers them after the storms and carves them slowly, and he says each one remembers where it grew, though I have never heard one speak." },
+      },
+      choices = {
+        { text = "That's a beautiful custom.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Mythidan.", next = "BACK" },
+      },
+    },
+    my_fight = {
+      lines = {
+        { id = "my_fight_1", text = "Satyrs in Ashenvale, and the corrupted creatures of Darkshore, and anything else that threatens the Temple's work. A mace does not cut, so it does not spill blood on holy ground, which matters to the Sisters of Elune." },
+      },
+      choices = {
+        { text = "Holy ground matters to you too?", next = "my_holy" },
+        { text = "I'm a priest. The Temple's way is wise.", next = "my_holy", when = { class = "PRIEST" } },
+      },
+    },
+    my_holy = {
+      lines = {
+        { id = "my_holy_1", text = "Everything in Darnassus is holy ground, in its way, for the tree is a gift from the Dream. I sell my maces to those who understand that, and I ask the others to take their swords outside the city." },
+      },
+      choices = {
+        { text = "A gentle rule.", next = "BACK" },
+        { text = "Something else, then.", next = "BACK" },
       },
     },
     edge = {
@@ -1606,7 +1796,45 @@ P:NPC {
         { text = "What do outlanders make of our dress?", next = "outl" },
         { text = "Show me those gloves with the doubled weave.", next = "xpriest", when = { class = "PRIEST" } },
         { text = "You'd sell to me without a single question?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "How do you choose your colours?", next = "vi_colours" },
+        { text = "Who buys from you, most often?", next = "vi_buys" },
         { text = "Good day, Vinasia.", next = "END" },
+      },
+    },
+    vi_colours = {
+      lines = {
+        { id = "vi_colours_1", text = "From the moon and the forest, mostly, silver and violet and deep green. The outlanders want brighter colours, red and gold, and I sell them those too, but I keep the kaldorei colours on the top shelf." },
+      },
+      choices = {
+        { text = "Why the top shelf?", next = "vi_shelf" },
+        { text = "I prefer the kaldorei colours myself.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    vi_shelf = {
+      lines = {
+        { id = "vi_shelf_1", text = "Because they are the first thing a customer sees, and I want them to see what is truly ours. The red and gold are fine for a feast in Stormwind, but they would look strange in the Temple of the Moon." },
+      },
+      choices = {
+        { text = "Colours for the place you wear them. Wise.", next = "BACK" },
+        { text = "Something else, Vinasia.", next = "BACK" },
+      },
+    },
+    vi_buys = {
+      lines = {
+        { id = "vi_buys_1", text = "The young priestesses, who need gloves and slippers for their duties, and the mages from Elissa Dumas's portal, who want to look learned. And the outlanders, who want to look like kaldorei, which is a compliment I take gladly." },
+      },
+      choices = {
+        { text = "Mages from the portal trainer?", next = "vi_mages" },
+        { text = "I'm a mage. What would you suggest?", next = "vi_mages", when = { class = "MAGE" } },
+      },
+    },
+    vi_mages = {
+      lines = {
+        { id = "vi_mages_1", text = "A mantle with a high collar and gloves that do not catch the light, for a mage must be seen and not distracted. Elissa herself buys from me, and she has very particular taste, so I take her opinion seriously." },
+      },
+      choices = {
+        { text = "High collar, no shine. Noted.", next = "BACK" },
+        { text = "Something else, Vinasia.", next = "BACK" },
       },
     },
     company = {
@@ -1730,7 +1958,45 @@ P:NPC {
         { text = "Who buys the old robes now?", next = "buys" },
         { text = "Could you close the collar for me?", next = "xhuman", when = { race = { "Human", "Gnome", "Dwarf" } } },
         { text = "Remind me of the drape, then.", next = "xnelf", when = { race = "NightElf" } },
+        { text = "How long does a robe take to make?", next = "an_long" },
+        { text = "What do the priestesses wear for ceremony?", next = "an_ceremony" },
         { text = "Elune-adore, Anadyia.", next = "END" },
+      },
+    },
+    an_long = {
+      lines = {
+        { id = "an_long_1", text = "A season, if it is made properly, for the weave must be fine and the drape must be true. Trianna makes hers in a week, and they look it, though she would say they are lighter and easier to wear." },
+      },
+      choices = {
+        { text = "Is she wrong?", next = "an_wrong" },
+        { text = "A season for one robe. That's devotion.", next = "BACK", reply = "It is the only way I know." },
+      },
+    },
+    an_wrong = {
+      lines = {
+        { id = "an_wrong_1", text = "Not wrong, only hasty, which is the outlanders' fault for wanting everything at once. I will not change my patterns, but I will admit, quietly, that her robes sell faster than mine." },
+      },
+      choices = {
+        { text = "Your secret's safe.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Anadyia.", next = "BACK" },
+      },
+    },
+    an_ceremony = {
+      lines = {
+        { id = "an_ceremony_1", text = "White and silver, with a hood drawn low, for the moon sees the face and not the robe. Priestess A'moora has worn one of mine for longer than the city has stood, and she says it has never once lost its drape." },
+      },
+      choices = {
+        { text = "A'moora is one of your customers?", next = "an_amoora" },
+        { text = "I'm a priest. I'd like such a robe.", next = "an_amoora", when = { class = "PRIEST" } },
+      },
+    },
+    an_amoora = {
+      lines = {
+        { id = "an_amoora_1", text = "My oldest and dearest, and she comes every spring to have the hem mended. She tells me the stories of the Temple while I sew, and I have learned more of Elune from her than from any priestess in the city." },
+      },
+      choices = {
+        { text = "That's a fine friendship.", next = "BACK" },
+        { text = "Something else, then.", next = "BACK" },
       },
     },
     pattern = {
@@ -1855,7 +2121,45 @@ P:NPC {
         { text = "Who makes your bags?", next = "makes" },
         { text = "How should a gatherer pack?", next = "xgather", when = { profession = { "Herbalism", "Mining", "Skinning" } } },
         { text = "What's wrong with a strap on the bias?", next = "xtailor", when = { profession = "Tailoring" } },
+        { text = "What makes a good bag?", next = "yl_good" },
+        { text = "What's the strangest thing someone carried in your bag?", next = "yl_strange" },
         { text = "Good day, Yldan.", next = "END" },
+      },
+    },
+    yl_good = {
+      lines = {
+        { id = "yl_good_1", text = "A strong seam, a good strap, and a closure that does not open when you are hanging upside down from a tree. Most bags have the first two, and few have the third, which is why I make my own." },
+      },
+      choices = {
+        { text = "Why would someone hang upside down?", next = "yl_upside" },
+        { text = "A strong seam is the heart of it.", next = "BACK", reply = "It is, and few understand that." },
+      },
+    },
+    yl_upside = {
+      lines = {
+        { id = "yl_upside_1", text = "The Sentinels do it often, when they are watching from the boughs, and the young druids do it by accident. I have seen more coins fall from a careless bag than I could ever count, and most of them in Rut'theran." },
+      },
+      choices = {
+        { text = "Rut'theran must be full of lost coins.", next = "BACK" },
+        { text = "Something else, Yldan.", next = "BACK" },
+      },
+    },
+    yl_strange = {
+      lines = {
+        { id = "yl_strange_1", text = "A live owl, once, which a druid insisted was only resting, and a bag of furbolg teeth that a huntress sold me back with the bag. The owl was fine, and the teeth I gave to the Enclave, for they said the furbolgs had gone wrong somehow." },
+      },
+      choices = {
+        { text = "The furbolgs have gone wrong?", next = "yl_furbolg" },
+        { text = "I'm a druid. I'd not carry an owl in a bag.", next = "yl_furbolg", when = { class = "DRUID" } },
+      },
+    },
+    yl_furbolg = {
+      lines = {
+        { id = "yl_furbolg_1", text = "So the Enclave says, the Gnarlpine near Dolanaar most of all. They were a gentle people, once, and now they attack travellers, and the druids are trying to learn why." },
+      },
+      choices = {
+        { text = "I'll keep my bags shut near Dolanaar.", next = "BACK", fx = { learn = { "furbolgs" } } },
+        { text = "Something else, then.", next = "BACK" },
       },
     },
     character = {
@@ -2397,7 +2701,45 @@ P:NPC {
         { text = "How is the Enclave, these days?", next = "enclave" },
         { text = "I have been raising the fallen often.", next = "xdruid", when = { class = { "DRUID", "PRIEST", "PALADIN" } } },
         { text = "The lower shelf, out of his sight?", next = "xmage", when = { class = { "MAGE", "WARLOCK" } } },
+        { text = "Which reagent is hardest to come by?", next = "cy_hard" },
+        { text = "Do the students make many mistakes?", next = "cy_students" },
         { text = "Walk with the forest, Cyroen.", next = "END" },
+      },
+    },
+    cy_hard = {
+      lines = {
+        { id = "cy_hard_1", text = "Wild thornroot, for it grows only in the oldest groves and must be gathered at the right moon. The druids of the Enclave send students to Teldrassil's edges for it, and they come back muddy and pleased with themselves." },
+      },
+      choices = {
+        { text = "Do they find enough?", next = "cy_enough" },
+        { text = "The right moon? That's a tall order.", next = "BACK" },
+      },
+    },
+    cy_enough = {
+      lines = {
+        { id = "cy_enough_1", text = "Rarely, for the groves are shrinking, or so the druids say. Something troubles the tree's roots, and the thornroot does not grow as it once did, which worries me more than I let my customers see." },
+      },
+      choices = {
+        { text = "I'll gather some if I can.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something troubles the tree. Something else.", next = "BACK" },
+      },
+    },
+    cy_students = {
+      lines = {
+        { id = "cy_students_1", text = "Many, and I forgive them all, for a mistake with a reagent is only a small promise broken. Denatharion's students come to me in tears when they have wasted a seed, and I give them another and tell them to be more careful." },
+      },
+      choices = {
+        { text = "You're a kind teacher.", next = "cy_kind" },
+        { text = "I'm a druid. I've wasted seeds myself.", next = "cy_kind", when = { class = "DRUID" } },
+      },
+    },
+    cy_kind = {
+      lines = {
+        { id = "cy_kind_1", text = "I am only a supplier, but a supplier can be kind. Fylerian Nightwing scolds them, and I comfort them, and between us they become druids, which is all either of us wants." },
+      },
+      choices = {
+        { text = "A good balance.", next = "BACK" },
+        { text = "Something else, Cyroen.", next = "BACK" },
       },
     },
     promise = {

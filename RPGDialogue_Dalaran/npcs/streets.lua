@@ -502,6 +502,41 @@ Critter {
     { id = "g_back", when = { metBefore = true }, text = "*Butterscotch changes course without breaking stride and loops once around your ankles, then carries on as if she meant to all along.*" },
   },
   nodes = {
+    but_gh1 = {
+      lines = {
+        { id = "but_gh1_1", text = "*Butterscotch leads you into the warm, green air of the Magus Commerce Exchange greenhouse, threading between the clay pots without touching a single leaf.*" },
+      },
+      choices = {
+        { text = "Kneel down beside her among the ferns.", next = "but_gh2" },
+        { text = "Leave her to her garden.", next = "BACK" },
+      },
+    },
+    but_gh2 = {
+      lines = {
+        { id = "but_gh2_1", text = "*She settles into a patch of soft earth under the ferns as if it has her shape pressed into it, which it plainly does. A gardener's glove lies nearby with ginger hairs all over it.*" },
+      },
+      choices = {
+        { text = "So this is your spot.", next = "BACK" },
+      },
+    },
+    but_st1 = {
+      lines = {
+        { id = "but_st1_1", text = "*Butterscotch pauses at three doorsteps in a row, sniffing each one carefully, and only at the third does she sit and wait.*" },
+      },
+      choices = {
+        { text = "Knock on the third door for her.", next = "but_st2" },
+        { text = "Wait beside her on the step.", next = "but_st2" },
+        { text = "Let her get on with her rounds.", next = "BACK" },
+      },
+    },
+    but_st2 = {
+      lines = {
+        { id = "but_st2_1", text = "*The door opens a crack, a hand sets down a saucer of cream, and the door closes again. Butterscotch drinks it with the calm of a cat who knew exactly which door it would be.*" },
+      },
+      choices = {
+        { text = "You have the whole street trained.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "*Butterscotch sits in the middle of the path and washes one paw, while the people of Dalaran step politely around her.*" },
@@ -511,6 +546,8 @@ Critter {
       choices = {
         { text = "Hello, Butterscotch. Where are you off to today?", next = "BACK", reply = "*She answers with a short chirp and pointedly looks toward the Magus Commerce Exchange, where the greenhouse is warm and full of things to sniff.*" },
         { text = "Crouch down and offer her a hand to sniff.", next = "BACK", reply = "*She sniffs your knuckles thoroughly, reads every road you've walked today, and bumps her head into your palm to say the report is acceptable.*" },
+        { text = "Follow her to the greenhouse.", next = "but_gh1" },
+        { text = "Watch where she stops along the street.", next = "but_st1" },
         { text = "Walk alongside her for a little while.", next = "END", reply = "*She allows it for exactly one street, then slips under a merchant's cart and leaves you to find your own way.*" },
       },
     },
@@ -530,6 +567,57 @@ Critter {
     { id = "g_mage", when = { class = "MAGE" }, text = "*Frankie flattens his ears at the faint crackle of arcane on your fingers, then decides you're only another customer and closes his eyes.*" },
   },
   nodes = {
+    fra_shelf1 = {
+      lines = {
+        { id = "fra_shelf1_1", text = "*Frankie pads along the shelf of Wands and Wonder from end to end, nose down, inspecting each wand in turn like a sergeant inspecting a line of recruits.*" },
+      },
+      choices = {
+        { text = "Does one of them worry him?", next = "fra_shelf2" },
+        { text = "Leave him to his inspection.", next = "BACK" },
+      },
+    },
+    fra_shelf2 = {
+      lines = {
+        { id = "fra_shelf2_1", text = "*At the last wand his fur stands up along his back, and he gives it one sharp swat that sends a spray of blue sparks over the floor. Then he sits down beside it and keeps watch, as if it might try something.*" },
+      },
+      choices = {
+        { text = "Good work, sergeant.", next = "BACK" },
+      },
+    },
+    fra_wand1 = {
+      lines = {
+        { id = "fra_wand1_1", text = "*Frankie's eyes go wide and black as you draw your wand, and his rear end begins to wiggle on the shelf.*" },
+      },
+      choices = {
+        { text = "Twitch the tip of the wand.", next = "fra_wand2" },
+        { text = "Put it away before he pounces.", next = "BACK" },
+      },
+    },
+    fra_wand2 = {
+      lines = {
+        { id = "fra_wand2_1", text = "*He pounces, misses by a hand's breadth, lands among a row of crystal vials, and freezes. Not one of them falls, and Frankie climbs back out with enormous care and a look that says this never happened.*" },
+      },
+      choices = {
+        { text = "I saw nothing.", next = "BACK" },
+      },
+    },
+    fra_singe1 = {
+      lines = {
+        { id = "fra_singe1_1", text = "*Frankie follows your gaze to the scorched tuft at the end of his tail, and he turns his back on you at once, which is all the answer you are going to get.*" },
+      },
+      choices = {
+        { text = "Ask the shopkeeper what happened.", next = "fra_singe2" },
+        { text = "Some things are best not mentioned.", next = "BACK" },
+      },
+    },
+    fra_singe2 = {
+      lines = {
+        { id = "fra_singe2_1", text = "*The shopkeeper of Wands and Wonder only laughs and points at a single wand on the top shelf, kept well out of a cat's reach behind a little brass gate.*" },
+      },
+      choices = {
+        { text = "So that's the one that bit back.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "*Frankie bats lazily at the tassel of a wand on the shelf below him, and it rolls an inch and lets off a tiny violet spark.*" },
@@ -538,6 +626,9 @@ Critter {
       choices = {
         { text = "Careful with that. Those wands aren't toys.", next = "BACK", reply = "*Frankie holds your eye, reaches out one paw, and nudges the wand another inch toward the edge, very deliberately.*" },
         { text = "Scratch him behind the ears.", next = "BACK", reply = "*He leans into your fingers and purrs, a low rumble that makes the glass cases hum along with him.*" },
+        { text = "Watch him guard the shelves.", next = "fra_shelf1" },
+        { text = "Show him a wand from your own pack.", next = "fra_wand1", when = { class = { "MAGE", "WARLOCK", "PRIEST" } } },
+        { text = "Notice the singed patch on his tail.", next = "fra_singe1" },
         { text = "Pick up a wand and wave it for him.", next = "END", reply = "*Frankie lunges at the tip with both front paws, misses, and then pretends very hard that he was only stretching.*" },
       },
     },
@@ -557,6 +648,40 @@ Critter {
     { id = "g_back", when = { metBefore = true }, text = "*Haido lifts his chin a fraction as you come in, which is as much of a welcome as anyone gets.*" },
   },
   nodes = {
+    hai_door1 = {
+      lines = {
+        { id = "hai_door1_1", text = "*A traveller steps into A Hero's Welcome, and Haido lifts his head to look them over from boots to hat before lowering it again. The innkeeper glances at the cat, nods, and reaches for a key.*" },
+      },
+      choices = {
+        { text = "Does the innkeeper always wait for him?", next = "hai_door2" },
+        { text = "Let him get back to his post.", next = "BACK" },
+      },
+    },
+    hai_door2 = {
+      lines = {
+        { id = "hai_door2_1", text = "*The next arrival is a loud fellow tracking mud across the floor, and Haido stares at him until he wipes his boots. Only then does the cat look away, satisfied that the house rules are kept.*" },
+      },
+      choices = {
+        { text = "So you're the real innkeeper here.", next = "BACK" },
+      },
+    },
+    hai_led1 = {
+      lines = {
+        { id = "hai_led1_1", text = "*You lean over for a look, and Haido shifts his weight to cover the page completely, all four paws spread across the ink.*" },
+      },
+      choices = {
+        { text = "Try to slide the ledger out from under him.", next = "hai_led2" },
+        { text = "Very well, it's private.", next = "BACK" },
+      },
+    },
+    hai_led2 = {
+      lines = {
+        { id = "hai_led2_1", text = "*The ledger comes an inch, and so does Haido, without opening his eyes. When you stop, he resettles with a long sigh, and you notice his own pawprint already dried on half the signatures.*" },
+      },
+      choices = {
+        { text = "He's been signing guests in himself.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "*Haido does not move from the counter. He simply looks at you, then at the ledger beneath his elbow, then back at you, waiting.*" },
@@ -565,6 +690,8 @@ Critter {
       choices = {
         { text = "I'd like a room, if you're taking bookings.", next = "BACK", reply = "*Haido slowly lays one paw on the open ledger, exactly over the line where you'd sign, and leaves it there.*" },
         { text = "Stroke him from head to tail.", next = "BACK", reply = "*He accepts one stroke, flicks his tail once to say that's quite enough, and goes back to watching the door.*" },
+        { text = "Wait to see who comes through the door.", next = "hai_door1" },
+        { text = "Peek at the ledger under his elbow.", next = "hai_led1" },
         { text = "Set a coin on the counter beside him.", next = "END", reply = "*Haido sniffs the coin, finds it is not fish, and pushes it off the counter onto the floor.*" },
       },
     },
@@ -584,6 +711,40 @@ Critter {
     { id = "g_back", when = { metBefore = true }, text = "*Kocha remembers you. She edges halfway out from behind the barrels before she loses her nerve.*" },
   },
   nodes = {
+    koc_lis1 = {
+      lines = {
+        { id = "koc_lis1_1", text = "*Kocha's ears are fixed on the far corner of the cellar, where something small is scratching inside the walls of A Hero's Welcome.*" },
+      },
+      choices = {
+        { text = "Creep toward the corner yourself.", next = "koc_lis2" },
+        { text = "Leave her to the hunt.", next = "BACK" },
+      },
+    },
+    koc_lis2 = {
+      lines = {
+        { id = "koc_lis2_1", text = "*At your first step Kocha shoots past you like a grey shadow and into the gap between the stones. There is a squeak, a scuffle, and a long silence, and then she backs out with something in her mouth and a very different look in her eyes.*" },
+      },
+      choices = {
+        { text = "Not so shy after all.", next = "BACK" },
+      },
+    },
+    koc_dish1 = {
+      lines = {
+        { id = "koc_dish1_1", text = "*You set the dish down and step back. Kocha watches it for a long, long time, as though it might be a trap laid by the barrels themselves.*" },
+      },
+      choices = {
+        { text = "Step further back and sit down.", next = "koc_dish2" },
+        { text = "Leave it there for later.", next = "BACK" },
+      },
+    },
+    koc_dish2 = {
+      lines = {
+        { id = "koc_dish2_1", text = "*Inch by inch she comes out, drinks with quick little laps, and looks up at you with water on her chin. She doesn't run when she's done, only sits between you and the casks and washes her face.*" },
+      },
+      choices = {
+        { text = "That's a start, little one.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "*Kocha stays pressed into the shadow between two casks, with only the tip of her nose and her whiskers showing.*" },
@@ -592,6 +753,8 @@ Critter {
       choices = {
         { text = "Sit down on the cellar floor and wait quietly.", next = "BACK", reply = "*After a long while, Kocha creeps out, touches her nose to the toe of your boot, and dashes back to safety.*" },
         { text = "Hold out a scrap of cheese from the kitchen.", next = "BACK", reply = "*She stretches her neck as far as it will go without moving her feet, and steals the cheese with great delicacy.*" },
+        { text = "Listen for what she's listening to.", next = "koc_lis1" },
+        { text = "Set out a little dish of water near the casks.", next = "koc_dish1" },
         { text = "It's all right. Nobody's going to hurt you down here.", next = "END", reply = "*Kocha's ears turn toward your voice, and for the first time she lets you see her whole face before she slips away.*" },
       },
     },
@@ -610,6 +773,40 @@ Critter {
     { id = "g_default", text = "*A small grey cat sits beside a plump orange one in the Dalaran Charter, and she gets up to greet you first.*" },
   },
   nodes = {
+    lul_pan1 = {
+      lines = {
+        { id = "lul_pan1_1", text = "*Lulu finishes Pancakes's ear and moves on to the top of his head, while he slumps lower with every lick, until he is lying flat on the floor of the Dalaran Charter.*" },
+      },
+      choices = {
+        { text = "Does she do this all day?", next = "lul_pan2" },
+        { text = "Leave them to it.", next = "BACK" },
+      },
+    },
+    lul_pan2 = {
+      lines = {
+        { id = "lul_pan2_1", text = "*When a passer-by steps too near Pancakes's tail, Lulu lifts her head and stares until the person changes course. Then she goes back to grooming as if nothing happened, and Pancakes never wakes at all.*" },
+      },
+      choices = {
+        { text = "She's his guard as well as his nurse.", next = "BACK" },
+      },
+    },
+    lul_self1 = {
+      lines = {
+        { id = "lul_self1_1", text = "*You hold out a ribbon from your pack, and Lulu looks at it, then back at Pancakes, as though asking whether she is allowed.*" },
+      },
+      choices = {
+        { text = "Drag it slowly across the floor.", next = "lul_self2" },
+        { text = "Put it away; she's busy.", next = "BACK" },
+      },
+    },
+    lul_self2 = {
+      lines = {
+        { id = "lul_self2_1", text = "*She chases it three times around the room in a burst of pure kitten, then stops dead, remembers herself, and trots back to Pancakes to finish his other ear.*" },
+      },
+      choices = {
+        { text = "Duty calls, I suppose.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "*Lulu winds once around your legs, trots back to Pancakes, and washes his ear for him whether he likes it or not.*" },
@@ -618,6 +815,8 @@ Critter {
       choices = {
         { text = "Are you two always together?", next = "BACK", reply = "*Lulu sits down so close to Pancakes that they become one shape, which seems to be the answer.*" },
         { text = "Pet Lulu, then Pancakes, so nobody's left out.", next = "BACK", reply = "*Lulu purrs for both of them, since Pancakes has fallen asleep halfway through his turn.*" },
+        { text = "Watch her look after Pancakes.", next = "lul_pan1" },
+        { text = "Offer her something for herself, for once.", next = "lul_self1" },
         { text = "Leave the two of them in peace.", next = "END", reply = "*Lulu blinks slowly at you, the polite way a cat says goodbye.*" },
       },
     },
@@ -635,6 +834,48 @@ Critter {
     { id = "g_default", text = "*A very round orange cat lies beside Lulu in the Dalaran Charter, flattened out like his name.*" },
   },
   nodes = {
+    pan_wake1 = {
+      lines = {
+        { id = "pan_wake1_1", text = "*Pancakes sleeps through a wagon going past, two children arguing, and a mage casting a spell that sets the air humming. Then someone, somewhere, opens a tin, and he is wide awake.*" },
+      },
+      choices = {
+        { text = "That's selective deafness.", next = "pan_wake2" },
+        { text = "Let him go back to sleep.", next = "BACK" },
+      },
+    },
+    pan_wake2 = {
+      lines = {
+        { id = "pan_wake2_1", text = "*Pancakes follows the sound to its source, sits squarely in front of the person holding the tin, and simply waits, round and patient. He is given something, as he plainly always is.*" },
+      },
+      choices = {
+        { text = "Well played, Pancakes.", next = "BACK" },
+      },
+    },
+    pan_cook1 = {
+      lines = {
+        { id = "pan_cook1_1", text = "*At the smell from your pack, Pancakes rolls to his feet with a grunt and plants himself at your boots, looking up with eyes like two copper coins.*" },
+      },
+      choices = {
+        { text = "Share a small piece of cooked meat.", next = "pan_cook2" },
+        { text = "Not this time, round one.", next = "BACK" },
+      },
+    },
+    pan_cook2 = {
+      lines = {
+        { id = "pan_cook2_1", text = "*It vanishes, and Pancakes purrs so loudly that Lulu comes over to see what is happening. He moves over and lets her have the crumbs, which seems to be a great sacrifice.*" },
+      },
+      choices = {
+        { text = "That was generous of him.", next = "BACK" },
+      },
+    },
+    pan_lulu1 = {
+      lines = {
+        { id = "pan_lulu1_1", text = "*You glance at Lulu, who is sitting nearby, and she looks at Pancakes, then at you, then gives one long, put-upon blink.*" },
+      },
+      choices = {
+        { text = "She thinks he's hopeless.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "*Pancakes opens one eye, sees that you are not carrying a plate, and closes it again.*" },
@@ -644,6 +885,9 @@ Critter {
       choices = {
         { text = "Rub his round belly.", next = "BACK", reply = "*He allows it, rolls over to offer more belly, and Lulu gives you a look as if you are spoiling him.*" },
         { text = "Offer him a corner of sweet roll.", next = "BACK", reply = "*Pancakes eats it in one gulp, licks your fingers for crumbs, and lies back down looking pleased with the world.*" },
+        { text = "Wait to see if he wakes for anything.", next = "pan_wake1" },
+        { text = "Take out something from the cooking pot.", next = "pan_cook1", when = { profession = "Cooking" } },
+        { text = "Ask Lulu's opinion of him.", next = "pan_lulu1" },
         { text = "You're well named, aren't you?", next = "END", reply = "*Pancakes spreads himself out even flatter, as though to prove the point.*" },
       },
     },
@@ -662,6 +906,48 @@ Critter {
     { id = "g_default", text = "*A lean tom with a notched ear sits on a high ledge of the Charter, well apart from the other cats, and watches you climb toward him.*" },
   },
   nodes = {
+    mis_ledge1 = {
+      lines = {
+        { id = "mis_ledge1_1", text = "*From his ledge in the Dalaran Charter, Misifus keeps his eyes on the door and on every person who comes through it, and his tail twitches only for dogs.*" },
+      },
+      choices = {
+        { text = "Has he had trouble with dogs?", next = "mis_ledge2" },
+        { text = "Let him keep his watch.", next = "BACK" },
+      },
+    },
+    mis_ledge2 = {
+      lines = {
+        { id = "mis_ledge2_1", text = "*When a small dog trots past outside, Misifus rises, arches, and grows to twice his size, and the dog remembers somewhere else it has to be. Misifus sits back down with an air of paperwork completed.*" },
+      },
+      choices = {
+        { text = "So that's how you lost the ear.", next = "BACK" },
+      },
+    },
+    mis_scar1 = {
+      lines = {
+        { id = "mis_scar1_1", text = "*You hold out your scarred knuckles, and for the first time Misifus leans in. He sniffs each old cut with great care, the way a veteran reads another veteran's medals.*" },
+      },
+      choices = {
+        { text = "One old soldier to another.", next = "mis_scar2" },
+        { text = "Pull your hand back.", next = "BACK" },
+      },
+    },
+    mis_scar2 = {
+      lines = {
+        { id = "mis_scar2_1", text = "*He rubs the side of his notched head against your knuckles, once and firmly, and then turns away as though embarrassed by the display.*" },
+      },
+      choices = {
+        { text = "Your secret's safe.", next = "BACK" },
+      },
+    },
+    mis_ign1 = {
+      lines = {
+        { id = "mis_ign1_1", text = "*You sit nearby and pay him no attention at all. After a while Misifus comes down from the ledge and sits just out of reach, also paying you no attention at all.*" },
+      },
+      choices = {
+        { text = "Two can play that game.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "*Misifus looks you up and down with yellow eyes, judges you, and leaves the verdict unspoken.*" },
@@ -670,6 +956,9 @@ Critter {
       choices = {
         { text = "What happened to your ear, old soldier?", next = "BACK", reply = "*Misifus turns his head so the notched ear faces you, quite proudly, and says nothing about the other fellow.*" },
         { text = "Reach up slowly to pet him.", next = "BACK", reply = "*He lets your fingers come within an inch, then leans away by exactly that inch, and keeps it there.*" },
+        { text = "Watch what he watches from his ledge.", next = "mis_ledge1" },
+        { text = "Show him the scars on your own hands.", next = "mis_scar1", when = { class = { "WARRIOR", "ROGUE", "HUNTER" } } },
+        { text = "Sit down nearby and ignore him.", next = "mis_ign1" },
         { text = "Toss him a bit of jerky.", next = "END", reply = "*He catches it out of the air, turns his back on you, and eats it facing the wall.*" },
       },
     },
@@ -688,6 +977,41 @@ Critter {
     { id = "g_default", text = "*A long-haired white cat occupies the best chair by the hearth in A Hero's Welcome, and nobody has dared ask her to move.*" },
   },
   nodes = {
+    moj_cats1 = {
+      lines = {
+        { id = "moj_cats1_1", text = "*When Haido strolls in from the counter, he gives Miss Mojo's chair a wide berth, and even sleepy Tailypo is said to wake up for her. Nobody at A Hero's Welcome sits in the chair by the fire but her.*" },
+      },
+      choices = {
+        { text = "Has anyone ever tried?", next = "moj_cats2" },
+        { text = "So she's the queen of the inn.", next = "moj_cats2" },
+        { text = "Leave the court in peace.", next = "BACK" },
+      },
+    },
+    moj_cats2 = {
+      lines = {
+        { id = "moj_cats2_1", text = "*A young mage once sat there by mistake, or so the serving girl tells you in a whisper, and found Miss Mojo sitting on his lap with her claws in his knee until he stood. He has taken his tea standing ever since.*" },
+      },
+      choices = {
+        { text = "I'll keep to my feet, then.", next = "BACK" },
+      },
+    },
+    moj_bow1 = {
+      lines = {
+        { id = "moj_bow1_1", text = "*You sweep a deep bow before the chair, and Miss Mojo watches it all the way down and all the way up again, unmoved.*" },
+      },
+      choices = {
+        { text = "Stay down a little longer.", next = "moj_bow2" },
+        { text = "That will have to do.", next = "BACK" },
+      },
+    },
+    moj_bow2 = {
+      lines = {
+        { id = "moj_bow2_1", text = "*At last she extends one white paw from under her tail and holds it there in the air, exactly as a lady offers her hand to be kissed.*" },
+      },
+      choices = {
+        { text = "Touch the paw, very gently.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "*Miss Mojo arranges her plume of a tail over her paws and regards you as a duchess regards a delivery boy.*" },
@@ -696,6 +1020,8 @@ Critter {
       choices = {
         { text = "Good evening, Miss Mojo. Lovely chair you have.", next = "BACK", reply = "*She inclines her head by the smallest degree, as if the compliment were overdue but acceptable.*" },
         { text = "Brush the dust off her fur with your hand.", next = "BACK", reply = "*She permits two strokes, then turns and washes the place you touched, very thoroughly.*" },
+        { text = "Notice how the inn's other cats behave around her.", next = "moj_cats1" },
+        { text = "Bow to her, properly.", next = "moj_bow1" },
         { text = "Mind if I share the fire?", next = "END", reply = "*Miss Mojo spreads herself across the whole chair and closes her eyes, which means you may have the floor.*" },
       },
     },
@@ -715,6 +1041,40 @@ Critter {
     { id = "g_back", when = { metBefore = true }, text = "*Munchies is mid-pounce again, and the prairie dog is, once again, somewhere else.*" },
   },
   nodes = {
+    mun_pd1 = {
+      lines = {
+        { id = "mun_pd1_1", text = "*The prairie dog sits up on its hind legs and chews, entirely unbothered, while Munchies creeps a little closer through the grass before the Violet Citadel.*" },
+      },
+      choices = {
+        { text = "Has he ever actually caught it?", next = "mun_pd2" },
+        { text = "Leave the two of them to their feud.", next = "BACK" },
+      },
+    },
+    mun_pd2 = {
+      lines = {
+        { id = "mun_pd2_1", text = "*Munchies gets within a whisker, and the prairie dog bops him on the nose with one small paw and goes back to chewing. Munchies retreats three steps and sits with his back to it, plotting.*" },
+      },
+      choices = {
+        { text = "I don't think it's afraid of you.", next = "BACK" },
+      },
+    },
+    mun_gd1 = {
+      lines = {
+        { id = "mun_gd1_1", text = "*Two of the Citadel's guards stand at their posts as straight as pikes, but both of them have turned their heads just enough to follow the hunt.*" },
+      },
+      choices = {
+        { text = "Are they placing bets?", next = "mun_gd2" },
+        { text = "Let them have their fun.", next = "BACK" },
+      },
+    },
+    mun_gd2 = {
+      lines = {
+        { id = "mun_gd2_1", text = "*When Munchies pounces and misses again, one guard sighs and passes a copper coin to the other without a word, and neither of them takes his eyes off the grass.*" },
+      },
+      choices = {
+        { text = "My money's on the prairie dog.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "*Munchies crouches low in the grass before the Citadel, rear end wiggling, eyes locked on a prairie dog that is plainly not afraid of him.*" },
@@ -723,6 +1083,8 @@ Critter {
       choices = {
         { text = "Go on, then. You'll catch it this time.", next = "BACK", reply = "*Munchies leaps, the prairie dog steps aside, and the cat sails into a flowerbed. He emerges covered in petals and dignity.*" },
         { text = "Scoop him up before the guards see.", next = "BACK", reply = "*He goes limp as a sack in your arms, purring hard, with his eyes still fixed on the prairie dog.*" },
+        { text = "Ask the prairie dog what it's done to deserve this.", next = "mun_pd1" },
+        { text = "Notice the guards watching the chase.", next = "mun_gd1" },
         { text = "Leave the poor prairie dog alone, Munchies.", next = "END", reply = "*Munchies looks at you, then at the prairie dog, and the prairie dog looks back at you both, chewing.*" },
       },
     },
@@ -741,6 +1103,40 @@ Critter {
     { id = "g_default", text = "*A fluffy calico lies in the exact centre of the bed upstairs, on the good pillow, as if the room were let in her name.*" },
   },
   nodes = {
+    nan_room1 = {
+      lines = {
+        { id = "nan_room1_1", text = "*There are cat hairs on every pillow, a ribbon under the dresser, and a small, careful pile of stolen hairpins on the windowsill of the bedroom at A Hero's Welcome.*" },
+      },
+      choices = {
+        { text = "Those hairpins are somebody's.", next = "nan_room2" },
+        { text = "Leave her treasures be.", next = "BACK" },
+      },
+    },
+    nan_room2 = {
+      lines = {
+        { id = "nan_room2_1", text = "*Princess Nana leaps down at once and sits in front of the pile, her tail wrapped around it, daring you to make a claim. Clearly every guest who has ever slept here has paid the princess a tax.*" },
+      },
+      choices = {
+        { text = "Keep your crown jewels, Your Highness.", next = "BACK" },
+      },
+    },
+    nan_bed1 = {
+      lines = {
+        { id = "nan_bed1_1", text = "*You lower yourself onto the very edge of the mattress, and Princess Nana stops kneading and stares at you in total disbelief.*" },
+      },
+      choices = {
+        { text = "Stay put and see what happens.", next = "nan_bed2" },
+        { text = "Get up again quickly.", next = "BACK" },
+      },
+    },
+    nan_bed2 = {
+      lines = {
+        { id = "nan_bed2_1", text = "*She stalks across the blanket, climbs into your lap without asking, turns around three times, and settles there with her full weight, which is far more than such a small cat should be.*" },
+      },
+      choices = {
+        { text = "I suppose I'm the pillow now.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "*Princess Nana kneads the pillow slowly, claws in and out, and gives you a look that asks what you're doing in her room.*" },
@@ -749,6 +1145,8 @@ Critter {
       choices = {
         { text = "I think this was supposed to be my room.", next = "BACK", reply = "*Princess Nana yawns enormously and does not move a single whisker.*" },
         { text = "Scratch under her chin.", next = "BACK", reply = "*She tilts her head up, half-closes her eyes, and purrs like a little kettle, so long as you keep scratching.*" },
+        { text = "Look around the room she's claimed.", next = "nan_room1" },
+        { text = "Try sitting on the very edge of the bed.", next = "nan_bed1" },
         { text = "Fine, Your Highness. I'll sleep on the floor.", next = "END", reply = "*She curls up tighter on the pillow, satisfied that the matter of the bed is settled.*" },
       },
     },
@@ -768,6 +1166,40 @@ Critter {
     { id = "g_herb", when = { profession = "Herbalism" }, text = "*Solus lifts his head and sniffs at your herb pouch with a connoisseur's interest.*" },
   },
   nodes = {
+    sol_pot1 = {
+      lines = {
+        { id = "sol_pot1_1", text = "*The pots of the Agronomical Apothecary are full of peacebloom and silverleaf, and one of them has a cat-shaped dent pressed into the soil where something has clearly napped.*" },
+      },
+      choices = {
+        { text = "Is that one his favourite?", next = "sol_pot2" },
+        { text = "Let him keep his garden.", next = "BACK" },
+      },
+    },
+    sol_pot2 = {
+      lines = {
+        { id = "sol_pot2_1", text = "*Solus strolls over and climbs into the dented pot, which fits him so well that only his ears and tail stick out over the rim. He blinks at you from among the leaves, entirely content.*" },
+      },
+      choices = {
+        { text = "That's a very expensive bed.", next = "BACK" },
+      },
+    },
+    sol_apo1 = {
+      lines = {
+        { id = "sol_apo1_1", text = "*She sweeps a scatter of soil and chewed leaves from the floor, then stops to scratch Solus behind the ears before carrying on.*" },
+      },
+      choices = {
+        { text = "She doesn't really mind him.", next = "sol_apo2" },
+        { text = "Leave them both to their work.", next = "BACK" },
+      },
+    },
+    sol_apo2 = {
+      lines = {
+        { id = "sol_apo2_1", text = "*When she reaches the corner with the broom, Solus rolls over to show her his belly, and she laughs and gives up the sweeping for a minute to rub it.*" },
+      },
+      choices = {
+        { text = "He knows exactly how to get away with it.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "*Solus rolls onto his back in the sunlight among the herb pots and stretches until his whole body trembles.*" },
@@ -776,6 +1208,8 @@ Critter {
       choices = {
         { text = "Have you been chewing the peacebloom again?", next = "BACK", reply = "*Solus licks his lips, which are faintly green, and looks innocent.*" },
         { text = "Rub his warm, sunny belly.", next = "BACK", reply = "*He grabs your wrist with all four paws, kicks it twice, and then licks it to show there were no hard feelings.*" },
+        { text = "Look at the herb pots he's been sleeping among.", next = "sol_pot1" },
+        { text = "Notice the apothecary's sigh as she sweeps up.", next = "sol_apo1" },
         { text = "Share the sunbeam with him a while.", next = "END", reply = "*Solus shifts over just enough to make room, and you both sit there doing nothing in particular.*" },
       },
     },
@@ -795,6 +1229,40 @@ Critter {
     { id = "g_drunk", when = { drunk = true }, text = "*Syrah sniffs the air as you come up the stairs, sneezes, and gives you the long look of a cat who has seen many customers in your state.*" },
   },
   nodes = {
+    syr_rail1 = {
+      lines = {
+        { id = "syr_rail1_1", text = "*From the upper floor of One More Glass you can see the whole bar below, glasses and candles and the tops of a dozen heads, and Syrah watches all of them.*" },
+      },
+      choices = {
+        { text = "Who is she watching most closely?", next = "syr_rail2" },
+        { text = "Leave her to her post.", next = "BACK" },
+      },
+    },
+    syr_rail2 = {
+      lines = {
+        { id = "syr_rail2_1", text = "*Her eyes follow a quiet patron in the corner who keeps refilling his own glass when the barkeep isn't looking. When he finally leaves, Syrah's tail gives one sharp flick, like a note in a ledger.*" },
+      },
+      choices = {
+        { text = "You should be working for the house.", next = "BACK" },
+      },
+    },
+    syr_mus1 = {
+      lines = {
+        { id = "syr_mus1_1", text = "*Below, someone begins on a slow tune, and Syrah's ears turn toward it. She lays her chin on her paws and her tail beats softly on the rail in time.*" },
+      },
+      choices = {
+        { text = "Hum along under your breath.", next = "syr_mus2" },
+        { text = "Let her enjoy it alone.", next = "BACK" },
+      },
+    },
+    syr_mus2 = {
+      lines = {
+        { id = "syr_mus2_1", text = "*Syrah opens one eye at your humming, decides you are not as good as the musician, and closes it again. Still, she shifts closer along the rail until her fur brushes your arm.*" },
+      },
+      choices = {
+        { text = "I'll take that as a compliment.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "*Syrah blinks at you slowly, the drowsy, contented look of someone who keeps late hours above a wine bar.*" },
@@ -803,6 +1271,8 @@ Critter {
       choices = {
         { text = "Do you know all the regulars by now?", next = "BACK", reply = "*Syrah looks down over the rail at the room, then back at you, as though she could tell you stories but won't.*" },
         { text = "Stroke her soft, dark fur.", next = "BACK", reply = "*She stretches into your hand and rolls over on the rail, with a carelessness that makes you grab for her.*" },
+        { text = "Look down at the room from the rail beside her.", next = "syr_rail1" },
+        { text = "Listen to the music with her.", next = "syr_mus1" },
         { text = "Let's not tell the barkeep I came up here.", next = "END", reply = "*Syrah closes her eyes. Whatever she sees up here stays up here.*" },
       },
     },
@@ -821,6 +1291,40 @@ Critter {
     { id = "g_default", text = "*In the yard behind A Hero's Welcome, a cat lies asleep in a heap, wrapped twice round in the largest tail you have ever seen on a cat.*" },
   },
   nodes = {
+    tai_dream1 = {
+      lines = {
+        { id = "tai_dream1_1", text = "*Tailypo's whiskers twitch and his paws paddle softly against the warm stones of the back yard of A Hero's Welcome, as though he were running somewhere a long way off.*" },
+      },
+      choices = {
+        { text = "Say something about mice.", next = "tai_dream2" },
+        { text = "Let him run in his dreams.", next = "BACK" },
+      },
+    },
+    tai_dream2 = {
+      lines = {
+        { id = "tai_dream2_1", text = "*At the word his ears swivel straight toward you and both front paws clench, but his eyes stay closed. Somewhere in the dream, it seems, a mouse has just had a very narrow escape.*" },
+      },
+      choices = {
+        { text = "Sleep well, hunter.", next = "BACK" },
+      },
+    },
+    tai_tail1 = {
+      lines = {
+        { id = "tai_tail1_1", text = "*Laid out straight, the tail is very nearly as long as the rest of Tailypo put together, and it ends in a tuft that looks like a feather duster.*" },
+      },
+      choices = {
+        { text = "Is that natural for a cat?", next = "tai_tail2" },
+        { text = "Leave the tail be.", next = "BACK" },
+      },
+    },
+    tai_tail2 = {
+      lines = {
+        { id = "tai_tail2_1", text = "*A passing kitchen boy tells you the cook swears it grows a little longer every year, and that one day it will reach the front door on its own. Tailypo snores through the whole explanation.*" },
+      },
+      choices = {
+        { text = "I don't doubt it.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "*Tailypo is asleep. One paw twitches, perhaps at a dream of mice, and the great tail curls a little tighter.*" },
@@ -830,6 +1334,8 @@ Critter {
       choices = {
         { text = "Whisper his name.", next = "BACK", reply = "*The tip of the great tail rises, waves once at you, and settles again. The rest of the cat does not wake up.*" },
         { text = "Pet that enormous tail.", next = "BACK", reply = "*It is soft as a fox's brush. Tailypo sighs in his sleep and wraps it over his nose.*" },
+        { text = "Look for whatever he's dreaming of.", next = "tai_dream1" },
+        { text = "See how far the tail reaches.", next = "tai_tail1" },
         { text = "Tiptoe away and let him sleep.", next = "END", reply = "*Tailypo snores, very faintly, and does not notice you were ever there.*" },
       },
     },
@@ -849,6 +1355,48 @@ Critter {
     { id = "g_back", when = { metBefore = true }, text = "*Milo spots you from across the Exchange and yips, then runs at you so fast his back legs try to overtake his front ones.*" },
   },
   nodes = {
+    mil_mer1 = {
+      lines = {
+        { id = "mil_mer1_1", text = "*Milo makes his rounds of the Dalaran Exchange stall by stall, sitting politely before each merchant in turn until he receives either a pat or a crust.*" },
+      },
+      choices = {
+        { text = "Does anyone ever turn him away?", next = "mil_mer2" },
+        { text = "Let him finish his rounds.", next = "BACK" },
+      },
+    },
+    mil_mer2 = {
+      lines = {
+        { id = "mil_mer2_1", text = "*One sour-faced fellow ignores him completely, and Milo simply lies down across the front of the stall until customers have to step over him. The merchant gives in within a minute and pays the toll.*" },
+      },
+      choices = {
+        { text = "He's better at trade than the traders.", next = "BACK" },
+      },
+    },
+    mil_trick1 = {
+      lines = {
+        { id = "mil_trick1_1", text = "*You hold up a hand and say \"down\", and Milo drops instantly, then rolls over, then sits, then offers a paw, all in one eager rush.*" },
+      },
+      choices = {
+        { text = "That's four tricks. I asked for one.", next = "mil_trick2" },
+        { text = "Good boy. That's enough.", next = "BACK" },
+      },
+    },
+    mil_trick2 = {
+      lines = {
+        { id = "mil_trick2_1", text = "*Milo looks at you with his tongue out, plainly certain that four tricks are worth four rewards, and his short tail sweeps the floor of the Exchange in hope.*" },
+      },
+      choices = {
+        { text = "You drive a hard bargain, Milo.", next = "BACK" },
+      },
+    },
+    mil_pet1 = {
+      lines = {
+        { id = "mil_pet1_1", text = "*Your companion steps forward and Milo bounds to meet it, nose to nose and tail going, then rolls onto his back to show that he is no threat and would like to be friends.*" },
+      },
+      choices = {
+        { text = "Looks like they've settled it.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "*Milo sits at your feet, very nearly still, quivering with the effort of being a good boy.*" },
@@ -857,6 +1405,9 @@ Critter {
       choices = {
         { text = "Who's a good boy? Is it you?", next = "BACK", reply = "*It is him. Milo spins around twice to make sure you know, then sits again.*" },
         { text = "Give him a scratch along his back.", next = "BACK", reply = "*One hind leg starts thumping on the floor of the Exchange, and the merchants nearby pretend not to smile.*" },
+        { text = "Watch him greet the merchants of the Exchange.", next = "mil_mer1" },
+        { text = "Teach him a trick.", next = "mil_trick1" },
+        { text = "Let your own pet say hello.", next = "mil_pet1", when = { class = "HUNTER" } },
         { text = "Toss him a bit of bread.", next = "END", reply = "*Milo catches it, swallows it without chewing, and looks up at you as if you are the finest person in Dalaran.*" },
       },
     },

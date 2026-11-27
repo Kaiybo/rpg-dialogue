@@ -43,7 +43,47 @@ P:NPC {
         { text = "Who teaches here in Narache?", next = "who" },
         { text = "Are you related to Mor Grayhoof?", next = "mor" },
         { text = "Show me the way to a trainer.", next = "BUSINESS" },
+        { text = "Narache feels like a camp built to be left.", next = "narache" },
+        { text = "Which trades does the tribe need most?", next = "need" },
+        { text = "Can a druid take up a trade as well?", next = "druid_trade", when = { class = "DRUID" } },
         { text = "Thank you, elder.", next = "END" },
+      },
+    },
+    narache = {
+      lines = { { id = "narache_d", text = "It is, little one, and that is no insult to it. Chief Hawkwind keeps it so that the young may learn to stand on their own hooves, and when Grull says they are ready, they walk down the road to Bloodhoof Village and do not often come back up." } },
+      choices = {
+        { text = "What waits for them in Bloodhoof?", next = "narache_down" },
+        { text = "Leaving home is the first trial.", next = "BACK", reply = "It is, and the one nobody prepares you for. You have a wise head for one so young." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    narache_down = {
+      lines = { { id = "narache_down_d", text = "Better teachers than I am, and more of them, in every craft the tribe keeps. There are skinners and leatherworkers among the tents there, and Innkeeper Kauth, who will tell you he has fed every brave in Mulgore." } },
+      choices = {
+        { text = "Then I'll go down hungry.", next = "BACK", reply = "Do, and tell him Karne sent you. He will feed you twice to spite me." },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    need = {
+      lines = { { id = "need_d", text = "Skinning and leather, always, for the herds give us hides and the tribe needs them turned into everything from tents to shoes. Herbs are next, for the healers, and since the Horde came to us, there is more call for smiths than any tauren ever expected." } },
+      choices = {
+        { text = "Smiths? The tauren never needed them before.", next = "need_smiths" },
+        { text = "Hides and herbs. The old ways endure.", next = "BACK", reply = "They do. The Earth Mother does not change her gifts because we change our friends." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    need_smiths = {
+      lines = { { id = "need_smiths_d", text = "We did not, little one, for a spear of stone and a harness of hide were enough against the centaur. Now our braves fight beside orcs in far lands, and they come home asking for iron, so the young who take up the hammer will never want for work." } },
+      choices = {
+        { text = "Then perhaps I'll take up the hammer.", next = "BACK", reply = "Perhaps. Ask in Thunder Bluff when you are older, and feel the weight first." },
+        { text = "Another question, then.", next = "BACK" },
+      },
+    },
+    druid_trade = {
+      lines = { { id = "druid_trade_d", text = "A druid more than anyone, for who better knows the herbs that grow and the hides the beasts give? The old druids say that a healer who cannot gather her own leaves has only learned half her path." } },
+      choices = {
+        { text = "Then I'll learn both halves.", next = "BACK", reply = "That is the spirit of the Earth Mother speaking, little one. Go well." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     what = {
@@ -619,7 +659,47 @@ P:NPC {
         { text = "What is the trial of the young?", next = "trial" },
         { text = "You must get bored up here.", next = "bored" },
         { text = "I passed my trial here once.", next = "mine", when = { race = "Tauren", minLevel = 11 } },
+        { text = "What do you see from the edge of the mesa?", next = "edge" },
+        { text = "Your spear looks older than you are.", next = "spear" },
+        { text = "Do the wolves up here make good companions?", next = "wolves", when = { class = "HUNTER" } },
         { text = "Earth Mother keep watch with you.", next = "END" },
+      },
+    },
+    edge = {
+      lines = { { id = "edge_d", text = "All of Mulgore, from the smoke of Bloodhoof Village to the great bluffs in the north where the High Chieftain keeps his city. On a clear day you can see the lifts moving, and the young ones always stop here to stare before they go down." } },
+      choices = {
+        { text = "Thunder Bluff from here must be a sight.", next = "edge_bluff" },
+        { text = "I stopped and stared too.", next = "BACK", reply = "Everyone does. I still do, some mornings, and I've stood here for years." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    edge_bluff = {
+      lines = { { id = "edge_bluff_d", text = "It is, and it was a dream for most of my life. When I was young our people slept wherever the centaur let us, and now there is a city on the mesas that no raider can climb, and I can see it from my post." } },
+      choices = {
+        { text = "That's worth guarding, then.", next = "BACK", reply = "It is, and that's why I don't mind the long watches." },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    spear = {
+      lines = { { id = "spear_d", text = "It belonged to the brave who stood this post before me, and to the one before her. A Narache spear is never thrown away, for it has watched over more young ones than any of us will, and we only borrow it." } },
+      choices = {
+        { text = "Does it need much care?", next = "spear_care" },
+        { text = "A spear that remembers. I like that.", next = "BACK", reply = "So do I, though I'd never say so to the other braves." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    spear_care = {
+      lines = { { id = "spear_care_d", text = "Oil for the haft and a whetstone for the point, every evening, and a new binding when the wind wears the old one through. The care is part of the watch, and a brave with a dull spear is only standing about." } },
+      choices = {
+        { text = "Then I'll keep my own weapon sharp.", next = "BACK", reply = "Good. The Bristleback won't wait for you to sharpen it." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    wolves = {
+      lines = { { id = "wolves_d", text = "Not these ones, {class}. The wolves on the mesa are lean and bad-tempered and they've learned to wait for stragglers, though Grull says a patient hunter could tame one in the end, if they had patience to spare." } },
+      choices = {
+        { text = "I've patience enough.", next = "BACK", reply = "Then try it below the mesa, where there's room to run if you're wrong." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     danger = {

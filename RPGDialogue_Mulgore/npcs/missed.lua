@@ -610,7 +610,47 @@ P:NPC {
         { text = "What have the goblins done?", next = "goblins" },
         { text = "Why do you prefer the night?", next = "night" },
         { text = "You don't trust strangers much.", next = "trust" },
+        { text = "Who else keeps watch in the village?", next = "watch" },
+        { text = "The Venture mine runs all night, doesn't it?", next = "mine" },
+        { text = "I could scout the goblin mine for you.", next = "scout", when = { class = "ROGUE" } },
         { text = "I'll leave you to your watch.", next = "END" },
+      },
+    },
+    watch = {
+      lines = { { id = "watch_d", text = "Dawneagle holds the middle of the village, and she has stood longer than any of us. Rockhorn walks the south road, and Strongbash watches the inn, though he spends more time listening to the guests than watching the doors." } },
+      choices = {
+        { text = "What do you make of Dawneagle?", next = "watch_dawneagle" },
+        { text = "Strongbash doesn't seem much of a watchman.", next = "BACK", reply = "He watches people, not roads. Perhaps that is a kind of watch too, though I would not tell him so." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    watch_dawneagle = {
+      lines = { { id = "watch_dawneagle_d", text = "She is the steadiest of us, and she knew this land when there was no village here at all. When I first came to the watch, she told me that a brave who trusts nothing will soon trust nothing about himself, and I have been chewing on that ever since." } },
+      choices = {
+        { text = "She sounds wise.", next = "BACK", reply = "She is, and she knows it, which is why I seldom tell her." },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    mine = {
+      lines = { { id = "mine_d", text = "It does, and that is why I keep the night watch. Their machines grind and bang until dawn, and the smoke drifts west over our fields, and the elders say the Earth Mother is weeping every time the goblins break the stone." } },
+      choices = {
+        { text = "What do they take from the mine?", next = "mine_take" },
+        { text = "Goblins never stop working, do they?", next = "BACK", reply = "Not when there is coin in it. I have never seen a goblin sleep, and I have looked." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mine_take = {
+      lines = { { id = "mine_take_d", text = "Iron and copper, and they cut down every tree near their camp for timber to brace their tunnels. I have counted the stumps from the ridge, and every one of them was older than the village." } },
+      choices = {
+        { text = "That's a heavy price for ore.", next = "BACK", reply = "It is, and the goblins will never pay it. The land will, and so will we." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    scout = {
+      lines = { { id = "scout_d", text = "I would not refuse the help, though I would not ask it either. Go quietly, look at what they have built near the entrance, and come back to tell me how many guards they post after dark." } },
+      choices = {
+        { text = "I'll be quieter than the wind.", next = "BACK", reply = "Then you are quieter than most of us. Go carefully." },
+        { text = "Another time, perhaps.", next = "BACK" },
       },
     },
     goblins = {
@@ -683,7 +723,47 @@ P:NPC {
         { text = "What was it like before the village?", next = "before" },
         { text = "Where can I find things here?", next = "find" },
         { text = "The other braves look to you.", next = "others" },
+        { text = "What do the young braves ask you most?", next = "young" },
+        { text = "Bloodhoof Village is busy for a tauren town.", next = "busy" },
+        { text = "Do the tauren still remember what the orcs did for them?", next = "orcs_help", when = { race = "Orc" } },
         { text = "May the eternal sun shine on you.", next = "END", fx = { affinity = 1 } },
+      },
+    },
+    young = {
+      lines = { { id = "young_d", text = "Whether I have ever been afraid, mostly, and they do not like the answer, which is yes, every day. The young think courage means feeling nothing, and it takes them a long while to learn that courage is feeling it and staying anyway." } },
+      choices = {
+        { text = "That's a good lesson to give them.", next = "young_more" },
+        { text = "I'd have thought you'd lie to comfort them.", next = "BACK", reply = "Lies only comfort until the first real danger. After that they cost lives." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    young_more = {
+      lines = { { id = "young_more_d", text = "It is the only one I have, child, and I give it to everyone who asks. Ruul Eagletalon gives them the harpies and the elders give them the stories, but somebody has to tell them the truth about fear." } },
+      choices = {
+        { text = "Then I'm glad it's you.", next = "BACK", reply = "So am I, most days. Go well, and stay afraid enough to stay alive." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    busy = {
+      lines = { { id = "busy_d", text = "It is, and it grows busier every season. Orcs and trolls come through on the road to the Barrens, and the Forsaken come to trade, and Innkeeper Kauth has had to put up another tent for those who cannot fit inside his inn." } },
+      choices = {
+        { text = "You don't seem to mind the crowds.", next = "busy_mind" },
+        { text = "The Horde is a strange mix of peoples.", next = "BACK", reply = "It is, but no stranger than a herd of different beasts drinking at the same pool." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    busy_mind = {
+      lines = { { id = "busy_mind_d", text = "I mind the noise, but not the people. When I was young we were hunted by the centaur across these very plains, and now strangers come to us for shelter, and I find I am proud of that." } },
+      choices = {
+        { text = "You should be.", next = "BACK", reply = "Perhaps. But pride is a soft thing, and I keep it soft so it does not make me careless." },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    orcs_help = {
+      lines = { { id = "orcs_help_d", text = "We remember, orc, and we will not forget. When the centaur had driven us nearly to the edge, Thrall and his people fought beside the High Chieftain and drove them back, and it was after that the tauren could rest here at last." } },
+      choices = {
+        { text = "The orcs were glad to help.", next = "BACK", reply = "I know it. And your people have been welcome here ever since." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     before = {
@@ -1097,7 +1177,47 @@ P:NPC {
         { text = "Where should a newcomer go first?", next = "first" },
         { text = "Lightninghorn says his road is quiet.", next = "lightning", when = { heardLine = "brave_lightninghorn.rw_default" } },
         { text = "You're a tauren of few words.", next = "words" },
+        { text = "What do the young ones say coming down from Narache?", next = "young" },
+        { text = "This road has seen a great many hooves.", next = "road" },
+        { text = "You'd make a fine tracker, walking this road every day.", next = "tracks", when = { class = "HUNTER" } },
         { text = "I'll walk on.", next = "END" },
+      },
+    },
+    young = {
+      lines = { { id = "young_d", text = "They talk of the wolves and the Bristleback, and of the first time they held a spear against something that meant to kill them. Most are proud, a few are frightened, and every one of them asks how far it is to Bloodhoof." } },
+      choices = {
+        { text = "What do you tell the frightened ones?", next = "young_fear" },
+        { text = "I asked the same question, I think.", next = "BACK", reply = "Most do. The road is longer for the first time, and shorter every time after." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    young_fear = {
+      lines = { { id = "young_fear_d", text = "That fear is the plains teaching them to listen, and that the plains are a good teacher if you heed them. Then I walk beside them for a while without talking, which helps more than anything I could say." } },
+      choices = {
+        { text = "Silence is a good comfort.", next = "BACK", reply = "It is the only kind I am good at giving, so I am glad it works." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    road = {
+      lines = { { id = "road_d", text = "It has, and more every year. Caravans come down from Thunder Bluff and go east toward the Barrens, and the orcs who pass this way always ask why the tauren road is so slow, and I tell them it is a road for walking, not for running." } },
+      choices = {
+        { text = "Where does the road lead, past Mulgore?", next = "road_barrens" },
+        { text = "Orcs are always in a hurry.", next = "BACK", reply = "They are, and they arrive tired. We take our time and arrive ready." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    road_barrens = {
+      lines = { { id = "road_barrens_d", text = "Out through the gate and down into the Barrens, to the Crossroads and beyond. It is a hot, dry country, and the centaur ride there too, so the young ones who go that way should carry water and keep their spears close." } },
+      choices = {
+        { text = "I'll be careful.", next = "BACK" },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    tracks = {
+      lines = { { id = "tracks_d", text = "I have learned a little of it, {class}. The plainstriders leave three toes, the wolves leave four, and the gnolls leave the marks of their boots and of what they have dragged behind them, and I know them all by now." } },
+      choices = {
+        { text = "You'd do well among the hunters.", next = "BACK", reply = "Perhaps, but I would miss the road. A watch is a hunter's patience without the kill." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     south = {

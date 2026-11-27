@@ -44,6 +44,8 @@ P:NPC {
         { text = "You share the courtyard with the elves' hippogryphs?", next = "cloud" },
         { text = "I'd like to meet your riders.", next = "riders", when = { class = { "HUNTER", "DRUID", "SHAMAN" } } },
         { text = "I need a flight.", next = "BUSINESS" },
+        { text = "Where do your riders fly most often?", next = "routes" },
+        { text = "How does a tauren end up in the desert?", next = "tauren" },
         { text = "Farewell, Runk.", next = "END" },
       },
     },
@@ -77,6 +79,44 @@ P:NPC {
     riders = {
       lines = { { id = "r_default", text = "Slowly, with your palm open, and do not look them in the eye until they look at you first. There, that one likes you, the grey; she does not like many." } },
       choices = { { text = "Hello, grey one.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    routes = {
+      lines = { { id = "rt_default", text = "Gadgetzan, for supplies and for wounded who need goblin healers, and Mojache in Feralas, for the tauren who come down to fight with the Circle. Un'Goro Crater when someone wishes to go and be eaten by a larger beast." } },
+      choices = {
+        { text = "Do the riders fly over the Scarab Wall?", next = "routes2" },
+        { text = "Gadgetzan's healers are goblins? That's a risk.", next = "routes2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    routes2 = {
+      lines = { { id = "rt2_default", text = "Never over the wall, for they will not go near it, and I do not ask them twice. A beast knows where the ground is wrong. As for goblin healers, they charge a great deal and they keep you alive, which is the bargain most of us make with goblins." } },
+      choices = {
+        { text = "Then I'll trust the riders' judgment.", next = "routes3" },
+        { text = "Something else, Runk.", next = "BACK" },
+      },
+    },
+    routes3 = {
+      lines = { { id = "rt3_default", text = "That is wise. My riders have flown from Thunder Bluff to the Crossroads to this sand, and they have never once flown into trouble that was not already waiting there. Hold the straps, and they will bring you home." } },
+      choices = { { text = "Hold the straps. Something else.", next = "BACK" } },
+    },
+    tauren = {
+      lines = { { id = "tn_default", text = "Slowly, and unwillingly, as most do. The Circle asked Thunder Bluff for riders, and Cairne asked who among us would go, and I was too slow to step back. Huum and Bor Wildmane came too, and we sit together in the evenings and speak of grass." } },
+      choices = {
+        { text = "Do you regret it?", next = "tauren2" },
+        { text = "Speaking of grass sounds like homesickness.", next = "tauren2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tauren2 = {
+      lines = { { id = "tn2_default", text = "It is, and I do not hide it. But the Earth Mother is here too, under all this sand, and she is troubled by what sleeps beneath the wall. Someone of the people should stand beside her while she is troubled, and it may as well be a slow one." } },
+      choices = {
+        { text = "I'm tauren. The plains will wait for us both.", next = "tauren3", when = { race = "Tauren" } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    tauren3 = {
+      lines = { { id = "tn3_default", text = "They will, and the grass will be sweeter for the waiting. When you go home, walk out onto the plains below the Bluff at dawn, and tell An'she that Runk remembers. That is all I ask." } },
+      choices = { { text = "I will. Something else.", next = "BACK" } },
     },
   },
 
@@ -130,6 +170,8 @@ P:NPC {
         { text = "What do you think of the wind riders?", next = "runk" },
         { text = "Do you sing to them?", next = "sing", when = { class = { "DRUID", "PRIEST" } } },
         { text = "I need a flight.", next = "BUSINESS" },
+        { text = "Feathermoon is a long flight from here.", next = "feathermoon" },
+        { text = "Which of your hippogryphs is the bravest?", next = "bravest" },
         { text = "Farewell, Cloud.", next = "END" },
       },
     },
@@ -163,6 +205,40 @@ P:NPC {
     sing = {
       lines = { { id = "s_default", text = "When the storms come, yes, an old Ashenvale lullaby my mother sang. The birds settle, and the soldiers pretend they aren't listening." } },
       choices = { { text = "Sing it for me sometime.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    feathermoon = {
+      lines = { { id = "fm_default", text = "It is, over the Feralas forests and out across the water to the island, and the birds love it, because the air turns wet and green halfway there. I go along now and then to stretch my own wings, so to speak, and Shandris's Sentinels are always glad of news from the desert." } },
+      choices = {
+        { text = "What news do you bring them?", next = "feathermoon2" },
+        { text = "A little green would do anyone good out here.", next = "feathermoon2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    feathermoon2 = {
+      lines = { { id = "fm2_default", text = "That the hives are restless, that the Circle is worried, and that the Hold still stands. They want to know about the wall most of all, and I tell them what I see from the sky, which is mostly sand and the shapes moving in it at dusk." } },
+      choices = {
+        { text = "Shapes moving at dusk?", next = "feathermoon3" },
+        { text = "Something else, Cloud.", next = "BACK" },
+      },
+    },
+    feathermoon3 = {
+      lines = { { id = "fm3_default", text = "Silithid, I hope, and only silithid. The birds don't like flying near the wall at dusk, and I've learned to trust them. If it's ever something bigger, you'll hear me shouting from here to Darnassus." } },
+      choices = { { text = "Let's hope not. Something else.", next = "BACK" } },
+    },
+    bravest = {
+      lines = { { id = "bv_default", text = "Oh, that's easy, it's the little brown one with the torn ear, Silverwind I call her, though she's not silver at all. She carried a wounded Sentinel out of Hive'Ashi with a stinger in her flank and never once dropped lower than the treetops, if Silithus had any trees." } },
+      choices = {
+        { text = "Is she healed now?", next = "bravest2" },
+        { text = "She sounds braver than most soldiers.", next = "bravest2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bravest2 = {
+      lines = { { id = "bv2_default", text = "Mostly. The druids drew the venom out, and she flies as well as ever, though she won't go near the hives now, and I don't ask her to. Even the bravest are allowed to remember where they were hurt." } },
+      choices = {
+        { text = "I'm a night elf. Elune bless her for that flight.", next = "BACK", reply = "She'd like that, friend. Give her a scratch under the beak on your way out.", when = { race = "NightElf" } },
+        { text = "Something else, then.", next = "BACK" },
+      },
     },
   },
 

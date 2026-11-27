@@ -151,6 +151,8 @@ P:NPC {
         { text = "Do you want to be a shaman like your papa?", next = "yshaman" },
         { text = "Is it scary living out here?", next = "yscary" },
         { text = "Who taught you to cook?", next = "yteach" },
+        { text = "Your papa keeps the fire up on the hill, doesn't he?", next = "papa" },
+        { text = "Okla's making a necklace out of rocks, I saw.", next = "okla" },
         { text = "Keep the pot from burning, Karu.", next = "END" },
       },
     },
@@ -204,6 +206,30 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    papa = {
+      lines = { { id = "pa_default", text = "He does! Young shaman come from all over to see him, and he makes them sit by the fire for ages before he says anything. I bring them water, because they always forget to bring their own, and Papa says that's an important job." } },
+      choices = {
+        { text = "Do the young shaman ever talk to you?", next = "papa2" },
+        { text = "Bringing water to shaman sounds like a real job.", next = "papa2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    papa2 = {
+      lines = { { id = "pa2_default", text = "Some of them do, and one gave me a little stone that's warm when you hold it, and Papa said it was a gift from the fire. I keep it next to the pot, so the food cooks nicely. I don't know if it works, but nothing has burned since." } },
+      choices = { { text = "Then it must work. Something else.", next = "BACK" } },
+    },
+    okla = {
+      lines = { { id = "ok_default", text = "She is, and it's taking forever, because every rock has to be the right rock. She says she'll make one for me too, but she always says that and then gives the good ones away to Gruk for his spear." } },
+      choices = {
+        { text = "Who's Gruk?", next = "okla2" },
+        { text = "Maybe this time she'll keep her promise.", next = "okla2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    okla2 = {
+      lines = { { id = "ok2_default", text = "Gruk lives by the road, and he's making a spear so he can fight the centaur, but he's only little, so I don't think the centaur are worried. I make him eat with us sometimes, because his family's food is terrible." } },
+      choices = { { text = "That's kind of you, Karu. Something else.", next = "BACK" } },
+    },
   },
   topics = {
     plainstrider = { { id = "ytp_plainstrider", text = "Plainstrider is best roasted slow, with the fat dripping. Papa says I'm a better cook than Mama was, but I don't believe him." } },
@@ -252,6 +278,8 @@ P:NPC {
         { text = "Do you ever go far from home?", next = "yfar" },
         { text = "Is Trok nice to you?", next = "ytrok" },
         { text = "Can I give you a rock?", next = "ygift", when = { profession = "Mining" } },
+        { text = "Where do you find the best rocks?", next = "where" },
+        { text = "Karu says you give the good rocks to Gruk.", next = "karu" },
         { text = "Happy hunting, Okla.", next = "END" },
       },
     },
@@ -303,6 +331,33 @@ P:NPC {
         { text = "Wear it well, Okla.", next = "BACK", reply = "I will! I'll tell everyone a miner gave it to me.", fx = { affinity = 1 } },
       },
     },
+    where = {
+      lines = { { id = "wh_default", text = "By the dry creek, where the water used to be, because the water rubbed them smooth before it went away. And sometimes in the dirt by the road, where the kodo carts kick them up, but Papa doesn't like me going near the road." } },
+      choices = {
+        { text = "Why doesn't he like the road?", next = "where2" },
+        { text = "Water makes the prettiest rocks, I think.", next = "where2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    where2 = {
+      lines = { { id = "wh2_default", text = "Because of the centaur, and because of the big carts, which don't stop for anybody. Once a cart went by and a whole sack of shiny green rocks fell off, and I picked them all up, and Papa made me give them back to the goblin. He gave me one anyway." } },
+      choices = {
+        { text = "I'm a miner. I'll bring you something shiny someday.", next = "BACK", reply = "You will? Promise? I'll leave a space right in the middle for it!", when = { profession = "Mining" } },
+        { text = "That was nice of the goblin. Something else.", next = "BACK" },
+      },
+    },
+    karu = {
+      lines = { { id = "kr_default", text = "That's not true, I only give him the sharp ones, because those are no good for a necklace. Karu gets the round ones, but she always says she's too busy cooking to wear them. I think she likes them, though." } },
+      choices = {
+        { text = "How do you know she likes them?", next = "karu2" },
+        { text = "Then you should make her one anyway.", next = "karu2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    karu2 = {
+      lines = { { id = "kr2_default", text = "Because she keeps them all in a little bag by the pot, and she counts them when she thinks nobody's looking. I'm going to make her a necklace for her naming day, but it's a secret, so you mustn't tell." } },
+      choices = { { text = "I won't tell. Something else.", next = "BACK" } },
+    },
   },
   topics = {
     papa = { { id = "ytp_papa", text = "Papa talks to fire. I talk to rocks. They don't talk back, but they listen." } },
@@ -352,6 +407,8 @@ P:NPC {
         { text = "What would you do if you were a real shaman?", next = "yshaman" },
         { text = "Will you say sorry to the bees?", next = "ysorry" },
         { text = "I'll help you with the bees.", next = "yhelp" },
+        { text = "Okla's been laughing at you this whole time.", next = "okla" },
+        { text = "What do you want to be when you grow up?", next = "grow" },
         { text = "Keep running, Trok.", next = "END" },
       },
     },
@@ -402,6 +459,33 @@ P:NPC {
       },
       choices = {
         { text = "I'll try it, Trok.", next = "BACK", reply = "Thank you! I'll save you some plainstrider. Maybe.", fx = { affinity = 1 } },
+      },
+    },
+    okla = {
+      lines = { { id = "ol_default", text = "She would! She's sitting over there with her rocks and not helping at all, and when I asked her to throw a rock at the nest she said the rocks were too pretty. Rocks aren't pretty, rocks are for throwing." } },
+      choices = {
+        { text = "Throwing rocks at a nest won't help either.", next = "okla2" },
+        { text = "Sisters are like that.", next = "okla2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    okla2 = {
+      lines = { { id = "ol2_default", text = "I know, but it would feel better! Karu says I deserve it, and Okla says I deserve it, and Papa will say I deserve it when he finds out. I'm starting to think I might deserve it a bit." } },
+      choices = { { text = "Just a bit. Something else.", next = "BACK" } },
+    },
+    grow = {
+      lines = { { id = "gw_default", text = "A grunt at the Crossroads, with a big axe and a wolf, so I can fight the centaur and the quilboar and anybody else. Papa wants me to be a shaman like him, but shaman have to sit still for hours, and I can't even sit still for breakfast." } },
+      choices = {
+        { text = "Grunts have to stand still on watch for hours.", next = "grow2" },
+        { text = "Maybe a shaman of the wind, then.", next = "grow2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grow2 = {
+      lines = { { id = "gw2_default", text = "They do? Oh no. Is there anything you can be where you get to run around all day and nobody makes you sit? Ow, ow, another one! I'll think about it later, when there aren't bees." } },
+      choices = {
+        { text = "I'm a warrior. We do plenty of running around.", next = "BACK", reply = "Really? Then I'm going to be a warrior, and you can't stop me! Ow!", when = { class = "WARRIOR" } },
+        { text = "Later, then. Something else.", next = "BACK" },
       },
     },
   },

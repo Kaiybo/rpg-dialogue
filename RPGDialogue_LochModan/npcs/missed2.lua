@@ -1448,7 +1448,45 @@ P:NPC {
         { text = "Who's Mountaineer Flint?", next = "xflint" },
         { text = "Would you rather have a longer patrol?", next = "xlonger" },
         { text = "I'm a hunter. I'd find six hundred paces dull.", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "What do the townsfolk say to you on patrol?", next = "ms_town" },
+        { text = "Have you fought troggs yourself?", next = "ms_troggs" },
         { text = "Enjoy the walk, Stenn.", next = "END" },
+      },
+    },
+    ms_town = {
+      lines = {
+        { id = "ms_town_1", text = "Good mornin', mostly, an' the same good evenin' when I pass back. Honni Goldenoat calls out from her bread stall every time I pass, an' I've started wavin' back so she knows I made it tae the white stone." },
+      },
+      choices = {
+        { text = "That's a kind thing to do.", next = "ms_honni" },
+        { text = "A wave at the white stone. A small ritual.", next = "BACK", reply = "Small, aye, but it gets us both through the day." },
+      },
+    },
+    ms_honni = {
+      lines = {
+        { id = "ms_honni_1", text = "It's the least I can do, for she feeds half the mountaineers on this road. She says a sausage isnae a meal without bread, an' I've eaten more o' her loaves than any dwarf should." },
+      },
+      choices = {
+        { text = "She's right about the bread.", next = "BACK" },
+        { text = "Good bread for a short walk. Something else.", next = "BACK" },
+      },
+    },
+    ms_troggs = {
+      lines = {
+        { id = "ms_troggs_1", text = "Aye, before I was put on this patrol, at Stonesplinter Valley wi' Mountaineer Kadrell. They come at ye in a rush, an' they hit harder than ye'd think for their size, an' they never, ever stop." },
+      },
+      choices = {
+        { text = "Is that why you're on the short patrol?", next = "ms_why" },
+        { text = "I've fought troggs too. They're tough.", next = "ms_why", when = { minLevel = 12 } },
+      },
+    },
+    ms_why = {
+      lines = {
+        { id = "ms_why_1", text = "Partly, for I took a club tae the knee an' it's no' been right since. The magistrate said six hundred paces was a fair walk for a knee like mine, an' he was right, though I'll never admit it tae Bluntnose." },
+      },
+      choices = {
+        { text = "Your secret's safe.", next = "BACK", fx = { affinity = 1 } },
+        { text = "A fair walk for a wounded knee.", next = "BACK" },
       },
     },
     short = {

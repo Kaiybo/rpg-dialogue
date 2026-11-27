@@ -552,7 +552,54 @@ P:NPC {
         { text = "What are the orcs up to?", next = "orcs" },
         { text = "Any strange beasts in the marsh?", next = "beasts" },
         { text = "Nobody wants your wagon, Terl.", next = "wagon" },
+        { text = "What do you trade from the wagon?", next = "ta_trade" },
+        { text = "Where's the most dangerous place you've taken it?", next = "ta_danger" },
         { text = "Safe travels.", next = "END" },
+      },
+    },
+    ta_trade = {
+      lines = {
+        { id = "ta_trade_1", text = "Whatever folk will part with and whatever other folk will pay for, which is the whole of trade, if you think about it. Crocolisk skins to the harbor, salt fish to the dig, and now and then a curiosity that nobody can name." },
+      },
+      choices = {
+        { text = "What sort of curiosity?", next = "ta_curio" },
+        { text = "You sound like a goblin.", next = "BACK", reply = "I'll take that as a compliment, for they're rich." },
+      },
+    },
+    ta_curio = {
+      lines = {
+        { id = "ta_curio_1", text = "A carved stone from Ironbeard's Tomb, a gnoll's necklace of murloc fins, and once a scale from Grim Batol as big as a shield. I sold that last one to a scholar from the Explorers' League, and he went white when he saw it." },
+      },
+      choices = {
+        { text = "A scale from Grim Batol? That's worrying.", next = "ta_scale" },
+        { text = "I'd pay for the gnoll's necklace.", next = "BACK" },
+      },
+    },
+    ta_scale = {
+      lines = {
+        { id = "ta_scale_1", text = "That's what the scholar said, and he wouldn't tell me why. I'd not go near that mountain for all the gold in Ironforge, for the dwarves say it's cursed, and the things that fly over it at dusk are no birds I know." },
+      },
+      choices = {
+        { text = "I'll stay well clear of Grim Batol.", next = "BACK", fx = { learn = { "grim_batol" } } },
+        { text = "Something else, Terl.", next = "BACK" },
+      },
+    },
+    ta_danger = {
+      lines = {
+        { id = "ta_danger_1", text = "The road up to Dun Modr, before the Dark Irons took it, and I'd not go now if you paid me. After that, the old road to the Algaz Gate, for the Dragonmaw watch it from the ridges and they don't care whose wagon it is." },
+      },
+      choices = {
+        { text = "You've had trouble with the Dragonmaw?", next = "ta_orcs2" },
+        { text = "I'm Horde. The Dragonmaw aren't my kin.", next = "ta_orcs2", when = { faction = "Horde" } },
+      },
+    },
+    ta_orcs2 = {
+      lines = {
+        { id = "ta_orcs2_1", text = "They took a wheel off the wagon once, just to show they could, and laughed while I walked to Menethil for another. I've learned to go by night and keep quiet, and I've not lost a wheel since." },
+      },
+      choices = {
+        { text = "By night and quiet. Wise.", next = "BACK" },
+        { text = "I'll take back that wheel for you.", next = "BACK", fx = { affinity = 1 } },
       },
     },
     whelgar = {
@@ -636,7 +683,54 @@ P:NPC {
         { text = "What will you do in Darkshore?", next = "yplan" },
         { text = "Did anything here surprise you?", next = "ysurprise" },
         { text = "What do you make of the dwarves?", next = "ydwarves" },
+        { text = "What will you tell the Sentinels when you return?", next = "sd_report" },
+        { text = "Have you met the other kaldorei in the harbor?", next = "sd_kin" },
         { text = "Safe crossing, Sylessa.", next = "END" },
+      },
+    },
+    sd_report = {
+      lines = {
+        { id = "sd_report_1", text = "That the humans are fewer than the stories say and stronger than they look. Their kingdoms are scarred by the war, but they rebuild their walls with a stubbornness I have only seen in the oldest trees." },
+      },
+      choices = {
+        { text = "Will the Sentinels believe you?", next = "sd_believe" },
+        { text = "Humans are stubborn, it's true.", next = "sd_believe", when = { race = "Human" }, reply = "You say it as if it were a fault, but I meant it kindly." },
+      },
+    },
+    sd_believe = {
+      lines = {
+        { id = "sd_believe_1", text = "Some will, and some will say I have been too long among them. The Sentinels guard Ashenvale against the orcs, and it is hard for them to think kindly of any people they did not grow beside." },
+      },
+      choices = {
+        { text = "Ashenvale is troubled by the orcs?", next = "sd_ash" },
+        { text = "Distrust is slow to fade.", next = "BACK" },
+      },
+    },
+    sd_ash = {
+      lines = {
+        { id = "sd_ash_1", text = "The Warsong clan cuts the forest's edge for their war machines, and the Sentinels bleed to stop them. That is the trouble I return to, and I would bring home a little hope from these lands if I can find any." },
+      },
+      choices = {
+        { text = "I hope you find some here.", next = "BACK", fx = { affinity = 1 } },
+        { text = "The orcs must be stopped. Something else.", next = "BACK" },
+      },
+    },
+    sd_kin = {
+      lines = {
+        { id = "sd_kin_1", text = "Telurinon and Dewin, yes, and they have made their homes here more fully than I could. Dewin speaks of the marsh as if it were Ashenvale, and Telurinon has grown patient with the dwarves, which is a gift I lack." },
+      },
+      choices = {
+        { text = "You don't care for the dwarves?", next = "sd_dwarves2" },
+        { text = "I'm a dwarf. We're not so bad.", next = "sd_dwarves2", when = { race = "Dwarf" } },
+      },
+    },
+    sd_dwarves2 = {
+      lines = {
+        { id = "sd_dwarves2_1", text = "I care for them well enough, but they are loud and quick and they cut stone with no apology. Still, one of them carried my pack up from the dock without a word and would not take a coin for it, so I am learning." },
+      },
+      choices = {
+        { text = "That sounds like a dwarf.", next = "BACK" },
+        { text = "Learning is the first step. Something else.", next = "BACK" },
       },
     },
     humans = {

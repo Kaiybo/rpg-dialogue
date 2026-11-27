@@ -48,6 +48,8 @@ P:NPC {
         { text = "Did any of your order fall to the dream?", next = "fang" },
         { text = "I've walked the Emerald Dream myself, a little.", next = "dream", when = { class = "DRUID" } },
         { text = "What do you need done?", next = "BUSINESS" },
+        { text = "Who else keeps the watch here with you?", next = "watch" },
+        { text = "The oases nearby have gone strange as well.", next = "oases" },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -100,6 +102,33 @@ P:NPC {
       choices = {
         { text = "I'll keep that warning close.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    watch = {
+      lines = { { id = "wt_default", text = "Nalpak, who is our eldest and the one who decides who goes below, and Muyoh, who waits deeper inside the cave for anyone brave enough to wake our master. Above us on the hill, Waldor and Kalldan work the hides that come out of the dark." } },
+      choices = {
+        { text = "You don't approve of their leatherwork, I hear.", next = "watch2" },
+        { text = "What does Muyoh wait for?", next = "watch2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    watch2 = {
+      lines = { { id = "wt2_default", text = "I don't, and they know it, because the scale they sew still carries the nightmare in it. Muyoh waits for someone to escort him to Naralex's side, once the four Fanglords are dealt with, so that he can try the waking ritual. Speak to him when you're strong enough." } },
+      choices = { { text = "I'll find Muyoh in time. Something else.", next = "BACK" } },
+    },
+    oases = {
+      lines = { { id = "oa_default", text = "They have. The Lushwater, the Stagnant Oasis and the Forgotten Pools all drink from the same water that runs under these caverns, and when Naralex's dream turned, it reached up through the ground to them. Tonga Runetotem at the Crossroads has been studying the plants that grow there." } },
+      choices = {
+        { text = "Can the oases be saved, if the caverns can't?", next = "oases2" },
+        { text = "So the whole Barrens drinks from his nightmare.", next = "oases2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    oases2 = {
+      lines = { { id = "oa2_default", text = "Not while he sleeps. Wake Naralex, and the water might run clean again in a season or two, and the beasts might go back to being only beasts. Leave him dreaming, and the green will keep creeping until the whole of the Barrens is the caverns' garden." } },
+      choices = {
+        { text = "I'm a druid. I'll do what I can to wake him.", next = "BACK", reply = "Then you'll carry the Circle's hope down there with you. Come back alive; we've lost enough druids to that dream.", when = { class = "DRUID" } },
+        { text = "Something else, Ebru.", next = "BACK" },
       },
     },
   },

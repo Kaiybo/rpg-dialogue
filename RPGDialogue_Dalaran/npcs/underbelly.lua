@@ -33,6 +33,51 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    rex_pipe1 = {
+      lines = {
+        { id = "rex_pipe1_1", text = "Sure did, pal, through the old sewers under the city, which the mages built for magic runoff and then forgot about. There's tunnels down there wide enough to roll a cart through, and nobody guarding 'em but the rats and the odd glowing puddle." },
+      },
+      choices = {
+        { text = "Glowing puddle?", next = "rex_pipe2" },
+        { text = "Something else, Rexxie.", next = "BACK" },
+      },
+    },
+    rex_pipe2 = {
+      lines = {
+        { id = "rex_pipe2_1", text = "Arcane leakage, sweetheart, a hundred years of spells goin' down the drain, and it makes the rats real interesting. I lost a perfectly good boot to one puddle, and I swear the boot walked off on its own." },
+      },
+      choices = {
+        { text = "That's not a joke, is it?", next = "rex_pipe3" },
+        { text = "I'd keep that route to myself.", next = "rex_pipe3" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    rex_pipe3 = {
+      lines = {
+        { id = "rex_pipe3_1", text = "Nope, and that's why I charge for the map, pal, a real reasonable fee, with a discount for anybody who promises not to tell the Kirin Tor where they got it. The boot, by the way, if you see it, it's a size four and it owes me money." },
+      },
+      choices = {
+        { text = "I'll keep an eye out. Something else.", next = "BACK" },
+      },
+    },
+    rex_gold1 = {
+      lines = {
+        { id = "rex_gold1_1", text = "Old as gold, friend, and twice as reliable! You take a plain book, a little leaf on the spine, a fancy seal on the cover, and suddenly it's the private journal of some archmage nobody can check on, 'cause he's dead or he's busy." },
+      },
+      choices = {
+        { text = "And the buyers never notice?", next = "rex_gold2" },
+        { text = "A mage could spot a forgery fast.", next = "rex_gold2", when = { class = "MAGE" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rex_gold2 = {
+      lines = {
+        { id = "rex_gold2_1", text = "The ones who notice don't complain, pal, 'cause complainin' means admittin' they were buyin' hot books from a goblin in a basement. That's what I call a self-correctin' market, and it's the best kind there is." },
+      },
+      choices = {
+        { text = "That's a grim kind of genius. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
@@ -58,6 +103,8 @@ P:NPC {
         { text = "You're after something down here, I'd guess.", next = "after" },
         { text = "This is stealing, plain and simple.", next = "steal" },
         { text = "Need a partner, Rexxie?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "You came in through the plumbing, you said.", next = "rex_pipe1" },
+        { text = "That gold paint trick sounds like an old one.", next = "rex_gold1" },
         { text = "See you around, Rexxie.", next = "END" },
       },
     },

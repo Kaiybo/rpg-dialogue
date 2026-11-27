@@ -50,6 +50,8 @@ P:NPC {
         { text = "I'll guess the nickname has nothing to do with the bog.", next = "name" },
         { text = "I'll get you out of here. Stay behind me.", next = "escort", when = { questBefore = TODO_QUEST("Stinky's Escape") } },
         { text = "You'd be safer travelling with a hunter, Ignatz.", next = "hunter", when = { class = "HUNTER" } },
+        { text = "What else lives up here in the north marsh?", next = "marsh" },
+        { text = "What's Morgan Stern like to work for?", next = "morgan" },
         { text = "Stay put. I've other business first.", next = "END" },
       },
     },
@@ -106,6 +108,33 @@ P:NPC {
       choices = {
         { text = "Raptors don't carry baskets, Ignatz.", next = "BACK" },
         { text = "I'll think on it.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+    marsh = {
+      lines = { { id = "ms_default", text = "Raptors, obviously, and big ugly crocolisks in the pools, and dragonkin further west, toward the Wyrmbog, where nobody sane goes. And there's a lot of bugs, friend, so many bugs, and every one of them thinks I'm supper." } },
+      choices = {
+        { text = "Dragonkin? This close to Theramore?", next = "marsh2" },
+        { text = "The bugs seem to like your smell, at least.", next = "marsh2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    marsh2 = {
+      lines = { { id = "ms2_default", text = "Black ones, the soldiers say, from some cave down the southern end of the marsh, and they say it quiet, like they're scared the dragons can hear. I don't go anywhere near it, I just pick leaves and try very hard not to be interesting." } },
+      choices = { { text = "Good policy. Something else.", next = "BACK" } },
+    },
+    morgan = {
+      lines = { { id = "mg_default", text = "Oh, he's lovely, really, when he isn't cooking, and when he is he's a whirlwind with a ladle. He feeds half the garrison out of that kitchen, and he tastes everything twice and shouts about it once, and I'd follow him anywhere, except back up here." } },
+      choices = {
+        { text = "Does he pay you well for the leaves?", next = "morgan2" },
+        { text = "He sent you into a raptor pack for soup.", next = "morgan2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    morgan2 = {
+      lines = { { id = "mg2_default", text = "Well enough, and he gives me a bowl of whatever he makes from them, which is worth more than the coin. He didn't know about the raptors, and he'll feel awful when I tell him, and then he'll make me a pie, which almost makes it worth it." } },
+      choices = {
+        { text = "I cook too. I'd like to try his recipe.", next = "BACK", reply = "Then come back to Theramore with me and ask him! He loves an audience, and he'll talk your ear off.", when = { profession = "Cooking" } },
+        { text = "Something else, Ignatz.", next = "BACK" },
       },
     },
   },
@@ -278,6 +307,8 @@ P:NPC {
         { text = "Who's this client of yours?", next = "client" },
         { text = "Privateer? On a Theramore dock?", next = "privateer" },
         { text = "I've come from Bloads in Booty Bay.", next = "bloads", when = { questActive = TODO_QUEST("Akiris by the Bundle") } },
+        { text = "Theramore's docks seem busy for a young city.", next = "docks" },
+        { text = "Do you still have friends at sea?", next = "sea" },
         { text = "I'll leave you to your waiting.", next = "END" },
       },
     },
@@ -323,6 +354,40 @@ P:NPC {
       choices = {
         { text = "I'll tell him you said so.", next = "BACK", reply = "Don't you dare. He'll raise his prices.", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    docks = {
+      lines = { { id = "dk_default", text = "Busy as a rat's nest. Ships from Kul Tiras come and go, the Lady's mages send crates to who knows where, and every sailor with a grudge or a debt ends up drinking here before he sails on. A man with a good ear can make a living just listening." } },
+      choices = {
+        { text = "And you've a good ear?", next = "docks2" },
+        { text = "The Guard must keep a close eye on it all.", next = "docks2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    docks2 = {
+      lines = { { id = "dk2_default", text = "The best on this dock, and I don't share what I hear for free. The Guard watches the big ships and leaves the little ones alone, which is exactly where the interesting business happens. Captain Vimes knows it and lets it be, so long as nobody bleeds on his planks." } },
+      choices = {
+        { text = "Then where's the interesting business this week?", next = "docks3" },
+        { text = "Something else, Groy.", next = "BACK" },
+      },
+    },
+    docks3 = {
+      lines = { { id = "dk3_default", text = "Ha! Nice try. I'll tell you this much for nothing: the Kul Tiras crews don't like Lady Proudmoore half as much as they pretend to, not since her father fell. Watch who drinks with who, and you'll learn more than I'd ever sell you." } },
+      choices = { { text = "I'll keep my eyes open. Something else.", next = "BACK" } },
+    },
+    sea = {
+      lines = { { id = "se_default", text = "Friends is a strong word. I've got men I'd trust with my rum and not my purse, scattered from Booty Bay to the Baradin coast. Bloads is one of 'em, and the rest are either dead, rich or in irons, and I'd not want to guess the proportions." } },
+      choices = {
+        { text = "Why did you leave the sea?", next = "sea2" },
+        { text = "Dead, rich or in irons. The privateer's life, I suppose.", next = "sea2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sea2 = {
+      lines = { { id = "se2_default", text = "Because the sea doesn't pay on time and it tried to drown me twice. On dry land, the worst a man can do is cheat me, and I can see that coming. Mostly." } },
+      choices = {
+        { text = "I'm a rogue. I can see it coming too.", next = "BACK", reply = "Then we understand each other, and I'll be counting my fingers after we shake.", when = { class = "ROGUE" } },
+        { text = "Something else, then.", next = "BACK" },
       },
     },
   },
@@ -381,6 +446,8 @@ P:NPC {
         { text = "Why only sell to Stormwind's friends?", next = "rule" },
         { text = "Where do these horses come from?", next = "stock" },
         { text = "A horse is only a beast. I'll pick any.", next = "beast" },
+        { text = "Which of your horses would you ride yourself?", next = "favourite" },
+        { text = "The isle's a long way from good pasture.", next = "feed" },
         { text = "Good day.", next = "END" },
       },
     },
@@ -423,6 +490,40 @@ P:NPC {
       choices = {
         { text = "Fair point. I'll choose carefully.", next = "BACK", fx = { affinity = 1 } },
         { text = "Let's see them.", next = "BUSINESS" },
+      },
+    },
+    favourite = {
+      lines = { { id = "fv_default", text = "The grey gelding at the end, there, with the white sock. He's not the fastest and he's not the prettiest, but he's never once thrown a rider, and he'll stand still in a thunderstorm while the others are trying to climb the fence." } },
+      choices = {
+        { text = "Why isn't he for sale?", next = "favourite2" },
+        { text = "Calm matters more than speed, sometimes.", next = "favourite2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    favourite2 = {
+      lines = { { id = "fv2_default", text = "He is, in principle, but I've priced him so high that nobody's bought him yet. I tell myself it's because he's worth it. The stable lads tell me it's because I'm a soft old fool, and they've known me long enough to say it." } },
+      choices = {
+        { text = "Then keep him. Some things aren't for selling.", next = "favourite3" },
+        { text = "Something else, Gregor.", next = "BACK" },
+      },
+    },
+    favourite3 = {
+      lines = { { id = "fv3_default", text = "That's what I'd like to believe, friend, but a breeder who keeps every good horse soon has a very full stable and a very empty purse. One day the right rider will come along, and I'll let him go, and I'll mope for a week." } },
+      choices = { { text = "A week of moping. Something else.", next = "BACK" } },
+    },
+    feed = {
+      lines = { { id = "fd_default", text = "It is, and that's the hardest part of horses on Theramore. The marsh grass is sour and sharp and gives them colic, so I buy oats off the Kul Tiras ships and hay from the farms near the old Shady Rest, when they'll sell it." } },
+      choices = {
+        { text = "The Shady Rest burned, I heard.", next = "feed2" },
+        { text = "Oats by ship must cost a fortune.", next = "feed2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    feed2 = {
+      lines = { { id = "fd2_default", text = "It did, a terrible thing, and nobody's quite sure who did it. Captain Vimes is looking into it. With the inn gone, the farms along that road have gone quiet, and I've had to pay the ships twice what I'd like. The horses don't know the difference, thank the Light." } },
+      choices = {
+        { text = "I'm a paladin. A good horse is as dear as a brother.", next = "BACK", reply = "Then you understand me better than the soldiers do, friend. Come and see the grey before you go.", when = { class = "PALADIN" } },
+        { text = "Something else, then.", next = "BACK" },
       },
     },
   },
@@ -1078,6 +1179,8 @@ P:NPC {
         { text = "You teach beside the practice dummies, not in a chapel.", next = "yard" },
         { text = "The Light didn't save Lordaeron.", next = "doubt" },
         { text = "How do you keep faith in a place like this?", next = "faith", when = { class = { "PALADIN", "PRIEST" } } },
+        { text = "Do you know Lady Proudmoore well?", next = "jaina" },
+        { text = "What do you teach a recruit first?", next = "first" },
         { text = "Light keep you, Brother.", next = "END" },
       },
     },
@@ -1144,6 +1247,33 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    jaina = {
+      lines = { { id = "ja_default", text = "Well enough to pray for her, which I do every night. She carries a great deal on narrow shoulders, and she made a choice at the gates of this city that half her own people have never forgiven. I think she was right, and I think it cost her dearly." } },
+      choices = {
+        { text = "You mean her father's death.", next = "jaina2" },
+        { text = "Some in Theramore still call it betrayal.", next = "jaina2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jaina2 = {
+      lines = { { id = "ja2_default", text = "I do. Admiral Proudmoore came to make war on the Horde, and she chose peace instead, and he died for it. A paladin is taught that some oaths are bigger than blood. I'm not sure I could have kept that one, and I'm glad I never had to try." } },
+      choices = { { text = "Few could. Something else.", next = "BACK" } },
+    },
+    first = {
+      lines = { { id = "fi_default", text = "To kneel, and then to get up again, which is harder. A recruit wants to swing a hammer on the first day, and I make him spend a week learning to pray with his eyes open, because the dead don't wait for you to finish." } },
+      choices = {
+        { text = "That sounds like a lesson from Lordaeron.", next = "first2" },
+        { text = "Swinging the hammer seems more useful.", next = "first2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    first2 = {
+      lines = { { id = "fi2_default", text = "Everything I teach is a lesson from Lordaeron, friend. I learned it from Uther's knights, and they learned it from the Archbishop's priests, and I'll pass it on to anyone who'll stand in this yard long enough. The hammer comes last, and it's the least of it." } },
+      choices = {
+        { text = "I'm a paladin. I learned it the same way.", next = "BACK", reply = "Then you know why it matters. Keep teaching it, wherever you go.", when = { class = "PALADIN" } },
+        { text = "Something else, Brother.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_background", text = "I was a brother of the Silver Hand in Lordaeron, and I'm one still. I followed the Lady because she was saving people while others argued." } },
@@ -1201,6 +1331,8 @@ P:NPC {
         { text = "Who drinks all these potions?", next = "who" },
         { text = "Alchemy is just cooking with worse smells.", next = "cooking" },
         { text = "What's the oddest thing you've brewed from the marsh?", next = "oddest", when = { profession = { "Alchemy", "Herbalism" } } },
+        { text = "Doctor VanHowzen asked you to stop testing on yourself?", next = "doctor" },
+        { text = "Did you learn the craft in Dalaran?", next = "dalaran" },
         { text = "Good luck with your work, Narett.", next = "END" },
       },
     },
@@ -1265,6 +1397,33 @@ P:NPC {
       choices = {
         { text = "I'd take the green tongue.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    doctor = {
+      lines = { { id = "dc_default", text = "Asked, then insisted, then threatened to have me confined to the infirmary. He's a very good physician and a very poor sport. He thinks every new draught should be tested on rats first, as if rats had anything useful to say about a headache." } },
+      choices = {
+        { text = "He sounds like he's right.", next = "doctor2" },
+        { text = "Rats can't tell you how a draught tastes.", next = "doctor2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    doctor2 = {
+      lines = { { id = "dc2_default", text = "He is right, and that's the most annoying thing about him. We share supplies, he and I, and he sends me the soldiers with the strangest fevers so I can see what the marsh has done this season. I think he enjoys my reports more than he admits." } },
+      choices = { { text = "Strange fevers. Something else.", next = "BACK" } },
+    },
+    dalaran = {
+      lines = { { id = "dl_default", text = "Near enough. I was an apprentice to an alchemist who served the Kirin Tor's lesser halls, grinding powders and cleaning retorts for six years. When the city was broken, I followed the Lady west, because she was one of the few mages who'd ever spoken to me as an equal." } },
+      choices = {
+        { text = "What happened to your master?", next = "dalaran2" },
+        { text = "Six years of cleaning retorts. That's devotion.", next = "dalaran2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dalaran2 = {
+      lines = { { id = "dl2_default", text = "I don't know, and I've stopped asking ships' captains. He was a careful man, which gives me some hope. I keep his notebooks on the top shelf, and when I'm stuck on a formula I read them, and his handwriting is still dreadful." } },
+      choices = {
+        { text = "I'm a mage. Dalaran's scattered folk often turn up again.", next = "BACK", reply = "Then if you ever meet an old alchemist with ink on his sleeves and a short temper, give him my name.", when = { class = "MAGE" } },
+        { text = "Something else, Narett.", next = "BACK" },
       },
     },
   },

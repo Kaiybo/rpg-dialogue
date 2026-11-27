@@ -29,6 +29,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_ruin = {
+      lines = {
+        { id = "d2_ruin_1", text = "It does, and the Dark Lady prefers it so. The prince killed his father on that floor and walked out to the cheers of the city, and she would rather rule from the crypts beneath than sit in a chair with that much blood under it." },
+      },
+      choices = {
+        { text = "Does she ever go up there?", next = "d2_ruin2" },
+        { text = "A wise choice, I'd say.", next = "d2_ruin2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_ruin2 = {
+      lines = {
+        { id = "d2_ruin2_1", text = "Rarely, and never for long. The courtyard is held by our guards and the Scourge still probe it from the north, so the old palace serves as a door and a warning, and the living are meant to read it as both." },
+      },
+      choices = {
+        { text = "Then I'll read it so.", next = "BACK" },
+        { text = "Ask you something else.", next = "BACK" },
+      },
+    },
+    d2_ogres = {
+      lines = {
+        { id = "d2_ogres_1", text = "They will serve as long as their chieftain does, and their chieftain serves as long as we hold his mind. The Crushridge are strong and stupid and very numerous in the mountains above Alterac, and that makes them useful against the Syndicate and the Alliance alike." },
+      },
+      choices = {
+        { text = "And when the hold slips?", next = "d2_ogres2" },
+        { text = "Ogres make poor allies.", next = "d2_ogres2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_ogres2 = {
+      lines = {
+        { id = "d2_ogres2_1", text = "Then they will be stupid and angry instead of stupid and obedient, and Melisara will deal with them from Tarren Mill. I do not lose sleep over ogres, {class}, chiefly because I do not sleep." },
+      },
+      choices = {
+        { text = "That's almost a joke, Sharlindra.", next = "BACK", reply = "It was entirely a joke. Do not expect another." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_mind = {
+      lines = {
+        { id = "d2_mind_1", text = "It is, and your kind practice it while calling it holy. The difference is that you let go after a moment, and we have no intention of letting go at all." },
+      },
+      choices = {
+        { text = "That difference matters.", next = "BACK", reply = "To you. To the ogre, I suspect it is much the same." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Sharlindra, and I counsel the Dark Lady when she wishes to be counselled, which is rarely. I also see to the matters she has no time for, and one of those matters is an ogre with something on his head that belongs to us." },
@@ -47,6 +94,9 @@ P:NPC {
         { text = "What is it you do for the Dark Lady?", next = "counsel" },
         { text = "Who is Melisara?", next = "melisara" },
         { text = "What was it like, being made a banshee?", next = "banshee", when = { race = "Scourge" } },
+        { text = "The throne room above us lies in ruins.", next = "d2_ruin" },
+        { text = "What becomes of Mug'Thol's warband now?", next = "d2_ogres" },
+        { text = "Possession is a priest's art too, in its way.", next = "d2_mind", when = { class = "PRIEST" } },
         { text = "I'll take my leave.", next = "END" },
       },
     },

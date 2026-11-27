@@ -135,6 +135,8 @@ P:NPC {
         { text = "Why return to a place so ruined?", next = "why" },
         { text = "Is there any hope for Felwood?", next = "hope" },
         { text = "I am a druid. Can the wood be healed?", next = "druid", when = { class = "DRUID" } },
+        { text = "What was this forest like, before?", next = "before" },
+        { text = "Why do the elders gather each new year?", next = "festival" },
         { text = "Farewell, Elder.", next = "END" },
       },
     },
@@ -163,6 +165,44 @@ P:NPC {
     druid = {
       lines = { { id = "d_default", text = "Slowly, with patience and much hard work. The Circle's druids are trying; go and lend them your strength." } },
       choices = { { text = "I will. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    before = {
+      lines = { { id = "bf_default", text = "It was the northern reach of Ashenvale, and no one thought to call it anything else. The great trees stood shoulder to shoulder from the mountains to the sea, and the moonwells along its paths shone so brightly that travellers needed no torch at night." } },
+      choices = {
+        { text = "Were there towns here?", next = "before2" },
+        { text = "It's hard to picture, looking at it now.", next = "before2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    before2 = {
+      lines = { { id = "bf2_default", text = "Shrines more than towns, and the Ruins of Constellas, where kaldorei once studied the stars. The satyrs hold Constellas now, and they have made a mockery of what was taught there. I walked its halls once, long ago, and I would rather not see them again as they are." } },
+      choices = {
+        { text = "Then remember them as they were.", next = "before3" },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
+    before3 = {
+      lines = { { id = "bf3_default", text = "That is what an elder is for, traveller. The young remember battles, and the old remember the quiet between them. If no one remembers the quiet, there will be no reason to make peace when the battles are done." } },
+      choices = { { text = "Wise words. Something else.", next = "BACK" } },
+    },
+    festival = {
+      lines = { { id = "fs_default", text = "To remember those who came before, and to be remembered in turn. Each elder keeps watch over a place that matters to their people, and at the turning of the year, travellers seek us out, and we speak a blessing. Then the elders go to Moonglade and stand together under the moon." } },
+      choices = {
+        { text = "Why keep watch here, of all places?", next = "festival2" },
+        { text = "Moonglade must be a sight on that night.", next = "festival2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    festival2 = {
+      lines = { { id = "fs2_default", text = "Because no one else will. The other elders keep watch over cities and great halls, where a blessing is easy to give. Felwood needs one more than any of them, and I would not have the ancestors look down and see it forgotten by their own children." } },
+      choices = {
+        { text = "I'm a night elf. Thank you for not forgetting.", next = "festival3", when = { race = "NightElf" } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    festival3 = {
+      lines = { { id = "fs3_default", text = "You need not thank me, child of Elune. Carry this forest in your memory as I do, and when you are old, come back and stand here in my place. That is the only thanks an elder ever asks." } },
+      choices = { { text = "I'll remember. Something else.", next = "BACK" } },
     },
   },
   topics = {

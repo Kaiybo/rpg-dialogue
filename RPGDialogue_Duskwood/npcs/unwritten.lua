@@ -24,6 +24,51 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    blo_hope1 = {
+      lines = {
+        { id = "blo_hope1_1", text = "A girl from Addle's Stead, eleven years old, who went out after a lost sheep two winters ago. Every other name from that season I've crossed out, but I can't bring myself to cross out hers." },
+      },
+      choices = {
+        { text = "Did anyone search?", next = "blo_hope2" },
+        { text = "Leave it as it is. Hope costs nothing.", next = "blo_hope2" },
+        { text = "Something else, Blomberg.", next = "BACK" },
+      },
+    },
+    blo_hope2 = {
+      lines = {
+        { id = "blo_hope2_1", text = "Half the Watch, for three days, and they found the sheep and nothing else. Hutchins says I should let her go, and then he asks me about her every winter, so I don't think he means it." },
+      },
+      choices = {
+        { text = "Then neither of you has let her go.", next = "BACK" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    blo_road1 = {
+      lines = {
+        { id = "blo_road1_1", text = "The road west to Raven Hill and the Westfall border, which surprises people. Adventurers go that way for the necromancer, merchants go that way to dodge the north road prices, and fools go that way because nobody told them not to." },
+      },
+      choices = {
+        { text = "And the fewest?", next = "blo_road2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    blo_road2 = {
+      lines = {
+        { id = "blo_road2_1", text = "The south road toward Stranglethorn, where the Vile Reef sits and the murlocs come up out of the water. Watcher Jordan walks it now, young as he is, and I put his name in the book every time he goes out." },
+      },
+      choices = {
+        { text = "You worry about him.", next = "blo_road3" },
+        { text = "Back to other matters.", next = "BACK" },
+      },
+    },
+    blo_road3 = {
+      lines = {
+        { id = "blo_road3_1", text = "I worry about all of them, but Jordan more, because he goes out like he's daring the road to take him. His brother Daniel went out the same way, and I crossed out that name myself." },
+      },
+      choices = {
+        { text = "I'll keep an eye on him. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Watcher Blomberg, Night Watch. I keep a tally of everyone who passes this crossroads, coming and going, so we know who to look for when they don't come back.", fx = { learn = { "night_watch" } } } },
       again = {
@@ -39,6 +84,8 @@ P:NPC {
         { text = "Do you know Hutchins well?", next = "xhutch" },
         { text = "Who was the last name you crossed out?", next = "xlast" },
         { text = "Mark me down as a Darkshire friend.", next = "BACK", when = { faction = "Alliance" }, reply = "Done, and I've put a star by it, which I don't do for many. Come back through here so I can mark you home." },
+        { text = "Is there a name in your book you still hope for?", next = "blo_hope1" },
+        { text = "Which road gets the most travellers?", next = "blo_road1" },
         { text = "Carry on, Watcher.", next = "END" },
       },
     },
@@ -127,6 +174,50 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    hut_yrs1 = {
+      lines = {
+        { id = "hut_yrs1_1", text = "Everything but the signpost, friend. When I started, half the traffic was farmers going to market, and now it's adventurers going to fight, and the market's a stall at the town hall with three turnips on it." },
+      },
+      choices = {
+        { text = "What about the signpost?", next = "hut_yrs2" },
+        { text = "Something else, Hutchins.", next = "BACK" },
+      },
+    },
+    hut_yrs2 = {
+      lines = {
+        { id = "hut_yrs2_1", text = "Still points to Grand Hamlet, if you can believe it, because nobody's had the heart to repaint it. I've offered twice, and twice Blomberg's told me the old name keeps the hope up, and he's right, the old grump." },
+      },
+      choices = {
+        { text = "Leave it, then. It's a good sign.", next = "hut_yrs3" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    hut_yrs3 = {
+      lines = {
+        { id = "hut_yrs3_1", text = "A good sign, ha! I'll have that one, friend, and I'll use it on Blomberg tonight and he won't laugh at it either. That's how I know it's a good one, because he tries hardest not to laugh at the good ones." },
+      },
+      choices = {
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    hut_blo1 = {
+      lines = {
+        { id = "hut_blo1_1", text = "He does, you know, only on the inside where nobody can see it. You can tell by his left ear, which goes red, and I've been watching that ear for twelve years like a farmer watches the weather." },
+      },
+      choices = {
+        { text = "I'll watch the ear next time.", next = "hut_blo2" },
+        { text = "A gnome would build you a laugh meter.", next = "hut_blo2", when = { race = "Gnome" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hut_blo2 = {
+      lines = {
+        { id = "hut_blo2_1", text = "Do, and you'll see what I mean, though don't let him catch you at it. A watcher who's been caught smiling never hears the end of it at the Raven, and he's got a reputation to keep up as the grimmest man in Duskwood." },
+      },
+      choices = {
+        { text = "Your secret's safe with me. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Watcher Hutchins, at your service. Blomberg keeps the tally, and I keep the spirits up, which is the harder job, believe me." } },
       again = {
@@ -142,6 +233,8 @@ P:NPC {
         { text = "What does Blomberg really think of you?", next = "xblom" },
         { text = "Do you ever get scared?", next = "xscared" },
         { text = "Do dwarves tell good jokes, you think?", next = "BACK", when = { race = "Dwarf" }, reply = "The best, friend, though half of them are about beer and the other half are about beards. I'd trade jokes with you any night." },
+        { text = "Twelve years at the crossroads. What's changed?", next = "hut_yrs1" },
+        { text = "Blomberg never laughs at your jokes.", next = "hut_blo1" },
         { text = "Take care, Hutchins.", next = "END" },
       },
     },
@@ -434,6 +527,50 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    jor_reef1 = {
+      lines = {
+        { id = "jor_reef1_1", text = "Murlocs, mostly, a whole village of them along the shore, and they come up in a rush if you stand too long near the water. Further out there's a wreck where the fishermen say something bigger lives, though nobody I know has been to look." },
+      },
+      choices = {
+        { text = "Something bigger than a murloc?", next = "jor_reef2" },
+        { text = "Something else, Jordan.", next = "BACK" },
+      },
+    },
+    jor_reef2 = {
+      lines = {
+        { id = "jor_reef2_1", text = "That's the story, a thing with too many arms that pulled a whole boat under. The Commander says it's fishermen's talk, but she's ordered nobody to swim out to the wreck, which is an odd order if it's just talk." },
+      },
+      choices = {
+        { text = "Then don't be the first to test it.", next = "jor_reef3" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    jor_reef3 = {
+      lines = {
+        { id = "jor_reef3_1", text = "I won't, I swear, and you're the fourth person to tell me today. It's funny how everyone in Darkshire thinks I'm going to do something foolish, when I've only done three foolish things all year." },
+      },
+      choices = {
+        { text = "Three is plenty. Something else.", next = "BACK" },
+      },
+    },
+    jor_th1 = {
+      lines = {
+        { id = "jor_th1_1", text = "Thayer's hard on everyone, but aye, harder on me, because I'm the youngest and I talk back. He was my brother's sergeant, and I think he sees Daniel when he looks at me and doesn't care for it." },
+      },
+      choices = {
+        { text = "He's afraid of losing you the same way.", next = "jor_th2" },
+        { text = "You remind him of a loss. That's hard on both.", next = "jor_th2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jor_th2 = {
+      lines = {
+        { id = "jor_th2_1", text = "I hadn't thought of it like that. I'll try not to answer him back tomorrow, though I'm not making any promises if he says my lamp's crooked again." },
+      },
+      choices = {
+        { text = "Fair enough. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Watcher Jordan, newest in the Watch, though I've already put down three ghouls and a spider the size of a cart. The south road's mine to walk, and I'll keep it clear." } },
       again = {
@@ -450,6 +587,8 @@ P:NPC {
         { text = "Tell me about your brother.", next = "xbrother" },
         { text = "What do you think of the commander?", next = "xcmdr" },
         { text = "I'm a warrior. Any advice for the south road?", next = "BACK", when = { class = "WARRIOR" }, reply = "Keep your shield up near the reef, because the murlocs come in a rush. And don't chase them into the water, I learned that one wet." },
+        { text = "What do you know about the Vile Reef?", next = "jor_reef1" },
+        { text = "Thayer's been hard on you, by the sound of it.", next = "jor_th1" },
         { text = "Good luck, Jordan.", next = "END" },
       },
     },

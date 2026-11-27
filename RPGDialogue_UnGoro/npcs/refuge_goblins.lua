@@ -294,6 +294,8 @@ P:NPC {
         { text = "What's worth money in the crater?", next = "worth" },
         { text = "Do the scientists know about your side business?", next = "scientists" },
         { text = "What's devilsaur leather actually worth, Quixxil?", next = "dd_devilsaur", when = { killed = { name = "Devilsaur", min = 10 } } },
+        { text = "How do the goods get out of the crater?", next = "ramp" },
+        { text = "Williden seems to trust you more than he should.", next = "williden" },
         { text = "I'll be on my way, Quixxil.", next = "END" },
       },
     },
@@ -356,6 +358,33 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    ramp = {
+      lines = { { id = "rp_default", text = "Up the ramp to the north, pal, on the back of a kodo with a nervous driver, and then across the Shimmering Flats to Gadgetzan. Every crate pays three tolls: the driver, the dinosaurs, and me, and only one of those three gives receipts." } },
+      choices = {
+        { text = "The dinosaurs take a toll?", next = "ramp2" },
+        { text = "And you give receipts? I doubt it.", next = "ramp2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ramp2 = {
+      lines = { { id = "rp2_default", text = "In kodos, friend, and once in a driver, rest his soul. The stegodons don't eat ya, but they knock the cart over just to see what happens. I do give receipts, by the way, real nice ones, and I make 'em out to whoever's easiest to blame." } },
+      choices = { { text = "Of course you do. Something else.", next = "BACK" } },
+    },
+    williden = {
+      lines = { { id = "wd_default", text = "Williden's a scholar, pal, a real one, which means he thinks everybody's as honest as a footnote. He brought his whole family down here to study the crater, and he'd give the shirt off his back to the Explorers' League before he'd sell it. I find that touching, and profitable." } },
+      choices = {
+        { text = "Do you ever feel bad about it?", next = "williden2" },
+        { text = "Someone should tell him what you're doing.", next = "williden2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    williden2 = {
+      lines = { { id = "wd2_default", text = "Feel bad? Listen, listen, the Expedition eats because of me, the rope holds because of me, and the eggheads get their crystals because I know a fella. If somebody wants to tell him, go ahead, and then you go find rope in a crater full of raptors." } },
+      choices = {
+        { text = "I'm a rogue. I can see why you two get along.", next = "BACK", reply = "Ha! Takes one to know one, pal. Don't go pickin' my pockets, I already picked 'em myself.", when = { class = "ROGUE" } },
+        { text = "Something else, Quixxil.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -412,6 +441,8 @@ P:NPC {
         { text = "Business must be good down here.", next = "business" },
         { text = "Did you trade Shizzle a propeller?", next = "shizzle" },
         { text = "Let me see your weapons.", next = "BUSINESS" },
+        { text = "Who's this Shizzle, anyway?", next = "kid" },
+        { text = "Do you ever go down into the crater yourself?", next = "down" },
         { text = "Later, Gibbert.", next = "END" },
       },
     },
@@ -462,6 +493,44 @@ P:NPC {
       choices = {
         { text = "Something else.", next = "BACK" },
       },
+    },
+    kid = {
+      lines = { { id = "kd_default", text = "Shizzle's a goblin with a flyin' machine that won't fly and a dream that won't quit, pal. He's tinkering at the edge of the camp from sunup to sundown, and every week he asks somebody to go fetch him somethin' from the crater that'll make the difference." } },
+      choices = {
+        { text = "What's he missing this time?", next = "kid2" },
+        { text = "A goblin with a dream. That's half of Gadgetzan.", next = "kid2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kid2 = {
+      lines = { { id = "kd2_default", text = "Somethin' from the flyin' lizards, the pterrordaxes, last I heard, or maybe it was crystals. It changes. The point is, friend, if that thing ever gets off the ground, everybody who ever lent him a bolt is gonna be in the history books, and I lent him a whole sword." } },
+      choices = {
+        { text = "Then let's hope it flies. Something else.", next = "kid3" },
+        { text = "Something else, Gibbert.", next = "BACK" },
+      },
+    },
+    kid3 = {
+      lines = { { id = "kd3_default", text = "I hope it flies, and I hope I'm not standin' under it when it does. That's my whole philosophy, pal, back the dreamer and stand well back. Same goes for anybody buyin' one of my swords." } },
+      choices = { { text = "Stand well back. Something else.", next = "BACK" } },
+    },
+    down = {
+      lines = { { id = "dn_default", text = "Once, and that was my devilsaur story, and that was enough for a lifetime. I'm a merchant, pal, I sell the sword and then I wave from up here while you go use it. The view's great from the Refuge, you can see the Fire Plume smokin' and the whole jungle movin'." } },
+      choices = {
+        { text = "The whole jungle moving?", next = "down2" },
+        { text = "A merchant should know his customer's work.", next = "down2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    down2 = {
+      lines = { { id = "dn2_default", text = "Every mornin', the trees sway in one direction, and that's a stegodon herd goin' to water, and then they sway the other way, and that's somethin' chasin' 'em. You learn to read it, friend, the way a sailor reads weather. When the trees go still, buy a second sword." } },
+      choices = {
+        { text = "I'm a hunter. I'll watch the trees from now on.", next = "down3", when = { class = "HUNTER" } },
+        { text = "When the trees go still. Something else.", next = "BACK" },
+      },
+    },
+    down3 = {
+      lines = { { id = "dn3_default", text = "Good, 'cause your beast will know before you do, pal. When it stops wantin' to go forward, don't argue with it. I've sold a lot of swords to folks who argued with their pets." } },
+      choices = { { text = "Fair warning. Something else.", next = "BACK" } },
     },
   },
 

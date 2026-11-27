@@ -26,6 +26,38 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+
+    as_watch = {
+      lines = { { id = "asw_1", text = "Field Marshal Chambers draws it up, and Lord Tyrosus signs it, and nobody argues with either of them. Four hours on the wall and eight off, and the worst shift is the one before dawn, when the dead push hardest." } },
+      choices = {
+        { text = "Why do they push hardest before dawn?", next = "as_watch2" },
+        { text = "Eight hours off sounds generous, for a war.", next = "as_watch2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    as_watch2 = {
+      lines = { { id = "asw2_1", text = "Nobody knows for certain, though Brother Leonid says the Light is weakest just before it returns, and the dead can feel it. As for the eight hours, most of us spend half of them praying in the chapel, so it's not as restful as it sounds." } },
+      choices = {
+        { text = "I'll speak with Brother Leonid, then.", next = "BACK" },
+        { text = "Pray for me while you're at it.", next = "BACK", reply = "I already do, friend, for everyone who walks out that gate.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    as_wood = {
+      lines = { { id = "aswd_1", text = "Quiet is the worst thing it can be, traveller. When the Plaguewood is loud, the Scourge is fighting something, and when it's quiet, the Scourge is waiting, and I'd rather hear screaming than that." } },
+      choices = {
+        { text = "What lies in the Plaguewood?", next = "as_wood2" },
+        { text = "I'm a priest. I could bless the edge of the ground.", next = "BACK", when = { class = "PRIEST" }, reply = "The brothers do it every evening, but another voice never hurts. Walk the line with them at dusk, if you've the strength." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    as_wood2 = {
+      lines = { { id = "aswd2_1", text = "Terrordale, and the old farms gone to rot, and the road north to Stratholme's gates where the plaguebats roost. Georgia's bats won't fly over it, and Khaelyn's gryphons only do it high and fast." } },
+      choices = {
+        { text = "If the bats won't fly it, I'll walk carefully.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I keep watch over Light's Hope Chapel, where the Scourge can't tread, though they test it every night. Stratholme lies to the north and the Plaguewood to the west, and both are full of things that never sleep." } },
       again = { { id = "h_again", text = "What else? I'm on watch." } },
@@ -38,6 +70,8 @@ P:NPC {
         { text = "Why can't the Scourge tread here?", next = "ground" },
         { text = "Horde and Alliance both stand here?", next = "both" },
         { text = "What comes at night?", next = "night" },
+        { text = "Who keeps the watch rota on these walls?", next = "as_watch" },
+        { text = "The Plaguewood looks quiet from up here.", next = "as_wood" },
         { text = "Light keep you.", next = "END" },
       },
     },
@@ -122,6 +156,38 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+
+    fc_darrow = {
+      lines = { { id = "fcd_1", text = "The Scourge came for it in the first winter of the plague, and Joseph Redpath held the town with farmers and a handful of guards until he fell. Then he rose again, fighting for the other side, and that's the part nobody at Light's Hope forgets." } },
+      choices = {
+        { text = "Does anyone still go to Darrowshire?", next = "fc_darrow2" },
+        { text = "A hero raised against his own people. That's cruel.", next = "fc_darrow2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fc_darrow2 = {
+      lines = { { id = "fcd2_1", text = "His brother Carlin does; you'll find him here at the chapel, and he'll ask you to help him lay it to rest. The ghosts there still fight that battle every night, and I'd not refuse him if I were you." } },
+      choices = {
+        { text = "I'll find Carlin Redpath.", next = "BACK", reply = "Good. Some battles are won by remembering them properly." },
+        { text = "Ghosts fighting a lost battle. That's this whole land.", next = "BACK", reply = "It is, and I'd like to be the one who finally ends it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fc_troops = {
+      lines = { { id = "fct_1", text = "They are, and I'll thank you not to say so where they can hear. I've men posted at the old towers, Crown Guard and Eastwall and Northpass, and none of them has slept a full night since the snows." } },
+      choices = {
+        { text = "Why hold the towers at all?", next = "fc_troops2" },
+        { text = "I'm a warrior. Put me on the line, Marshal.", next = "BACK", when = { class = "WARRIOR" }, reply = "Gladly, but not on a tower. Go out and thin the dead around Corin's Crossing, and my tower men will sleep easier for it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fc_troops2 = {
+      lines = { { id = "fct2_1", text = "Because a tower sees an army coming a day before it arrives, and a day is the difference between a defended chapel and a burned one. The Scourge never moves without being seen from one of them, and that's the only advantage we have." } },
+      choices = {
+        { text = "Then the towers are worth every tired soldier.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Field Marshal Chambers, and I coordinate the Argent Dawn's forces here in the east, which is a grand way of saying I send good people out to die against the Scourge. The Scourge has more soldiers than we ever will, so every one of ours must count." } },
       again = { { id = "h_again", text = "What else? Be quick." } },
@@ -134,6 +200,8 @@ P:NPC {
         { text = "How goes the war against the Scourge?", next = "war" },
         { text = "What's the Dawn's greatest threat?", next = "threat" },
         { text = "Sending people to die must weigh on you.", next = "weight" },
+        { text = "You spoke of Darrowshire. What happened there?", next = "fc_darrow" },
+        { text = "Your soldiers look worn thin, Marshal.", next = "fc_troops" },
         { text = "I'll get to work.", next = "END" },
       },
     },
@@ -327,6 +395,44 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+
+    cw_angela = {
+      lines = { { id = "cwa_1", text = "Aye, she's our archmage, an' a rare one for a human, because she'll listen tae a smith. She studies the thing hangin' over the Plaguewood an' I study what we'll wear when we go up tae meet it." } },
+      choices = {
+        { text = "What does she want from a smith?", next = "cw_angela2" },
+        { text = "A mage and a smith. Odd partners.", next = "cw_angela2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cw_angela2 = {
+      lines = { { id = "cwa2_1", text = "She tells me what the cold in there does tae flesh, an' I work out how tae stop it gettin' through the plate. Odd partners, aye, but the Brotherhood's built on odd partners, an' we've no' come tae blows yet." } },
+      choices = {
+        { text = "May your work keep us warm in there.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cw_fire = {
+      lines = { { id = "cwf_1", text = "Ye've a good eye. That's the Light in the coals, {g:lad|lass}, for the priests bless the fuel as well as the bricks. It burns clean an' hot an' it never smokes, an' a ghoul willnae come within a stone's throw o' it." } },
+      choices = {
+        { text = "Do the priests mind blessing coal?", next = "cw_fire2" },
+        { text = "I'm a smith. How do you temper against frost?", next = "cw_temper", when = { profession = "Blacksmithing" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cw_fire2 = {
+      lines = { { id = "cwf2_1", text = "Brother Leonid grumbled the first time, said he'd no' been ordained tae pray over a coal scuttle. Then he saw what the armor did at Stratholme, an' now he comes by every mornin' wi'out bein' asked." } },
+      choices = {
+        { text = "Even a priest can be won over by good steel.", next = "BACK", reply = "Good steel an' good results, {g:lad|lass}. Nothin' converts a man faster." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cw_temper = {
+      lines = { { id = "cwt_1", text = "Slowly, in blessed water instead o' oil, an' wi' a frozen rune worked intae the lining so the cold has somewhere else tae go. Quench it fast an' the plate cracks the first time a lich breathes on it, an' I've the broken pieces tae prove it." } },
+      choices = {
+        { text = "Slow quench, blessed water. I'll remember.", next = "BACK", reply = "See ye do. A smith's patience is worth more than his hammer.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I'm Wilhelm, smith o' the Brotherhood o' the Light, an' I forge armor for those brave enough tae face the Scourge. Bring me the right materials from the dead lands, an' I'll make ye armor no ghoul can tear." } },
       again = { { id = "h_again", text = "What else, {g:lad|lass}? The forge is hot." } },
@@ -337,6 +443,8 @@ P:NPC {
         { text = "What is the Brotherhood of the Light?", next = "brotherhood" },
         { text = "What makes your armor special?", next = "armor" },
         { text = "Does blessing armor really help?", next = "bless" },
+        { text = "Does Archmage Dosantos work with you?", next = "cw_angela" },
+        { text = "That forge burns without a wisp of smoke.", next = "cw_fire" },
         { text = "Show me your work.", next = "END" },
       },
     },

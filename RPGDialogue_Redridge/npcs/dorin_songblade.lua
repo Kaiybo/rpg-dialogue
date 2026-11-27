@@ -37,6 +37,47 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d6_smiths = {
+      lines = { { id = "d6_smiths_a", text = "Verner Osgood does the nails an' the hinges an' the honest wee jobs that keep a town standin', an' I do the plate. We share a coal bin an' an argument about who's been at it, an' I've never once caught him, though I've tried." } },
+      choices = {
+        { text = "What's the argument really about?", next = "d6_smiths2" },
+        { text = "Two smiths, one coal bin. Of course.", next = "d6_smiths2" },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    d6_smiths2 = {
+      lines = { { id = "d6_smiths2_a", text = "Nothin', if I'm honest, an' that's why it's lasted. A man needs someone tae grumble at over the anvil, an' Verner grumbles back, an' since Daewyn went it's been the only family-feelin' thing I've got." } },
+      choices = {
+        { text = "Verner sounds a good friend to have.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Let me ask you something else.", next = "BACK" },
+      },
+    },
+    d6_dwarf = {
+      lines = { { id = "d6_dwarf_a", text = "They're good folk, an' they think I'm shorter than I am, which I've stopped correctin'. The ale's thin an' the stone's soft, but they pay on time an' they don't ask why I talk tae the forge, so I've no real complaint." } },
+      choices = {
+        { text = "Do ye ever think of going home to Ironforge?", next = "d6_dwarf2", when = { race = "Dwarf" } },
+        { text = "Do they treat you as one of their own?", next = "d6_dwarf2" },
+        { text = "You talk to the forge?", next = "d6_dwarf2" },
+      },
+    },
+    d6_dwarf2 = {
+      lines = {
+        { id = "d6_dwarf2_a", text = "Aye, they do, near enough, an' when the orcs came down the ridge last spring the whole town stood behind my shop wi' pitchforks. Ye don't forget that, an' I'll shoe their horses an' fit their sons' helms till my beard's white for it." },
+        { id = "d6_dwarf2_dw", when = { race = "Dwarf" }, text = "Every night, {g:lad|lass}, an' every mornin' I wake up an' there's a guard needs his greaves. Ironforge has a hundred smiths an' Lakeshire has me, an' if I left, these lads would be fightin' orcs in their mothers' pots." },
+      },
+      choices = {
+        { text = "Lakeshire's lucky to have you.", next = "d6_dwarf3" },
+        { text = "Another matter, Dorin.", next = "BACK" },
+      },
+    },
+    d6_dwarf3 = {
+      lines = { { id = "d6_dwarf3_a", text = "Lucky? Maybe. I'd say Lakeshire's stubborn, an' I'm stubborn, an' we suit each other. Now, if ye've a dent in that armour, set it on the bench, an' we'll talk while I hammer." } },
+      choices = {
+        { text = "Stubborn folk hold the line best.", next = "BACK" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "dd_keeshan_dorin", when = { questDone = TODO_QUEST("Missing In Action") },
@@ -62,6 +103,8 @@ P:NPC {
         { text = "The guards here seem better armoured than most.", next = "guards" },
         { text = "I found your brother. I'm so sorry.", next = "grief", when = { questDone = TODO_QUEST("Fallen in the Fen") } },
         { text = "I need my armour seen to.", next = "BUSINESS" },
+        { text = "Who else in Lakeshire works the forge with you?", next = "d6_smiths" },
+        { text = "What's it like, a dwarf in a human town?", next = "d6_dwarf" },
         { text = "I'll leave you to it.", next = "END" },
       },
     },

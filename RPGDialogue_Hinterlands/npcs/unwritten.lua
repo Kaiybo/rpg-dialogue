@@ -43,7 +43,45 @@ P:NPC {
         { text = "What's the worst troll tribe out here?", next = "xworst" },
         { text = "Have you ever ridden a gryphon into battle?", next = "xgryphon" },
         { text = "I'm a hunter. Gryphons must be fine beasts.", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "What do you do when you spot trolls?", next = "ws_spot" },
+        { text = "What's life like at Aerie Peak?", next = "ws_life" },
         { text = "I'll pass on.", next = "END" },
+      },
+    },
+    ws_spot = {
+      lines = {
+        { id = "ws_spot_1", text = "Blow the horn, an' the gryphon riders come down like thunder. If they're too slow, I hold the road wi' my stormhammer till they arrive, an' I've done that more times than I care tae count." },
+      },
+      choices = {
+        { text = "Have you ever held the road alone?", next = "ws_alone" },
+        { text = "I'd stand with you.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    ws_alone = {
+      lines = {
+        { id = "ws_alone_1", text = "Once, against six Witherbark, for the horn was frozen an' the riders couldnae hear me. I took two o' them before Gryphon Master Talonaxe came down out o' the clouds, an' he's never let me forget that I was outnumbered." },
+      },
+      choices = {
+        { text = "Two of six is a fine count.", next = "BACK" },
+        { text = "Talonaxe sounds like a good friend.", next = "BACK" },
+      },
+    },
+    ws_life = {
+      lines = {
+        { id = "ws_life_1", text = "Loud, an' windy, an' full o' ale. Innkeeper Thulfram keeps the hearth, Fraggar Thundermantle keeps the trolls in check, an' Falstad keeps everyone else in line, which is the hardest job o' the lot." },
+      },
+      choices = {
+        { text = "Who's Fraggar Thundermantle?", next = "ws_fraggar" },
+        { text = "I'm a dwarf. I'd like to see the Peak.", next = "ws_fraggar", when = { race = "Dwarf" } },
+      },
+    },
+    ws_fraggar = {
+      lines = {
+        { id = "ws_fraggar_1", text = "A warrior o' the clan, an' the one who sends folk tae thin the trolls. He'll pay ye in coin or in respect, an' a Wildhammer's respect is worth more than a bag o' gold." },
+      },
+      choices = {
+        { text = "Then I'll find Fraggar.", next = "BACK" },
+        { text = "Something else, then.", next = "BACK" },
       },
     },
     trolls = {

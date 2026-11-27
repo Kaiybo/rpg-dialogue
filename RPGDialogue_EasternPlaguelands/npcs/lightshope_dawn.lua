@@ -210,6 +210,39 @@ P:NPC {
 
   start = "hello",
   nodes = {
+
+    mb_jase = {
+      lines = { { id = "mbj_1", text = "Jase keeps the trade goods table by the chapel wall, thread an' flux an' salt an' the like, an' he's a decent lad wi' a terrible memory for promises. He swore me forty bolts o' linen by the new moon, an' I've had nine." } },
+      choices = {
+        { text = "Where does the linen come from, out here?", next = "mb_jase2" },
+        { text = "I'm a tailor. I know how fast linen goes.", next = "BACK", when = { profession = "Tailoring" }, reply = "Then ye'll know it goes faster here than anywhere, because every bandage I wrap is somebody's arm still attached. Bring the Dawn what ye can spare." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mb_jase2 = {
+      lines = { { id = "mbj2_1", text = "Off the bodies o' the dead, mostly, an' I'll no' pretend otherwise. Adventurers strip it from the Scourge an' sell it tae Jase, an' Jase sells it tae me, an' I boil it twice before it goes near a wound." } },
+      choices = {
+        { text = "Boiled twice. Even the dead have their uses.", next = "BACK", reply = "Aye, an' the dead would hate tae know it, which is half the pleasure." },
+        { text = "I'll nudge Jase about the other thirty-one.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mb_ledger = {
+      lines = { { id = "mbl_1", text = "It does, if ye can read numbers the way some folk read tea leaves. Holy water up, linen down, an' two more names crossed off the duty roll every week, an' that's the war at Light's Hope in a single page." } },
+      choices = {
+        { text = "Whose names are crossed off?", next = "mb_ledger2" },
+        { text = "Two a week is better than it could be.", next = "mb_ledger2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mb_ledger2 = {
+      lines = { { id = "mbl2_1", text = "Scouts, mostly, the ones the field marshal sends toward Stratholme an' Corin's Crossing. Chambers signs the orders an' I sign for their kit when it comes back wi'out them, an' we've both stopped lookin' at each other when we do it." } },
+      choices = {
+        { text = "That's a hard thing to keep count of.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "I'm a dwarf too. Does the mountain send anything?", next = "BACK", when = { race = "Dwarf" }, reply = "Ale an' prayers, an' no' enough o' either. But the Explorers' League sent a cart o' good iron last spring, bless their beards, an' Wilhelm's still usin' it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     dd_scourge = {
       lines = {
         { id = "dd_scourge_1",
@@ -249,6 +282,8 @@ P:NPC {
         { text = "What are the mantles of the Dawn?", next = "mantles", when = { reputation = { faction = "Argent Dawn", min = "honored" } } },
         { text = "How does a dwarf end up at Light's Hope?", next = "how" },
         { text = "What does the chapel run short of?", next = "short" },
+        { text = "Who is this Jase Farlane you want linen from?", next = "mb_jase" },
+        { text = "Your ledger must tell the whole story of this war.", next = "mb_ledger" },
         { text = "I'll be on my way.", next = "END" },
       },
     },

@@ -37,6 +37,40 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d6_mok = {
+      lines = { { id = "d6_mok_a", text = "He does, and I pay for it in bandages. Mok'thardin sends them out for crocolisk skins and stalker feathers for his enchantments, and the beasts come back to me with bites the hunters never noticed them take." } },
+      choices = {
+        { text = "Which beast here do you fear most?", next = "d6_mok2" },
+        { text = "The Far Seer's work matters more than a few bites.", next = "d6_mok2" },
+        { text = "Something else, Durik.", next = "BACK" },
+      },
+    },
+    d6_mok2 = {
+      lines = { { id = "d6_mok2_a", text = "The crocolisk, and it is not close. A raptor screams before it strikes and a tiger at least lets you smell it, but a snapjaw lies in the river like a log until a wolf goes down to drink, and then there is no wolf." } },
+      choices = {
+        { text = "I'll keep my beast away from the riverbank.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Enough of crocolisks. Something else.", next = "BACK" },
+      },
+    },
+    d6_zep = {
+      lines = { { id = "d6_zep_a", text = "Badly, every one of them. A wolf paces the deck from Tirisfal to this coast and howls at the clouds, and Squibby charges the owner extra for the noise, which I think is the only joke a goblin has ever told me." } },
+      choices = {
+        { text = "Do the Forsaken bring beasts down on that line?", next = "d6_zep2" },
+        { text = "I keep a bat. Will you see to it?", next = "d6_zep2", when = { race = "Scourge" } },
+        { text = "A wolf should run, not fly. Something else.", next = "BACK" },
+      },
+    },
+    d6_zep2 = {
+      lines = {
+        { id = "d6_zep2_a", text = "Bats and spiders, mostly, and the grunts are always surprised that they are alive and warm. A beast does not care if its master's heart beats, only that it is fed, and some of the dead feed theirs better than the living do." },
+        { id = "d6_zep2_scourge", when = { race = "Scourge" }, text = "I will, and I will not flinch at your hands when you pass me the leash. A bat does not care if its master's heart beats, only that it is fed, and yours looks well fed, so you have done that much right." },
+      },
+      choices = {
+        { text = "You're fairer to the Forsaken than most orcs.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     dd_durik_b = {
       lines = {
         { id = "dd_durik_b_a", text = "Maybe, and maybe he'd have taken my arm off, which is how most taming begins. A beast like that respects strength and patience both, and the humans at their camp only bring strength, so they come back with skins instead of friends." },
@@ -78,6 +112,8 @@ P:NPC {
         { text = "How do you keep beasts alive in this jungle?", next = "jungle" },
         { text = "Do you keep raptors of your own?", next = "raptors" },
         { text = "What do you think of Nesingwary's hunters?", next = "nesingwary" },
+        { text = "The Far Seer must keep your hunters busy.", next = "d6_mok" },
+        { text = "How does a beast stand the zeppelin?", next = "d6_zep" },
         { text = "I'll leave you to your beasts.", next = "END" },
       },
     },

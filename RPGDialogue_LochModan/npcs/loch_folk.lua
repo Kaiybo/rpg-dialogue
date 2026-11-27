@@ -212,7 +212,54 @@ P:NPC {
         { text = "So you're family to the innkeeper?", next = "family" },
         { text = "What are the rams like?", next = "rams" },
         { text = "Any advice for keeping a pet in these hills?", next = "advice", when = { class = "HUNTER" } },
+        { text = "How do you care for a ram in these hills?", next = "lh_ram" },
+        { text = "What do travellers ride through Thelsamar?", next = "lh_ride" },
         { text = "Good day, Lina.", next = "END" },
+      },
+    },
+    lh_ram = {
+      lines = {
+        { id = "lh_ram_1", text = "Plenty o' hay, a dry stall, an' a good scratch behind the horns, for they're vain beasts. The mountaineers ride them on patrol, an' a ram that's well cared for can climb a cliff wi' a dwarf in full mail on its back." },
+      },
+      choices = {
+        { text = "Up a cliff with a full dwarf?", next = "lh_climb" },
+        { text = "Vain rams. I'll scratch their horns, then.", next = "BACK", reply = "They'll love ye for it, an' butt ye after." },
+      },
+    },
+    lh_climb = {
+      lines = {
+        { id = "lh_climb_1", text = "Aye, an' they'll do it in the snow, too. My favourite, old Granite, carried Mountaineer Cobbleflint up the north ridge in a blizzard last winter, an' he got an extra bucket o' oats for it." },
+      },
+      choices = {
+        { text = "Granite sounds like a fine ram.", next = "lh_granite" },
+        { text = "I'd ride a ram up a cliff.", next = "lh_granite", when = { race = "Dwarf" } },
+      },
+    },
+    lh_granite = {
+      lines = {
+        { id = "lh_granite_1", text = "The finest, an' the most stubborn, for he'll only eat from my hand an' no' from a bucket. If ye go past the stalls, give him a pat, but dinnae turn yer back on him, for he likes tae push." },
+      },
+      choices = {
+        { text = "I'll keep my back to the wall.", next = "BACK" },
+        { text = "Something else, Lina.", next = "BACK" },
+      },
+    },
+    lh_ride = {
+      lines = {
+        { id = "lh_ride_1", text = "Horses from Stormwind, rams from Dun Morogh, an' the odd hunter's beast that'd eat the horses if I let it. I keep them all apart, for the rams start fights an' the hunters' pets finish them." },
+      },
+      choices = {
+        { text = "Who's the worst for fighting?", next = "lh_fight" },
+        { text = "I'm a hunter. My pet behaves itself.", next = "lh_fight", when = { class = "HUNTER" } },
+      },
+    },
+    lh_fight = {
+      lines = {
+        { id = "lh_fight_1", text = "The cats, without a doubt, for they think every ram's a meal. Claude Erksine at the lodge says it's all in the trainin', but I've yet tae meet a cat that listens tae anyone." },
+      },
+      choices = {
+        { text = "Cats don't listen. That's true.", next = "BACK" },
+        { text = "I'll talk to Claude about it.", next = "BACK" },
       },
     },
     family = {

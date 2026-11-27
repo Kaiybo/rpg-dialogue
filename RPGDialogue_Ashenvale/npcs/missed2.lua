@@ -600,6 +600,8 @@ P:NPC {
         { text = "The elves will not thank you for this.", next = "elves" },
         { text = "What became of whoever was buried here?", next = "bathran" },
         { text = "Apothecary to apothecary, what have you found?", next = "alch", when = { profession = "Alchemy" } },
+        { text = "This new plague. Should anyone be making such a thing?", next = "plague" },
+        { text = "How did you come to be an apothecary?", next = "trade" },
         { text = "I will leave you to your samples.", next = "END" },
       },
     },
@@ -636,6 +638,30 @@ P:NPC {
     alch = {
       lines = { { id = "a_default", text = "That the residue survives distillation, which nothing living should. Reduce the root over a cold flame and you obtain a grey salt that will not dissolve, and I have a theory about it that I shall not be sharing with a competitor." } },
       choices = { { text = "A cold flame. I will remember that.", next = "BACK" } },
+    },
+    plague = {
+      big = true,
+      lines = { { id = "pl_default", text = "Someone already did, and we are the result. The only question worth asking is who holds the next one, and I would prefer it were the Dark Lady rather than the Lich King. If the living find that uncomfortable, they are welcome to be uncomfortable at a distance." } },
+      choices = {
+        { text = "A plague is a horror, whoever brews it.", next = "BACK", reply = "Spoken like someone who has never been the victim of one. I shall note your squeamishness.", fx = { align = { light = 1 } } },
+        { text = "Arthas earned a plague of his own.", next = "BACK", reply = "Quite. At last, a visitor with a sense of proportion.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trade = {
+      lines = { { id = "tr_default", text = "I was a physician's assistant in Lordaeron, I believe, though the details have rotted. The Society found me useful within a week of my waking, because I could still measure a dose by eye. Master Apothecary Faranell tested me personally, and I passed, and the other candidates did not." } },
+      choices = {
+        { text = "What happened to the other candidates?", next = "trade2" },
+        { text = "You don't sound sorry about them.", next = "trade2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trade2 = {
+      lines = { { id = "tr2_default", text = "They became data, which is what the Society calls a failure it can learn from. I am not sorry, no. Sorrow is a waste of a mind that can no longer sleep, and I have a great deal of work to fill the nights instead." } },
+      choices = {
+        { text = "I'm Forsaken too. I know the long nights.", next = "BACK", reply = "Then use them, as I do. The Dark Lady has no use for idle dead.", when = { race = "Scourge" } },
+        { text = "Something else, Falthis.", next = "BACK" },
+      },
     },
   },
   topics = {

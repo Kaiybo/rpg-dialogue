@@ -33,6 +33,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_feed = {
+      lines = {
+        { id = "d2_feed_1", text = "Scraps from Innkeeper Norman's kitchen and whatever the canals wash up, which is more than you'd think. They eat anything, which is their great virtue, and they don't complain, which is their other one." },
+      },
+      choices = {
+        { text = "You talk about them fondly.", next = "d2_feed2" },
+        { text = "Canal scraps. Lovely.", next = "d2_feed2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_feed2 = {
+      lines = {
+        { id = "d2_feed2_1", text = "Fondly's a strong word. I respect them, the way you respect anything that's harder to kill than you were. I've seen a roach walk out of an apothecary's flask that melted the glass, and it looked annoyed more than anything." },
+      },
+      choices = {
+        { text = "Tough little creatures.", next = "BACK", reply = "Tougher than any of us. That's the whole point of them." },
+        { text = "Ask you something else.", next = "BACK" },
+      },
+    },
+    d2_names = {
+      lines = {
+        { id = "d2_names_1", text = "No, and I'll not give them any, because a thing with a name is a thing you'll miss. The rogues name the ones they buy, though, and one came back to tell me hers was called Duchess and had been very brave in a Scarlet cellar." },
+      },
+      choices = {
+        { text = "Duchess the roach.", next = "d2_names2" },
+        { text = "Brave how?", next = "d2_names2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_names2 = {
+      lines = {
+        { id = "d2_names2_1", text = "Ran across a Crusader's boot at the right moment and made him scream, so the rogue could get past. I told her I didn't want to hear any more about it, and then I listened to the whole thing twice." },
+      },
+      choices = {
+        { text = "You're softer than you let on.", next = "BACK", reply = "Keep that to yourself. I've a reputation for being disagreeable, and I've worked hard on it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_rogue = {
+      lines = {
+        { id = "d2_rogue_1", text = "It would, and it does, and it'll come out the other side with whatever it's found on its legs. Buy two, since one always wanders off, and don't ask me where they go when they do." },
+      },
+      choices = {
+        { text = "Show me the roaches.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Jeremiah Payson, and I sell cockroaches. Good ones, healthy ones, the kind that'll follow you about and won't bite more than twice." },
@@ -52,6 +99,9 @@ P:NPC {
         { text = "I can't think who would buy cockroaches.", next = "buyers" },
         { text = "You were Jeremiah Felstone, weren't you?", next = "felstone", when = { questDone = TODO_QUEST("The Jeremiah Blues") } },
         { text = "What do you need, Payson?", next = "BUSINESS" },
+        { text = "What do you feed the roaches?", next = "d2_feed" },
+        { text = "Do your roaches have names?", next = "d2_names" },
+        { text = "A roach would fit through any keyhole.", next = "d2_rogue", when = { class = "ROGUE" } },
         { text = "I'll leave you to your roaches.", next = "END" },
       },
     },

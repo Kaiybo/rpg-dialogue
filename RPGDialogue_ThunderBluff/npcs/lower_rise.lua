@@ -414,7 +414,39 @@ P:NPC {
         { text = "Why harpy feathers, of all things?", next = "feathers" },
         { text = "Ruul tested me at Bloodhoof Village.", next = "tested", when = { questDone = TODO_QUEST("Dangers of the Windfury") } },
         { text = "I'll get your feathers.", next = "BUSINESS" },
+        { text = "Your workshop smells of cedar and feathers.", next = "workshop" },
+        { text = "Do the Windfury ever come near the bluff?", next = "windfury" },
         { text = "Farewell, Eyahn.", next = "END" },
+      },
+    },
+    workshop = {
+      lines = { { id = "workshop_d", text = "Cedar for the ceremonies of the dead, and feathers for the ceremonies of the living. I keep them on opposite sides of the room, for my grandmother said they should never mix, and I have never had the courage to find out why." } },
+      choices = {
+        { text = "Perhaps it's just tradition.", next = "workshop_trad" },
+        { text = "Your grandmother sounds wise.", next = "BACK", reply = "She was. I still hear her every time I reach for the wrong shelf." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    workshop_trad = {
+      lines = { { id = "workshop_trad_d", text = "Perhaps, but tradition is how our people remember what they have forgotten the reasons for. I keep the cedar on the left and the feathers on the right, and nobody has died of it yet." } },
+      choices = {
+        { text = "That's a good enough reason.", next = "BACK" },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    windfury = {
+      lines = { { id = "windfury_d", text = "They come close enough to frighten the herders, but never to the bluff itself, for the braves on the lifts would shoot them out of the sky. They nest in the cliffs north and northwest of here, and the young go out to face them when Ruul sends them." } },
+      choices = {
+        { text = "Ruul sends many young ones.", next = "windfury_ruul" },
+        { text = "The harpies are a good test.", next = "BACK", reply = "They are. Ruul says they teach patience, and Ruul is usually right." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    windfury_ruul = {
+      lines = { { id = "windfury_ruul_d", text = "He does, and most of them come back. The ones who do not, I prepare for the ceremony of the dead, and that is the hardest part of my work, for they are always so young." } },
+      choices = {
+        { text = "That's a heavy burden.", next = "BACK", reply = "It is, but someone must carry it. I am glad it is me, and not a stranger." },
+        { text = "Let me ask about something else.", next = "BACK" },
       },
     },
     ruul = {
@@ -654,7 +686,39 @@ P:NPC {
         { text = "Do tauren still hunt kodo?", next = "kodo" },
         { text = "I'm a druid. Should skinning trouble me?", next = "druid", when = { class = "DRUID" } },
         { text = "Have you work for me?", next = "BUSINESS" },
+        { text = "Who buys the leather you gather?", next = "buyers" },
+        { text = "Your mate must be very patient.", next = "mate" },
         { text = "Farewell, Veren.", next = "END" },
+      },
+    },
+    buyers = {
+      lines = { { id = "buyers_d", text = "Una's tent on the middle rise takes most of it, and Ahanu on the lower rise takes what Una doesn't want. The rest goes to the young ones who are learning, so they have something to spoil that isn't worth much." } },
+      choices = {
+        { text = "Una must be particular.", next = "buyers_una" },
+        { text = "The young need something to practise on.", next = "BACK", reply = "They do, and every hide they spoil is one they'll never spoil again." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    buyers_una = {
+      lines = { { id = "buyers_una_d", text = "She is, and she's right to be. She can tell a hide that was taken badly from across the tent, and she sends those back to me with a look that would curdle milk." } },
+      choices = {
+        { text = "Then you take care with every hide.", next = "BACK", reply = "I do now. Una taught me that, the hard way." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    mate = {
+      lines = { { id = "mate_d", text = "She is, though she wouldn't call it patience. She calls it a long-suffering nose, and she makes me wash in the stream below the bluff before I'm allowed into the lodge." } },
+      choices = {
+        { text = "That seems fair.", next = "mate_fair" },
+        { text = "Leather smells honest, at least.", next = "BACK", reply = "That's what I tell her! She says honest and pleasant aren't the same thing." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mate_fair = {
+      lines = { { id = "mate_fair_d", text = "It is, and I don't complain, not where she can hear. She knew what she was getting when we were joined, and she took me anyway, which I think is the bravest thing anyone on this bluff has ever done." } },
+      choices = {
+        { text = "She sounds remarkable.", next = "BACK" },
+        { text = "Let me ask about something else.", next = "BACK" },
       },
     },
     leather = {

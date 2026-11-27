@@ -53,7 +53,45 @@ P:NPC {
         { text = "What's dangerous out there for a beast?", next = "wilds" },
         { text = "Do you think we should tame the wild things here?", next = "tame" },
         { text = "My beast never seems thirsty.", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "Which beast does best in the Badlands?", next = "gt_best" },
+        { text = "You came from the Frostwolves, you said.", next = "gt_frost" },
         { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+    gt_best = {
+      lines = {
+        { id = "gt_best_1", text = "The raptor, for it was born for dry country and hot sun, and it drinks less than any wolf. The Darkspear ride them, and I have two in the back pen, though they bite more than they should." },
+      },
+      choices = {
+        { text = "Raptors bite more than wolves?", next = "gt_raptor" },
+        { text = "I'm a troll. Raptors are our pride.", next = "gt_raptor", when = { race = "Troll" } },
+      },
+    },
+    gt_raptor = {
+      lines = {
+        { id = "gt_raptor_1", text = "Much more, for a raptor does not love its rider, it only tolerates him. A wolf will die for you, but a raptor will only carry you, and in this heat, carrying is what matters." },
+      },
+      choices = {
+        { text = "Carrying is enough.", next = "BACK" },
+        { text = "Something else, Greth.", next = "BACK" },
+      },
+    },
+    gt_frost = {
+      lines = {
+        { id = "gt_frost_1", text = "I did, long ago, and I tended the wolves in the snow of Alterac. Thrall's people sent me south when Kargath needed someone who knew beasts, and I have been sweating ever since." },
+      },
+      choices = {
+        { text = "Do you miss Alterac?", next = "gt_miss" },
+        { text = "A wolf-keeper in the desert. Strange path.", next = "BACK" },
+      },
+    },
+    gt_miss = {
+      lines = {
+        { id = "gt_miss_1", text = "Every summer, when the spring runs low and the wolves pant in the shade. But the beasts here need me more than the beasts there, and a good keeper goes where he is needed." },
+      },
+      choices = {
+        { text = "That's an honourable choice.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, then.", next = "BACK" },
       },
     },
 

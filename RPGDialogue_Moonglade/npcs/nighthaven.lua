@@ -2381,6 +2381,8 @@ P:NPC {
         { text = "How is your lesson different from the Bear's?", next = "bear" },
         { text = "The cat is a hunter. Isn't that cruel, for a druid?", next = "cruel", when = { class = "DRUID" } },
         { text = "(Lie in the grass and watch the spirit.)", next = "watch" },
+        { text = "What do you hunt, here in the glade?", next = "hunt" },
+        { text = "(Ask about the moon on the lake.)", next = "moon" },
         { text = "(Leave the great cat to its waiting.)", next = "END" },
       },
     },
@@ -2429,6 +2431,33 @@ P:NPC {
       choices = {
         { text = "(Laugh, and sit up.)", next = "BACK", fx = { affinity = 2 } },
         { text = "(Rise and go.)", next = "END" },
+      },
+    },
+    hunt = {
+      lines = { { id = "ht_default", text = "Nothing at all, little one, for the Keeper would be very cross, and his wardens are no fun when they are cross. I hunt shadows on the water and moths at dusk and the attention of druids, which is the hardest prey of all, for they are always looking at their books." } },
+      choices = {
+        { text = "Do you ever catch them?", next = "hunt2" },
+        { text = "So you hunt for the joy of it.", next = "hunt2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hunt2 = {
+      lines = { { id = "ht2_default", text = "The spirit's tail flicks once. The druids? Always, little claw. I wait until they are certain I am asleep, and then I yawn, and they drop their books, and that is the whole of my joy. The Keeper says I am a bad influence, and he says it fondly." } },
+      choices = { { text = "A very bad influence. Something else.", next = "BACK" } },
+    },
+    moon = {
+      lines = { { id = "mn_default", text = "The great cat turns its head toward Lake Elune'ara, where the moon lies white on the water. The night elves say she watches over them, little one, and the cat says she watches over everything that hunts in the dark, which is almost everything, if you wait long enough." } },
+      choices = {
+        { text = "Does she watch over you too?", next = "moon2" },
+        { text = "(Watch the moon on the water in silence.)", next = "moon2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    moon2 = {
+      lines = { { id = "mn2_default", text = "She does, and she does not mind when I chase her reflection, which is more than I can say for the bear. You see, little claw, the moon is the best hunter of all. She never moves, and every night the whole world comes to her." } },
+      choices = {
+        { text = "I'm a night elf. Elune watches us from that same lake.", next = "BACK", reply = "Then you know her better than I do, little one, and I am a little jealous. Go and sit by her a while.", when = { race = "NightElf" } },
+        { text = "Something else, great cat.", next = "BACK" },
       },
     },
   },

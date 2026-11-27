@@ -51,7 +51,45 @@ P:NPC {
         { text = "What do travellers always forget?", next = "forget" },
         { text = "What's the gossip at the inn?", next = "gossip" },
         { text = "How's trade in Thelsamar?", next = "trade" },
+        { text = "Who are your neighbours at the stalls?", next = "ys_neigh" },
+        { text = "Has the trogg trouble touched Thelsamar?", next = "ys_troggs" },
         { text = "Good day, Yanni.", next = "END" },
+      },
+    },
+    ys_neigh = {
+      lines = {
+        { id = "ys_neigh_1", text = "Vrok wi' his guns on one side an' Rann wi' his thread on the other, an' me in the middle wi' everythin' else. Vrok's loud an' Rann's quiet, so between them I hear just enough tae keep my mind on the countin'." },
+      },
+      choices = {
+        { text = "Does Vrok's noise bother you?", next = "ys_vrok" },
+        { text = "Loud and quiet. A good balance.", next = "BACK", reply = "Aye, most days, an' the other days I go for a walk." },
+      },
+    },
+    ys_vrok = {
+      lines = {
+        { id = "ys_vrok_1", text = "Only when he test-fires behind the stall, which he's no' supposed tae do. The magistrate's told him twice, an' he says he forgets, but I think he just likes the look on everyone's faces." },
+      },
+      choices = {
+        { text = "Bluntnose won't be pleased.", next = "BACK" },
+        { text = "I'd like to see that myself. Something else.", next = "BACK" },
+      },
+    },
+    ys_troggs = {
+      lines = {
+        { id = "ys_troggs_1", text = "It's touched our purses, for the Silver Stream miners are short o' work an' short o' coin. The troggs came up out o' the deep tunnels an' drove the miners out, an' now nobody's buyin' pickaxes or candles." },
+      },
+      choices = {
+        { text = "Why did the troggs come up?", next = "ys_why" },
+        { text = "I've fought troggs. They're relentless.", next = "ys_why", when = { minLevel = 12 } },
+      },
+    },
+    ys_why = {
+      lines = {
+        { id = "ys_why_1", text = "Nobody kens, though Prospector Ironband says the dwarves dug too deep an' woke somethin'. The mountaineers are holdin' them in Stonesplinter Valley, but there's always more o' them." },
+      },
+      choices = {
+        { text = "I'll talk to Ironband about it.", next = "BACK", fx = { learn = { "troggs" } } },
+        { text = "Too deep, as always. Something else.", next = "BACK" },
       },
     },
     forget = {
@@ -286,7 +324,45 @@ P:NPC {
         { text = "How did you earn the name Blunderblast?", next = "name" },
         { text = "Why guns, and not bows?", next = "guns" },
         { text = "Who's your best customer?", next = "customers" },
+        { text = "What's the loudest gun you've made?", next = "vb_loud" },
+        { text = "What's Dakk's trouble with the woods?", next = "vb_dakk" },
         { text = "Good day, Vrok.", next = "END" },
+      },
+    },
+    vb_loud = {
+      lines = {
+        { id = "vb_loud_1", text = "The Thunderclap, a blunderbuss wi' a barrel wide as a mug, an' it took the windows out o' the inn the first time I fired it. Innkeeper Hearthstove still sends me the bill every spring, just tae remind me." },
+      },
+      choices = {
+        { text = "Did you ever sell it?", next = "vb_sell" },
+        { text = "I'd like to fire the Thunderclap.", next = "vb_sell", when = { race = "Dwarf" } },
+      },
+    },
+    vb_sell = {
+      lines = {
+        { id = "vb_sell_1", text = "Tae a mountaineer at the dam, who said it was the only gun loud enough tae frighten a Dark Iron. He sends word now an' then that it still works, an' that he can still hear in one ear." },
+      },
+      choices = {
+        { text = "One ear is enough for a guard.", next = "BACK" },
+        { text = "A gun that frightens Dark Irons. Something else.", next = "BACK" },
+      },
+    },
+    vb_dakk = {
+      lines = {
+        { id = "vb_dakk_1", text = "Spiders, poor lad, the big ones that come out o' the trees at night. He's always been the jumpy one in the family, but this season they're gettin' bolder, an' even I wouldnae walk the woods after dark." },
+      },
+      choices = {
+        { text = "Even you? That's serious.", next = "vb_serious" },
+        { text = "I'll help Dakk with the spiders.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    vb_serious = {
+      lines = {
+        { id = "vb_serious_1", text = "Aye, an' I'm the one who fires blunderbusses indoors. The mountaineers say the spiders are comin' down from the hills north o' town, an' they'll no' stop till somethin' stops them, so mind yerself." },
+      },
+      choices = {
+        { text = "I'll mind myself.", next = "BACK" },
+        { text = "Something else, Vrok.", next = "BACK" },
       },
     },
     name = {
@@ -400,7 +476,45 @@ P:NPC {
         { text = "Who does tailoring in a mining town?", next = "who" },
         { text = "Who are your neighbours in trade here?", next = "neighbours" },
         { text = "I sew a little. What should I buy first?", next = "tailor", when = { profession = "Tailoring" } },
+        { text = "What do miners want from a tailor?", next = "rf_miners" },
+        { text = "Is there tailoring trouble in Thelsamar?", next = "rf_trouble" },
         { text = "Good day, Rann.", next = "END" },
+      },
+    },
+    rf_miners = {
+      lines = {
+        { id = "rf_miners_1", text = "Thick shirts an' padded knees, mostly, for they spend half their days kneelin' on rock. I've a pattern for a miner's apron wi' a pocket for every tool, an' I've sold more o' them than any other thing I make." },
+      },
+      choices = {
+        { text = "A pocket for every tool. Clever design.", next = "rf_apron" },
+        { text = "A practical pattern sells best.", next = "BACK", reply = "It does, though I'd sooner make somethin' bonny now an' then." },
+      },
+    },
+    rf_apron = {
+      lines = {
+        { id = "rf_apron_1", text = "Clever enough, though the miners always find a tool I didnae make a pocket for. Now that the Silver Stream's full o' troggs, I've fewer miners tae sell tae, an' I'm makin' cloaks for the mountaineers instead." },
+      },
+      choices = {
+        { text = "Cloaks for the mountaineers. Good trade.", next = "BACK" },
+        { text = "Something else, Rann.", next = "BACK" },
+      },
+    },
+    rf_trouble = {
+      lines = {
+        { id = "rf_trouble_1", text = "Only the usual, damp an' moths an' customers who want silk at linen prices. The real trouble is gettin' good thread, for the carts from Ironforge come slow now that the roads are watched." },
+      },
+      choices = {
+        { text = "Watched by whom?", next = "rf_watched" },
+        { text = "I'm a tailor. Where do you get thread now?", next = "rf_watched", when = { profession = "Tailoring" } },
+      },
+    },
+    rf_watched = {
+      lines = {
+        { id = "rf_watched_1", text = "Troggs in the south pass an' Dark Irons by the dam, or so the mountaineers say. I've started buyin' linen from the farmers round Thelsamar, an' it's rougher but it holds, an' I've no' had a complaint yet." },
+      },
+      choices = {
+        { text = "Rough but reliable. That's dwarven.", next = "BACK" },
+        { text = "Something else, then.", next = "BACK" },
       },
     },
     name = {

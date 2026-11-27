@@ -268,7 +268,47 @@ P:NPC {
         { text = "What have you seen of the Grimtotem?", next = "xgrim" },
         { text = "I walk in shadows too.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Where did you learn the shadows?", next = "ylearn" },
+        { text = "What did the dwarves wake at the Rustmaul dig?", next = "dig" },
+        { text = "Do you scout as far as the Shimmering Flats?", next = "flats" },
         { text = "I'll go.", next = "END" },
+      },
+    },
+    dig = {
+      lines = { { id = "dig_d", text = "Insects, the size of a wolf and harder than a shield, coming up out of the ground where the dwarves dug too deep. Moktar drove the dwarves out, and now we watch the hole they left, and I think the dwarves were the lesser trouble." } },
+      choices = {
+        { text = "How do you track something that burrows?", next = "dig_track" },
+        { text = "Then the dwarves did us no favours.", next = "BACK", reply = "They never do. But this time they did themselves none either." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dig_track = {
+      lines = { { id = "dig_track_d", text = "By the sand, not the beast. Where the ground has fallen in a little overnight, something has moved beneath it, and where the sand is warm at dawn, something is waiting there. A hunter would learn it in a week, if he lived that long." } },
+      choices = {
+        { text = "I'll watch the sand, then.", next = "BACK", reply = "Watch it from a distance. That is the rest of the lesson." },
+        { text = "Useful. Something else.", next = "BACK", when = { class = "HUNTER" } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    flats = {
+      lines = { { id = "flats_d", text = "Sometimes, when Moktar wants to know who is buying what. The goblins and gnomes race their machines across the salt, and they are so loud and so busy that I could walk through their camp at noon and nobody would look up." } },
+      choices = {
+        { text = "Have you ever done it?", next = "flats_walk" },
+        { text = "They seem harmless enough.", next = "flats_harm" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    flats_walk = {
+      lines = { { id = "flats_walk_d", text = "Once, to see if it could be done. I took nothing, and I learned that the goblin team pays the gnome team's mechanic to lose, and the gnome mechanic pays him back to win, and that neither of them has yet noticed." } },
+      choices = {
+        { text = "That's worth more than anything you could steal.", next = "BACK", reply = "Moktar laughed for an hour. It is the only time Nag'zehn was out-laughed." },
+        { text = "Another question, then.", next = "BACK" },
+      },
+    },
+    flats_harm = {
+      lines = { { id = "flats_harm_d", text = "Harmless to us, perhaps, but their machines blow up, and anything that blows up is not harmless. I keep a long way back when they light the engines, and I advise you to do the same." } },
+      choices = {
+        { text = "Good advice. Something else.", next = "BACK" },
+        { text = "I'll stand well clear.", next = "BACK" },
       },
     },
     found = {
@@ -460,7 +500,54 @@ P:NPC {
         { text = "I'm ready for the Call of Air.", next = "call", when = { class = "SHAMAN" } },
         { text = "How did you become a shaman?", next = "ybecame" },
         { text = "What does the wind tell you of the Grimtotem?", next = "ygrim" },
+        { text = "What do the goblin races look like from up here?", next = "races" },
+        { text = "Freewind Post must be glad of your watch.", next = "fwind" },
+        { text = "My grandmother said the wind carries the ancestors' voices.", next = "grandmother", when = { race = "Tauren" } },
         { text = "I'll leave you to the wind.", next = "END" },
+      },
+    },
+    races = {
+      lines = { { id = "races_d", text = "Like a line of beetles in a dust storm, child, and nearly as quick. The wind brings me the sound of their engines from the Shimmering Flats long before I see them, and once it brought me the sound of one exploding, and after that a great deal of goblin language." } },
+      choices = {
+        { text = "Does the noise trouble the air spirits?", next = "races_spirits" },
+        { text = "The goblins would race through a hurricane.", next = "BACK", reply = "They would, and the hurricane would come away with some of their coin." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    races_spirits = {
+      lines = { { id = "races_spirits_d", text = "The air does not mind noise, for it makes the loudest of all. What it minds is smoke, and those engines leave a black trail across the salt that the wind must carry away, which it does, but slowly and with complaint." } },
+      choices = {
+        { text = "Then the wind has more patience than I do.", next = "BACK", reply = "The wind has more patience than anyone. That is why it is so hard to learn." },
+        { text = "Let us speak of other things.", next = "BACK" },
+      },
+    },
+    fwind = {
+      lines = { { id = "fwind_d", text = "Glad enough to send me bread, and glad enough to leave me be. Cliffwatcher Longhorn sends a brave up the paths now and then to ask what the wind has said of the Grimtotem, and I tell him, though he does not always like it." } },
+      choices = {
+        { text = "Does he listen to you?", next = "fwind_listen" },
+        { text = "The young shaman must climb a long way to find you.", next = "fwind_climb" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fwind_listen = {
+      lines = { { id = "fwind_listen_d", text = "He listens the way the young listen to the old, which is to say politely and then as he pleases. I do not mind it, for he keeps the post well, and a leader who obeyed every wind would never stand still long enough to lead." } },
+      choices = {
+        { text = "Wise of you not to mind.", next = "BACK" },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    fwind_climb = {
+      lines = { { id = "fwind_climb_d", text = "They do, and that is the first lesson, though they think it is only a path. A shaman who will not climb for the air will not hold it either, so I have never once moved my seat down the mountain to save their legs." } },
+      choices = {
+        { text = "I made the climb, and I'm still standing.", next = "BACK", reply = "You are, and breathing hard. The wind noticed both." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grandmother = {
+      lines = { { id = "grandmother_d", text = "She was right, child, and she was wise to tell you. Listen on a still evening at the edge of a mesa and you will hear them, not in words but in the way the grass bends toward home." } },
+      choices = {
+        { text = "I'll listen for her, then.", next = "BACK", reply = "Do. She will be glad to be heard by someone who remembers her." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     air = {

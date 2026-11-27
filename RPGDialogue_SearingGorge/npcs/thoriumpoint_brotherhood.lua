@@ -39,6 +39,44 @@ P:NPC {
 
   start = "hello",
   nodes = {
+
+    es_oil = {
+      lines = { { id = "eso_1", text = "Oilfist runs Thorium Point, an' he runs it like a forge, hot an' loud an' everybody sweatin'. He made the rules: no blades drawn in camp, no slaves kept, an' no sellin' a Brotherhood seam tae anyone but the Brotherhood, which is the one that pinches me." } },
+      choices = {
+        { text = "You've tried selling a seam elsewhere?", next = "es_oil2" },
+        { text = "Those sound like good rules to me.", next = "es_oil2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    es_oil2 = {
+      lines = { { id = "eso2_1", text = "Tried is a strong word; asked a goblin what he'd pay, hypothetically, is nearer the mark. Oilfist found out an' had me sweepin' the smithy for a month, which was very nostalgic an' no' at all what I left home for." } },
+      choices = {
+        { text = "A month of sweeping. You got off lightly.", next = "BACK", reply = "That's what Oilfist said, an' then he handed me the broom." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    es_loyal = {
+      lines = { { id = "esl_1", text = "Most of them do, aye, an' they spit when they see the Brotherhood's colours. The Emperor tells them we're traitors who'll sell the mountain tae the surface folk, an' between you an' me, some of us would, if the price was right." } },
+      choices = {
+        { text = "Where are the Emperor's people thickest?", next = "es_loyal2" },
+        { text = "I'm a miner. Which seams out here are worth it?", next = "es_seam", when = { profession = "Mining" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    es_loyal2 = {
+      lines = { { id = "esl2_1", text = "The Cauldron, the Slag Pit, an' the dig sites round Grimesilt, where they've set the Explorers' League prisoners tae work. I mark those on my maps in red, which means stay away unless ye're well armed or very stupid." } },
+      choices = {
+        { text = "Well armed, I'd like to think.", next = "BACK", reply = "Then go an' make a few red marks into black ones, an' I'll redraw the map for ye." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    es_seam = {
+      lines = { { id = "ess_1", text = "Thorium, always, in the hills north o' the camp where the Dark Irons havenae dug yet. Ye'll find iron an' mithril along the road too, but the thorium's the prize, an' I'd rather ye took it than the Emperor." } },
+      choices = {
+        { text = "Thanks for the tip, Evonice.", next = "BACK", reply = "Dinnae thank me, just mention my name if anybody asks who found it first.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -59,6 +97,8 @@ P:NPC {
         { text = "What's it like out of the Depths?", next = "outside" },
         { text = "What are you working on?", next = "work" },
         { text = "Gnomes don't sell their best machines.", next = "xgnome", when = { race = "Gnome" } },
+        { text = "Who is this Overseer Oilfist you mentioned?", next = "es_oil" },
+        { text = "Plenty of Dark Iron here still kneel to the Emperor.", next = "es_loyal" },
         { text = "I'll leave you to it.", next = "END" },
       },
     },

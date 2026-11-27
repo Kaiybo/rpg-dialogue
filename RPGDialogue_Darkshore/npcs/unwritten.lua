@@ -423,7 +423,54 @@ P:NPC {
         { text = "What is the Lunar Festival to the kaldorei?", next = "festival" },
         { text = "Darkshore seems troubled these days.", next = "troubled" },
         { text = "I serve Elune too, Elder.", next = "priest", when = { class = "PRIEST" } },
+        { text = "What songs did you weave for the Sisters?", next = "es_songs" },
+        { text = "Do you see the living when you return?", next = "es_living" },
         { text = "Elune keep you, Elder.", next = "END" },
+      },
+    },
+    es_songs = {
+      lines = {
+        { id = "es_songs_1", text = "Songs of the moon's path across the sky, and of the stars that Elune hung to light the way of the lost. I sang them in the old temples, long before Darkshore was a shore at all, and the Sisters sing them still." },
+      },
+      choices = {
+        { text = "Sing me one, Elder.", next = "es_sing" },
+        { text = "I'm a priest. I know some of those songs.", next = "es_sing", when = { class = "PRIEST" } },
+      },
+    },
+    es_sing = {
+      lines = {
+        { id = "es_sing_1", text = "A spirit's voice is thin, child, but listen. The moon rises over the sea, and the sea remembers, and all who are lost may find the way home by her light, if they will only look up." },
+      },
+      choices = {
+        { text = "That's beautiful.", next = "es_beauty" },
+        { text = "A song for the lost. Something else.", next = "BACK" },
+      },
+    },
+    es_beauty = {
+      lines = {
+        { id = "es_beauty_1", text = "It is old, and it is true, which is the best a song can be. When you see the moon over Auberdine tonight, look up, and remember that the dead do not forget the living." },
+      },
+      choices = {
+        { text = "I will remember.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
+    es_living = {
+      lines = {
+        { id = "es_living_1", text = "I see them, and they do not always see me, for the living look ahead and the dead look back. I watch the Sentinels at their posts and the children on the docks, and I am glad that some things endure." },
+      },
+      choices = {
+        { text = "What has changed most, since your time?", next = "es_changed" },
+        { text = "I'm a night elf. I'll honour your memory.", next = "es_changed", when = { race = "NightElf" } },
+      },
+    },
+    es_changed = {
+      lines = {
+        { id = "es_changed_1", text = "The forest has grown sad, child, and the furbolgs have grown angry, and the Highborne ruins are full of restless ghosts. But the moon is the same, and so are the songs, and that is enough for an old spirit like me." },
+      },
+      choices = {
+        { text = "The moon remains. That's a comfort.", next = "BACK" },
+        { text = "Something else, Elder.", next = "BACK" },
       },
     },
     shore = {

@@ -131,6 +131,44 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+
+    cn_crew = {
+      lines = { { id = "cnc_1", text = "Four guns on this wall, friend, and a crew of three to each, with a powder boy running between. My loader went up to the keep for fresh powder the grey morning, and he must have been kept there, because he's not come back." } },
+      choices = {
+        { text = "Who kept the guns in good repair?", next = "cn_crew2" },
+        { text = "The keep is no place to send a boy now.", next = "cn_crew2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cn_crew2 = {
+      lines = { { id = "cnc2_1", text = "The dwarf smith, Frostwake, mends the carriages and grumbles about how we treat them. You'll find him at his forge in town, and if you tell him the left wheel's squeaking again, he'll know whose gun it is." } },
+      choices = {
+        { text = "I'll pass on the message about the wheel.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cn_water = {
+      lines = { { id = "cnw_1", text = "Moving? Where? Ah, that's only the reeds, or the fish, or the mist rolling off Darrowmere. I've learned not to fire at mist, friend, because the sergeant docks your pay for wasted shot." } },
+      choices = {
+        { text = "What lies on the far shore?", next = "cn_water2" },
+        { text = "I'm a hunter. Show me where you'd aim.", next = "cn_aim", when = { class = "HUNTER" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cn_water2 = {
+      lines = { { id = "cnw2_1", text = "Hills, mostly, and the old farm roads up toward Andorhal, and a cave on the west side the fishermen won't go near. They say you can hear it weeping on still nights, though I always took that for the wind." } },
+      choices = {
+        { text = "A weeping cave. I'll keep clear of it.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cn_aim = {
+      lines = { { id = "cna_1", text = "There, at the point where the water darkens, because a boat coming for us would have to round it. I've got the elevation marked on the carriage in chalk, and I've checked that chalk every morning for longer than I care to count." } },
+      choices = {
+        { text = "That's a fine line of fire.", next = "BACK", reply = "It is, isn't it? Wasted on an empty lake, but it's fine all the same.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I man the cannons of Caer Darrow, and I watch the lake for raiders, as Lord Barov ordered. Nothing has come across the water in a very long time, but I keep watching, because those are my orders." } },
       again = { { id = "h_again", text = "What else? Make it quick, I'm on watch." } },
@@ -143,6 +181,8 @@ P:NPC {
         { text = "What did you expect to come across the lake?", next = "lake" },
         { text = "The danger came from inside the walls.", next = "inside" },
         { text = "When did you last fire that cannon?", next = "fire" },
+        { text = "Who else crewed the guns with you?", next = "cn_crew" },
+        { text = "Something is moving in the water by the shore.", next = "cn_water" },
         { text = "Keep watching, then.", next = "END" },
       },
     },
@@ -227,6 +267,38 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+
+    hm_guard = {
+      lines = { { id = "hmg_1", text = "Forty riders in the Barov blue, once, with a captain who could split an apple off a post at a gallop. We kept the roads clear of bandits and the lords' coaches clear of mud, and Lord Barov paid us in good silver every month." } },
+      choices = {
+        { text = "What became of the other riders?", next = "hm_guard2" },
+        { text = "Fine pay for keeping coaches clean.", next = "hm_guard2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hm_guard2 = {
+      lines = { { id = "hmg2_1", text = "Laugh if you like, traveller, it was honest work. The captain went up to the keep to ask after our missing pay, and the dwarf smith, Frostwake, said he never came down again, and Bramble's not had new shoes since." } },
+      choices = {
+        { text = "Then the smith may know more than he says.", next = "BACK" },
+        { text = "I'm sorry about your captain.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hm_beyond = {
+      lines = { { id = "hmb_1", text = "Farm country, traveller, the Dalson place and Felstone Field and the road up to Andorhal where the grain came from. I used to ride out that way on market days, though Bramble always turns back before the bridge now." } },
+      choices = {
+        { text = "Why won't Bramble cross the bridge?", next = "hm_beyond2" },
+        { text = "My people ride nightsabers, not horses.", next = "BACK", when = { race = "NightElf" }, reply = "Great cats? Bramble would throw me into the lake if one came near her, and I'd not blame her." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hm_beyond2 = {
+      lines = { { id = "hmb2_1", text = "Horses know things riders don't, my father used to say. She stops dead at the first plank and stares at the far shore, shaking, and I've stopped asking her why, because I'm afraid she'd tell me." } },
+      choices = {
+        { text = "Trust her. She's kept you safe so far.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I ride the patrol around Caer Darrow, the same circle as always, the shore, the gate, the keep and round again. My horse knows the way so well I could sleep in the saddle, and maybe I do." } },
       again = { { id = "h_again", text = "Anything else, traveller? My horse is restless." } },
@@ -239,6 +311,8 @@ P:NPC {
         { text = "Your horse looks like a ghost too.", next = "horse" },
         { text = "Why ride in circles?", next = "circles" },
         { text = "Have you seen anything strange?", next = "strange" },
+        { text = "Tell me about the Barov guard.", next = "hm_guard" },
+        { text = "What lies past the end of your circuit?", next = "hm_beyond" },
         { text = "Ride on, horseman.", next = "END" },
       },
     },
@@ -324,6 +398,39 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+
+    ct_bake = {
+      lines = { { id = "ctb_1", text = "Seed cakes, dear, hundreds of them, and honey loaves for the Barov table, and little bread horses for the children. The whole town smelled of my ovens for a week, and folk came across the lake from the farms just to buy them." } },
+      choices = {
+        { text = "Where did the honey come from?", next = "ct_bake2" },
+        { text = "It sounds like a happy festival.", next = "ct_bake2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ct_bake2 = {
+      lines = { { id = "ctb2_1", text = "From the Dalson farm up the north road, and very dear it was, but worth every copper. Funny, I've not had a jar from them since the grain came, and I keep meaning to send the boy up to ask why." } },
+      choices = {
+        { text = "The Dalson farm is empty now.", next = "BACK", reply = "Empty? No, dear, the Dalsons have three children and a dog. You must be thinking of some other farm." },
+        { text = "I'll ask after them for you.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ct_neigh = {
+      lines = { { id = "ctn_1", text = "The smith, Master Frostwake, on the corner, who's terribly gruff but always buys two cakes and pretends the second is for his horse. And down by the water there's Mistress Sarkhoff and her husband, who are very learned and very kind." } },
+      choices = {
+        { text = "Magnus is a dwarf, like me. Gruff runs in us.", next = "BACK", when = { race = "Dwarf" }, reply = "Oh, does it? Then I'll stop taking it personally, dear. He's a sweet man underneath, though he'd hate me for saying so." },
+        { text = "Tell me about the Sarkhoffs.", next = "ct_neigh2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ct_neigh2 = {
+      lines = { { id = "ctn2_1", text = "Eva Sarkhoff gave me a salve for my burns once and wouldn't take a penny for it. She told me not to eat the northern bread, now I come to think of it, and I laughed, because who turns down good bread?" } },
+      choices = {
+        { text = "Eva was trying to warn you.", next = "BACK", reply = "Warn me? About bread? Oh, you do say the strangest things, stranger." },
+        { text = "She sounds like a good neighbour.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I'm just on my way to the market, though I can't seem to find it, which is very silly in a town this small. Everyone's been so quiet lately, and nobody answers their door." } },
       again = { { id = "h_again", text = "Was there something else, stranger?" } },
@@ -334,6 +441,8 @@ P:NPC {
         { text = "What sickness was in the grain?", next = "grain" },
         { text = "Do you remember your family?", next = "family" },
         { text = "There is no market anymore.", next = "market" },
+        { text = "What did you bake for the harvest festival?", next = "ct_bake" },
+        { text = "Who lives near your bakery?", next = "ct_neigh" },
         { text = "Good day to you.", next = "END" },
       },
     },
@@ -629,6 +738,44 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+
+    ly_quarter = {
+      lines = { { id = "lyq_1", text = "It doesn't, and that's how the Dark Lady likes it. Every Forsaken who can hold a blade comes through here to learn from Austil de Mon and the others, and every one of them needs a living thing to practise on, eventually." } },
+      choices = {
+        { text = "Austil de Mon trains the warriors?", next = "ly_quarter2" },
+        { text = "I'm a warrior. Bring out something with teeth.", next = "ly_spar", when = { class = "WARRIOR" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ly_quarter2 = {
+      lines = { { id = "lyq2_1", text = "He does, and he's a stickler for footwork, which is a fine joke when half his pupils are missing toes. Malach blooded them, Austil drills them, and the Deathguard takes whatever's left to the Plaguelands." } },
+      choices = {
+        { text = "Efficient, the way you run things down here.", next = "BACK", reply = "We had a whole kingdom's worth of practice at dying. Living was never this organized." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ly_spar = {
+      lines = { { id = "lys_1", text = "Not today; the abomination's sulking and the ghouls have just been fed. Come back when Brother Malach's in a mood, and I'll open the third cell, which is the one I don't let the pupils near." } },
+      choices = {
+        { text = "I'll hold you to the third cell.", next = "BACK", reply = "Do. It's been bored for weeks, and a bored thing in a cage is a dangerous thing.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ly_feed = {
+      lines = { { id = "lyf_1", text = "Whatever the butchers throw out, and you don't want to know what the butchers keep. The Apothecarium sends down a tonic for the ones that need to stay strong, and I don't drink from the bucket after them." } },
+      choices = {
+        { text = "The apothecaries send a tonic for captives?", next = "ly_feed2" },
+        { text = "I'd not trust anything the apothecaries brew.", next = "ly_feed2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ly_feed2 = {
+      lines = { { id = "lyf2_1", text = "They do, and they write down how long each one lasts on it, which tells you what the tonic is really for. Master Faranell's people come down with their ledgers every week, and I've learned to stand well back when they open the vials." } },
+      choices = {
+        { text = "So your cages are their laboratory too.", next = "BACK", reply = "Everything in the Undercity is somebody's laboratory, dear. I just hold the keys." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Lysta Bancroft, and I tend the captives of the War Quarter: humans, ghouls, the odd abomination. When Brother Malach calls, I bring one out for his pupils to fight." } },
       again = { { id = "h_again", text = "Anything else? My charges get restless if I leave them." } },
@@ -638,6 +785,8 @@ P:NPC {
         { text = "You're living, aren't you? Why work here?", next = "xliving", when = { race = "Scourge" } },
         { text = "Where do the captives come from?", next = "captives" },
         { text = "Isn't that cruel?", next = "cruel" },
+        { text = "The War Quarter never stops ringing with steel.", next = "ly_quarter" },
+        { text = "What does one feed a ghoul?", next = "ly_feed" },
         { text = "I'll leave you to it.", next = "END" },
       },
     },

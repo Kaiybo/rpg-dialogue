@@ -57,6 +57,8 @@ P:NPC {
         { text = "I'd like to see what grows back once they're cleared.", next = "regrow" },
         { text = "Why not just burn it all?", next = "xburn", when = { class = { "MAGE", "WARLOCK" } } },
         { text = "Can the Light cleanse the ground?", next = "xlight", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "How long have you been clearing this slope?", next = "years" },
+        { text = "What does Zet'gan's camp think of your work?", next = "zetgan" },
         { text = "Good luck with the weeding.", next = "END" },
       },
     },
@@ -125,6 +127,33 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    years = {
+      lines = { { id = "yr_default", text = "Longer than I like to count, and longer than any of the thorns I've cut down. When I started, you couldn't see the ground for brambles from here to the ridge, and now there are three clean hollows where the deer graze. Three, in all that time." } },
+      choices = {
+        { text = "Three is better than none.", next = "years2" },
+        { text = "Does it ever feel hopeless?", next = "years2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    years2 = {
+      lines = { { id = "yr2_default", text = "On the bad days, it does, and on those days I go and stand in the first hollow I cleared, where the saplings are taller than I am now. A forest doesn't heal in one lifetime, but it heals, and I'd sooner be the one who started it than the one who waited." } },
+      choices = { { text = "That's a good reason. Something else.", next = "BACK" } },
+    },
+    zetgan = {
+      lines = { { id = "zg_default", text = "They think I'm mad, but useful. The trolls came up the mountain on some errand of their own and got stuck, and now they defend the slope as hard as anyone. Zet'gan sends his scouts to tell me where the thorns are thickest, and I tell him where the owls nest." } },
+      choices = {
+        { text = "An odd alliance, a druid's helper and a troll camp.", next = "zetgan2" },
+        { text = "Do you trust them?", next = "zetgan2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    zetgan2 = {
+      lines = { { id = "zg2_default", text = "I trust that they want off this mountain alive, and so do I, and the thorns want neither of us to manage it. That's enough to share a fire over. The mountain doesn't care what banner we fly, so for once we don't have to either." } },
+      choices = {
+        { text = "I'm a druid. I'll help where the Circle can't reach.", next = "BACK", reply = "Then bring a sharp knife as well as a kind heart. Up here, you'll need both.", when = { class = "DRUID" } },
+        { text = "Something else, Thylaen.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -188,6 +217,8 @@ P:NPC {
         { text = "What do you need for the arrows?", next = "owls" },
         { text = "What's attacking the camp?", next = "threat" },
         { text = "How fare the Darkspear here?", next = "xtroll", when = { race = "Troll" } },
+        { text = "Who are your fletchers, mon?", next = "fletch" },
+        { text = "What brought the Darkspear up this mountain?", next = "came" },
         { text = "Stay strong, Zet'gan.", next = "END" },
       },
     },
@@ -241,6 +272,33 @@ P:NPC {
         { text = "We endure. That's the Darkspear way.", next = "BACK", reply = "Ya, we do, cousin, and hearin' it from one of our own puts a little warmth back in dese old bones, so maybe I stand a while longer.", fx = { align = { order = 1 } } },
         { text = "Leave when you can. Pride won't keep you warm.", next = "BACK", reply = "You not be wrong, cousin, and my knees be agreein' with you every mornin', but the loa know I can't leave dem fools on dis mountain alone.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    fletch = {
+      lines = { { id = "fl_default", text = "Two old trolls who can't swing an axe no more, mon, an' a young one who talks too much. Dey sit by da fire all day wit' feathers an' glue an' sing da old island songs while dey work, an' da arrows come out straighter for it, or so dey tell me." } },
+      choices = {
+        { text = "Do the songs really help?", next = "fletch2" },
+        { text = "Old warriors still serving. That's a good camp.", next = "fletch2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fletch2 = {
+      lines = { { id = "fl2_default", text = "Who knows, mon? But da young ones learn da songs while dey learn da arrows, an' dat way nothin' gets lost up here in da cold. A camp dat forgets its songs be just a bunch o' tired trolls wit' sticks." } },
+      choices = { { text = "Then keep singing. Something else.", next = "BACK" } },
+    },
+    came = {
+      lines = { { id = "cm_default", text = "Orders, mon, an' bad luck. We was sent ta watch da demons on da mountain an' report back, an' den da demons decided ta watch us back. Every time we try ta go, da mountain find a new way ta keep us, like it be lonely." } },
+      choices = {
+        { text = "Who sent you?", next = "came2" },
+        { text = "The mountain doesn't seem to want anyone to leave.", next = "came2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    came2 = {
+      lines = { { id = "cm2_default", text = "Somebody important, an' somebody far away, which be da same thing to a troll in da snow. Thylaen say da mountain be hurtin' an' don't want ta be left alone wit' its hurt. Maybe she right, mon. Maybe dat be why we keep comin' back." } },
+      choices = {
+        { text = "I'm a shaman. The spirits here are restless.", next = "BACK", reply = "Den ask 'em ta let us go, cousin, an' ask nice. I be tired o' dis view.", when = { class = "SHAMAN" } },
+        { text = "Something else, Zet'gan.", next = "BACK" },
       },
     },
   },

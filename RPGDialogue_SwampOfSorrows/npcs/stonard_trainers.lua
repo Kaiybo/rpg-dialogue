@@ -874,6 +874,51 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    hrm_far1 = {
+      lines = {
+        { id = "hrm_far1_1", text = "It is, for the elements here are not the elements of Durotar, and my students must learn them all again. The fire is damp, the earth is soft, and the air is heavy, and only the water is strong, though it is strong with grief." },
+      },
+      choices = {
+        { text = "How do your students cope?", next = "hrm_far2" },
+        { text = "Something else, Haromm.", next = "BACK" },
+      },
+    },
+    hrm_far2 = {
+      lines = {
+        { id = "hrm_far2_1", text = "Badly, at first, and then well, for a shaman who learns in the swamp can learn anywhere. Thrall himself was taught by Drek'Thar in the snows of Alterac, and I tell my students that a hard teacher makes a strong student." },
+      },
+      choices = {
+        { text = "And are you a hard teacher?", next = "hrm_far3" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    hrm_far3 = {
+      lines = {
+        { id = "hrm_far3_1", text = "I am a patient one, which my students say is harder. I do not shout, and I do not hurry them, and I wait until they hear what the water is saying, however long it takes." },
+      },
+      choices = {
+        { text = "That's a rare gift. Something else.", next = "BACK" },
+      },
+    },
+    hrm_wat1 = {
+      lines = {
+        { id = "hrm_wat1_1", text = "That something old sleeps beneath the Pool of Tears and is dreaming badly. The water is afraid of it, and the water is not easily afraid, for it has seen the whole swamp drown and rise again." },
+      },
+      choices = {
+        { text = "What kind of thing?", next = "hrm_wat2" },
+        { text = "I feel it too, when I call on the water.", next = "hrm_wat2", when = { class = "SHAMAN" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hrm_wat2 = {
+      lines = {
+        { id = "hrm_wat2_1", text = "I do not know, and I am not sure I should, for the green dragons that circle the temple do not let anyone close. They guard it as if they too are afraid of what wakes, and that is enough to keep me from asking." },
+      },
+      choices = {
+        { text = "Then let the dragons keep their watch.", next = "BACK" },
+        { text = "Back to other matters, Haromm.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -895,6 +940,8 @@ P:NPC {
         { text = "Who is Bath'rah?", next = "bathrah", when = { class = "SHAMAN", minLevel = 50 } },
         { text = "Must the elements always be asked?", next = "asked" },
         { text = "What troubles the spirits near the temple?", next = "temple" },
+        { text = "Is it hard to teach shamans so far from Orgrimmar?", next = "hrm_far1" },
+        { text = "What does the water tell you, when you listen?", next = "hrm_wat1" },
         { text = "Farewell, Haromm.", next = "END" },
       },
     },

@@ -737,6 +737,66 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    oth_dye1 = {
+      lines = {
+        { id = "oth_dye1_1", text = "Carefully, and not very often, because a crushed windstone in the vat gives a blue that shifts in the light like sky over water. The High Order think it's a waste of good stones, and they wear it every chance they get." },
+      },
+      choices = {
+        { text = "So the magisters wear your blue.", next = "oth_dye2" },
+        { text = "Something else, Othesia.", next = "BACK" },
+      },
+    },
+    oth_dye2 = {
+      lines = {
+        { id = "oth_dye2_1", text = "Every one of them, and I've never yet had a magister admit where it came from. I've thought about stitching my name inside the collars, but it would only start another argument about whose house is whose." },
+      },
+      choices = {
+        { text = "Leave them guessing.", next = "oth_dye3" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    oth_dye3 = {
+      lines = {
+        { id = "oth_dye3_1", text = "That's my plan exactly, and a tailor's revenge is a quiet one. They'll go on lecturing me on the value of windstones in a robe I dyed with them, and I'll go on hemming." },
+      },
+      choices = {
+        { text = "A fine revenge. Something else.", next = "BACK" },
+      },
+    },
+    oth_fine1 = {
+      lines = {
+        { id = "oth_fine1_1", text = "That's kind of you, and I'll believe it, since I've never seen the mainland. We spin it from the fleece of the isle's sheep, very fine, and we spin it while the wind's blowing, which my grandmother swore made it stronger." },
+      },
+      choices = {
+        { text = "Does it really make it stronger?", next = "oth_fine2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    oth_fine2 = {
+      lines = {
+        { id = "oth_fine2_1", text = "I've no idea, but I've never once spun on a still day, and I'm not going to start now. Some traditions are only habits, and some are wisdom, and you only find out which by breaking them." },
+      },
+      choices = {
+        { text = "Then keep it. Something else.", next = "BACK" },
+      },
+    },
+    oth_les1 = {
+      lines = {
+        { id = "oth_les1_1", text = "Young Skyborne who want a trade before they go wandering, mostly, and a few of the High Order's apprentices who've been told to learn something useful. The apprentices are the worst students, because they keep trying to enchant the needle." },
+      },
+      choices = {
+        { text = "Do the enchanted needles work?", next = "oth_les2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    oth_les2 = {
+      lines = {
+        { id = "oth_les2_1", text = "One did, for an afternoon, and stitched an entire cloak by itself before it ran through the window. We never found it, and I like to think it's out in the wilds somewhere, still sewing." },
+      },
+      choices = {
+        { text = "I'll watch for it. Back to other matters.", next = "BACK" },
+      },
+    },
     -- Deeds pass: Belathaan Brightwish, avenged for Elaadrin.
     dd_belathaan = {
       lines = { { id = "db_default", text = "A little. He bought his robes from me, plain blue-grey and never anything showy, because he said a man going to talk of peace shouldn't look as though he'd come to win. I made the last one he wore, and I've wondered since whether they buried him in it." } },
@@ -765,6 +825,9 @@ P:NPC {
         { text = "Are you related to the Supreme Magister?", next = "name" },
         { text = "Who designed the Al'Aketh's robes?", next = "robes" },
         { text = "Why do so many people wear feathers in their hair?", next = "feathers" },
+        { text = "How do you dye with windstones?", next = "oth_dye1" },
+        { text = "Your thread is finer than any on the mainland.", next = "oth_fine1", when = { ["not"] = { race = "Skyborne" } } },
+        { text = "Who comes to you for lessons?", next = "oth_les1" },
         { text = "Winds be with you, Othesia.", next = "END" },
       },
     },

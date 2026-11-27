@@ -635,7 +635,45 @@ P:NPC {
         { text = "Tell me about your shield.", next = "shield" },
         { text = "What do you fight for, Gargal?", next = "fight" },
         { text = "Who are you protecting?", next = "protect" },
+        { text = "What comes over that ridge?", next = "gg_ridge" },
+        { text = "Who leads Kargath?", next = "gg_lead" },
         { text = "Lok'tar, Gargal.", next = "END" },
+      },
+    },
+    gg_ridge = {
+      lines = {
+        { id = "gg_ridge_1", text = "Dark Irons from the south, and the ogres from the hills, and once a dragon, though it did not land. I stood here with my shield up and watched it fly over, and it did not come back." },
+      },
+      choices = {
+        { text = "A dragon? Here?", next = "gg_dragon" },
+        { text = "I'd stand behind you for that.", next = "BACK", reply = "Good, there's room." },
+      },
+    },
+    gg_dragon = {
+      lines = {
+        { id = "gg_dragon_1", text = "From the Lethlor Ravine in the east, where the scouts say dragons nest among old bones. I do not know what they want, and I do not need to know, so I keep my shield up." },
+      },
+      choices = {
+        { text = "Shield up. Good advice.", next = "BACK" },
+        { text = "Something else, Gargal.", next = "BACK" },
+      },
+    },
+    gg_lead = {
+      lines = {
+        { id = "gg_lead_1", text = "Warlord Goretooth, and he is a hard orc, and a good one. He holds this ground for the Horde, and he sends us to fight the Dark Irons and the Blackrock both, and he never asks us to do what he would not do himself." },
+      },
+      choices = {
+        { text = "You respect him.", next = "gg_respect" },
+        { text = "I'm an orc. Goretooth has a fine name.", next = "gg_respect", when = { race = "Orc" } },
+      },
+    },
+    gg_respect = {
+      lines = {
+        { id = "gg_respect_1", text = "I do, and I would die for him, though I hope he does not ask. The Blackrock orcs shame our blood in the mountain to the north, and Goretooth keeps us here to show them the true Horde has not forgotten." },
+      },
+      choices = {
+        { text = "That's a good reason to stand firm.", next = "BACK" },
+        { text = "Something else, Gargal.", next = "BACK" },
       },
     },
     shield = {

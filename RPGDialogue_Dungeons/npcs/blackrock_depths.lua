@@ -35,6 +35,37 @@ P:NPC {
 
   start = "hello",
   nodes = {
+
+    lk_bar = {
+      lines = { { id = "lkb_1", text = "Strange is the kindest word for it. Ye've Private Rocknot, who'd drink the barrels dry if Plugger let him, a goblin called Ribbly hidin' from his own family, and the Emperor's guards, who come in for the thunderbrew an' leave wi' no memory o' the evening." } },
+      choices = {
+        { text = "Why is Ribbly hiding from his family?", next = "lk_bar2" },
+        { text = "Drunk guards make poor watchmen. Clever of you.", next = "lk_bar2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lk_bar2 = {
+      lines = { { id = "lkb2_1", text = "Ask him yerself, if ye want an earful; it's a goblin matter, which means money an' a grudge. What matters tae me is the noise, because nobody hears a bargain bein' struck in a room where Rocknot's singin'." } },
+      choices = {
+        { text = "Then here's to Rocknot's singing.", next = "BACK", reply = "Aye, though ye'll no' say that once ye've heard it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lk_start = {
+      lines = { { id = "lks_1", text = "Bring me the residue the Emperor's own folk leave behind, the black grit that clings tae every Dark Iron who works the forges here. Gather enough of it an' I'll put yer name in the ledger, an' that's the first step on a long stair." } },
+      choices = {
+        { text = "Why does a bit of grit prove anything?", next = "lk_start2" },
+        { text = "My clan won't forget what your Emperor did.", next = "lk_start2", when = { race = "Dwarf" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lk_start2 = {
+      lines = { { id = "lks2_1", text = "Because ye only get it by fightin' the Emperor's folk, an' that's a thing nobody does by accident. As for grudges, Bronzebeard, the Brotherhood remembers the War o' the Three Hammers as well as ye do; we only want the next three hundred years tae go better." } },
+      choices = {
+        { text = "Then the grit's a good place to start.", next = "BACK", reply = "It is. Mind ye bring it in a sack, not yer pockets; it stains." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Lokhtos Darkbargainer, of the Thorium Brotherhood. We're the Dark Irons who'd sooner work the forge than kneel to Thaurissan's ghost or the fire lord he woke." },
@@ -50,6 +81,8 @@ P:NPC {
         { text = "What does the Brotherhood want with fiery cores?", next = "cores" },
         { text = "Tell me about the plans you sell.", next = "plans", when = { profession = { "Blacksmithing" } } },
         { text = "What do you have for trade?", next = "BUSINESS" },
+        { text = "The Guzzler has a strange crowd for a hideout.", next = "lk_bar" },
+        { text = "How does an outsider start with the Brotherhood?", next = "lk_start" },
         { text = "I'll leave you to your bargains.", next = "END" },
       },
     },

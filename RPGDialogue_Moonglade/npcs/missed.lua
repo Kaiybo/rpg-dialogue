@@ -52,6 +52,8 @@ P:NPC {
         { text = "What can the soil teach a druid that a trainer can't?", next = "d_soil", when = { class = "DRUID" } },
         { text = "How long have you served the Circle?", next = "ylong" },
         { text = "Does anything trouble the glade?", next = "ytrouble" },
+        { text = "Tell me of Keeper Remulos.", next = "remulos" },
+        { text = "What do you plant here, in Nighthaven?", next = "plant" },
         { text = "Elune be with you.", next = "END" },
       },
     },
@@ -87,6 +89,33 @@ P:NPC {
       choices = {
         { text = "Burn the break. Protect what still lives.", next = "BACK", reply = "Swift and sure. It may come to that, I fear.", fx = { align = { light = -1 } } },
         { text = "Heal it, however long it takes.", next = "BACK", reply = "Then we are of a mind, and the soil will thank you.", fx = { align = { light = 1 } } },
+      },
+    },
+    remulos = {
+      lines = { { id = "rm_default", text = "He is the son of Cenarius, {class}, and the guardian of this glade, and he has been both for longer than most of the Circle can remember. He seldom raises his voice. When he does, the whole glade goes still, and I have heard it only twice." } },
+      choices = {
+        { text = "What made him raise it?", next = "remulos2" },
+        { text = "A son of Cenarius. That's no small thing to stand beside.", next = "remulos2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    remulos2 = {
+      lines = { { id = "rm2_default", text = "Once for a druid who wished to bring a weapon into the glade, and once for news from the Dream that he would not share with us. He bore the second alone, and still does, I think. Rabine Saturna may know more, but she will not say either." } },
+      choices = { { text = "Then I won't press. Something else.", next = "BACK" } },
+    },
+    plant = {
+      lines = { { id = "pl_default", text = "Only what the glade wishes to grow, which is mostly moss and silence. I tend the barrow dens' slopes, so that the roots hold the soil above the druids who sleep there, and I plant a little moonbloom by the lake each spring, because the Riverbends asked me to." } },
+      choices = {
+        { text = "Druids sleep in the barrows?", next = "plant2" },
+        { text = "Tauren asked a kaldorei for flowers?", next = "plant2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    plant2 = {
+      lines = { { id = "pl2_default", text = "They do, in the Stormrage Barrow Dens, walking the Dream while their bodies rest, and the soil must be kept sound above them. As for the Riverbends, Moren says the flowers remind him of Mulgore in spring. I am glad to grow them, though I have never seen Mulgore." } },
+      choices = {
+        { text = "I'm a druid. I'll tread softly over the barrows.", next = "BACK", reply = "Then you understand already what most visitors never do. Elune keep you.", when = { class = "DRUID" } },
+        { text = "Something else, Celes.", next = "BACK" },
       },
     },
   },
@@ -146,6 +175,8 @@ P:NPC {
         { text = "Do you miss Mulgore?", next = "mulgore" },
         { text = "Mylentha is your kin?", next = "mylentha" },
         { text = "I walk the druid's path too, Moren.", next = "d_kin", when = { class = "DRUID" } },
+        { text = "How do the night elves treat a tauren in Nighthaven?", next = "kaldorei" },
+        { text = "You talk to the lake, Mylentha says.", next = "lake" },
         { text = "Walk with the Earth Mother.", next = "END" },
       },
     },
@@ -167,6 +198,37 @@ P:NPC {
     mylentha = {
       lines = { { id = "my_default", text = "She is of my family and came north with me, and she is the reason our lodge is ever in order. She will tell you that I talk to the lake when I should be gathering firewood, and she is right." } },
       choices = { { text = "Tell me something else.", next = "BACK" } },
+    },
+    kaldorei = {
+      lines = { { id = "kl_default", text = "With courtesy, which is not the same as warmth, though in some it has become warmth with time. The elders of the Circle remember when no tauren had walked this glade at all, and they watch my hooves on their moss very carefully." } },
+      choices = {
+        { text = "Does that trouble you?", next = "kaldorei2" },
+        { text = "Courtesy is a beginning.", next = "kaldorei2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kaldorei2 = {
+      lines = { { id = "kl2_default", text = "It did, the first winter. Then Celes Earthborne came to our fire one evening with a basket of moonbloom seeds and asked whether tauren had flowers like them in Mulgore. We sat until the moon set. Since then, the moss has not seemed to mind my hooves." } },
+      choices = { { text = "That's a good beginning. Something else.", next = "BACK" } },
+    },
+    lake = {
+      lines = { { id = "lk_default", text = "She does say that, and it is true. Lake Elune'ara is the stillest water I have ever known, and when I speak to it, my own voice comes back softer. At home I would speak to the wind on the plains, but here there is no wind, only the lake and the moon in it." } },
+      choices = {
+        { text = "What do you tell it?", next = "lake2" },
+        { text = "A lake that listens. I'd like that.", next = "lake2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lake2 = {
+      lines = { { id = "lk2_default", text = "The names of those I left in Mulgore, so that I do not forget them, and the news of the glade, so that the lake knows a tauren cares for it too. Some of the kaldorei think it foolish. Keeper Remulos stood behind me once while I did it, and said nothing, and then he smiled." } },
+      choices = {
+        { text = "I'm tauren too. I'll say my own names to the lake.", next = "lake3", when = { race = "Tauren" } },
+        { text = "Something else, Moren.", next = "BACK" },
+      },
+    },
+    lake3 = {
+      lines = { { id = "lk3_default", text = "Then go gently down to the shore at moonrise, and say them slowly, as you would to an elder. The lake will keep them for you while you walk, and you will find that you carry less. May An'she and Mu'sha both watch over you." } },
+      choices = { { text = "Thank you, Moren. Something else.", next = "BACK" } },
     },
   },
   topics = {

@@ -337,6 +337,8 @@ P:NPC {
         { text = "What is the Branch of Cenarius?", next = "branch" },
         { text = "Who are these satyr?", next = "satyr" },
         { text = "Does killing them really help?", next = "help" },
+        { text = "Who else guards Aessina's shrine?", next = "shrine" },
+        { text = "Raene Wolfrunner speaks well of you.", next = "raene" },
         { text = "I'll hunt the satyr for you.", next = "END" },
       },
     },
@@ -369,6 +371,33 @@ P:NPC {
         { text = "It counts. Every one stopped saves a life.", next = "BACK", reply = "It does, doesn't it? Thank you, I needed to hear someone say it.", fx = { align = { light = -1 } } },
         { text = "Revenge won't heal you. Mourn her instead.", next = "BACK", reply = "I know, and I'll mourn her too, I promise. But I can't sit still while the satyrs are out there.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    shrine = {
+      lines = { { id = "sh_default", text = "Me, the trees, and the wisps that come out at night, which are better company than most Sentinels. The shrine belongs to Aessina, the Mother of Wisps, who's said to have woken this whole forest a long time ago. I just keep the satyrs from spitting in it." } },
+      choices = {
+        { text = "Do the wisps talk to you?", next = "shrine2" },
+        { text = "Aessina woke the whole forest? That's quite a tale.", next = "shrine2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shrine2 = {
+      lines = { { id = "sh2_default", text = "Not in words. They brighten when someone kind comes up the path and dim when someone cruel does, and they've been very dim lately. Anilia used to say they liked her better than me, and she was right, and I'm going to stop talking about it now." } },
+      choices = { { text = "All right. Something else.", next = "BACK" } },
+    },
+    raene = {
+      lines = { { id = "ra_default", text = "Does she? She sends me her best hunters when the satyrs get bold, and she never asks me to leave the shrine for Astranaar, which is the nicest thing anyone can do for a dryad. She understands about staying where you belong." } },
+      choices = {
+        { text = "Do you ever go into Astranaar?", next = "raene2" },
+        { text = "She's carrying a lot, keeping that town safe.", next = "raene2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    raene2 = {
+      lines = { { id = "ra2_default", text = "Once, and the bridges made me nervous, all that water and no roots. Raene carries too much, and she laughs anyway, which is how you know she's carrying it well. If you're one of her people, be kind to her, because no one else remembers to." } },
+      choices = {
+        { text = "I'm a druid. I'll stand with you at the shrine.", next = "BACK", reply = "Then stand quietly, and don't step on the moss, and we'll get on fine.", when = { class = "DRUID" } },
+        { text = "Something else, Illiyana.", next = "BACK" },
       },
     },
   },

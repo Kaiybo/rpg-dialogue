@@ -517,6 +517,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_cath = {
+      lines = { { id = "d6_cath_a", text = "It's the tallest thing I've ever been inside, and the windows make colours on the floor that move when the clouds do. A priest let us stand in the middle and be quiet for a whole minute, and Geoff lasted almost all of it." } },
+      choices = {
+        { text = "What did you think about in the quiet?", next = "d6_cath2" },
+        { text = "Geoff lasting a minute is a miracle.", next = "d6_cath2" },
+        { text = "Ask me something now.", next = "BACK" },
+      },
+    },
+    d6_cath2 = {
+      lines = { { id = "d6_cath2_a", text = "Whether the people who built it are buried under it, and Miss Danna said some of them are, the stonemasons who rebuilt the city after the orcs. I thought that was sad and also nice, because they'd get to hear the bells every day." } },
+      choices = {
+        { text = "That's a kind way to see it.", next = "BACK", fx = { learn = { "stonemasons" } } },
+        { text = "What else do you know?", next = "BACK" },
+      },
+    },
+    d6_friend = {
+      lines = { { id = "d6_friend_a", text = "Pat, because she asks almost as many questions as me, so nobody thinks I'm strange. Geoff's all right too, but he wants to be a knight, and I've told him a ranger would beat a knight because she'd shoot him before he got close." } },
+      choices = {
+        { text = "I'm a hunter. I use a bow too.", next = "d6_friend2", when = { class = "HUNTER" } },
+        { text = "What did Geoff say to that?", next = "d6_friend2" },
+        { text = "A ranger would win, I think.", next = "d6_friend2" },
+      },
+    },
+    d6_friend2 = {
+      lines = {
+        { id = "d6_friend2_a", text = "He said he'd have a shield, and then I said I'd go round the side, and then Miss Danna said that was enough tactics for one morning. I think I won, though, because he went quiet and looked at his stick." },
+        { id = "d6_friend2_hunter", when = { class = "HUNTER" }, text = "You do? Can you hit things a long way off, like the lady at the gate could, and does your animal come with you everywhere? I'm going to tell Geoff a real hunter said rangers win, so please don't say anything different." },
+      },
+      choices = {
+        { text = "Rangers win. Tell Geoff I said so.", next = "BACK", fx = { affinity = 1 } },
+        { text = "What else is on your mind?", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "I'm Andi, and Miss Danna is showing us the whole city so we'll know our history. I like the statues best, because every one of them was a real person once." },
@@ -532,6 +566,8 @@ P:NPC {
         { text = "Do you want to be a ranger, then?", next = "x_ranger" },
         { text = "Being brave is better than being clever.", next = "x_stance" },
         { text = "I'm an elf too, you know.", next = "x_elf", when = { race = "NightElf" } },
+        { text = "What did you think of the Cathedral?", next = "d6_cath" },
+        { text = "Who's your best friend in the class?", next = "d6_friend" },
         { text = "Mind your teacher, Andi.", next = "END" },
       },
     },
@@ -608,6 +644,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_defias = {
+      lines = { { id = "d6_defias_a", text = "Nearly! A man in the Trade District had a red scarf, and I followed him for two whole streets, but then he went into a bakery and bought a loaf, and I don't think Defias buy bread. Jimmy says they do, because everybody has to eat, even bandits." } },
+      choices = {
+        { text = "Jimmy has a point there.", next = "d6_defias2" },
+        { text = "Never follow strangers, Geoff. I mean it.", next = "d6_defias2" },
+        { text = "Tell me something else.", next = "BACK" },
+      },
+    },
+    d6_defias2 = {
+      lines = { { id = "d6_defias2_a", text = "I know, I know, Miss Danna said that too, very loudly. But the real Defias are out in Westfall, my uncle says, in the old farms, and they've got a whole hideout under the ground that nobody's found yet, so the bread man was probably all right." } },
+      choices = {
+        { text = "Leave the hideout to the soldiers, lad.", next = "BACK", fx = { learn = { "defias" } } },
+        { text = "What else, Geoff?", next = "BACK" },
+      },
+    },
+    d6_brave = {
+      lines = { { id = "d6_brave_a", text = "The guard at the gate by the Valley of Heroes, because he stands there all day even when it rains, and he once caught a pickpocket without even running. He just put his arm out, and the pickpocket ran right into it." } },
+      choices = {
+        { text = "Dwarves fight with hammers, lad, not sticks.", next = "d6_brave2", when = { race = "Dwarf" } },
+        { text = "That's real bravery, standing in the rain.", next = "d6_brave2" },
+        { text = "Catching thieves takes a cool head.", next = "d6_brave2" },
+      },
+    },
+    d6_brave2 = {
+      lines = {
+        { id = "d6_brave2_a", text = "That's what I'll do when I'm a knight, only with a horse, so I can put my arm out from higher up. Miss Danna says a guard's bravery is the quiet kind, and I said I'd do the loud kind, and she sighed at me." },
+        { id = "d6_brave2_dwarf", when = { race = "Dwarf" }, text = "A hammer! Can I hold it, just for a second, and is it really heavy? I'll get a hammer instead of a sword, then, and I'll put my arm out like the gate guard does, and then hit them with the hammer if they don't stop." },
+      },
+      choices = {
+        { text = "Quiet bravery counts too, Geoff.", next = "BACK" },
+        { text = "Anything else on your mind?", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "I'm Geoff, and we've been walking for hours and hours and it's all old buildings. I wanted to see the Stockade, but Miss Danna says it isn't suitable." },
@@ -623,6 +693,8 @@ P:NPC {
         { text = "Show me how you'd fight an orc.", next = "x_fight" },
         { text = "Fighting isn't the only way to be a hero.", next = "x_stance" },
         { text = "I'm a warrior. That stick needs a better grip.", next = "x_war", when = { class = "WARRIOR" } },
+        { text = "Have you ever seen a real Defias?", next = "d6_defias" },
+        { text = "Who's the bravest person you know?", next = "d6_brave" },
         { text = "Keep up with your class, Geoff.", next = "END" },
       },
     },

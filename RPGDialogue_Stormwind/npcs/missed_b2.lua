@@ -137,6 +137,47 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_hard = {
+      lines = { { id = "d6_hard_a", text = "Buttonholes, which sounds like nothing until you've done forty of them and Mistress Larson has unpicked thirty-nine. The stitches have to be tight and even and all the same size, and my hands get bored halfway round and start doing it wrong on their own." } },
+      choices = {
+        { text = "I'm a tailor too. It gets better.", next = "d6_hard2", when = { profession = "Tailoring" } },
+        { text = "Why did she leave the fortieth?", next = "d6_hard2" },
+        { text = "Let's leave buttonholes there.", next = "BACK" },
+      },
+    },
+    d6_hard2 = {
+      lines = {
+        { id = "d6_hard2_a", text = "She said it was the only one that would survive a winter, and then she sewed it onto her own coat. I didn't know what to say, so I said nothing, and I've thought about it every day since, which is annoying." },
+        { id = "d6_hard2_tail", when = { profession = "Tailoring" }, text = "Does it? You're not just saying that, like my mother does? If someone who actually makes things says it gets better, then maybe I'll stop counting how many are left and start counting how many were good." },
+      },
+      choices = {
+        { text = "She's proud of you, Thurman.", next = "d6_hard3" },
+        { text = "Ask me something else.", next = "BACK" },
+      },
+    },
+    d6_hard3 = {
+      lines = { { id = "d6_hard3_a", text = "Don't tell Lisbeth, or she'll never stop saying it. If Mistress Larson's proud then I suppose I have to keep coming in, and keep threading, at least until a griffon rider needs a coat mended." } },
+      choices = {
+        { text = "A griffon rider will need one someday.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    d6_cust = {
+      lines = { { id = "d6_cust_a", text = "Nobles' wives who want something nobody else has, and mages from the Quarter who want robes with pockets in places robes don't usually have pockets. One wizard wanted a pocket inside a pocket, for a smaller book, and he didn't laugh when I asked if he wanted a third." } },
+      choices = {
+        { text = "Mages never laugh about their pockets.", next = "d6_cust2" },
+        { text = "Do the nobles treat you well?", next = "d6_cust2" },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    d6_cust2 = {
+      lines = { { id = "d6_cust2_a", text = "They don't look at me at all, which is better than being looked at, because when they look it's to say a hem is crooked. My mother says that's the job, and Lisbeth says the nobles pay for the shop, so I'm to be polite even to the ones who sniff." } },
+      choices = {
+        { text = "Good advice from your mother.", next = "BACK" },
+        { text = "Ask me anything else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "I'm Thurman Schneider, and I'm Mistress Larson's apprentice, which means I thread needles all day. My mother has the tailor's shop on the canal, and she says I'm to learn the trade properly somewhere I can't talk my way out of it." },
@@ -151,6 +192,8 @@ P:NPC {
         { text = "Tell me about your family.", next = "family" },
         { text = "What would you rather be doing?", next = "rather" },
         { text = "Did you really lose that sewing kit?", next = "kit", when = { questDone = TODO_QUEST("Package for Thurman") } },
+        { text = "What's the hardest thing she's taught you?", next = "d6_hard" },
+        { text = "Who comes to Larson Clothiers to buy?", next = "d6_cust" },
         { text = "Back to your hems, Thurman.", next = "END" },
       },
     },

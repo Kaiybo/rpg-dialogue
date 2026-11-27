@@ -248,6 +248,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_eye = {
+      lines = { { id = "d6_eye_a", text = "Of course I did, mon, it is my work. I see de boots first, because boots tell me how far you walked to get here, and de hands second, because hands tell me what you do when you arrive." } },
+      choices = {
+        { text = "And what did you see in mine?", next = "d6_eye2" },
+        { text = "The spirits on this isle feel restless.", next = "d6_eye2", when = { class = "SHAMAN" } },
+        { text = "Something else, Rin'wosho.", next = "BACK" },
+      },
+    },
+    d6_eye2 = {
+      lines = {
+        { id = "d6_eye2_a", text = "Mud from de jungle and calluses from de blade, so you are no tourist from de goblin port. Dat is a good start, and de tribe likes a good start, but de chests open for what you do in de city, not for what I see on de beach." },
+        { id = "d6_eye2_sham", when = { class = "SHAMAN" }, text = "Dey are restless because de loa across de water are chained, and every spirit near Zul'Gurub can feel it. De headshrinkers sleep badly, and so do I, and dat is why de Zandalar pay well for every priest who falls." },
+      },
+      choices = {
+        { text = "Then I'll give you more to see.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d6_gob = {
+      lines = { { id = "d6_gob_a", text = "Dey come by boat with rum, rope and bad advice, and dey want to buy what de tribe makes. I sell dem fish and fresh water and nothing else, because a goblin who owns one Zandalari charm will try to sell copies of it by de next moon." } },
+      choices = {
+        { text = "Goblins do love a copy.", next = "d6_gob2" },
+        { text = "You don't trust them at all.", next = "d6_gob2" },
+        { text = "Something else, Rin'wosho.", next = "BACK" },
+      },
+    },
+    d6_gob2 = {
+      lines = { { id = "d6_gob2_a", text = "I trust dem to be goblins, mon, and dey never disappoint me. Deir Baron keeps his port open to both your peoples, and dat is clever, so I trade with him as one merchant to another and count my fingers after." } },
+      choices = {
+        { text = "Wise of you to count your fingers.", next = "BACK", fx = { learn = { "steamwheedle" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", text = "I am Rin'wosho, and I keep de tribe's goods, de armor and charms de Zandalar give to dose who prove demselves in Zul'Gurub. De more you do for us, de more I can open my chests for you." } },
       again = { { id = "h_again", text = "Yes, friend? What else?" } },
@@ -261,6 +295,8 @@ P:NPC {
         { text = "What is Yojamba Isle to you?", next = "xisle" },
         { text = "Why do the Zandalar need outsiders at all?", next = "xneed" },
         { text = "I am a troll. Do I earn favour faster?", next = "BACK", when = { race = "Troll" }, reply = "Ha! You earn it de same as anybody, by blood and work. But I will admit, it is good to see a troll on dis side of de fight." },
+        { text = "You weighed me up the moment I landed.", next = "d6_eye" },
+        { text = "Do the Booty Bay goblins trade with Yojamba?", next = "d6_gob" },
         { text = "Show me your goods.", next = "END" },
       },
     },
@@ -345,6 +381,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_night = {
+      lines = { { id = "d6_night_a", text = "Fires in de city across de water, and on bad nights, drums. De drums have been louder dis season dan any season before, and de headshrinkers say it means de Soulflayer is nearly awake." } },
+      choices = {
+        { text = "What happens if he wakes fully?", next = "d6_night2" },
+        { text = "Drums can be a trick to frighten you.", next = "d6_night2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d6_night2 = {
+      lines = { { id = "d6_night2_a", text = "Den he walks out of de city and eats de jungle, de trolls first and everyone else after, and no wall in your kingdoms will stop him. Dat is why we are here, and why we let outsiders onto our beach at all." } },
+      choices = {
+        { text = "Then we stop him before he wakes.", next = "BACK", fx = { learn = { "hakkar" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d6_spear = {
+      lines = { { id = "d6_spear_a", text = "No, it is not, and you have good eyes for noticing. De Gurubashi make deir spears to throw from de trees, and de Zandalar make ours to stand behind on a beach and not move, because dat is what an enforcer does." } },
+      choices = {
+        { text = "Could I buy a spear like that?", next = "d6_spear2" },
+        { text = "I'd spar with you, if you'll allow it.", next = "d6_spear2", when = { class = "WARRIOR" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d6_spear2 = {
+      lines = {
+        { id = "d6_spear2_a", text = "No. De tribe's weapons are not sold; dey are given, and Rin'wosho gives dem only to de ones who have bled for us in Zul'Gurub. Bring him enough of Hakkar's servants and he may hand you something better dan my spear." },
+        { id = "d6_spear2_war", when = { class = "WARRIOR" }, text = "You would lose, and I would enjoy it, but I do not leave dis beach while I am on watch. Go into de city and fight de berserkers instead, and come back and tell me about it, and den we will see who should spar with whom." },
+      },
+      choices = {
+        { text = "I'll take that as a challenge.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", text = "I keep de peace on Yojamba, and I keep de Gurubashi spies off dis island. De priests of Hakkar would love to cut de throats of de ones who came here to stop dem." } },
       again = { { id = "h_again", text = "Speak, if you must." } },
@@ -358,6 +428,8 @@ P:NPC {
         { text = "What do you do with a caught spy?", next = "xcaught" },
         { text = "Are the Zandalar friendly to strangers?", next = "xstrangers" },
         { text = "I'm a hunter. The jungle is my home too.", next = "BACK", when = { class = "HUNTER" }, reply = "Den you know de jungle has teeth everywhere, hunter. Keep your beast close on dis island, and do not let it chase de crabs." },
+        { text = "What do you see from the shore at night?", next = "d6_night" },
+        { text = "Your spear isn't like the Gurubashi ones.", next = "d6_spear" },
         { text = "I'll behave.", next = "END" },
       },
     },
@@ -442,6 +514,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_ward = {
+      lines = { { id = "d6_ward_a", text = "Bone charms buried along de tide line, and hexes tied to de trees where de spies come ashore. You walked past three of dem on your way in, stranger, and dey did not care for you, but dey let you pass." } },
+      choices = {
+        { text = "What happens to a spy who crosses one?", next = "d6_ward2" },
+        { text = "My magic comes from demons. Does that offend your wards?", next = "d6_ward2", when = { class = "WARLOCK" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d6_ward2 = {
+      lines = {
+        { id = "d6_ward2_a", text = "He becomes a frog, mostly, and de frog hops back into de jungle very confused. A frog cannot carry a poisoned blade, and it cannot tell de priests what it saw, and in a day or two it remembers it was a troll, which is de funny part." },
+        { id = "d6_ward2_wl", when = { class = "WARLOCK" }, text = "De wards noticed, and dey muttered about it all de way up de beach. Demons are not loa, and dey do not keep bargains, and I would watch dat imp of yours more closely dan you watch me." },
+      },
+      choices = {
+        { text = "A frog. That's almost merciful.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d6_exz = {
+      lines = { { id = "d6_exz_a", text = "Exzhal speaks for de king, and he makes sure we never forget it, not even while he eats. But he collects de priests' heads, and I shrink dem, so we have a fine working friendship and very little else." } },
+      choices = {
+        { text = "And Vinchaxa?", next = "d6_exz2" },
+        { text = "You don't sound fond of him.", next = "d6_exz2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d6_exz2 = {
+      lines = { { id = "d6_exz2_a", text = "Vinchaxa is de only one of us who sleeps well, because she gives everything to Zanza and keeps nothing for herself. I like her, and I do not trust anyone dat calm, so I keep a small charm on my belt for each of dem." } },
+      choices = {
+        { text = "A charm for everyone. Even me?", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", text = "I am a headshrinker of de Zandalar, and I guard dis camp with de old magic, de kind dat makes a Gurubashi spy think twice. De heads on my belt are all Hakkar's servants, and dey do not complain anymore." } },
       again = { { id = "h_again", text = "Yes? Speak up, de heads are listenin'." } },
@@ -455,6 +561,8 @@ P:NPC {
         { text = "What kind of magic do you use?", next = "xmagic" },
         { text = "Do you enjoy your work?", next = "xenjoy" },
         { text = "I am a shaman. Are we kin in the craft?", next = "BACK", when = { class = "SHAMAN" }, reply = "Close cousins, maybe. You speak to de elements, and I speak to de dead dat are still a little bit listening." },
+        { text = "What wards guard this camp?", next = "d6_ward" },
+        { text = "What do you make of Exzhal?", next = "d6_exz" },
         { text = "I'll keep my head, thanks.", next = "END" },
       },
     },
@@ -539,6 +647,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_arena = {
+      lines = { { id = "d6_arena_a", text = "Gurubashi trolls, kid, back when they had an empire and too much free time. They built it for blood sport and they left it for us, and now the Booty Bay bookies run the odds and I run the show, which is the best kind of inheritance." } },
+      choices = {
+        { text = "How do the bookies make their odds?", next = "d6_arena2" },
+        { text = "I could just steal the chest before you drop it.", next = "d6_arena2", when = { class = "ROGUE" } },
+        { text = "Something else, Short John.", next = "BACK" },
+      },
+    },
+    d6_arena2 = {
+      lines = {
+        { id = "d6_arena2_a", text = "They watch who's hangin' round the walls an hour before the drop, pal, and they count the swords and the robes and the ugly faces. A full house of rogues pays one way and a pack of warriors pays another, and the house always wins, because the house is a goblin." },
+        { id = "d6_arena2_rogue", when = { class = "ROGUE" }, text = "Ha! Plenty have tried, sweetheart, and the chest ain't where you think it is till it hits the sand. You want it, you go down there like everybody else and you take it off the last fella standin', and the crowd'll love ya for it." },
+      },
+      choices = {
+        { text = "The house always wins. Of course it does.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d6_worst = {
+      lines = { { id = "d6_worst_a", text = "Eleven of 'em in the pit at once, Horde and Alliance and a gnome nobody could explain, and they fought for half an hour over the box. By the end the gnome was the only one standin', on account of he'd been hidin' under the chest the whole time." } },
+      choices = {
+        { text = "Did the gnome keep the loot?", next = "d6_worst2" },
+        { text = "That's a story you've told before.", next = "d6_worst2" },
+        { text = "Something else, Short John.", next = "BACK" },
+      },
+    },
+    d6_worst2 = {
+      lines = { { id = "d6_worst2_a", text = "Every coin of it, and he got cheered out of the arena like a king, chum. I tell it every chance I get, sure, because a good story brings more folk to the walls than any chest I've ever dropped." } },
+      choices = {
+        { text = "Maybe I'll be in the next story.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", text = "Short John Mithril, at your service, purveyor of fine treasure to the brave and the foolish! Every few hours I drop a chest into the Gurubashi Arena, and whoever's left standing gets to keep what's inside." } },
       again = { { id = "h_again", text = "What else, chum? The next drop won't wait forever." } },
@@ -550,6 +692,8 @@ P:NPC {
         { text = "How did you get into this line of work?", next = "xhistory" },
         { text = "Do Horde and Alliance fight over your chests?", next = "xwar" },
         { text = "I'm a warrior. Is there honour in the Arena?", next = "BACK", when = { class = "WARRIOR" }, reply = "Honour? Ha! There's blood and treasure and a lot of shouting. Take your honour in, by all means, but bring your shield too." },
+        { text = "Who built that arena, anyway?", next = "d6_arena" },
+        { text = "What's the worst fight you've seen over a chest?", next = "d6_worst" },
         { text = "I'll be in the arena.", next = "END" },
       },
     },
@@ -634,6 +778,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_scare = {
+      lines = { { id = "d6_scare_a", text = "The man can't abide anything from the jungle, so bring me a sack of giblets from the gorillas up in Mistvale, matey. I'll leave it on his doorstep with a note, and he'll come to me with his purse open before the flies have finished." } },
+      choices = {
+        { text = "That's a cruel joke on a frightened man.", next = "d6_scare2" },
+        { text = "I could collect from Shaky myself, for a cut.", next = "d6_scare2", when = { class = "ROGUE" } },
+        { text = "Something else, Sea Wolf.", next = "BACK" },
+      },
+    },
+    d6_scare2 = {
+      lines = {
+        { id = "d6_scare2_a", text = "Cruel would be breakin' his fingers, which is what some in this port would do. A sack of giblets breaks nothin' but his nerve, and his nerve was broken long before I met him, so I'm only remindin' him where he left it." },
+        { id = "d6_scare2_rogue", when = { class = "ROGUE" }, text = "Ha! Ye'd take a cut and then he'd owe ye too, and he'd tremble on the docks for two of us instead of one. No, the giblets will do, and you'll keep yer cut of nothin', since I like ye well enough not to cheat ye." },
+      },
+      choices = {
+        { text = "Fine. Gorillas it is.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d6_debts = {
+      lines = { { id = "d6_debts_a", text = "Half the Salty Sailor and a fair share of the docks, but most of them pay when they're asked twice. It's only Shaky who's made a career of runnin', and I respect the effort, even if I won't forgive the sum." } },
+      choices = {
+        { text = "How do you keep track of it all?", next = "d6_debts2" },
+        { text = "You must not be well loved in this town.", next = "d6_debts2" },
+        { text = "Something else, Sea Wolf.", next = "BACK" },
+      },
+    },
+    d6_debts2 = {
+      lines = { { id = "d6_debts2_a", text = "All of it up here, matey, behind the eyes, where no Bruiser can confiscate it and no fire can burn it. Every name, every sum and every week of interest, and I've never yet forgotten a debt, though I've forgotten a few wives." } },
+      choices = {
+        { text = "I'll be sure never to borrow from you.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", text = "They call me the Sea Wolf, on account of my years on the sea, though these days I prefer to hunt men who owe me money. Shaky Phillipe, for one, owes me plenty, and he's not been in any hurry to pay." } },
       again = { { id = "h_again", text = "Aye, what else is on yer mind?" } },
@@ -645,6 +823,8 @@ P:NPC {
         { text = "What does Shaky owe you, exactly?", next = "xowe" },
         { text = "Do you ever forgive a debt?", next = "xforgive" },
         { text = "Are you a sailor from Kul Tiras?", next = "BACK", when = { race = "Human" }, reply = "Kul Tiras, Stormwind, the bottom of the sea, I've called them all home at one time or another. These days it's Booty Bay, God help me." },
+        { text = "How exactly do you mean to scare Shaky?", next = "d6_scare" },
+        { text = "Who else in this port owes you money?", next = "d6_debts" },
         { text = "I'll be off.", next = "END" },
       },
     },
@@ -833,6 +1013,48 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_elders3 = {
+      lines = { { id = "d6_elders3_a", text = "To the cities of dwarves and men, to quiet villages and lonely hills, wherever someone was once honoured and is not yet forgotten. Seek us under the moon at the turning of the year, and you will find more of us than you expect." } },
+      choices = {
+        { text = "Then I'll seek you all out.", next = "BACK" },
+        { text = "Let us speak of other things, Elder.", next = "BACK" },
+      },
+    },
+    d6_war = {
+      lines = { { id = "d6_war_a", text = "Long ago, before the Well was destroyed and the world was broken, the troll empires were mighty, and my people were young and proud. We fought them, and we drove them back, and I did not think then that I would one day keep watch over their city for the sake of the world." } },
+      choices = {
+        { text = "What changed your mind about them?", next = "d6_war2" },
+        { text = "The Dream feels troubled near this city.", next = "d6_war2", when = { class = "DRUID" } },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
+    d6_war2 = {
+      lines = {
+        { id = "d6_war2_a", text = "Ten thousand years, young one, and the Sundering, and my own people's folly at the Well. A kaldorei who remembers the Highborne cannot look at the Gurubashi calling up a god and feel only contempt, for we did much the same, and paid for it." },
+        { id = "d6_war2_druid", when = { class = "DRUID" }, text = "It is troubled, and you are wise to feel it. A blood god stirs within those walls, and the Dream does not rest easily when something feeds on the living so close by, so walk lightly in your sleep while you are in this jungle." },
+      },
+      choices = {
+        { text = "Even the kaldorei have their regrets.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d6_elders = {
+      lines = { { id = "d6_elders_a", text = "Winterhoof sits upon a goblin rooftop in Booty Bay, laughing at the harbour, and I am told he finds it very comfortable. We are not alike, he and I, but the moon calls us both home at the same hour, and that is a kind of kinship." } },
+      choices = {
+        { text = "What do you seek from those who visit you?", next = "d6_elders2" },
+        { text = "A tauren on a roof. I'd like to see that.", next = "d6_elders2" },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
+    d6_elders2 = {
+      lines = { { id = "d6_elders2_a", text = "Only that you remember, and that you carry the memory to the next of us you find. The living give us coins of blessing and think the gift is ours, but the gift is that someone still walks the long road to say our names." } },
+      choices = {
+        { text = "Then I'll say your name in Moonglade.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Where else do the elders return?", next = "d6_elders3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", text = "I am Starglade, and once I walked these lands before there were jungles or troll empires to fill them. Now, each year at the turning of the moon, my spirit returns to honour those who honour the old ways." } },
       again = {
@@ -844,6 +1066,8 @@ P:NPC {
         { text = "Tell me about the Lunar Festival.", next = "festival" },
         { text = "You must have seen the trolls at their height.", next = "trolls" },
         { text = "Do the kaldorei still honour you, Elder?", next = "kin", when = { race = "NightElf" } },
+        { text = "Did the trolls ever war with the kaldorei?", next = "d6_war" },
+        { text = "Do other elders keep vigil near here?", next = "d6_elders" },
         { text = "I go in peace, Elder.", next = "END" },
       },
     },
@@ -912,6 +1136,48 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_harb3 = {
+      lines = { { id = "d6_harb3_a", text = "I have watched him walk the high balcony, a small green chief with a great many rings, and he counts his ships the way my father counted the herd. A chief who knows every head he is responsible for is not a bad chief, little one, even if he charges them for the counting." } },
+      choices = {
+        { text = "A goblin chief. You're generous, Elder.", next = "BACK", fx = { learn = { "revilgaz" } } },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
+    d6_sea = {
+      lines = { { id = "d6_sea_a", text = "It moves like a great herd that never stops to graze, little one, coming in and going out all day and all night. I watched it for an hour before I understood that it was not going anywhere, and that it was content with that." } },
+      choices = {
+        { text = "Would you have sailed it, in life?", next = "d6_sea2" },
+        { text = "The Earth Mother's waters run deep here, Elder.", next = "d6_sea2", when = { race = "Tauren" } },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
+    d6_sea2 = {
+      lines = {
+        { id = "d6_sea2_a", text = "A kodo does not swim, and a tauren on a boat is a very worried tauren, so no, I would not. But I am glad to have seen it now, for my grandfather told me of the sea and I did not believe him, and I would like to tell him he was right." },
+        { id = "d6_sea2_tauren", when = { race = "Tauren" }, text = "They do, and the goblins sail on them as if the Earth Mother owed them the passage. I am glad one of the herd has come so far to see it, child, for in my day we would have thought the edge of the world was in the Barrens." },
+      },
+      choices = {
+        { text = "Then I'm glad you came back to see it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d6_harb = {
+      lines = { { id = "d6_harb_a", text = "Ships of the Horde and ships of the Alliance, tied up side by side as if they were brothers, and goblins running between them with ledgers. I see fireworks over the water too, which the goblins set off for the festival and charge someone for, I am sure." } },
+      choices = {
+        { text = "Do you worry about the pirates out there?", next = "d6_harb2" },
+        { text = "Booty Bay must look peaceful from up here.", next = "d6_harb2" },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
+    d6_harb2 = {
+      lines = { { id = "d6_harb2_a", text = "I see the red sails far out, waiting, and the goblins' guns waiting for them, and the Baron's men walking the docks. Peace here is a thing someone pays for every day, little one, and I think the goblins understand that better than most kings do." } },
+      choices = {
+        { text = "That's a generous view of goblins.", next = "BACK", fx = { learn = { "bloodsail" } } },
+        { text = "What do you make of the Baron who rules here?", next = "d6_harb3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", text = "I am Winterhoof, an elder of my tribe in the days when my people still wandered. When the new year turns, the Earth Mother lets my spirit come back and look upon the world a little while." } },
       again = {
@@ -923,6 +1189,8 @@ P:NPC {
         { text = "What does the Lunar Festival mean to the tauren?", next = "festival" },
         { text = "You lived through the centaur wars, then?", next = "wander" },
         { text = "The Winterhoof still dwell in Mulgore, Elder.", next = "tribe", when = { race = "Tauren" } },
+        { text = "What do you make of the sea, Elder?", next = "d6_sea" },
+        { text = "What do you see in the harbour tonight?", next = "d6_harb" },
         { text = "Farewell, Elder.", next = "END" },
       },
     },

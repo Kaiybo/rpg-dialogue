@@ -428,6 +428,53 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d2_yarly = {
+      lines = {
+        { id = "d2_yarly_1", text = "We do, over the counter when the hall's quiet. He writes everything down in that long book of his and I keep it in my head, and we disagree about why prices move and agree about where they're going, which is the useful half." },
+      },
+      choices = {
+        { text = "Who's usually right?", next = "d2_yarly2" },
+        { text = "A friendly rivalry.", next = "d2_yarly2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_yarly2 = {
+      lines = {
+        { id = "d2_yarly2_1", text = "He is, on timing, and I am, on cause, and between us we've called most of the war's turns a week early. Nobody ever asks us, of course, because who takes advice from auctioneers?" },
+      },
+      choices = {
+        { text = "I might.", next = "BACK", reply = "Then you're wiser than most captains. Buy iron before the next push." },
+        { text = "Ask you something else.", next = "BACK" },
+      },
+    },
+    d2_strange = {
+      lines = {
+        { id = "d2_strange_1", text = "Mourning veils, one spring, selling faster than bandages. It turned out the Scourge had broken through at a farm near the Bulwark, and the families of the deathguards there were buying veils before the official list came down." },
+      },
+      choices = {
+        { text = "They knew before the captains.", next = "d2_strange2" },
+        { text = "Grim, how prices know first.", next = "d2_strange2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_strange2 = {
+      lines = {
+        { id = "d2_strange2_1", text = "Families always know first, and the market knows because families buy. I told Andrew Brownell about it afterwards, and he started sending one of his people to watch the veil stalls, which I thought was very clever of him." },
+      },
+      choices = {
+        { text = "A clever use of a sad thing.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_ench = {
+      lines = {
+        { id = "d2_ench_1", text = "Strange dust sells steadily, and the shards sell well when the zeppelin's brought in a new lot of adventurers. List them in the evening, after the crafters have closed, and you'll catch the ones who want to work through the night." },
+      },
+      choices = {
+        { text = "I'll list tonight, then.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Auctioneer Stockton. I call the lots like the others, but I also keep track of them, and you'd be surprised how much of the world you can read off a price list if you look at it every day." },
@@ -444,6 +491,9 @@ P:NPC {
         { text = "Where do all these goods come from?", next = "source" },
         { text = "Show me today's listings.", next = "BUSINESS" },
         { text = "What did a factor's clerk do in the capital?", next = "as_clerk" },
+        { text = "Do you and Yarly compare figures?", next = "d2_yarly" },
+        { text = "What's the strangest thing the prices ever told you?", next = "d2_strange" },
+        { text = "Do enchanting dusts sell well here?", next = "d2_ench", when = { profession = "Enchanting" } },
         { text = "Thank you, Stockton.", next = "END" },
       },
     },

@@ -64,7 +64,54 @@ P:NPC {
         { text = "Someone must be waiting for you at Freewind.", next = "thalia" },
         { text = "I can get us past the guards unseen.", next = "sneak", when = { class = { "ROGUE", "DRUID" } } },
         { text = "I'll get you out of here.", next = "BUSINESS" },
+        { text = "What are the Grimtotem doing up here?", next = "grim_up" },
+        { text = "What will you do once you're home?", next = "after" },
+        { text = "Arnak shames every tauren who ever lived.", next = "shame", when = { race = "Tauren" } },
         { text = "Hold on a little longer.", next = "END" },
+      },
+    },
+    grim_up = {
+      lines = { { id = "grim_up_d", text = "Watching Freewind Post, mostly, and talking about it as if it were already theirs. They say the Needles belong to the Grimtotem alone, and that the tribes who follow Cairne have sold themselves to the orcs." } },
+      choices = {
+        { text = "They know Freewind's patrols, then?", next = "grim_patrols" },
+        { text = "Talk like that ends in blood.", next = "BACK", reply = "That's what my brother said, the night before. Please, let's not talk of it here." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grim_patrols = {
+      lines = { { id = "grim_patrols_d", text = "They know when the braves change watch and which paths the caravans use, and I heard them laugh about it. If you see Cliffwatcher Longhorn before I do, please tell him the Grimtotem are counting his braves." } },
+      choices = {
+        { text = "I'll tell him, I promise.", next = "BACK", reply = "Thank you. I'll feel safer knowing someone besides me heard it." },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    after = {
+      lines = { { id = "after_d", text = "Go to Thalia first, and then I think I'll go up to Thunder Bluff, to the elders, and tell them what the Grimtotem are. Somebody should say it aloud in front of the whole Bluff, and I've earned the right." } },
+      choices = {
+        { text = "The High Chieftain should hear it from you.", next = "after_cairne" },
+        { text = "You don't have to carry this yourself.", next = "after_carry" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    after_cairne = {
+      lines = { { id = "after_cairne_d", text = "Then I'll ask to stand before him, if they'll let me. My brother always said Cairne was too kind to the Grimtotem because they are still tauren, and maybe if he hears what they did to us, he'll be a little less kind." } },
+      choices = {
+        { text = "He'll listen. He's a fair chieftain.", next = "BACK", reply = "I hope so. I've heard he listens to everyone, even the ones who've lost everything." },
+        { text = "Another question, then.", next = "BACK" },
+      },
+    },
+    after_carry = {
+      lines = { { id = "after_carry_d", text = "I know, and you're kind to say it. But if I don't speak, nobody will, and Arnak will just be another name the Grimtotem whisper about with pride." } },
+      choices = {
+        { text = "Then speak loudly, Lakota.", next = "BACK", reply = "I will. My brother would want me to." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shame = {
+      lines = { { id = "shame_d", text = "He shames the Grimtotem too, though they'll never say it. Thank you for that; I needed to hear a tauren say it out loud, because up here I'd started to wonder if any of us still believed it." } },
+      choices = {
+        { text = "Every tauren in Freewind believes it.", next = "BACK", reply = "Then I'll go home to them and believe it too." },
+        { text = "Let's get you home. Something else first?", next = "BACK" },
       },
     },
     arnak = {

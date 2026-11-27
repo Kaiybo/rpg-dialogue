@@ -24,6 +24,44 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+
+    vs_learn = {
+      lines = { { id = "vsl_1", text = "That the Monastery is four houses under one roof. The dead mage Thalnos in the graveyard outside, the Houndmaster and Arcanist Doan among the books, Herod drilling his men in the armoury, and in the cathedral, Mograine and Whitemane, who are the heart of it all." } },
+      choices = {
+        { text = "Tell me about Mograine and Whitemane.", next = "vs_learn2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    vs_learn2 = {
+      lines = { { id = "vsl2_1", text = "Mograine commands and Whitemane prays, and the brothers whisper that she can raise him from death itself if he falls. I heard it said in this very cell, and the men who said it were proud of it, which tells you how far the Light has gone from this place." } },
+      choices = {
+        { text = "Raising the dead. They're no better than the Scourge.", next = "vs_learn3" },
+        { text = "Then they must fall together, or not at all.", next = "BACK", reply = "Yes. Strike him down and do not let her finish her prayer." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    vs_learn3 = {
+      lines = { { id = "vsl3_1", text = "They would say it is the Light's gift and our raising the Lich King's curse. I was raised by neither, I think, only left behind by both, and the Dark Lady gathered up what was left." } },
+      choices = {
+        { text = "Left behind, and still you served.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    vs_alive = {
+      lines = { { id = "vsa_1", text = "No, it was not. Vishas wanted names, the names of every servant of the Dark Lady between Tarren Mill and the Monastery gates, and he believed a Forsaken's tongue would loosen if he cut slowly enough." } },
+      choices = {
+        { text = "And did you give him any?", next = "vs_alive2" },
+        { text = "I'm Alliance. Why should I help a Forsaken spy?", next = "vs_alive2", when = { faction = "Alliance" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    vs_alive2 = {
+      lines = { { id = "vsa2_1", text = "Not one, and that is the only victory I have to take with me. As for helping, I ask nothing for the Dark Lady; I ask only that someone tell Monika, and that Vishas stop singing his hymns over the next one on this table." } },
+      choices = {
+        { text = "No one deserves that table. I'll see to Vishas.", next = "BACK", reply = "Then I will rest a little easier, if the Forsaken are permitted to rest." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "My name is Vorrel Sengutz, and I have been on this table for weeks while Interrogator Vishas asked me questions I could not answer. I will not leave it alive again, I think, so listen to me while I can still speak." },
@@ -35,6 +73,8 @@ P:NPC {
         { text = "Who did this to you?", next = "vishas" },
         { text = "Why did you come here?", next = "why" },
         { text = "I'll avenge you, brother.", next = "avenge", when = { race = "Scourge" } },
+        { text = "What did you learn about the Crusade in here?", next = "vs_learn" },
+        { text = "They kept you alive for weeks. That wasn't mercy.", next = "vs_alive" },
         { text = "Rest now.", next = "END" },
       },
     },

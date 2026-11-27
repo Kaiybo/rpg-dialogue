@@ -35,6 +35,51 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    rol_led1 = {
+      lines = {
+        { id = "rol_led1_1", text = "Clerk Daltry, in theory, and I check every page of it, in practice. The council votes money it doesn't have and Daltry writes it down, and afterwards I go through the columns to see which of our promises we can actually keep." },
+      },
+      choices = {
+        { text = "How many can you keep?", next = "rol_led2" },
+        { text = "Something else, Deputy Mayor.", next = "BACK" },
+      },
+    },
+    rol_led2 = {
+      lines = {
+        { id = "rol_led2_1", text = "The Watch's oil, the Watch's bread, and the roof on the town hall, in that order. Everything else is a hope with a number next to it, and I've learned not to read the numbers aloud in the chamber." },
+      },
+      choices = {
+        { text = "The Watch comes first, then.", next = "rol_led3" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    rol_led3 = {
+      lines = {
+        { id = "rol_led3_1", text = "It has to, because without the Watch there's no town to have a council. Councilman Millstipe disagrees in principle, but he's never once voted against the oil, and I notice he walks home by the lamps." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rol_sw1 = {
+      lines = {
+        { id = "rol_sw1_1", text = "Rebuild the old garrison and post real soldiers on the roads, then send the Watch home to their farms for a season. They've earned the rest, and most of them have forgotten what their own fields look like." },
+      },
+      choices = {
+        { text = "Will Stormwind send anyone?", next = "rol_sw2" },
+        { text = "I'm from Stormwind. They have troubles of their own.", next = "rol_sw2", when = { race = "Human" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rol_sw2 = {
+      lines = {
+        { id = "rol_sw2_1", text = "Not this year, nor the next, by the tone of the last reply, which thanked us for our loyalty and enclosed nothing. Until then we have the Commander, and the Watch, and folk like you, and we make that do." },
+      },
+      choices = {
+        { text = "Then I'll do what I can.", next = "BACK" },
+        { text = "Back to other matters.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Role Dreuger, Deputy Mayor. The people of Darkshire expect more from their council, and so do I, but constant bickering gets us nowhere." },
@@ -52,6 +97,8 @@ P:NPC {
         { text = "The town looks short of nearly everything.", next = "needs" },
         { text = "What do you think of Lord Ebonlocke?", next = "ello" },
         { text = "Lord Ebonlocke has sent me after Dextren Ward.", next = "dextren", when = { questActive = TODO_QUEST("Crime and Punishment") } },
+        { text = "Who keeps the town's ledgers?", next = "rol_led1" },
+        { text = "What would you do with Stormwind's help, if it came?", next = "rol_sw1" },
         { text = "Good day, Deputy Mayor.", next = "END" },
       },
     },

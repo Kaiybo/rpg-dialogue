@@ -335,7 +335,47 @@ P:NPC {
         { text = "Why here, among the tauren?", next = "why" },
         { text = "Who is Ur'kyo?", next = "urkyo" },
         { text = "Who is the Forsaken head priestess?", next = "xforsaken", when = { race = "Scourge", class = "PRIEST" } },
+        { text = "What's Mulgore like to a troll?", next = "mulgore" },
+        { text = "What do young Darkspear priests learn first?", next = "priests" },
+        { text = "Maybe they be hidin' from their lessons, mon.", next = "hiding", when = { race = "Troll" } },
         { text = "I hope you find them.", next = "END" },
+      },
+    },
+    mulgore = {
+      lines = { { id = "mulgore_d", text = "Too much grass and not enough sea, mon. I wake up every mornin' and listen for the waves, and all I hear be kodo chewin', which be a fine sound but not the right one." } },
+      choices = {
+        { text = "You miss the Echo Isles.", next = "mulgore_echo" },
+        { text = "Kodo chewing is a peaceful sound.", next = "BACK", reply = "Peaceful, ya, and that be the trouble. A troll don't know what to do with peaceful." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mulgore_echo = {
+      lines = { { id = "mulgore_echo_d", text = "Every day, mon, though the Isles not be ours right now. Zalazane holds them with his madness, and Vol'jin keep us at Sen'jin Village on the coast until the day we take them back, and I be there for it, you can count on that." } },
+      choices = {
+        { text = "I hope that day comes soon.", next = "BACK", reply = "It will, mon. The loa promise it, and they don't lie, not about that." },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    priests = {
+      lines = { { id = "priests_d", text = "To listen to the loa before they speak to 'em, mon, and that be the hardest lesson for the young. They want the magic right away, but Ur'kyo say a priest who don't listen first only ever hears himself." } },
+      choices = {
+        { text = "Ur'kyo sounds like a strict teacher.", next = "priests_urkyo" },
+        { text = "Listening first. Good advice for anyone.", next = "BACK", reply = "Ya, mon, and the young ones never take it. Maybe you be different." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    priests_urkyo = {
+      lines = { { id = "priests_urkyo_d", text = "Strict, ya, but fair, and he laugh more than you think. He say the loa got a sense of humour, and a priest who can't take a joke from the spirits won't last long in the old ways." } },
+      choices = {
+        { text = "Then I'd like to meet him.", next = "BACK", reply = "Go to the Valley of Spirits in Orgrimmar, mon. He be glad of anyone who wants to learn." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    hiding = {
+      lines = { { id = "hiding_d", text = "Ha! You know dem, mon, you know dem well. Last time I found one, he was hidin' in a tauren's tent eatin' bread and pretendin' he got lost, and I bring him back to Ur'kyo by the ear." } },
+      choices = {
+        { text = "Young trolls are all the same.", next = "BACK", reply = "Ya, mon, and old trolls be the ones who remember it." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

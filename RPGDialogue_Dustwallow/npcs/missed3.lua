@@ -373,6 +373,8 @@ P:NPC {
         { text = "How did your badge end up at the inn?", next = "badge", when = { any = { { questActive = TODO_QUEST("Lieutenant Paval Reethe") }, { questDone = TODO_QUEST("Lieutenant Paval Reethe") } } } },
         { text = "You can't hide out here forever.", next = "forever" },
         { text = "What do you think of Lady Proudmoore now?", next = "kt_jaina" },
+        { text = "How do you live out here, alone in the marsh?", next = "live" },
+        { text = "The Stonemaul ogres. Have they seen you?", next = "ogres" },
         { text = "I never saw you, Reethe.", next = "END" },
       },
     },
@@ -413,6 +415,33 @@ P:NPC {
         { text = "She betrayed her father and her people.", next = "BACK", reply = "There, you see it too, and you never even wore the tabard. Say that in Theramore and see how long you keep your post.", fx = { align = { light = -1 }, opinion = { jaina = "traitor" } } },
         { text = "You deserted. Don't blame her for your choices.", next = "BACK", reply = "Easy for you to say with dry boots. Maybe you're right, but it changes nothing out here.", fx = { align = { light = 1 }, opinion = { jaina = "admire" } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    live = {
+      lines = { { id = "lv_default", text = "Badly. I've a bedroll, a knife, a fishing line and a tent that leaks more than it keeps out. I trap what I can and I eat what I trap, and I've learned more about crocolisks this month than any man should ever need to know." } },
+      choices = {
+        { text = "What does a man learn about crocolisks?", next = "live2" },
+        { text = "A marine should be used to rough living.", next = "live2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    live2 = {
+      lines = { { id = "lv2_default", text = "That they wait, mostly, and that they're better at it than I am. A marine is used to a hammock and a ration, {class}, not to sleeping with one eye on the water. I'll be honest, I think about walking into Theramore and getting it over with." } },
+      choices = { { text = "Don't do that just yet. Something else.", next = "BACK" } },
+    },
+    ogres = {
+      lines = { { id = "og_default", text = "They've seen me, and they know what I took from their stores at Lost Point, and they'd like a word, I expect. The Stonemaul hold the south of the marsh at Brackenwall with the Horde now, so I keep well north of them and sleep lightly." } },
+      choices = {
+        { text = "Why did you raid their stores at all?", next = "ogres2" },
+        { text = "Robbing ogres is a bold way to make enemies.", next = "ogres2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ogres2 = {
+      lines = { { id = "og2_default", text = "Because the men at Lost Point were hungry and Theramore had forgotten we existed. I'm not proud of it, and I'm not ashamed either. Balos called it a breach of the peace. I called it supper, and he called the Guard." } },
+      choices = {
+        { text = "I'm Horde. The Stonemaul may not forgive you easily.", next = "BACK", reply = "Then don't tell them where I am, and I'll not tell Theramore where you were. Fair?", when = { faction = "Horde" } },
+        { text = "Something else, Reethe.", next = "BACK" },
       },
     },
   },

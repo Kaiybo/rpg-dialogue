@@ -35,6 +35,40 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d6_gold = {
+      lines = { { id = "d6_gold_a", text = "Busy, which is the trouble. Marshal Dughan has more bills posted on his board than he's got men to answer them, and every adventurer who passes through the Lion's Pride wants to be paid in coin and glory both." } },
+      choices = {
+        { text = "In Ironforge we'd have carried you home by now.", next = "d6_gold2", when = { race = "Dwarf" } },
+        { text = "What's the Marshal like to serve under?", next = "d6_gold2" },
+        { text = "I'll let you rest. Something else.", next = "BACK" },
+      },
+    },
+    d6_gold2 = {
+      lines = {
+        { id = "d6_gold2_a", text = "Fair and tired, and he's been tired since the army sailed north. He'll give you a straight answer and a hard job, and he'll remember your name after, which is more than most officers bother with." },
+        { id = "d6_gold2_dwarf", when = { race = "Dwarf" }, text = "Aye, I've heard dwarves carry their wounded whether they like it or not, and then sit on them till they heal. We do things differently in Stormwind; we lie in the grass and complain, and it works about as well." },
+      },
+      choices = {
+        { text = "Dughan sounds like a good man to know.", next = "BACK" },
+        { text = "Ask you something else, then.", next = "BACK" },
+      },
+    },
+    d6_lake = {
+      lines = { { id = "d6_lake_a", text = "Murlocs, on the east shore, more of them every month and louder with it. You can hear them at night if the wind's right, gurgling at each other like a kettle with opinions, and the fishermen won't set nets past the middle anymore." } },
+      choices = {
+        { text = "What do the murlocs want?", next = "d6_lake2" },
+        { text = "A kettle with opinions. That's apt.", next = "d6_lake2" },
+        { text = "Let's leave the murlocs.", next = "BACK" },
+      },
+    },
+    d6_lake2 = {
+      lines = { { id = "d6_lake2_a", text = "Fish, and nets, and the shore, and I don't think they'd say no to a guard who couldn't run. Jason Mathers on the pier will tell you all about it, at length, if you buy a fish first." } },
+      choices = {
+        { text = "I'll see Jason Mathers, then.", next = "BACK", fx = { learn = { "murlocs_east" } } },
+        { text = "Something else, Roberts.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Guard Roberts, Stormwind Guard, on patrol. Lying-down patrol, for the moment, but I've a fine view of the lake and nobody's got past me yet." },
@@ -57,6 +91,8 @@ P:NPC {
         { text = "What's there to watch out here?", next = "watch" },
         { text = "Hold still. Let me heal you.", next = "heal", when = { class = { "PRIEST", "PALADIN", "DRUID", "SHAMAN" } } },
         { text = "Can I help?", next = "BUSINESS" },
+        { text = "How are things in Goldshire these days?", next = "d6_gold" },
+        { text = "What's on the far side of the lake?", next = "d6_lake" },
         { text = "Rest easy, Roberts.", next = "END" },
       },
     },

@@ -51,7 +51,47 @@ P:NPC {
         { text = "What is the Spirit Rise?", next = "rise" },
         { text = "Tell me about Kranal Fiss.", next = "kranal", when = { class = "SHAMAN" } },
         { text = "Tell me about Islen Waterseer.", next = "islen", when = { class = "SHAMAN", minLevel = 20 } },
+        { text = "What happens to a shaman who fails a trial?", next = "fail" },
+        { text = "Your fire burns without wood.", next = "nowood" },
+        { text = "Thrall taught the orcs the old ways again.", next = "thrall_ways", when = { race = "Orc" } },
         { text = "I'll leave you to your fire.", next = "END" },
+      },
+    },
+    fail = {
+      lines = { { id = "fail_d", text = "They come back to the fire, and they sit with it, and they try again. The elements do not punish failure, {class}, but they do not forget it either, and the second trial is always harder than the first." } },
+      choices = {
+        { text = "Harder? Why?", next = "fail_harder" },
+        { text = "So failure is only a lesson.", next = "BACK", reply = "It is, if you learn it. If you do not, it becomes a habit." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fail_harder = {
+      lines = { { id = "fail_harder_d", text = "Because the shaman now knows what failure feels like, and the fear of it sits in the heart like a stone. The elements test the heart before they test the hands, and a frightened heart is the hardest thing in the world to calm." } },
+      choices = {
+        { text = "Then I'll calm my heart first.", next = "BACK", reply = "That is the whole of the lesson, said in a breath." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    nowood = {
+      lines = { { id = "nowood_d", text = "It burns on the spirit of fire, which I have asked to stay with me. The wood is only for those who cannot speak to the flame, and once you can, you will never need to gather kindling again." } },
+      choices = {
+        { text = "Can anyone learn to do it?", next = "nowood_learn" },
+        { text = "That must save you a great deal of trouble.", next = "BACK", reply = "It does, though I sometimes miss the smell of cedar." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    nowood_learn = {
+      lines = { { id = "nowood_learn_d", text = "Any shaman who has earned the fire, yes. But a shaman who asks the flame to stay must also be willing to let it go, and that is harder than it sounds, for fire loves to be kept." } },
+      choices = {
+        { text = "Fire loves to be kept. I'll remember.", next = "BACK" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    thrall_ways = {
+      lines = { { id = "thrall_ways_d", text = "He did, and the elements were glad of it. The orcs forgot the spirits when the demons came to them, and Thrall brought them back, and now orc and tauren sit by the same fire and learn the same lessons." } },
+      choices = {
+        { text = "The spirits forgive, then.", next = "BACK", reply = "They forgive those who return. That is all they have ever asked." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     elements = {
@@ -256,7 +296,39 @@ P:NPC {
         { text = "Why do you call me Private?", next = "private" },
         { text = "Do you want help with the piles?", next = "piles" },
         { text = "Hamuul's druids sent me to help.", next = "druids", when = { class = "DRUID" } },
+        { text = "How long have you been hauling dirt?", next = "howlong" },
+        { text = "You seem to enjoy complaining.", next = "complain" },
         { text = "I'll get out of your way.", next = "END" },
+      },
+    },
+    howlong = {
+      lines = { { id = "howlong_d", text = "Since the Circle decided that Un'Goro soil was the key to everything, Private, which feels like forever. Every sack comes up the lifts from the crater by caravan, and every sack is heavier than the last, and every one of them is mine to sort." } },
+      choices = {
+        { text = "Why Un'Goro soil, of all things?", next = "howlong_ungoro" },
+        { text = "That's a lot of dirt.", next = "BACK", reply = "Oh, you noticed! I'll have them carve that on my grave." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    howlong_ungoro = {
+      lines = { { id = "howlong_ungoro_d", text = "Because it grows things that won't grow anywhere else, Private, and the druids want to know why. They've got theories, and I've got dirt under my nails, and between us we're almost making progress." } },
+      choices = {
+        { text = "Almost is something.", next = "BACK", reply = "Almost is all I ever get. I'm used to it." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    complain = {
+      lines = { { id = "complain_d", text = "Enjoy it? Private, it's the only thing that keeps me sane. If I didn't complain about the dirt, I'd have to think about it, and if I thought about it, I'd go and join the quilboar." } },
+      choices = {
+        { text = "You like your work, really.", next = "complain_like" },
+        { text = "I'd complain too, in your place.", next = "BACK", reply = "Finally, someone with sense! I knew you'd be useful for something." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    complain_like = {
+      lines = { { id = "complain_like_d", text = "Don't you dare tell anyone that, Private. If the druids found out I liked it, they'd give me twice as much, and I'd have nothing left to complain about." } },
+      choices = {
+        { text = "Your secret's safe with me.", next = "BACK" },
+        { text = "Let me ask about something else.", next = "BACK" },
       },
     },
     soil = {

@@ -253,6 +253,8 @@ P:NPC {
         { text = "Do the orcs trust you?", next = "trust" },
         { text = "What's the worst you've seen?", next = "worst" },
         { text = "Can you set your own bones?", next = "own" },
+        { text = "Who else heals at the Crossroads?", next = "healers" },
+        { text = "What did you do before you died?", next = "before" },
         { text = "I'll leave you to your work.", next = "END" },
       },
     },
@@ -311,6 +313,33 @@ P:NPC {
       choices = {
         { text = "That's a grim way to live.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    healers = {
+      lines = { { id = "hl_default", text = "Apothecary Helbrim, another of the Dark Lady's servants, who brews for the outpost and doesn't care to touch anyone. And the shaman who pass through, of course, who can close a wound with a word, which I find professionally insulting." } },
+      choices = {
+        { text = "Then why do the grunts need you at all?", next = "healers2" },
+        { text = "A word doesn't set a bone straight.", next = "healers2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    healers2 = {
+      lines = { { id = "hl2_default", text = "Because a shaman closes what's in front of him and a broken bone heals crooked if no one sets it first. I've had grunts come to me a month after a shaman's blessing, limping, with a leg that knit at the wrong angle. Then I break it again, and that does make them look at me." } },
+      choices = { { text = "Break it again. How kind. Something else.", next = "BACK" } },
+    },
+    before = {
+      lines = { { id = "bf_default", text = "I was a barber-surgeon in a market town north of Andorhal, as far as I can piece it together. I pulled teeth, I let blood, I set the legs of farmers who fell off their own carts. Then the grain came, and I died in my own shop with a patient on the table." } },
+      choices = {
+        { text = "Do you remember the patient?", next = "before2" },
+        { text = "The plagued grain took a great many.", next = "before2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    before2 = {
+      lines = { { id = "bf2_default", text = "Only the shape of him, and that he was afraid. I think I was telling him it would be all right, which was the last lie I told while I still had a pulse. I've found the dead are rather better at telling the truth." } },
+      choices = {
+        { text = "I remember Lordaeron too. It's best left buried.", next = "BACK", reply = "Spoken like one of us. We're the only ones who can say it and mean it.", when = { race = "Scourge" } },
+        { text = "Something else, Pallwick.", next = "BACK" },
       },
     },
   },
@@ -1357,16 +1386,51 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "The kodo lets out a long, rumbling sigh and shifts its weight off one sore foot. There are pale marks on its back where the pack straps sit, and it clearly has no plans to wear them today." },
       },
+      again = {
+        { id = "h_again", text = "The kodo blinks slowly, as though waiting to see what else you might do." },
+        { id = "h_again2", text = "The kodo shifts its bulk and goes back to chewing, one ear turned your way." },
+      },
       choices = {
         { text = "You deserve a good rest, old kodo.", next = "BACK", reply = "The kodo lets out a long, contented sigh.", fx = { align = { light = 1 } } },
         { text = "Get up and work, lazy kodo.", next = "BACK", reply = "The kodo stamps once and pointedly ignores you.", fx = { align = { light = -1 } } },
         { text = "Scratch it behind the horn.", next = "scratch" },
+        { text = "Look at the sore foot it's favouring.", next = "foot" },
+        { text = "Offer it a handful of the dry grass by the fence.", next = "grass" },
         { text = "Leave it to its rest.", next = "END" },
       },
     },
     scratch = {
       lines = { { id = "s_default", text = "The kodo leans its enormous head into your hand until you nearly fall over, then rumbles contentedly. Across the camp, Okamache looks up, sees what you're doing and nods." } },
       choices = { { text = "Good kodo.", next = "END", fx = { affinity = 1 } } },
+    },
+    foot = {
+      lines = { { id = "ft_default", text = "The kodo lets you lift the edge of one great foot. A thorn the length of your finger has worked its way between the thick pads, the kind that grows along the quilboar trails to the south, and the skin around it is hot." } },
+      choices = {
+        { text = "Pull the thorn out, carefully.", next = "foot2" },
+        { text = "Set the foot down and leave it be.", next = "BACK" },
+      },
+    },
+    foot2 = {
+      lines = { { id = "ft2_default", text = "The thorn comes free with a wet sound, and the kodo groans like an old door, then lowers its head and blows a gust of warm breath into your face. Somewhere nearby, a tauren drover laughs and calls out that the beast has been sulking about that foot for three days." } },
+      choices = {
+        { text = "Pat its flank and step back.", next = "BACK", reply = "The kodo gives you a long, approving look." },
+        { text = "Leave it to its rest now.", next = "END" },
+      },
+    },
+    grass = {
+      lines = { { id = "gs_default", text = "The kodo considers the grass for a long moment, sniffs it, and then eats it out of your palm with great dignity and a great deal of spit. It seems to expect more, and its eyes drift meaningfully toward the feed sacks stacked by the caravan wagons." } },
+      choices = {
+        { text = "Fetch it a little feed from the sacks.", next = "grass2" },
+        { text = "No more. You'll get fat, kodo.", next = "grass2" },
+        { text = "Wipe your hand and step away.", next = "BACK" },
+      },
+    },
+    grass2 = {
+      lines = { { id = "gs2_default", text = "Before you can do anything at all, the kodo has made up its own mind, ambled two steps to the nearest sack and put its nose inside it. Okamache shouts from across the camp, and the kodo pretends very hard not to hear him." } },
+      choices = {
+        { text = "That's between you and Okamache, kodo.", next = "BACK", reply = "The kodo chews on, entirely unbothered." },
+        { text = "Slip away before Okamache blames you.", next = "END" },
+      },
     },
   },
   topics = {
@@ -1506,6 +1570,8 @@ P:NPC {
         { text = "You look exhausted.", next = "tired" },
         { text = "What's the strangest thing you've delivered?", next = "strange" },
         { text = "Do you read the letters?", next = "read" },
+        { text = "Who's this boss of yours?", next = "boss" },
+        { text = "Which way's the most dangerous run?", next = "danger" },
         { text = "Never mind.", next = "END" },
       },
     },
@@ -1546,6 +1612,33 @@ P:NPC {
     read = {
       lines = { { id = "re_default", text = "Me? Never, pal, it's against the Cartel code and I'd lose my license. I mean, sometimes the envelope's thin and the sun's behind it, and you can't help seein' a word or two, but that's just physics." } },
       choices = { { text = "Of course. Physics. Something else.", next = "BACK" } },
+    },
+    boss = {
+      lines = { { id = "bo_default", text = "The postmaster down in Ratchet, pal, a goblin with a pocket watch for a heart. He's got a chart on the wall with every run timed to the minute, and if I'm late he docks me, and if I'm early he asks why I didn't take another sack." } },
+      choices = {
+        { text = "Why not work for yourself?", next = "boss2" },
+        { text = "Sounds like every goblin boss I've heard of.", next = "boss2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    boss2 = {
+      lines = { { id = "bo2_default", text = "'Cause the Cartel's got the license, buddy, and a goblin who carries mail without one gets a visit from the bruisers. So I carry, I save, and one day I'll buy my own route, someplace quiet, like Thousand Needles. Don't laugh, I said quiet, not safe." } },
+      choices = { { text = "I won't laugh. Something else.", next = "BACK" } },
+    },
+    danger = {
+      lines = { { id = "dn_default", text = "The north road, past the Forgotten Pools, 'cause the Kolkar love a mail cart, they think it's full of gold. It's full of letters to grandmothers, pal, but you try explainin' that to a centaur with a spear." } },
+      choices = {
+        { text = "How do you get through?", next = "danger2" },
+        { text = "I could ride with you sometime.", next = "danger2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    danger2 = {
+      lines = { { id = "dn2_default", text = "I wait at the Crossroads gate till a patrol goes out and then I ride behind 'em real close, like a very small, very scared extra grunt. The grunts call me their lucky charm, which is nice, 'cause nobody's ever called me lucky before." } },
+      choices = {
+        { text = "I'm a warrior. Ride behind me, and you'll be safe.", next = "BACK", reply = "Pal, you just made my whole week. I'll hold you to that, and I'll bill the Cartel for the comfort.", when = { class = "WARRIOR" } },
+        { text = "Something else, then.", next = "BACK" },
+      },
     },
   },
   topics = {

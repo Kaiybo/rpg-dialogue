@@ -126,6 +126,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d6_learn = {
+      lines = { { id = "d6_learn_a", text = "On the lakeshore, shooting at bottles Kimberly set on the dock posts, and she'd make me fetch every arrow that went in the water. I learned to hit the bottle fast, because the lake's cold in spring." } },
+      choices = {
+        { text = "I'm a hunter. What's your longest shot?", next = "d6_learn2", when = { class = "HUNTER" } },
+        { text = "Does the watch train its own archers?", next = "d6_learn2" },
+        { text = "Cold water's a good teacher.", next = "d6_learn2" },
+      },
+    },
+    d6_learn2 = {
+      lines = {
+        { id = "d6_learn2_a", text = "Not enough of them, and that's the trouble. Most of the watch are farmers with swords, and I've put a bow in the hands of six this season, and four of them can hit a gnoll now, which is four more than before." },
+        { id = "d6_learn2_hunter", when = { class = "HUNTER" }, text = "Two hundred paces, from the west wall to a gnoll on the far ridge, with the wind behind me. It's the only shot I've ever boasted about, so I'll thank you to remember it and not ask me to repeat it." },
+      },
+      choices = {
+        { text = "Four more archers is no small thing.", next = "BACK" },
+        { text = "Something else, guard.", next = "BACK" },
+      },
+    },
+    d6_marris = {
+      lines = { { id = "d6_marris_a", text = "He's hard, and he's fair, and his curfew keeps children off the streets at night, whatever the grumblers say. He lost a whole company up at Stonewatch, and he hasn't stopped trying to get them back." } },
+      choices = {
+        { text = "Bravo Company, you mean?", next = "d6_marris2" },
+        { text = "Hard men make for safe towns.", next = "d6_marris2" },
+        { text = "Let's leave the Marshal be.", next = "BACK" },
+      },
+    },
+    d6_marris2 = {
+      lines = { { id = "d6_marris2_a", text = "Bravo Company, aye, Keeshan's lot, lost behind the Blackrock lines. Marris goes up the tower every night and looks toward Stonewatch, and the watch pretend not to see him, because we all know what he's looking for." } },
+      choices = {
+        { text = "Then someone should go and find them.", next = "BACK", fx = { learn = { "blackrock" } } },
+        { text = "Something else, Hiett.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", text = "Guard Hiett, Lakeshire watch. I keep this post by day and a place on the wall when the horn goes, and of the two I'd choose the wall." } },
       again = {
@@ -141,6 +175,8 @@ P:NPC {
         { text = "Where do the gnolls hide from arrows?", next = "shoot", when = { class = "HUNTER" } },
         { text = "Have you lost friends on the wall?", next = "ylost" },
         { text = "What would Lakeshire need to win?", next = "ywin" },
+        { text = "Where did you learn to shoot?", next = "d6_learn" },
+        { text = "What do you make of Marshal Marris?", next = "d6_marris" },
         { text = "As you were, guard.", next = "END" },
       },
     },

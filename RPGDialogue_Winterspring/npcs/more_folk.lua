@@ -47,6 +47,8 @@ P:NPC {
         { text = "So forgiveness is for sale?", next = "forgive" },
         { text = "Who's going to be cross about it?", next = "enemies" },
         { text = "I've done nothing to the Cartel.", next = "innocent", when = { reputation = { faction = "Everlook", min = "friendly" } } },
+        { text = "What sort of trouble gets a person barred from Everlook?", next = "trouble" },
+        { text = "Who actually runs Everlook?", next = "runs" },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -93,6 +95,33 @@ P:NPC {
       choices = {
         { text = "I'll keep it in mind.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    trouble = {
+      lines = { { id = "tb_default", text = "Oh, the usual, pal. Somebody knocks over a Cartel caravan in Tanaris, somebody sinks a Booty Bay barge, somebody gets carried away with a pirate's parrot. Word travels on the Cartel ledgers, and next thing ya know the bruisers at the gate are crackin' their knuckles." } },
+      choices = {
+        { text = "So one goblin town's grudge follows you to all of them?", next = "trouble2" },
+        { text = "Killing pirates gets you barred? That seems backward.", next = "trouble2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trouble2 = {
+      lines = { { id = "tb2_default", text = "Booty Bay, Gadgetzan, Ratchet, Everlook, one big happy family with one big ledger, chum. And no, killin' pirates gets ya cheered, mostly, but killin' the bruisers who were guardin' the pirates gets ya me. Ya follow?" } },
+      choices = { { text = "I follow. Something else.", next = "BACK" } },
+    },
+    runs = {
+      lines = { { id = "rn_default", text = "Officially, the Cartel, through the folks it's put in charge, and unofficially whoever's got the most coal come midwinter. We got an inn, a forge, a bank and a whole lotta bruisers, and every adventurer north of the Plaguelands comes through our gate sooner or later." } },
+      choices = {
+        { text = "Who comes through most?", next = "runs2" },
+        { text = "Coal as currency. That's very goblin of you.", next = "runs2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    runs2 = {
+      lines = { { id = "rn2_default", text = "Fur trappers, ore hunters, folks lookin' for the Winterfall furbolgs or the frostsabers, and lately some real strange types askin' about Darkwhisper Gorge, which nobody sensible goes near. They all pay, though, pal. Everlook don't ask questions, it just counts." } },
+      choices = {
+        { text = "I'm a goblin's friend. Everlook knows my name.", next = "BACK", reply = "Then you're one of the good ones, pal, and you'll never need me. Keep it that way, will ya?", when = { reputation = { faction = "Everlook", min = "honored" } } },
+        { text = "Something else, Bronn.", next = "BACK" },
       },
     },
   },

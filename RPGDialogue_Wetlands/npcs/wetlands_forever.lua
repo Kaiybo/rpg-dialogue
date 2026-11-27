@@ -53,7 +53,64 @@ P:NPC {
         { text = "Why turn a lookout into a tavern?", next = "lookout" },
         { text = "What are the Aetherstill Spirits on your shelf?", next = "spirits" },
         { text = "Any news from the road?", next = "road" },
+        { text = "Who keeps the place with you?", next = "af_staff" },
+        { text = "The marsh road must bring odd guests.", next = "af_guests" },
         { text = "Good day, Agriel.", next = "END" },
+      },
+    },
+    af_staff = {
+      lines = {
+        { id = "af_staff_1", text = "My kin, mostly, an' a couple o' lads who came for a drink an' never left. Everyone pulls their weight, the brewin', the cookin' an' the cellar, an' anyone who doesnae gets shown the door an' the long road tae Menethil." },
+      },
+      choices = {
+        { text = "You brew your own, then?", next = "af_brew" },
+        { text = "A tavern run by family is a good tavern.", next = "BACK", reply = "So I've always said, an' the ale agrees." },
+      },
+    },
+    af_brew = {
+      lines = {
+        { id = "af_brew_1", text = "Every drop, in the old storeroom under the tower where it stays cool. The water's from the hill spring, no' the marsh, an' that's the whole secret, though I'll deny I ever told ye." },
+      },
+      choices = {
+        { text = "Spring water. I'll keep your secret.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Is the spring far from here?", next = "af_spring" },
+      },
+    },
+    af_spring = {
+      lines = {
+        { id = "af_spring_1", text = "Up the rise behind the tower, a few minutes' walk, an' it runs clear even in the wet season. The Mountaineers who built this lookout chose the place for it, an' I'd say that's the cleverest thing the kingdom ever did out here." },
+      },
+      choices = {
+        { text = "Clever builders, then. Something else.", next = "BACK" },
+        { text = "I'll drink to the Mountaineers.", next = "BACK" },
+      },
+    },
+    af_guests = {
+      lines = {
+        { id = "af_guests_1", text = "Odd as they come. Dwarves from Dun Modr wi' Dark Iron blood on their boots, explorers from Whelgar's dig wi' raptor scratches, an' now an' then a gnome who wants tae improve my still." },
+      },
+      choices = {
+        { text = "What do you tell the gnomes?", next = "af_gnomes" },
+        { text = "I'm a gnome. Your still could use work.", next = "af_gnomes", when = { race = "Gnome" } },
+        { text = "Raptor scratches? The dig must be dangerous.", next = "BACK", reply = "It's gone tae the raptors, an' the scholars are too stubborn tae leave." },
+      },
+    },
+    af_gnomes = {
+      lines = {
+        { id = "af_gnomes_1", text = "I tell them the still works, an' that it's worked for longer than they've been alive, an' that I'll pour them a cup if they keep their spanners in their pockets. Most o' them take the cup." },
+      },
+      choices = {
+        { text = "And the ones who don't?", next = "af_dont" },
+        { text = "A cup for the spanners. Fair trade.", next = "BACK" },
+      },
+    },
+    af_dont = {
+      lines = {
+        { id = "af_dont_1", text = "They get the road, same as anyone who cannae sit quiet. I've no quarrel wi' gnomes, mind, but this is a tavern an' no' a workshop, an' I'll keep it that way." },
+      },
+      choices = {
+        { text = "A tavern stays a tavern. Understood.", next = "BACK" },
+        { text = "Something else, Agriel.", next = "BACK" },
       },
     },
 

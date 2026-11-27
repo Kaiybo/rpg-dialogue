@@ -44,7 +44,61 @@ P:NPC {
         { text = "What would you have me do?", next = "task" },
         { text = "The centaur are only raiders and butchers.", next = "raiders" },
         { text = "Your people hunted mine for generations.", next = "tauren", when = { race = "Tauren" } },
+        { text = "Who was Zaetar, to your people?", next = "zaetar" },
+        { text = "The Magram and Gelkis seem eager to kill each other.", next = "clans" },
+        { text = "My order honors Cenarius.", next = "druid_cen", when = { class = "DRUID" } },
         { text = "I'll leave you to your wandering.", next = "END" },
+      },
+    },
+    zaetar = {
+      lines = { { id = "zaetar_d", text = "Zaetar was the son of Cenarius, the forest's lord, and he loved Theradras, a princess of the very earth. We centaur were their children, and the first Khans with us, and Maraudon is where our father was laid in the ground when our mother's grief turned to stone." } },
+      choices = {
+        { text = "Then the centaur were born of a tragedy.", next = "zaetar_grief" },
+        { text = "Do your people still honour him?", next = "zaetar_honour" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    zaetar_grief = {
+      lines = { { id = "zaetar_grief_d", text = "We were born of love, outsider, and of a grief so great that it poisoned the very water under Maraudon. My people chose to remember only the grief, and so they became what you see now, a nation of children fighting over a dead father's bones." } },
+      choices = {
+        { text = "Then remind them of the love.", next = "BACK", reply = "I have tried, and that is why I wander alone. But you speak as I would." },
+        { text = "I have other questions.", next = "BACK" },
+      },
+    },
+    zaetar_honour = {
+      lines = { { id = "zaetar_honour_d", text = "Every clan swears that it honours him best, and every clan kills the others to prove it. The Maraudine guard his tomb and let no other centaur near it, which is why I need someone who is not centaur at all." } },
+      choices = {
+        { text = "So the tomb is the key to everything.", next = "BACK", reply = "The tomb and what lies beneath it. Read my instructions, and you will understand." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    clans = {
+      lines = { { id = "clans_d", text = "Eager is a kind word for it. The Gelkis bow to the earth and to Theradras, the Magram bow to the spirits of their ancestors, and both of them would sooner see the other clan's foals starve than share a single spring." } },
+      choices = {
+        { text = "What would end the war between them?", next = "clans_end" },
+        { text = "You sound as if you pity them both.", next = "clans_pity" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    clans_end = {
+      lines = { { id = "clans_end_d", text = "Remembering that the earth and the ancestors are one mother and one father, as they were in the beginning. The clans will not hear it from me, but they might hear it from someone who has walked into Maraudon and come back out." } },
+      choices = {
+        { text = "Perhaps they'd hear it from me.", next = "BACK", reply = "Perhaps, outsider. Stranger things have happened in Desolace, though not many." },
+        { text = "Back to other matters.", next = "BACK" },
+      },
+    },
+    clans_pity = {
+      lines = { { id = "clans_pity_d", text = "I pity them, and I am ashamed of them, and I would die for any one of them. That is what it is to be exiled from your own people, outsider, for they cast you out but cannot cast themselves out of you." } },
+      choices = {
+        { text = "That's a heavy thing to carry alone.", next = "BACK" },
+        { text = "Let us talk of something else.", next = "BACK" },
+      },
+    },
+    druid_cen = {
+      lines = { { id = "druid_cen_d", text = "Then you honour my grandsire, druid, and you would not like what his grandchildren have become. Your order looks on us as beasts, and I cannot entirely blame it, but remember that the forest's blood runs in us too." } },
+      choices = {
+        { text = "Then the Circle owes you a hearing.", next = "BACK", reply = "Owes is a strong word. I would settle for a hearing freely given." },
+        { text = "I'll remember it. Something else.", next = "BACK" },
       },
     },
     exile = {

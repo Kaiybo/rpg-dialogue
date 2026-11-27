@@ -26,6 +26,53 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d2_doctors = {
+      lines = {
+        { id = "d2_doctors_1", text = "Sometimes. They say hold it higher, and Boyle holds it higher, and they say good, and they write in their books. The tall doctor with the cold voice says Boyle is the best holder they have ever had." },
+      },
+      choices = {
+        { text = "Who is the tall doctor?", next = "d2_doctors2" },
+        { text = "That sounds like praise.", next = "d2_doctors2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_doctors2 = {
+      lines = {
+        { id = "d2_doctors2_1", text = "The others call him Master Faranell, and they stand up straight when he walks past. He looked at Boyle's flask once and said it was coming along nicely, and Boyle felt proud, though he does not know what it is coming along to." },
+      },
+      choices = {
+        { text = "Maybe better not to know.", next = "BACK", reply = "Boyle thinks so too. Knowing is for the doctors, and holding is for Boyle." },
+        { text = "Ask Boyle something else.", next = "BACK" },
+      },
+    },
+    d2_see = {
+      lines = {
+        { id = "d2_see_1", text = "Boyle sees the green water, and the doctors going in and out, and the cages along the wall. Sometimes there are living people in the cages, and they are very loud, and then later they are quiet." },
+      },
+      choices = {
+        { text = "What happens to them?", next = "d2_see2" },
+        { text = "That's a grim view.", next = "d2_see2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_see2 = {
+      lines = {
+        { id = "d2_see2_1", text = "Boyle does not know. The doctors take them through the door at the back, and Boyle is not allowed through the door, because the flask must stay here. Boyle is glad about the door, a little." },
+      },
+      choices = {
+        { text = "Stay on this side, Boyle.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_well = {
+      lines = {
+        { id = "d2_well_1", text = "Thank you. Nobody says that to Boyle except Algernon, and Algernon says it to the flowers too. Boyle will hold the flask even more level now." },
+      },
+      choices = {
+        { text = "Keep it up.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Boyle holds the flask for the doctors until they want it. It is a careful job, and they gave it to Boyle because Boyle does not get bored." },
@@ -39,6 +86,9 @@ P:NPC {
         { text = "How long have you been holding it?", next = "long" },
         { text = "Do you know Algernon?", next = "algernon" },
         { text = "Do you remember anything before the flask?", next = "by_before" },
+        { text = "Do the doctors talk to you?", next = "d2_doctors" },
+        { text = "What can you see from where you stand?", next = "d2_see" },
+        { text = "You're doing well, Boyle.", next = "d2_well", when = { race = "Scourge" } },
         { text = "Hold steady, Boyle.", next = "END" },
       },
     },

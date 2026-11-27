@@ -30,6 +30,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_notes = {
+      lines = {
+        { id = "d2_notes_1", text = "Master Apothecary Faranell reads every note this bench produces, which is a great honour and a great deal of pressure. He returned my last report with one word written in the margin, and the word was 'more.'" },
+      },
+      choices = {
+        { text = "More what?", next = "d2_notes2" },
+        { text = "That sounds like praise, of a sort.", next = "d2_notes2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_notes2 = {
+      lines = {
+        { id = "d2_notes2_1", text = "More detail, more samples, more of everything, I think. Fuely says it means he's pleased, since when the Master is displeased he writes nothing at all and simply moves you to the sewers." },
+      },
+      choices = {
+        { text = "Then keep him pleased.", next = "BACK", reply = "I intend to. I have no wish to study the sewers, though Fuely says the oozes there are marvellous." },
+        { text = "Ask you something else.", next = "BACK" },
+      },
+    },
+    d2_azshara = {
+      lines = {
+        { id = "d2_azshara_1", text = "It is, and that's what makes Thersa so valuable! Whatever's in those tide pools by the Ruins of Eldarath has travelled half the world inside her, and it's still active, which tells us something about how hardy it is." },
+      },
+      choices = {
+        { text = "Could it spread?", next = "d2_azshara2" },
+        { text = "You're excited about a sickness.", next = "d2_azshara2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_azshara2 = {
+      lines = {
+        { id = "d2_azshara2_1", text = "Not from her, I'm fairly sure, or I'd be green as well, and I've checked twice this morning. But the Society would like a sample from the pools themselves, and if you ever pass through Azshara, I'd pay well for a vial." },
+      },
+      choices = {
+        { text = "I'll keep it in mind.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_heal = {
+      lines = {
+        { id = "d2_heal_1", text = "You could, and I'd thank you not to, at least not until I've written down how she feels without it. Once I've noted the baseline, you're welcome to try, and I'll note that too." },
+      },
+      choices = {
+        { text = "You're a hard man, Cuely.", next = "BACK", reply = "I'm a careful one. She'll be glad of it, when the elixir works." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Chemist Cuely, at your service, and that's my brother Fuely at the next bench. You see that tauren behind me, the one who looks as though she's about to be ill? She's my current study, and she's fascinating." },
@@ -47,6 +94,9 @@ P:NPC {
         { text = "Why does the Society care about a tauren?", next = "why" },
         { text = "Tell me about your brother.", next = "brother" },
         { text = "She's one of my people. Is she in danger?", next = "kin", when = { race = "Tauren" } },
+        { text = "Who reads your notes on Thersa?", next = "d2_notes" },
+        { text = "Azshara is a long way from here.", next = "d2_azshara" },
+        { text = "I could ease her nausea, at least.", next = "d2_heal", when = { class = { "PRIEST", "SHAMAN", "DRUID" } } },
         { text = "I'll leave you to your patient.", next = "END" },
       },
     },
@@ -258,6 +308,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_peers = {
+      lines = {
+        { id = "d2_peers_1", text = "Very few, and none of them in the Apothecarium, where the past is only interesting if it can be boiled. Bethor Iceshard keeps a library of sorts in the Royal Quarter, and Salazar Bloch sells books in the Magic Quarter, though he'd rather keep them than sell them." },
+      },
+      choices = {
+        { text = "Do you visit Bloch?", next = "d2_peers2" },
+        { text = "A lonely trade, then.", next = "d2_peers2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_peers2 = {
+      lines = {
+        { id = "d2_peers2_1", text = "Every week, and he lets me read the books he won't sell, which is most of them. We argue about the dates of the Second War, and he's wrong about them, and I let him be wrong because the books are worth it." },
+      },
+      choices = {
+        { text = "A fair bargain.", next = "BACK" },
+        { text = "Ask you something else, Parqual.", next = "BACK" },
+      },
+    },
+    d2_lies = {
+      lines = {
+        { id = "d2_lies_1", text = "The Perenoldes of Alterac, without question. They wrote their own histories to show a loyal house wronged by jealous neighbours, and then the old king sold the Alliance to the Horde, and the histories were rather difficult to sell after that." },
+      },
+      choices = {
+        { text = "Did you write for them?", next = "d2_lies2" },
+        { text = "History is written by the guilty, then.", next = "d2_lies2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_lies2 = {
+      lines = {
+        { id = "d2_lies2_1", text = "I declined, and they hired a man from Dalaran who rhymed. His book is still in print, for all I know, and his rhymes were even worse than his facts." },
+      },
+      choices = {
+        { text = "A historian's revenge.", next = "BACK", reply = "The only kind available to us. I've enjoyed every moment of it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_song = {
+      lines = {
+        { id = "d2_song_1", text = "So Braug Dimspirit tells me, and I'll grant that a song is harder to burn than a book. But a song changes a little every time it's sung, and a book stays wrong in exactly the same way for ever, which is a sort of honesty." },
+      },
+      choices = {
+        { text = "A song remembers what matters.", next = "BACK", reply = "Perhaps. I'd still like to read it, if anyone ever writes it down." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Parqual Fintallas, historian, though there's very little history in this city that anyone wants recorded. I knew all there was to know about Lordaeron once, and now I'm learning a darker sort of history." },
@@ -276,6 +373,9 @@ P:NPC {
         { text = "Where would I find this book?", next = "monastery" },
         { text = "You were a historian in life?", next = "life" },
         { text = "Do you miss your books from before?", next = "books", when = { race = "Scourge" } },
+        { text = "Who else in this city cares for history?", next = "d2_peers" },
+        { text = "Which noble house lied most about its past?", next = "d2_lies" },
+        { text = "My people keep their history in song.", next = "d2_song", when = { race = "Tauren" } },
         { text = "I'll leave you to your studies.", next = "END" },
       },
     },

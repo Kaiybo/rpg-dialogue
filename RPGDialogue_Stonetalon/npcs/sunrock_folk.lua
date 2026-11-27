@@ -221,6 +221,8 @@ P:NPC {
         { text = "Did the fires in the vale reach the animals?", next = "fire" },
         { text = "Will you take good care of my {pet}?", next = "care", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "How do orcs see a hunter's bond with a beast?", next = "bond", when = { class = "HUNTER" } },
+        { text = "Who's Besseleth, that marked Maggran?", next = "besseleth" },
+        { text = "The kodos must hate this climb.", next = "kodo" },
         { text = "Rest easy, Gereck.", next = "END" },
       },
     },
@@ -283,6 +285,33 @@ P:NPC {
         { text = "Mine walks with me by choice, and I honor that.", next = "BACK", reply = "Then you're a better hunter than most, {class}. I can see it in the way it watches you, even now.", fx = { align = { light = 1 } } },
         { text = "A beast follows the strongest. That's the way of things.", next = "BACK", reply = "Strength holds a beast for a while, but it doesn't keep it. I wore chains once, and the day they came off, I didn't stay.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    besseleth = {
+      lines = { { id = "bs_default", text = "A great spider of the Webwinder Path, older and bigger than the rest, that nests in the hollows south of here. She bit Maggran years ago and he nearly lost the arm, and the young hunters dare each other to go and find her." } },
+      choices = {
+        { text = "Has anyone killed her?", next = "besseleth2" },
+        { text = "A spider worth fearing, then.", next = "besseleth2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    besseleth2 = {
+      lines = { { id = "bs2_default", text = "Not yet, and Maggran would pay well for her fang, I think, though he'd never say it's about revenge. If you go down the Webwinder, carry antivenom and keep your beast close, {class}, because she takes the smaller ones first." } },
+      choices = { { text = "I'll keep my beast close. Something else.", next = "BACK" } },
+    },
+    kodo = {
+      lines = { { id = "kd_default", text = "They don't love it, but they're too proud to say so. A kodo coming up from the Barrens will stop at every switchback and look at you like you've insulted its mother, and then it'll keep climbing, because it'd sooner die than turn round." } },
+      choices = {
+        { text = "That sounds like an orc, honestly.", next = "kodo2" },
+        { text = "Do you stable the caravan kodos too?", next = "kodo2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kodo2 = {
+      lines = { { id = "kd2_default", text = "Ha! It does, and the tauren say the same about me. The caravan kodos stay with me a night before they go back down, and I rub their feet with fat and talk to them about the Barrens, which they seem to like. A beast misses the plains same as anyone." } },
+      choices = {
+        { text = "I'm an orc. We'd all sooner die than turn round.", next = "BACK", reply = "Then you and the kodos will get on fine. Go on, stubborn one.", when = { race = "Orc" } },
+        { text = "Something else, Gereck.", next = "BACK" },
       },
     },
   },

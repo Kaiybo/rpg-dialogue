@@ -1742,7 +1742,46 @@ P:NPC {
         { text = "You said a man has to keep his scalp.", next = "danger" },
         { text = "Which hide here is hardest to take off whole?", next = "x_skin", when = { profession = { "Skinning", "Leatherworking" } } },
         { text = "Where should a hunter look for good pelts?", next = "x_hunter", when = { class = "HUNTER" } },
+        { text = "Who else keeps Refuge Pointe supplied?", next = "af_neigh" },
+        { text = "Does the League of Arathor have a hope here?", next = "af_league" },
         { text = "Good day, Androd.", next = "END" },
+      },
+    },
+    af_neigh = {
+      lines = {
+        { id = "af_neigh_1", text = "Hammon Karwn trades the cloth and the metal, and Drovnar Strongbrew sells the alchemists their vials, and between the three of us we keep the craftsmen in work. The soldiers come to us for everything they can't get from the quartermaster, which is most things." },
+      },
+      choices = {
+        { text = "Drovnar's a dwarf among humans, then.", next = "af_drovnar" },
+        { text = "Three traders for a whole camp. Thin pickings.", next = "BACK", reply = "Thin, but steady, and steady's what a camp needs." },
+      },
+    },
+    af_drovnar = {
+      lines = {
+        { id = "af_drovnar_1", text = "He is, and he says the Highlands remind him of nothing at all, which he means as a compliment. He's a good neighbour, quiet and sober, at least until the supply wagon brings in a cask from Ironforge." },
+      },
+      choices = {
+        { text = "I'll look him up when the cask arrives.", next = "BACK" },
+        { text = "Quiet and sober is rare in a soldier's camp. Something else.", next = "BACK" },
+      },
+    },
+    af_league = {
+      lines = {
+        { id = "af_league_1", text = "Field Marshal Oslight thinks so, and he's not a man given to foolish hopes. The League wants to take back the farms and the mills that the Syndicate and the Horde have taken, and every soldier here is a farmer's son who'd like his father's land back." },
+      },
+      choices = {
+        { text = "Is it working?", next = "af_working" },
+        { text = "I'm from Lordaeron too. Arathor was our root.", next = "af_working", when = { race = "Human" } },
+        { text = "A camp of farmers' sons. That's a hard army.", next = "BACK" },
+      },
+    },
+    af_working = {
+      lines = {
+        { id = "af_working_1", text = "Slowly, a field here and a fence there, and then the ogres or the Witherbark take it back. But Refuge Pointe still stands, and the wall's been rebuilt twice since I came, so I'd say we're winning, if you squint." },
+      },
+      choices = {
+        { text = "Squinting is how wars are won.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Androd.", next = "BACK" },
       },
     },
     hides = {
@@ -2146,7 +2185,46 @@ P:NPC {
         { text = "You test every bow on the wall.", next = "wall" },
         { text = "What quarry do you send hunters after?", next = "x_hunter", when = { class = "HUNTER" } },
         { text = "A warrior should carry a bow too, you'd say.", next = "x_war", when = { class = { "WARRIOR", "ROGUE" } } },
+        { text = "Who taught you to make bows?", next = "mu_taught" },
+        { text = "Hunters from Hammerfall hunt what, these days?", next = "mu_hunt" },
         { text = "Shoot straight, Mu'uta.", next = "END" },
+      },
+    },
+    mu_taught = {
+      lines = {
+        { id = "mu_taught_1", text = "An old hunter in the internment camps, who carved bows from fence posts when the guards weren't looking. He said a bow was the only thing the humans let us keep, because they did not think an orc could make one worth fearing." },
+      },
+      choices = {
+        { text = "They were wrong, I take it.", next = "mu_wrong" },
+        { text = "I'm an orc. My grandfather spoke of those camps.", next = "mu_wrong", when = { race = "Orc" } },
+        { text = "A bow from a fence post is a hard lesson.", next = "BACK" },
+      },
+    },
+    mu_wrong = {
+      lines = {
+        { id = "mu_wrong_1", text = "They were. He killed a guard with one when Thrall came, at a hundred paces, from the very walls of this place. I keep his first bow unstrung in my tent, and I string it only once a year, on the day Hammerfall was freed." },
+      },
+      choices = {
+        { text = "That's a fine way to remember him.", next = "BACK", fx = { affinity = 1 } },
+        { text = "A hundred paces. That's a hunter's shot. Something else.", next = "BACK" },
+      },
+    },
+    mu_hunt = {
+      lines = {
+        { id = "mu_hunt_1", text = "Raptors in the eastern hills, and the Highland striders, and the mountain lions near Thoradin's Wall. Graud buys the meat and Tunkk buys the hides, so a good hunter can feed the fort and fill his purse in one day." },
+      },
+      choices = {
+        { text = "Tunkk buys every scrap, I hear.", next = "mu_tunkk" },
+        { text = "I'll go after the striders.", next = "BACK" },
+      },
+    },
+    mu_tunkk = {
+      lines = {
+        { id = "mu_tunkk_1", text = "Every scrap and every sinew, and he wastes nothing, not even the teeth. I once saw him make a needle from a raptor's claw, and when I laughed, he sold it to me, and I still use it." },
+      },
+      choices = {
+        { text = "Tunkk sounds like a good trader.", next = "BACK" },
+        { text = "A raptor-claw needle. Something else.", next = "BACK" },
       },
     },
     make = {
@@ -2276,7 +2354,45 @@ P:NPC {
         { text = "The warriors don't think much of your trade.", next = "warriors" },
         { text = "What sells to a tailor in the Highlands?", next = "x_tailor", when = { profession = "Tailoring" } },
         { text = "My robes take a beating. What thread holds?", next = "x_cloth", when = { class = { "MAGE", "PRIEST", "WARLOCK" } } },
+        { text = "Which banner is hardest to keep whole?", next = "jh_banner" },
+        { text = "Where does Hammerfall's cloth come from?", next = "jh_whence" },
         { text = "Good day, Jun'ha.", next = "END" },
+      },
+    },
+    jh_banner = {
+      lines = {
+        { id = "jh_banner_1", text = "The great one over the gate, for the wind comes off the hills and tears at it every night. I climbed up there myself once, to stitch the corner, and Gor'mul shouted at me for half an hour, and then thanked me for it the next day." },
+      },
+      choices = {
+        { text = "Gor'mul cares about the banner.", next = "jh_gormul" },
+        { text = "I'd not climb that gate in the wind.", next = "BACK", reply = "Nor would I again, but someone had to." },
+      },
+    },
+    jh_gormul = {
+      lines = {
+        { id = "jh_gormul_1", text = "He does, for it is the first thing the Stromgarde scouts see when they look at this fort. A torn banner tells them we are weak, and a whole one tells them we are not going anywhere, and so I keep it whole." },
+      },
+      choices = {
+        { text = "Then your needle is a weapon too.", next = "BACK", fx = { affinity = 1 } },
+        { text = "A whole banner for a strong fort. Something else.", next = "BACK" },
+      },
+    },
+    jh_whence = {
+      lines = {
+        { id = "jh_whence_1", text = "Wool from the ship to the Undercity, and silk from the spiders in the hills, which the grunts fetch for me when they are bored. The spider silk is better than anything that comes off the boats, though the grunts complain about the bites." },
+      },
+      choices = {
+        { text = "The grunts fetch spider silk for you?", next = "jh_silk" },
+        { text = "I'm a tailor. I'd gather silk myself.", next = "jh_silk", when = { profession = "Tailoring" } },
+      },
+    },
+    jh_silk = {
+      lines = {
+        { id = "jh_silk_1", text = "They do, if I promise to mend their tabards first. The spiders nest in the gorges toward the Drywhisker kobolds' tunnels, and the grunts like the hunting more than they like admitting it." },
+      },
+      choices = {
+        { text = "A good arrangement for everyone.", next = "BACK" },
+        { text = "I'll mind the gorges, then. Something else.", next = "BACK" },
       },
     },
     banners = {
@@ -2405,7 +2521,45 @@ P:NPC {
         { text = "Who do you trade with in the fort?", next = "fort" },
         { text = "What will you pay a skinner's eye for?", next = "x_skin", when = { profession = { "Skinning", "Leatherworking" } } },
         { text = "The Earth Mother honours a kill used whole.", next = "x_tauren", when = { race = "Tauren" } },
+        { text = "Gor'mul keeps your vats behind the wall?", next = "tk_vats" },
+        { text = "What do you do with the scraps?", next = "tk_scraps" },
         { text = "Good tanning, Tunkk.", next = "END" },
+      },
+    },
+    tk_vats = {
+      lines = {
+        { id = "tk_vats_1", text = "He does, because of the smell, and I do not blame him, because I have smelled it. Tanning is a dirty trade, but it keeps the fort in boots and belts, and a grunt without boots is a grunt who cannot march." },
+      },
+      choices = {
+        { text = "The smell must keep the enemy away too.", next = "tk_smell" },
+        { text = "A dirty trade but a needed one.", next = "BACK", reply = "Needed! Yes! That is the word I tell Gor'mul." },
+      },
+    },
+    tk_smell = {
+      lines = {
+        { id = "tk_smell_1", text = "Ha! The Witherbark trolls have never once come near my vats, so maybe it does. I tell the warriors it is a secret weapon, and the young ones believe me, and the old ones just hold their noses." },
+      },
+      choices = {
+        { text = "A secret weapon, indeed.", next = "BACK" },
+        { text = "I'll keep upwind. Something else.", next = "BACK" },
+      },
+    },
+    tk_scraps = {
+      lines = {
+        { id = "tk_scraps_1", text = "I keep a barrel by the gate, and any grunt without coin can take a strap or a patch from it. The Horde was poor in the camps, and I remember, so I give what I can and sell the rest." },
+      },
+      choices = {
+        { text = "That's generous of you.", next = "tk_give" },
+        { text = "I'm a leatherworker. I'd add to that barrel.", next = "tk_give", when = { profession = "Leatherworking" } },
+      },
+    },
+    tk_give = {
+      lines = {
+        { id = "tk_give_1", text = "It is not generous, it is sense, for a grunt who can mend his own boots fights better. Drum Fel says I am the only orc in Hammerfall who can make a copper do the work of a silver, and I take that as praise." },
+      },
+      choices = {
+        { text = "It is praise.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Tunkk.", next = "BACK" },
       },
     },
     hides = {

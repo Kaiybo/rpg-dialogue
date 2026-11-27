@@ -45,6 +45,8 @@ P:NPC {
         { text = "Where do I go for the fire sapta?", next = "telf", when = { class = "SHAMAN" } },
         { text = "Why live out here, alone in the hills?", next = "hills" },
         { text = "What's to the north of here?", next = "north" },
+        { text = "Brine says the Horde needs menders more than burners.", next = "brine" },
+        { text = "What happens to the young ones who fail the fire?", next = "fail" },
         { text = "I'll leave you to your fire.", next = "END" },
       },
     },
@@ -82,6 +84,33 @@ P:NPC {
     north = {
       lines = { { id = "no_default", text = "The road runs north to the Mor'shan gate and on into Ashenvale, so don't wander too far, or you'll find yourself in the elves' lands. They don't take kindly to orcs, and they take even less kindly to orcs carrying fire." } },
       choices = { { text = "Something else, Kranal.", next = "BACK", fx = { learn = { "warsong" } } } },
+    },
+    brine = {
+      lines = { { id = "bn_default", text = "Does she now? Brine's a good shaman, and stubborn as a thunder lizard, and she's not wrong, exactly. But a Horde surrounded by centaur and quilboar and elves needs both, {class}, and someone has to teach the young ones how to burn without becoming what we were." } },
+      choices = {
+        { text = "Then fire and water aren't truly enemies.", next = "brine2" },
+        { text = "You two must argue often.", next = "brine2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    brine2 = {
+      lines = { { id = "bn2_default", text = "Whenever we meet, and we meet about once a year, at the Crossroads, over a fire she complains about. The elements argue too, and the shaman who learns to hear all four arguing at once is the one who'll lead the rest of us." } },
+      choices = { { text = "All four at once. Something else.", next = "BACK" } },
+    },
+    fail = {
+      lines = { { id = "fl_default", text = "Some come back from the mountaintop burned and angry, and I sit them by this fire until the anger goes. A few never climb at all, and that's no shame, because the earth will still answer them. The fire only wants those it can trust." } },
+      choices = {
+        { text = "And the ones who want it too much?", next = "fail2" },
+        { text = "Fire trusting anyone sounds dangerous.", next = "fail2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fail2 = {
+      lines = { { id = "fl2_default", text = "Those I send back to their trainers in Orgrimmar with a word, quietly. The warlocks of the old Horde wanted fire too much, and you can still see what they left behind in Durotar's scorched earth. I won't make another of them." } },
+      choices = {
+        { text = "I'm a warlock. Not every one of us is the old Horde.", next = "BACK", reply = "Perhaps not, and I'll judge you by your deeds, {class}. But I'll watch your deeds closely.", when = { class = "WARLOCK" } },
+        { text = "Something else, Kranal.", next = "BACK" },
+      },
     },
   },
 

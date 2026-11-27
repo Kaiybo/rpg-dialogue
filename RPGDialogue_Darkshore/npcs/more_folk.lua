@@ -1744,7 +1744,45 @@ P:NPC {
         { text = "Do you make your own dyes?", next = "dyes" },
         { text = "Which thread would you use for heavy wool?", next = "xtailor", when = { profession = "Tailoring" } },
         { text = "Is there truly less coming from Darnassus?", next = "xnelf", when = { race = "NightElf" } },
+        { text = "Is Auberdine changing, with so many outlanders?", next = "vd_change" },
+        { text = "What do travelers tear, mostly?", next = "vd_tear" },
         { text = "Good day, Valdaron.", next = "END" },
+      },
+    },
+    vd_change = {
+      lines = {
+        { id = "vd_change_1", text = "It is, though slowly, as all things change here. Ten years ago I sold only to kaldorei, and now I sell wool to dwarves and linen to humans, and Gorbold sells my thread with a ribbon on it, which still astonishes me." },
+      },
+      choices = {
+        { text = "Does it trouble the older elves?", next = "vd_older" },
+        { text = "Outlanders bring trade, at least.", next = "BACK", reply = "They do, and they are kind customers, mostly." },
+      },
+    },
+    vd_older = {
+      lines = {
+        { id = "vd_older_1", text = "Some, though they do not say so to outlanders. Thundris Windweaver says the Alliance is a necessity, and Gershala Nightwhisper says it is a gift, and I think they are both right, which I find comforting." },
+      },
+      choices = {
+        { text = "Both right. That's a wise view.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Valdaron.", next = "BACK" },
+      },
+    },
+    vd_tear = {
+      lines = {
+        { id = "vd_tear_1", text = "Cloaks on the brambles near the Bashal'Aran ruins, and sleeves on the furbolgs' claws. The Blackwood furbolgs were friends to us once, and now I mend more tears from their claws than from any thorn." },
+      },
+      choices = {
+        { text = "The Blackwood furbolgs are dangerous now?", next = "vd_furbolg" },
+        { text = "I'm a tailor. I'd mend the sleeves myself.", next = "vd_furbolg", when = { profession = "Tailoring" } },
+      },
+    },
+    vd_furbolg = {
+      lines = {
+        { id = "vd_furbolg_1", text = "Very, and no one knows why, though Thundris Windweaver says something has poisoned their food. It grieves me, for they traded honey with Auberdine for many years, and I miss the honey almost as much as the peace." },
+      },
+      choices = {
+        { text = "I'll ask Thundris about it.", next = "BACK", fx = { learn = { "furbolgs" } } },
+        { text = "Something else, then.", next = "BACK" },
       },
     },
     boats = {

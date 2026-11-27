@@ -43,7 +43,54 @@ P:NPC {
         { text = "Who is this diplomat you mentioned?", next = "diplomat" },
         { text = "A night elf alone this far south is unusual.", next = "alone" },
         { text = "I know the Scourge well. I was one of them.", next = "forsaken", when = { race = "Scourge" } },
+        { text = "What did you learn of the quilboar before all this?", next = "boar" },
+        { text = "What leads the cult below the hill?", next = "cold" },
+        { text = "Elune guide you, sister. What does the moon show you here?", next = "moon_ne", when = { race = "NightElf" } },
         { text = "I'll leave you to your watch.", next = "END" },
+      },
+    },
+    boar = {
+      lines = { { id = "boar_d", text = "That they are older in this land than most travellers believe, and prouder. The Razorfen say the great thorns grew from the blood of Agamaggan, their boar spirit, when he fell in the War of the Ancients, and they have defended his briars ever since." } },
+      choices = {
+        { text = "And now the briars hide the Scourge.", next = "boar_now" },
+        { text = "A strange spirit for a people to worship.", next = "boar_odd" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    boar_now = {
+      lines = { { id = "boar_now_d", text = "Yes, and that is what grieves me most. The quilboar of the Downs did not lose a war; they were persuaded, by something that promised their dead would rise again to fight beside them, and now they kneel to it." } },
+      choices = {
+        { text = "Then they can still be freed of it.", next = "BACK", reply = "Some, perhaps. The rest have gone too far into the cold to come back." },
+        { text = "Let us speak of other things.", next = "BACK" },
+      },
+    },
+    boar_odd = {
+      lines = { { id = "boar_odd_d", text = "No stranger than a moon or a stag, and Agamaggan bled for this world when the Legion first came. I did not come to judge the quilboar's faith, only to learn it, though I confess I did not expect to find it so twisted." } },
+      choices = {
+        { text = "Fair. Something else.", next = "BACK" },
+        { text = "I meant no insult to their spirit.", next = "BACK", reply = "I know. Few strangers mean it, and most still manage it." },
+      },
+    },
+    cold = {
+      lines = { { id = "cold_d", text = "I do not know its name for certain, but I have felt it. When I go near the great maw the air turns cold enough to frost the briars, even at midday, and the quilboar mutter of a master who never sleeps and never warms." } },
+      choices = {
+        { text = "That sounds like a lich.", next = "cold_lich" },
+        { text = "Then the cold is your warning.", next = "BACK", reply = "It is, and I listen to it. Stay out of the maw alone, I beg you." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cold_lich = {
+      lines = { { id = "cold_lich_d", text = "That is my fear too, though I would rather be wrong. A lich in the Razorfen would mean the Scourge did not come here by chance, and that the Barrens' edge is closer to Northrend than anyone in Kalimdor would wish to believe." } },
+      choices = {
+        { text = "Then someone must go in and end it.", next = "BACK", reply = "Someone with friends, and courage, and luck. I hope it will be you." },
+        { text = "Back to other matters.", next = "BACK" },
+      },
+    },
+    moon_ne = {
+      lines = { { id = "moon_ne_d", text = "Ishnu-alah, sister. The moon shines on these briars as it shines on Teldrassil, but here its light turns grey before it touches the ground, and I have prayed under it every night without feeling her answer." } },
+      choices = {
+        { text = "Elune hears, even when she's silent.", next = "BACK", reply = "You are kind to remind me. I will keep praying, and keep watching." },
+        { text = "Something else, then.", next = "BACK" },
       },
     },
     found = {

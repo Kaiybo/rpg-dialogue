@@ -518,7 +518,45 @@ P:NPC {
         { text = "What's wrong with facing the woods?", next = "woods" },
         { text = "You don't look like you've slept.", next = "sleep" },
         { text = "Tell me about Vrok.", next = "vrok" },
+        { text = "Have you told the mountaineers about the spiders?", next = "db_told" },
+        { text = "What do you do in Thelsamar?", next = "db_work" },
         { text = "Get some rest, Dakk.", next = "END" },
+      },
+    },
+    db_told = {
+      lines = {
+        { id = "db_told_1", text = "Every one o' them, an' they nod an' say they'll look intae it, an' then they go back tae watchin' for troggs. I cannae blame them, for the troggs are a bigger trouble, but the spiders are the ones outside my window." },
+      },
+      choices = {
+        { text = "I could deal with the spiders myself.", next = "db_help" },
+        { text = "Troggs and spiders both. Thelsamar's surrounded.", next = "BACK", reply = "Feels that way, aye, every night." },
+      },
+    },
+    db_help = {
+      lines = {
+        { id = "db_help_1", text = "Would ye? They come down from the hills north o' town, an' they're thick as my arm, wi' eyes that catch the lamplight. If ye clear a few, I'll sleep a night through for the first time since spring." },
+      },
+      choices = {
+        { text = "I'll clear them for you, Dakk.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Thick as your arm? I'll think about it.", next = "BACK" },
+      },
+    },
+    db_work = {
+      lines = {
+        { id = "db_work_1", text = "I help Vrok wi' the shop when he'll let me, which is no' often, an' I carry for the inn when he won't. It's honest work, though I'm no' sure what I'm best at yet, apart from bein' tired." },
+      },
+      choices = {
+        { text = "What would you like to do?", next = "db_like" },
+        { text = "I'm a dwarf. We find our trade eventually.", next = "db_like", when = { race = "Dwarf" } },
+      },
+    },
+    db_like = {
+      lines = {
+        { id = "db_like_1", text = "Brew, if I'm honest, for I've a knack for it, an' Innkeeper Hearthstove says my stout's the best he's tasted outside Ironforge. But Vrok says brewin's no' a trade for a Blunderblast, an' I've no' the nerve tae argue." },
+      },
+      choices = {
+        { text = "You should brew. Vrok will come round.", next = "BACK", fx = { affinity = 1 } },
+        { text = "A Blunderblast brewer. Why not?", next = "BACK" },
       },
     },
     woods = {

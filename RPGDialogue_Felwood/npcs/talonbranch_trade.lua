@@ -51,6 +51,8 @@ P:NPC {
         { text = "How do you get supplies up here?", next = "supplies" },
         { text = "Is the forest food really so bad?", next = "food" },
         { text = "Let me see your goods.", next = "BUSINESS" },
+        { text = "Who are the two drivers you lost?", next = "drivers" },
+        { text = "Do the Horde at Bloodvenom ever trade with you?", next = "bloodvenom" },
         { text = "Farewell, Malygen.", next = "END" },
       },
     },
@@ -112,6 +114,33 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    drivers = {
+      lines = { { id = "dv_default", text = "Lerian, who'd been driving the Ashenvale road since before I came, and a young one named Aeradyn on his second run. The Deadwood took them both near Jadefire Run, and the cart came in on its own a day later, with the horse half mad from what it had seen." } },
+      choices = {
+        { text = "Who drives the road now?", next = "drivers2" },
+        { text = "The road ought to have an escort.", next = "drivers2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    drivers2 = {
+      lines = { { id = "dv2_default", text = "Whoever I can pay, and the Sentinels ride with them when they can be spared, which isn't often. I'd rather go without bread than lose a third driver, so on bad weeks I ask Mishellena for her hippogryphs and we live on what they can carry." } },
+      choices = { { text = "That's a hard choice. Something else.", next = "BACK" } },
+    },
+    bloodvenom = {
+      lines = { { id = "bv_default", text = "Trade? No. They have their own supplies coming in from somewhere, and the Sentinels would never allow it. But I've seen their scouts on the ridge, watching the same satyrs we watch, and I've wondered more than once whether they eat any better than we do." } },
+      choices = {
+        { text = "Maybe they're as hungry as you are.", next = "bloodvenom2" },
+        { text = "The Sentinels are right not to trust them.", next = "bloodvenom2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bloodvenom2 = {
+      lines = { { id = "bv2_default", text = "Perhaps. Felwood doesn't care who's hungry, friend, it starves everyone the same. I keep my shelves for my own people and I don't apologise for it, but I don't wish the forest on anyone either." } },
+      choices = {
+        { text = "I'm Horde. Bloodvenom eats no better, believe me.", next = "BACK", reply = "Then we share at least one misery. Buy what you need and go carefully past the Sentinels.", when = { faction = "Horde" } },
+        { text = "Something else, Malygen.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -169,6 +198,8 @@ P:NPC {
         { text = "Who buys weapons out here?", next = "buyers" },
         { text = "What should I fight with here?", next = "advice" },
         { text = "Show me your weapons.", next = "BUSINESS" },
+        { text = "That humming sword in the back. Can I see it?", next = "sword" },
+        { text = "Where does your steel come from?", next = "forge" },
         { text = "I'll be going, Mylini.", next = "END" },
       },
     },
@@ -228,6 +259,33 @@ P:NPC {
         { text = "You're not cold. Mercy is a quick death.", next = "BACK", reply = "That's what I tell myself, and it helps on most days. A quick end is the kindest thing I can sell.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Every life deserves a thought, even a mad one's.", next = "BACK", reply = "It does, and I give it one every time, afterwards. But a thought in the middle of a fight gets you killed.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    sword = {
+      lines = { { id = "sw_default", text = "You can look, from there. It was a Sentinel's blade, carried into Jaedenar three times and back twice, and the third time someone else carried it back. Listen close and you'll hear it, a low sound like a hornet in a jar." } },
+      choices = {
+        { text = "Why not give it back to her family?", next = "sword2" },
+        { text = "A blade like that should be melted down.", next = "sword2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sword2 = {
+      lines = { { id = "sw2_default", text = "Her family didn't want it, and I don't blame them. Golhine thinks the fel in it could be drawn out with time and moonwell water, and every full moon the druid sits with it a while. It hums a little less each month, or I tell myself it does." } },
+      choices = { { text = "I hope it falls silent. Something else.", next = "BACK" } },
+    },
+    forge = {
+      lines = { { id = "fg_default", text = "Darnassus, mostly, by way of Auberdine and the long road through Ashenvale. A smith in Astranaar sends me what Darnassus won't, and I finish it here, though there's no forge worth the name in the glade. I grind and oil and pray, mostly." } },
+      choices = {
+        { text = "Do dwarven blades fare better in the damp?", next = "forge2" },
+        { text = "Grinding and praying. That's honest work.", next = "forge2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forge2 = {
+      lines = { { id = "fg2_default", text = "They hold an edge, I'll give the dwarves that, but they rust like any other, and they're heavy as sin. A dwarf came through last season and laughed at my swords, and then he bought one, because his axe had gone green from haft to blade." } },
+      choices = {
+        { text = "I'm a dwarf. Our axes don't go green.", next = "BACK", reply = "Give it a month in Felwood, and we'll see. Come back when it does, and I'll be gracious about it.", when = { race = "Dwarf" } },
+        { text = "Something else, Mylini.", next = "BACK" },
       },
     },
   },

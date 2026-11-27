@@ -175,7 +175,47 @@ P:NPC {
         { text = "You thank every leaf you pick up.", next = "thanks" },
         { text = "What does an herbalist bring to a camp?", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Herbalism") } },
         { text = "Do the Forsaken buy your herbs?", next = "forsaken", when = { race = "Scourge" } },
+        { text = "Who is Nida to you?", next = "nida" },
+        { text = "Which herb is hardest to find near here?", next = "rare" },
+        { text = "Druids gather without needing a trainer.", next = "druid_herb", when = { class = "DRUID" } },
         { text = "Walk with the Earth Mother.", next = "END" },
+      },
+    },
+    nida = {
+      lines = { { id = "nida_d", text = "Nida is a Winterhoof like me, and she teaches beside me when the students come in pairs. She sorts every leaf by what it heals rather than by what it is called, which confuses the young ones and makes the healers on Spirit Rise very happy." } },
+      choices = {
+        { text = "Sorting by healing makes sense to me.", next = "nida_sort" },
+        { text = "Two teachers for one craft seems generous.", next = "BACK", reply = "Generous to the herbs, perhaps. They are easier to learn in a pair of voices." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    nida_sort = {
+      lines = { { id = "nida_sort_d", text = "Then you think as she does, and she would like you. Peacebloom and earthroot sit together in her basket because both ease pain, and silverleaf goes beside them because a healer who has run out of one will reach for the next." } },
+      choices = {
+        { text = "Then I'll pack my satchel her way.", next = "BACK", reply = "Do, and tell her I sent you. She keeps a count of converts." },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    rare = {
+      lines = { { id = "rare_d", text = "Mageroyal, for a young gatherer, since it does not grow in Mulgore at all and the Barrens hide it among the thorns. Further afield there is briarthorn by the rocks of Stonetalon, and the elders speak of kingsblood in the hills, though I have only ever been brought it." } },
+      choices = {
+        { text = "Then I'll go looking in the Barrens.", next = "rare_barrens" },
+        { text = "You've never gathered kingsblood yourself?", next = "BACK", reply = "Never. Not every herbalist must walk every road, and my knees prefer Mulgore." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rare_barrens = {
+      lines = { { id = "rare_barrens_d", text = "Look near water and along the old dry riverbeds, and thank each plant as you take it, for the Barrens do not give generously. Bring me the first one you find, and I will show you how to dry it so it keeps its strength." } },
+      choices = {
+        { text = "I'll bring you the first.", next = "BACK", reply = "Good. I will have the drying rack ready." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    druid_herb = {
+      lines = { { id = "druid_herb_d", text = "They do, and they gather well, for they hear the plants better than any of us. But a druid in a hurry takes the whole root when the leaf would do, and that is the one thing I would teach you, if you let me." } },
+      choices = {
+        { text = "I'll take only what I need.", next = "BACK", reply = "Then you have learned the whole of my craft in a breath. Walk well." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     grows = {
@@ -2017,7 +2057,39 @@ P:NPC {
         { text = "What do the tribes keep here?", next = "keep" },
         { text = "Who else works on this rise?", next = "rise" },
         { text = "Did our people bank before Thunder Bluff?", next = "before", when = { race = "Tauren" } },
+        { text = "What's the strangest thing ever left in the vault?", next = "strange" },
+        { text = "What does Chesmu remember that you can't?", next = "chesmu" },
         { text = "Walk with the Earth Mother, Torn.", next = "END" },
+      },
+    },
+    strange = {
+      lines = { { id = "strange_d", text = "A Forsaken left us a small iron box that rattles when it is moved, and has not come back for it in three seasons. Atepa says we do not ask what is in a box, and I agree, but I have stopped carrying that one myself." } },
+      choices = {
+        { text = "Have you never been tempted to look?", next = "strange_look" },
+        { text = "Some things are better left closed.", next = "BACK", reply = "That is what Chesmu says, and she is usually right." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    strange_look = {
+      lines = { { id = "strange_look_d", text = "Every day, friend, and every day I tie another knot in my cord instead. A bank that opens one box will open them all in the end, and I would rather lose sleep than lose the trust of the tribes." } },
+      choices = {
+        { text = "Then your cords keep more than tallies.", next = "BACK", reply = "Perhaps they do. I had not thought of it that way." },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    chesmu = {
+      lines = { { id = "chesmu_d", text = "Everything that is not a number. She knows every family's mark carved on the boxes, and which grandfather made it, and which cousins quarrelled over it at a funeral twenty winters ago." } },
+      choices = {
+        { text = "That sounds like a story-keeper, not a banker.", next = "chesmu_story" },
+        { text = "You'll learn it too, in time.", next = "BACK", reply = "She says so. I am not sure there is enough time in the world." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    chesmu_story = {
+      lines = { { id = "chesmu_story_d", text = "Among our people they were always the same thing. What a family owns is only half its worth, and the other half is the story of how it came to them, and Chesmu keeps both halves." } },
+      choices = {
+        { text = "Then the bank is safe with her.", next = "BACK", reply = "Safer than with me, though I count faster. Thank you." },
+        { text = "Another question.", next = "BACK" },
       },
     },
     count = {
@@ -2121,7 +2193,39 @@ P:NPC {
         { text = "What makes a good guild emblem?", next = "emblem" },
         { text = "Who are your neighbours down here?", next = "rise" },
         { text = "Does a tabard hold up in a fight?", next = "fight", when = { class = { "WARRIOR", "HUNTER", "SHAMAN" } } },
+        { text = "Where do you get your dyes?", next = "dyes" },
+        { text = "Who buys tabards most often?", next = "buyers" },
         { text = "Good day to you, Thrumn.", next = "END" },
+      },
+    },
+    dyes = {
+      lines = { { id = "dyes_d", text = "Mak and Mahu on the middle rise sell me the common colours, and the rest I gather myself. The best red in Mulgore comes from a root that grows below the bluffs, and it never fades in the sun, which is more than I can say for the dyes from Orgrimmar." } },
+      choices = {
+        { text = "Orgrimmar's dyes fade?", next = "dyes_org" },
+        { text = "You go out gathering roots yourself?", next = "BACK", reply = "Every spring. A tabard maker who does not know where his colours grow is only a seller of cloth." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dyes_org = {
+      lines = { { id = "dyes_org_d", text = "Within a season, friend, under the Durotar sun. The orcs dye for war and expect their banners to be torn before they are faded, and I dye for a lifetime, which is a different craft entirely." } },
+      choices = {
+        { text = "Both have their place.", next = "BACK", reply = "They do, though I know which I would rather wear." },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    buyers = {
+      lines = { { id = "buyers_d", text = "The young guilds, who want to be seen before they have done anything worth seeing. The old guilds buy only when their tabards are worn through, and they bring the old ones to me to be burned properly, which is a small ceremony of its own." } },
+      choices = {
+        { text = "You burn old tabards?", next = "buyers_burn" },
+        { text = "New guilds always want the banner first.", next = "BACK", reply = "Always. I sell it to them anyway, and hope the deeds follow." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    buyers_burn = {
+      lines = { { id = "buyers_burn_d", text = "On the fire at the edge of the rise, with a word for every warrior who wore them. A banner that has been to war should not end as a rag for polishing boots, and the guilds who know that are the ones I respect most." } },
+      choices = {
+        { text = "I'll bring mine to you when it's done.", next = "BACK", reply = "Then I will say the words for you myself." },
+        { text = "Another question.", next = "BACK" },
       },
     },
     krumn = {
@@ -2225,7 +2329,39 @@ P:NPC {
         { text = "What sells well in Thunder Bluff?", next = "sells" },
         { text = "Who decides what is a fair price?", next = "fair" },
         { text = "What should a gatherer bring you?", next = "gather", when = { profession = { "Herbalism", "Mining", "Skinning" } } },
+        { text = "What's the oddest lot you've ever sold?", next = "oddlot" },
+        { text = "You keep watch on the buyers as much as the goods.", next = "buyers" },
         { text = "May your lots sell high, Gullem.", next = "END" },
+      },
+    },
+    oddlot = {
+      lines = { { id = "oddlot_d", text = "A kodo saddle said to have been ridden by one of Cairne's own braves in the centaur wars, which fetched three times its worth. I do not know whether it was true, and neither did the buyer, but he paid for the story and left happy." } },
+      choices = {
+        { text = "Do you check such claims?", next = "oddlot_check" },
+        { text = "A good story is worth paying for.", next = "BACK", reply = "Among our people, it always was. The goblins have only taught us to put a price on it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    oddlot_check = {
+      lines = { { id = "oddlot_check_d", text = "When I can, by asking the elders, and when I cannot, I say so aloud before the bidding opens. Stampi thinks I am too honest for the trade, and perhaps I am, but nobody has ever come back to me in anger." } },
+      choices = {
+        { text = "Then you're the right kind of auctioneer.", next = "BACK", reply = "That is kindly said. I shall tell Stampi you think so, and he will shout about it." },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    buyers = {
+      lines = { { id = "buyers_d", text = "Of course, friend, for the buyer tells you more than the lot ever will. A trapper from Feralas pays for silk and a hunter from the Barrens pays for arrows, and when the orcs start buying linen in bundles, I know there is fighting somewhere and the healers are short." } },
+      choices = {
+        { text = "You read the war in the bidding.", next = "buyers_war" },
+        { text = "That's a sharp eye for a quiet tauren.", next = "BACK", reply = "Quiet is how I keep it sharp. Stampi's eye is just as good, but he is too busy talking to use it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    buyers_war = {
+      lines = { { id = "buyers_war_d", text = "A little of it, yes. This season it has been bandages and mail and arrows by the thousand, and the orcs have been buying them for Ashenvale, so I think the elves and the Warsong are at it again." } },
+      choices = {
+        { text = "Then the healers will need you.", next = "BACK", reply = "They will, and I shall try to see that the prices do not climb too far for them." },
+        { text = "Another question.", next = "BACK" },
       },
     },
     stampi = {
@@ -2332,7 +2468,47 @@ P:NPC {
         { text = "Where do your goods come from?", next = "from" },
         { text = "Who trades near you?", next = "rise" },
         { text = "Which crafts does the bluff need more of?", next = "need", when = { profession = { "Tailoring", "Leatherworking", "Blacksmithing", "Alchemy", "Enchanting", "Engineering" } } },
+        { text = "How do you know a customer's craft by sight?", next = "sight" },
+        { text = "What's the hardest thing to keep in stock?", next = "stock" },
+        { text = "I tinker. Do you carry blasting powder?", next = "powder", when = { profession = { name = "Engineering", min = 1 } } },
         { text = "My thanks, Shadi.", next = "END" },
+      },
+    },
+    sight = {
+      lines = { { id = "sight_d", text = "Their hands, mostly, friend. A tailor has needle-pricks on the fingertips, a leatherworker smells of salt and tannin, and a smith has burns across the knuckles that nobody else would earn in a lifetime." } },
+      choices = {
+        { text = "And what do my hands tell you?", next = "sight_mine" },
+        { text = "You'd make a fine tracker.", next = "BACK", reply = "My cousins say the same. I tell them I track coin, which is easier to catch." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sight_mine = {
+      lines = { { id = "sight_mine_d", text = "That you have held a weapon more often than a needle, and that you are not yet sure which craft you love best. That is no shame, for most of my best customers came to me twice before they knew." } },
+      choices = {
+        { text = "Maybe I'll know by the third visit.", next = "BACK", reply = "Then I shall have the right spool waiting." },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    stock = {
+      lines = { { id = "stock_d", text = "Fine thread, for it must come all the way from the Undercity, and the Forsaken who sell it are in no hurry to send it across the sea. Every crafter on the bluff wants it at once, and I have learned to keep a little hidden for the ones who ask politely." } },
+      choices = {
+        { text = "Politeness pays, then.", next = "BACK", reply = "It always has, on this rise. Remember that the next time Stampi shouts at you." },
+        { text = "Why from the Undercity?", next = "stock_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stock_why = {
+      lines = { { id = "stock_why_d", text = "Because the Forsaken weave it from silk of the spiders in their own forests, and they weave it finer than anyone in Kalimdor. I do not like to think too hard about the spiders, but I cannot argue with the thread." } },
+      choices = {
+        { text = "Fine thread is fine thread.", next = "BACK" },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    powder = {
+      lines = { { id = "powder_d", text = "A little, kept in a clay jar well away from the fire, for Hogor Thunderhoof on the high rise buys most of it before anyone else can. Ask me quietly, and do not light anything near my counter." } },
+      choices = {
+        { text = "I'll keep my matches in my pack.", next = "BACK", reply = "See that you do. My eyebrows are fond of me." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     family = {
@@ -2437,7 +2613,39 @@ P:NPC {
         { text = "Who buys the most from you?", next = "buys" },
         { text = "Why does a shaman need an ankh?", next = "ankh", when = { class = "SHAMAN" } },
         { text = "What do you think of arcane magic?", next = "arcane", when = { class = { "MAGE", "WARLOCK" } } },
+        { text = "Which reagent is the hardest to come by?", next = "hard" },
+        { text = "You ask what a thing is for before you sell it.", next = "ask_why" },
         { text = "May the spirits be kind to you.", next = "END" },
+      },
+    },
+    hard = {
+      lines = { { id = "hard_d", text = "Ashwood seed, for the druids who wish to come back from the dead, and it grows only where the old trees are dying. I send to Ashenvale and Feralas for it, and every season the traders bring me fewer and tell me stranger stories." } },
+      choices = {
+        { text = "What stories?", next = "hard_stories" },
+        { text = "Then it's precious beyond its price.", next = "BACK", reply = "It is, and so are the druids who carry it. I give it to them gladly." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hard_stories = {
+      lines = { { id = "hard_stories_d", text = "That the forests of the north are sick, and that the night elves blame the orcs and the orcs blame the demons. I do not know who is right, only that the seeds come smaller and fewer, and that the trees are speaking of it to anyone who listens." } },
+      choices = {
+        { text = "Then someone should listen.", next = "BACK", reply = "The Arch Druid does, on Elder Rise. I pray he is listening now." },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    ask_why = {
+      lines = { { id = "ask_why_d", text = "I do, for a reagent bought without purpose is a spirit insulted. A shaman who wants an ankh because he fears death I will serve, but one who wants it so that he can be careless with his life I will send to Kuruk's general goods to think it over." } },
+      choices = {
+        { text = "Has anyone ever argued with you?", next = "ask_argue" },
+        { text = "Not every seller would be so careful.", next = "BACK", reply = "Not every seller listens to what they sell. I do." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ask_argue = {
+      lines = { { id = "ask_argue_d", text = "A young warlock, once, from Orgrimmar, who said his reasons were his own business. I told him that the spirits were my business, and he left without buying, and I have not regretted it." } },
+      choices = {
+        { text = "You held your ground.", next = "BACK", reply = "I held the spirits' ground. Mine is very small." },
+        { text = "Another question.", next = "BACK" },
       },
     },
     living = {
@@ -2542,7 +2750,39 @@ P:NPC {
         { text = "Do you make these yourself?", next = "make" },
         { text = "Who are your neighbours?", next = "rise" },
         { text = "How should a hunter carry arrows?", next = "arrows", when = { class = "HUNTER" } },
+        { text = "What's the worst pack you've ever seen?", next = "worst" },
+        { text = "Who carries the most, of all the peoples?", next = "carry" },
         { text = "Earth Mother keep you, Pakwa.", next = "END" },
+      },
+    },
+    worst = {
+      lines = { { id = "worst_d", text = "A young orc's, from Orgrimmar, with three swords, a cooking pot, a full set of mail and no water skin. He had walked from the Crossroads and could not understand why he was so tired, and I gave him a strap and a lecture for the price of one." } },
+      choices = {
+        { text = "Did he listen?", next = "worst_listen" },
+        { text = "Orcs pack for a war, not a walk.", next = "BACK", reply = "So they do, and then they march to the war with sore backs. I tell them, but they rarely hear." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    worst_listen = {
+      lines = { { id = "worst_listen_d", text = "He came back a season later with one sword and a water skin, and he bought a better pack from me without being asked. That is how I know a lesson has been learned, friend, when it comes back and pays for itself." } },
+      choices = {
+        { text = "You've a good eye for teaching.", next = "BACK", reply = "For packing. Teaching is only packing someone else's head." },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    carry = {
+      lines = { { id = "carry_d", text = "Goblins, though they never carry it themselves. Dwarves carry a great deal and complain of none of it, and the Forsaken carry very little, for they have no need of food, which I find terribly sad." } },
+      choices = {
+        { text = "Sad? How so?", next = "carry_sad" },
+        { text = "Tauren must carry the most of all.", next = "BACK", reply = "We carried our whole lives once. Now we carry only what we choose, and that is a great gift." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    carry_sad = {
+      lines = { { id = "carry_sad_d", text = "Because half the joy of a long road is what you eat at the end of it. A Forsaken comes to my counter and buys a pack with no room for bread, and I cannot help but think they have lost more than their lives." } },
+      choices = {
+        { text = "You're kind to think of it.", next = "BACK", reply = "I am a tauren, friend. We think of the road before anything else." },
+        { text = "Another question.", next = "BACK" },
       },
     },
     good = {
@@ -2643,7 +2883,39 @@ P:NPC {
         { text = "Your shop is the first thing a flyer sees.", next = "tower" },
         { text = "Who is Elki?", next = "elki" },
         { text = "What should a spellcaster look for in a robe?", next = "caster", when = { class = { "MAGE", "PRIEST", "WARLOCK" } } },
+        { text = "Who flies in on the wind riders?", next = "riders" },
+        { text = "You count everything in this shop.", next = "counting" },
         { text = "Good trading to you, Hewa.", next = "END" },
+      },
+    },
+    riders = {
+      lines = { { id = "riders_d", text = "Everyone, friend, from orc warlords to Forsaken apothecaries, and the first thing every one of them sees is my door. Tal keeps the wind riders at the top of the tower, and he sends them down to me windswept and cold and ready to buy a robe." } },
+      choices = {
+        { text = "Tal must be good for business.", next = "riders_tal" },
+        { text = "The wind riders make Thunder Bluff feel close to everything.", next = "BACK", reply = "They do, and I am not sure the elders like it. They built a city on a mesa to be far away." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    riders_tal = {
+      lines = { { id = "riders_tal_d", text = "He is, though he would not say so, since he thinks a shop is a strange thing for a tauren to keep. I send him a warm robe every winter, and every winter he tells me he has no need of it and wears it anyway." } },
+      choices = {
+        { text = "A good neighbour, then.", next = "BACK", reply = "The best on the rise. Do not tell Ahanu I said that." },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    counting = {
+      lines = { { id = "counting_d", text = "Everything, for Ahanu gives away hides to anyone with a sad story, and Elki forgets to charge for the oil. If I did not count, the shop would be a gift-house by the end of the season, and we would all be very generous and very hungry." } },
+      choices = {
+        { text = "You care for them more than you admit.", next = "counting_care" },
+        { text = "Someone has to keep the tally.", next = "BACK", reply = "Exactly so. You understand the trade, friend." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    counting_care = {
+      lines = { { id = "counting_care_d", text = "Of course I do, but I will not tell them so, and you will not either. Ahanu has stood beside me since before this shop had a name over its door, so if he wants to give away a few hides, I can count a little harder." } },
+      choices = {
+        { text = "Your secret is safe.", next = "BACK", reply = "Good. Now go and buy something, before I grow sentimental." },
+        { text = "Another question.", next = "BACK" },
       },
     },
     ahanu = {
@@ -2748,7 +3020,39 @@ P:NPC {
         { text = "Who makes mail for the tauren?", next = "makes" },
         { text = "How do you find working for Hewa?", next = "hewa" },
         { text = "Is mail worth the weight on a long hunt?", next = "weight", when = { class = "HUNTER" } },
+        { text = "What oil do you use on the mail?", next = "whichoil" },
+        { text = "The shamans fight beside the orcs often, then?", next = "shamans" },
         { text = "Thank you, Elki.", next = "END" },
+      },
+    },
+    whichoil = {
+      lines = { { id = "whichoil_d", text = "Rendered kodo fat with a little crushed mint, for the smell. Hewa says it is too costly, but mail that rusts in the first rain is more costly still, and the shamans who wear it notice the mint." } },
+      choices = {
+        { text = "Kodo fat and mint. A tauren touch.", next = "BACK", reply = "That is what I thought, though Hewa only sees the price." },
+        { text = "Does the mint do anything?", next = "whichoil_mint" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    whichoil_mint = {
+      lines = { { id = "whichoil_mint_d", text = "It keeps the flies away in the Barrens, which is not nothing, and it makes the mail smell of home. A shaman far from Mulgore told me once that he would rather wear mint than steel, and I have never forgotten it." } },
+      choices = {
+        { text = "Then the mint is worth the cost.", next = "BACK", reply = "I will tell Hewa you said so. He will not agree." },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    shamans = {
+      lines = { { id = "shamans_d", text = "More every season, since the Horde first came to Mulgore. They go with the orcs to Ashenvale and Stonetalon, and they come back with stories of arrows, and that is why the bluff asked for mail at last." } },
+      choices = {
+        { text = "Do you hear their stories?", next = "shamans_stories" },
+        { text = "Mail must be strange for a tauren.", next = "BACK", reply = "It was, at first. Now the young ones ask for it before they ask for harnesses." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shamans_stories = {
+      lines = { { id = "shamans_stories_d", text = "Some of them, when they bring their mail back to be mended. One told me that a single elf arrow cut his harness and his hide both, and the next day he came for mail and did not haggle at all." } },
+      choices = {
+        { text = "Arrows teach quickly.", next = "BACK" },
+        { text = "Another question.", next = "BACK" },
       },
     },
     oil = {
@@ -2977,7 +3281,47 @@ P:NPC {
         { text = "What does a new smith need first?", next = "first" },
         { text = "Who else supplies the crafters here?", next = "rise" },
         { text = "What do you make of orcish forges?", next = "orc", when = { race = "Orc" } },
+        { text = "Karn and Thrag do make a lot of noise.", next = "noise" },
+        { text = "What runs short most often at the forge?", next = "short" },
+        { text = "I work iron myself. Do I need a better hammer?", next = "hammer", when = { profession = { name = "Blacksmithing", min = 1 } } },
         { text = "Keep the fires fed, Taur.", next = "END" },
+      },
+    },
+    noise = {
+      lines = { { id = "noise_d", text = "They do, and they have since they were calves, for Karn is my elder kin and Thrag his eager pupil. I learned long ago that if I shouted too, nobody would hear the coal running out, so I keep quiet and listen for it." } },
+      choices = {
+        { text = "You keep the smithy running, then.", next = "noise_running" },
+        { text = "Quiet tauren are rare in your family?", next = "BACK", reply = "Very rare. My mother says I was born with my mouth closed and never opened it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    noise_running = {
+      lines = { { id = "noise_running_d", text = "I keep it fed, which is a little different. Karn keeps it running, and Thrag keeps it hopeful, and the three of us would be a poor smithy apart and a good one together." } },
+      choices = {
+        { text = "That's a wise way to see it.", next = "BACK" },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    short = {
+      lines = { { id = "short_d", text = "Flux, always, for the smiths use it like salt and forget that it must be carried up the lifts in sacks. I order twice what I think we need, and still Thrag comes to me in the middle of a weld with his hand out." } },
+      choices = {
+        { text = "Then order three times as much.", next = "BACK", reply = "I have thought of it. Then he would only use three times as much." },
+        { text = "Who brings it up the lifts?", next = "short_lifts" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    short_lifts = {
+      lines = { { id = "short_lifts_d", text = "The traders from Orgrimmar, by kodo caravan to the foot of the bluff, and then the lift-keepers haul it up. They charge for every sack, and every sack is worth it, for I would not carry flux up those cliffs on my back." } },
+      choices = {
+        { text = "Nor would I.", next = "BACK" },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    hammer = {
+      lines = { { id = "hammer_d", text = "Let me feel the one you carry. It is balanced well enough, but the haft is too short for your arm, so you are working harder than you need to, and a smith's arm only has so many years in it." } },
+      choices = {
+        { text = "I'll take a longer haft, then.", next = "BACK", reply = "Good. Your arm will thank you in ten winters." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     quiet = {
@@ -3080,7 +3424,39 @@ P:NPC {
         { text = "Where would you dig, if you had the day?", next = "dig" },
         { text = "Who buys the ore that comes up here?", next = "ore" },
         { text = "Do the elders truly disapprove of miners?", next = "elders", when = { race = "Tauren" } },
+        { text = "What do you make of the Venture Company mine?", next = "venture" },
+        { text = "You test that edge on your thumb.", next = "thumb" },
         { text = "May your veins run deep, Kurm.", next = "END" },
+      },
+    },
+    venture = {
+      lines = { { id = "venture_d", text = "The goblins dig as if the earth owed them money, and they leave the ground torn open behind them. A tauren miner takes one vein and leaves the rest, and the goblins take everything and wonder why the hill falls in on their heads." } },
+      choices = {
+        { text = "Has their mine fallen in?", next = "venture_fallen" },
+        { text = "Greed makes poor miners.", next = "BACK", reply = "It does, and poorer neighbours. Brek would say the same, though louder." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    venture_fallen = {
+      lines = { { id = "venture_fallen_d", text = "Twice that I know of, and they dug it out again both times and kept on. I would not send a single brave to drive them off, for the mine will do it for us in the end, but the elders are less patient than I am." } },
+      choices = {
+        { text = "The elders have reason to be impatient.", next = "BACK", reply = "They do. It is their land the goblins are tearing." },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    thumb = {
+      lines = { { id = "thumb_d", text = "A good edge should catch the skin without cutting it, and a poor one slides or bites. My father taught me that, and he had a thumb like old leather from years of testing, which I am slowly earning myself." } },
+      choices = {
+        { text = "Your thumb looks well on its way.", next = "BACK", reply = "It is. In ten winters you may strike a match on it." },
+        { text = "Is there no better way to test?", next = "thumb_test" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    thumb_test = {
+      lines = { { id = "thumb_test_d", text = "There are ways, the dwarves say, with stones and glass and numbers. I trust my thumb, though, for it has never once lied to me, and I cannot say the same for any dwarf." } },
+      choices = {
+        { text = "A thumb doesn't haggle.", next = "BACK" },
+        { text = "Another question.", next = "BACK" },
       },
     },
     pick = {
@@ -3189,7 +3565,39 @@ P:NPC {
         { text = "The Mistrunners feed this whole city.", next = "family" },
         { text = "Who are your neighbours on the rise?", next = "rise" },
         { text = "What keeps on a long road?", next = "road", when = { minLevel = 20 } },
+        { text = "Which fruit do the travellers buy most?", next = "travellers" },
+        { text = "You pressed that melon on me like a gift.", next = "gift" },
         { text = "Sweet days to you, Nan.", next = "END" },
+      },
+    },
+    travellers = {
+      lines = { { id = "travellers_d", text = "Apples, for they keep, and melons for the ones who are going no further than the inn. The orcs buy everything as if it might be the last fruit they ever see, and from what I hear of Durotar, it very well might be." } },
+      choices = {
+        { text = "Durotar has little fruit?", next = "travellers_durotar" },
+        { text = "I'll take an apple for the road.", next = "BACK", reply = "A good choice. Keep it in the top of your pack, where it won't bruise." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    travellers_durotar = {
+      lines = { { id = "travellers_durotar_d", text = "Cactus apples, I am told, and those prickly things the trolls eat. An orc warrior wept at my blanket once over a pear, and I gave him three, for nobody should weep over a pear and go hungry." } },
+      choices = {
+        { text = "You're kind to the orcs.", next = "BACK", reply = "They are kind to us, in their way. The Horde feeds itself as one herd." },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    gift = {
+      lines = { { id = "gift_d", text = "It was half a gift, friend, and half a sale, for nobody can hold a melon that ripe and walk away. My mother sold fruit on the plains the same way, and she always said that a full hand opens a purse." } },
+      choices = {
+        { text = "Your mother taught you well.", next = "BACK", reply = "She did, and she still comes up the lift to check my blanket." },
+        { text = "Did it ever fail her?", next = "gift_fail" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gift_fail = {
+      lines = { { id = "gift_fail_d", text = "Only with the goblins, who took the fruit and haggled anyway. She said a goblin's purse has a lock on it that no melon was ever ripe enough to open, and I have found her right." } },
+      choices = {
+        { text = "Goblins would haggle over a gift.", next = "BACK", reply = "They would, and they would win. I let them, for the joy of watching." },
+        { text = "Another question.", next = "BACK" },
       },
     },
     ripe = {
@@ -3296,7 +3704,54 @@ P:NPC {
         { text = "Where do your spices come from?", next = "from" },
         { text = "What should a travelling cook always carry?", next = "carry", when = { profession = "Cooking" } },
         { text = "Do orcs really want more pepper?", next = "pepper", when = { race = "Orc" } },
+        { text = "Aska's Kitchen smells better than any inn.", next = "kitchen" },
+        { text = "What's the hardest thing to fetch for Aska?", next = "fetch" },
+        { text = "My companion eats better than I do.", next = "petfood", when = { class = "HUNTER" } },
         { text = "Eat well, Naal.", next = "END" },
+      },
+    },
+    kitchen = {
+      lines = { { id = "kitchen_d", text = "Don't let Innkeeper Pala hear you say so, friend, for she and Aska have been quarrelling over the best stew on the bluff since before I could carry a sack. Pala feeds the travellers and Aska feeds the students, and I fetch for both when they're speaking to each other." } },
+      choices = {
+        { text = "And when they aren't?", next = "kitchen_quarrel" },
+        { text = "Two good cooks on one bluff is a blessing.", next = "BACK", reply = "It is, until they both want the last of the sage." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kitchen_quarrel = {
+      lines = { { id = "kitchen_quarrel_d", text = "Then I fetch for Aska, because she's my kin and she remembers everything. Pala forgives me by the next moon, and she always asks what Aska put in her latest dish, so I've learned to forget it on the way down the bridges." } },
+      choices = {
+        { text = "A wise kind of forgetting.", next = "BACK", reply = "The only kind I'm any good at." },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    fetch = {
+      lines = { { id = "fetch_d", text = "Fresh plainstrider eggs, for they must be taken from the nests below the bluffs without breaking, and the birds have opinions about it. I come back with more kicks than eggs, most mornings, and Aska still asks why there aren't more." } },
+      choices = {
+        { text = "Plainstriders kick hard.", next = "fetch_kick" },
+        { text = "Why not keep birds up here?", next = "fetch_keep" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fetch_kick = {
+      lines = { { id = "fetch_kick_d", text = "Hard enough to knock a young tauren off his hooves, and I've the bruises to prove it. The trick is to go at dawn while they're still sleepy, and to take only one egg from each nest, so they don't follow you home." } },
+      choices = {
+        { text = "I'll remember that if I hunt them.", next = "BACK" },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    fetch_keep = {
+      lines = { { id = "fetch_keep_d", text = "We tried, once, and the wind blew half of them off the edge and the other half ate the herb beds. Aska banned birds from the High Rise that same day, and nobody has dared to suggest it since." } },
+      choices = {
+        { text = "Wise of her.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    petfood = {
+      lines = { { id = "petfood_d", text = "Most hunters' companions do, friend, for the hunter feeds the beast first and himself with whatever is left. If you want a meal for both of you, take some of my spiced meat, which a wolf will eat as happily as you will." } },
+      choices = {
+        { text = "Then we'll share a meal tonight.", next = "BACK", reply = "Good. Nothing brings a hunter and a beast closer than a shared fire." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     aska = {
@@ -3398,7 +3853,54 @@ P:NPC {
         { text = "Tell me about Kah.", next = "kah" },
         { text = "You find adventurers funny, I think.", next = "funny" },
         { text = "Where should a fisher go beyond Mulgore?", next = "beyond", when = { profession = "Fishing" } },
+        { text = "Your float hasn't moved since I arrived.", next = "float" },
+        { text = "Who buys the fish caught up here?", next = "buyers" },
+        { text = "My people fish from canoes on the open sea.", next = "troll_sea", when = { race = "Troll" } },
         { text = "Still waters to you, Sewa.", next = "END" },
+      },
+    },
+    float = {
+      lines = { { id = "float_d", text = "No, and it may not move all day, which suits me very well. I don't fish to catch anything, friend, for there are only a few fish in this pond and Kah knows each of them; I fish so that I may sit still beside the water." } },
+      choices = {
+        { text = "Then it's more like prayer than fishing.", next = "float_prayer" },
+        { text = "Kah knows each fish?", next = "float_kah" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    float_prayer = {
+      lines = { { id = "float_prayer_d", text = "Perhaps it is, though I would not say so to the priests. The Earth Mother made water for drinking and for sitting beside, and I think she would be pleased to see someone doing the second." } },
+      choices = {
+        { text = "I think she would.", next = "BACK", reply = "Then sit, if you like, and we shall both please her." },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    float_kah = {
+      lines = { { id = "float_kah_d", text = "By their scars, and he has given them names, though he will not tell me what they are. He says that a fisherman who names his fish will never eat them, and so these ones are safe for as long as he lives." } },
+      choices = {
+        { text = "A strange kind of mercy.", next = "BACK" },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    buyers = {
+      lines = { { id = "buyers_d", text = "Very few, for the fish of this pond are not for eating. The fish Aska cooks come up the lifts from the lakes of Mulgore, and my cousin Naal carries them, grumbling, in a wet sack over his shoulder." } },
+      choices = {
+        { text = "Naal grumbles a great deal.", next = "buyers_naal" },
+        { text = "So you sell the gear but not the catch.", next = "BACK", reply = "Just so. The catch is the fisher's own business." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    buyers_naal = {
+      lines = { { id = "buyers_naal_d", text = "He does, and he means very little of it. Naal would carry the whole lake up the lifts if Aska asked him, and complain about every drop, and be secretly proud of it at supper." } },
+      choices = {
+        { text = "That sounds like family.", next = "BACK", reply = "It is. The Mistrunners are all a little like that." },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    troll_sea = {
+      lines = { { id = "troll_sea_d", text = "Then you know a kind of fishing I never will, friend, with the whole sea pulling at the line. Kah says the Darkspear on the coast of Durotar catch fish longer than a tauren is tall, and I believe him, though I would not want to sit still in a canoe." } },
+      choices = {
+        { text = "The sea doesn't let you sit still.", next = "BACK", reply = "No, and that is why I have my little pond instead." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     pond = {
@@ -3505,7 +4007,39 @@ P:NPC {
         { text = "Who buys from you?", next = "buys" },
         { text = "Those patterns look like they mean something.", next = "pattern" },
         { text = "What basket suits a gatherer?", next = "gather", when = { profession = "Herbalism" } },
+        { text = "Your fingers never stop moving.", next = "fingers" },
+        { text = "What's the largest basket you've ever woven?", next = "largest" },
         { text = "May your reeds stay supple, Tand.", next = "END" },
+      },
+    },
+    fingers = {
+      lines = { { id = "fingers_d", text = "They have not stopped since I was a calf, for my grandmother set me to weaving so that I would sit quietly through the elders' councils. I am still not good at sitting quietly, but I am a great deal better at baskets." } },
+      choices = {
+        { text = "Do they ever rest?", next = "fingers_rest" },
+        { text = "Your grandmother was clever.", next = "BACK", reply = "She was. The baskets I wove at those councils are still carrying grain in Bloodhoof." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fingers_rest = {
+      lines = { { id = "fingers_rest_d", text = "When I sleep, and even then my mate says they twitch. A weaver whose hands go idle loses the feel of the reed, and it takes a full day to find it again, so I would rather keep them busy and lose nothing." } },
+      choices = {
+        { text = "Busy hands are steady hands.", next = "BACK" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    largest = {
+      lines = { { id = "largest_d", text = "A pair of panniers for a caravan kodo, each one as wide as a lodge door, which took me most of a season. The caravan masters who travel to the Crossroads still use them, and I am told they have carried everything from grain to a sleeping orc." } },
+      choices = {
+        { text = "A sleeping orc?", next = "largest_orc" },
+        { text = "That must have been a proud season.", next = "BACK", reply = "It was, and a sore one. My hands ached until midwinter." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    largest_orc = {
+      lines = { { id = "largest_orc_d", text = "A grunt who had drunk too much at the inn and could not walk, so the caravan master put him in the pannier and carried him to the Crossroads. He woke halfway there and complained about the weave, and I took it as a compliment." } },
+      choices = {
+        { text = "Even an orc couldn't break it.", next = "BACK", reply = "Nothing breaks a well-made basket except carelessness." },
+        { text = "Another question.", next = "BACK" },
       },
     },
     reeds = {
@@ -3608,7 +4142,46 @@ P:NPC {
         { text = "How do I care for one on the road?", next = "care" },
         { text = "You said you turn some buyers away.", next = "turn" },
         { text = "Do hunters trouble you?", next = "hunters", when = { class = "HUNTER" } },
+        { text = "Where do your prairie dogs come from?", next = "origin" },
+        { text = "The grey one hasn't stopped staring at me.", next = "grey" },
         { text = "Be well, Halpa, and your little ones.", next = "END" },
+      },
+    },
+    origin = {
+      lines = { { id = "origin_d", text = "From the plains of Mulgore, from burrows that the quilboar or the gnolls have torn open. I take only the pups whose families are gone, and raise them here until they are strong enough to go with someone kind." } },
+      choices = {
+        { text = "So you rescue them, really.", next = "origin_rescue" },
+        { text = "The gnolls hunt prairie dogs?", next = "origin_gnoll" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    origin_rescue = {
+      lines = { { id = "origin_rescue_d", text = "I would not use so grand a word, but yes, I suppose I do. Somebody must, for the plains are cruel to small things, and the Earth Mother gave me a soft heart and a hut with room in it." } },
+      choices = {
+        { text = "A soft heart is a gift.", next = "BACK", reply = "Not always a useful one, but I would not trade it." },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    origin_gnoll = {
+      lines = { { id = "origin_gnoll_d", text = "The Palemane gnolls dig them out for food when the hunting is poor, which it often is, for gnolls are poor hunters. I have spoken to the braves about it, and they say the gnolls are a larger problem than a few prairie dogs, which is true but not much comfort." } },
+      choices = {
+        { text = "Then I'll be less kind to gnolls.", next = "BACK" },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    grey = {
+      lines = { { id = "grey_d", text = "She is judging you, friend, as she judges everyone who comes to my hut. She has been with me longer than any of the others, and she will not go with anyone, so I have stopped offering her." } },
+      choices = {
+        { text = "What's her name?", next = "grey_name" },
+        { text = "I hope she approves of me.", next = "BACK", reply = "She has not bitten you, which is as close to approval as she gives." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grey_name = {
+      lines = { { id = "grey_name_d", text = "I call her Dust, for the colour of her coat and the way she vanishes when she does not want to be found. She is the only one I would not part with for any price, and I think she knows it." } },
+      choices = {
+        { text = "Dust suits her.", next = "BACK", reply = "It does. She chose it herself, I think." },
+        { text = "Let me ask about something else.", next = "BACK" },
       },
     },
     hut = {
@@ -3717,7 +4290,39 @@ P:NPC {
         { text = "Jyn Stonehoof says you oversell your blades.", next = "jyn" },
         { text = "What makes a good sword?", next = "good" },
         { text = "Do you think less of dagger work?", next = "dagger", when = { class = "ROGUE" } },
+        { text = "Where do your blades come from?", next = "forge" },
+        { text = "You watched how I held that sword.", next = "grip" },
         { text = "Honor to your tribe, Kard.", next = "END" },
+      },
+    },
+    forge = {
+      lines = { { id = "forge_d", text = "Some from Karn Stonehoof's forge on the lower rise, and more from the smiths of Orgrimmar, who make a sword better than any tauren yet. I do not hide it, young one, for a Ragetotem cares where a blade has been, not where it was born." } },
+      choices = {
+        { text = "You admit the orcs make better swords?", next = "forge_orcs" },
+        { text = "A blade's deeds matter more than its forge.", next = "BACK", reply = "Spoken like a warrior. Delgo would argue, but Delgo argues with the wind." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forge_orcs = {
+      lines = { { id = "forge_orcs_d", text = "For now, and I say it with no shame. They have fought with swords for longer than our people have known iron, and Karn learns from every blade I bring back to show him, so in a generation we shall see." } },
+      choices = {
+        { text = "Then the tauren learn quickly.", next = "BACK" },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    grip = {
+      lines = { { id = "grip_d", text = "I did, because the hand tells me what the blade should be. You held it too far down the hilt, as if you feared it would turn on you, and a sword held in fear will always find a way to do exactly that." } },
+      choices = {
+        { text = "How should I hold it, then?", next = "grip_fix" },
+        { text = "I'll keep that in mind.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grip_fix = {
+      lines = { { id = "grip_fix_d", text = "Close to the guard, with the grip firm in the last two fingers and loose in the first. The sword should feel like your arm has grown a little longer, and if it feels like a separate thing, you have the wrong blade." } },
+      choices = {
+        { text = "Then help me find the right one.", next = "BACK", reply = "Gladly. That is what I am here for." },
+        { text = "Let me ask about something else.", next = "BACK" },
       },
     },
     small = {
@@ -3823,7 +4428,39 @@ P:NPC {
         { text = "Which axe would you carry yourself?", next = "carry" },
         { text = "An axe that builds a lodge can't be much in a fight.", next = "build" },
         { text = "One axe, or one in each hand?", next = "two", when = { class = { "WARRIOR", "SHAMAN", "HUNTER" } } },
+        { text = "The orcs must love your axes.", next = "orcs" },
+        { text = "How do you test an axe before selling it?", next = "test" },
         { text = "Keep your edges keen, Delgo.", next = "END" },
+      },
+    },
+    orcs = {
+      lines = { { id = "orcs_d", text = "Love them? They fight over them, friend! An orc came all the way from Orgrimmar last moon for one of my felling axes, and he swore it was the best thing he had ever held, and then he went straight off to Ashenvale to cut trees with it." } },
+      choices = {
+        { text = "Cutting trees in Ashenvale is a war.", next = "orcs_war" },
+        { text = "The Horde runs on good axes.", next = "BACK", reply = "Ha! It does, and on good warriors to swing them. I like the way you think." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    orcs_war = {
+      lines = { { id = "orcs_war_d", text = "So I hear, and I am not sure what I think of it. My axes were made to build and defend, not to start fights with elves, but an axe does not choose its work, and neither, I suppose, does the orc who carries it." } },
+      choices = {
+        { text = "Then let the orc choose well.", next = "BACK", reply = "I hope he does. I will not sell to one who doesn't." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    test = {
+      lines = { { id = "test_d", text = "On the block in the corner, with a log of Mulgore oak, and if the axe does not split it in one stroke it goes back to the forge. Kard tests his swords on cloth, which tells you everything you need to know about swords." } },
+      choices = {
+        { text = "Show me the block, then.", next = "test_block" },
+        { text = "Cloth is a fair test for a sword.", next = "BACK", reply = "Fair for cloth, maybe. I have yet to see a centaur made of silk." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    test_block = {
+      lines = { { id = "test_block_d", text = "There it is, scarred like an old warrior, and I have split more logs on it than I can count. When it breaks I will make a new one, but I will keep the old one, for a good block has earned its place." } },
+      choices = {
+        { text = "You honour your tools.", next = "BACK" },
+        { text = "Let me ask about something else.", next = "BACK" },
       },
     },
     swords = {
@@ -3929,7 +4566,39 @@ P:NPC {
         { text = "You're quieter than your kin.", next = "quiet" },
         { text = "Where do your staves come from?", next = "wood" },
         { text = "What makes a staff right for a druid?", next = "druid", when = { class = "DRUID" } },
+        { text = "How do you end the arguments in this hall?", next = "argue" },
+        { text = "A mace seems a humble weapon.", next = "humble" },
         { text = "Walk with the Earth Mother, Etu.", next = "END" },
+      },
+    },
+    argue = {
+      lines = { { id = "argue_d", text = "By waiting until they have shouted themselves out, and then saying the one thing neither of them thought of. Kard and Delgo forget that every weapon in this hall was made for the same work, and that a brave only cares which one keeps him alive." } },
+      choices = {
+        { text = "Give me an example.", next = "argue_example" },
+        { text = "Patience is a weapon too.", next = "BACK", reply = "The oldest one, and the one I sell least of." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    argue_example = {
+      lines = { { id = "argue_example_d", text = "Last moon they argued for an hour whether sword or axe was better against the centaur. I told them the centaur care only that something hits them, and that a mace hits them hardest, and they were both so annoyed that they stopped." } },
+      choices = {
+        { text = "That's a clever way to end it.", next = "BACK" },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    humble = {
+      lines = { { id = "humble_d", text = "It is, and that is its strength. A mace has no edge to dull and no point to break, and it asks nothing of its wielder but a strong arm and a steady heart, which is why the shamans favour it above all." } },
+      choices = {
+        { text = "Why the shamans especially?", next = "humble_shaman" },
+        { text = "Humble things often last longest.", next = "BACK", reply = "They do. You have a good eye, friend." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    humble_shaman = {
+      lines = { { id = "humble_shaman_d", text = "Because a shaman fights with the elements and must not be thinking about his blade. A mace lets him strike without care for the edge, so that his mind stays on the earth and the wind, where it belongs." } },
+      choices = {
+        { text = "Then it's a weapon for the spirit.", next = "BACK" },
+        { text = "Let me ask about something else.", next = "BACK" },
       },
     },
     rock = {
@@ -4034,7 +4703,47 @@ P:NPC {
         { text = "That maul looks like a tree trunk.", next = "totem" },
         { text = "How do I swing something this heavy?", next = "swing" },
         { text = "Could a tauren carry something heavier still?", next = "heavier", when = { race = "Tauren" } },
+        { text = "Who buys the heaviest weapons?", next = "buyers" },
+        { text = "You handle that maul like a twig.", next = "strong" },
+        { text = "I want the heaviest thing you have.", next = "heaviest", when = { class = "WARRIOR" } },
         { text = "Strength to you, Ohanko.", next = "END" },
+      },
+    },
+    buyers = {
+      lines = { { id = "buyers_d", text = "The warriors that Sark and Torm Ragetotem train on Hunter Rise, mostly, once they have learned that a shield is not the only way to stand. The orcs come too, and they always want the biggest thing on the rack, and then they find they cannot lift it." } },
+      choices = {
+        { text = "The orcs can't lift your weapons?", next = "buyers_orc" },
+        { text = "Strength isn't everything in a fight.", next = "BACK", reply = "No, but it is a good start, and it is the start I sell." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    buyers_orc = {
+      lines = { { id = "buyers_orc_d", text = "Some of them can, and those I like very much. But a tauren's maul was made for a tauren's arm, and a young grunt who tries to swing one usually ends up on his back with the maul on his chest and his friends laughing." } },
+      choices = {
+        { text = "That would teach him something.", next = "BACK" },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    strong = {
+      lines = { { id = "strong_d", text = "My father carried the lodge poles for our whole camp when we moved, and I carried them after him. When you have hauled a lodge across Mulgore on your back, a maul feels very light indeed." } },
+      choices = {
+        { text = "That's a hard way to grow strong.", next = "strong_hard" },
+        { text = "I'd like to see you carry a lodge.", next = "BACK", reply = "There are no lodges to carry now. We have a city, and I sell mauls instead." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    strong_hard = {
+      lines = { { id = "strong_hard_d", text = "It was, but it was the way of our people, and nobody thought it hard then. Now the young grow up on the bluff with lifts to carry everything, and I wonder sometimes if they will be as strong as their grandparents." } },
+      choices = {
+        { text = "Strength will find them in other ways.", next = "BACK", reply = "I hope so. The world beyond Mulgore will test them soon enough." },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    heaviest = {
+      lines = { { id = "heaviest_d", text = "That one, at the end of the rack, and I warn you that it has broken the pride of three warriors this season. If you can lift it to your shoulder, I will sell it to you, and if you cannot, I will sell you something you can." } },
+      choices = {
+        { text = "I'll lift it.", next = "BACK", reply = "We shall see, warrior. We shall see." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     hall = {
@@ -4139,7 +4848,39 @@ P:NPC {
         { text = "The Wildmanes on Elder Rise are your kin?", next = "kin" },
         { text = "Who works near you?", next = "rise" },
         { text = "Does a harness survive a change of shape?", next = "shape", when = { class = "DRUID" } },
+        { text = "What's the hardest part of a harness to fit?", next = "hard" },
+        { text = "Your harnesses carry the old tribal marks.", next = "marks" },
         { text = "Earth Mother watch over you, Sura.", next = "END" },
+      },
+    },
+    hard = {
+      lines = { { id = "hard_d", text = "The shoulders, always, for no two tauren carry their weight the same way. A harness that rubs at the shoulder will raise a sore in a day and an open wound in a week, so I fit every one by hand and send nobody away with a strap that pinches." } },
+      choices = {
+        { text = "That's a great deal of care for armor.", next = "hard_care" },
+        { text = "I'll trust your hands, then.", next = "BACK", reply = "Good. Now stand still and let me check yours." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hard_care = {
+      lines = { { id = "hard_care_d", text = "It is the only kind of care that matters, young one. A brave in a bad harness thinks about the harness, and a brave thinking about his harness is not thinking about the centaur in front of him." } },
+      choices = {
+        { text = "Fair point.", next = "BACK" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    marks = {
+      lines = { { id = "marks_d", text = "They do, for every harness is beaded with the marks of the tribe that wears it. A Bloodhoof harness looks different from a Ragetotem one, and a brave on the battlefield can tell friend from friend at a glance." } },
+      choices = {
+        { text = "Can I choose my own marks?", next = "marks_choose" },
+        { text = "The old ways survive in the beadwork.", next = "BACK", reply = "They do, and I mean to keep them alive as long as I have fingers." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    marks_choose = {
+      lines = { { id = "marks_choose_d", text = "You may, if you are not of a tribe, and many outsiders do. I ask them what they have fought for, and I bead the harness with that, so that it tells their story to anyone who knows how to read it." } },
+      choices = {
+        { text = "Then I'll tell you what I fight for.", next = "BACK", reply = "Good. Sit, and tell me while I work." },
+        { text = "Another question.", next = "BACK" },
       },
     },
     harness = {
@@ -4244,7 +4985,47 @@ P:NPC {
         { text = "Kuna Thunderhorn sells bows nearby.", next = "kuna" },
         { text = "Bow or gun, for a hunter?", next = "choose", when = { class = "HUNTER" } },
         { text = "Do you build any of these yourself?", next = "build", when = { profession = "Engineering" } },
+        { text = "You must love the sound of a gun firing.", next = "sound" },
+        { text = "Do any tauren hunters carry guns now?", next = "hunters" },
+        { text = "My bow's served me well. Why switch?", next = "bowhunter", when = { class = "HUNTER" } },
         { text = "Keep your powder dry, Hogor.", next = "END" },
+      },
+    },
+    sound = {
+      lines = { { id = "sound_d", text = "I do, though the kodo don't, and neither does anyone who lives within a mile of the bluff. I test every gun down on the plains below, well away from the herds, and still the herders send me complaints." } },
+      choices = {
+        { text = "What do the herders say?", next = "sound_herders" },
+        { text = "You'd have more friends with a bow.", next = "BACK", reply = "Probably, but I wouldn't be half as happy." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sound_herders = {
+      lines = { { id = "sound_herders_d", text = "That I frighten the calves, and that the Earth Mother did not make thunder for tauren to carry in their hands. I tell them that she made the thunder and I only borrowed it, and they tell me to borrow it further away." } },
+      choices = {
+        { text = "A fair compromise.", next = "BACK", reply = "I thought so. I walk an extra mile now, and I've stopped hearing about it." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    hunters = {
+      lines = { { id = "hunters_d", text = "A few, and more every season. Urek Thunderhorn on Hunter Rise still teaches the bow first, but he lets his students try my guns, and some of them never go back to the bow." } },
+      choices = {
+        { text = "Urek approves of guns?", next = "hunters_urek" },
+        { text = "The young like new things.", next = "BACK", reply = "They do, and the elders worry, but every new thing was once new." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hunters_urek = {
+      lines = { { id = "hunters_urek_d", text = "He tolerates them, which is a different thing. He says a gun will kill a beast as well as a bow, but that a hunter with a bow must get close enough to know the beast first, and he is right about that." } },
+      choices = {
+        { text = "Both have something to teach.", next = "BACK" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    bowhunter = {
+      lines = { { id = "bowhunter_d", text = "You needn't, friend, for a good bow is a fine thing and Kuna Thunderhorn makes the best. But a gun reaches farther, hits harder, and doesn't care about the wind, and some days that matters more than grace." } },
+      choices = {
+        { text = "I'll think on it.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
       },
     },
     elders = {
@@ -4355,7 +5136,39 @@ P:NPC {
         { text = "Who shares this tent with you?", next = "tent" },
         { text = "Can you fit armor to someone my size?", next = "size", when = { race = { "Orc", "Troll", "Scourge" } } },
         { text = "What should a warrior buy first?", next = "first", when = { class = "WARRIOR" } },
+        { text = "Where does your armor come from?", next = "source" },
+        { text = "You rapped my chest like a door.", next = "rap" },
         { text = "Stand strong, Fela.", next = "END" },
+      },
+    },
+    source = {
+      lines = { { id = "source_d", text = "From the forges of Orgrimmar, mostly, and from Karn Stonehoof on the lower rise when he has the iron. Orc plate is heavy and plain and very good, and Karn's is lighter and prettier and still learning how to stop an axe." } },
+      choices = {
+        { text = "Karn's work is still learning?", next = "source_karn" },
+        { text = "Orc steel has kept many warriors alive.", next = "BACK", reply = "It has, and I would rather sell plain armor that works than pretty armor that doesn't." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    source_karn = {
+      lines = { { id = "source_karn_d", text = "He is a fine smith, but our people have only worked plate for a few seasons, and the orcs have done it for generations. Give him time and he will make armor as good as any orc's, and with the beadwork on top." } },
+      choices = {
+        { text = "I'll look forward to it.", next = "BACK" },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    rap = {
+      lines = { { id = "rap_d", text = "It tells me what you're wearing without making you take it off, and whether it fits. Good plate rings, poor plate clanks, and leather just thumps like a drum, and yours, friend, was somewhere in between." } },
+      choices = {
+        { text = "What should I do about it?", next = "rap_fix" },
+        { text = "A rough way to judge armor.", next = "BACK", reply = "But a quick one, and nobody has ever complained after." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rap_fix = {
+      lines = { { id = "rap_fix_d", text = "Tighten the straps at the side and stop letting the chest plate ride up when you raise your arm. If it still clanks after that, come back to me and I will find you something that sings." } },
+      choices = {
+        { text = "Armor that sings. I like that.", next = "BACK" },
+        { text = "Let me ask about something else.", next = "BACK" },
       },
     },
     new = {
@@ -4459,7 +5272,47 @@ P:NPC {
         { text = "Ahanu on the lower rise sells leather too.", next = "ahanu" },
         { text = "How do I keep leather from cracking?", next = "keep" },
         { text = "What hides make the best armor?", next = "hides", when = { profession = { "Leatherworking", "Skinning" } } },
+        { text = "You move lightly for a tauren.", next = "light" },
+        { text = "Who buys the most leather from you?", next = "buyers" },
+        { text = "I need armor that doesn't creak.", next = "creak", when = { class = "ROGUE" } },
         { text = "Tread lightly, Grod.", next = "END" },
+      },
+    },
+    light = {
+      lines = { { id = "light_d", text = "I learned on the plains below, stalking plainstriders for the cook-fires before I was old enough to carry a spear. A plainstrider hears a heavy hoof from across a valley, so a young tauren either learns to walk softly or goes hungry." } },
+      choices = {
+        { text = "Could you teach me to walk so softly?", next = "light_teach" },
+        { text = "Fela would call that dodging.", next = "BACK", reply = "Fela calls everything dodging. She has never once been sorry to see me move." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    light_teach = {
+      lines = { { id = "light_teach_d", text = "Put your weight down slowly, toe before heel, and never step where you have not looked. It is a simple thing to say and a hard thing to do in leather that creaks, which is why I sell leather that doesn't." } },
+      choices = {
+        { text = "A clever way to make a sale.", next = "BACK", reply = "It is also true, which is the best kind of sale." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    buyers = {
+      lines = { { id = "buyers_d", text = "Hunters and druids, of course, and the orc and troll scouts who come through on their way to the Barrens. The Forsaken buy it too, though they never tell me what they want it for, and I have learned not to ask." } },
+      choices = {
+        { text = "Why don't you ask?", next = "buyers_ask" },
+        { text = "Leather suits everyone who moves.", next = "BACK", reply = "It does, and that is most of the people worth knowing." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    buyers_ask = {
+      lines = { { id = "buyers_ask_d", text = "Because the last time I did, a Forsaken told me in great detail, and I could not eat for two days. Some answers are better left in the pack where they came from." } },
+      choices = {
+        { text = "Wise.", next = "BACK" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    creak = {
+      lines = { { id = "creak_d", text = "Then you want the softened hides at the back, worked with oil until they move like skin. A rogue in creaking leather is only a loud warrior, and I would not sell you anything that would get you caught." } },
+      choices = {
+        { text = "I'll take the soft ones.", next = "BACK", reply = "Good choice. Walk softly in them." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     fela = {
@@ -4565,7 +5418,39 @@ P:NPC {
         { text = "Hewa sells robes on the lower rise as well.", next = "hewa" },
         { text = "Why hang them in the wind?", next = "wind" },
         { text = "What does a healer's robe need?", next = "healer", when = { class = { "PRIEST", "SHAMAN", "DRUID" } } },
+        { text = "Who wears your robes most often?", next = "wearers" },
+        { text = "You seem very much at peace up here.", next = "peace" },
         { text = "May the winds be gentle with you.", next = "END" },
+      },
+    },
+    wearers = {
+      lines = { { id = "wearers_d", text = "The shamans and druids of our people, and more and more the mages and priests who teach on Spirit Rise. Archmage Shymm and the others came to me within a moon of arriving, and they said that Thunder Bluff's wind was colder than they had expected." } },
+      choices = {
+        { text = "The mages on Spirit Rise buy from you?", next = "wearers_mage" },
+        { text = "Robes are for everyone who fights with the spirit.", next = "BACK", reply = "They are, and I am glad so many of them find their way to me." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wearers_mage = {
+      lines = { { id = "wearers_mage_d", text = "They do, though they ask for darker colours than I usually keep. The Forsaken among them want robes that hide the shape of what is underneath, and I make them, though I do not ask what they are hiding." } },
+      choices = {
+        { text = "You're kind to them.", next = "BACK", reply = "The wind is kind to everyone. I try to be the same." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    peace = {
+      lines = { { id = "peace_d", text = "I am, most days, for the wind and the cloth and the walking of customers make a slow kind of music. When the storms come in from the plains, though, I must take down every robe at once, and then I am not at peace at all." } },
+      choices = {
+        { text = "The storms come often?", next = "peace_storm" },
+        { text = "A slow kind of music. I can hear it.", next = "BACK", reply = "Then you have been here long enough to listen. Most only shop." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    peace_storm = {
+      lines = { { id = "peace_storm_d", text = "Twice a moon in the wet season, and they come fast. The lightning strikes the totems on Elder Rise first, and when I see the first flash I have just enough time to save the robes and not quite enough to save my temper." } },
+      choices = {
+        { text = "Then I'll help you, if I'm here.", next = "BACK", reply = "That would be kind. I will hold you to it." },
+        { text = "Let me ask about something else.", next = "BACK" },
       },
     },
     walk = {
@@ -4669,7 +5554,39 @@ P:NPC {
         { text = "What does a beginner spoil most often?", next = "spoil" },
         { text = "Who else works in this tent?", next = "tent" },
         { text = "When will I be ready for Una?", next = "ready", when = { profession = "Leatherworking" } },
+        { text = "What did you make first, as a learner?", next = "first" },
+        { text = "Your own work looks very careful.", next = "own" },
         { text = "Thank you, Tarn.", next = "END" },
+      },
+    },
+    first = {
+      lines = { { id = "first_d", text = "A kodo hide bag, like every leatherworker on the bluff, stitched so badly that it fell apart before I reached the lift. Veren Tallstrider on the lower rise still sends the young ones to make that same bag, and I laugh every time I see one." } },
+      choices = {
+        { text = "Did you make another?", next = "first_again" },
+        { text = "Everyone's first bag falls apart.", next = "BACK", reply = "Not everyone's, but mine did, and so did Una's, though she will not admit it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    first_again = {
+      lines = { { id = "first_again_d", text = "I made seven before one held, and I carried the seventh for ten winters until it wore through. Every learner who comes to me now hears about all seven, so that they know a failure is only the first step toward the bag that holds." } },
+      choices = {
+        { text = "That's a good lesson to give.", next = "BACK" },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    own = {
+      lines = { { id = "own_d", text = "You are kind to say it, but Una would find a dozen faults in it before you had finished speaking. Careful is where I am now, and the masters say that careful comes before good, which comes before beautiful." } },
+      choices = {
+        { text = "Then you're on the right path.", next = "own_una" },
+        { text = "Careful is enough for most.", next = "BACK", reply = "For most, yes, but not for Una. That is why she is the master." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    own_una = {
+      lines = { { id = "own_una_d", text = "I hope so, and so does Una, though she shows it by finding faults. She told me once that she only criticises the work of those she thinks will be masters, so I have learned to be glad when she frowns at me." } },
+      choices = {
+        { text = "A strange kind of praise.", next = "BACK" },
+        { text = "Let me ask about something else.", next = "BACK" },
       },
     },
     gently = {
@@ -4776,7 +5693,39 @@ P:NPC {
         { text = "Mahu sells leatherworking supplies too.", next = "mahu" },
         { text = "Where do the dyes come from?", next = "dye" },
         { text = "How do I waste less hide?", next = "waste", when = { profession = "Leatherworking" } },
+        { text = "Who sells you the salt?", next = "salt" },
+        { text = "You'd rather teach than sell, I think.", next = "teach" },
         { text = "Good work to you, Mak.", next = "END" },
+      },
+    },
+    salt = {
+      lines = { { id = "salt_d", text = "The goblins of the Shimmering Flats, who scrape it off the old lakebed and sell it to everyone in Kalimdor. It comes up the lifts in great sacks, and I check every one, for a goblin will mix sand into salt and call it a premium blend." } },
+      choices = {
+        { text = "Do they cheat you often?", next = "salt_cheat" },
+        { text = "Goblins sell everything, even dry lakes.", next = "BACK", reply = "Even dry lakes, and they charge for the view." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    salt_cheat = {
+      lines = { { id = "salt_cheat_d", text = "Only once, for I sent the sack back with a hide in it that had rotted from the sand, and a note that said exactly what I thought of their blend. They have sent me pure salt ever since, and a little extra, which I suspect is an apology." } },
+      choices = {
+        { text = "Goblins respect a hard bargain.", next = "BACK" },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    teach = {
+      lines = { { id = "teach_d", text = "Perhaps I would, but Una and Tarn do the teaching here, and somebody has to keep the bench full. I give advice instead, which is like teaching without the bother of anyone listening." } },
+      choices = {
+        { text = "I'm listening.", next = "teach_listen" },
+        { text = "Advice is cheaper than lessons.", next = "BACK", reply = "And worth more, sometimes, though I would say that." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    teach_listen = {
+      lines = { { id = "teach_listen_d", text = "Then here is the best of it, which I give to everyone. Cure your hides slowly, cut your patterns twice in your head before once with the knife, and never trust anyone who tells you that leather is easy." } },
+      choices = {
+        { text = "Not even Una?", next = "BACK", reply = "Una has never said leather was easy. That is why I trust her." },
+        { text = "Let me ask about something else.", next = "BACK" },
       },
     },
     cure = {
@@ -4882,7 +5831,39 @@ P:NPC {
         { text = "What is Tepa like to learn from?", next = "tepa" },
         { text = "What can a tailor do for a camp?", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Tailoring") } },
         { text = "Let me tell you what they wear in the east.", next = "east", when = { minLevel = 30 } },
+        { text = "What's the worst thing you've ever sewn?", next = "worst" },
+        { text = "You'd lose count less if you hummed.", next = "hum" },
         { text = "Keep counting, Vhan.", next = "END" },
+      },
+    },
+    worst = {
+      lines = { { id = "worst_d", text = "A robe for an orc shaman, which I measured while telling him about my cousin's wedding, and which came out small enough for a troll child. He was very kind about it and said he would give it to his nephew, and Tepa did not let me hold a measuring cord for a whole moon." } },
+      choices = {
+        { text = "Did you make him another?", next = "worst_again" },
+        { text = "Measuring and talking don't mix.", next = "BACK", reply = "That is exactly what Tepa said, only louder, and in front of the whole tent." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    worst_again = {
+      lines = { { id = "worst_again_d", text = "I did, and I kept my mouth shut through every measurement, and it fit him like his own hide. He came back to show me after a season in the Barrens, and it was the proudest day of my apprenticeship, which I then told him about for an hour." } },
+      choices = {
+        { text = "Of course you did.", next = "BACK", reply = "Of course I did! Some habits are stronger than lessons." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    hum = {
+      lines = { { id = "hum_d", text = "I tried that, friend, and Tepa said it was worse than the talking, because at least the talking had words she could ignore. I hum only when she has gone to the inn now, and the stitches are no straighter for it." } },
+      choices = {
+        { text = "So the talking stays.", next = "hum_stays" },
+        { text = "Tepa is hard to please.", next = "BACK", reply = "She is, and that is why her robes are the best on the bluff. I am learning to be grateful." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hum_stays = {
+      lines = { { id = "hum_stays_d", text = "It stays, but it grows quieter every season, and Tepa says that by the time I am her age I may manage a whole sleeve in silence. I am not sure I want to, though, for half my customers come back to hear the end of a story." } },
+      choices = {
+        { text = "Then the stories are good for business.", next = "BACK", reply = "I keep telling Tepa that! She keeps not listening." },
+        { text = "Let me ask about something else.", next = "BACK" },
       },
     },
     talk = {
@@ -4984,7 +5965,46 @@ P:NPC {
         { text = "Their tools seem to wander between tents.", next = "awls" },
         { text = "Which craft do you favour yourself?", next = "favour" },
         { text = "Why do the Forsaken buy only black?", next = "black", when = { race = "Scourge" } },
+        { text = "What news do you hear from this spot?", next = "news" },
+        { text = "Your tent is the quietest on the rise.", next = "quiet" },
         { text = "Peace on your tent, Mahu.", next = "END" },
+      },
+    },
+    news = {
+      lines = { { id = "news_d", text = "All of it, friend, and most of it about the tents on either side. This moon, Kray has labelled the same vial four times, Mot has broken another of Nata's rods, and Hogor's gun went off on the plains and frightened half a herd of kodo into the river." } },
+      choices = {
+        { text = "And the half you don't repeat?", next = "news_half" },
+        { text = "The middle rise is a lively place.", next = "BACK", reply = "Lively is a kind word. Loud would also do." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    news_half = {
+      lines = { { id = "news_half_d", text = "Is the half that would cause trouble, and so it stays with me. A merchant who repeats everything soon has no customers who trust him, and I would rather be trusted than interesting." } },
+      choices = {
+        { text = "A sensible choice.", next = "BACK", reply = "It has kept me in business, and kept the peace between the tents." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    quiet = {
+      lines = { { id = "quiet_d", text = "It is, because I keep it so, and both tents come here to escape each other. Tepa's tailors sit on that side of my bench and Una's leatherworkers on this side, and for a little while nobody argues about whose craft is older." } },
+      choices = {
+        { text = "You're a peacemaker, then.", next = "quiet_peace" },
+        { text = "Whose craft is older?", next = "quiet_older" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    quiet_peace = {
+      lines = { { id = "quiet_peace_d", text = "I am a merchant who likes his customers alive and buying. If that is what a peacemaker is, then I suppose I am one, though the elders would laugh to hear it." } },
+      choices = {
+        { text = "The elders might be impressed.", next = "BACK" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    quiet_older = {
+      lines = { { id = "quiet_older_d", text = "Leather, plainly, for our people wore hides long before they wore cloth. But I would never say so in front of Tepa, and if you repeat it, I shall deny I ever met you." } },
+      choices = {
+        { text = "Your secret is safe.", next = "BACK", reply = "Good. I sell secrets too, but only to myself." },
+        { text = "Another question.", next = "BACK" },
       },
     },
     quarrel = {
@@ -5094,7 +6114,39 @@ P:NPC {
         { text = "Tell me about your family.", next = "family" },
         { text = "Where does a Dawnstrider get the name?", next = "name" },
         { text = "What should an enchanter study next?", next = "next", when = { profession = "Enchanting" } },
+        { text = "What does an enchanter unmake to learn the craft?", next = "unmake" },
+        { text = "Your tent must glow at night.", next = "glow" },
         { text = "May the eternal sun shine on you, Teg.", next = "END" },
+      },
+    },
+    unmake = {
+      lines = { { id = "unmake_d", text = "Old things, young one, that have done their work and can do no more. A sword whose bearer has died, a robe worn thin by a long road, and in each of them is a little magic that would otherwise be lost, so we draw it out and give it new work." } },
+      choices = {
+        { text = "And you thank them, you said.", next = "unmake_thanks" },
+        { text = "It sounds almost like a burial.", next = "BACK", reply = "It is very like one. Mot thinks me foolish for saying so, but he will learn." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    unmake_thanks = {
+      lines = { { id = "unmake_thanks_d", text = "Always, aloud, for the thing has served someone well and deserves to be remembered. My father taught me that, and his father before him, and I have never once unmade anything without a word for it." } },
+      choices = {
+        { text = "Then I'll do the same.", next = "BACK", reply = "Then you will be a better enchanter than many I have known." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    glow = {
+      lines = { { id = "glow_d", text = "It does, faintly, and the druids on Elder Rise have asked me more than once what I am doing in here. I tell them I am only listening to the dust, and they look at me very strangely and go away." } },
+      choices = {
+        { text = "Is the dust really speaking?", next = "glow_dust" },
+        { text = "The druids must find you strange.", next = "BACK", reply = "They do, and I find them strange too. We get along well enough." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    glow_dust = {
+      lines = { { id = "glow_dust_d", text = "Not in words, but in the way it settles. Dust that has been drawn from a good weapon settles slowly and evenly, and dust from a cursed one scatters, and an enchanter who pays attention will know which is which." } },
+      choices = {
+        { text = "I'll watch my dust more carefully.", next = "BACK" },
+        { text = "Let me ask about something else.", next = "BACK" },
       },
     },
     odd = {
@@ -5199,7 +6251,39 @@ P:NPC {
         { text = "What was the first thing you enchanted?", next = "first" },
         { text = "What does an enchanter add to a camp?", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Enchanting") } },
         { text = "I can tell you how a mage does it.", next = "mage", when = { class = "MAGE" } },
+        { text = "What would you enchant, if you could do anything?", next = "dream" },
+        { text = "Nata says you broke two of her rods.", next = "rods_broke" },
         { text = "Don't burn the tent down, Mot.", next = "END" },
+      },
+    },
+    dream = {
+      lines = { { id = "dream_d", text = "A spear that sings when it strikes, so that a brave in the dark would know where every one of his kin was standing! I have drawn it out four times, and my father says it is a beautiful idea and asks me to wait twenty years." } },
+      choices = {
+        { text = "Twenty years is a long time.", next = "dream_wait" },
+        { text = "A singing spear would be something to see.", next = "BACK", reply = "It would! And I would be the one who made it, if my father ever let me try." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dream_wait = {
+      lines = { { id = "dream_wait_d", text = "It is, and he says that is the point. He says a young enchanter should spend twenty years learning to listen before he asks anything to sing, and I suppose he is right, though I wish he were right more quickly." } },
+      choices = {
+        { text = "He usually is right.", next = "BACK", reply = "He is. That is the most annoying thing about him." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    rods_broke = {
+      lines = { { id = "rods_broke_d", text = "Only two? I thought it was three, so she must be counting kindly. They were cheap rods, and I was trying to bind more into them than they could hold, which is exactly what my father told me not to do." } },
+      choices = {
+        { text = "So you learned something.", next = "rods_learn" },
+        { text = "Nata keeps a close count.", next = "BACK", reply = "She does. She keeps a close count of everything, including my promises." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rods_learn = {
+      lines = { { id = "rods_learn_d", text = "That a rod has a limit, and that the limit is lower than I think. I have written it on the tent post so I will see it every morning, and I have not broken one since, though it has only been a week." } },
+      choices = {
+        { text = "A week is a start.", next = "BACK" },
+        { text = "Let me ask about something else.", next = "BACK" },
       },
     },
     father = {
@@ -5303,7 +6387,39 @@ P:NPC {
         { text = "Where do the dusts and shards come from?", next = "dust" },
         { text = "Is there a living in enchanting, here?", next = "living" },
         { text = "What sells best to enchanters?", next = "sells", when = { profession = "Enchanting" } },
+        { text = "Who buys from you besides enchanters?", next = "others" },
+        { text = "You must know what every customer is worth by now.", next = "worth" },
         { text = "Good trading, Nata.", next = "END" },
+      },
+    },
+    others = {
+      lines = { { id = "others_d", text = "Tailors, who want a little dust for their finest robes, and smiths who want to know if a blade is worth enchanting before they finish it. The mages on Spirit Rise buy too, and they always try to haggle, and they never win." } },
+      choices = {
+        { text = "The mages haggle?", next = "others_mage" },
+        { text = "Enchanting touches every craft, then.", next = "BACK", reply = "It does, and that is how this tent has stayed standing." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    others_mage = {
+      lines = { { id = "others_mage_d", text = "They think that because they know magic, they know its price. I tell them that knowing what a thing is and knowing what it costs are two very different kinds of wisdom, and then I charge them exactly what I charge everyone else." } },
+      choices = {
+        { text = "Fair is fair.", next = "BACK" },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    worth = {
+      lines = { { id = "worth_d", text = "I know what they can pay, which is not quite the same thing. A young enchanter with three coppers gets the same dust as a rich one with gold, for Teg says the craft must be open to anyone who will listen to it." } },
+      choices = {
+        { text = "Teg is generous.", next = "worth_teg" },
+        { text = "You'd make more if you charged the rich more.", next = "BACK", reply = "I would, but Teg would never forgive me, and he forgives almost everything." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    worth_teg = {
+      lines = { { id = "worth_teg_d", text = "He is, and that is why I count the rods. Somebody in this family must remember that we eat, and it has never once been him or Mot." } },
+      choices = {
+        { text = "You keep them both on their hooves.", next = "BACK", reply = "I do, and I would not have it any other way." },
+        { text = "Let me ask about something else.", next = "BACK" },
       },
     },
     fed = {
@@ -5409,7 +6525,39 @@ P:NPC {
         { text = "What goes wrong for a new alchemist?", next = "wrong" },
         { text = "What can an alchemist bring to a camp?", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Alchemy") } },
         { text = "Do you sell to the apothecaries on Spirit Rise?", next = "apoth", when = { race = "Scourge" } },
+        { text = "What was the first potion you ever brewed?", next = "first" },
+        { text = "You label every vial twice.", next = "labels" },
         { text = "Steady hands to you, Kray.", next = "END" },
+      },
+    },
+    first = {
+      lines = { { id = "first_d", text = "A minor healing potion, under Bena's eye, and it came out the colour of mud and smelled like a wet kodo. Bena drank it anyway, to show me that it worked, and then she told me it was the worst thing she had ever tasted." } },
+      choices = {
+        { text = "Did it work?", next = "first_worked" },
+        { text = "Bena must be brave.", next = "BACK", reply = "She is, and she has a stomach like iron. I have never seen her refuse a potion." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    first_worked = {
+      lines = { { id = "first_worked_d", text = "It did, which surprised us both. Bena said that a potion that works and tastes foul is still a potion, and that the taste would come with time, and it did, though it took me most of a year." } },
+      choices = {
+        { text = "Most things worth doing take a year.", next = "BACK" },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    labels = {
+      lines = { { id = "labels_d", text = "Because a vial without a label is a vial that will be drunk by the wrong person. I once found an unmarked potion of swiftness on the bench and nearly gave it to a wounded brave as a healing draught, and he would have run halfway to the Barrens bleeding." } },
+      choices = {
+        { text = "That's a good reason to worry.", next = "labels_worry" },
+        { text = "You'd have found out soon enough.", next = "BACK", reply = "Too soon, for him. I label everything twice now." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    labels_worry = {
+      lines = { { id = "labels_worry_d", text = "It is, and Bena says I worry too much, but she has also stopped leaving unmarked vials on the bench since then. I think she worries too, only more quietly." } },
+      choices = {
+        { text = "Quiet worry is still worry.", next = "BACK" },
+        { text = "Let me ask about something else.", next = "BACK" },
       },
     },
     worry = {
@@ -5512,7 +6660,39 @@ P:NPC {
         { text = "Where do you get vials on a mountaintop?", next = "vials" },
         { text = "Kray worries a great deal.", next = "kray" },
         { text = "Which potions should I always carry?", next = "carry", when = { minLevel = 10 } },
+        { text = "What is Bena like as a teacher?", next = "bena" },
+        { text = "That bang came from the bench again.", next = "bang" },
         { text = "Good health to you, Mani.", next = "END" },
+      },
+    },
+    bena = {
+      lines = { { id = "bena_d", text = "Patient with the brew and impatient with the brewer, which is the right way round. She will let a potion simmer for a whole day, but she will not let a student stand idle for a breath." } },
+      choices = {
+        { text = "Is she kind to her students?", next = "bena_kind" },
+        { text = "She sounds demanding.", next = "BACK", reply = "She is, and every alchemist she has trained is better for it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bena_kind = {
+      lines = { { id = "bena_kind_d", text = "In the way that matters, yes. She drinks their first potions herself, however foul, so that they know she trusts them, and I have never seen another teacher do that." } },
+      choices = {
+        { text = "That takes courage.", next = "BACK", reply = "It takes a strong stomach, which she has. Courage is just the part people notice." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    bang = {
+      lines = { { id = "bang_d", text = "It did, and it will again, for Kray is learning to heat a flask and Bena is learning to be patient with him. A small bang is only a lesson, friend, and we have had a great many lessons on this rise." } },
+      choices = {
+        { text = "How many lessons, would you say?", next = "bang_count" },
+        { text = "You're calmer than anyone I've met.", next = "BACK", reply = "Calm is cheap. It costs only the habit of not jumping." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bang_count = {
+      lines = { { id = "bang_count_d", text = "I stopped counting at forty, for the number was beginning to worry Kray. The tent has burned twice, and both times I put it out before the customers noticed, which is the real reason I sell the vials." } },
+      choices = {
+        { text = "Then the tent owes you its life.", next = "BACK" },
+        { text = "Let me ask about something else.", next = "BACK" },
       },
     },
     calm = {
@@ -5765,7 +6945,39 @@ P:NPC {
         { text = "How is the battle won?", next = "won" },
         { text = "Who else musters on this rise?", next = "rise" },
         { text = "The tauren don't like the logging, do they?", next = "logging", when = { race = "Tauren" } },
+        { text = "What does Grom's death mean to the Warsong?", next = "grom" },
+        { text = "The elves call your logging a war on the forest.", next = "elves" },
         { text = "Lok'tar, Kergul.", next = "END" },
+      },
+    },
+    grom = {
+      lines = { { id = "grom_d", text = "Everything, {class}. Grom drank the demon's blood first and he spilled the demon's blood last, in Ashenvale, killing Mannoroth with his own axe, and the Warsong have lived between those two things ever since." } },
+      choices = {
+        { text = "Between shame and glory.", next = "grom_between" },
+        { text = "He freed the orcs in the end.", next = "BACK", reply = "He did, and he paid for it with his life. The Warsong will not let that be forgotten." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grom_between = {
+      lines = { { id = "grom_between_d", text = "Yes, and we carry both. The young warriors of the clan fight harder than any orc alive, because they feel the shame as if it were their own, and they want the glory to wash it away." } },
+      choices = {
+        { text = "Then let the battle wash it.", next = "BACK", reply = "Lok'tar. That is what we fight for, in the end." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    elves = {
+      lines = { { id = "elves_d", text = "The elves call everything a war, orc or tree or wind. We cut the trees to build our homes and they kill us for it, and if that is not war, I do not know what is." } },
+      choices = {
+        { text = "The elves see it differently.", next = "elves_see" },
+        { text = "The Warsong won't be driven out.", next = "BACK", reply = "We will not. Not by the elves, not by the forest, not by anyone." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    elves_see = {
+      lines = { { id = "elves_see_d", text = "I know, and I do not care. The Silverwing Sentinels shoot from the trees and vanish before you can see them, and they have killed more of my kin than I can count, so let them see whatever they like." } },
+      choices = {
+        { text = "Then the gulch is where it's settled.", next = "BACK", reply = "It is. Come and settle it with us." },
+        { text = "Let me ask about something else.", next = "BACK" },
       },
     },
     fight = {
@@ -5871,7 +7083,39 @@ P:NPC {
         { text = "How is the basin won?", next = "won" },
         { text = "Who are the League of Arathor?", next = "league" },
         { text = "What did the living do to you?", next = "living", when = { race = "Scourge" } },
+        { text = "Who leads the Defilers?", next = "leader" },
+        { text = "You haven't once looked at the sun.", next = "sun" },
         { text = "I'll take my leave.", next = "END" },
+      },
+    },
+    leader = {
+      lines = { { id = "leader_d", text = "The Dark Lady's servants in Hammerfall, and through them the Dark Lady herself. The orcs of Hammerfall lend us their walls and their warriors, and we lend them our hatred of humans, which is a fair exchange." } },
+      choices = {
+        { text = "The orcs and Forsaken fight together, then.", next = "leader_orcs" },
+        { text = "Hammerfall sounds like a good base.", next = "BACK", reply = "It is the only base, and it serves. The orcs keep it well." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    leader_orcs = {
+      lines = { { id = "leader_orcs_d", text = "We fight beside one another, which is not quite the same thing. The orcs fight for honour, and we fight for land and vengeance, and so far nobody has asked which of us has the better reason." } },
+      choices = {
+        { text = "Perhaps nobody needs to.", next = "BACK", reply = "Perhaps not. It works, and that is enough for me." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    sun = {
+      lines = { { id = "sun_d", text = "Why should I? It has done nothing for me since I died, except to make my skin crack and my eyes ache. The tauren seem to love it, and I wish them joy of it, but I prefer the grey of Tirisfal." } },
+      choices = {
+        { text = "Tirisfal does seem more your colour.", next = "sun_tirisfal" },
+        { text = "The sun hasn't harmed you yet.", next = "BACK", reply = "Not yet. I give it time." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sun_tirisfal = {
+      lines = { { id = "sun_tirisfal_d", text = "It is everyone's colour, once they have been dead long enough. I will go back there when the fighting is done, and I will stand under a grey sky and be glad of it, which is more than these hunters will ever understand." } },
+      choices = {
+        { text = "I hope you get your grey sky.", next = "BACK" },
+        { text = "Let me ask about something else.", next = "BACK" },
       },
     },
     worth = {

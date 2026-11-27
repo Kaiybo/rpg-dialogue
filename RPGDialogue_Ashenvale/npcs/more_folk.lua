@@ -191,6 +191,8 @@ P:NPC {
         { text = "Who are the Thistlefur?", next = "thistlefur" },
         { text = "Why are you at Splintertree?", next = "why" },
         { text = "How is Ruul now?", next = "after", when = { questDone = TODO_QUEST("Freedom to Ruul") } },
+        { text = "How do you pass the days at Splintertree?", next = "days" },
+        { text = "The night elves must not welcome a tauren here.", next = "elves" },
         { text = "I'll watch for him.", next = "END" },
       },
     },
@@ -231,6 +233,33 @@ P:NPC {
     after = {
       lines = { { id = "af_default", text = "Sleeping, still, and eating when he wakes. He says the Thistlefur did not know what they were doing, and he does not blame them, which is very like him and makes me want to blame them twice as much." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    days = {
+      lines = { { id = "dy_default", text = "I cook for Ruul's return and give the meal away when he does not come, mostly to the grunts on the wall, who eat anything. Senani Thunderheart lets me help with the wounded, since I have gentle hands, and the orcs are always coming back wounded from this forest." } },
+      choices = {
+        { text = "Who wounds them, mostly?", next = "days2" },
+        { text = "Gentle hands are rare in a war camp.", next = "days2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    days2 = {
+      lines = { { id = "dy2_default", text = "The Sentinels, who come out of the trees without a sound, and the satyrs to the east, and the furbolgs, and now and then the forest itself. Mastok Wrilehiss says the post will hold, and I believe him, because orcs do not like to be wrong about walls." } },
+      choices = { { text = "Orcs and walls. Something else.", next = "BACK" } },
+    },
+    elves = {
+      lines = { { id = "ev_default", text = "They do not, though I think they hate the axes more than the tauren. Ruul says the druids of both our peoples learned from the same teacher, long ago, and that one day they will remember it. I hope he lives to see that day, and is not lost in the woods for it." } },
+      choices = {
+        { text = "Do you think he's right?", next = "elves2" },
+        { text = "The Warsong axes give them reason to hate.", next = "elves2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    elves2 = {
+      lines = { { id = "ev2_default", text = "I think the Earth Mother does not draw lines between her children the way chieftains do. But I have seen what the Sentinels leave of a lumber crew, and I have seen what the lumber crews leave of the trees, and I cannot make myself choose." } },
+      choices = {
+        { text = "I'm a druid. Ruul and I walk the same path.", next = "BACK", reply = "Then watch over him for me, if you meet him in the deep woods. He listens better to druids than to sisters.", when = { class = "DRUID" } },
+        { text = "Something else, Yama.", next = "BACK" },
+      },
     },
   },
 
@@ -1190,6 +1219,8 @@ P:NPC {
         { text = "You'd walk that road alone if you had to.", next = "alone" },
         { text = "The Light sent you a long way from home.", next = "xpal", when = { class = { "PALADIN", "PRIEST" } } },
         { text = "We walked that road together. You fight well.", next = "xdone", when = { questDone = TODO_QUEST("Supplies to Auberdine") } },
+        { text = "What sort of man is Delgren?", next = "purifier" },
+        { text = "Do you miss Elwynn?", next = "elwynn" },
         { text = "Light be with you, Feero.", next = "END" },
       },
     },
@@ -1253,6 +1284,33 @@ P:NPC {
       },
       choices = {
         { text = "So will I. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    purifier = {
+      lines = { { id = "pu_default", text = "A hard one, and a good one, though not easy to be around. He doesn't sleep much, he prays more than he eats, and he can smell a warlock's leavings in a room an hour after they've gone. I've never seen him afraid, which frightens me a little." } },
+      choices = {
+        { text = "What drives a man like that?", next = "purifier2" },
+        { text = "Every crusade needs one man who never doubts.", next = "purifier2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    purifier2 = {
+      lines = { { id = "pu2_default", text = "He won't say, and I've stopped asking. I think he saw what demons did in the Second War and swore he'd not let it happen twice. Whatever it is, the Dark Strand fear him, and the Sentinels have started to listen when he talks." } },
+      choices = { { text = "That's worth something. Something else.", next = "BACK" } },
+    },
+    elwynn = {
+      lines = { { id = "ew_default", text = "Every morning. The trees there were tall enough, I thought, until I came here, and the stables in Goldshire smelled of hay and nothing worse. Here even the morning dew smells of moss and old magic, and I've never got used to it." } },
+      choices = {
+        { text = "Will you go back, when this is over?", next = "elwynn2" },
+        { text = "Goldshire's a fine place to be from.", next = "elwynn2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    elwynn2 = {
+      lines = { { id = "ew2_default", text = "If the Light lets me, and if there's a horse left there that remembers me. My mother writes when the boats allow it, and her letters are all about the price of bread and the Defias on the Westfall road. It's a comfort, oddly, that home has its own troubles." } },
+      choices = {
+        { text = "I'm from Stormwind. The Westfall road is still bad.", next = "BACK", reply = "Then tell my mother I'm well, if you ever pass through Goldshire. She lives above the smithy.", when = { race = "Human" } },
+        { text = "Something else, Feero.", next = "BACK" },
       },
     },
   },
@@ -1588,6 +1646,8 @@ P:NPC {
         { text = "The Sentinels make their own, surely.", next = "sentinels" },
         { text = "Guess where I've been, then.", next = "xguess", when = { class = { "WARRIOR", "HUNTER", "ROGUE" } } },
         { text = "I work leather. Is this your own stitching?", next = "xlw", when = { profession = "Leatherworking" } },
+        { text = "What do you think of the Warsong camps to the east?", next = "warsong" },
+        { text = "Astranaar feels like a town holding its breath.", next = "town" },
         { text = "Good day, Tandaan.", next = "END" },
       },
     },
@@ -1651,6 +1711,33 @@ P:NPC {
       },
       choices = {
         { text = "I'll bring it back if it does. Something else.", next = "BACK" },
+      },
+    },
+    warsong = {
+      lines = { { id = "ws_default", text = "I try not to think of them, and I fail every day. You can hear the axes from the eastern bridge on a still morning, and the smoke from their mills comes over on the wind. The Sentinels go out to answer it, and some of them come back to me for new armor." } },
+      choices = {
+        { text = "And the ones who don't come back?", next = "warsong2" },
+        { text = "The orcs say Grom earned this forest.", next = "warsong2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    warsong2 = {
+      lines = { { id = "ws2_default", text = "I keep their measurements. I don't know why; it seemed wrong to throw them away. Shindrell Swiftfire sends hunters against the camps, and Raene sends what she can spare, and every season there are fewer trees and more measurements." } },
+      choices = { { text = "I'm sorry. Something else.", next = "BACK" } },
+    },
+    town = {
+      lines = { { id = "tw_default", text = "That's well put, and it's true. We're an island on the lake with a bridge at each end, and everything we need comes across one bridge or the other. The Horde is to the east, the furbolgs to the north and the satyrs everywhere, so we listen hard and sleep light." } },
+      choices = {
+        { text = "Who keeps the town together?", next = "town2" },
+        { text = "It must be lonely, an island in a war.", next = "town2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    town2 = {
+      lines = { { id = "tw2_default", text = "Raene Wolfrunner, who commands the Sentinels and has the patience of an ancient, and Kimlya, who keeps the inn and keeps everyone fed and talking. Between a soldier and an innkeeper, a town can bear a great deal, I've found." } },
+      choices = {
+        { text = "I'm a night elf. I'll do my share for Astranaar.", next = "BACK", reply = "Then go to Raene, and come back to me first. She'll send you somewhere with claws.", when = { race = "NightElf" } },
+        { text = "Something else, Tandaan.", next = "BACK" },
       },
     },
   },
@@ -1990,6 +2077,8 @@ P:NPC {
         { text = "Your sleeves are singed.", next = "singed" },
         { text = "Does Mystral Lake's water still serve for potions?", next = "xalch", when = { profession = "Alchemy" } },
         { text = "I can gather for you. What grows near here?", next = "xherb", when = { profession = "Herbalism" } },
+        { text = "What's in the bitter tea that keeps them awake?", next = "tea" },
+        { text = "The orcs' road runs right past the Refuge, you said.", next = "road" },
         { text = "Good brewing, Kylanna.", next = "END" },
       },
     },
@@ -2053,6 +2142,33 @@ P:NPC {
       },
       choices = {
         { text = "I'll split the liferoot between you. Something else.", next = "BACK" },
+      },
+    },
+    tea = {
+      lines = { { id = "te_default", text = "Bruiseweed root, a little briarthorn, and something I won't name because I don't want the Sentinels brewing it themselves and getting it wrong. It tastes like old bark and regret, and it'll keep a tired watcher sharp until sunrise." } },
+      choices = {
+        { text = "What happens if it's brewed wrong?", next = "tea2" },
+        { text = "Old bark and regret. You should sell it on that.", next = "tea2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tea2 = {
+      lines = { { id = "te2_default", text = "Then the watcher stays awake for three days and sees things in the trees that aren't there, and then sleeps for two. I learned that the hard way, on myself, years ago. Cylania still laughs about the morning I tried to arrest a stump." } },
+      choices = { { text = "A dangerous stump. Something else.", next = "BACK" } },
+    },
+    road = {
+      lines = { { id = "ro_default", text = "It does, the road between Splintertree and the orcs' camps in the east. Their caravans pass within bowshot, and Sentinel Velene's archers watch every one. So far neither side has started anything on this stretch, and I'd like it to stay that way, since my cauldron is very flammable." } },
+      choices = {
+        { text = "Why hasn't anyone started anything?", next = "road2" },
+        { text = "The Sentinels could ambush those caravans.", next = "road2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    road2 = {
+      lines = { { id = "ro2_default", text = "Because the lake is giving us enough trouble without a war on the doorstep. The elementals don't care whose side you're on, and I think the orcs have noticed that too. It's not peace, but it's quiet, and quiet lets me brew." } },
+      choices = {
+        { text = "I'm an alchemist. Quiet is precious to us.", next = "BACK", reply = "Isn't it? One loud noise at the wrong moment and you're scraping your eyebrows off the ceiling.", when = { profession = "Alchemy" } },
+        { text = "Something else, Kylanna.", next = "BACK" },
       },
     },
   },
@@ -2121,6 +2237,8 @@ P:NPC {
         { text = "Who gives the orders here?", next = "karang" },
         { text = "An orc among trolls. Does it sit well?", next = "xorc", when = { race = "Orc" } },
         { text = "Your riders don't like the sea air.", next = "xhunter", when = { class = { "HUNTER", "DRUID" } } },
+        { text = "Who are Marukai and Je'neu?", next = "camp" },
+        { text = "What happens to a wind rider who gets old?", next = "old" },
         { text = "Strength and honor, Andruk.", next = "END" },
       },
     },
@@ -2184,6 +2302,33 @@ P:NPC {
       },
       choices = {
         { text = "Dry bedding and warm stones. Something else.", next = "BACK", reply = "Hm. Stones from the cook fire, under the perch. I'll try it tonight." },
+      },
+    },
+    camp = {
+      lines = { { id = "cp_default", text = "Marukai keeps watch on the naga and counts heads, and he's never once lost count. Je'neu Sancrea is a shaman of the Earthen Ring, and he goes into the deep places on the coast to learn what the naga are digging for. Both of them are trolls, and both of them are good at their work." } },
+      choices = {
+        { text = "What do you think the naga want?", next = "camp2" },
+        { text = "An orc praising trolls. That's rare.", next = "camp2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    camp2 = {
+      lines = { { id = "cp2_default", text = "Something under the water, in that black temple up the coast they call Blackfathom. Je'neu says it was a night elf temple once, before the sea took it. Whatever's in there, the naga want it badly, and I'd as soon they didn't get it." } },
+      choices = { { text = "Blackfathom. I'll remember it. Something else.", next = "BACK" } },
+    },
+    old = {
+      lines = { { id = "od_default", text = "If he's lucky, he goes back to the cliffs of Thunder Ridge in Durotar and teaches the young ones to fly. If he's not, he flies one too many hauls over elf country. I try to send mine back before that, but Zoram'gar never has enough riders." } },
+      choices = {
+        { text = "The big male with the cough. Will you send him back?", next = "old2" },
+        { text = "You care for them like warriors.", next = "old2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    old2 = {
+      lines = { { id = "od2_default", text = "When the next one comes up from Orgrimmar to replace him, and not a day before, because we'd be cut off without him. He knows it, I think. He still flies every haul I give him, and he still bites me every morning, so he's not done yet." } },
+      choices = {
+        { text = "I'm a hunter. A beast like that deserves its rest.", next = "BACK", reply = "It does, and it'll get it. You tell Orgrimmar to hurry, if you're going that way.", when = { class = "HUNTER" } },
+        { text = "Something else, Andruk.", next = "BACK" },
       },
     },
   },

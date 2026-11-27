@@ -277,7 +277,45 @@ P:NPC {
         { text = "What's Ghak like to live with?", next = "ghak" },
         { text = "Do druids pick herbs differently?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'd like some training.", next = "BUSINESS" },
+        { text = "What does Ghak brew from your herbs?", next = "kh_brew" },
+        { text = "Are the woods safe for gathering?", next = "kh_woods" },
         { text = "Good day, Kali.", next = "END" },
+      },
+    },
+    kh_brew = {
+      lines = {
+        { id = "kh_brew_1", text = "Healin' draughts for the mountaineers, mostly, an' a tonic for the miners' lungs that smells like a wet boot. Ghak would brew all night if I let him, so I make sure he only gets what he can use by mornin'." },
+      },
+      choices = {
+        { text = "Do the mountaineers need much healing?", next = "kh_heal" },
+        { text = "A tonic that smells like a boot. Lovely.", next = "BACK", reply = "It works, an' that's all a miner cares about." },
+      },
+    },
+    kh_heal = {
+      lines = {
+        { id = "kh_heal_1", text = "More every week, wi' the troggs pushin' out o' Stonesplinter. I've seen Ghak run out o' draughts by noon, an' then he sits at the table wi' his head in his hands till I bring him more peacebloom." },
+      },
+      choices = {
+        { text = "I'll bring peacebloom if I find it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "The troggs are wearing everyone down. Something else.", next = "BACK" },
+      },
+    },
+    kh_woods = {
+      lines = {
+        { id = "kh_woods_1", text = "Safe enough by day, if ye keep tae the edges an' watch for the big spiders. At night, I'd no' go past the farms, for the spiders come down from the north an' they're no' particular what they bite." },
+      },
+      choices = {
+        { text = "Where do the best herbs grow, then?", next = "kh_best" },
+        { text = "I'm a herbalist. Where's the silverleaf?", next = "kh_best", when = { profession = "Herbalism" } },
+      },
+    },
+    kh_best = {
+      lines = {
+        { id = "kh_best_1", text = "Silverleaf in the shade o' the pines north o' town, an' earthroot by the loch shore. The Farstriders let me pick near the lodge, for they say I'm the only gatherer who leaves the patch better than I found it." },
+      },
+      choices = {
+        { text = "High praise from the Farstriders.", next = "BACK" },
+        { text = "North pines and the shore. Something else.", next = "BACK" },
       },
     },
     herbs = {

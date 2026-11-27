@@ -44,6 +44,8 @@ P:NPC {
         { text = "Who is Captain Brightsun?", next = "captain" },
         { text = "I'll get you out of here.", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "I should call the guards.", next = "guards", when = { faction = "Alliance" } },
+        { text = "What's Northwatch like from the inside?", next = "inside" },
+        { text = "How did you come to crew for the privateers?", next = "crew" },
         { text = "I'll leave you be.", next = "END" },
       },
     },
@@ -85,6 +87,33 @@ P:NPC {
         { text = "Northwatch has its reasons. I won't interfere.", next = "BACK", reply = "Then I'll go on counting the stones in this wall, I suppose. I can't blame you for it, though I'd hoped the sea had taught you more mercy than it taught them.", fx = { align = { order = 1 } } },
         { text = "You're no spy. I won't call anyone.", next = "BACK", reply = "You've a kinder heart than anyone I've met since that ship went down. I won't forget it, and if I ever see the docks of Ratchet again, I'll tell them a stranger kept faith.", fx = { affinity = 2, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    inside = {
+      lines = { { id = "in_default", text = "Damp, crowded and angry. The soldiers here were sent from Theramore to watch the coast, and they've been watching it so long they shoot at gulls. Their commander talks about the Horde as if Orgrimmar were going to march down the beach tomorrow." } },
+      choices = {
+        { text = "Who commands Northwatch?", next = "inside2" },
+        { text = "With Orgrimmar so close, can you blame them?", next = "inside2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    inside2 = {
+      lines = { { id = "in2_default", text = "Captain Fairmount, and she's not a cruel woman, only a frightened one with guns. I hear the soldiers grumble that Lady Proudmoore wants peace with Thrall and their captain wants none of it. If that's so, then I'm a prisoner of the argument, not the war." } },
+      choices = { { text = "A prisoner of the argument. Something else.", next = "BACK" } },
+    },
+    crew = {
+      lines = { { id = "cr_default", text = "I needed work, and Captain Brightsun needed a deckhand who could climb rigging and keep his mouth shut. The Thalo'dan sail for coin, not for any banner, and I liked that, after a childhood of being told which flag to love." } },
+      choices = {
+        { text = "Where did you grow up?", next = "crew2" },
+        { text = "Privateers are pirates with paperwork.", next = "crew2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    crew2 = {
+      lines = { { id = "cr2_default", text = "Far to the north, across the sea, and that's all I'll say about it in a cell. The captain's an elf, as I am, which is part of why I trust him, and why he'll be very unhappy when he hears where they've kept me." } },
+      choices = {
+        { text = "I'm Alliance, but I've no quarrel with a deckhand.", next = "BACK", reply = "That's more than the guards have managed. Thank you, truly.", when = { faction = "Alliance" } },
+        { text = "Something else, then.", next = "BACK" },
       },
     },
   },

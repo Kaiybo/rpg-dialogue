@@ -320,6 +320,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    ban_cr1 = {
+      lines = {
+        { id = "ban_cr1_1", text = "I do, because what a body buys tells you more than what they say. Thralosh buys thread by the spool and complains about every spool, Gharash buys flux and never complains about anything, and Rogvar's alchemists buy empty vials as if they meant to bottle the whole swamp." },
+      },
+      choices = {
+        { text = "What does Thralosh complain about?", next = "ban_cr2" },
+        { text = "Something else, Banalash.", next = "BACK" },
+      },
+    },
+    ban_cr2 = {
+      lines = {
+        { id = "ban_cr2_1", text = "The colour, the twist, the wax, and the price, in that order, every time. Then he buys twice what he needs, because he knows the next caravan might not come, and that's the closest he'll ever get to admitting I'm worth the trouble." },
+      },
+      choices = {
+        { text = "So you two are friends, in your way.", next = "ban_cr3" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    ban_cr3 = {
+      lines = {
+        { id = "ban_cr3_1", text = "We're traders, which is better than friends, because a friend can let you down and a trader always has to come back. I'd stand with him if the ogres came over the wall, mind, and he'd pretend he hadn't seen me there." },
+      },
+      choices = {
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    ban_car1 = {
+      lines = {
+        { id = "ban_car1_1", text = "Rough is a kind word for it. The road from Grom'gol runs through the jungle, past the trolls and the raptors, and then up through Deadwind Pass, where the drivers whip the kodos hard and don't look at the tower." },
+      },
+      choices = {
+        { text = "What do they fear in the pass?", next = "ban_car2" },
+        { text = "I've driven that road myself.", next = "ban_car2", when = { faction = "Horde", minLevel = 35 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ban_car2 = {
+      lines = {
+        { id = "ban_car2_1", text = "The silence, they say, which is worse than any ambush, because you can't fight it. Every driver I know has a story about that pass, and none of them will tell it twice, so I've stopped asking and just pay them extra." },
+      },
+      choices = {
+        { text = "That's a fair price for fear. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -341,6 +385,8 @@ P:NPC {
         { text = "Who owes you the most in Stonard?", next = "ledger" },
         { text = "Why are your prices so high?", next = "prices" },
         { text = "Does your thread really hold up in the damp?", next = "xtailor", when = { profession = { "Tailoring", "Leatherworking" } } },
+        { text = "You know every crafter in Stonard by their purchases.", next = "ban_cr1" },
+        { text = "The caravans pass through some rough country.", next = "ban_car1" },
         { text = "I'll be on my way.", next = "END" },
       },
     },

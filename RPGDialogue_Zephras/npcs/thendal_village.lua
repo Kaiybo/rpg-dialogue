@@ -487,6 +487,51 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    ren_ak1 = {
+      lines = {
+        { id = "ren_ak1_1", text = "It is, and Akeri keeps it that way, because the quieter arts need shadow to practise in. We disagree about almost everything, but we agree that a young fighter should learn to see what the other is teaching." },
+      },
+      choices = {
+        { text = "What do you disagree about?", next = "ren_ak2" },
+        { text = "Something else, Blademaster.", next = "BACK" },
+      },
+    },
+    ren_ak2 = {
+      lines = {
+        { id = "ren_ak2_1", text = "Whether a fight should be won quickly or won well. Akeri says the best fight is one the enemy never knew was happening, and I say a fight nobody sees teaches nobody anything." },
+      },
+      choices = {
+        { text = "Both have their uses.", next = "ren_ak3" },
+        { text = "I'm a rogue. Akeri's way suits me.", next = "ren_ak3", when = { class = "ROGUE" } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    ren_ak3 = {
+      lines = {
+        { id = "ren_ak3_1", text = "They do, and that's the annoying part of it. When I'm old I'll admit Akeri was right half the time, and Akeri will admit nothing at all, which is the only way a rogue ever wins an argument." },
+      },
+      choices = {
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    ren_emp1 = {
+      lines = {
+        { id = "ren_emp1_1", text = "They guarded the Shal'nan for centuries and never had to draw their blades in earnest, which made them proud and slow. Now the isle needs fighters again, and the Blades are learning what it means to bleed." },
+      },
+      choices = {
+        { text = "Do you count yourself among them?", next = "ren_emp2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ren_emp2 = {
+      lines = {
+        { id = "ren_emp2_1", text = "I never wore their colours, though I've crossed blades with a few of them in the drill yard. They think a trainer in a village watchtower is playing at war, and I think they forgot what the guarding was for, so we're both stubborn about it." },
+      },
+      choices = {
+        { text = "Then teach well. That's your post.", next = "BACK" },
+        { text = "Back to other matters, Ren.", next = "BACK" },
+      },
+    },
     -- Deeds pass: the player keeps dying.
     dd_deaths = {
       lines = { { id = "dd_default", text = "Pride, most likely. The young ones who fall here fall because they won't step back from a fight they've already lost. Learn when to give ground, and you'll live long enough to learn the rest of what I teach." } },
@@ -519,6 +564,8 @@ P:NPC {
         { text = "Who else trains in this watchtower?", next = "tower" },
         { text = "Train me, Blademaster.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "I trained to join the Empyrean Blades.", next = "xblade", when = { origin = "skyborne_empyrean_recruit" } },
+        { text = "Akeri's corner is very dark.", next = "ren_ak1" },
+        { text = "What became of the Empyrean Blades?", next = "ren_emp1" },
         { text = "Farewell, Blademaster.", next = "END" },
       },
     },
@@ -777,6 +824,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    des_forge1 = {
+      lines = {
+        { id = "des_forge1_1", text = "I do, at the back of the house, in plain steel with no enchantment in it at all. Luminarian's patterns are the shape of the old blades, and I keep the shape faithfully, even though I can't put the magic in." },
+      },
+      choices = {
+        { text = "Does the shape matter without the magic?", next = "des_forge2" },
+        { text = "Something else, Destin.", next = "BACK" },
+      },
+    },
+    des_forge2 = {
+      lines = {
+        { id = "des_forge2_1", text = "It does, because the old blades were balanced to move the way a Skyborne fights, light and quick and turning on the wind. A heavy mainland sword in our hands feels like swinging a fence post, or so the Blademaster tells me." },
+      },
+      choices = {
+        { text = "Ren buys your blades, then?", next = "des_forge3" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    des_forge3 = {
+      lines = {
+        { id = "des_forge3_1", text = "He tests every one I make, and he sends half of them back with a note about the balance. I grumble, and then I fix them, and the ones he keeps are the best things I've ever made." },
+      },
+      choices = {
+        { text = "A hard critic is a good one. Something else.", next = "BACK" },
+      },
+    },
+    des_fev1 = {
+      lines = {
+        { id = "des_fev1_1", text = "He does, and he's loud about it, with the hammer going from dawn till dusk. We send customers to each other, because a sword without a shield is half a fighter, and he makes the other half." },
+      },
+      choices = {
+        { text = "Do you ever work together?", next = "des_fev2" },
+        { text = "I'd rather have two swords than a shield.", next = "des_fev2", when = { class = { "ROGUE", "WARRIOR" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    des_fev2 = {
+      lines = {
+        { id = "des_fev2_1", text = "Once a year, for the coming-of-age, we make a blade and a buckler that match, and give them to the young one who's trained hardest. It's not much, but the young ones talk about it all year, and that's worth the iron." },
+      },
+      choices = {
+        { text = "That's a fine tradition. Back to other matters.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_dd_encroach", when = { questDone = TODO_QUEST("Aggressive Encroachment") },
@@ -794,6 +885,8 @@ P:NPC {
         { text = "What is the old style?", next = "style" },
         { text = "Where does a name like Thriceforged come from?", next = "name" },
         { text = "Do you take windstones?", next = "stones" },
+        { text = "Who forges these, if the magesmiths are gone?", next = "des_forge1" },
+        { text = "Fevrath Skyhammer works the shields nearby.", next = "des_fev1" },
         { text = "Farewell, Destin.", next = "END" },
       },
     },
@@ -1419,6 +1512,40 @@ Critter {
     { id = "g_back", when = { metBefore = true }, text = "*Peeps flutters up onto a fence post at your approach and fluffs out its feathers until it is very nearly a perfect ball.*" },
   },
   nodes = {
+    pee_st1 = {
+      lines = {
+        { id = "pee_st1_1", text = "*Peeps hops ahead of you down the path to the stalls of Thendal Village, stopping every few hops to make sure you're still following.*" },
+      },
+      choices = {
+        { text = "Wait beside it under a stall.", next = "pee_st2" },
+        { text = "Let it go on alone.", next = "BACK" },
+      },
+    },
+    pee_st2 = {
+      lines = {
+        { id = "pee_st2_1", text = "*A merchant drops a crust, and Peeps is on it before it touches the ground. It carries the prize to a fence post, eats half, and drops the rest at your feet as though settling a debt.*" },
+      },
+      choices = {
+        { text = "Thank you, Peeps. Very generous.", next = "BACK" },
+      },
+    },
+    pee_roof1 = {
+      lines = {
+        { id = "pee_roof1_1", text = "*Three more pepes sit in a row along the roof above, round and still as stones, watching Peeps with what looks like disapproval.*" },
+      },
+      choices = {
+        { text = "Is Peeps in trouble with them?", next = "pee_roof2" },
+        { text = "Leave the birds to their quarrel.", next = "BACK" },
+      },
+    },
+    pee_roof2 = {
+      lines = {
+        { id = "pee_roof2_1", text = "*Peeps flutters up to join them, bumps into the nearest one so that it wobbles, and settles into the row, and all four of them fluff up at once until the roof is lined with feathered balls.*" },
+      },
+      choices = {
+        { text = "Peace in the flock, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "*Peeps pecks at the dust between the village houses, finds nothing worth eating, and pecks again with undiminished hope.*" },
@@ -1429,6 +1556,8 @@ Critter {
       choices = {
         { text = "Hello, Peeps. Find anything good today?", next = "BACK", reply = "*Peeps answers with a single high chirp and a hop toward the merchants' stalls, where crumbs are known to fall.*" },
         { text = "Scatter a few crumbs for it.", next = "BACK", reply = "*Peeps descends on the crumbs with tremendous seriousness, eats every last one, and then looks at your hands for more.*" },
+        { text = "Follow Peeps toward the merchants' stalls.", next = "pee_st1" },
+        { text = "Notice the other pepes on the rooftops.", next = "pee_roof1" },
         { text = "Hold out a finger for it to perch on.", next = "END", reply = "*Peeps considers your finger, hops onto it for one wobbling moment, then takes off in a flurry of feathers toward the rooftops.*" },
       },
     },

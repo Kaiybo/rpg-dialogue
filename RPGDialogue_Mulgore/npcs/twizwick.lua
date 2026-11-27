@@ -50,7 +50,47 @@ P:NPC {
         { text = "Are you with the Venture Company?", next = "venture" },
         { text = "Why live up here alone?", next = "alone" },
         { text = "What's the best thing you've ever built?", next = "best" },
+        { text = "What are you working on right now?", next = "project" },
+        { text = "The tauren must find you strange.", next = "tauren_odd" },
+        { text = "My last target dummy exploded. Normal?", next = "dummy", when = { profession = { name = "Engineering", min = 50 } } },
         { text = "I'll be going.", next = "END" },
+      },
+    },
+    project = {
+      lines = { { id = "project_d", text = "A steam-driven plough, pal, for the tauren farmers down below, so they can turn a field in an hour instead of a day. It's had two test runs, and only one of 'em set the field on fire, which in engineering is what we call progress." } },
+      choices = {
+        { text = "Do the tauren actually want a steam plough?", next = "project_want" },
+        { text = "One fire out of two isn't bad.", next = "BACK", reply = "That's what I said! The farmer was less excited about it, but I'm told he's coming round." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    project_want = {
+      lines = { { id = "project_want_d", text = "They want the field turned faster, and I want to be paid for it, so we're in agreement on the important parts. The elders keep sayin' something about the Earth Mother not likin' noise, but nobody's paid me to make it quieter yet." } },
+      choices = {
+        { text = "Maybe they'll pay for a quiet one.", next = "BACK", reply = "Now you're thinkin' like a goblin! Quiet costs extra, of course." },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    tauren_odd = {
+      lines = { { id = "tauren_odd_d", text = "They do, and I find them strange right back, so we're even. They bring me broken things, buckets and wagon wheels and the odd spear, and they never haggle, which is the strangest thing I ever saw in my life." } },
+      choices = {
+        { text = "They never haggle at all?", next = "tauren_haggle" },
+        { text = "You must charge them too much, then.", next = "BACK", reply = "Listen, I charge 'em fair, and that's more than the Venture boys would. I've got a reputation up here." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tauren_haggle = {
+      lines = { { id = "tauren_haggle_d", text = "Not a copper's worth, pal. They name the price they think is fair and they pay it, and if I ask for more they just look at me with those big sad eyes until I feel like a heel. I've lost more profit to guilt up here than I ever lost to bad luck." } },
+      choices = {
+        { text = "Guilt in a goblin? That's new.", next = "BACK", reply = "Don't tell anybody in Ratchet, or I'll never live it down." },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    dummy = {
+      lines = { { id = "dummy_d", text = "Normal? It's practically a rite of passage, friend! The first one I built blew my eyebrows clean off, and the second took the whole shed, so if yours only exploded, you're already ahead of where I was at your age." } },
+      choices = {
+        { text = "That's oddly comforting.", next = "BACK", reply = "That's engineering! Comfort in the face of combustion." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

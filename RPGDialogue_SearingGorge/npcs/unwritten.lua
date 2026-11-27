@@ -26,6 +26,37 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+
+    gc_buy = {
+      lines = { { id = "gcb_1", text = "The Brotherhood's own guards, for one, who say Dark Iron mail is better an' then buy mine when theirs splits. An' the Horde lot who come up from Kargath in the Badlands, who pay in good silver an' never haggle, which I find unsettlin'." } },
+      choices = {
+        { text = "You sell to the Horde?", next = "gc_buy2" },
+        { text = "Coin from Kargath spends the same as Ironforge's.", next = "gc_buy2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gc_buy2 = {
+      lines = { { id = "gcb2_1", text = "Out here I do, an' I'd thank ye not to tell my cousins. The Brotherhood says no blade gets drawn in Thorium Point, Horde or Alliance, an' they mean it, so an orc buyin' mail is just an orc buyin' mail, an' I sleep fine." } },
+      choices = {
+        { text = "Your secret's safe with me, Graw.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gc_slaves = {
+      lines = { { id = "gcs_1", text = "Aye, there are, an' it sits on me like a stone every night. Explorers' League diggers, mostly, taken at their camps an' set to work in the Pit, an' the Brotherhood says they cannae spare the blades to free them." } },
+      choices = {
+        { text = "Can't spare blades, or won't?", next = "gc_slaves2" },
+        { text = "Some of those diggers could be my own kin.", next = "gc_slaves2", when = { race = "Dwarf" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gc_slaves2 = {
+      lines = { { id = "gcs2_1", text = "Cannae, I'd say, though I've wondered. There's more Dark Iron in the Cauldron than in all o' Thorium Point, an' half the Brotherhood still has kin down there wi' the whips. If ye go, go quiet, an' bring the lads straight here." } },
+      choices = {
+        { text = "Then I'll go quietly, and bring them up.", next = "BACK", reply = "Light go wi' ye. I'll have mail ready for any o' them that needs it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Graw Cornerstone, mail smith an' merchant, late o' Ironforge an' now, Light help me, a guest o' the Thorium Brotherhood. They pay good coin for news from home, an' I sell armor to whoever's brave enough to walk the Gorge." } },
       again = {
@@ -41,6 +72,8 @@ P:NPC {
         { text = "Why did you come south to the Gorge?", next = "ywhy" },
         { text = "What news do you sell the Brotherhood?", next = "ynews" },
         { text = "I'm a warrior. What would you have me wear?", next = "ywarrior", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "Who buys mail out here, besides travellers?", next = "gc_buy" },
+        { text = "There are dwarves in chains down in the Slag Pit.", next = "gc_slaves" },
         { text = "Let me see your wares.", next = "END" },
       },
     },
@@ -118,6 +151,37 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+
+    tl_earn = {
+      lines = { { id = "tle_1", text = "Work. Overseer Oilfist up in the camp keeps a list of the Gorge's troubles as long as your arm, and every one you strike off is a step up the stairs. Do enough of them and Lokhtos might even deal with you, down in the Depths." } },
+      choices = {
+        { text = "Lokhtos trades from inside Blackrock Depths?", next = "tl_earn2" },
+        { text = "A list of troubles. Sounds like the Gorge.", next = "tl_earn2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tl_earn2 = {
+      lines = { { id = "tle2_1", text = "From the Grim Guzzler, under the Emperor's nose, which is the bravest or the stupidest thing any of us does. The Brotherhood has friends in the Depths still, and Lokhtos is how they're paid." } },
+      choices = {
+        { text = "That's a lot of trust in one bargainer.", next = "BACK", reply = "It is, and he knows it, and he prices it in. That's Lokhtos." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tl_caul = {
+      lines = { { id = "tlc_1", text = "Below and to the east, the great pit where the Emperor's people dig day and night. The slag runs out of it like blood from a wound, and the golems walk the rim, and the slaves dig in the middle where it's hottest." } },
+      choices = {
+        { text = "What are they digging for?", next = "tl_caul2" },
+        { text = "I'm a rogue. I could slip down there unseen.", next = "BACK", when = { class = "ROGUE" }, reply = "Many have thought so, and the golems don't sleep. If you do it, go by the west ramp at the shift change, and you didn't hear that from me." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tl_caul2 = {
+      lines = { { id = "tlc2_1", text = "Thorium, iron and whatever the fire lord wants that week, which the Emperor never tells the diggers. When they find something good, it goes down to Blackrock, and when they don't, the overseers find someone to blame." } },
+      choices = {
+        { text = "Then every seam you take from them hurts the Emperor.", next = "BACK", reply = "Now you understand Thorium Point." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I keep watch for the Brotherhood, and from up here I can see the whole Gorge, from the Cauldron to the Blackrock road. Anything that comes this way, I see it first, and I'd prefer it was you rather than a war party." } },
       again = { { id = "h_again", text = "Anything else? Be quick, I'm meant to be watching." } },
@@ -132,6 +196,8 @@ P:NPC {
         { text = "Do you have family under the mountain?", next = "xfamily" },
         { text = "I'm a hunter. My eyes are sharp too.", next = "BACK", when = { class = "HUNTER" }, reply = "Are they? Then tell me what's moving by the slag pit, north of the third tower. No? Then mine are sharper." },
         { text = "What made you leave Thaurissan yourself?", next = "yleave" },
+        { text = "How does an outsider earn the Brotherhood's trust?", next = "tl_earn" },
+        { text = "The Cauldron is right below us, isn't it?", next = "tl_caul" },
         { text = "I'll go on up.", next = "END" },
       },
     },
@@ -322,6 +388,37 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+
+    rz_spiders = {
+      lines = { { id = "rzs_1", text = "For their silk, which does not burn, and which she spins into things she does not show me. The heat of the Gorge makes them grow large and the poachers come for them, and the poachers I am permitted to break." } },
+      choices = {
+        { text = "Who are these poachers?", next = "rz_spiders2" },
+        { text = "Silk that doesn't burn would fetch a fortune.", next = "rz_spiders2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rz_spiders2 = {
+      lines = { { id = "rzs2_1", text = "Dark Iron, mostly, from the Cauldron, and once a goblin with a net and a very loud voice. The goblin ran faster than the Dark Iron, and I remember him with something you would call fondness." } },
+      choices = {
+        { text = "Then I'll leave her spiders well alone.", next = "BACK", reply = "Wise, little flesh. They are small, and I am not." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rz_glass = {
+      lines = { { id = "rzg_1", text = "Where I stand, the stone remembers the Nether and melts a little. The mistress moves my circle each season so the ground beneath does not fail, which is the most care anyone has ever taken over where I stand." } },
+      choices = {
+        { text = "Do the fire elementals of the Gorge trouble you?", next = "rz_glass2" },
+        { text = "I'm a mage. Your fire isn't like the elementals'.", next = "rz_glass2", when = { class = "MAGE" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rz_glass2 = {
+      lines = { { id = "rzg2_1", text = "Their fire belongs to the one beneath the mountain, and mine belongs to the Nether, and the two do not mix. When they drift near, they hiss and turn away, and I have never learned whether it is fear or disgust." } },
+      choices = {
+        { text = "Perhaps it's both.", next = "BACK", reply = "Perhaps. Flesh says that often, and it is often right." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Raze, and I was flung from the Twisting Nether to break whatever I struck, until the mistress bound me to guard her spiders instead. Speak, if you must, but speak slowly, because I am in no hurry." } },
       narr = "Green fire crawls along the cracks in its shoulders, and the ground near its feet has fused to glass.",
@@ -334,6 +431,8 @@ P:NPC {
         { text = "Have you ever slipped your binding?", next = "xslip" },
         { text = "I'm a warlock. I could command you instead.", next = "BACK", when = { class = "WARLOCK" }, reply = "You could try, little binder. The mistress's circle is strong, and yours would have to be stronger. Most are not." },
         { text = "What did you break, for the Legion?", next = "ylegion" },
+        { text = "Why does Nilith keep spiders in the Gorge?", next = "rz_spiders" },
+        { text = "The ground under your feet has turned to glass.", next = "rz_glass" },
         { text = "I'll leave you be.", next = "END" },
       },
     },
