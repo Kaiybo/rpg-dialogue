@@ -2,6 +2,20 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.116.0 (2026-11-27): Word Gets Around
+**New files: restart the game fully (a /reload is not enough).** Overheard talk is off by default: turn it on in the settings or with `/rpgd overhear`.
+- **Overheard talk.** Now and then, NPCs near you talk to each other or remark as you pass, in every town and role. Named pairs have their own exchanges, and some townsfolk gossip about you. It's rare on purpose.
+- **Word gets around.** Take a strong stand, or speak your mind on Jaina, Thrall, the Scourge, the Forsaken and more, and later other folk of that side may gossip about it.
+- **Holidays.** Townsfolk, vendors, guards, innkeepers and children have lines for the Lunar Festival, Love is in the Air, Noblegarden, Children's Week, Midsummer, the Harvest Festival, Hallow's End and Winter Veil.
+- **Townsfolk sound like their people.** Nameless dwarves, gnomes, night elves, orcs, trolls, tauren and Forsaken townsfolk speak in their own voice.
+- **Reputation matters.** About 80 NPCs greet you differently once you're Honored or Exalted with their faction: the Argent Dawn, Cenarion Circle, Timbermaw, Thorium Brotherhood, Zandalar, the goblin towns, the capitals and the battleground factions.
+- **Your companions.** Innkeepers remark on who you travel with.
+- **Every shopkeeper and trainer has an opinion of you.** About 2,250 service NPCs greet you warmly or coldly depending on how they feel about you, and many offer a stance to take. 130 quest-givers in the Eastern Kingdoms got their own warm and cold greetings and new topics.
+- **Deeper World talk.** Every view on a topic now has stances on both sides; more Ask answers for vendors, trainers, flight masters, bankers and others; race-specific story beats.
+- **Journal and letters.** The People page shows topics you haven't asked about and each person's last words to you. The Letters tab on the mail window has a search box.
+- **Voices.** Text to speech can give each race and gender its own voice, with your own speed and volume.
+- **Fixes.** Kills are recorded even when the combat log misses them; the talk key returns to where you were instead of the greeting; druid opinions you share now carry into the druid stories; goblin-only lines can fire; Hunter Ragetotem knows Thrag.
+
 ## 0.115.0 (2026-11-25): Mending the Seams
 No new files; a /reload is enough. A deep bug pass over the core, the UI, DialogueUI and every pack.
 - **Hundreds of hidden lines now show.** Lines and replies gated on several conditions at once (`all`) never passed; about 495 of them across the packs now appear. So do replies that depend on something you heard earlier (81 were never remembered), lines for Forsaken players (written as "Undead" instead of the game's "Scourge"), dawn and night lines, medics who notice you're hurt, profession lines that list more than one trade, lines about your named pet, and more.

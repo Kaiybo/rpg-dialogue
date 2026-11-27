@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Azshara |cff8a8a8a1.29.1|r
+## Title: RPG Dialogue: Azshara |cff8a8a8a1.30.0|r
 ## Notes: Talrendis Point and Valormok, an archmage's tower over the Highborne ruins, a duke of the Waterlords, a demon hunter on his island and a sea giant who calls himself a god.
 ## Author: RPG Dialogue
-## Version: 1.29.1
+## Version: 1.30.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.azshara
