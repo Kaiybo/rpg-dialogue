@@ -202,7 +202,10 @@ def("overheard", 50, "hinge", nil, function(ctx, v, env)
   if v == true then
     local key = env and env.info and ns.Memory.Key(env.info)
     local by = key and store._by and store._by[key]
-    return by ~= nil, "overheard: " .. (by and ("this NPC in " .. tostring(by)) or "nothing with this NPC")
+    -- `true` means just now: within half an hour of the exchange.
+    local at = by and store[by]
+    local recent = at and (ns.Compat.Now() - at) < 1800
+    return recent and true or false, "overheard: " .. (by and ("this NPC in " .. tostring(by) .. (recent and "" or " (too long ago)")) or "nothing with this NPC")
   end
   local list = type(v) == "table" and v or { v }
   for _, id in ipairs(list) do
