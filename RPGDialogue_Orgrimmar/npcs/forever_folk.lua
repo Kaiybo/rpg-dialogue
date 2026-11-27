@@ -35,6 +35,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    an_stare = {
+      lines = { { id = "an_stare_l", text = "They do, and he lets them, which surprises everyone who knew him as a young wolf. He used to growl at anyone who came within an axe's length of me, and now he lies in the sun and lets children count his scars." } },
+      choices = {
+        { text = "Age has made him gentle.", next = "an_stare2" },
+        { text = "How many scars does he have?", next = "an_stare2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    an_stare2 = {
+      lines = { { id = "an_stare2_l", text = "Twenty-three that I know of, and every one of them came from something that was trying to reach me. A child asked me once which one hurt the most, and I told him the one he got pulling me out of the Stagnant Oasis." } },
+      choices = {
+        { text = "What happened at the oasis?", next = "an_stare3" },
+        { text = "Something else, An'drak.", next = "BACK" },
+      },
+    },
+    an_stare3 = {
+      lines = { { id = "an_stare3_l", text = "I went in after a plainstrider and the mud took my legs, and the water there is foul enough to choke a kodo. Evermore dragged me out by the collar, and a crocolisk took a piece of his flank for it." } },
+      choices = {
+        { text = "He's earned his rest, then.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    an_barrens = {
+      lines = { { id = "an_barrens_l", text = "Everywhere from the Crossroads to the Great Lift, and out to the edge of Ashenvale when the hunting was thin. The Barrens look empty to a stranger, but there's more to hunt there than anywhere I know, if you know where to look." } },
+      choices = {
+        { text = "What did you hunt most?", next = "an_barrens2" },
+        { text = "The Barrens seemed empty to me, honestly.", next = "an_barrens2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    an_barrens2 = {
+      lines = { { id = "an_barrens2_l", text = "Zhevra, mostly, and plainstriders when we were hungry, and the odd lion when one decided we looked like supper. Evermore always went for the hind legs, and I always went for the throat, and between us nothing got away." } },
+      choices = {
+        { text = "A good partnership.", next = "an_barrens3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    an_barrens3 = {
+      lines = { { id = "an_barrens3_l", text = "The best, and I'll never have another like it. When he's gone, I'll hang up my bow and teach the young ones, because I don't think I could learn a new wolf's mind at my age." } },
+      choices = {
+        { text = "You'd teach them well.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
@@ -54,6 +98,8 @@ P:NPC {
         { text = "How did you find him?", next = "found" },
         { text = "How old is he?", next = "age" },
         { text = "Any advice for a hunter and a beast?", next = "x_hunter", when = { class = "HUNTER" } },
+        { text = "The young ones stare at Evermore a lot.", next = "an_stare" },
+        { text = "Where did you two hunt in the Barrens?", next = "an_barrens" },
         { text = "Good hunting, An'drak.", next = "END" },
       },
     },

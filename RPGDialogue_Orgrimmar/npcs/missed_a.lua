@@ -259,6 +259,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    gk_zarg = {
+      lines = { { id = "gk_zarg_l", text = "He says what needs saying, and that is less than most think. Zarg has stood in this hall since it was built, and he knows every champion's name and every champion's weapon." } },
+      choices = {
+        { text = "Do you hope to stand where he stands?", next = "gk_zarg2" },
+        { text = "He seems a hard orc to impress.", next = "gk_zarg2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gk_zarg2 = {
+      lines = { { id = "gk_zarg2_l", text = "I hope to walk through the door on my own merit, not to guard it forever. Zarg told me once that the best guards are the ones who don't want the post, and I have been trying to decide since if that was praise." } },
+      choices = {
+        { text = "It sounds like praise to me.", next = "BACK" },
+        { text = "Something else, grunt.", next = "BACK" },
+      },
+    },
+    gk_sleep = {
+      lines = { { id = "gk_sleep_l", text = "It has never happened, and it will not happen while I wear this armor. In the old Horde a sleeping guard lost his tusks, and in Thrall's Horde he loses his post, and I am not sure which is worse." } },
+      choices = {
+        { text = "Losing the post, for an orc like you.", next = "gk_sleep2" },
+        { text = "Thrall's way is more merciful.", next = "gk_sleep2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gk_sleep2 = {
+      lines = { { id = "gk_sleep2_l", text = "Merciful, aye, and harder to bear, because an orc without tusks can still fight, and an orc without a post has to look for a new reason to stand up in the morning. I would rather keep my tusks and my post both." } },
+      choices = {
+        { text = "Then stay awake, Korf.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "Grunt Korf. You carry your weapon like you have used it, warrior, and that is the only greeting this hall respects." },
@@ -274,6 +304,8 @@ P:NPC {
         { text = "Who did you fight under?", next = "xwho" },
         { text = "What earns an orc a place in this hall?", next = "xplace" },
         { text = "I carry rank, grunt. Tell me of this hall.", when = { pvpRank = 6 }, next = "xofficer" },
+        { text = "Stone Guard Zarg says very little.", next = "gk_zarg" },
+        { text = "What happens to a grunt who falls asleep at this post?", next = "gk_sleep" },
         { text = "Carry on, grunt.", next = "END" },
       },
     },
@@ -359,6 +391,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    bk_korf = {
+      lines = { { id = "bk_korf_l", text = "Korf barely speaks to anyone, {class}, and I've stopped taking it personally! He thinks a guard should be a statue, and I think a guard should be awake, and talking keeps me awake." } },
+      choices = {
+        { text = "Does he ever smile?", next = "bk_korf2" },
+        { text = "He might have a point about statues.", next = "bk_korf2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bk_korf2 = {
+      lines = { { id = "bk_korf2_l", text = "Once, when a champion came in wearing armor from Alterac and nodded to him by name. I thought his face would crack, and he went right back to frowning afterward, but I saw it." } },
+      choices = {
+        { text = "So he hopes to be noticed too.", next = "BACK", fx = { learn = { "alterac" } } },
+        { text = "Something else, Bek'rah.", next = "BACK" },
+      },
+    },
+    bk_off = {
+      lines = { { id = "bk_off_l", text = "I go down to the Valley of Honor and fight anyone who'll have me in the training ring! Then I eat at Borstan's pit in the Drag, and then I sleep like a stone until the horn." } },
+      choices = {
+        { text = "Do you win in the ring?", next = "bk_off2" },
+        { text = "That's a full day.", next = "bk_off2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bk_off2 = {
+      lines = { { id = "bk_off2_l", text = "More often than I lose, and I lose to the right orcs, which is how you learn. Last week a tauren knocked me flat with a totem and then helped me up, and I've decided I like tauren." } },
+      choices = {
+        { text = "Tauren are good to fight beside.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Grunt Bek'rah, guard of this hall! I keep the peace in here, which is easy, because nobody is fool enough to start a fight in a room full of warlords." },
@@ -373,6 +435,8 @@ P:NPC {
         { text = "Tell me about yourself, Bek'rah.", next = "xself" },
         { text = "Do you envy the officers?", next = "xenvy" },
         { text = "I'm a warrior. Spar with me some time.", when = { class = "WARRIOR" }, next = "xspar" },
+        { text = "Korf barely speaks to you.", next = "bk_korf" },
+        { text = "What do you do when your watch ends?", next = "bk_off" },
         { text = "Stand your post, grunt.", next = "END" },
       },
     },
@@ -455,6 +519,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    gr_bay = {
+      lines = { { id = "gr_bay_l", text = "Long way? Pal, it's a zeppelin to Grom'gol and a nice jungle stroll south, and the stroll only eats one in ten travellers, which are great odds by Stranglethorn standards. I've done it twelve times, and I've still got all my fingers, mostly." } },
+      choices = {
+        { text = "Mostly?", next = "gr_bay2" },
+        { text = "One in ten seems high to me.", next = "gr_bay2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gr_bay2 = {
+      lines = { { id = "gr_bay2_l", text = "A raptor took the tip of one, but I invoiced the Cartel for it as a business expense, so it all worked out. Booty Bay's worth it, friend, because nowhere else in the world will a goblin, an orc and a human drink at the same bar and nobody gets stabbed, much." } },
+      choices = {
+        { text = "That does sound worth the trip.", next = "BACK", fx = { learn = { "booty_bay" } } },
+        { text = "Something else, Grinkle.", next = "BACK" },
+      },
+    },
+    gr_fliers = {
+      lines = { { id = "gr_fliers_l", text = "Fourteen, and three of those were to the same troll, who I think is using them for kindling. The orcs keep asking if there's a prize for the biggest fish they can kill with an axe, and I keep saying no." } },
+      choices = {
+        { text = "Perhaps there should be.", next = "gr_fliers2" },
+        { text = "Orgrimmar's a hard market for you.", next = "gr_fliers2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gr_fliers2 = {
+      lines = { { id = "gr_fliers2_l", text = "Hard market, but a big one, and every orc who shows up at the docks drinks twice as much as a human, which is good for the Bay's taverns. Besides, my commission's per flier, so the troll with the kindling counts the same as a champion angler." } },
+      choices = {
+        { text = "Then I'll take one, for the commission.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_fisher", when = { profession = "Fishing" }, text = "Grinkle's the name, and promoting the Stranglethorn Fishing Extravaganza's the game. An angler like you could walk off that dock in Booty Bay a legend, pal, and all it costs ya is a boat ride and a little bait." },
@@ -470,6 +564,8 @@ P:NPC {
         { text = "Orcs don't seem keen on fish.", next = "orcs" },
         { text = "Who pays you to stand here?", next = "pays" },
         { text = "I already fish. What does the winner actually take home?", next = "prize", when = { profession = "Fishing" } },
+        { text = "Booty Bay must be a long way from here.", next = "gr_bay" },
+        { text = "How many fliers have you handed out today?", next = "gr_fliers" },
         { text = "Not today, goblin.", next = "END" },
       },
     },
@@ -540,6 +636,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    fm_orcs = {
+      lines = { { id = "fm_orcs_l", text = "With feasting and shouting, as they keep everything. But I have seen old orcs stand quietly at the edge of the square when the bells ring, and I think the season reminds them of winters in Alterac with the Frostwolves." } },
+      choices = {
+        { text = "The Frostwolves keep the old ways still.", next = "fm_orcs2" },
+        { text = "So the orcs remember more than they show.", next = "fm_orcs2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fm_orcs2 = {
+      lines = { { id = "fm_orcs2_l", text = "They do, and Thrall learned from them, which is why the season means something here even under the goblins' paper. A people who have known hard winters know what it is to be grateful for a warm fire." } },
+      choices = {
+        { text = "Then the season belongs to them too.", next = "BACK", fx = { learn = { "alterac" } } },
+        { text = "Something else, Furmund.", next = "BACK" },
+      },
+    },
+    fm_snow = {
+      lines = { { id = "fm_snow_l", text = "It is not, though the goblins will tell you it fell from the sky over Winterspring. I believe it is ground salt and white flour, and I have seen a grunt try to eat it." } },
+      choices = {
+        { text = "Did he like it?", next = "fm_snow2" },
+        { text = "A little false snow does no harm.", next = "fm_snow2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fm_snow2 = {
+      lines = { { id = "fm_snow2_l", text = "He did not, and he complained to the goblin, and the goblin sold him a cup of something hot to wash it down. I will grant them this, friend, they never miss a chance to be useful at a price." } },
+      choices = {
+        { text = "That's the goblin way.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_active", when = { questActive = TODO_QUEST("The Reason for the Season") }, text = "Have you been to Sagorne Creststrider yet? He keeps to Grommash Hold, and he tells the story of the season better than I ever could." },
@@ -555,6 +681,8 @@ P:NPC {
         { text = "Tell me what you'd have me do.", next = "BUSINESS" },
         { text = "The goblins are only feeding people.", next = "feeding" },
         { text = "I am of Mulgore too. How did our elders keep the season?", next = "mulgore", when = { race = "Tauren" } },
+        { text = "How do the orcs keep the season?", next = "fm_orcs" },
+        { text = "The snow on the stalls isn't real, is it?", next = "fm_snow" },
         { text = "Good Winter Veil, Furmund.", next = "END" },
       },
     },

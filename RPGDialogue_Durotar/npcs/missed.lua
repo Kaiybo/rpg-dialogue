@@ -28,6 +28,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    mg_back = {
+      lines = { { id = "mg_back_l", text = "Some do, older and taller and with scars they want to show me. One came back last month in armor from the Crossroads and told me I'd been the first orc to smile at him in Durotar, and I've been smiling ever since." } },
+      choices = {
+        { text = "And the ones who don't come back?", next = "mg_back2" },
+        { text = "A smile can matter more than people think.", next = "mg_back2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mg_back2 = {
+      lines = { { id = "mg_back2_l", text = "I hope they've gone far, to the Barrens and Ashenvale and beyond. I don't ask Gar'Thok about the others, because he'd tell me, and some things I would rather not know." } },
+      choices = {
+        { text = "Then I'll come back and show you my scars.", next = "BACK", reply = "You'd better, {class}. I'll be right here with the basket.", fx = { affinity = 1 } },
+        { text = "Something else, Magga.", next = "BACK" },
+      },
+    },
+    mg_inn = {
+      lines = { { id = "mg_inn_l", text = "It is, after the patrols come in, and loud enough that you can hear it from the barracks. Grosk keeps the fire going and the stew warm, and the grunts argue about whose kill was bigger until he throws them out." } },
+      choices = {
+        { text = "Is it safe to sleep there?", next = "mg_inn2" },
+        { text = "I could use a warm stew.", next = "mg_inn2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mg_inn2 = {
+      lines = { { id = "mg_inn2_l", text = "Safe as anywhere in Durotar, with the barracks next door and Gar'Thok's grunts drinking downstairs. Tell Grosk to make it your home, and you can come back to Razor Hill from wherever you wander." } },
+      choices = {
+        { text = "I'll speak with Grosk.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I'm Magga. I welcome the ones who come up from the Valley of Trials, since the grunts are too busy to do it and Gar'Thok only knows how to give orders." } },
       again = {
@@ -43,6 +73,8 @@ P:NPC {
         { text = "Where did the creatures come from?", next = "ycreatures" },
         { text = "What do you think of the young ones?", next = "yyoung" },
         { text = "I came through the Valley too.", next = "yorc", when = { race = "Orc" } },
+        { text = "Do the recruits ever come back to see you?", next = "mg_back" },
+        { text = "Grosk's inn seems a lively place.", next = "mg_inn" },
         { text = "I'm glad of the welcome. Farewell.", next = "END" },
       },
     },
@@ -128,6 +160,37 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    kj_road = {
+      lines = { { id = "kj_road_l", text = "Quiet is when they come. The marines learned that the hard way, because I was waiting on the hill where they thought nobody would be, and four of them didn't see the morning." } },
+      choices = {
+        { text = "What else comes up this road?", next = "kj_road2" },
+        { text = "You chose your position well.", next = "kj_road2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kj_road2 = {
+      lines = { { id = "kj_road2_l", text = "Razormane scouts from the south, and the odd cultist pretending to be a trader. Goblin carts too, bound for Ratchet, and they pay me no toll, which I've told Gar'Thok is a mistake." } },
+      choices = {
+        { text = "Every road should have its toll.", next = "BACK" },
+        { text = "Something else, grunt.", next = "BACK" },
+      },
+    },
+    kj_father = {
+      lines = { { id = "kj_father_l", text = "He fought in the old Horde, and then he spent his last years behind the humans' walls. He never once bowed to a guard, and he never lived to see the Warchief break the camps open." } },
+      choices = {
+        { text = "He sounds like a fierce warrior.", next = "kj_father2" },
+        { text = "So you fight to honor him.", next = "kj_father2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kj_father2 = {
+      lines = { { id = "kj_father2_l", text = "I fight because I'm a grunt, and because Durotar is mine to keep. But when I hold this road, I think about him holding his, and I don't step back one pace." } },
+      choices = {
+        { text = "A warrior holds the line no matter the cost.", next = "BACK", reply = "Lok'tar. You understand, then, even if Rawrk never will.", fx = { align = { honor = 1 } } },
+        { text = "A dead grunt holds no road at all.", next = "BACK", reply = "Hm. Tai'jin said the same, and maybe you're both right. I'll go to the barracks when this watch ends, and not before.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "internment" } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_garm", when = { questActive = TODO_QUEST("Garments of Spirituality") },
@@ -147,6 +210,8 @@ P:NPC {
         { text = "What will you do when you heal?", next = "yheal" },
         { text = "Why not let others fight for a while?", next = "yrest" },
         { text = "A troll priest sent me. Are you friends?", next = "ytaijin" },
+        { text = "Your stretch of road looks quiet now.", next = "kj_road" },
+        { text = "You mentioned your father.", next = "kj_father" },
         { text = "Hold fast, grunt.", next = "END" },
       },
     },

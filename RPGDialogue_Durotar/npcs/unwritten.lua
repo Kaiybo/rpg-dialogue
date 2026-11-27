@@ -377,6 +377,45 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    de_command = {
+      lines = { { id = "de_command_l", text = "The Dark Lady, at the last, and below her a chain of officers who were sergeants and captains of Lordaeron when they were alive. Executor Zygand keeps Brill's watch, and his orders reach us here as reliably as the rot reaches the living." } },
+      choices = {
+        { text = "So the old army simply carried on, after death.", next = "de_command2" },
+        { text = "Do you remember your rank from life?", next = "de_command2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    de_command2 = {
+      lines = { { id = "de_command2_l", text = "Some of it carried on, and some of it walked the other way and joined the Scourge, or the Crusade, which is worse. I was a corporal once, and now I am elite, and the promotion came with a great deal less pay and a great deal more discipline." } },
+      choices = {
+        { text = "Loyalty to the Dark Lady should come before all else.", next = "BACK", reply = "It does, for us. She broke the Lich King's hold when no one else could, and a soldier does not forget who struck off his chains.", fx = { align = { order = 1 } } },
+        { text = "A soldier who obeys without question is only a puppet.", next = "BACK", reply = "I was a puppet once, living one, and I know the difference better than you. This is a choice, and I make it every night.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "scourge" } } },
+      },
+    },
+    de_sleep = {
+      lines = { { id = "de_sleep_l", text = "I don't, which is why the Deathguard put me on the night watch and keep me there. The living guards of the Horde grow tired and careless at dawn, but I am exactly as careless at dawn as I was at dusk, which is to say not at all." } },
+      choices = {
+        { text = "What do you think about through the long nights?", next = "de_sleep2" },
+        { text = "That sounds like a lonely kind of duty.", next = "de_sleep2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    de_sleep2 = {
+      lines = { { id = "de_sleep2_l", text = "I count the bats over the ruins, and I think about the Scarlet Crusade, and on bad nights I remember my wife's face and wish I could not. The Apothecaries say the memories fade with time, but they have been saying that for a while now." } },
+      choices = {
+        { text = "I'm sorry. That can't be easy.", next = "BACK" },
+        { text = "Do the Apothecaries ever explain themselves?", next = "de_sleep3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    de_sleep3 = {
+      lines = { { id = "de_sleep3_l", text = "Never to a guard, and rarely to anyone. They come up from the Undercity with sealed crates bound for Brill, and the crates smell of something that makes even a dead man's eyes water, and I wave them through because the Dark Lady's seal is on every one." } },
+      choices = {
+        { text = "Then I'll keep clear of those crates.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       narr = "His armour is clean, but the hand on his halberd shows bone at the knuckles.",
       lines = { { id = "h_default", text = "I am of the Deathguard's elite, and I keep the ruins of Lordaeron so that nothing reaches the Undercity unseen. The orcs are allies, but an ally is not the same as a friend." } },
@@ -389,6 +428,8 @@ P:NPC {
         { text = "Do you miss the living city that stood here?", next = "heat" },
         { text = "How do the orcs treat your people?", next = "orcs" },
         { text = "Any word from Brill for one of our own?", next = "home", when = { race = "Scourge" } },
+        { text = "Who commands the Deathguard?", next = "de_command" },
+        { text = "You don't seem to need sleep.", next = "de_sleep" },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -453,6 +494,45 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    er_orcs = {
+      lines = { { id = "er_orcs_l", text = "They do, and I do not mind it. A young grunt asked me yesterday whether the moon was a god, and I told him she was a mother, and he went away thinking very hard, which is the best gift a festival can give." } },
+      choices = {
+        { text = "Orcs have their own ancestors to honour.", next = "er_orcs2" },
+        { text = "Do the orcs keep any festival like this one?", next = "er_orcs2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    er_orcs2 = {
+      lines = { { id = "er_orcs2_l", text = "They do, and their shaman speak to the spirits much as ours do, which Thrall has tried to teach them again after the dark years. A people who forgot their ancestors and then remembered them are a people worth standing beside, young one." } },
+      choices = {
+        { text = "The Horde's peoples should learn each other's ways.", next = "BACK", reply = "So the Earth Mother would wish, and so Cairne believes. Every rite shared is a thread in a strong rope.", fx = { align = { order = 1 } } },
+        { text = "Each people should keep their rites their own.", next = "BACK", reply = "There is wisdom in that too, for a rite worn by everyone can lose its meaning. But I will not turn away a curious grunt.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    er_elders = {
+      lines = { { id = "er_elders_l", text = "Across all of Kalimdor and the eastern kingdoms too, in the great cities and the small villages alike. Those who honour every elder gather the coins of the ancestors and carry them to Moonglade, where the festival is greatest of all." } },
+      choices = {
+        { text = "What happens at Moonglade?", next = "er_elders2" },
+        { text = "That sounds like a long pilgrimage.", next = "er_elders2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    er_elders2 = {
+      lines = { { id = "er_elders2_l", text = "The druids light the sky over Nighthaven, and pilgrims of every people come to give thanks to Elune, Horde and Alliance alike, for one night without blades. It is a rare thing in these years, and the ancestors smile on it." } },
+      choices = {
+        { text = "Then perhaps I'll make the journey.", next = "BACK", fx = { learn = { "cenarion_circle" } } },
+        { text = "Have you made the journey to Moonglade yourself?", next = "er_elders3" },
+        { text = "Something else, elder.", next = "BACK" },
+      },
+    },
+    er_elders3 = {
+      lines = { { id = "er_elders3_l", text = "Many times, when my legs were young and my horns were not so heavy. The path through the Timbermaw tunnels is long and the furbolgs watch every traveller, so go with respect, and they will let you pass." } },
+      choices = {
+        { text = "I'll go with respect, then.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       narr = "Pale light gathers about her horns, and she waits a long moment before speaking.",
       lines = { { id = "h_default", text = "I am Runetotem, an elder of my tribe, and while the Lunar Festival lasts I stand here as the ancestors ask. Those who come to me carry the year's honour from one elder to the next." } },
@@ -465,6 +545,8 @@ P:NPC {
         { text = "Why stand here, among the orcs of Razor Hill?", next = "here" },
         { text = "I've come to honour you, elder.", next = "honour", when = { questActive = TODO_QUEST("Runetotem the Elder") } },
         { text = "Tell me of the Runetotem tribe.", next = "tribe", when = { race = "Tauren" } },
+        { text = "The orcs here watch you with some curiosity.", next = "er_orcs" },
+        { text = "Do other elders stand elsewhere for the festival?", next = "er_elders" },
         { text = "Walk with the Earth Mother, elder.", next = "END" },
       },
     },
@@ -530,6 +612,45 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    hs_trolls = {
+      lines = { { id = "hs_trolls_l", text = "They do, Darkspear with spears longer than they are, and they laugh more than any orc recruit I have ever trained. I distrusted that laughter at first, and then I watched one of them laugh his way through a Razormane ambush." } },
+      choices = {
+        { text = "So you respect them now.", next = "hs_trolls2" },
+        { text = "Laughter in battle seems unwise.", next = "hs_trolls2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hs_trolls2 = {
+      lines = { { id = "hs_trolls2_l", text = "I respect anyone who holds the line, and the Darkspear hold it. The Warchief owes their tribe a debt for the voyage to Kalimdor, and he pays it by treating them as kin, so I do the same and keep my old opinions to myself." } },
+      choices = {
+        { text = "A wise choice, Holgar.", next = "BACK" },
+        { text = "I'm a Darkspear myself, and we remember the debt too.", next = "BACK", when = { race = "Troll" }, reply = "Then we understand each other, troll. Hold the line, and I will never ask what you're laughing at.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hs_afraid = {
+      lines = { { id = "hs_afraid_l", text = "That fear is a warning, not a master, and that every orc on the wall felt it once. Then I send them down to fight the scorpids with an older grunt at their side, because fear goes quicker when you can see someone else's back in front of you." } },
+      choices = {
+        { text = "And if the fear never leaves?", next = "hs_afraid2" },
+        { text = "Fear has no place in a warrior.", next = "hs_afraid2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hs_afraid2 = {
+      lines = { { id = "hs_afraid2_l", text = "It never leaves, recruit, not entirely, and the orcs who claim it has are either lying or dead soon after. Grom Hellscream was afraid of the demons until the end, and he faced them anyway, and that is all courage ever was." } },
+      choices = {
+        { text = "Then I'll face mine.", next = "BACK" },
+        { text = "What were you most afraid of, Holgar?", next = "hs_afraid3" },
+        { text = "Something else, Holgar.", next = "BACK" },
+      },
+    },
+    hs_afraid3 = {
+      lines = { { id = "hs_afraid3_l", text = "That I would go back to the camps' grey sleep and never wake from it, recruit. Many of us lost the will to fight behind those walls, and I feared that more than any human blade, because a blade only kills you once." } },
+      choices = {
+        { text = "You woke from it, though.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Holgar Stormaxe, and I see to the recruits who come up this road to join the Warchief's Horde. Some of them become warriors, some go home, and a few end up feeding the vultures." } },
       again = {
@@ -541,6 +662,8 @@ P:NPC {
         { text = "Were you in the internment camps?", next = "camps", when = { race = "Orc" } },
         { text = "Is Orgrimmar under threat out here?", next = "threats" },
         { text = "You look like you've fought in many wars.", next = "wars" },
+        { text = "Some recruits come up this road from Sen'jin.", next = "hs_trolls" },
+        { text = "What do you tell a recruit who's afraid?", next = "hs_afraid" },
         { text = "Lok'tar, Holgar.", next = "END" },
       },
     },
@@ -606,6 +729,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    hw_hall = {
+      lines = { { id = "hw_hall_l", text = "Quiet like a drum before de dance, mon. When de war in de fields be hot, dis hall fills with warriors comparin' scars, and de banners on de walls look down on dem all." } },
+      choices = {
+        { text = "Whose banners hang here?", next = "hw_hall2" },
+        { text = "It feels more like a shrine than a hall.", next = "hw_hall2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hw_hall2 = {
+      lines = { { id = "hw_hall2_l", text = "De banners of de Horde's champions, mon, de ones who reached de highest ranks in de fields. Only dey can walk in here and be served, so de rest of you look in from de door and dream about it." } },
+      choices = {
+        { text = "Then I'll earn my way inside.", next = "BACK" },
+        { text = "Something else, blood guard.", next = "BACK" },
+      },
+    },
+    hw_others = {
+      lines = { { id = "hw_others_l", text = "Officers of de Horde, mon, orcs and tauren and Forsaken, and every one of dem a veteran of more fights dan you've had breakfasts. Dey each keep a piece of what de Warchief gives for honour, and I keep mine." } },
+      choices = {
+        { text = "Do you ever fight in the fields yourself?", next = "hw_others2" },
+        { text = "You don't sound fond of the other officers.", next = "hw_others2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hw_others2 = {
+      lines = { { id = "hw_others2_l", text = "I did, before Thrall gave me dis post, and I still feel de fields in my knees on cold nights. A blood guard who never bled don't deserve de name, mon, and I make sure de young ones see my scars before dey ask for my gear." } },
+      choices = {
+        { text = "Your scars speak for you, then.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I be Hini'wana, blood guard of de Horde, and I give de finest arms to dose who earn dem fightin' de Alliance. No gold buys what I keep, only honour won in de field." } },
       again = { { id = "h_again", text = "Somethin' else on ya mind, mon?" }, { id = "h_again2", text = "Talk quick, de warriors be lining up behind ya." } },
@@ -618,6 +771,8 @@ P:NPC {
         { text = "What do you think of the Alliance?", next = "xalli" },
         { text = "What does honour mean to you?", next = "xhonour" },
         { text = "Darkspear to Darkspear: how fare the islands?", next = "xisles", when = { race = "Troll" } },
+        { text = "The Hall of Legends is quiet today.", next = "hw_hall" },
+        { text = "Who else keeps the Horde's honours here?", next = "hw_others" },
         { text = "Farewell, blood guard.", next = "END" },
       },
     },
@@ -700,6 +855,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    sm_gates = {
+      lines = { { id = "sm_gates_l", text = "I always do. Everyone who enters Orgrimmar comes through those gates or over the walls, and the ones who come over the walls are the ones I want to meet first." } },
+      choices = {
+        { text = "Has anyone come over the walls lately?", next = "sm_gates2" },
+        { text = "Orgrimmar seems safe enough from here.", next = "sm_gates2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sm_gates2 = {
+      lines = { { id = "sm_gates2_l", text = "Twice this season, both cultists, both caught before they reached the Cleft of Shadow. The city looks safe because people like me make it look that way, and I'd rather you went on thinking so." } },
+      choices = {
+        { text = "Then I'll keep my eyes open too.", next = "BACK", fx = { learn = { "burning_blade" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sm_report = {
+      lines = { { id = "sm_report_l", text = "To the Warchief's officers in Grommash Hold, and sometimes to the Warchief himself when the news is bad enough. Thrall reads every scout's report, which is more than any warchief before him ever bothered to do." } },
+      choices = {
+        { text = "What do you tell him?", next = "sm_report2" },
+        { text = "A leader who listens to scouts is a rare thing.", next = "sm_report2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sm_report2 = {
+      lines = { { id = "sm_report2_l", text = "Lately, that the Alliance builds at Theramore and in Ashenvale both, and that the night elves are shooting our lumber crews faster than Warsong can replace them. He listens, and then he sends more grunts north, and I go back to the gates." } },
+      choices = {
+        { text = "Then the war in Ashenvale grows worse.", next = "BACK", fx = { learn = { "warsong" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "They call me Manslayer, and I earned the name in the wars. Now I walk the city and the roads around it and report what I see to the Warchief's officers." } },
       again = { { id = "h_again", text = "What else? Be quick about it." }, { id = "h_again2", text = "Ask, then. I can listen and walk at the same time." } },
@@ -711,6 +896,8 @@ P:NPC {
         { text = "Do you trust everyone in Orgrimmar?", next = "xtrust" },
         { text = "What's your strangest report?", next = "xodd" },
         { text = "I'm a rogue. Need help?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "You keep watching the gates as we talk.", next = "sm_gates" },
+        { text = "Who do you report to?", next = "sm_report" },
         { text = "I'll not keep you.", next = "END" },
       },
     },

@@ -180,6 +180,37 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    cz_ganrul = {
+      lines = { { id = "cz_ganrul_l", text = "He does, when they need something he can't be bothered to explain. Gan'rul teaches the binding of demons, and I teach the cost of it, and the young ones generally like his lessons better." } },
+      choices = {
+        { text = "Do you and Gan'rul agree on much?", next = "cz_ganrul2" },
+        { text = "His lessons sound more useful.", next = "cz_ganrul2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cz_ganrul2 = {
+      lines = { { id = "cz_ganrul2_l", text = "We agree that the Horde needs warlocks, and that the Warchief would rather it didn't. Beyond that, Gan'rul thinks power is a tool and I think it is a creditor, and one of us will be proven right before we die." } },
+      choices = {
+        { text = "Power is only a tool. The wielder decides its use.", next = "BACK", reply = "So Gan'rul says, and so every warlock says in his first year. Come back in your tenth and tell me again.", fx = { align = { light = -1 } } },
+        { text = "Every debt to the Nether comes due eventually.", next = "BACK", reply = "Ah. You listened, which is rarer than talent. Pay it in small coin while you can, warlock.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cz_hear = {
+      lines = { { id = "cz_hear_l", text = "Everything, and most of it is boring. The rogues whisper about Theramore, the warlocks whisper about each other, and the cultists at Neeru's fire whisper about Ragefire Chasm when they think no one blind is listening." } },
+      choices = {
+        { text = "What do they say about Ragefire?", next = "cz_hear2" },
+        { text = "You should tell the Warchief's guards.", next = "cz_hear2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cz_hear2 = {
+      lines = { { id = "cz_hear2_l", text = "That the Searing Blade gather in the depths beneath the city, and that their master Bazzalan grows bolder. The guards know already, {class}, and the Warchief knows too, so I sit here and wait to hear whose footsteps come back up." } },
+      choices = {
+        { text = "Then I'll go down and see for myself.", next = "BACK", fx = { learn = { "burning_blade" } } },
+        { text = "Something else, Cazul.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Cazul, and my eyes are useless, so I'll be staring at the wall while we talk. Power belongs to those willing to pay its price, and I paid mine a long time ago." },
@@ -198,6 +229,8 @@ P:NPC {
         { text = "Where do I find Zankaja?", next = "zankaja", when = { class = "WARLOCK" } },
         { text = "Why must the succubus be baited with love?", next = "succubus", when = { class = "WARLOCK" } },
         { text = "Why does an old orc sit down here in the dark?", next = "dark" },
+        { text = "Gan'rul Bloodeye sends students your way, I gather.", next = "cz_ganrul" },
+        { text = "You hear everything that passes in the Cleft, I'd wager.", next = "cz_hear" },
         { text = "I'll leave you in peace, old one.", next = "END" },
       },
     },
@@ -275,6 +308,36 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    zk_riders = {
+      lines = { { id = "zk_riders_l", text = "They do, and I've learned to tell from how they fly whether the news is good. A wind rider that comes in low and slow is carrying the wounded, and one that comes in high and fast is carrying orders." } },
+      choices = {
+        { text = "Who looks after the wind riders here?", next = "zk_riders2" },
+        { text = "That's a sharp eye you've developed.", next = "zk_riders2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    zk_riders2 = {
+      lines = { { id = "zk_riders2_l", text = "Doras keeps the tower, and he lets me stand nearby so long as I don't get in the way of the landings. He doesn't say much to me, but he always tells me which ones came from the Crossroads." } },
+      choices = {
+        { text = "That's kind of him.", next = "BACK" },
+        { text = "Something else, Zankaja.", next = "BACK" },
+      },
+    },
+    zk_work = {
+      lines = { { id = "zk_work_l", text = "I mend saddles for the wind rider tower, which keeps my hands busy and keeps me near the landings. Doras pays me fairly, and he lets me take my work up onto the bluffs when the light is good." } },
+      choices = {
+        { text = "So you watch and work at once.", next = "zk_work2" },
+        { text = "Do you like the work?", next = "zk_work2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    zk_work2 = {
+      lines = { { id = "zk_work2_l", text = "I like it well enough, because every saddle I stitch carries someone home. Dogran used to tease me that I'd stitch his name into one of them, and I never told him I already had." } },
+      choices = {
+        { text = "That's a fine thing to have done.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Zankaja, and I watch the road from here because it's the only place in the city where I can see the wind riders come in from the Crossroads. My mate, Dogran, was sent there on a promotion, and he should have been home a week ago." },
@@ -292,6 +355,8 @@ P:NPC {
         { text = "Are you afraid for him?", next = "barrens" },
         { text = "Why wait up here, on the bluffs?", next = "bluffs" },
         { text = "Did you believe Gan'rul?", next = "truth", when = { class = "WARLOCK", questDone = TODO_QUEST("Love's Gift") } },
+        { text = "The wind riders come in tired from the south.", next = "zk_riders" },
+        { text = "What do you do when you're not up here?", next = "zk_work" },
         { text = "I hope he comes home soon.", next = "END" },
       },
     },

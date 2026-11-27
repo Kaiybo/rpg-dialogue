@@ -1768,6 +1768,37 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    bc_forge = {
+      lines = { { id = "bc_forge_l", text = "It does, because good steel wants more heat than the Drag can give, which is why the smiths moved out here to the Valley of Honor. The bellows were built by goblins, and they cost more than I'll admit to Saru." } },
+      choices = {
+        { text = "Goblin bellows in an orc forge?", next = "bc_forge2" },
+        { text = "So Saru keeps the accounts.", next = "bc_forge2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bc_forge2 = {
+      lines = { { id = "bc_forge2_l", text = "A smith uses what works, and goblin bellows work, whatever my grandfather would say. Saru keeps the accounts because he's the only one of us who can count past the number of hammers on his bench." } },
+      choices = {
+        { text = "An orc should forge with orc tools.", next = "BACK", reply = "Then he'll forge slower than me, and I'll sell more axes. Pride's a fine thing until the grunts are waiting.", fx = { align = { honor = 1 } } },
+        { text = "Use whatever tool makes the better blade.", next = "BACK", reply = "Now you sound like a smith. The steel doesn't know who built the bellows.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bc_grunts = {
+      lines = { { id = "bc_grunts_l", text = "Axes, always axes, and always heavier than they can handle. A grunt fresh from the training grounds wants an axe like Grom's, and I tell him Grom spent twenty years growing the arms to swing it." } },
+      choices = {
+        { text = "Do they ever listen?", next = "bc_grunts2" },
+        { text = "A heavy axe makes a statement, at least.", next = "bc_grunts2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bc_grunts2 = {
+      lines = { { id = "bc_grunts2_l", text = "The ones who come back from Ashenvale do, the second time. The first time they carry the heavy one north, and the second time they come to me asking for something that won't tire them out before the night elves do." } },
+      choices = {
+        { text = "Then I'll ask for the lighter one first.", next = "BACK" },
+        { text = "Something else, Borgosh.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Borgosh Corebender, and I make weapons for the Horde. Anyone here can make you an axe that cuts; I make the ones that still feel right in the hand at the end of the day." },
@@ -1792,6 +1823,8 @@ P:NPC {
         { text = "What makes a weapon feel right?", next = "balance" },
         { text = "I fight with what I'm given. Teach me to judge it.", next = "judge", when = { class = { "WARRIOR", "ROGUE", "HUNTER", "SHAMAN" } } },
         { text = "I'll see what needs doing.", next = "BUSINESS" },
+        { text = "Your forge runs hotter than any I've stood near.", next = "bc_forge" },
+        { text = "What do the grunts ask you to make most?", next = "bc_grunts" },
         { text = "Good forging, Borgosh.", next = "END" },
       },
     },
@@ -1988,6 +2021,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    zy_senjin = {
+      lines = { { id = "zy_senjin_l", text = "When my knees allow, which be less often dan I would like. Master Gadrin keeps de spirits strong down dere, and I keep dem strong up here, and between us de Darkspear be never far from de loa." } },
+      choices = {
+        { text = "Does Gadrin need help against Zalazane?", next = "zy_senjin2" },
+        { text = "It must be hard to leave the tribe behind.", next = "zy_senjin2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    zy_senjin2 = {
+      lines = { { id = "zy_senjin2_l", text = "Gadrin needs every spear he can find, and every priest who can break a hex. Zalazane holds our kin with mad magic, child, and I send my best students down to Sen'jin when dey be ready, because dat be where de tribe bleeds." } },
+      choices = {
+        { text = "Then I'll go to Gadrin when I can.", next = "BACK", fx = { learn = { "echo_isles" } } },
+        { text = "Something else, Zayus.", next = "BACK" },
+      },
+    },
+    zy_quiet = {
+      lines = { { id = "zy_quiet_l", text = "Because I teach dem dat de loa hear a whisper better dan a shout. De orcs pray like dey fight, loud and all at once, and de spirits listen to dem too, but de troll way be quieter." } },
+      choices = {
+        { text = "Do the loa prefer one way?", next = "zy_quiet2" },
+        { text = "I'd rather be heard than whisper.", next = "zy_quiet2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    zy_quiet2 = {
+      lines = { { id = "zy_quiet2_l", text = "De loa prefer honesty, child, whatever de volume. A loud prayer with nothin' behind it be only noise, and a whisper from de heart travels further dan any war drum in dis city." } },
+      choices = {
+        { text = "Then I'll speak honestly.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I be Zayus, and I speak to de loa for de Darkspear in dis city. I teach de young ones to mend flesh and to wound de spirit, because a priest who can only do one be half a priest." },
@@ -2005,6 +2068,8 @@ P:NPC {
         { text = "The Valley of Spirits is a troll place in an orc city.", next = "valley" },
         { text = "The orcs' shaman and your priests share one Horde.", next = "shaman" },
         { text = "What do you make of the Forsaken's priests?", next = "forsaken" },
+        { text = "Do you ever go back to Sen'jin?", next = "zy_senjin" },
+        { text = "Your students pray very quietly.", next = "zy_quiet" },
         { text = "Spirits walk with you, Zayus.", next = "END" },
       },
     },
@@ -2328,6 +2393,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    km_soran = {
+      lines = { { id = "km_soran_l", text = "Soran thinks less and says less than either of us, and he's the one who notices when a customer's lying. Karus counts, I talk, and Soran watches, and that's how three grunts kept a hillside and how we keep a bank." } },
+      choices = {
+        { text = "Does he ever talk about Hyjal?", next = "km_soran2" },
+        { text = "Three brothers, three roles. It works.", next = "km_soran2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    km_soran2 = {
+      lines = { { id = "km_soran2_l", text = "Never, not once since we came down off the mountain. I think he saw something there that Karus and I missed, and I've learned not to ask, because a brother's silence is his own to keep." } },
+      choices = {
+        { text = "Then I won't ask him either.", next = "BACK" },
+        { text = "Something else, Koma.", next = "BACK" },
+      },
+    },
+    km_valley = {
+      lines = { { id = "km_valley_l", text = "It is, with the auctioneers shouting next door and the zeppelin crowd coming through the gate. But a loud place is a safe place for gold, because no thief wants a hundred grunts watching him walk out." } },
+      choices = {
+        { text = "Has anyone ever tried to rob the bank?", next = "km_valley2" },
+        { text = "So the crowd is your guard.", next = "km_valley2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    km_valley2 = {
+      lines = { { id = "km_valley2_l", text = "One goblin, in the first year, who tunnelled up from under the Drag and came out in the wrong room. Karus caught him by the ear, and Soran made him pay for the floor, and he works for the auction house now." } },
+      choices = {
+        { text = "Ha. That's a fitting end.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Koma. My brothers Karus and Soran and I keep this bank for the Warchief, and before that we kept a stretch of hillside at Mount Hyjal against everything the Legion had. The hillside was easier on the feet." },
@@ -2346,6 +2441,8 @@ P:NPC {
         { text = "Your brother Karus seems the careful one.", next = "karus" },
         { text = "What do people keep in an orc bank?", next = "vault" },
         { text = "My people stood on that mountain too.", next = "ally", when = { race = { "Tauren", "Troll" } } },
+        { text = "What does Soran think of all this banking?", next = "km_soran" },
+        { text = "The Valley of Strength is loud for a bank.", next = "km_valley" },
         { text = "Guard it well, Koma.", next = "END" },
       },
     },
@@ -2538,6 +2635,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    gd_glow = {
+      lines = { { id = "gd_glow_l", text = "They do, for a few days after they are set, and then they settle. A rune that glows forever is one that was poorly made, because the magic should sink into the steel and not sit on top of it." } },
+      choices = {
+        { text = "So the best enchantments are invisible.", next = "gd_glow2" },
+        { text = "Some warriors like a weapon that glows.", next = "gd_glow2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gd_glow2 = {
+      lines = { { id = "gd_glow2_l", text = "Some do, and I could make one that glows, but it would be the poorer for it. I tell them that an enemy who sees your weapon shining knows what to fear, and an enemy who doesn't has already lost." } },
+      choices = {
+        { text = "That's a fine lesson.", next = "BACK" },
+        { text = "Something else, Godan.", next = "BACK" },
+      },
+    },
+    gd_dies = {
+      lines = { { id = "gd_dies_l", text = "Nothing, at first. The rune stays in the steel and waits, and when a new hand takes the weapon, the rune learns it slowly, like a wolf learning a new rider." } },
+      choices = {
+        { text = "So a rune can outlive its maker.", next = "gd_dies2" },
+        { text = "That sounds almost like a spirit.", next = "gd_dies2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gd_dies2 = {
+      lines = { { id = "gd_dies2_l", text = "It can, and many of mine will, which is the only kind of legacy I care about. The shaman would say a rune has no spirit, and I would not argue with them, but I have felt one hesitate in a new hand." } },
+      choices = {
+        { text = "Then your work will outlast us all.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Godan. I teach the setting of magic into steel, hide and cloth, so that it stays when the caster has gone home. It is a patient craft, and the first half of it is learning to destroy things carefully." },
@@ -2555,6 +2682,8 @@ P:NPC {
         { text = "Who works the Runeworks with you?", next = "shop" },
         { text = "What would you set into a weapon like mine?", next = "weapon", when = { class = { "WARRIOR", "ROGUE", "HUNTER", "SHAMAN", "PALADIN" } } },
         { text = "This looks close to what some do with souls. I would know.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "Your runes glow faintly even in the dark.", next = "gd_glow" },
+        { text = "What happens to a rune when its bearer dies?", next = "gd_dies" },
         { text = "I'll leave you to your runes.", next = "END" },
       },
     },
@@ -3255,6 +3384,37 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xy_urkyo = {
+      lines = { { id = "xy_urkyo_l", text = "Ur'kyo teaches de old ones, de priests who already know de mendin' and want to learn de shadow. He be stern, mon, and he scares de young ones, so dey come to me first and go to him later." } },
+      choices = {
+        { text = "Is the shadow dangerous to learn?", next = "xy_urkyo2" },
+        { text = "So you two divide the work well.", next = "xy_urkyo2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xy_urkyo2 = {
+      lines = { { id = "xy_urkyo2_l", text = "Everything be dangerous to learn if you learn it wrong. De shadow be only de other side of de mendin', but a priest who goes too far into it forgets why he started, and Ur'kyo watches for dat more closely dan anything else." } },
+      choices = {
+        { text = "A priest should master both healing and shadow.", next = "BACK", reply = "Dat be de troll way, mon, and Zayus would smile to hear you say it. Balance be everything.", fx = { align = { light = -1 } } },
+        { text = "Healing is the greater gift. Shadow should be a last resort.", next = "BACK", reply = "Many priests say so, and dey heal well. I don't argue, mon, I only teach what de spirits give.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xy_four = {
+      lines = { { id = "xy_four_l", text = "Can I heal myself, can I heal de dead, why does it hurt, and when do I learn de shadow. I answer yes, no, because it should, and when you be ready, mon, and dey never like de last answer." } },
+      choices = {
+        { text = "Why should healing hurt?", next = "xy_four2" },
+        { text = "I'd have asked the same four.", next = "xy_four2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xy_four2 = {
+      lines = { { id = "xy_four2_l", text = "Because a priest who feels nothin' when she mends a wound stops carin' about de one who bled. De spirits lend you a little of de pain, mon, so you remember dat every grunt you heal be somebody's child." } },
+      choices = {
+        { text = "Then I'll carry that with me.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I be X'yera. Ur'kyo and I teach de priests of de Horde here under High Priest Zayus, and I have de younger ones, which means I answer de same four questions every day and never tire of dem." },
@@ -3273,6 +3433,8 @@ P:NPC {
         { text = "Why would a Darkspear priest help the druids?", next = "cenarion" },
         { text = "You speak of the spirits like family.", next = "family" },
         { text = "The Light I knew in life never answered either.", next = "forsaken", when = { race = "Scourge" } },
+        { text = "What does Ur'kyo teach that you don't?", next = "xy_urkyo" },
+        { text = "What are the four questions every student asks?", next = "xy_four" },
         { text = "Spirits keep you, X'yera.", next = "END" },
       },
     },
@@ -3376,6 +3538,37 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    om_first = {
+      lines = { { id = "om_first_l", text = "Where not to put it. A young rogue thinks every strike should go for the throat, and half the time the throat is behind a buckle or a beard, and the knife skids and the mark screams." } },
+      choices = {
+        { text = "So where should it go?", next = "om_first2" },
+        { text = "I'd have gone for the throat too.", next = "om_first2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    om_first2 = {
+      lines = { { id = "om_first2_l", text = "Wherever the mark isn't looking, which is the whole of the trade in five words. Gest teaches you to find that place, and I teach you to reach it before it closes." } },
+      choices = {
+        { text = "Then I'll learn from both of you.", next = "BACK" },
+        { text = "Something else, Ormok.", next = "BACK" },
+      },
+    },
+    om_rekkul = {
+      lines = { { id = "om_rekkul_l", text = "He does, and the guards let him, because the Warchief's rogues need poison and it's better sold in the open than in an alley. Rekkul tells every buyer exactly what each vial does, which is more honest than most poison sellers ever were." } },
+      choices = {
+        { text = "Poison seems a dishonorable weapon.", next = "om_rekkul2" },
+        { text = "The Horde uses every weapon it has.", next = "om_rekkul2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    om_rekkul2 = {
+      lines = { { id = "om_rekkul2_l", text = "The old clans said the same, and then the humans put us in camps with poison in our food. I don't lose sleep over a vial of venom on a blade, and neither does anyone who survived those years." } },
+      choices = {
+        { text = "Victory matters more than how it's won.", next = "BACK", reply = "Spoken like one of the Hand. You'll do well down here, as long as you remember who we're winning for.", fx = { align = { honor = -1 } } },
+        { text = "Even a rogue should fight with some honor.", next = "BACK", reply = "Some, aye, and Shenthul would agree with you. Just don't let honor get you killed before the work is done.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Ormok. Shenthul leads the Shattered Hand in this city, and Gest and I teach those he thinks are worth teaching. We make the kind of soldier nobody sings about, and that suits us." },
@@ -3394,6 +3587,8 @@ P:NPC {
         { text = "Why does the Hand keep its hall down here?", next = "cleft" },
         { text = "Who else keeps shop in this hole?", next = "neighbours" },
         { text = "I came in unseen, and you still knew.", next = "seen", when = { stealthed = true } },
+        { text = "What's the first thing you teach with the knife?", next = "om_first" },
+        { text = "Rekkul sells poisons openly here.", next = "om_rekkul" },
         { text = "I'll walk softer on my way out.", next = "END" },
       },
     },
@@ -3497,6 +3692,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ge_leave = {
+      lines = { { id = "ge_leave_l", text = "When Shenthul has work for me, which is less often now than it was. I spent most of the war years in the Barrens and Ashenvale, sleeping in ditches and watching roads, and I've earned a stool by the fire." } },
+      choices = {
+        { text = "Do you miss the work in the field?", next = "ge_leave2" },
+        { text = "A stool by the fire suits you.", next = "ge_leave2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ge_leave2 = {
+      lines = { { id = "ge_leave2_l", text = "I miss the quiet of it, but not the cold. The young ones go out to Ashenvale now, and they come back and tell me about the night elves' sentinels, and I listen as if I'd never heard of them before." } },
+      choices = {
+        { text = "That's a kindness, of a sort.", next = "BACK" },
+        { text = "Something else, Gest.", next = "BACK" },
+      },
+    },
+    ge_hard = {
+      lines = { { id = "ge_hard_l", text = "That nothing happens, most of the time. A rogue can wait three days for a mark who never comes, and the only thing learned is that he didn't come, which is still worth knowing." } },
+      choices = {
+        { text = "That sounds maddening.", next = "ge_hard2" },
+        { text = "So even failure is information.", next = "ge_hard2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ge_hard2 = {
+      lines = { { id = "ge_hard2_l", text = "It is, both of those, and the rogues who can't bear it go to Ormok and learn to be quick instead. The ones who can bear it stay with me, and they're the ones Shenthul sends to Theramore." } },
+      choices = {
+        { text = "Then I'll learn to wait.", next = "BACK", fx = { learn = { "theramore" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Gest. Ormok teaches the young ones how to strike, and I teach them how to wait until striking is worth it. It's the duller half of the trade, and it keeps more of them alive." },
@@ -3515,6 +3740,8 @@ P:NPC {
         { text = "What do you see from this stool all day?", next = "watch" },
         { text = "This place is quieter than I expected.", next = "quiet" },
         { text = "I came in unseen. Did you mark me?", next = "seen", when = { stealthed = true } },
+        { text = "Do you ever leave the Cleft?", next = "ge_leave" },
+        { text = "What's the hardest thing to teach about waiting?", next = "ge_hard" },
         { text = "I'll leave you to your watching.", next = "END" },
       },
     },
@@ -4383,6 +4610,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    td_clan = {
+      lines = { { id = "td_clan_l", text = "They do, and they say so at every feast. My mother asks when I'll take up a proper trade, and I tell her engineering is the most proper trade in Orgrimmar, since it's the only one that can knock down a wall from a mile away." } },
+      choices = {
+        { text = "Has it ever knocked down a wall?", next = "td_clan2" },
+        { text = "Your mother has a point.", next = "td_clan2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    td_clan2 = {
+      lines = { { id = "td_clan2_l", text = "Not yet, but Roxxik keeps promising, and the grunts on the Barrens front keep asking. Every one of them would trade three axes for one good cannon, whatever my uncle says about cowards' weapons." } },
+      choices = {
+        { text = "Then the Horde will need more engineers.", next = "BACK" },
+        { text = "Something else, Thund.", next = "BACK" },
+      },
+    },
+    td_worst = {
+      lines = { { id = "td_worst_l", text = "A troll made a target dummy that walked, which sounds clever until it walked out the door and into the Drag. It knocked over two stalls and a peon before Nogg shot it with a flare gun." } },
+      choices = {
+        { text = "What happened to the troll?", next = "td_worst2" },
+        { text = "A walking dummy could be useful.", next = "td_worst2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    td_worst2 = {
+      lines = { { id = "td_worst2_l", text = "Nogg billed him for the stalls and the peon's bandages, and then hired him, because nobody else in the city had made a dummy walk at all. That's goblins for you, they punish you and pay you in the same breath." } },
+      choices = {
+        { text = "That sounds like a good master.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Thund. Nogg owns the shop and Roxxik has the know-how, and I teach the beginners, on account of being the only one here who'll say the same thing twice without billing for it." },
@@ -4401,6 +4658,8 @@ P:NPC {
         { text = "What are Nogg and Roxxik like to work for?", next = "bosses" },
         { text = "What does this shop actually build?", next = "build" },
         { text = "Goblin and gnomish work. Which do you favor?", next = "schools", when = { profession = "Engineering" } },
+        { text = "Your clan thinks you've lost your mind, you said.", next = "td_clan" },
+        { text = "What's the worst thing a student's ever built here?", next = "td_worst" },
         { text = "Keep your fingers, Thund.", next = "END" },
       },
     },
@@ -4502,6 +4761,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    sn_cloth = {
+      lines = { { id = "sn_cloth_l", text = "Off the backs of our enemies, mostly, which isn't as grim as it sounds. Linen and wool come back with every patrol, taken from quilboar and cultists and the Kul Tiras men, and the grunts trade it to us for bags to carry more of it." } },
+      choices = {
+        { text = "So the war keeps you supplied.", next = "sn_cloth2" },
+        { text = "And silk? Where does that come from?", next = "sn_cloth2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sn_cloth2 = {
+      lines = { { id = "sn_cloth2_l", text = "The war and the goblins both, and the goblins bring silk from wherever goblins find it, at a price I won't repeat. Magar says one day the Horde will grow its own cloth, and I'll believe that when I see a cotton field in Durotar." } },
+      choices = {
+        { text = "I'd like to see that too.", next = "BACK" },
+        { text = "Something else, Snang.", next = "BACK" },
+      },
+    },
+    sn_warriors = {
+      lines = { { id = "sn_warriors_l", text = "Bags, always bags, and they never admit they're grateful. A warrior will spend a week mocking my shop and then come in sheepishly asking for something that holds more than his last one did." } },
+      choices = {
+        { text = "Then they're grateful underneath.", next = "sn_warriors2" },
+        { text = "A good bag is worth swallowing pride for.", next = "sn_warriors2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sn_warriors2 = {
+      lines = { { id = "sn_warriors2_l", text = "They are, and I let them keep their pride, because it costs me nothing and it brings them back. I've sold more bags to warriors who swore they'd never set foot in here than to anyone else in the city." } },
+      choices = {
+        { text = "That's good business.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Snang. Magar is master here, and I take those who've never threaded a needle. In an orc city that's nearly everyone, so I'm kept busy." },
@@ -4521,6 +4810,8 @@ P:NPC {
         { text = "What's the hardest thing to teach a beginner?", next = "hard" },
         { text = "Handor and Tor'phan seem to quarrel a good deal.", next = "neighbours" },
         { text = "What has a tailor to do with a campsite?", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Tailoring") } },
+        { text = "Where does Orgrimmar get its cloth?", next = "sn_cloth" },
+        { text = "Do warriors ever come to you for anything?", next = "sn_warriors" },
         { text = "I'll mind my hems, Snang.", next = "END" },
       },
     },
@@ -4621,6 +4912,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ka_gate = {
+      lines = { { id = "ka_gate_l", text = "I would. A shop is a cage with a roof, and I spent long enough in cages. But Karolek asked me to teach, and he's the only orc in this city I'd stay indoors for." } },
+      choices = {
+        { text = "Why does Karolek have such a hold on you?", next = "ka_gate2" },
+        { text = "Teaching is a kind of hunting, I suppose.", next = "ka_gate2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ka_gate2 = {
+      lines = { { id = "ka_gate2_l", text = "He taught me the trade in the camps, with a guard's broken knife and the hides of rats. When the camps fell he could have gone anywhere, and he chose to stay with the ones he'd taught, so I'll stay with his." } },
+      choices = {
+        { text = "That's a debt worth paying.", next = "BACK", fx = { learn = { "internment" } } },
+        { text = "Something else, Kamari.", next = "BACK" },
+      },
+    },
+    ka_tan = {
+      lines = { { id = "ka_tan_l", text = "The salt and the sun and the patience, in that order. Tamar sells the salt, Durotar gives us more sun than anyone wants, and patience is the only thing I can't sell you." } },
+      choices = {
+        { text = "So the craft is mostly waiting.", next = "ka_tan2" },
+        { text = "I'm short on patience myself.", next = "ka_tan2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ka_tan2 = {
+      lines = { { id = "ka_tan2_l", text = "It is, and the waiting is where most students fail. They pull the hide off the rack a day early because they want to see it finished, and it cracks the first time a grunt bends his arm." } },
+      choices = {
+        { text = "I'll leave mine an extra day.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Kamari. Karolek is master of this shop and I teach the ones who are starting. I'd sooner be out past the gate with a knife, but someone has to show these whelps which side of a hide is which." },
@@ -4640,6 +4961,8 @@ P:NPC {
         { text = "Who else works in this shop?", next = "shop" },
         { text = "What's so special about thunder lizard hide?", next = "lizard" },
         { text = "I hunt for the hides myself.", next = "hunter", when = { class = "HUNTER" } },
+        { text = "You said you'd sooner be past the gate.", next = "ka_gate" },
+        { text = "What makes good leather, besides the kill?", next = "ka_tan" },
         { text = "Good hunting, Kamari.", next = "END" },
       },
     },

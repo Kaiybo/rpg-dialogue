@@ -24,6 +24,37 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    mb_tosamina = {
+      lines = { { id = "mb_tosamina_l", text = "She is, and she is younger than I am, which helps more than she knows. Tosamina chases them over the rooftops while I chase them through their lessons, and between us we lose one child a week for an hour, which is a good record." } },
+      choices = {
+        { text = "Only for an hour, thankfully.", next = "mb_tosamina2" },
+        { text = "Where do they usually end up?", next = "mb_tosamina2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mb_tosamina2 = {
+      lines = { { id = "mb_tosamina2_l", text = "At the wolf kennels, most often, where Ogunaro lets them pet the pups until I come for them. He pretends to be angry with them, but he saves the gentlest pup for the smallest child, every time." } },
+      choices = {
+        { text = "Ogunaro has a soft heart, then.", next = "BACK" },
+        { text = "Something else, Matron.", next = "BACK" },
+      },
+    },
+    mb_fear = {
+      lines = { { id = "mb_fear_l", text = "Being forgotten, more than any monster. A child who has lost her parents is afraid that no one will remember she was ever here, and so I keep a book with every name in it." } },
+      choices = {
+        { text = "That's a good thing you do.", next = "mb_fear2" },
+        { text = "Every orc should be remembered.", next = "mb_fear2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mb_fear2 = {
+      lines = { { id = "mb_fear2_l", text = "I read the names aloud on the first night of the children's week, every one of them, the living and the dead. It takes most of the evening, and the little ones fall asleep before the end, but they wake up knowing their name is in there." } },
+      choices = {
+        { text = "Children need strength more than comfort.", next = "BACK", reply = "They need both, {class}, and they'll get strength from the world soon enough. In this house, they get the comfort first.", fx = { align = { honor = -1 } } },
+        { text = "Remembering them is the Horde's duty.", next = "BACK", reply = "It is, and I'm glad to hear a warrior say so. Come and listen on the first night, if you're in the city.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "childrens_week" } } },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Matron Battlewail, and this house is for the children the wars left behind. Tosamina and I feed them, mend them and teach them to be orcs, which is three jobs and none of them easy." } },
       again = {
@@ -35,6 +66,8 @@ P:NPC {
         { text = "Is there anything I could do for them?", next = "help" },
         { text = "You must have fought once yourself.", next = "fought" },
         { text = "I was raised without parents too.", next = "orphan", when = { race = "Orc" } },
+        { text = "Tosamina seems tireless with the children.", next = "mb_tosamina" },
+        { text = "What do the children fear most?", next = "mb_fear" },
         { text = "Farewell, Matron.", next = "END" },
       },
     },
@@ -3451,6 +3484,44 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ed_orcs = {
+      lines = { { id = "ed_orcs_l", text = "Most do, child, for they are busy with the living, as they should be. But every festival one or two stop and ask who I was, and those are the ones I came back for." } },
+      choices = {
+        { text = "What do you tell them?", next = "ed_orcs2" },
+        { text = "I stopped, at least.", next = "ed_orcs2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ed_orcs2 = {
+      lines = { { id = "ed_orcs2_l", text = "That I was a tauren like any other, who loved her herd and buried too many of them. The orcs understand that better than they let on, for they too have buried more than they can count." } },
+      choices = {
+        { text = "The orcs and tauren have more in common than it seems.", next = "BACK" },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
+    ed_young = {
+      lines = { { id = "ed_young_l", text = "The young bulls and cows of my clan, who had never seen a winter on the open plains. I taught them to find water under snow and to keep the kodo moving when the wind wanted them to stop." } },
+      choices = {
+        { text = "What happened if the kodo stopped?", next = "ed_young2" },
+        { text = "That sounds like hard teaching.", next = "ed_young2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ed_young2 = {
+      lines = { { id = "ed_young2_l", text = "Then the cold came for them, and for us after. Cairne brought the tribes to Mulgore so that no tauren need walk the plains in winter again, and I am glad the young ones today know only the stories." } },
+      choices = {
+        { text = "Mulgore is a blessing, then.", next = "BACK" },
+        { text = "Do you miss the open plains?", next = "ed_young3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ed_young3 = {
+      lines = { { id = "ed_young3_l", text = "I miss the sky over them, child, which was wider than any I have seen since. But a spirit does not miss things as the living do, and when the festival ends, I go back to the wind, and the wind remembers the plains for me." } },
+      choices = {
+        { text = "May the wind carry you gently, Elder.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Darkhorn, and in life I led my clan's young through hard winters on the plains. Now the Lunar Festival calls me back, and I stand where the Horde's chieftains gather." } },
       again = {
@@ -3462,6 +3533,8 @@ P:NPC {
         { text = "What is the Lunar Festival for?", next = "festival" },
         { text = "What were the plains like in your day?", next = "plains" },
         { text = "I am of the Bloodhoof's people, Elder.", next = "kin", when = { race = "Tauren" } },
+        { text = "The orcs walk past you without a second look.", next = "ed_orcs" },
+        { text = "Who did you lead through those winters?", next = "ed_young" },
         { text = "Rest well, Elder.", next = "END" },
       },
     },

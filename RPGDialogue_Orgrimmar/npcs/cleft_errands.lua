@@ -249,6 +249,37 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    tz_shenthul = {
+      lines = { { id = "tz_shenthul_l", text = "Shenthul leads, and I follow, as the Hand always has. But Shenthul answers to the Warchief, and I answer to the Hand, and on most days those are the same thing." } },
+      choices = {
+        { text = "And on the other days?", next = "tz_shenthul2" },
+        { text = "That's a careful answer.", next = "tz_shenthul2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tz_shenthul2 = {
+      lines = { { id = "tz_shenthul2_l", text = "On the other days I do what Shenthul tells me and keep my opinions for the training floor. A clan that cut off its own fingers for its oaths doesn't break them over a difference of temper, recruit." } },
+      choices = {
+        { text = "Good. The Hand should obey its leader.", next = "BACK" },
+        { text = "Something else, Therzok.", next = "BACK" },
+      },
+    },
+    tz_pirates = {
+      lines = { { id = "tz_pirates_l", text = "They don't worry me, they disgust me. The Southsea Freebooters sell whatever they steal to whoever pays, and they've bought more Horde secrets from traitors like Tazan than I care to count." } },
+      choices = {
+        { text = "Why not clear them out of the coast?", next = "tz_pirates2" },
+        { text = "Pirates are only another kind of merchant.", next = "tz_pirates2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tz_pirates2 = {
+      lines = { { id = "tz_pirates2_l", text = "Because the goblins of Ratchet trade with them, and the Warchief wants the goblins happy, so the Horde looks the other way. The Hand doesn't look away, it only waits until no one is watching." } },
+      choices = {
+        { text = "The Horde should root out every traitor, whatever it costs.", next = "BACK", reply = "Now you sound like one of us. Keep that fire, and the Hand will find a use for it.", fx = { align = { order = -1 } } },
+        { text = "The Warchief's peace with Ratchet matters more.", next = "BACK", reply = "Spoken like a diplomat. The Warchief would approve, and I'll pretend I didn't hear it.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "ratchet" } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Therzok of the Shattered Hand. We work from the shadows of Orgrimmar so the Horde can remember what it was, before the Warchief taught it to be careful." },
@@ -268,6 +299,8 @@ P:NPC {
         { text = "Who is Tazan, and why must he die?", next = "tazan" },
         { text = "You speak against the Warchief?", next = "thrall" },
         { text = "Kaplak sent me. What does the Hand want of me?", next = "kaplak", when = { class = "ROGUE" } },
+        { text = "The Hand keeps its own counsel even from Shenthul?", next = "tz_shenthul" },
+        { text = "Ratchet's pirates seem to worry you.", next = "tz_pirates" },
         { text = "Leave the shadows to you, then.", next = "END" },
       },
     },

@@ -275,6 +275,63 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_renee = {
+      lines = {
+        { id = "d2_renee_1", text = "She does, and she runs it the way I'd run a kitchen if anyone let me, with a list for everything and a place for every key. She lets me have the hearth and doesn't ask why I'm forever adding pepper, and I've never had a kinder employer, living or otherwise." },
+      },
+      choices = {
+        { text = "Who stays at the Gallows' End?", next = "d2_renee2" },
+        { text = "Pepper won't help if you can't taste it.", next = "d2_renee2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_renee2 = {
+      lines = {
+        { id = "d2_renee2_1", text = "Couriers from the city, the odd Deathguard who wants a roof, and the living off the zeppelin who can't believe we've an inn at all. The orcs eat the most and complain the least, which makes them my favourite guests by a long road." },
+      },
+      choices = {
+        { text = "Orcs know good food.", next = "BACK", reply = "They know a lot of food, which isn't quite the same thing, but I'll take it." },
+        { text = "Something else, William.", next = "BACK" },
+      },
+    },
+    d2_meat = {
+      lines = {
+        { id = "d2_meat_1", text = "From the hunters, mostly, and from Rand Rhobart down the road, who sends me whatever's left once Shelene's had the hide. Darkhound's tough, but a long stew softens it, and the duskbat wings he sends I've learned to fry crisp." },
+      },
+      choices = {
+        { text = "Fried bat wing. I'll take your word for it.", next = "d2_meat2" },
+        { text = "Is any of it safe for the living?", next = "d2_meat2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_meat2 = {
+      lines = {
+        { id = "d2_meat2_1", text = "I'll not serve anything to the living that Johaan hasn't looked over, since the beasts in these Glades carry the sickness in them. He's turned back two carcasses this season, and I trust his nose more than mine, seeing as I don't have the use of mine." },
+      },
+      choices = {
+        { text = "Good to know you're careful.", next = "BACK" },
+        { text = "Ask you something else.", next = "BACK" },
+      },
+    },
+    d2_dwarf = {
+      lines = {
+        { id = "d2_dwarf_1", text = "I do, and I'll thank you not to spread it about, because Zygand thinks I'm softening him up for questioning. I'm not; I just can't bear to send a bowl down a stair without knowing whether it's any good." },
+      },
+      choices = {
+        { text = "What does the dwarf say about it?", next = "d2_dwarf2" },
+        { text = "You're softening him up regardless.", next = "d2_dwarf2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_dwarf2 = {
+      lines = {
+        { id = "d2_dwarf2_1", text = "That it wants salt, every single time, and once that it wants ale, which I can't give him. Dwarves remember the taste of a dish better than anyone I ever cooked for, and he's the only honest critic I've had since I died." },
+      },
+      choices = {
+        { text = "Then listen to him.", next = "BACK", reply = "I do. The stew's improved no end, and I'll never be able to tell him so." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -297,6 +354,9 @@ P:NPC {
         { text = "Why does cooking matter for camping?", next = "camp" },
         { text = "Who do you cook for, in a town of the dead?", next = "whofor" },
         { text = "What should I cook out here?", next = "recipes" },
+        { text = "Innkeeper Renee runs a busy house.", next = "d2_renee" },
+        { text = "Where do you get meat, in Brill?", next = "d2_meat" },
+        { text = "Do you cook for the dwarf in the cellar?", next = "d2_dwarf" },
         { text = "Goodbye, William.", next = "END" },
       },
     },

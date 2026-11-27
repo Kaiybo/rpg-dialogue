@@ -571,7 +571,38 @@ P:NPC {
         { text = "Something's troubling you.", next = "thief" },
         { text = "Tell me about your husband.", next = "paxton" },
         { text = "What bait do the fish take here?", next = "bait", when = { profession = "Fishing" } },
+        { text = "Who else lives out here by the lake?", next = "d0_neighbours" },
+        { text = "Your hands must be frozen raw.", next = "d0_hands" },
         { text = "Show me your tackle.", next = "END" },
+      },
+    },
+    d0_neighbours = {
+      lines = { { id = "d0ne_default", text = "The Brewnall folk up the shore, who brew wi' lake water an' swear it's the secret, an' the Frostmane across the ice, who we try no' tae think about. Kharanos is a good walk south, an' that's where the fish go once they're salted." } },
+      choices = {
+        { text = "Who buys your salted fish?", next = "d0_neighbours_fish" },
+        { text = "A lonely spot, between brewers and trolls.", next = "BACK" },
+      },
+    },
+    d0_neighbours_fish = {
+      lines = { { id = "d0nf_default", text = "Gremlock Pilsnor at the Thunderbrew takes a barrel a week, an' Kazan Mogosh used tae take two for the quarry crews till the troggs came. Now Kazan takes one on his slate, an' I let him, for the crews have tae eat." } },
+      choices = {
+        { text = "That's generous of you.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Gretta.", next = "BACK" },
+      },
+    },
+    d0_hands = {
+      lines = { { id = "d0hn_default", text = "Raw as a peeled onion, aye, an' they've been that way since the day I married. Paxton feels nae cold at all, I swear, for he'll sit on the ice in his shirt an' wonder why I'm stampin' my feet." } },
+      choices = {
+        { text = "How do you keep warm out here?", next = "d0_hands_warm" },
+        { text = "A true dwarf never admits to the cold.", next = "BACK", when = { race = "Dwarf" }, reply = "Then I'm a false one, an' proud of it. Admit the cold an' ye keep yer toes, {g:lad|lass}." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d0_hands_warm = {
+      lines = { { id = "d0hw_default", text = "A brazier by the stall, three pairs o' Gamili Frosthide's mittens, an' a flask that Paxton thinks is tea. Every angler on this lake carries a flask, an' none o' them are full o' tea." } },
+      choices = {
+        { text = "I won't ask what's in yours.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     ice = {

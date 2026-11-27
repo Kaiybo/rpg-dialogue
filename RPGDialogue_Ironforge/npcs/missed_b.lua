@@ -43,7 +43,45 @@ P:NPC {
         { text = "You and your sister work very differently.", next = "trixie" },
         { text = "What is Springspindle like to learn from?", next = "master" },
         { text = "I'm an engineer myself.", next = "engineer", when = { profession = "Engineering" } },
+        { text = "Where do you and Trixie live now?", next = "d0_live" },
+        { text = "Your bench is tidier than any other in here.", next = "d0_bench" },
         { text = "I'll leave you to your counting.", next = "END" },
+      },
+    },
+    d0_live = {
+      lines = { { id = "d0li_default", text = "In Tinker Town, in a room above a repair shop, which is very noisy and very convenient. Trixie sleeps through anything and I sleep through nothing, so I've started using the hours to copy my notebook out fair." } },
+      choices = {
+        { text = "What will happen to the notebook?", next = "d0_live_notebook" },
+        { text = "A noisy room makes for long nights.", next = "BACK" },
+      },
+    },
+    d0_live_notebook = {
+      lines = { { id = "d0ln_default", text = "It goes to the High Tinker's people, when it's finished. Mekkatorque is planning for the day we go back, and someone has to know which corridor leads where, and which doors were sealed, and why." } },
+      choices = {
+        { text = "Have you ever met Mekkatorque?", next = "d0_live_mekk" },
+        { text = "Something else, Jemma.", next = "BACK" },
+      },
+    },
+    d0_live_mekk = {
+      lines = { { id = "d0lm_default", text = "Once! He came through Tinker Town shaking hands, and he asked what I was writing, and when I showed him he read three whole pages standing up. Then he said 'Keep going,' and I've been keeping going ever since." } },
+      choices = {
+        { text = "Then you have the High Tinker's own orders.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d0_bench = {
+      lines = { { id = "d0be_default", text = "Thank you! Everything on it is laid out in the order I'll use it, left to right, because if I can't find a part in two seconds I've lost my place in the sum. Master Springspindle says it's the only bench in the workshop he's never set on fire." } },
+      choices = {
+        { text = "He's set fire to the others?", next = "BACK", reply = "Only twice each, and always on purpose, he says. Trixie's has been on fire four times, but she does that herself." },
+        { text = "My workshop at home was arranged the same way.", next = "d0_bench_home", when = { race = "Gnome" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d0_bench_home = {
+      lines = { { id = "d0bh_default", text = "Was it? Then you'll know how it feels to walk into a room where everything's in the wrong place. I dreamed about my old bench for a month after we got out, and in the dream all the drawers were labelled in someone else's hand." } },
+      choices = {
+        { text = "We'll put our own labels back one day.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     notebook = {
@@ -448,7 +486,38 @@ P:NPC {
         { text = "Which shelves does nobody dust?", next = "shelves" },
         { text = "You keep watching the door.", next = "door" },
         { text = "Tell me about the Tome of the Cabal.", next = "tome", when = { class = "WARLOCK", minLevel = 30 } },
+        { text = "What's the Hall of Explorers like to work in?", next = "d0_hall" },
+        { text = "You read more than any digger I've met.", next = "d0_read" },
         { text = "I'll let you read.", next = "END" },
+      },
+    },
+    d0_hall = {
+      lines = { { id = "d0ha_default", text = "Quiet, an' full o' things that would rather have stayed buried. Prospector Stormpike sends the diggers out, Historian Karnik argues wi' them when they come back, an' the curators dust the bones an' tell nobody what they think." } },
+      choices = {
+        { text = "Where would the League send you next?", next = "d0_hall_next" },
+        { text = "A hall full of arguments and bones.", next = "BACK" },
+      },
+    },
+    d0_hall_next = {
+      lines = { { id = "d0hn_default", text = "Uldaman, if I ask nicely, an' back tae Loch Modan if I don't, where Ironband's lads still dig wi' troggs boilin' up at one end o' the site. But Uldaman's where the answers are, an' every digger in this hall kens it." } },
+      choices = {
+        { text = "I hope they send you to Uldaman.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Krom.", next = "BACK" },
+      },
+    },
+    d0_read = {
+      lines = { { id = "d0rd_default", text = "I'm the only Stoutarm who does, an' my family thinks it's a sickness. But a dig wi'out readin' is just a dwarf makin' a hole, an' I'd like tae ken what I'm standin' on before I put a pick through it." } },
+      choices = {
+        { text = "What are you reading now?", next = "d0_read_now" },
+        { text = "The Kirin Tor's old books are dangerous reading.", next = "BACK", when = { class = "MAGE" }, reply = "Aye, an' that's why I read them wi' the door in sight. Ye'd ken better than me which ones bite." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d0_read_now = {
+      lines = { { id = "d0rn_default", text = "A survey o' the Badlands written by a Dalaran scholar who never went there, which is a fine way tae write a survey. Half of it's wrong, an' the half that's right is about Uldaman's doors, so I'm copyin' that half out." } },
+      choices = {
+        { text = "Wrong books can still point the way.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     digs = {

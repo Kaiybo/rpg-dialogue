@@ -30,6 +30,37 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    zz_nerog = {
+      lines = { { id = "zz_nerog_l", text = "Nerog minds, but I buy more ink than anyone else in Orgrimmar, so he minds quietly. He keeps threatenin' to file me with the old scrolls if I sit still too long, and some days I think he means it." } },
+      choices = {
+        { text = "Does Nerog believe your warnings?", next = "zz_nerog2" },
+        { text = "You do sit very still when you read.", next = "zz_nerog2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    zz_nerog2 = {
+      lines = { { id = "zz_nerog2_l", text = "He believes the reports are real, and he thinks they're somebody else's problem, which is what most of Orgrimmar thinks. I've stopped arguin' with him and started makin' him copies, so at least the warnings are kept somewhere safe." } },
+      choices = {
+        { text = "Copies are a good idea.", next = "BACK" },
+        { text = "Something else, Zil.", next = "BACK" },
+      },
+    },
+    zz_isles = {
+      lines = { { id = "zz_isles_l", text = "I left before Zalazane took them, which I count as luck and not wisdom. My elders thought a troll who wanted to read was a troll who didn't want to hunt, and they weren't entirely wrong." } },
+      choices = {
+        { text = "Do you regret it?", next = "zz_isles2" },
+        { text = "Reading has its own kind of hunting.", next = "zz_isles2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    zz_isles2 = {
+      lines = { { id = "zz_isles2_l", text = "Some days, when the reports are bad and nobody listens. But a hunter tracks what he can see, and a scholar tracks what's comin', and I'd rather see the silithid comin' than hear about them when they're at the gates." } },
+      choices = {
+        { text = "The Horde should heed you before it's too late.", next = "BACK", reply = "That's what I keep sayin', friend. Tell the Warchief's officers you heard it from a troll with ink on his fingers.", fx = { align = { order = -1 } } },
+        { text = "The Horde has enemies enough close to home.", next = "BACK", reply = "It does, and that's the trouble. The enemy you can see always gets the axes first.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "silithid" } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Zilzibin Drumlore, scholar, though my friends call me Zil, and I have spent a long time studying the creatures that don't belong to any ordinary part of Azeroth. Lately one kind of creature takes up all my time, and it frightens me more than any Alliance army." },
@@ -48,6 +79,8 @@ P:NPC {
         { text = "Why won't the Horde listen to you?", next = "council" },
         { text = "What is this place, the Mighty Pen?", next = "pen" },
         { text = "The Circle has seen them in Silithus.", next = "circle", when = { class = "DRUID" } },
+        { text = "Nerog doesn't seem to mind you taking up his shop.", next = "zz_nerog" },
+        { text = "You left the Echo Isles to study?", next = "zz_isles" },
         { text = "Good luck with your studies, Zil.", next = "END" },
       },
     },

@@ -733,6 +733,44 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d2_chapel = {
+      lines = {
+        { id = "d2_chapel_1", text = "It suits it better than it ever suited the old priest who preached here, who stands in the yard now and cannot remember a word of his sermons. Deathknell was a parish of farmers who prayed for rain, and the Light sent them a plague instead." },
+      },
+      choices = {
+        { text = "You enjoy that irony.", next = "d2_chapel2" },
+        { text = "Does Dark Cleric Duesten share the chapel?", next = "d2_chapel2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_chapel2 = {
+      lines = {
+        { id = "d2_chapel2_1", text = "Duesten keeps to the altar and I keep to the shadows behind it, which is a division of the building that pleases us both. He teaches the newly risen to wield the shadow of the Light, and I teach them that there is no Light behind it at all." },
+      },
+      choices = {
+        { text = "And which of you is right?", next = "BACK", reply = "I am, naturally. But I let him keep the altar, because it gives the students somewhere to sit." },
+        { text = "Speak of something else.", next = "BACK" },
+      },
+    },
+    d2_venya = {
+      lines = {
+        { id = "d2_venya_1", text = "She does, and she teaches the trade's spells while I teach the trade's judgement, which is the rarer thing. Venya will show a student how to call an imp, and I shall show him why he should hesitate before he calls the second." },
+      },
+      choices = {
+        { text = "Why should he hesitate?", next = "d2_venya2" },
+        { text = "Judgement can't be taught, surely.", next = "d2_venya2" },
+        { text = "Speak of something else.", next = "BACK" },
+      },
+    },
+    d2_venya2 = {
+      lines = {
+        { id = "d2_venya2_1", text = "Because the first imp is a servant, and the second is a habit, and the tenth is a master you have invited into your house. The Dark Lady wants warlocks who can stop, and the orcs' history is the proof that stopping is the hard part." },
+      },
+      choices = {
+        { text = "I'll remember to stop.", next = "BACK" },
+        { text = "Something else, Maximillion.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Maximillion, and I instruct those of the Forsaken who would rather command a demon than fear one. It is a narrow path with a long drop on either side, and I am told my manner on it is not encouraging." },
@@ -748,6 +786,8 @@ P:NPC {
         { text = "Who is Kayla?", next = "kayla" },
         { text = "What is the first thing one of your students must learn?", next = "first", when = { class = "WARLOCK" } },
         { text = "The Light forbids what you teach.", next = "light", when = { class = { "PALADIN", "PRIEST" } } },
+        { text = "A ruined chapel suits your trade.", next = "d2_chapel" },
+        { text = "Venya Marthand teaches here as well.", next = "d2_venya" },
         { text = "I'll take my leave.", next = "END" },
       },
     },
@@ -817,6 +857,62 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d2_word = {
+      lines = {
+        { id = "d2_word_1", text = "Ye think I'd tell a stranger in a Forsaken tavern? I'll say this much and nae more: there are dwarves in these northern lands still, at Southshore and further off, and they'll be wondering why the post's gone quiet." },
+      },
+      choices = {
+        { text = "They'll send someone looking.", next = "d2_word2" },
+        { text = "Fair enough. I'd not tell me either.", next = "d2_word2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_word2 = {
+      lines = {
+        { id = "d2_word2_1", text = "Aye, they will, and I pray it's a whole company and nae one lad on a ram. If they come through Brill, they'll find the gate guards a sight more awake than they look, and I'd not have another dwarf down here keeping me company." },
+      },
+      choices = {
+        { text = "Then hope they come by another road.", next = "BACK" },
+        { text = "Ask you something else.", next = "BACK" },
+      },
+    },
+    d2_food = {
+      lines = {
+        { id = "d2_food_1", text = "Whatever the cook upstairs sends down, and he's a cheerful wretch who cannae taste his own stew. It's nae poison, I'll grant him that, though some nights I've wondered if it's meant tae be." },
+      },
+      choices = {
+        { text = "William Pickman, the cook?", next = "d2_food2" },
+        { text = "At least you're fed.", next = "d2_food2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_food2 = {
+      lines = {
+        { id = "d2_food2_1", text = "That's the name, aye. He comes down himself sometimes with the bowl, and asks me how the seasoning is, as though I'm a guest and nae a prisoner, and the worst of it is I tell him, because it's the only conversation I get." },
+      },
+      choices = {
+        { text = "That's almost kind of him.", next = "d2_food3" },
+        { text = "I'd tell him it needs salt.", next = "d2_food3" },
+      },
+    },
+    d2_food3 = {
+      lines = {
+        { id = "d2_food3_1", text = "Almost, and that's what galls me. I could hate the lot of them clean if they'd only be cruel about it, but there's the cook with his bowl and the barkeep who brings a blanket, and the apothecary who looks at me like a ham." },
+      },
+      choices = {
+        { text = "Hate the apothecary, then. Keep it simple.", next = "BACK" },
+        { text = "I'll leave you be. Something else.", next = "BACK" },
+      },
+    },
+    d2_dwarf = {
+      lines = {
+        { id = "d2_dwarf_1", text = "It doesnae, and hearing a dwarf say so has done more for me than a cask of Thunder Ale. Get word to the Senate if ye can, or tae the Explorers' League, and tell them I kept my mouth shut." },
+      },
+      choices = {
+        { text = "You have my word on it.", next = "BACK" },
+        { text = "Something else, brother.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm a mountaineer of Ironforge, and that's all the name ye'll have from me. They took me on the road and chained me down here among the ale barrels, and nae a drop of it have they let me taste." },
@@ -833,6 +929,9 @@ P:NPC {
         { text = "What do they want with you?", next = "want" },
         { text = "You're a long way from the mountains.", next = "mountains" },
         { text = "I can't free you, but I won't forget you.", next = "pity", when = { faction = "Alliance" } },
+        { text = "Who were you carrying word to?", next = "d2_word" },
+        { text = "What do they feed you down here?", next = "d2_food" },
+        { text = "Hold fast, brother. Ironforge doesn't forget its own.", next = "d2_dwarf", when = { race = "Dwarf" } },
         { text = "Enjoy the cellar, dwarf.", next = "END" },
       },
     },

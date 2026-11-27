@@ -60,8 +60,43 @@ P:NPC {
         { text = "Surely the King has heard about this by now.", next = "king" },
         { text = "A dwarf should be out there, not waiting on recruits.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "I'll drive them back.", next = "BUSINESS" },
+        { text = "How are the new recruits shaping up?", next = "d0_recruits" },
+        { text = "Coldridge is a cold place to learn soldiering.", next = "d0_valley" },
         { text = "Farewell, Balir.", next = "END" },
       },
+    },
+    d0_recruits = {
+      lines = { { id = "d0re_default", text = "Green as spring moss, most o' them, an' keen as mustard. Sten Stoutarm sends them tae me, I send them up intae the hills, an' the ones that come back wi' all their fingers I send on tae Grelin Whitebeard by the troll caves." } },
+      choices = {
+        { text = "What's waiting at the troll caves?", next = "d0_recruits_caves" },
+        { text = "Keen recruits beat bored veterans any day.", next = "BACK" },
+      },
+    },
+    d0_recruits_caves = {
+      lines = { { id = "d0rc_default", text = "Frostmane, holed up at the north end o' the valley, wi' Grik'nir the Cold sittin' in the back o' the cave like he owns the mountain. Grelin's been watchin' them for weeks, an' they've had his journal off him, which he's no' happy about." } },
+      choices = {
+        { text = "Then Grik'nir can expect a visit.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Something else, Balir.", next = "BACK" },
+      },
+    },
+    d0_valley = {
+      lines = { { id = "d0va_default", text = "It is, an' it's meant tae be. A recruit who learns in the snow cannae be surprised by it later, an' Anvilmar has the only warm fire for a mile, so they learn tae earn it." } },
+      choices = {
+        { text = "What does the valley teach them first?", next = "d0_valley_first" },
+        { text = "Gnomes were sent here too, after Gnomeregan.", next = "d0_valley_gnomes", when = { race = "Gnome" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d0_valley_first = {
+      lines = { { id = "d0vf_default", text = "Tae keep their feet on ice an' their wits when a wolf comes at them. Thran Khorman an' the others in the hall teach the rest, but the valley teaches that first lesson for nothin', an' it never goes easy on anybody." } },
+      choices = {
+        { text = "Free lessons are always the hardest kind.", next = "BACK" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    d0_valley_gnomes = {
+      lines = { { id = "d0vg_default", text = "Aye, an' I'll say this for yer folk: ye complain about the cold louder than anybody, an' ye never once quit on it. Half the gnome recruits I've had came through wi' scorch marks an' nae eyebrows, an' every one o' them passed." } },
+      choices = { { text = "Eyebrows grow back. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     camp = {
       lines = { { id = "c_default", text = "We'd a camp o' supply tents in the hills, wi' a few lads tae guard it. The troggs came at night, more than we'd ever seen at once, an' the lads ran fer their lives an' left everythin' behind." },

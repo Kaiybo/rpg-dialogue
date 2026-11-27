@@ -31,6 +31,44 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    rs_strange = {
+      lines = { { id = "rs_strange_l", text = "A human banner from Southshore, still with its lion on it, which a grunt brought in thinking it would be funny. I cut it up for bandages and sent it to the Valley of Honor, so it's doing more good now than it ever did on a pole." } },
+      choices = {
+        { text = "Did the grunt laugh?", next = "rs_strange2" },
+        { text = "A fitting end for an Alliance banner.", next = "rs_strange2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rs_strange2 = {
+      lines = { { id = "rs_strange2_l", text = "He laughed until I told him a wounded grunt would be wrapped in it, and then he went quiet. Cloth is cloth, {class}, and I don't care whose lion was on it so long as it stops the bleeding." } },
+      choices = {
+        { text = "Cloth is cloth. That's fair.", next = "BACK" },
+        { text = "Something else, Rashona.", next = "BACK" },
+      },
+    },
+    rs_cities = {
+      lines = { { id = "rs_cities_l", text = "They do, in Thunder Bluff and the Undercity both, and we send each other word of what's needed. The tauren never have enough wool, and the Forsaken never seem to need bandages, which I try not to think about too hard." } },
+      choices = {
+        { text = "Why don't the Forsaken need bandages?", next = "rs_cities2" },
+        { text = "So the whole Horde shares its cloth.", next = "rs_cities2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rs_cities2 = {
+      lines = { { id = "rs_cities2_l", text = "They stitch themselves back together with thread, I'm told, and they ask for thread by the spool. So we send them thread, and they send us silk, and nobody asks the other how they use it." } },
+      choices = {
+        { text = "A strange trade, but a fair one.", next = "BACK" },
+        { text = "And what does Thunder Bluff send you?", next = "rs_cities3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rs_cities3 = {
+      lines = { { id = "rs_cities3_l", text = "Kodo-hide thread, which is the toughest I have ever worked, and blessings, which the tauren put on every bale. I've stopped laughing at the blessings, because their cloth never rots in the damp the way ours does." } },
+      choices = {
+        { text = "Tauren blessings seem to work.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Rashona Straglash, cloth quartermaster for the Horde. In the camps we bled through rags, so a simple donation of cloth goes a long way here; it makes garments and bandages, and the Horde never has enough of either." },
@@ -48,6 +86,8 @@ P:NPC {
         { text = "What's in it for the donors?", next = "donors" },
         { text = "I'm a tailor. What do you need most?", next = "tailor", when = { profession = "Tailoring" } },
         { text = "I have cloth to give.", next = "BUSINESS" },
+        { text = "What's the strangest cloth anyone's donated?", next = "rs_strange" },
+        { text = "Do the other capitals collect cloth too?", next = "rs_cities" },
         { text = "For the Horde.", next = "END" },
       },
     },

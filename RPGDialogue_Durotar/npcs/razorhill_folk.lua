@@ -335,6 +335,44 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    sj_wolves = {
+      lines = { { id = "sj_wolves_l", text = "Dey be calmer because I sing to dem, mon, and de orcs in de barracks only shout. A wolf don't care what de words be, only de tone, and a shouted wolf be a nervous wolf." } },
+      choices = {
+        { text = "You sing to the wolves?", next = "sj_wolves2" },
+        { text = "The orcs have kept wolves for generations.", next = "sj_wolves2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sj_wolves2 = {
+      lines = { { id = "sj_wolves2_l", text = "Every evenin', de old songs from de Echo Isles, about de sea and de hunt. De orc wolf riders laughed de first time, but now dey ask me to sing to dere own wolves before a long ride, and dey pretend it be my idea." } },
+      choices = {
+        { text = "Then the orcs have learned something from you.", next = "BACK", reply = "Dey learned a little, mon, and dey won't admit it, which be how orcs learn everything.", fx = { affinity = 1 } },
+        { text = "Something else, Shoja'my.", next = "BACK" },
+      },
+    },
+    sj_torka = {
+      lines = { { id = "sj_torka_l", text = "De bones and de fat, yes, and some days de whole leg of a boar if de grunts don't finish dinner. Cook Torka be a good orc, but he cooks like he be feedin' an army, because he be feedin' an army." } },
+      choices = {
+        { text = "Does he ever complain about the beasts?", next = "sj_torka2" },
+        { text = "A garrison kitchen must waste a lot.", next = "sj_torka2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sj_torka2 = {
+      lines = { { id = "sj_torka2_l", text = "Only when de crab gets out and walks into his kitchen, which happens more often dan I like to say. He chased it out with a ladle last week, mon, shoutin' dat he'd cook it, and de crab pinched de ladle clean in two." } },
+      choices = {
+        { text = "That crab has earned its name.", next = "BACK" },
+        { text = "Where is the crab now?", next = "sj_torka3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sj_torka3 = {
+      lines = { { id = "sj_torka3_l", text = "In de back pen, sulkin', with a ring of stones round it dat Torka laid himself. De grunts call it de prisoner now, mon, and dey toss it scraps on de way to de barracks, so I think it be de best-fed crab in Durotar." } },
+      choices = {
+        { text = "A lucky crab, then.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     dd_eggs = {
       lines = {
         { id = "dd_eg_default", text = "I don't mind, not really, because a garrison be needin' food and the taillashers lay plenty. But I raise beasts, mon, and every egg in Torka's pan be a raptor I never get to name. What you think, should a hunter feel bad about that?" },
@@ -368,6 +406,8 @@ P:NPC {
         { text = "How did a troll end up running Razor Hill's stables?", next = "how" },
         { text = "What beasts do you keep?", next = "beasts" },
         { text = "How should I care for my {pet}?", next = "care", when = { class = "HUNTER" } },
+        { text = "The wolves in your pens seem calmer than the barracks wolves.", next = "sj_wolves" },
+        { text = "Cook Torka sends you scraps, I'd guess.", next = "sj_torka" },
         { text = "Take care, Shoja'my.", next = "END" },
       },
     },

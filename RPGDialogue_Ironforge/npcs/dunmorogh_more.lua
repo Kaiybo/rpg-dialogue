@@ -181,7 +181,45 @@ P:NPC {
         { text = "How did the trolls get your things?", next = "trolls" },
         { text = "Where will you go now?", next = "future" },
         { text = "We'll get our city back, Felix.", next = "gnome", when = { race = "Gnome" } },
+        { text = "What was your work in Gnomeregan?", next = "d0_work" },
+        { text = "Coldridge must feel very strange after home.", next = "d0_cold" },
         { text = "Take care of yourself, Felix.", next = "END" },
+      },
+    },
+    d0_work = {
+      lines = { { id = "d0wk_default", text = "I tested pressure valves, which sounds dull, and it was, wonderfully dull, the same nine valves every morning with a little gauge. I was very good at it, and I'd give anything to be bored like that again." } },
+      choices = {
+        { text = "Could you test valves here?", next = "d0_work_here" },
+        { text = "Dull work done well is still worth doing.", next = "BACK", fx = { trait = { kind = 1 } } },
+      },
+    },
+    d0_work_here = {
+      lines = { { id = "d0wh_default", text = "I asked at Anvilmar, and the dwarves were very kind, but they haven't any valves, only doors and fires and an enormous number of axes. Balir says I can help count the supplies, so I count the supplies, and some of them are nearly valves." } },
+      choices = {
+        { text = "What would you need to start again?", next = "d0_work_need" },
+        { text = "Counting supplies keeps the valley running.", next = "BACK" },
+      },
+    },
+    d0_work_need = {
+      lines = { { id = "d0wn_default", text = "My box of tools, which the trolls have, and my gauges, which the trolls also have, and a workbench somewhere warm, which Tinker Town might have if I ever get there. Everyone says Mekkatorque is finding work for all of us, so I'm trying very hard to believe it." } },
+      choices = {
+        { text = "He is. Tinker Town needs every pair of hands.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Felix.", next = "BACK" },
+      },
+    },
+    d0_cold = {
+      lines = { { id = "d0cd_default", text = "Very! At home the cold came out of the pipes, and you could turn it down. Here it comes from everywhere at once, and the dwarves just laugh and drink something brown." } },
+      choices = {
+        { text = "Have the dwarves treated you well?", next = "d0_cold_dwarves" },
+        { text = "I still dream about the warm halls at home.", next = "BACK", when = { race = "Gnome" }, reply = "So do I, every night, and then I wake up with snow on my blanket. We'll be warm again one day, won't we?" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d0_cold_dwarves = {
+      lines = { { id = "d0cw_default", text = "Oh, wonderfully, though they're very loud about it. Sten Stoutarm gave me his own spare blanket and told me gnomes were made of tougher stuff than we looked, and I've been trying to live up to it ever since." } },
+      choices = {
+        { text = "You're doing well, Felix.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

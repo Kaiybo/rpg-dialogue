@@ -186,6 +186,36 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    kd_ogunaro = {
+      lines = { { id = "kd_ogunaro_l", text = "They are, because Ogunaro breeds them from the best of the wolves that came over with the Frostwolves. A wild Durotar wolf is lean and mean, and one of Ogunaro's is lean and mean and twice the size." } },
+      choices = {
+        { text = "How does he choose which to breed?", next = "kd_ogunaro2" },
+        { text = "I'd hate to meet one in the dark.", next = "kd_ogunaro2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kd_ogunaro2 = {
+      lines = { { id = "kd_ogunaro2_l", text = "By temper first and size second, because a big wolf that won't listen is just a big problem. He sends me the pups when they're ready, and I find out which ones will carry a rider and which ones will carry a grudge." } },
+      choices = {
+        { text = "And the ones with a grudge?", next = "BACK", reply = "They go to the hunters, who don't mind a wolf with opinions. Everyone gets the wolf they deserve, in the end.", fx = { affinity = 1 } },
+        { text = "Something else, Kildar.", next = "BACK" },
+      },
+    },
+    kd_hard = {
+      lines = { { id = "kd_hard_l", text = "Learning that the wolf decides where the ground is safe. A rider who pulls against his wolf on a rocky slope ends up on the rocks, because the wolf can feel the footing and he can't." } },
+      choices = {
+        { text = "So you have to trust the beast.", next = "kd_hard2" },
+        { text = "A rider should always be in control.", next = "kd_hard2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kd_hard2 = {
+      lines = { { id = "kd_hard2_l", text = "You lead, and he chooses the footing, and the two of you argue about everything else. That's how the Frostwolves rode, and it's how Thrall rides, and I've never seen him fall off yet." } },
+      choices = {
+        { text = "Then I'll learn to listen to the wolf.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Kildar, and I teach riding. A wolf will carry you through the Barrens at a run and fight beside you when you get there, but only if you learn to sit on him properly first." },
@@ -202,6 +232,8 @@ P:NPC {
         { text = "I'd like a wolf of my own someday.", next = "buy" },
         { text = "Would you teach a Forsaken to ride, Kildar?", next = "forsaken", when = { race = "Scourge" } },
         { text = "I'm ready to learn.", next = "BUSINESS", when = { minLevel = 40 } },
+        { text = "Ogunaro's wolves seem bigger than the ones in Durotar.", next = "kd_ogunaro" },
+        { text = "What's the hardest part of riding a wolf?", next = "kd_hard" },
         { text = "Farewell, Kildar.", next = "END" },
       },
     },

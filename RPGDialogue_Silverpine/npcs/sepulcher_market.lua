@@ -28,6 +28,53 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    d2_cold = {
+      lines = {
+        { id = "d2_cold_1", text = "More than the living do, because they don't notice when it's wearing through. A deathguard will walk his boots to rags and his feet to bone and only find out when he's leaving pieces of himself on the Pyrewood road." },
+      },
+      choices = {
+        { text = "So you inspect them yourself?", next = "d2_cold2" },
+        { text = "That sounds grim, even for here.", next = "d2_cold2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_cold2 = {
+      lines = {
+        { id = "d2_cold2_1", text = "I stand at the edge of the market when the patrols come back and I look at their boots, and I send the worst of them to Meloche for the plates and to me for the rest. Hadrec has never ordered it, and he has never once told me to stop." },
+      },
+      choices = {
+        { text = "Good of you to watch out for them.", next = "BACK", reply = "It's good business, and it happens to be good of me too. I don't mind which you call it." },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    d2_market = {
+      lines = {
+        { id = "d2_market_1", text = "Meloche for the plate and Guillaume for anyone patient enough to learn, and the bat handler for anyone who'd rather not walk. I'm the only one here who can tell a good hide from a bad one by the smell, and I've had a long time to learn it." },
+      },
+      choices = {
+        { text = "You and Guillaume get on?", next = "d2_market2" },
+        { text = "Every market has its proud one.", next = "d2_market2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_market2 = {
+      lines = {
+        { id = "d2_market2_1", text = "We get on as two proud craftsmen get on, which is to say we each think the other's work is very nearly good. He once told me my rivets were adequate, and I have been trying to forgive him for the compliment ever since." },
+      },
+      choices = {
+        { text = "Adequate is high praise from him.", next = "BACK", reply = "So I'm told. I'd still rather have had excellent, but I'm a vain old saddler." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_coat = {
+      lines = {
+        { id = "d2_coat_1", text = "It has, and I'll thank you not to point it out in front of the customers. A tailor's coat is always the last one mended, and a saddler's is even later, since nobody ever pays me to mend my own." },
+      },
+      choices = {
+        { text = "Then I'll keep the secret.", next = "BACK" },
+        { text = "Ask you something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Alexandre Lefevre, and that's leather on every hook you see. I made saddles in Lordaeron when there were horses to sit on them, and now I make jerkins for soldiers who can't feel the cold, which is easier work and less rewarding." },
@@ -45,6 +92,9 @@ P:NPC {
         { text = "What was Lordaeron like for a saddler?", next = "saddles" },
         { text = "Do you work worgen hide?", next = "worgen" },
         { text = "Any advice for a skinner?", next = "skin", when = { profession = { "Skinning", "Leatherworking" } } },
+        { text = "Soldiers who can't feel cold still need leather?", next = "d2_cold" },
+        { text = "Who else sells in the Sepulcher's market?", next = "d2_market" },
+        { text = "Your own coat's seen some wear.", next = "d2_coat", when = { race = "Scourge" } },
         { text = "Good day.", next = "END" },
       },
     },

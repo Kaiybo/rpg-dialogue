@@ -1502,6 +1502,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_brill = {
+      lines = {
+        { id = "d2_brill_1", text = "Busy and cold, and somebody's always shouting. Zygand has us walking the roads to the Bulwark and back, and Dillinger tells the new ones that if they're slow the Crusade will wear their bones as buttons, which isn't true, I think." },
+      },
+      choices = {
+        { text = "Do you like the work?", next = "d2_brill2" },
+        { text = "Dillinger sounds like a charmer.", next = "d2_brill2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_brill2 = {
+      lines = {
+        { id = "d2_brill2_1", text = "I like the walking, because it's quiet and nobody's looking at me. What I don't like is the reporting after, where you stand in front of the Executor and he asks why you've come back with fewer than you went out with, and I've only had to do that once." },
+      },
+      choices = {
+        { text = "Once is enough for anyone.", next = "BACK", reply = "It was. I'd rather walk into the Vale again than stand there twice." },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    d2_vale = {
+      lines = {
+        { id = "d2_vale_1", text = "It is, and it's worse than it sounds. The spiders are big enough to carry a Deathguard off whole, and the Crusade go there because nobody sensible would, and that's exactly why we were sent to watch them." },
+      },
+      choices = {
+        { text = "What were the Crusade doing there?", next = "d2_vale2" },
+        { text = "I'd not go in without a torch.", next = "d2_vale2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_vale2 = {
+      lines = {
+        { id = "d2_vale2_1", text = "Meeting, mostly, the ones from the Monastery and the ones from the camps, out of sight where they could talk plans. Falgan said they'd never expect anyone to come through the webs, and he was right, right up until the twig." },
+      },
+      choices = {
+        { text = "The twig again.", next = "BACK", reply = "I'll never live it down. I'd say I'll never die of it either, but that's already happened." },
+        { text = "Something else, Billmuth.", next = "BACK" },
+      },
+    },
+    d2_pal = {
+      lines = {
+        { id = "d2_pal_1", text = "Thank you, I mean it, though you'll understand I've a habit of checking where your hands are. The ones here at the keep have been kinder to me than most of Brill, and it's making a muddle of everything I thought I knew." },
+      },
+      choices = {
+        { text = "Muddles are where better thinking starts.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
@@ -1527,6 +1574,9 @@ P:NPC {
         { text = "Who was Garek Bandarion to the Deathguard?", next = "garek" },
         { text = "How's the Executor treating you?", next = "zygand", when = { questDone = TODO_QUEST("Discipline") } },
         { text = "I'll help you.", next = "BUSINESS", when = { class = "PALADIN" } },
+        { text = "What's Brill like, for a Deathguard?", next = "d2_brill" },
+        { text = "Venomweb Vale sounds a foul place for scouting.", next = "d2_vale" },
+        { text = "I'm a paladin, and I mean you no harm.", next = "d2_pal", when = { class = "PALADIN" } },
         { text = "Take care, Billmuth.", next = "END" },
       },
     },

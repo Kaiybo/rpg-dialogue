@@ -240,7 +240,38 @@ P:NPC {
         { text = "What does the King think of your past?", next = "king" },
         { text = "Teach me how you spot the darker shadow.", next = "BACK", when = { class = "ROGUE" }, reply = "It's no' a thing ye teach, it's a thing ye learn by bein' caught. Get caught a few times, an' ye'll see it too." },
         { text = "Night elves walk quieter still.", next = "BACK", when = { race = "NightElf" }, reply = "Aye, an' I've chased one or two through the Mystic Ward. They're quiet, but they're tall, an' tall shows." },
+        { text = "Which part of the city sees the most thieving?", next = "d0_where" },
+        { text = "You never stand with your back to a door.", next = "d0_back" },
         { text = "I'll leave you to the shadows.", next = "END" },
+      },
+    },
+    d0_where = {
+      lines = { { id = "d0wr_default", text = "The Commons, on auction days, when every purse in Ironforge is fat an' every eye's on the board. Pickpockets love a crowd, an' a crowd lookin' at prices is the best crowd there is." } },
+      choices = {
+        { text = "How many do you catch on an auction day?", next = "d0_where_many" },
+        { text = "Then I'll keep a hand on my purse.", next = "BACK" },
+      },
+    },
+    d0_where_many = {
+      lines = { { id = "d0wm_default", text = "Three or four, an' the guards catch another two by luck. The rest go home rich, which I take personally, for I used tae be one o' them, an' I'd have been ashamed tae be caught by the likes o' me." } },
+      choices = {
+        { text = "Professional pride, even now.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d0_back = {
+      lines = { { id = "d0bk_default", text = "No, an' ye've a good eye for noticin' it. A dwarf who's been on the wrong side o' the law learns where the doors are, an' one on the right side learns that the wrong side hasnae forgotten him." } },
+      choices = {
+        { text = "Do your old friends come looking for you?", next = "d0_back_old" },
+        { text = "Old habits keep people like us breathing.", next = "BACK", when = { class = "ROGUE" }, reply = "Aye, they do, an' dinnae let anybody tell ye otherwise. Just mind which habits ye keep." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d0_back_old = {
+      lines = { { id = "d0bo_default", text = "Now an' then, wi' an offer or a threat, or both in the same sentence. I tell them the king's law has room for a thief who changes his trade, an' I've the warrant tae prove it, an' most o' them go away." } },
+      choices = {
+        { text = "And the ones who don't?", next = "BACK", reply = "They're in the cells under the Military Ward, an' they write me very rude letters." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     unseen = {
@@ -429,7 +460,38 @@ P:NPC {
         { text = "What's Thistlefuzz Arcanery like?", next = "arcanery" },
         { text = "I wince every time I break down a good axe.", next = "BACK", when = { profession = "Enchanting" }, reply = "Aye, so do I, an' I'm glad tae hear it's no' only me. Master Gimble says we'll grow out o' it.", fx = { affinity = 1 } },
         { text = "Enchanting is just arcane bookkeeping.", next = "BACK", when = { class = "MAGE" }, reply = "That's what Master Gimble says, more or less. I'd only add that the books keep tryin' tae set my beard on fire." },
+        { text = "What do you break down most often?", next = "d0_break" },
+        { text = "Tilli Thistlefuzz speaks well of you.", next = "d0_tilli" },
         { text = "I'll let you get back to it.", next = "END" },
+      },
+    },
+    d0_break = {
+      lines = { { id = "d0br_default", text = "Old bracers an' rings that adventurers bring in by the sackful, for they've outgrown them on the road. Every one gives up a pinch o' dust, an' Master Gimble says a pinch is all most enchantments need." } },
+      choices = {
+        { text = "Does it ever go wrong?", next = "d0_break_wrong" },
+        { text = "A sack of rings for a pinch of dust. Strange trade.", next = "BACK" },
+      },
+    },
+    d0_break_wrong = {
+      lines = { { id = "d0bw_default", text = "Once, wi' a ring someone had enchanted badly a long while ago. It came apart in a flash an' my beard glowed blue for three days, an' Gimble wrote it all down an' said it was the most useful thing I'd done all year." } },
+      choices = {
+        { text = "So that's why your beard glows.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else, Thonys.", next = "BACK" },
+      },
+    },
+    d0_tilli = {
+      lines = { { id = "d0ti_default", text = "Does she? That's kind, for I've broken a good many o' her jars. She keeps the stockroom an' keeps Master Gimble from hidin' under the bench when the door bangs, an' I think she runs the Arcanery more than he does." } },
+      choices = {
+        { text = "What does your family make of all this?", next = "d0_tilli_family" },
+        { text = "Every master needs a Tilli.", next = "BACK" },
+      },
+    },
+    d0_tilli_family = {
+      lines = { { id = "d0tf_default", text = "My father says the gnomes have stolen my sense, an' my grandmother says a rune is a rune whether ye cut it or cast it. I visit them on the Pillarstone feast days, an' I wear a hat, in case the beard's still glowin'." } },
+      choices = {
+        { text = "Your grandmother sounds right to me.", next = "BACK", when = { race = "Dwarf" }, fx = { affinity = 1 } },
+        { text = "A hat seems wise.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
       },
     },
     learned = {
@@ -623,7 +685,45 @@ P:NPC {
         { text = "Poranna seems to keep you on your toes.", next = "poranna" },
         { text = "Why tailoring, for a dwarf?", next = "why" },
         { text = "What does a tailor bring to a camp?", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Tailoring") } },
+        { text = "What do you sew, most days?", next = "d0_days" },
+        { text = "Your hands look more like a herder's than a tailor's.", next = "d0_herd" },
         { text = "Mind your stitches, Uthrar.", next = "END" },
+      },
+    },
+    d0_days = {
+      lines = { { id = "d0dy_default", text = "Plain seams on linen shirts, mostly, an' hems, an' the insides o' robes where nobody looks, for Master Jormund says that's where a tailor's honesty lives. Twice a week I'm allowed tae baste for him, which means I pin while he frowns." } },
+      choices = {
+        { text = "Who wears the shirts you sew?", next = "d0_days_who" },
+        { text = "Honest insides. That's a good rule.", next = "BACK" },
+      },
+    },
+    d0_days_who = {
+      lines = { { id = "d0dw_default", text = "The guards, mostly, under their mail, an' the forge hands, who go through a shirt a month. A shirt under mail needs flat seams or it rubs a dwarf raw, so I've sewn about four hundred flat seams an' dreamed about the rest." } },
+      choices = {
+        { text = "Four hundred seams. Your master must notice.", next = "d0_days_notice" },
+        { text = "Something else, Uthrar.", next = "BACK" },
+      },
+    },
+    d0_days_notice = {
+      lines = { { id = "d0dn_default", text = "He does, in his way. Last month he gave me a guard captain's shirt tae finish on my own, an' said nothin' at all when I brought it back, which from Master Jormund is near enough a feast in my honour." } },
+      choices = {
+        { text = "Silence as praise. I know masters like that.", next = "BACK" },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    d0_herd = {
+      lines = { { id = "d0he_default", text = "Aye, an' they'll be a herder's hands till I die, for ye cannae shear rams for fifteen years an' come out soft. They're good for heavy canvas, though, an' Poranna says I can pull a needle through leather wi'out a thimble." } },
+      choices = {
+        { text = "Do you miss the herds?", next = "d0_herd_miss" },
+        { text = "My kin keep rams too, out past Kharanos.", next = "BACK", when = { race = "Dwarf" }, reply = "Then ye ken the smell o' a wet fleece an' why I left it. Give the rams a scratch from me." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d0_herd_miss = {
+      lines = { { id = "d0hm_default", text = "The quiet, aye, an' the stars over the high pasture. No' the cold, an' no' the wolves, an' no' gettin' up before dawn tae find a beast that's wandered intae the snow, so the Forge can be as loud as it likes, for it's warm." } },
+      choices = {
+        { text = "Warm and loud beats cold and quiet.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
       },
     },
     master = {

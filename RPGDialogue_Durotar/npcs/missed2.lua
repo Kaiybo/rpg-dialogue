@@ -232,6 +232,37 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    jn_table = {
+      lines = { { id = "jn_table_l", text = "It does, because the Barrens send grain, Mulgore sends meat and bread, and the Darkspear bring fish up from Sen'jin. Durotar itself gives us cactus and boar, and we eat those first, so the land knows we're grateful." } },
+      choices = {
+        { text = "The Horde feeds itself together.", next = "jn_table2" },
+        { text = "Cactus is hardly a feast.", next = "jn_table2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jn_table2 = {
+      lines = { { id = "jn_table2_l", text = "It isn't, but it's ours, and it was hard won. On Draenor we raided for our food, and in the camps we begged for it, so a feast we grew ourselves tastes better than any banquet I could describe." } },
+      choices = {
+        { text = "The Horde should feed itself, and never raid again.", next = "BACK", reply = "That's the Warchief's hope, and mine. A full harvest is a quieter victory than any battle, and a longer one.", fx = { align = { light = 1 } } },
+        { text = "If the harvest fails, the Horde takes what it needs.", next = "BACK", reply = "Spoken like the old Horde, and some days I fear you're right. Let's pray to the spirits the harvest never fails.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jn_kin = {
+      lines = { { id = "jn_kin_l", text = "They do, and every year more of them. The tauren bring their drums and the Darkspear bring their dances, and last year the Forsaken sent a cask of something I'd rather not describe." } },
+      choices = {
+        { text = "Did anyone drink it?", next = "jn_kin2" },
+        { text = "The Forsaken have strange gifts.", next = "jn_kin2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jn_kin2 = {
+      lines = { { id = "jn_kin2_l", text = "One grunt did, on a dare, and he spoke to his ancestors for two days without a shaman's help. Next year I'll keep that cask further from the fire, and further from the grunts." } },
+      choices = {
+        { text = "A wise precaution.", next = "BACK" },
+        { text = "Something else, Javnir.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_done", when = { questDone = TODO_QUEST("Honoring a Hero") },
@@ -249,6 +280,8 @@ P:NPC {
         { text = "Orcs holding a harvest feast seems a new thing.", next = "feast" },
         { text = "Fireworks, at a remembrance?", next = "fireworks" },
         { text = "I've stood at Grom's monument.", next = "stood", when = { questDone = TODO_QUEST("Honoring a Hero") } },
+        { text = "The table holds more than Durotar could grow.", next = "jn_table" },
+        { text = "Do the tauren and trolls join the feast?", next = "jn_kin" },
         { text = "I'll eat, and remember. Farewell.", next = "END" },
       },
     },

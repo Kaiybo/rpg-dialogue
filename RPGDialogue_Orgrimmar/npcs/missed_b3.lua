@@ -334,6 +334,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xt_orcs = {
+      lines = { { id = "xt_orcs_l", text = "Some do, mon, de old ones especially, who remember snakes in de human camps. Dey tell me de guards used to throw adders into de pens for fun, so I don't blame dem for jumpin'." } },
+      choices = {
+        { text = "Do you try to change their minds?", next = "xt_orcs2" },
+        { text = "That's a grim memory to carry.", next = "xt_orcs2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xt_orcs2 = {
+      lines = { { id = "xt_orcs2_l", text = "I let de brown one sleep on de bench outside Zayus's hut, and after a while dey forget to be afraid of her. One old grunt even feeds her now, mon, and he pretends he's only droppin' his supper by accident." } },
+      choices = {
+        { text = "That's a gentle way to teach.", next = "BACK" },
+        { text = "Something else, Xan'tish.", next = "BACK" },
+      },
+    },
+    xt_where = {
+      lines = { { id = "xt_where_l", text = "De black ones hide under de rocks of Durotar, near de coast where it stays cooler. De crimson ones I got from much further south, in de Barrens near de oases, and dey bite harder dan dey look." } },
+      choices = {
+        { text = "Have you been bitten often?", next = "xt_where2" },
+        { text = "The Barrens are a long way to go for a snake.", next = "xt_where2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xt_where2 = {
+      lines = { { id = "xt_where2_l", text = "Seven times, and de crimson one did four of dem. Tai'jin in Razor Hill fixed me up de last time, and she told me to find a safer trade, and I told her a snake be safer dan most people." } },
+      choices = {
+        { text = "You might be right about that.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I be Xan'tish, and I sell snakes: the black, the brown and the crimson. I track them and catch them myself and I teach them manners, which is more than anyone ever did for me." },
@@ -349,6 +379,8 @@ P:NPC {
         { text = "How do you catch them?", next = "catch" },
         { text = "They follow you like hounds.", next = "follow" },
         { text = "Do the loa favour snakes?", next = "loa", when = { race = "Troll" } },
+        { text = "The orcs in the valley still step around you.", next = "xt_orcs" },
+        { text = "Where do the best snakes hide?", next = "xt_where" },
         { text = "Mind your fingers, Xan'tish.", next = "END" },
       },
     },

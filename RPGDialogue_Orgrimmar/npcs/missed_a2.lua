@@ -146,6 +146,37 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    kb_same = {
+      lines = { { id = "kb_same_l", text = "They should, because a grunt who loses his axe in the Barrens should be able to pick up his neighbour's and swing it the same way. Sameness is a virtue in a weapon that a hundred orcs will carry." } },
+      choices = {
+        { text = "So every axe is made to one pattern.", next = "kb_same2" },
+        { text = "A champion wants something different.", next = "kb_same2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kb_same2 = {
+      lines = { { id = "kb_same2_l", text = "One pattern, aye, which I keep on a board beside the forge, cut from the haft of an axe that served a grunt for ten years. Borgosh makes champions' weapons, and I make soldiers' weapons, and the Horde needs far more soldiers." } },
+      choices = {
+        { text = "A plain axe in many hands wins more wars.", next = "BACK", reply = "It does, and I'll say so to Borgosh's face. Don't tell him I said it so plainly, though.", fx = { align = { order = 1 } } },
+        { text = "One great weapon can turn a battle.", next = "BACK", reply = "Sometimes it can, if the right orc carries it. But the right orc dies too, and then you've a hundred grunts with nothing.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kb_boy = {
+      lines = { { id = "kb_boy_l", text = "An orphan from Matron Battlewail's house, sent to me to learn a trade. He works the bellows in the morning and runs off to fight imaginary humans in the afternoon, and I let him, because I did the same at his age." } },
+      choices = {
+        { text = "Will he make a smith?", next = "kb_boy2" },
+        { text = "Battlewail sends you apprentices?", next = "kb_boy2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kb_boy2 = {
+      lines = { { id = "kb_boy2_l", text = "He might, if he learns to show up every day. The matron sends her older ones to the forges and the kennels, because she says a trade is the only inheritance she can give them, and I think she's right." } },
+      choices = {
+        { text = "A good thing to give a child.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_smith", when = { profession = "Blacksmithing" }, text = "Kelgruk Bloodaxe. If you have chosen the weaponsmith's road, then I have a thing or two to show you once Borgosh has had his say, and I will take less time about it." },
@@ -162,6 +193,8 @@ P:NPC {
         { text = "How many axes do you make in a day?", next = "xcount" },
         { text = "Is a weaponsmith's work honourable?", next = "xhonor" },
         { text = "A shaman needs a weapon too. What would you give me?", when = { class = "SHAMAN" }, next = "xshaman" },
+        { text = "Your axes all look the same to me.", next = "kb_same" },
+        { text = "Who's the bellows boy you mentioned?", next = "kb_boy" },
         { text = "Good forging, Kelgruk.", next = "END" },
       },
     },

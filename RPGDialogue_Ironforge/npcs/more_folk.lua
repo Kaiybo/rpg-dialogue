@@ -1138,7 +1138,42 @@ P:NPC {
         { text = "What makes a good paladin?", next = "good" },
         { text = "The Hall of Mysteries holds more than paladins.", next = "hall" },
         { text = "I took the same oaths you did.", next = "oaths", when = { class = "PALADIN" } },
+        { text = "Who else teaches the Light in Ironforge?", next = "d0_teach" },
+        { text = "You train paladins for a war far from here.", next = "d0_war" },
         { text = "Farewell, Valgar.", next = "END" },
+      },
+    },
+    d0_teach = {
+      lines = { { id = "d0te_default", text = "Brandur Ironhammer an' Beldruk Doombrow share the work wi' me, an' Azar Stronghammer takes the young ones at Kharanos once Bromos Grummner's done wi' them at Anvilmar. We each teach a wee bit different, which is as it should be, for the Light doesnae come tae everybody by the same door." } },
+      choices = {
+        { text = "How do you differ from Beldruk?", next = "d0_teach_beldruk" },
+        { text = "Many teachers, one Light.", next = "BACK" },
+      },
+    },
+    d0_teach_beldruk = {
+      lines = { { id = "d0tb_default", text = "Beldruk teaches mercy first an' I teach duty first, an' we argue about it over supper twice a week. The young ones hear us both an' come out the better for it, though they think we're a pair o' daft old dwarves." } },
+      choices = {
+        { text = "They'll understand the argument later.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Valgar.", next = "BACK" },
+      },
+    },
+    d0_war = {
+      lines = { { id = "d0wa_default", text = "Aye, it's far, but no' as far as it was. Refugees from Lordaeron come through the gates wi' tales o' the Plaguelands, an' the Argent Dawn sends word askin' for paladins, so I teach every one as if they'll stand in Andorhal one day." } },
+      choices = {
+        { text = "Do many of them go north?", next = "d0_war_north" },
+        { text = "I'd go north if the order asked it of me.", next = "d0_war_go", when = { class = "PALADIN" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d0_war_north = {
+      lines = { { id = "d0wn_default", text = "More than come back, an' that's the truth of it. Some join the Argent Dawn at Light's Hope, an' some just walk north wi' a hammer an' nae orders at all. I write tae the ones I can, an' I light a candle for the rest." } },
+      choices = { { text = "Keep lighting them. Something else.", next = "BACK" } },
+    },
+    d0_war_go = {
+      lines = { { id = "d0wg_default", text = "I believe ye would, an' I'll no' stop ye. But learn everythin' this hall can teach ye first, for courage on its own has filled too many graves in Lordaeron." } },
+      choices = {
+        { text = "Then I'll learn first, and go after.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     hand = {
@@ -1415,7 +1450,39 @@ P:NPC {
         { text = "Why should I fight for the Stormpikes?", next = "why" },
         { text = "You've a hard crowd to recruit from.", next = "crowd" },
         { text = "I've already fought for the Guard.", next = "fought", when = { reputation = { faction = "Stormpike Guard", min = "friendly" } } },
+        { text = "What does a recruit need before heading to Alterac?", next = "d0_kit" },
+        { text = "Are the Stormpikes an Ironforge clan?", next = "d0_clan" },
         { text = "Farewell, Lieutenant.", next = "END" },
+      },
+    },
+    d0_kit = {
+      lines = { { id = "d0ki_default", text = "Warm boots first, for the valley's colder than Dun Morogh an' the wind comes straight off the Frostwolf ridges. Then a weapon ye trust, an' enough sense tae follow orders when a battle's goin' sideways." } },
+      choices = {
+        { text = "How does a recruit reach the valley?", next = "d0_kit_road" },
+        { text = "Boots before glory. That's sensible.", next = "BACK" },
+      },
+    },
+    d0_kit_road = {
+      lines = { { id = "d0kr_default", text = "South through the Wetlands, north again by Arathi, then intae Hillsbrad an' up the mountain roads till the Stormpike pickets stop ye. Ask the militia at Southshore for the way; they've watched enough dwarves march past tae draw ye a map." } },
+      choices = {
+        { text = "A long march for a cold war.", next = "BACK" },
+        { text = "Something else, Lieutenant.", next = "BACK" },
+      },
+    },
+    d0_clan = {
+      lines = { { id = "d0cl_default", text = "Aye, Ironforge dwarves through an' through, an' Vanndar's kin have served this mountain for generations. The expedition went north wi' the king's blessin', so when the Frostwolves came at them, they came at Ironforge." } },
+      choices = {
+        { text = "So the throne backs the war?", next = "d0_clan_throne" },
+        { text = "Then their fight is my clan's fight too.", next = "BACK", when = { race = "Dwarf" }, reply = "Spoken like a true child o' the mountain! Tell that tae Dun Baldar when ye get there, an' they'll stand ye a drink." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d0_clan_throne = {
+      lines = { { id = "d0ct_default", text = "It backs us wi' words an' a recruitin' post in the Commons, which is me. I'll no' say a word against the king, but the Senate counts every copper sent north twice an' then sends half." } },
+      choices = {
+        { text = "The Senate's right to count. Wars bleed a treasury dry.", next = "BACK", reply = "Aye, an' a careful purse has kept this mountain standin' when braver ones fell. I'll grant them that much.", fx = { align = { order = 1 } } },
+        { text = "Kin in danger shouldn't wait on a counting-house.", next = "BACK", reply = "That's what I'd shout from the Senate floor, if they'd let a lieutenant in.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     alterac = {

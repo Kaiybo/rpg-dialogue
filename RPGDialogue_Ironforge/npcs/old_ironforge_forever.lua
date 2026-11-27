@@ -484,12 +484,47 @@ P:NPC {
         { text = "Who was your Thane?", next = "thane" },
         { text = "What grudge holds him here?", next = "grudge" },
         { text = "Why are you still here?", next = "self" },
+        { text = "What were your duties in these halls?", next = "d0_duties" },
+        { text = "The halls around you are empty now.", next = "d0_empty" },
         { text = "I'll put Faldrim to rest.", next = "END", when = { questActive = TODO_QUEST("An Ancient Grudge") } },
         { text = "What was Ironforge like in your day?", next = "ydays" },
         { text = "Do you remember your own name?", next = "yname" },
         { text = "I am a priest. I could pray for you.", next = "BACK", when = { class = "PRIEST" }, reply = "Pray for him first. When he sleeps, your words will find me waiting, and I will be glad of them." },
         { text = "Go in peace, lady.", next = "END" },
       },
+    },
+    d0_duties = {
+      lines = { { id = "d0du_default", text = "*She lifts hands that hold nothing, as if a tray were still in them.* I filled the cups, I banked the hearth, and I carried word between my Thane and the other houses when they would not speak face to face. That last was the heaviest thing I ever carried." } },
+      choices = {
+        { text = "Why would the houses not speak?", next = "d0_duties_houses" },
+        { text = "You were a messenger as much as a servant.", next = "BACK", reply = "*A faint nod.* Messengers are forgotten quicker than servants, and I have been forgotten very thoroughly." },
+      },
+    },
+    d0_duties_houses = {
+      lines = { { id = "d0dh_default", text = "Pride, and old wrongs, and the order of seats at a table. Every clan kept its own hall then, and a Thane who walked uninvited into another's hall had come to fight, so they sent me, and I learned to say hard words softly." } },
+      choices = {
+        { text = "Soft words have ended more feuds than axes.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    d0_empty = {
+      lines = { { id = "d0em_default", text = "*She looks about, slowly.* Are they? I still hear the feet in them. Sometimes a living dwarf comes down with a lantern and stares at the old carvings, and I do not think they hear anything at all." } },
+      choices = {
+        { text = "Who comes down here now?", next = "d0_empty_who" },
+        { text = "I hear something, lady. Like a forge, far off.", next = "d0_empty_forge", when = { race = "Dwarf" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d0_empty_who = {
+      lines = { { id = "d0ew_default", text = "Scholars with books under their arms, and guards who walk past the old doors and do not go in. They write down the names on the stones, and not one of them has asked who carried the cups." } },
+      choices = {
+        { text = "I'm asking. That must count for something.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d0_empty_forge = {
+      lines = { { id = "d0ef_default", text = "*Her face turns to you, and for a moment she is almost solid.* Then the mountain still speaks to its children. My Thane said that sound was the stone remembering us, and I always hoped he was right." } },
+      choices = { { text = "He was right. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     thane = {
       lines = {

@@ -49,8 +49,43 @@ P:NPC {
         { text = "Presents and sweets seem harmless enough.", next = "harmless" },
         { text = "My grandmother told of Greatfather Winter walking the peaks.", next = "gk_dwarf", when = { race = "Dwarf" } },
         { text = "We gnomes lost our own feasts with Gnomeregan.", next = "gk_gnome", when = { race = "Gnome" } },
+        { text = "Where is the feast still kept the old way?", next = "d0_where" },
+        { text = "You're only this cross because you love it.", next = "d0_love" },
         { text = "A merry Winter Veil to you.", next = "END" },
       },
+    },
+    d0_where = {
+      lines = { { id = "d0wh_default", text = "In the homes, mostly, round a family hearth wi' the doors left open tae the neighbours. The clans used tae dress the great tree in the Commons together, and now the goblins have hung their own beside it, wi' price tags on the boughs." } },
+      choices = {
+        { text = "Who still keeps it properly?", next = "d0_where_who" },
+        { text = "A tree with price tags is still a tree.", next = "BACK", reply = "Spoken like a goblin's best customer. Ye'll see it differently when ye've kept a few feasts yerself." },
+      },
+    },
+    d0_where_who = {
+      lines = { { id = "d0ww_default", text = "The old families in the Commons, and the Explorers' League, oddly enough, for Karnik reads the old tale aloud in the Hall of Explorers every year. Myra Tyrngaarde bakes the spice loaves the way her grandmother did, and I buy every one she'll sell me." } },
+      choices = {
+        { text = "I'll look for Myra's spice loaves.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Goli.", next = "BACK" },
+      },
+    },
+    d0_love = {
+      lines = { { id = "d0lo_default", text = "Hmph. Aye, well, ye're nae the first to say it, for my wife says it every year when I come home shoutin'. A dwarf who didnae care would buy the candy and be done wi' it, and I cannae." } },
+      choices = {
+        { text = "What does your family do on the night itself?", next = "d0_love_night" },
+        { text = "My father grumbled exactly the same way every winter.", next = "d0_love_father", when = { race = "Dwarf" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d0_love_night = {
+      lines = { { id = "d0ln_default", text = "We bank the fire high, set a place for those who've gone, and the eldest tells of Greatfather Winter walkin' the peaks. Then the bairns open one gift each, made by hand, and the bought ones wait till mornin'." } },
+      choices = {
+        { text = "A place for those who've gone. That's a kind custom.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    d0_love_father = {
+      lines = { { id = "d0lf_default", text = "Then he was a dwarf of sense, and ye've his blood in ye. Keep the grumble, {g:lad|lass}, for it's how we keep the feast honest." } },
+      choices = { { text = "I'll grumble with pride. Something else.", next = "BACK" } },
     },
     goblins = {
       lines = { { id = "goblins_default", text = "Smokywood Pastures came up from the south with their carts, and overnight the feast was a thing ye buy. They've a fellow in a red suit handin' out their wares as if he were Greatfather Winter himself, and the bairns cannae tell the difference." } },
@@ -129,7 +164,38 @@ P:NPC {
         { text = "How is the apprenticeship going?", next = "apprentice" },
         { text = "What is Fimble like as a master?", next = "fimble" },
         { text = "You have a great many pouches.", next = "pouches" },
+        { text = "Where do your practice hides come from?", next = "d0_hides" },
+        { text = "The Great Forge must be a noisy place to stitch.", next = "d0_noise" },
         { text = "Keep at it, Gretta.", next = "END" },
+      },
+    },
+    d0_hides = {
+      lines = { { id = "d0hi_default", text = "Balthus Stoneflayer gives me the scraps, the bellies and the edges with holes in them, and he teaches skinning in our corner, though he hardly says a word. Bombus writes every scrap down in the stock book, because Bombus writes everything down." } },
+      choices = {
+        { text = "Does Balthus ever talk to you?", next = "d0_hides_balthus" },
+        { text = "Scraps make honest practice.", next = "BACK" },
+      },
+    },
+    d0_hides_balthus = {
+      lines = { { id = "d0hb_default", text = "Once! He held up a boar hide I'd scraped and said, 'Clean.' Fimble says that's the longest speech Balthus has made to an apprentice in ten years, so I've painted it on the wall above my bench." } },
+      choices = {
+        { text = "High praise from a quiet dwarf.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d0_noise = {
+      lines = { { id = "d0no_default", text = "It is, but you stop hearing it after a month, and the heat cures a hide in half the time it takes anywhere else. The only real trouble is the soot, which gets into the wax, so I keep my thread in a tin with a lid." } },
+      choices = {
+        { text = "Do you remember the workshops in Gnomeregan?", next = "d0_noise_home" },
+        { text = "Our workshops at home were never this loud.", next = "d0_noise_home", when = { race = "Gnome" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d0_noise_home = {
+      lines = { { id = "d0nh_default", text = "I was very small when we left, so I mostly remember the lifts and a lamp that hummed over my mother's bench. Fimble remembers everything, and sometimes when he's stitching he stops and looks at nothing, and I know he's back there." } },
+      choices = {
+        { text = "He'll stitch there again someday.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Gretta.", next = "BACK" },
       },
     },
     camp = {

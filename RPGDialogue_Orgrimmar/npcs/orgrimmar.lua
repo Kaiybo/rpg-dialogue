@@ -2273,6 +2273,44 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    eg_doors = {
+      lines = { { id = "eg_doors_l", text = "They never will. Every soul who walks into Grommash Hold walks past me first, and I look at every face, and I remember it." } },
+      choices = {
+        { text = "Who do you watch for most?", next = "eg_doors2" },
+        { text = "That must wear on you.", next = "eg_doors2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    eg_doors2 = {
+      lines = { { id = "eg_doors2_l", text = "Orcs who smile too easily, because the Burning Blade smile when they lie. A human spy would be seen at a hundred paces, but a cultist looks like any grunt until he draws his knife." } },
+      choices = {
+        { text = "Then I'll keep my smile honest.", next = "BACK", fx = { learn = { "burning_blade" } } },
+        { text = "Have you ever caught one at the doors?", next = "eg_doors3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    eg_doors3 = {
+      lines = { { id = "eg_doors3_l", text = "One, in the first winter, who smiled at me and carried a knife in his boot. Thrall asked to see him before he was taken to the Cleft, and spoke with him for an hour, and I never learned what was said, only that the cultist wept." } },
+      choices = {
+        { text = "The Warchief sees further than most.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    eg_others = {
+      lines = { { id = "eg_others_l", text = "Every one of us, by choice. The Warchief asked for guards who would die before they stepped aside, and we told him we'd carry the fury that once served the demons and turn it to serve him." } },
+      choices = {
+        { text = "Does Thrall approve of your fury?", next = "eg_others2" },
+        { text = "Rage that serves the Horde is no shame.", next = "eg_others2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    eg_others2 = {
+      lines = { { id = "eg_others2_l", text = "He watches it, the way a shaman watches a fire, and he has never told us to put it out. Eitrigg told us once, and I have never forgotten it, that a fury you choose is a weapon, and a fury that chooses you is a curse." } },
+      choices = {
+        { text = "Then choose it well, grunt.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "We guard the hold and the Warchief inside it, and we keep our blood hot so that no enemy reaches him while we draw breath. The rage is ours, not the demons'; we chose it, and we point it where Thrall tells us." },
@@ -2287,6 +2325,8 @@ P:NPC {
         { text = "Were you in the internment camps?", next = "camps" },
         { text = "What do you think of the warlocks in the Cleft?", next = "warlocks" },
         { text = "I'm a warrior too. Teach me that fury.", next = "fury", when = { class = "WARRIOR" } },
+        { text = "Your eyes never leave the doors of the hold.", next = "eg_doors" },
+        { text = "Do the other guards share your rage?", next = "eg_others" },
         { text = "Lok'tar ogar.", next = "END" },
       },
     },

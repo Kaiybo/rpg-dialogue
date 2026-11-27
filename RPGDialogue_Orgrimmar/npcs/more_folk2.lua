@@ -33,6 +33,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    so_watch = {
+      lines = { { id = "so_watch_l", text = "I do. Karus counts the coin and Koma talks to the customer, so somebody has to look at the customer's hands. A lie shows in the fingers before it shows in the face." } },
+      choices = {
+        { text = "What do my hands say?", next = "so_watch2" },
+        { text = "You learned that at Hyjal, I'd guess.", next = "so_watch2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    so_watch2 = {
+      lines = { { id = "so_watch2_l", text = "That you've nothing in your vault you're ashamed of, or you'd be holding the counter tighter. I learned it in the camps, watching the guards decide which of us would eat, and I've never been able to stop." } },
+      choices = {
+        { text = "That's a hard lesson to have learned.", next = "BACK", fx = { learn = { "internment" } } },
+        { text = "Something else, Soran.", next = "BACK" },
+      },
+    },
+    so_armory = {
+      lines = { { id = "so_armory_l", text = "Sana sells the mail and Morgum the leather, and they keep it running better than I would. I go over in the evenings and go through the accounts, and Morgum tells me everything I've missed, at length." } },
+      choices = {
+        { text = "Sana and Morgum seem very different.", next = "so_armory2" },
+        { text = "So the armory runs without you.", next = "so_armory2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    so_armory2 = {
+      lines = { { id = "so_armory2_l", text = "They are, and that's why it works. Sana won't move a copper on a price and Morgum won't stop haggling, so every customer finds one of them to their liking, and the shop never goes quiet." } },
+      choices = {
+        { text = "A good balance.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Soran. My brothers and I keep the bank, and I also keep the accounts for the leather and steel armory across the valley, which has my name over its door. Koma will have told you the rest, at length." },
@@ -51,6 +81,8 @@ P:NPC {
         { text = "What are your brothers like, across the counter?", next = "brothers" },
         { text = "What do you make of all this coin passing through?", next = "coin" },
         { text = "My tribe stood on that mountain beside yours.", next = "troll", when = { race = "Troll" } },
+        { text = "You watch the customers more than the coins.", next = "so_watch" },
+        { text = "Who works the armory while you're at the bank?", next = "so_armory" },
         { text = "Keep well, Soran.", next = "END" },
       },
     },
@@ -157,6 +189,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    wb_peon = {
+      lines = { { id = "wb_peon_l", text = "Carrying rocks for these very walls, friend, from dawn to dusk while the foremen shouted. I learned that a voice that can be heard over a quarry can be heard over anything, so when the house needed a crier, I put my hand up." } },
+      choices = {
+        { text = "And the foremen let you go?", next = "wb_peon2" },
+        { text = "From peon to auctioneer. That's a long climb.", next = "wb_peon2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wb_peon2 = {
+      lines = { { id = "wb_peon2_l", text = "The city was finished, and they'd no more rocks for me to carry. Thathung gave me a week to prove I could keep a crowd, and I sold out the floor on the second day, and he's never once complained about the noise since." } },
+      choices = {
+        { text = "Then you earned the post fairly.", next = "BACK" },
+        { text = "Something else, Wabang.", next = "BACK" },
+      },
+    },
+    wb_strange = {
+      lines = { { id = "wb_strange_l", text = "A saddle, for a raptor, with a gnome's name stitched inside it. The orc who listed it swore he'd won it fair in the Barrens, and Grimful wrote it down as found goods, which is Grimful's way of not asking." } },
+      choices = {
+        { text = "Who bought it?", next = "wb_strange2" },
+        { text = "Found goods. That's a polite word for it.", next = "wb_strange2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wb_strange2 = {
+      lines = { { id = "wb_strange2_l", text = "A Darkspear rider from Sen'jin, who said a gnome's saddle was the finest kind and unpicked the name the same afternoon. I called it the sale of the season, and nobody's beaten it yet." } },
+      choices = {
+        { text = "That's a good story.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Wabang! Thathung explains the rules, Grimful minds the ledger, and I'm the one who makes it a contest. An auction with no shouting is only a shop with worse manners." },
@@ -175,6 +237,8 @@ P:NPC {
         { text = "What sells best in Orgrimmar?", next = "sells" },
         { text = "Do the goblins' auction houses trouble you?", next = "goblins" },
         { text = "I craft goods. How should I price them?", next = "crafter", when = { any = { { profession = "Blacksmithing" }, { profession = "Leatherworking" }, { profession = "Tailoring" }, { profession = "Alchemy" }, { profession = "Engineering" } } } },
+        { text = "You said you were a peon before this.", next = "wb_peon" },
+        { text = "What's the strangest thing ever sold here?", next = "wb_strange" },
         { text = "Good bidding, Wabang.", next = "END" },
       },
     },
@@ -278,6 +342,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    gf_old = {
+      lines = { { id = "gf_old_l", text = "Forever, or as near as the shelves allow. Every sale since the house opened is written in the back room, and when two orcs come to blows over a bargain made three seasons ago, I fetch the book and the quarrel ends." } },
+      choices = {
+        { text = "Does it always end the quarrel?", next = "gf_old2" },
+        { text = "That's a lot of paper for an orc city.", next = "gf_old2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gf_old2 = {
+      lines = { { id = "gf_old2_l", text = "Always, because nobody argues with ink. A grunt will doubt his own memory before he doubts a line in my hand, which is a strange kind of trust, but I'll take it." } },
+      choices = {
+        { text = "Then the ledger keeps the peace.", next = "BACK" },
+        { text = "Something else, Grimful.", next = "BACK" },
+      },
+    },
+    gf_thathung = {
+      lines = { { id = "gf_thathung_l", text = "A sergeant, still, though he's not held a spear in years. He explains the rules as if he's drilling a squad, and the young ones stand up straighter when he does it, which saves me repeating myself." } },
+      choices = {
+        { text = "Do the three of you get along?", next = "gf_thathung2" },
+        { text = "A sergeant makes a good teacher.", next = "gf_thathung2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gf_thathung2 = {
+      lines = { { id = "gf_thathung2_l", text = "As well as the three parts of an axe do. Wabang is the edge, Thathung is the haft, and I'm the binding that keeps the head from flying off, and nobody admires the binding until it fails." } },
+      choices = {
+        { text = "I'll admire the binding, then.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Auctioneer Grimful. Wabang does the shouting and Thathung does the explaining, and I write down what actually happened. Of the three, mine is the account that gets believed." },
@@ -296,6 +390,8 @@ P:NPC {
         { text = "How do you work beside Wabang?", next = "wabang" },
         { text = "What does the ledger say about the city?", next = "city" },
         { text = "I've nothing to hide in what I sell.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "How long do you keep the old ledgers?", next = "gf_old" },
+        { text = "Thathung explains the rules. What's he like?", next = "gf_thathung" },
         { text = "Keep your columns straight, Grimful.", next = "END" },
       },
     },
@@ -397,6 +493,37 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    vh_need = {
+      lines = { { id = "vh_need_l", text = "Wool, mon, for de winter nights on de coast, which be colder dan de orcs believe. De young ones sleep on de sand in de raptor pens to keep de beasts calm, and dey need blankets more dan anything." } },
+      choices = {
+        { text = "Then I'll bring wool when I find it.", next = "vh_need2" },
+        { text = "Why sleep with the raptors at all?", next = "vh_need2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    vh_need2 = {
+      lines = { { id = "vh_need2_l", text = "Because a raptor dat wakes alone in de night bites de first thing it sees. Zjolnir says it be a lesson de tribe learned long ago, and de young ones learn it again every season with deir fingers." } },
+      choices = {
+        { text = "Wool it is, then.", next = "BACK" },
+        { text = "Something else, Vehena.", next = "BACK" },
+      },
+    },
+    vh_watchers = {
+      lines = { { id = "vh_watchers_l", text = "Dey do, mon, because de hexed trolls come across from de Echo Isles at night and fight like dey feel no pain. Our watchers fight dem without wantin' to kill dem, because dey be our own kin under Zalazane's spell." } },
+      choices = {
+        { text = "That must be terrible for them.", next = "vh_watchers2" },
+        { text = "Mercy for the hexed only gets watchers killed.", next = "vh_watchers2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    vh_watchers2 = {
+      lines = { { id = "vh_watchers2_l", text = "It be terrible, and it be necessary, and some nights de watchers have no choice. Master Gadrin says de day Zalazane falls, de hex breaks, and every one we spared walks home, so we spare as many as we can." } },
+      choices = {
+        { text = "Spare them while you can. They're still Darkspear.", next = "BACK", reply = "Dat be de tribe's heart, mon, and I thank you for sayin' it. Every bandage you bring helps a watcher stay merciful.", fx = { align = { light = 1 } } },
+        { text = "A watcher's life comes first. Strike to kill.", next = "BACK", reply = "Some say so, and I don't blame dem in de dark. But I pray dey never have to, mon.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "echo_isles" } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I be Vehena, and I gather cloth for de Darkspear. Wool, silk, mageweave, runecloth, whatever you can spare. De tribe came to Durotar with what it could carry off a sinkin' island, mon, and dat was not much." },
@@ -415,6 +542,8 @@ P:NPC {
         { text = "Rashona gathers cloth for the orcs. Do you compete?", next = "rashona" },
         { text = "You speak of how the tribe left the isles.", next = "isles" },
         { text = "I sew. Is there work I can do beyond giving?", next = "tailor", when = { profession = "Tailoring" } },
+        { text = "Which cloth does the tribe need most right now?", next = "vh_need" },
+        { text = "The watchers at Sen'jin must wear out bandages quickly.", next = "vh_watchers" },
         { text = "Spirits keep you, Vehena.", next = "END" },
       },
     },
@@ -518,6 +647,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    su_father = {
+      lines = { { id = "su_father_l", text = "He looks at every crate that comes in and grunts at it, and if he doesn't grunt, I send it back. Saru Steelfury can tell bad flux by the smell, and he's never been wrong yet, which is very annoying." } },
+      choices = {
+        { text = "So he still checks your work.", next = "su_father2" },
+        { text = "That sounds like a useful nose.", next = "su_father2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    su_father2 = {
+      lines = { { id = "su_father2_l", text = "He checks everyone's work, mine and Tumi's and every student's, and his own most of all. I used to think he didn't trust us, and now I think he just doesn't trust anything he hasn't seen with his own eyes." } },
+      choices = {
+        { text = "That's how a master keeps his standards.", next = "BACK" },
+        { text = "Something else, Sumi.", next = "BACK" },
+      },
+    },
+    su_best = {
+      lines = { { id = "su_best_l", text = "Borgosh, who buys the best of everything and pays without blinking. Kelgruk buys the most, because he forges more plain axes in a week than Borgosh does in a season." } },
+      choices = {
+        { text = "And the worst customers?", next = "su_best2" },
+        { text = "Borgosh must spend a fortune.", next = "su_best2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    su_best2 = {
+      lines = { { id = "su_best2_l", text = "The students, who want the best coal and pay for the cheapest. I sell them the cheap coal and tell them it's the best, and they learn on it, and when they come back with real coin, they can feel the difference." } },
+      choices = {
+        { text = "A clever way to teach.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Sumi. Saru Steelfury is my father, my sister Tumi sells the heavy armor, and I sell everything a smith burns through. Between the three of us you can't swing a hammer in this valley without paying a Steelfury." },
@@ -536,6 +695,8 @@ P:NPC {
         { text = "Where does the coal come from?", next = "coal" },
         { text = "Tell me about your sister.", next = "tumi" },
         { text = "What does a new smith always forget to buy?", next = "forget", when = { profession = "Blacksmithing" } },
+        { text = "What does your father think of your stock?", next = "su_father" },
+        { text = "Who are the best customers in the valley?", next = "su_best" },
         { text = "I'll be back for flux, Sumi.", next = "END" },
       },
     },
@@ -644,6 +805,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    sv_box = {
+      lines = { { id = "sv_box_l", text = "Five locks, pal, and one of 'em's a decoy that squirts dye on ya. Every goblin in Orgrimmar knows I keep the shop's coin in there, so I figure the dye's an investment in identifyin' my competitors." } },
+      choices = {
+        { text = "Has anyone ever been dyed?", next = "sv_box2" },
+        { text = "That's very goblin of you.", next = "sv_box2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sv_box2 = {
+      lines = { { id = "sv_box2_l", text = "Twice, and both times it was Roxxik, who swore he was just borrowin' a copper for a part. He walked around blue for a week and billed the shop for the soap, and the worst part is Nogg paid it." } },
+      choices = {
+        { text = "Ha. Roxxik sounds like trouble.", next = "BACK" },
+        { text = "Something else, Sovik.", next = "BACK" },
+      },
+    },
+    sv_nogg = {
+      lines = { { id = "sv_nogg_l", text = "Nogg owns it, pal, and ownin' is a full-time job when you got Roxxik inventin' things and Thund breakin' 'em. He signs the papers, he deals with the orc officials, and he makes sure the Cartel gets its cut on time." } },
+      choices = {
+        { text = "The Cartel takes a cut, even here?", next = "sv_nogg2" },
+        { text = "So he keeps the peace with the orcs.", next = "sv_nogg2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sv_nogg2 = {
+      lines = { { id = "sv_nogg2_l", text = "The Cartel takes a cut of everything, everywhere, friend, that's what makes it the Cartel. But it keeps the roads to Ratchet open and the pirates off our wagons, so I call it overhead and I pay it with a smile, mostly." } },
+      choices = {
+        { text = "Overhead. That's one word for it.", next = "BACK", fx = { learn = { "steamwheedle" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Name's Sovik. Nogg owns the place, Roxxik's the brains, and I'm the fella who makes sure every bolt that leaves this shop got paid for. Somebody's gotta, 'cause those two would trade a rocket for a good idea." },
@@ -662,6 +853,8 @@ P:NPC {
         { text = "What's it like, a goblin shop in an orc city?", next = "city" },
         { text = "What's Roxxik building back there?", next = "roxxik" },
         { text = "Which is better made, goblin parts or gnomish?", next = "schools", when = { profession = "Engineering" } },
+        { text = "You keep a lot of locks on that strongbox.", next = "sv_box" },
+        { text = "What does Nogg actually do around here?", next = "sv_nogg" },
         { text = "Keep your eyebrows, Sovik.", next = "END" },
       },
     },
@@ -771,6 +964,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    br_cart = {
+      lines = { { id = "br_cart_l", text = "Oh, it tipped over coming down through the gate, a whole cart of blue from the coast! The street ran blue for a day, and three grunts on watch went the color of the sea to their knees." } },
+      choices = {
+        { text = "Did the dye wash out?", next = "br_cart2" },
+        { text = "I'd have paid to see that.", next = "br_cart2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    br_cart2 = {
+      lines = { { id = "br_cart2_l", text = "Not for a month, and the grunts' sergeant made them stand watch in the Valley of Strength so the whole city could see them. They forgave me eventually, though one of them still calls me the sea witch, and I've decided to take it kindly." } },
+      choices = {
+        { text = "A fair nickname, under the circumstances.", next = "BACK" },
+        { text = "Something else, Borya.", next = "BACK" },
+      },
+    },
+    br_magar = {
+      lines = { { id = "br_magar_l", text = "Every day, and then he asks me what Handor said about Tor'phan. Magar pretends not to care for gossip, but he always wants to hear it while he's cutting, because he says it keeps his hands steady." } },
+      choices = {
+        { text = "So gossip has its uses.", next = "br_magar2" },
+        { text = "You and Magar seem close.", next = "br_magar2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    br_magar2 = {
+      lines = { { id = "br_magar2_l", text = "Everything has its uses on the Drag, even me! I've been with Magar since the shop opened, and if I ever stopped talking, he'd think I was ill and send for Snang to sit with me." } },
+      choices = {
+        { text = "Then keep talking.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Borya. Magar teaches the tailoring and Snang takes the beginners, and I sell them all their thread. I talk, too. Magar says I sell a spool with every story, and I've never worked out if that's praise." },
@@ -789,6 +1012,8 @@ P:NPC {
         { text = "Where do the dyes come from?", next = "dye" },
         { text = "What's the talk among the tailors this week?", next = "talk" },
         { text = "What should a tailor keep stocked?", next = "tailor", when = { profession = "Tailoring" } },
+        { text = "What happened with the dye cart?", next = "br_cart" },
+        { text = "Does Magar ever tell you to stop talking?", next = "br_magar" },
         { text = "Keep talking, Borya.", next = "END" },
       },
     },
@@ -898,6 +1123,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xe_hot = {
+      lines = { { id = "xe_hot_l", text = "A little red pepper from de coast below Sen'jin, mon, so hot dat de trolls who dry it wear gloves. I sell one pinch to a customer, never more, and I make dem promise not to touch deir eyes." } },
+      choices = {
+        { text = "Has anyone broken that promise?", next = "xe_hot2" },
+        { text = "I'd like to try a pinch.", next = "xe_hot2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xe_hot2 = {
+      lines = { { id = "xe_hot2_l", text = "An orc warrior did, last season, and he stood in de Drag shoutin' for de spirits to save him. Zamja poured milk over his face and laughed until she cried, and now he buys two pinches every week, because he says it reminds him he's alive." } },
+      choices = {
+        { text = "That's one way to feel alive.", next = "BACK" },
+        { text = "Something else, Xen'to.", next = "BACK" },
+      },
+    },
+    xe_grunts = {
+      lines = { { id = "xe_grunts_l", text = "Dey do now, mon, though dey wouldn't at first. De barracks food be boiled until it gives up, so de grunts buy a little salt and pepper and carry it in deir belts to wake up deir supper." } },
+      choices = {
+        { text = "So you've changed how the army eats.", next = "xe_grunts2" },
+        { text = "A grunt with spices in his belt. Odd.", next = "xe_grunts2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xe_grunts2 = {
+      lines = { { id = "xe_grunts2_l", text = "A little, and I be proud of it. A troll can't fight every war for de Horde, but a troll can make sure de orcs who fight dem eat well, and dat be its own kind of service." } },
+      choices = {
+        { text = "A good service, Xen'to.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I be Xen'to! Zamja teaches de cookin' and Borstan smokes de meat, and I sell de spices dat make either one worth eatin'. Without me, mon, dis whole city would taste of boiled boar." },
@@ -916,6 +1171,8 @@ P:NPC {
         { text = "Where do the spices come from?", next = "spice" },
         { text = "You think a supper can mend a quarrel.", next = "supper" },
         { text = "I cook. What would you put in my pack?", next = "cook", when = { profession = "Cooking" } },
+        { text = "What's the hottest thing you sell?", next = "xe_hot" },
+        { text = "Do the grunts on the wall buy from you?", next = "xe_grunts" },
         { text = "Eat well, Xen'to.", next = "END" },
       },
     },
@@ -1028,6 +1285,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    sa_morgum = {
+      lines = { { id = "sa_morgum_l", text = "He does, because he knows I am listening, and he wants me to see him win. He has asked me more than once to teach him how to hold a price, and then he cannot do it for longer than a breath." } },
+      choices = {
+        { text = "You two get along better than it seems.", next = "sa_morgum2" },
+        { text = "Some people aren't made to hold a price.", next = "sa_morgum2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sa_morgum2 = {
+      lines = { { id = "sa_morgum2_l", text = "We get along because we have each other's measure. I trust him with the counting box and he trusts me with the customers who want the truth, and Soran trusts us both, which is all the shop needs." } },
+      choices = {
+        { text = "That's a sound arrangement.", next = "BACK" },
+        { text = "Something else, Sana.", next = "BACK" },
+      },
+    },
+    sa_smith = {
+      lines = { { id = "sa_smith_l", text = "The smiths of the Valley of Honor, for the most part, and I go and choose every piece myself. Okothos's students send me their best rings and Kelgruk sends me his plainest, and I sell both for what they are." } },
+      choices = {
+        { text = "And you check every one?", next = "sa_smith2" },
+        { text = "The smiths must dread your visits.", next = "sa_smith2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sa_smith2 = {
+      lines = { { id = "sa_smith2_l", text = "Every one, at the collar and the shoulders, where a lazy smith hides his faults. The students dread me, yes, but Okothos told me once that my visits save him the trouble of shouting, so I take that as thanks." } },
+      choices = {
+        { text = "Then I'll trust what you sell.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Sana. I sell mail at Soran's, and Morgum sells leather across the floor and talks enough for both of us. My prices are fair, and I do not change them for anyone, so we need not waste the morning." },
@@ -1046,6 +1333,8 @@ P:NPC {
         { text = "How did you come to sell armor?", next = "armor" },
         { text = "What do you make of this valley?", next = "valley" },
         { text = "I hunt in mail. What should I ask of it?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "Morgum keeps glancing at you while he haggles.", next = "sa_morgum" },
+        { text = "Who makes the mail you sell?", next = "sa_smith" },
         { text = "I'll take up no more of your morning.", next = "END" },
       },
     },
@@ -1161,6 +1450,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ka_forge = {
+      lines = { { id = "ka_forge_l", text = "I finish them myself, from blanks the smiths of the Valley of Honor send down. A smith makes a blade to be seen, so I take off the shine and dull the guard and give it a grip that won't slip in a wet hand." } },
+      choices = {
+        { text = "So you unmake their work, a little.", next = "ka_forge2" },
+        { text = "A plain blade is a quiet one.", next = "ka_forge2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ka_forge2 = {
+      lines = { { id = "ka_forge2_l", text = "I finish it for the work it'll actually do. Borgosh came down here once to see what I'd done to one of his, and he stood looking at it a long time, and then he said nothing and went back up, which I took as permission." } },
+      choices = {
+        { text = "That sounds like Borgosh.", next = "BACK" },
+        { text = "Something else, Kareth.", next = "BACK" },
+      },
+    },
+    ka_quiet = {
+      lines = { { id = "ka_quiet_l", text = "It is always quiet, which isn't the same as calm. The warlocks are arguing about something in the back, and Neeru Fireblade's fire has more visitors than usual, and I'd rather not know why." } },
+      choices = {
+        { text = "Neeru's visitors worry you?", next = "ka_quiet2" },
+        { text = "You notice a lot for someone who never asks.", next = "ka_quiet2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ka_quiet2 = {
+      lines = { { id = "ka_quiet2_l", text = "Noticing is free, and asking costs. Neeru's visitors don't buy my blades, they bring their own, and Shenthul's people watch them more closely than they think, so I keep my counter clean and my mouth shut." } },
+      choices = {
+        { text = "A wise way to live down here.", next = "BACK", fx = { learn = { "burning_blade" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Kareth, and this is the Slow Blade. I sell knives and short swords to those who prefer their work quiet. I don't ask what the work is, and in return my customers don't tell me, which keeps us all comfortable." },
@@ -1179,6 +1498,8 @@ P:NPC {
         { text = "What do you make of your neighbors in the Cleft?", next = "cleft" },
         { text = "You know the Shattered Hand's trainers.", next = "hand" },
         { text = "What should I look for in a dagger?", next = "rogue", when = { class = "ROGUE" } },
+        { text = "Who forges your blades?", next = "ka_forge" },
+        { text = "The Cleft is quiet today.", next = "ka_quiet" },
         { text = "I was never here, Kareth.", next = "END" },
       },
     },
@@ -1282,6 +1603,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    kt_muragus = {
+      lines = { { id = "kt_muragus_l", text = "He does, and I'm grateful for it. Muragus can talk a warlock into a staff he doesn't need, and I'd be lost without him on the busy days, though I wish he'd lower his voice now and then." } },
+      choices = {
+        { text = "Do you two share the shop's earnings?", next = "kt_muragus2" },
+        { text = "He's your voice, then.", next = "kt_muragus2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kt_muragus2 = {
+      lines = { { id = "kt_muragus2_l", text = "Half and half, and we've never argued over it. He sells the staves and I sell the wands, and on the evenings when nobody's in, he reads aloud from the old books my mother left, which I think he does for my sake." } },
+      choices = {
+        { text = "That's a kindness.", next = "BACK" },
+        { text = "Something else, Katis.", next = "BACK" },
+      },
+    },
+    kt_best = {
+      lines = { { id = "kt_best_l", text = "The lesser magic wands, by far, to young mages who've just learned that their mana runs out. They buy one, fire it at a training dummy, and come back the next day for a second, because the first one felt too good." } },
+      choices = {
+        { text = "So the young ones keep you in business.", next = "kt_best2" },
+        { text = "What do the experienced casters buy?", next = "kt_best2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kt_best2 = {
+      lines = { { id = "kt_best2_l", text = "The young ones buy often, and the old ones buy rarely and well. A seasoned warlock will stand at my case for an hour and buy nothing, and then come back a month later and buy the one I'd have picked for him." } },
+      choices = {
+        { text = "So you know them better than they know themselves.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Katis. I sell wands here, and Muragus has the staves across the shop. He talks to the customers and I mostly point. I find that people who can cast prefer not to be chattered at while they choose." },
@@ -1300,6 +1651,8 @@ P:NPC {
         { text = "Gest says you sell by pointing.", next = "quiet" },
         { text = "How do you find working in the Cleft?", next = "cleft" },
         { text = "Shall I tell you how this one feels in the hand?", next = "caster", when = { class = { "MAGE", "PRIEST", "WARLOCK" } } },
+        { text = "Muragus seems to enjoy talking for you.", next = "kt_muragus" },
+        { text = "Which wand sells best?", next = "kt_best" },
         { text = "Thank you, Katis. I'll go quietly.", next = "END" },
       },
     },
@@ -1406,6 +1759,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ol_block = {
+      lines = { { id = "ol_block_l", text = "It is, and I'll keep it so. A dirty block makes for sick grunts, and sick grunts make for an angry Warchief, and I've no wish to explain myself to him." } },
+      choices = {
+        { text = "How often do you scrub it?", next = "ol_block2" },
+        { text = "Has anyone ever fallen ill from your meat?", next = "ol_block2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ol_block2 = {
+      lines = { { id = "ol_block2_l", text = "Three times a day, with salt and boiling water, and no one's ever been sick from my meat. Zamja inspects it now and then when she thinks I'm not looking, and I let her, because her word is worth more to my customers than mine." } },
+      choices = {
+        { text = "Then your meat is safe.", next = "BACK" },
+        { text = "Something else, Olvia.", next = "BACK" },
+      },
+    },
+    ol_buyers = {
+      lines = { { id = "ol_buyers_l", text = "The hunters, who feed their beasts on my scraps, and the cooks from the inn, who take whatever's left at the end of the day. Gryshka sends her lad with a cart every evening, and he's never once been late." } },
+      choices = {
+        { text = "The inn must go through a lot of meat.", next = "ol_buyers2" },
+        { text = "And the hunters' beasts?", next = "ol_buyers2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ol_buyers2 = {
+      lines = { { id = "ol_buyers2_l", text = "The inn feeds every traveler who lands on the wind rider tower, and the beasts eat more than the travelers. I've seen a hunter's wolf eat a whole boar's shoulder in the time it took its master to pay for it." } },
+      choices = {
+        { text = "A hungry wolf is a happy wolf.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Olvia, and this is the Chophouse. I cut it clean and I sell it quick. If you want it smoked and sung over, Borstan's in the Drag, and he'll take half a day about it." },
@@ -1424,6 +1807,8 @@ P:NPC {
         { text = "Where does the meat come from?", next = "meat" },
         { text = "You see everyone who arrives in the city.", next = "valley" },
         { text = "What should I feed a hungry beast?", next = "pet", when = { class = "HUNTER" } },
+        { text = "Your block is cleaner than most tables.", next = "ol_block" },
+        { text = "Who buys the most from the Chophouse?", next = "ol_buyers" },
         { text = "I'll let you get back to the block.", next = "END" },
       },
     },
@@ -1527,6 +1912,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    go_young = {
+      lines = { { id = "go_young_l", text = "The small pouch, because it's cheap, and then the slightly bigger pouch a week later, because the small one wasn't enough. I tell them to buy the bigger one first, and they never listen, so I've stopped telling them and just keep both in stock." } },
+      choices = {
+        { text = "Experience is the best teacher.", next = "go_young2" },
+        { text = "You could just sell them the bigger one.", next = "go_young2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    go_young2 = {
+      lines = { { id = "go_young2_l", text = "I could, but they'd feel cheated, because they don't know yet what they'll carry. A young one has to fill the little pouch with boar tusks and quilboar trinkets before he understands what a pack is for." } },
+      choices = {
+        { text = "That's a gentle way to sell.", next = "BACK" },
+        { text = "Something else, Gotri.", next = "BACK" },
+      },
+    },
+    go_far = {
+      lines = { { id = "go_far_l", text = "A place called Winterspring, far to the north of Kalimdor, where the snow never melts and the bears are white. A tauren told me of it, and I've read his page so many times the ink is fading." } },
+      choices = {
+        { text = "I've heard of Winterspring. It's real.", next = "go_far2" },
+        { text = "Would you ever go there?", next = "go_far2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    go_far2 = {
+      lines = { { id = "go_far2_l", text = "I'm glad to hear it, because I half thought he'd made it up. I'd go, if the shop could spare me, but the shop never can, so I'll keep it in the book and let my customers go there for me." } },
+      choices = {
+        { text = "I'll bring you a tale of it.", next = "BACK", reply = "Would you? Then I'll keep a fresh page for it, friend, and I'll not let anyone else write on it.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Gotri, and I sell bags. Packs, pouches, quivers, and anything else that holds what you can't carry in your hands. Every traveler in Orgrimmar comes through this door in the end, and I ask each of them where they're bound." },
@@ -1545,6 +1960,8 @@ P:NPC {
         { text = "What do travelers tell you?", next = "tales" },
         { text = "What should go in a traveler's pack?", next = "pack" },
         { text = "I've been to the far side of the sea. Shall I tell you?", next = "tell", when = { minLevel = 30 } },
+        { text = "Which pack sells best to the young ones?", next = "go_young" },
+        { text = "What's the farthest place in your book?", next = "go_far" },
         { text = "I'll bring you a tale next time.", next = "END" },
       },
     },
@@ -1648,6 +2065,37 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ho_scales = {
+      lines = { { id = "ho_scales_l", text = "They are, and they cost me a season's profit, from a goblin in Ratchet who swore they'd never be off by a grain. They haven't been, which is more than I can say for any goblin I've ever bought anything else from." } },
+      choices = {
+        { text = "Why does a grain matter so much?", next = "ho_scales2" },
+        { text = "So one goblin kept his word.", next = "ho_scales2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ho_scales2 = {
+      lines = { { id = "ho_scales2_l", text = "Because a mage who buys too little arcane powder learns it at the worst moment, and comes back to tell me so. I'd rather weigh it twice than hear that story again, and I've heard it more than I'd like." } },
+      choices = {
+        { text = "Then weigh it twice.", next = "BACK" },
+        { text = "Something else, Horthus.", next = "BACK" },
+      },
+    },
+    ho_warlocks = {
+      lines = { { id = "ho_warlocks_l", text = "Not often, because they have their own suppliers down in the Cleft, and I don't ask who. They come to me when their own run short, and they pay without a word, and they never look me in the eye." } },
+      choices = {
+        { text = "Does that trouble you?", next = "ho_warlocks2" },
+        { text = "A customer's a customer.", next = "ho_warlocks2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ho_warlocks2 = {
+      lines = { { id = "ho_warlocks2_l", text = "It did at first, given what the demon magic did to us. But the Warchief lets them stay, and they've never once asked me for anything I wouldn't sell a shaman, so I keep my opinions on the other side of the counter." } },
+      choices = {
+        { text = "The Horde needs its warlocks, whatever their past.", next = "BACK", reply = "Perhaps it does. The Warchief seems to think so, and he's wiser than a powder seller.", fx = { align = { light = -1 } } },
+        { text = "The warlocks should never have been let back in.", next = "BACK", reply = "Many old orcs would agree with you. I'll not say so loudly, but I'll not argue with you either.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Horthus, and I sell what spells are made of. I can't cast so much as a spark myself, and I've found that helps. I don't mistake a pouch of powder for a mystery, and I'll not charge you as if it were one." },
@@ -1666,6 +2114,8 @@ P:NPC {
         { text = "Who buys the most from you?", next = "buyers" },
         { text = "Shan'ti sells fruit near your stall.", next = "shanti" },
         { text = "What should a shaman never run short of?", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "Your scales look very precise.", next = "ho_scales" },
+        { text = "Do the warlocks of the Cleft buy from you?", next = "ho_warlocks" },
         { text = "I'll buy double next time, Horthus.", next = "END" },
       },
     },
@@ -1775,6 +2225,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    sm_trakgen = {
+      lines = { { id = "sm_trakgen_l", text = "He does, and he always will, and I've given up trying to change him. So I keep the accounts for both halves of the store, quietly, and I make sure his kindness never costs more than my side can cover." } },
+      choices = {
+        { text = "Does he know you do that?", next = "sm_trakgen2" },
+        { text = "So you're his safety net.", next = "sm_trakgen2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sm_trakgen2 = {
+      lines = { { id = "sm_trakgen2_l", text = "He knows, and he pretends not to, and I pretend not to know he knows. It's the oldest arrangement in Orgrimmar, I think, and the store's still standing, so it must work." } },
+      choices = {
+        { text = "Kindness deserves protecting.", next = "BACK" },
+        { text = "Something else, Shimra.", next = "BACK" },
+      },
+    },
+    sm_runout = {
+      lines = { { id = "sm_runout_l", text = "Salt, every time a patrol goes out to the Barrens, because the leatherworkers cure everything the grunts bring back. Then vials, because the alchemists drop them, and then thread, because nobody ever thinks they need more." } },
+      choices = {
+        { text = "So the war sets your stock.", next = "sm_runout2" },
+        { text = "I should stock up on thread, then.", next = "sm_runout2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sm_runout2 = {
+      lines = { { id = "sm_runout2_l", text = "The war sets everything in this city, young one, from the price of salt to the length of the queue at the bank. I watch the patrols leave and I order accordingly, and I've only been caught short twice." } },
+      choices = {
+        { text = "Only twice is a fine record.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Shimra. Trak'gen sells the general goods on that side, and I sell what crafters burn through on this one. Thread, flux, vials, dye and salt. None of it's interesting, and nobody can work without it." },
@@ -1793,6 +2273,8 @@ P:NPC {
         { text = "Felika sells the same goods in the street.", next = "felika" },
         { text = "Which trade is best for a newcomer?", next = "trade" },
         { text = "Read my hands, then, and tell me what I lack.", next = "crafter", when = { any = { { profession = "Tailoring" }, { profession = "Blacksmithing" }, { profession = "Alchemy" }, { profession = "Leatherworking" }, { profession = "Engineering" } } } },
+        { text = "Trak'gen gives away more than he sells, it seems.", next = "sm_trakgen" },
+        { text = "What runs out first on your side of the line?", next = "sm_runout" },
         { text = "I'll be back when the jar's empty.", next = "END" },
       },
     },
@@ -1896,6 +2378,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    tg_gryshka = {
+      lines = { { id = "tg_gryshka_l", text = "She does, and I send mine to her, which keeps us both in business. Gryshka runs the inn as if every traveler were her own child home from the war, and she feeds them until they can't stand up." } },
+      choices = {
+        { text = "She sounds like a fine innkeeper.", next = "tg_gryshka2" },
+        { text = "So the two of you share customers.", next = "tg_gryshka2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tg_gryshka2 = {
+      lines = { { id = "tg_gryshka2_l", text = "The finest, and she'd box my ears for saying so. Make the inn your home, friend, if you haven't, because a bed in Orgrimmar is worth having when the road gets long." } },
+      choices = {
+        { text = "I'll speak to her.", next = "BACK" },
+        { text = "Something else, Trak'gen.", next = "BACK" },
+      },
+    },
+    tg_vets = {
+      lines = { { id = "tg_vets_l", text = "The same things the young ones do, only they buy them without being told. A veteran asks for flint, rope and a waterskin before he asks for anything else, and he always buys one more torch than he needs." } },
+      choices = {
+        { text = "Why the extra torch?", next = "tg_vets2" },
+        { text = "So experience makes a careful shopper.", next = "tg_vets2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tg_vets2 = {
+      lines = { { id = "tg_vets2_l", text = "Because they've all been caught in a dark cave with one torch going out. An old grunt told me Wailing Caverns taught him that, and he's never gone underground with fewer than three since." } },
+      choices = {
+        { text = "I'll buy an extra torch, then.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Trak'gen, and this is the General Store. I've food, water, torches, rope, and whatever else a traveler finds he's forgotten. Shimra has the crafters' goods over there, behind the line she painted, and I'd not step over it if I were you." },
@@ -1914,6 +2426,8 @@ P:NPC {
         { text = "What does a traveler forget most often?", next = "forget" },
         { text = "Tell me about this line on the floor.", next = "line" },
         { text = "I've little coin. What do I truly need?", next = "poor", when = { maxLevel = 12 } },
+        { text = "Gryshka sends her guests to you, you said.", next = "tg_gryshka" },
+        { text = "What do the veterans ask you for?", next = "tg_vets" },
         { text = "Thank you for the welcome, Trak'gen.", next = "END" },
       },
     },
@@ -2017,6 +2531,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ga_stitch = {
+      lines = { { id = "ga_stitch_l", text = "Every one, and I won't let anyone else touch the borders. My grandmother taught me the border stitch, the one that holds the whole cloth together, and it's the one thing I refuse to hurry." } },
+      choices = {
+        { text = "That must take a long time.", next = "ga_stitch2" },
+        { text = "The border stitch is a kind of memory.", next = "ga_stitch2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ga_stitch2 = {
+      lines = { { id = "ga_stitch2_l", text = "It does, and it is, and the guilds wait for it without complaint once I tell them why. A tabard that frays at the edge is a banner that falls in battle, and I'll not have one of mine fall." } },
+      choices = {
+        { text = "Then your tabards are worth the wait.", next = "BACK" },
+        { text = "Something else, Garyl.", next = "BACK" },
+      },
+    },
+    ga_strange = {
+      lines = { { id = "ga_strange_l", text = "A goblin guild once asked for a coin with a smaller coin inside it, and a smaller coin inside that. I told them it would look like a target from two hundred paces, and they said that was the point." } },
+      choices = {
+        { text = "Did you make it?", next = "ga_strange2" },
+        { text = "Goblins have strange ideas of pride.", next = "ga_strange2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ga_strange2 = {
+      lines = { { id = "ga_strange2_l", text = "I made it, and they paid double for a rush, and then complained the coins weren't gold enough. Urtrun laughed at me for a week, but I noticed he kept one of the tabards for himself." } },
+      choices = {
+        { text = "Ha. Urtrun has good taste.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Garyl. Urtrun Clanbringer writes the charters for new guilds, and I make the tabards that show the world they exist. A charter is ink in a ledger, but a tabard is what your enemy sees coming over the hill." },
@@ -2035,6 +2579,8 @@ P:NPC {
         { text = "You work beside Urtrun Clanbringer.", next = "urtrun" },
         { text = "Which colors do the guilds of the Horde favor?", next = "colors" },
         { text = "What makes a guild's tabard serve it well?", next = "mine", when = { guild = true } },
+        { text = "Do you stitch every tabard yourself?", next = "ga_stitch" },
+        { text = "What's the strangest emblem anyone's asked for?", next = "ga_strange" },
         { text = "Lok'tar, Garyl.", next = "END" },
       },
     },

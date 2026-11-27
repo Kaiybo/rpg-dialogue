@@ -537,6 +537,44 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    za_jandi = {
+      lines = { { id = "za_jandi_l", text = "Patient, mon, more patient dan me, and she can name every herb in Kalimdor by de smell of its root. She teaches de picking and I sell de pickers deir tools, and we argue every evening about which one of us does de harder work." } },
+      choices = {
+        { text = "And who wins the argument?", next = "za_jandi2" },
+        { text = "Picking sounds like the harder work.", next = "za_jandi2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    za_jandi2 = {
+      lines = { { id = "za_jandi2_l", text = "Nobody, because we both stop when de tea is ready. Jandi brews it from silverleaf and a little mageroyal, and it be de best thing in dis whole city, mon, though she won't sell it." } },
+      choices = {
+        { text = "Perhaps she'll share a cup one day.", next = "BACK" },
+        { text = "Something else, Zeal'aya.", next = "BACK" },
+      },
+    },
+    za_buy = {
+      lines = { { id = "za_buy_l", text = "De alchemists of de Drag, mostly, who send dere students with long lists and short purses. Yelmak buys more dan anybody, and he pays in potions as often as coin, which I don't mind." } },
+      choices = {
+        { text = "Potions instead of coin?", next = "za_buy2" },
+        { text = "Yelmak must brew a great deal.", next = "za_buy2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    za_buy2 = {
+      lines = { { id = "za_buy2_l", text = "A healin' potion be worth more dan coin to a troll who picks in de Barrens, mon. I keep a few on de shelf for de pickers who come back bitten, and Yelmak pretends he doesn't know where his potions go." } },
+      choices = {
+        { text = "That's a kind arrangement.", next = "BACK" },
+        { text = "Where do the pickers get bitten most?", next = "za_buy3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    za_buy3 = {
+      lines = { { id = "za_buy3_l", text = "In de Barrens, by de oases, where de herbs grow thick and de snakes and crocolisks wait for dem. I tell every picker to look at de water before dey look at de leaves, mon, because de leaves don't bite." } },
+      choices = {
+        { text = "Water first, then leaves. Noted.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I be Zeal'aya. Jandi teaches the picking and I sell what the pickers need, and between us we keep a bit of green alive in the middle of all dis red rock." },
@@ -552,6 +590,8 @@ P:NPC {
         { text = "Do the herbs really remember people?", next = "remember" },
         { text = "You must miss the islands.", next = "isles" },
         { text = "I gather herbs. Where should I look?", next = "where", when = { profession = "Herbalism" } },
+        { text = "What is Jandi like as a teacher?", next = "za_jandi" },
+        { text = "Who buys the most from you?", next = "za_buy" },
         { text = "Stay well, Zeal'aya.", next = "END" },
       },
     },

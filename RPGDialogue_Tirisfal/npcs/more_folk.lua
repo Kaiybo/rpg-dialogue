@@ -464,6 +464,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_wander = {
+      lines = {
+        { id = "d2_wander_1", text = "They wander toward whatever they remember, mostly, which means Agamand Mills or Cold Hearth Manor or some farm that isn't there any more. I find them standing in an empty doorway, and I walk them back to Brill before the Rattlecages find them first." },
+      },
+      choices = {
+        { text = "Do they go quietly?", next = "d2_wander2" },
+        { text = "That's kinder work than I'd expect from you.", next = "d2_wander2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_wander2 = {
+      lines = {
+        { id = "d2_wander2_1", text = "Most of them do, because there's nobody in the doorway to argue for them. The ones from Agamand are the worst, since the family's still there in a manner of speaking, and the Agamands didn't rise clean." },
+      },
+      choices = {
+        { text = "I'll keep an eye out for strays.", next = "BACK", reply = "Do, and send them to the Magistrate, not to me. I'll only end up walking them twice." },
+        { text = "Let's talk about something else.", next = "BACK" },
+      },
+    },
+    d2_post = {
+      lines = {
+        { id = "d2_post_1", text = "At the gate, standing up, when Zygand doesn't need me in Brill. A Deathguard doesn't sleep so much as stop looking for a while, and I've found I can do that on my feet if the wind's not too bad." },
+      },
+      choices = {
+        { text = "Who walks the road while you stop?", next = "d2_post2" },
+        { text = "That sounds miserable.", next = "d2_post2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_post2 = {
+      lines = {
+        { id = "d2_post2_1", text = "Dillinger, if he's sober, which is a joke, since none of us can drink. The Bulwark takes every spare guard this side of the city, so the road gets what's left over, and what's left over is me." },
+      },
+      choices = {
+        { text = "The road's lucky to have you, then.", next = "BACK", reply = "The road doesn't know it's lucky, and I'd thank you not to tell it." },
+        { text = "Something else, Terrence.", next = "BACK" },
+      },
+    },
+    d2_living = {
+      lines = {
+        { id = "d2_living_1", text = "You do, and I'll not pretend I'm not one of the starers. The Dark Lady says the Horde are our allies, so you're welcome on my road, but I've spent a long time learning that warm things in Tirisfal are usually Crusaders." },
+      },
+      choices = {
+        { text = "The Crusade would cut me down as fast as you.", next = "BACK", reply = "Faster, I'd guess, since they've had more practice on things like you. Walk on, then, friend." },
+        { text = "Fair. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Deathguard Terrence. I walk this road from Brill to the city gates and back again, and I see everyone who uses it, which is more than they'd like." },
@@ -483,6 +530,9 @@ P:NPC {
         { text = "What cultists?", next = "cult" },
         { text = "This road must see a lot of traffic.", next = "road" },
         { text = "The Executor sent me to motivate you.", next = "motivate", when = { questActive = TODO_QUEST("Discipline") } },
+        { text = "What happens to the newly risen who wander off?", next = "d2_wander" },
+        { text = "You don't stop, but you must sleep somewhere.", next = "d2_post" },
+        { text = "The living get stared at on this road.", next = "d2_living", when = { race = { "Orc", "Troll", "Tauren" } } },
         { text = "Safe walking, Deathguard.", next = "END" },
       },
     },
@@ -1714,6 +1764,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_steel = {
+      lines = {
+        { id = "d2_steel_1", text = "The Undercity sends it out by cart, rough bars from the War Quarter forges, and I draw and grind them here. The carts come along Terrence's road, and if he's in a bad mood they come late, and then I'm selling staves." },
+      },
+      choices = {
+        { text = "Staves aren't much of a weapon.", next = "d2_steel2" },
+        { text = "You could ask the miners for ore.", next = "d2_steel2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_steel2 = {
+      lines = {
+        { id = "d2_steel2_1", text = "They're a good weapon in the right hands, and I've seen a mage brain a zombie with one that I sold for a few coppers. Walter Mason teaches mining over by the old church, and his pupils bring me copper that I can at least make knives from." },
+      },
+      choices = {
+        { text = "Copper knives for copper coin.", next = "BACK", reply = "That's the whole of my trade in a sentence. I might paint it over the rack." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_return = {
+      lines = {
+        { id = "d2_return_1", text = "Somebody does, and it's me. The Deathguard bring back what they find on the road by the Scarlet camps, blades whose owners didn't come home, and I grind the edges fresh and put them back on the rack." },
+      },
+      choices = {
+        { text = "You sell dead men's swords?", next = "d2_return2" },
+        { text = "Waste nothing, I suppose.", next = "d2_return2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_return2 = {
+      lines = {
+        { id = "d2_return2_1", text = "Everyone in this village is a dead man, so I don't see that I've much choice. I do take the names off them, though, if there are any, and I keep the names in a box under the anvil, which Rand thinks is morbid." },
+      },
+      choices = {
+        { text = "What do you do with the names?", next = "d2_return3" },
+        { text = "Rand has a point.", next = "BACK", reply = "He usually does. I keep the box anyway." },
+      },
+    },
+    d2_return3 = {
+      lines = {
+        { id = "d2_return3_1", text = "Nothing yet. I thought one day someone might come asking after a sword, and I'd know whose it was, but nobody's asked, and I'm starting to think nobody will." },
+      },
+      choices = {
+        { text = "Keep the box. Someone may yet.", next = "BACK" },
+        { text = "I'll ask you something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Harold Raims, apprentice weaponsmith. I sell swords, maces, daggers and staves to people who were lying in the ground this morning, so you'll understand if I keep the stock simple." },
@@ -1734,6 +1831,8 @@ P:NPC {
         { text = "Simple stock, for a village at war.", next = "simple" },
         { text = "Who else works the forge with you?", next = "forge" },
         { text = "What should a new warrior carry, Harold?", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "Where does your steel come from?", next = "d2_steel" },
+        { text = "Someone must clean up the blades that come back.", next = "d2_return" },
         { text = "Not today.", next = "END" },
       },
     },
@@ -2464,6 +2563,44 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_orders = {
+      lines = {
+        { id = "d2_orders_1", text = "Gloves, mostly, because the dead lose fingers in this cold and never notice until one's missing. Executor Zygand sends a list every month, and it's always longer than the last, and he never once says please." },
+      },
+      choices = {
+        { text = "Does he pay well?", next = "d2_orders2" },
+        { text = "The Executor doesn't strike me as a pleaser.", next = "d2_orders2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_orders2 = {
+      lines = {
+        { id = "d2_orders2_1", text = "He pays in what the Undercity sends him, which is fair and slow. I've learned to keep a stack of plain gloves ready, so that when the list comes I can send most of it the same day and make him wait only for the fancy ones." },
+      },
+      choices = {
+        { text = "You've the measure of him.", next = "BACK", reply = "I'd the measure of men like him long before I died. They don't change much." },
+        { text = "Something else, Shelene.", next = "BACK" },
+      },
+    },
+    d2_pupils = {
+      lines = {
+        { id = "d2_pupils_1", text = "Afraid of the frame behind them, more likely, since I've told every one of them it'll take a finger if they lean on it. I'm firm because leather is unforgiving, and a pupil who learns that from me learns it cheaper than from a ruined hide." },
+      },
+      choices = {
+        { text = "Have you ever lost a pupil?", next = "d2_pupils2" },
+        { text = "A firm hand makes good work.", next = "d2_pupils2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_pupils2 = {
+      lines = {
+        { id = "d2_pupils2_1", text = "To the Crusade, two of them, out gathering hides near Solliden's farm. I told them to stay on the Brill side of the road and they wanted the better darkhounds, and now I tell the story to every new pupil, which is the only use I can make of it." },
+      },
+      choices = {
+        { text = "Then the story does some good.", next = "BACK" },
+        { text = "I'll stay on the right side of the road.", next = "BACK", reply = "See that you do. I've no wish to add you to the story." },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Shelene Rhobart, and I teach leatherworking. My husband Rand does the skinning and teaches that, so between us a pupil can take a hide off a beast in the morning and be wearing it by the week's end." },
@@ -2483,6 +2620,8 @@ P:NPC {
         { text = "Why set up out here, away from Brill?", next = "house" },
         { text = "Hides from Tirisfal can't be easy to work.", next = "hides" },
         { text = "What should I make first to get my hand in?", next = "firstwork", when = { profession = "Leatherworking" } },
+        { text = "What do the Deathguard order from you?", next = "d2_orders" },
+        { text = "Your pupils seem afraid of you.", next = "d2_pupils" },
         { text = "I'll let you get on.", next = "END" },
       },
     },
@@ -2578,6 +2717,44 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_other = {
+      lines = {
+        { id = "d2_other_1", text = "Murlocs, once, from Brightwater Lake, because a lad bet me I couldn't. I could, and it smelled worse than anything I've ever done, and Shelene made me sleep out with the hides for a week, which given we don't sleep was mostly a matter of principle." },
+      },
+      choices = {
+        { text = "Was the hide worth anything?", next = "d2_other2" },
+        { text = "I'd have taken that bet.", next = "d2_other2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_other2 = {
+      lines = {
+        { id = "d2_other2_1", text = "Not a copper. It went stiff as a board and then it went green, and the apothecaries took it off my hands because they'd never seen one. That's the trouble with Tirisfal: the only buyers for anything strange are Johaan's people in Brill." },
+      },
+      choices = {
+        { text = "Johaan buys everything strange, I hear.", next = "BACK", reply = "He does, and he never says what for, and I've stopped asking." },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    d2_talk = {
+      lines = {
+        { id = "d2_talk_1", text = "So I'm told, and it's a family failing. My father talked to his sheep and I talk to hides, and I'd rather be a chatty corpse than one of those that stand in the corner of the Gallows' End staring at the wall." },
+      },
+      choices = {
+        { text = "Some of them can't help it.", next = "d2_talk2" },
+        { text = "Silence would suit this place better.", next = "d2_talk2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_talk2 = {
+      lines = {
+        { id = "d2_talk2_1", text = "No, they can't, and I don't blame them. I think the ones who go quiet are still somewhere back in the plague, and if I keep talking loud enough I stay up here with the rest of you, which is why Shelene lets me get away with it." },
+      },
+      choices = {
+        { text = "Then keep talking, Rand.", next = "BACK", reply = "Oh, I mean to. You've no idea how hard it is to stop me." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Rand Rhobart, skinner. My wife Shelene makes the leather and I get it off the beast for her, and I'll teach you to do the same, if you've a knife and no objection to the smell." },
@@ -2597,6 +2774,8 @@ P:NPC {
         { text = "Your wife seems to run this house.", next = "shelene" },
         { text = "What's worth skinning in Tirisfal?", next = "beasts" },
         { text = "Where am I spoiling my hides, Rand?", next = "spoil", when = { profession = "Skinning" } },
+        { text = "Do you skin anything besides beasts?", next = "d2_other" },
+        { text = "You talk more than any dead man I've met.", next = "d2_talk" },
         { text = "I'll leave you to it.", next = "END" },
       },
     },

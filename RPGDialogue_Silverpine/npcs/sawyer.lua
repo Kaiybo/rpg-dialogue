@@ -30,6 +30,53 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    d2_guns = {
+      lines = {
+        { id = "d2_guns_1", text = "Because a gun tells the whole forest where you are, and a deathstalker's whole trade is that nobody knows where she is. Faerleia's people go into Pyrewood at night, and one shot would bring every worgen in the village down on them." },
+      },
+      choices = {
+        { text = "And in an open fight?", next = "d2_guns2" },
+        { text = "Quiet kills, quiet folk. Makes sense.", next = "d2_guns2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_guns2 = {
+      lines = {
+        { id = "d2_guns2_1", text = "In an open fight, the gun, and I'll say so to anyone who asks. A goblin rifle will knock a worgen down where my best bow only annoys it, but you have to be alive long enough to reload, and that's the trouble." },
+      },
+      choices = {
+        { text = "Honest of you, for a bowyer.", next = "BACK", reply = "I'd rather lose a sale than lose a customer, and the dead ones don't come back to complain." },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
+    d2_buyers = {
+      lines = {
+        { id = "d2_buyers_1", text = "The Deathguard on the Ambermill road, who shoot at the Dalaran wizards from behind the trees, and the odd hunter passing south toward Hillsbrad. The orcs who come through buy the heaviest draw I have and break it inside a week." },
+      },
+      choices = {
+        { text = "Break it how?", next = "d2_buyers2" },
+        { text = "Orcs aren't gentle with anything.", next = "d2_buyers2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d2_buyers2 = {
+      lines = {
+        { id = "d2_buyers2_1", text = "By drawing past the point I told them to stop, every one of them, as though the bow were being rude to them. I've started making their staves thicker than any sensible bow ought to be, and they've started bringing them back less often." },
+      },
+      choices = {
+        { text = "Clever of you.", next = "BACK" },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    d2_tauren = {
+      lines = {
+        { id = "d2_tauren_1", text = "Not too big, only bigger than anything this forest grows straight. I'd need a yew from the lake shore that's been left alone for a hundred years, and the gnolls have cut most of those for their fires." },
+      },
+      choices = {
+        { text = "Then I'll keep my own bow for now.", next = "BACK" },
+        { text = "Ask you something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Abigail Sawyer, bowyer to the Sepulcher. The deathstalkers need something that kills quietly at a distance, and a bow is quieter than any gun the goblins ever sold." },
@@ -51,6 +98,9 @@ P:NPC {
         { text = "Can the dead still draw a bow?", next = "draw" },
         { text = "What should I use against the worgen?", next = "worgen", when = { class = "HUNTER" } },
         { text = "Show me what you've got.", next = "BUSINESS" },
+        { text = "Why bows, when the goblins sell guns?", next = "d2_guns" },
+        { text = "Who do you sell to, besides deathstalkers?", next = "d2_buyers" },
+        { text = "My arms are too big for your bows, aren't they?", next = "d2_tauren", when = { race = "Tauren" } },
         { text = "Good day, Abigail.", next = "END" },
       },
     },

@@ -155,8 +155,43 @@ P:NPC {
         { text = "Muiredon is alive. He's sick with shame.", next = "muiredon" },
         { text = "What are Dark Irons doing in Dun Morogh?", next = "spies" },
         { text = "What was it like, where you were?", next = "beyond", when = { class = { "PALADIN", "PRIEST" } } },
+        { text = "How long have you two watched these hills?", next = "d0_watch" },
+        { text = "Those wounds need more than rest.", next = "d0_wounds" },
         { text = "Rest. I'll keep watch a while.", next = "END" },
       },
+    },
+    d0_watch = {
+      lines = { { id = "d0wa_default", text = "Since the spring, on Tiza Battleforge's word, countin' Dark Iron camps from Helm's Bed Lake tae the edge o' the Loch Modan road. We'd mapped four o' them before the ambush, an' Muiredon carries the map." } },
+      choices = {
+        { text = "What did the camps tell you?", next = "d0_watch_camps" },
+        { text = "A long watch for two dwarves.", next = "BACK" },
+      },
+    },
+    d0_watch_camps = {
+      lines = { { id = "d0wc_default", text = "That they're no' raidin', which frightened me more than if they were. They watch the gates, they count the patrols, an' they send runners south, so somebody under Blackrock wants tae know how Ironforge guards its door." } },
+      choices = {
+        { text = "Then Tiza must hear of it.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Something else, Narm.", next = "BACK" },
+      },
+    },
+    d0_wounds = {
+      lines = { { id = "d0wo_default", text = "Aye, they do, an' I've prayed over them twice an' got only half an answer. The Light mends what it will an' leaves the rest tae the physicians, an' I'll get tae one once these hills are clear." } },
+      choices = {
+        { text = "Why does the Light only half answer?", next = "d0_wounds_light" },
+        { text = "Let me tend them. I'm a priest.", next = "d0_wounds_heal", when = { class = "PRIEST" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d0_wounds_light = {
+      lines = { { id = "d0wl_default", text = "Because I'm askin' for myself, I think, an' a paladin's prayers were never meant tae be for himself. Uther taught that the Light is strongest carried tae another, an' I've no' found him wrong yet." } },
+      choices = {
+        { text = "Then let someone carry it to you.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Let me ask something else.", next = "BACK" },
+      },
+    },
+    d0_wounds_heal = {
+      lines = { { id = "d0wh_default", text = "*He lets out a long breath as the Light settles over him.* That's better than my own work, an' I'll no' be too proud tae say so. Tiza will hear ye did this, {class}." } },
+      choices = { { text = "Rest now. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     ambush = {
       lines = { { id = "a_default", text = "We'd tracked them tae a camp below the lake an' crept in tae see what they carried. They had a sentry we never saw, an' in a breath there were four on us, so I told Muiredon tae run fer help while I held them." } },
@@ -340,7 +375,38 @@ P:NPC {
         { text = "Which hero does the Alliance honor?", next = "uther" },
         { text = "Fireworks, at a remembrance?", next = "fireworks" },
         { text = "I knew some who didn't come home.", next = "lost" },
+        { text = "Who cooks for this table?", next = "d0_table" },
+        { text = "There are plenty of empty seats at this table.", next = "d0_seats" },
         { text = "A good festival to you.", next = "END" },
+      },
+    },
+    d0_table = {
+      lines = { { id = "d0ta_default", text = "Half o' Ironforge, if ye count the loaves. Myra Tyrngaarde sends the bread, Sognar Cliffbeard turns a boar on the spit, an' the Thunderbrews send a cask they swear is their finest, which it never is." } },
+      choices = {
+        { text = "Who pays for it all?", next = "d0_table_pay" },
+        { text = "A feast built by many hands.", next = "BACK" },
+      },
+    },
+    d0_table_pay = {
+      lines = { { id = "d0tp_default", text = "Nobody an' everybody. Each family that lost somebody sends somethin', an' the ones who lost nobody send somethin' anyway, for luck, an' in nineteen years o' keepin' this table I've never once been short." } },
+      choices = {
+        { text = "Then I'll bring something next year.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Wagner.", next = "BACK" },
+      },
+    },
+    d0_seats = {
+      lines = { { id = "d0se_default", text = "Aye, an' they're meant tae be. Every empty stool is for somebody who isnae comin' home, an' we set a plate there anyway, for a dwarf should never go hungry, even after." } },
+      choices = {
+        { text = "Is one of them for someone of yours?", next = "d0_seats_yours" },
+        { text = "My people keep a chair for the fallen too.", next = "BACK", when = { race = "Human" }, reply = "Do ye, now? Then we've more in common than the beards suggest. Sit in this one an' fill it for a while." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d0_seats_yours = {
+      lines = { { id = "d0sy_default", text = "My father's, the one at the head. He marched beside the Silver Hand in the Second War an' came home wi' a limp an' a story about Uther that he told every Harvest Festival till he died, an' I tell it now, badly." } },
+      choices = {
+        { text = "Tell it to me sometime.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     festival = {

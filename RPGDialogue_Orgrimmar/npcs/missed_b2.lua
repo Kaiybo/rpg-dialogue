@@ -122,6 +122,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ox_okothos = {
+      lines = { { id = "ox_okothos_l", text = "He does, and the forge answers him as a herd answers its strongest bull. Okothos Ironrager is the finest armorsmith in Orgrimmar, and the Order sent me to stand beside him so that his best students would not have to search for us." } },
+      choices = {
+        { text = "Does he welcome the Order?", next = "ox_okothos2" },
+        { text = "So you wait for his students.", next = "ox_okothos2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ox_okothos2 = {
+      lines = { { id = "ox_okothos2_l", text = "He tolerates us, as a tired bull tolerates a calf at his flank. When a student has learned all he can give, he sends them to me without a word, and I take that silence for the highest praise an orc can give." } },
+      choices = {
+        { text = "An orc's silence says a great deal.", next = "BACK" },
+        { text = "Something else, Ox.", next = "BACK" },
+      },
+    },
+    ox_mithril = {
+      lines = { { id = "ox_mithril_l", text = "That it is the most patient of metals, and so it suits a tauren well. Mithril will not be rushed and will not be bullied, and a smith who forces it gets a brittle plate and a lesson." } },
+      choices = {
+        { text = "Where is mithril found?", next = "ox_mithril2" },
+        { text = "Patience seems to be the root of every craft.", next = "ox_mithril2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ox_mithril2 = {
+      lines = { { id = "ox_mithril2_l", text = "In the deep places of the world, far from Durotar, in the Badlands and the hills of the eastern kingdoms and the mountains of Feralas. A smith of the Order must travel to find it, which is part of the teaching, for the road shapes a smith as surely as the hammer." } },
+      choices = {
+        { text = "Then I'll walk that road one day.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_quest", when = { questActive = TODO_QUEST("Booty Bay or Bust!") }, text = "You carry my insignia, and it will speak for you in Booty Bay. Seek McGavan there, and be patient with him, because he tests every smith who comes." },
@@ -136,6 +166,8 @@ P:NPC {
         { text = "How did a tauren come to smithing?", next = "tauren" },
         { text = "It's a strange place for one of your people.", next = "place" },
         { text = "I am an armorsmith. Where do you send us?", next = "send", when = { profession = "Blacksmithing" } },
+        { text = "Okothos works his forge harder than any orc here.", next = "ox_okothos" },
+        { text = "What does a tauren smith think of mithril?", next = "ox_mithril" },
         { text = "Walk with the Earth Mother, Ox.", next = "END" },
       },
     },
@@ -414,6 +446,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ug_arm = {
+      lines = { { id = "ug_arm_l", text = "It is, but I would not tell the master that, because he would make me strike for another hour to teach my arm a lesson. A smith's arm is like a grunt's, it only gets strong if you use it until it hurts." } },
+      choices = {
+        { text = "Then keep swinging, Ug'thok.", next = "ug_arm2" },
+        { text = "You'll hurt yourself working like that.", next = "ug_arm2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ug_arm2 = {
+      lines = { { id = "ug_arm2_l", text = "Snarl says the same, but he says it while sitting down with a cup of water. I mean to have the strongest arm in the Valley of Honor by the summer, and then I will make the axe I drew." } },
+      choices = {
+        { text = "I'll look for that axe.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ug_shayis = {
+      lines = { { id = "ug_shayis_l", text = "She is the master's kin, and she sees everything that comes off this anvil, and she tells me what is wrong with it before the master does. I think she does it to save me from his shouting, though she would never say so." } },
+      choices = {
+        { text = "So she's kinder than she looks.", next = "ug_shayis2" },
+        { text = "Do you listen to her?", next = "ug_shayis2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ug_shayis2 = {
+      lines = { { id = "ug_shayis2_l", text = "I listen to her more than to the master, because she explains things, and he only shouts that they are wrong. One day I will make an axe she cannot find a fault in, and that will be the day I know I am a smith." } },
+      choices = {
+        { text = "Good luck with that day.", next = "BACK" },
+        { text = "Something else, Ug'thok.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_quest", when = { questActive = TODO_QUEST("This Is Spinal Axe") }, text = "Have you got what I asked for? I cannot finish the axe without it, and the master will not let me near the good steel until I show him I am serious." },
@@ -430,6 +492,8 @@ P:NPC {
         { text = "Snarl says he has the better eye.", next = "snarl" },
         { text = "A sword is the finer weapon.", next = "sword" },
         { text = "Let me see this edge of yours.", next = "edge", when = { class = { "WARRIOR", "SHAMAN", "HUNTER" } } },
+        { text = "Your arm looks tired already.", next = "ug_arm" },
+        { text = "What is Shayis Steelfury like?", next = "ug_shayis" },
         { text = "Swing true, Ug'thok.", next = "END" },
       },
     },

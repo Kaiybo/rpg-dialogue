@@ -335,8 +335,44 @@ P:NPC {
         { text = "How do you get on with Marleth?", next = "marleth" },
         { text = "I know herbs. Let me smell the kettle.", next = "kettle", when = { profession = { "Herbalism", "Alchemy", "Cooking" } } },
         { text = "Why does a Barleybrew care so much about beating Thunderbrew?", next = "dw_rival" },
+        { text = "Where does a Kharanos brewer get his barley?", next = "d0_barley" },
+        { text = "Kharanos seems a hard town for a brewer.", next = "d0_town" },
         { text = "Good luck with the stout.", next = "END" },
       },
+    },
+    d0_barley = {
+      lines = { { id = "d0ba_default", text = "No' from here, that's certain, for nothin' grows in Dun Morogh but pine an' grudges. It comes up by wagon from the Loch Modan farms through the South Gate, an' when the troggs are out on the road I pay double for half a sack." } },
+      choices = {
+        { text = "Is the road that bad?", next = "d0_barley_road" },
+        { text = "My grandfather swore barley tastes of the land it grew in.", next = "BACK", when = { race = "Dwarf" }, reply = "Then Loch Modan barley tastes o' rain an' sheep, an' I've made my peace wi' it. Yer grandfather kent his malt." },
+        { text = "A dear grain makes for a dear stout.", next = "BACK" },
+      },
+    },
+    d0_barley_road = {
+      lines = { { id = "d0br_default", text = "Worse every month. Mountaineer Kadrell keeps the far end safe at Thelsamar, but between the South Gate an' Kharanos there's only the odd patrol, an' my last wagon came in wi' a trogg's tooth stuck in the axle." } },
+      choices = {
+        { text = "I'll keep an eye out for your wagons.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Rejold.", next = "BACK" },
+      },
+    },
+    d0_town = {
+      lines = { { id = "d0to_default", text = "Hard? It's the finest brewin' town in Khaz Modan, an' that's the trouble, for every dwarf here has an opinion on stout an' the Thunderbrews have the loudest. Still, the mountaineers come in off the road thirsty, an' a thirsty dwarf isnae fussy whose tap he drinks from." } },
+      choices = {
+        { text = "Who drinks your stout, then?", next = "d0_town_drink" },
+        { text = "My own clan swears by Thunderbrew lager.", next = "d0_town_lager", when = { race = "Dwarf" } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
+    d0_town_drink = {
+      lines = { { id = "d0td_default", text = "Old Kogan Forgestone, who'll drink anythin' if ye let him talk while he does it, an' Tognus Flintfire, who says my dark is the only thing that cuts forge smoke. That's two customers an' a half, an' the half is Belm, who tastes mine an' then buys Ragnar's." } },
+      choices = {
+        { text = "Two and a half loyal drinkers is a start.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    d0_town_lager = {
+      lines = { { id = "d0tl_default", text = "Aye, most clans do, an' I'll no' fight ye over it in my own cellar. Lager's a fine drink for washin' dust down, but a stout is a meal an' a conversation, an' one day yer clan will taste the difference." } },
+      choices = { { text = "Maybe they will. Something else.", next = "BACK" } },
     },
 
     perfect = {
